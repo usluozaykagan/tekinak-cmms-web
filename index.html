@@ -858,10 +858,17 @@
           <label class="block font-semibold text-slate-700 mb-1">Yeni Şifre (İsteğe Bağlı)</label>
           <input type="password" id="profPassword" placeholder="Değiştirmek istemiyorsanız boş bırakın" class="w-full border rounded-lg p-2.5">
         </div>
+        <div class="p-2.5 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-between text-[11px] text-slate-600">
+          <div class="flex items-center gap-1.5 font-semibold text-slate-700">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600"></i>
+            <span>Sistem Sürümü: v1.1.0</span>
+          </div>
+          <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-300">Güncel ✓</span>
+        </div>
       </div>
       <div class="flex justify-end gap-2 pt-2">
         <button onclick="closeModal('modalEditProfile')" class="px-4 py-2 border rounded-xl text-xs font-semibold text-slate-600">İptal</button>
-        <button onclick="saveProfileChanges()" class="px-5 py-2 bg-[#1E3A8A] hover:bg-blue-800 text-white rounded-xl text-xs font-bold shadow">Güncelle</button>
+        <button id="saveProfileBtn" onclick="saveProfileChanges()" class="px-5 py-2 bg-[#1E3A8A] hover:bg-blue-800 text-white rounded-xl text-xs font-bold shadow">Güncelle</button>
       </div>
     </div>
   </div>
@@ -1357,6 +1364,7 @@
       getAuth, 
       signInWithEmailAndPassword, 
       createUserWithEmailAndPassword, 
+      updatePassword,
       signOut, 
       onAuthStateChanged 
     } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
@@ -2968,6 +2976,10 @@
       const docId = document.getElementById("editPermUserId").value;
       if (!docId) return;
 
+      const targetUser = (window.allUsers || []).find(u => u.id === docId || u.userId === docId);
+      const userEmail = (targetUser?.email || "").toLowerCase();
+      const userUname = (targetUser?.username || "").toLowerCase();
+
       const newRole = document.getElementById("editPermRole").value;
       const newDept = document.getElementById("editPermDept").value;
       const newPassword = document.getElementById("editPermPassword").value.trim();
@@ -2987,26 +2999,44 @@
       if (document.getElementById("editPermTabMembers").checked) updatedTabs.push("members");
       if (newRole === "ADMIN") updatedTabs.push("team");
 
+      const updateData = {
+        role: newRole,
+        department: newDept,
+        allowedTabs: updatedTabs,
+        canExportExcel: canExcel,
+        canManageSchedules: canSchedules,
+        canViewChat: canChat,
+        canSendChat: canChat,
+        canReopenTickets: canReopen,
+        canDeleteAnyMessage: canDeleteMsg,
+        updatedAt: serverTimestamp()
+      };
+      if (newPassword) {
+        updateData.password = newPassword;
+      }
+
       try {
-        await updateDoc(doc(db, "users", docId), {
-          role: newRole,
-          department: newDept,
-          password: newPassword || "123456",
-          allowedTabs: updatedTabs,
-          canExportExcel: canExcel,
-          canManageSchedules: canSchedules,
-          canViewChat: canChat,
-          canSendChat: canChat,
-          canReopenTickets: canReopen,
-          canDeleteAnyMessage: canDeleteMsg
-        });
+        // Doğrudan hedef dokümanı setDoc merge ile güncelle
+        await setDoc(doc(db, "users", docId), updateData, { merge: true });
+
+        // Varsa aynı e-posta veya kullanıcı adına sahip diğer belgeleri de güncelle
+        try {
+          const snap = await getDocs(collection(db, "users"));
+          snap.forEach(d => {
+            const dData = d.data();
+            const dEmail = (dData.email || "").toLowerCase();
+            const dUname = (dData.username || "").toLowerCase();
+            if (d.id !== docId && ((userEmail && dEmail === userEmail) || (userUname && dUname === userUname))) {
+              setDoc(doc(db, "users", d.id), updateData, { merge: true });
+            }
+          });
+        } catch (_) {}
 
         // Yerel listeyi anında güncelle
-        const targetUser = (window.allUsers || []).find(u => u.id === docId);
         if (targetUser) {
           targetUser.role = newRole;
           targetUser.department = newDept;
-          targetUser.password = newPassword || "123456";
+          if (newPassword) targetUser.password = newPassword;
           targetUser.allowedTabs = updatedTabs;
           targetUser.canExportExcel = canExcel;
           targetUser.canManageSchedules = canSchedules;
@@ -3018,7 +3048,7 @@
 
         renderTeam();
         closeModal('modalEditPermissions');
-        alert("Yetkiler, erişebileceği sekmeler ve hesap şifresi başarıyla kaydedildi.");
+        alert("Yetkiler ve hesap şifresi başarıyla kaydedildi.");
       } catch (err) {
         console.error("Yetki güncelleme hatası:", err);
         alert("Yetkiler kaydedilirken hata oluştu: " + err.message);
@@ -3406,6 +3436,7 @@
 
     // 10. Profil Güncelleme (Android EditProfileDialog İle Birebir)
     window.saveProfileChanges = async function() {
+      const btn = document.getElementById("saveProfileBtn");
       const newD = document.getElementById("profDisplayName").value.trim();
       const newU = document.getElementById("profUsername").value.trim().toLowerCase();
       const newDept = document.getElementById("profDept").value;
@@ -3417,27 +3448,27 @@
         return;
       }
 
-      window.currentUser.displayName = newD;
-      window.currentUser.username = newU;
-      window.currentUser.department = newDept;
-      window.currentUser.phoneNumber = newPhone;
-      if (newPass) {
-        window.currentUser.password = newPass;
+      if (btn) {
+        btn.disabled = true;
+        btn.innerText = "Kaydediliyor...";
       }
 
-      document.getElementById("topDisplayName").innerText = newD;
-      document.getElementById("topDept").innerText = newDept;
-      document.getElementById("topAvatar").innerText = newD.split(' ').map(n=>n[0]).slice(0,2).join('').toUpperCase();
-
-      // Firestore üzerinde kullanıcı belgesini güncelle
       try {
-        const uEmail = (window.currentUser.email || "").toLowerCase();
-        const targetDoc = (window.allUsers || []).find(u => 
-          (u.email && u.email.toLowerCase() === uEmail) || 
-          u.userId === window.currentUser.userId || 
-          u.id === window.currentUser.userId
-        );
-        const docId = targetDoc?.id || window.currentUser.userId || "admin_uslu";
+        const uEmail = (window.currentUser?.email || "usluozaykagan@gmail.com").trim().toLowerCase();
+        const currentUid = window.currentUser?.userId || window.currentUser?.id || "admin_uslu";
+        const isMaster = uEmail === "usluozaykagan@gmail.com" || newU === "usluozaykagan";
+
+        window.currentUser.displayName = newD;
+        window.currentUser.username = newU;
+        window.currentUser.department = newDept;
+        window.currentUser.phoneNumber = newPhone;
+        if (newPass) {
+          window.currentUser.password = newPass;
+        }
+
+        document.getElementById("topDisplayName").innerText = newD;
+        document.getElementById("topDept").innerText = newDept;
+        document.getElementById("topAvatar").innerText = newD.split(' ').map(n=>n[0]).slice(0,2).join('').toUpperCase();
 
         const updatePayload = {
           displayName: newD,
@@ -3450,26 +3481,71 @@
           updatePayload.password = newPass;
         }
 
-        await setDoc(doc(db, "users", docId), updatePayload, { merge: true });
+        // Firestore üzerindeki TÜM eşleşen kullanıcı belgelerini bul ve güncelle
+        let updatedCount = 0;
+        try {
+          const snap = await getDocs(collection(db, "users"));
+          snap.forEach(d => {
+            const dData = d.data();
+            const dEmail = (dData.email || "").trim().toLowerCase();
+            const dUname = (dData.username || "").trim().toLowerCase();
+            const dUid = (dData.userId || "").trim();
 
-        // Yerel veriyi güncelle
-        if (targetDoc) {
-          targetDoc.displayName = newD;
-          targetDoc.username = newU;
-          targetDoc.department = newDept;
-          targetDoc.phoneNumber = newPhone;
-          if (newPass) targetDoc.password = newPass;
+            if (d.id === currentUid || (isMaster && d.id === "admin_uslu") || dUid === currentUid || (uEmail && dEmail === uEmail) || (newU && dUname === newU)) {
+              setDoc(doc(db, "users", d.id), updatePayload, { merge: true });
+              updatedCount++;
+            }
+          });
+        } catch (fetchErr) {
+          console.warn("Firestore liste taraması:", fetchErr);
         }
+
+        // Eğer master admin ise veya henüz doküman bulunamadıysa admin_uslu ve currentUid dokümanlarını oluştur/güncelle
+        if (updatedCount === 0 || isMaster) {
+          await setDoc(doc(db, "users", isMaster ? "admin_uslu" : currentUid), {
+            ...updatePayload,
+            userId: isMaster ? "admin_uslu" : currentUid,
+            email: uEmail,
+            role: window.currentUser.role || "ADMIN",
+            allowedTabs: ["fault_reports", "work_orders", "schedule", "analytics", "members", "team"]
+          }, { merge: true });
+        }
+
+        // Firebase Auth şifresi
+        if (auth.currentUser && newPass) {
+          try {
+            await updatePassword(auth.currentUser, newPass);
+          } catch (_) {}
+        }
+
+        // Yerel veri havuzunu güncelle
+        (window.allUsers || []).forEach(u => {
+          const uEmailLower = (u.email || "").toLowerCase();
+          const uNameLower = (u.username || "").toLowerCase();
+          if (u.id === currentUid || (isMaster && u.id === "admin_uslu") || u.userId === currentUid || (uEmail && uEmailLower === uEmail) || (newU && uNameLower === newU)) {
+            u.displayName = newD;
+            u.username = newU;
+            u.department = newDept;
+            u.phoneNumber = newPhone;
+            if (newPass) u.password = newPass;
+          }
+        });
 
         // Oturumu depola
         localStorage.setItem("tekinak_session", JSON.stringify(window.currentUser));
+
+        closeModal('modalEditProfile');
+        document.getElementById("profPassword").value = "";
+        alert(newPass ? "Profil bilgileriniz ve yeni şifreniz bulutta başarıyla güncellendi!" : "Profil bilgileriniz başarıyla güncellendi.");
       } catch (err) {
         console.error("Profil Firestore güncelleme hatası:", err);
+        alert("Güncelleme sırasında hata oluştu: " + (err.message || err));
+      } finally {
+        if (btn) {
+          btn.disabled = false;
+          btn.innerText = "Güncelle";
+        }
       }
-
-      closeModal('modalEditProfile');
-      document.getElementById("profPassword").value = "";
-      alert("Profil bilgileriniz ve şifreniz başarıyla güncellendi.");
     };
 
     // ================= EXCEL (.xlsx) DIŞA AKTARMA (TARİH ARALIĞI VE ÇOKLU ÇALIŞMA SAYFASI) =================
