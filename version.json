@@ -9,8 +9,8 @@
   "changelog": [
     "Periyodik bakım takvimi ve bağımsız periyot seçimleri eklendi.",
     "Orijinal Microsoft Excel (.xlsx) çoklu sayfa raporlama desteği eklendi.",
-    "Firebase Authentication ile güvenli kimlik doğrulama entegre edildi.",
-    "Performans ve arka plan senkronizasyon optimizasyonları yapıldı."
+    "Bulut şifre senkronizasyonu güçlendirildi ve eski şifre geçersiz kılma güvenliği eklendi.",
+    "Firebase Authentication ile güvenli kimlik doğrulama entegre edildi."
   ],
   "forceUpdate": false
 }

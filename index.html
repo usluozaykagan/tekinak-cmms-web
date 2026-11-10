@@ -3405,11 +3405,12 @@
     };
 
     // 10. Profil Güncelleme (Android EditProfileDialog İle Birebir)
-    window.saveProfileChanges = function() {
+    window.saveProfileChanges = async function() {
       const newD = document.getElementById("profDisplayName").value.trim();
       const newU = document.getElementById("profUsername").value.trim().toLowerCase();
       const newDept = document.getElementById("profDept").value;
       const newPhone = document.getElementById("profPhone").value.trim();
+      const newPass = document.getElementById("profPassword").value.trim();
 
       if (!newD || !newU) {
         alert("Lütfen ad soyad ve kullanıcı adını boş bırakmayınız.");
@@ -3420,13 +3421,55 @@
       window.currentUser.username = newU;
       window.currentUser.department = newDept;
       window.currentUser.phoneNumber = newPhone;
+      if (newPass) {
+        window.currentUser.password = newPass;
+      }
 
       document.getElementById("topDisplayName").innerText = newD;
       document.getElementById("topDept").innerText = newDept;
       document.getElementById("topAvatar").innerText = newD.split(' ').map(n=>n[0]).slice(0,2).join('').toUpperCase();
 
+      // Firestore üzerinde kullanıcı belgesini güncelle
+      try {
+        const uEmail = (window.currentUser.email || "").toLowerCase();
+        const targetDoc = (window.allUsers || []).find(u => 
+          (u.email && u.email.toLowerCase() === uEmail) || 
+          u.userId === window.currentUser.userId || 
+          u.id === window.currentUser.userId
+        );
+        const docId = targetDoc?.id || window.currentUser.userId || "admin_uslu";
+
+        const updatePayload = {
+          displayName: newD,
+          username: newU,
+          department: newDept,
+          phoneNumber: newPhone,
+          updatedAt: serverTimestamp()
+        };
+        if (newPass) {
+          updatePayload.password = newPass;
+        }
+
+        await setDoc(doc(db, "users", docId), updatePayload, { merge: true });
+
+        // Yerel veriyi güncelle
+        if (targetDoc) {
+          targetDoc.displayName = newD;
+          targetDoc.username = newU;
+          targetDoc.department = newDept;
+          targetDoc.phoneNumber = newPhone;
+          if (newPass) targetDoc.password = newPass;
+        }
+
+        // Oturumu depola
+        localStorage.setItem("tekinak_session", JSON.stringify(window.currentUser));
+      } catch (err) {
+        console.error("Profil Firestore güncelleme hatası:", err);
+      }
+
       closeModal('modalEditProfile');
-      alert("Profil bilgileriniz başarıyla güncellendi.");
+      document.getElementById("profPassword").value = "";
+      alert("Profil bilgileriniz ve şifreniz başarıyla güncellendi.");
     };
 
     // ================= EXCEL (.xlsx) DIŞA AKTARMA (TARİH ARALIĞI VE ÇOKLU ÇALIŞMA SAYFASI) =================
