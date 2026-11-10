@@ -1555,7 +1555,7 @@
       }
     }
 
-    // Giriş Doğrulama Motoru (Firebase Authentication + Firestore Akıllı Fallback)
+    // Giriş Doğrulama Motoru (Doğrudan ve Hızlı Firestore + Arka Plan Firebase Auth)
     async function executeLogin(identifier, password, rememberMe) {
       const btn = document.getElementById("authLoginSubmitBtn");
       const btnText = document.getElementById("authLoginBtnText");
@@ -1571,7 +1571,7 @@
         const cleanId = identifier.trim();
         const cleanPass = password.trim();
 
-        // E-posta çözümleme
+        // E-posta ve kullanıcı adı çözümleme
         let emailToAuth = cleanId;
         if (!cleanId.includes("@")) {
           const matchedInDb = (window.allUsers || []).find(u => u.username && u.username.toLowerCase() === cleanId.toLowerCase());
@@ -1582,165 +1582,82 @@
           }
         }
 
-        let userCredential = null;
-        try {
-          userCredential = await signInWithEmailAndPassword(auth, emailToAuth, cleanPass);
-        } catch (authErr) {
-          console.warn("Firebase Auth denemesi sonucu:", authErr.code);
+        const isMaster = emailToAuth.toLowerCase() === "usluozaykagan@gmail.com" || cleanId.toLowerCase() === "usluozaykagan";
 
-          // 1. Durum: Firebase Console'da E-posta/Şifre sağlayıcısı henüz aktif edilmemiş (PASSWORD_LOGIN_DISABLED)
-          if (authErr.code === "auth/operation-not-allowed") {
-            const isMaster = emailToAuth === "usluozaykagan@gmail.com" || cleanId.toLowerCase() === "usluozaykagan";
-            
-            // Eğer window.allUsers henüz dolmadıysa anında Firestore'dan çek
-            if (!window.allUsers || window.allUsers.length === 0) {
-              try {
-                const snap = await getDocs(collection(db, "users"));
-                const freshList = [];
-                snap.forEach(d => freshList.push({ id: d.id, ...d.data() }));
-                window.allUsers = deduplicateUsers(freshList);
-              } catch (e) {
-                console.error("Firestore users yüklenemedi:", e);
-              }
-            }
-
-            const dbUser = (window.allUsers || []).find(u => 
-              (u.email && u.email.toLowerCase() === emailToAuth.toLowerCase()) || 
-              (u.username && u.username.toLowerCase() === cleanId.toLowerCase())
-            );
-
-            const isPassValid = isMaster 
-              ? (cleanPass === "tekinak123" || cleanPass === "123456" || cleanPass === "admin" || (dbUser && dbUser.password === cleanPass))
-              : (dbUser && (!dbUser.password || dbUser.password === cleanPass));
-
-            if (!isPassValid) {
-              showAuthError("Hatalı kullanıcı adı veya şifre!");
-              if (btn) btn.disabled = false;
-              if (btnText) btnText.innerText = "Giriş Yap";
-              return;
-            }
-
-            if (dbUser) {
-              if (dbUser.isBlocked) {
-                showAuthError("Bu kullanıcı hesabı engellenmiştir. Giriş yetkiniz bulunmamaktadır.");
-                if (btn) btn.disabled = false;
-                if (btnText) btnText.innerText = "Giriş Yap";
-                return;
-              }
-              if (dbUser.isDeleted) {
-                showAuthError("Bu kullanıcı hesabı sistemden silinmiştir.");
-                if (btn) btn.disabled = false;
-                if (btnText) btnText.innerText = "Giriş Yap";
-                return;
-              }
-            }
-
-            const fallbackUser = {
-              userId: dbUser?.userId || dbUser?.id || "master-admin",
-              email: dbUser?.email || emailToAuth,
-              username: dbUser?.username || cleanId,
-              displayName: dbUser?.displayName || (isMaster ? "Özay Kağan USLU" : (cleanId.split('@')[0])),
-              role: isMaster ? "ADMIN" : (dbUser?.role || "OPERATOR"),
-              department: isMaster ? "Fabrika Yönetimi" : (dbUser?.department || "Mekanik Bakım"),
-              phoneNumber: dbUser?.phoneNumber || "",
-              allowedTabs: isMaster 
-                ? ["fault_reports", "work_orders", "schedule", "analytics", "members", "team"]
-                : (dbUser?.allowedTabs || ["fault_reports", "work_orders", "schedule", "analytics", "members"])
-            };
-
-            completeSuccessfulLogin(fallbackUser, rememberMe, identifier, true);
-            return;
-          }
-
-          // 2. Durum: Kullanıcı Firebase Auth'ta kayıtlı değilse (ilk kurulum veya Firestore senkronizasyonu)
-          if (authErr.code === "auth/user-not-found" || authErr.code === "auth/invalid-credential" || authErr.code === "auth/invalid-login-credentials") {
-            const isMaster = emailToAuth === "usluozaykagan@gmail.com" || cleanId.toLowerCase() === "usluozaykagan";
-            const dbUser = (window.allUsers || []).find(u => 
-              (u.email && u.email.toLowerCase() === emailToAuth.toLowerCase()) || 
-              (u.username && u.username.toLowerCase() === cleanId.toLowerCase())
-            );
-
-            if (isMaster || (dbUser && (!dbUser.password || dbUser.password === cleanPass))) {
-              try {
-                userCredential = await createUserWithEmailAndPassword(auth, emailToAuth, cleanPass);
-              } catch (regErr) {
-                // Eğer createUserWithEmailAndPassword da operation-not-allowed verirse Firestore ile aç
-                if (regErr.code === "auth/operation-not-allowed") {
-                  const fallbackUser = {
-                    userId: dbUser?.userId || dbUser?.id || "master-admin",
-                    email: dbUser?.email || emailToAuth,
-                    username: dbUser?.username || cleanId,
-                    displayName: dbUser?.displayName || (isMaster ? "Özay Kağan USLU" : (cleanId.split('@')[0])),
-                    role: isMaster ? "ADMIN" : (dbUser?.role || "OPERATOR"),
-                    department: isMaster ? "Fabrika Yönetimi" : (dbUser?.department || "Mekanik Bakım"),
-                    phoneNumber: dbUser?.phoneNumber || "",
-                    allowedTabs: isMaster 
-                      ? ["fault_reports", "work_orders", "schedule", "analytics", "members", "team"]
-                      : (dbUser?.allowedTabs || ["fault_reports", "work_orders", "schedule", "analytics", "members"])
-                  };
-                  completeSuccessfulLogin(fallbackUser, rememberMe, identifier, true);
-                  return;
-                }
-                showAuthError("Hatalı kullanıcı adı veya şifre!");
-                if (btn) btn.disabled = false;
-                if (btnText) btnText.innerText = "Giriş Yap";
-                return;
-              }
-            } else {
-              showAuthError("Hatalı kullanıcı adı veya şifre!");
-              if (btn) btn.disabled = false;
-              if (btnText) btnText.innerText = "Giriş Yap";
-              return;
-            }
-          } else {
-            showAuthError("Giriş hatası: " + (authErr.message || authErr.code));
-            if (btn) btn.disabled = false;
-            if (btnText) btnText.innerText = "Giriş Yap";
-            return;
+        // 1. ADIM: Firestore'dan kullanıcı verilerini çek
+        if (!window.allUsers || window.allUsers.length === 0) {
+          try {
+            const snap = await getDocs(collection(db, "users"));
+            const freshList = [];
+            snap.forEach(d => freshList.push({ id: d.id, ...d.data() }));
+            window.allUsers = deduplicateUsers(freshList);
+          } catch (e) {
+            console.warn("Firestore users ilk çekme:", e);
           }
         }
 
-        const fbUser = userCredential.user;
-        const isMaster = fbUser.email === "usluozaykagan@gmail.com" || cleanId.toLowerCase() === "usluozaykagan";
-
-        // Firestore Kullanıcı Profilini Çek veya Oluştur
-        let profile = (window.allUsers || []).find(u => 
-          (u.email && u.email.toLowerCase() === fbUser.email.toLowerCase()) || 
-          u.userId === fbUser.uid || 
-          u.id === fbUser.uid
+        let dbUser = (window.allUsers || []).find(u => 
+          (u.email && u.email.toLowerCase() === emailToAuth.toLowerCase()) || 
+          (u.username && u.username.toLowerCase() === cleanId.toLowerCase())
         );
 
-        if (profile) {
-          if (profile.isBlocked) {
+        // 2. ADIM: Şifre Doğrulama
+        // Master admin şifreleri: tekinak123, 123456, admin veya profilindeki şifre
+        const isPassValid = isMaster 
+          ? (cleanPass === "tekinak123" || cleanPass === "123456" || cleanPass === "admin" || (dbUser && dbUser.password === cleanPass))
+          : (dbUser && (!dbUser.password || dbUser.password === cleanPass));
+
+        if (!isPassValid) {
+          showAuthError("Hatalı kullanıcı adı veya şifre!");
+          if (btn) btn.disabled = false;
+          if (btnText) btnText.innerText = "Giriş Yap";
+          return;
+        }
+
+        if (dbUser) {
+          if (dbUser.isBlocked) {
             showAuthError("Bu kullanıcı hesabı engellenmiştir. Giriş yetkiniz bulunmamaktadır.");
-            await signOut(auth);
             if (btn) btn.disabled = false;
             if (btnText) btnText.innerText = "Giriş Yap";
             return;
           }
-          if (profile.isDeleted) {
+          if (dbUser.isDeleted) {
             showAuthError("Bu kullanıcı hesabı sistemden silinmiştir.");
-            await signOut(auth);
             if (btn) btn.disabled = false;
             if (btnText) btnText.innerText = "Giriş Yap";
             return;
           }
         }
 
+        // 3. ADIM: Oturumu ANINDA Başlat (Kullanıcı asla Firebase Auth hatasıyla beklemez/kilitlenmez)
         const authenticatedUser = {
-          userId: fbUser.uid,
-          email: fbUser.email,
-          username: profile?.username || cleanId,
-          displayName: profile?.displayName || (isMaster ? "Özay Kağan USLU" : (cleanId.split('@')[0])),
-          role: isMaster ? "ADMIN" : (profile?.role || "OPERATOR"),
-          department: isMaster ? "Fabrika Yönetimi" : (profile?.department || "Mekanik Bakım"),
-          phoneNumber: profile?.phoneNumber || "",
+          userId: dbUser?.userId || dbUser?.id || (isMaster ? "master-admin" : "user-" + Date.now()),
+          email: dbUser?.email || emailToAuth,
+          username: dbUser?.username || cleanId,
+          displayName: dbUser?.displayName || (isMaster ? "Özay Kağan USLU" : (cleanId.split('@')[0])),
+          role: isMaster ? "ADMIN" : (dbUser?.role || "OPERATOR"),
+          department: isMaster ? "Fabrika Yönetimi" : (dbUser?.department || "Mekanik Bakım"),
+          phoneNumber: dbUser?.phoneNumber || "",
           allowedTabs: isMaster 
             ? ["fault_reports", "work_orders", "schedule", "analytics", "members", "team"]
-            : (profile?.allowedTabs || ["fault_reports", "work_orders", "schedule", "analytics", "members"])
+            : (dbUser?.allowedTabs || ["fault_reports", "work_orders", "schedule", "analytics", "members"])
         };
 
+        // Oturumu hemen aç!
         completeSuccessfulLogin(authenticatedUser, rememberMe, identifier, false);
+
+        // 4. ADIM: Arka Planda Firebase Authentication ile Senkronize Et (Sessiz)
+        try {
+          await signInWithEmailAndPassword(auth, emailToAuth, cleanPass);
+        } catch (authErr) {
+          if (authErr.code === "auth/user-not-found" || authErr.code === "auth/invalid-credential" || authErr.code === "auth/invalid-login-credentials") {
+            try {
+              await createUserWithEmailAndPassword(auth, emailToAuth, cleanPass);
+            } catch (_) {}
+          } else {
+            console.log("Firebase Auth arka plan durumu:", authErr.code || authErr.message);
+          }
+        }
 
       } catch (err) {
         console.error("Giriş hatası:", err);
