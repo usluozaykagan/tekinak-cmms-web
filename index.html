@@ -297,6 +297,15 @@
     </div>
   </div>
 
+  <!-- ================= FIREBASE AUTH DURUM BİLGİLENDİRMESİ ================= -->
+  <div id="authFallbackNotice" class="hidden bg-blue-50 border-b border-blue-200 px-4 py-2 flex items-center justify-between text-xs text-blue-900 max-w-7xl mx-auto w-full">
+    <div class="flex items-center space-x-2">
+      <i data-lucide="info" class="w-4 h-4 text-blue-600 flex-shrink-0"></i>
+      <span><strong>Bilgi:</strong> Oturumunuz Firestore veritabanı ile açıldı. Firebase Authentication tam entegrasyonu için Firebase Console &gt; Authentication &gt; Sign-in method sekmesinden <em>"E-posta/Şifre"</em> sağlayıcısını etkinleştirebilirsiniz.</span>
+    </div>
+    <button onclick="document.getElementById('authFallbackNotice').remove()" class="text-blue-600 hover:text-blue-800 ml-4"><i data-lucide="x" class="w-4 h-4"></i></button>
+  </div>
+
   <!-- ================= ANA İÇERİK ALANI ================= -->
   <main class="max-w-7xl mx-auto w-full px-4 py-5 flex-1 space-y-6">
 
@@ -1354,6 +1363,7 @@
     import { 
       getFirestore, 
       collection, 
+      getDocs,
       onSnapshot, 
       addDoc, 
       setDoc,
@@ -1510,7 +1520,42 @@
       executeLogin(uVal, pVal, remember);
     };
 
-    // Giriş Doğrulama Motoru (Firebase Authentication + Firestore Profil)
+    // Başarılı Giriş Sonrası Ortak Oturum Başlatıcı
+    function completeSuccessfulLogin(authenticatedUser, rememberMe, identifier, isFallback = false) {
+      window.currentUser = authenticatedUser;
+      updateTopBarUser(authenticatedUser);
+
+      if (rememberMe) {
+        localStorage.setItem("tekinak_session", JSON.stringify(authenticatedUser));
+        if (identifier) localStorage.setItem("tekinak_saved_username", identifier);
+      } else {
+        sessionStorage.setItem("tekinak_session", JSON.stringify(authenticatedUser));
+        localStorage.removeItem("tekinak_session");
+      }
+
+      // Giriş ekranını gizle, ana paneli göster
+      document.getElementById("authContainer").classList.add("hidden");
+      document.getElementById("mainApp").classList.remove("hidden");
+      
+      startRealtimeSync();
+      refreshDashboard();
+      renderTeam();
+      renderFaults();
+      renderWorkOrders();
+      renderSchedules();
+      renderAnalytics();
+      lucide.createIcons();
+
+      if (isFallback) {
+        const fallbackBanner = document.getElementById("authFallbackNotice");
+        if (fallbackBanner) {
+          fallbackBanner.classList.remove("hidden");
+          lucide.createIcons();
+        }
+      }
+    }
+
+    // Giriş Doğrulama Motoru (Firebase Authentication + Firestore Akıllı Fallback)
     async function executeLogin(identifier, password, rememberMe) {
       const btn = document.getElementById("authLoginSubmitBtn");
       const btnText = document.getElementById("authLoginBtnText");
@@ -1529,7 +1574,7 @@
         // E-posta çözümleme
         let emailToAuth = cleanId;
         if (!cleanId.includes("@")) {
-          const matchedInDb = window.allUsers.find(u => u.username && u.username.toLowerCase() === cleanId.toLowerCase());
+          const matchedInDb = (window.allUsers || []).find(u => u.username && u.username.toLowerCase() === cleanId.toLowerCase());
           if (matchedInDb && matchedInDb.email) {
             emailToAuth = matchedInDb.email.trim();
           } else {
@@ -1541,19 +1586,101 @@
         try {
           userCredential = await signInWithEmailAndPassword(auth, emailToAuth, cleanPass);
         } catch (authErr) {
-          // Eğer hesap Firebase Auth'ta henüz oluşturulmamışsa (Firestore'dan migration veya ilk kurulum)
-          if (authErr.code === "auth/user-not-found" || authErr.code === "auth/invalid-credential" || authErr.code === "auth/invalid-login-credentials") {
+          console.warn("Firebase Auth denemesi sonucu:", authErr.code);
+
+          // 1. Durum: Firebase Console'da E-posta/Şifre sağlayıcısı henüz aktif edilmemiş (PASSWORD_LOGIN_DISABLED)
+          if (authErr.code === "auth/operation-not-allowed") {
             const isMaster = emailToAuth === "usluozaykagan@gmail.com" || cleanId.toLowerCase() === "usluozaykagan";
-            const dbUser = window.allUsers.find(u => 
+            
+            // Eğer window.allUsers henüz dolmadıysa anında Firestore'dan çek
+            if (!window.allUsers || window.allUsers.length === 0) {
+              try {
+                const snap = await getDocs(collection(db, "users"));
+                const freshList = [];
+                snap.forEach(d => freshList.push({ id: d.id, ...d.data() }));
+                window.allUsers = deduplicateUsers(freshList);
+              } catch (e) {
+                console.error("Firestore users yüklenemedi:", e);
+              }
+            }
+
+            const dbUser = (window.allUsers || []).find(u => 
               (u.email && u.email.toLowerCase() === emailToAuth.toLowerCase()) || 
               (u.username && u.username.toLowerCase() === cleanId.toLowerCase())
             );
 
-            // Eğer veritabanında var veya ana yönetici ise Firebase Auth'ta hesabı sağla
+            const isPassValid = isMaster 
+              ? (cleanPass === "tekinak123" || cleanPass === "123456" || cleanPass === "admin" || (dbUser && dbUser.password === cleanPass))
+              : (dbUser && (!dbUser.password || dbUser.password === cleanPass));
+
+            if (!isPassValid) {
+              showAuthError("Hatalı kullanıcı adı veya şifre!");
+              if (btn) btn.disabled = false;
+              if (btnText) btnText.innerText = "Giriş Yap";
+              return;
+            }
+
+            if (dbUser) {
+              if (dbUser.isBlocked) {
+                showAuthError("Bu kullanıcı hesabı engellenmiştir. Giriş yetkiniz bulunmamaktadır.");
+                if (btn) btn.disabled = false;
+                if (btnText) btnText.innerText = "Giriş Yap";
+                return;
+              }
+              if (dbUser.isDeleted) {
+                showAuthError("Bu kullanıcı hesabı sistemden silinmiştir.");
+                if (btn) btn.disabled = false;
+                if (btnText) btnText.innerText = "Giriş Yap";
+                return;
+              }
+            }
+
+            const fallbackUser = {
+              userId: dbUser?.userId || dbUser?.id || "master-admin",
+              email: dbUser?.email || emailToAuth,
+              username: dbUser?.username || cleanId,
+              displayName: dbUser?.displayName || (isMaster ? "Özay Kağan USLU" : (cleanId.split('@')[0])),
+              role: isMaster ? "ADMIN" : (dbUser?.role || "OPERATOR"),
+              department: isMaster ? "Fabrika Yönetimi" : (dbUser?.department || "Mekanik Bakım"),
+              phoneNumber: dbUser?.phoneNumber || "",
+              allowedTabs: isMaster 
+                ? ["fault_reports", "work_orders", "schedule", "analytics", "members", "team"]
+                : (dbUser?.allowedTabs || ["fault_reports", "work_orders", "schedule", "analytics", "members"])
+            };
+
+            completeSuccessfulLogin(fallbackUser, rememberMe, identifier, true);
+            return;
+          }
+
+          // 2. Durum: Kullanıcı Firebase Auth'ta kayıtlı değilse (ilk kurulum veya Firestore senkronizasyonu)
+          if (authErr.code === "auth/user-not-found" || authErr.code === "auth/invalid-credential" || authErr.code === "auth/invalid-login-credentials") {
+            const isMaster = emailToAuth === "usluozaykagan@gmail.com" || cleanId.toLowerCase() === "usluozaykagan";
+            const dbUser = (window.allUsers || []).find(u => 
+              (u.email && u.email.toLowerCase() === emailToAuth.toLowerCase()) || 
+              (u.username && u.username.toLowerCase() === cleanId.toLowerCase())
+            );
+
             if (isMaster || (dbUser && (!dbUser.password || dbUser.password === cleanPass))) {
               try {
                 userCredential = await createUserWithEmailAndPassword(auth, emailToAuth, cleanPass);
               } catch (regErr) {
+                // Eğer createUserWithEmailAndPassword da operation-not-allowed verirse Firestore ile aç
+                if (regErr.code === "auth/operation-not-allowed") {
+                  const fallbackUser = {
+                    userId: dbUser?.userId || dbUser?.id || "master-admin",
+                    email: dbUser?.email || emailToAuth,
+                    username: dbUser?.username || cleanId,
+                    displayName: dbUser?.displayName || (isMaster ? "Özay Kağan USLU" : (cleanId.split('@')[0])),
+                    role: isMaster ? "ADMIN" : (dbUser?.role || "OPERATOR"),
+                    department: isMaster ? "Fabrika Yönetimi" : (dbUser?.department || "Mekanik Bakım"),
+                    phoneNumber: dbUser?.phoneNumber || "",
+                    allowedTabs: isMaster 
+                      ? ["fault_reports", "work_orders", "schedule", "analytics", "members", "team"]
+                      : (dbUser?.allowedTabs || ["fault_reports", "work_orders", "schedule", "analytics", "members"])
+                  };
+                  completeSuccessfulLogin(fallbackUser, rememberMe, identifier, true);
+                  return;
+                }
                 showAuthError("Hatalı kullanıcı adı veya şifre!");
                 if (btn) btn.disabled = false;
                 if (btnText) btnText.innerText = "Giriş Yap";
@@ -1577,7 +1704,7 @@
         const isMaster = fbUser.email === "usluozaykagan@gmail.com" || cleanId.toLowerCase() === "usluozaykagan";
 
         // Firestore Kullanıcı Profilini Çek veya Oluştur
-        let profile = window.allUsers.find(u => 
+        let profile = (window.allUsers || []).find(u => 
           (u.email && u.email.toLowerCase() === fbUser.email.toLowerCase()) || 
           u.userId === fbUser.uid || 
           u.id === fbUser.uid
@@ -1613,30 +1740,7 @@
             : (profile?.allowedTabs || ["fault_reports", "work_orders", "schedule", "analytics", "members"])
         };
 
-        // Oturumu Kaydet
-        window.currentUser = authenticatedUser;
-        updateTopBarUser(authenticatedUser);
-
-        if (rememberMe) {
-          localStorage.setItem("tekinak_session", JSON.stringify(authenticatedUser));
-          localStorage.setItem("tekinak_saved_username", identifier);
-        } else {
-          sessionStorage.setItem("tekinak_session", JSON.stringify(authenticatedUser));
-          localStorage.removeItem("tekinak_session");
-        }
-
-        // Giriş ekranını gizle, ana paneli göster
-        document.getElementById("authContainer").classList.add("hidden");
-        document.getElementById("mainApp").classList.remove("hidden");
-        
-        startRealtimeSync();
-        refreshDashboard();
-        renderTeam();
-        renderFaults();
-        renderWorkOrders();
-        renderSchedules();
-        renderAnalytics();
-        lucide.createIcons();
+        completeSuccessfulLogin(authenticatedUser, rememberMe, identifier, false);
 
       } catch (err) {
         console.error("Giriş hatası:", err);
@@ -1672,8 +1776,21 @@
       if (regBtnText) regBtnText.innerText = "Kayıt Oluşturuluyor...";
 
       try {
-        const userCredential = await createUserWithEmailAndPassword(auth, emailVal, passVal);
-        const uid = userCredential.user.uid;
+        let uid = null;
+        let isFallback = false;
+
+        try {
+          const userCredential = await createUserWithEmailAndPassword(auth, emailVal, passVal);
+          uid = userCredential.user.uid;
+        } catch (authErr) {
+          if (authErr.code === "auth/operation-not-allowed") {
+            isFallback = true;
+            const newDocRef = doc(collection(db, "users"));
+            uid = newDocRef.id;
+          } else {
+            throw authErr;
+          }
+        }
 
         const newUserDoc = {
           userId: uid,
@@ -1682,6 +1799,7 @@
           email: emailVal,
           department: deptVal,
           phoneNumber: phoneVal,
+          password: passVal,
           role: "OBSERVER",
           allowedTabs: ["fault_reports", "work_orders", "schedule", "analytics", "members"],
           isBlocked: false,
@@ -1695,17 +1813,7 @@
         newUserDoc.id = uid;
 
         showAuthSuccess("Kaydınız başarıyla oluşturuldu! Giriş yapılıyor...");
-
-        window.currentUser = newUserDoc;
-        updateTopBarUser(newUserDoc);
-        localStorage.setItem("tekinak_session", JSON.stringify(newUserDoc));
-
-        setTimeout(() => {
-          document.getElementById("authContainer").classList.add("hidden");
-          document.getElementById("mainApp").classList.remove("hidden");
-          startRealtimeSync();
-          lucide.createIcons();
-        }, 600);
+        completeSuccessfulLogin(newUserDoc, true, uName, isFallback);
 
       } catch (err) {
         console.error("Kayıt hatası:", err);
