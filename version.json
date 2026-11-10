@@ -1,0 +1,16 @@
+{
+  "versionCode": 2,
+  "versionName": "1.1.0",
+  "releaseTag": "v1.1.0",
+  "releaseDate": "2026-11-10",
+  "apkUrl": "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
+  "fallbackUrl": "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
+  "title": "Yeni Sürüm Mevcut (v1.1.0)",
+  "changelog": [
+    "Periyodik bakım takvimi ve bağımsız periyot seçimleri eklendi.",
+    "Orijinal Microsoft Excel (.xlsx) çoklu sayfa raporlama desteği eklendi.",
+    "Firebase Authentication ile güvenli kimlik doğrulama entegre edildi.",
+    "Performans ve arka plan senkronizasyon optimizasyonları yapıldı."
+  ],
+  "forceUpdate": false
+}
