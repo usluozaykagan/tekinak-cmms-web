@@ -1859,11 +1859,7 @@
         snapshot.forEach(docSnap => {
           window.allSchedules.push({ id: docSnap.id, ...docSnap.data() });
         });
-        if (snapshot.empty) {
-          seedDefaultSchedules();
-        } else {
-          window.allSchedules.sort((a,b) => (a.scheduledDateMillis || 0) - (b.scheduledDateMillis || 0));
-        }
+        window.allSchedules.sort((a,b) => (a.scheduledDateMillis || 0) - (b.scheduledDateMillis || 0));
         renderSchedules();
       });
 
