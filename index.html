@@ -1592,28 +1592,49 @@
 
         const isMaster = emailToAuth.toLowerCase() === "usluozaykagan@gmail.com" || cleanId.toLowerCase() === "usluozaykagan";
 
-        // 1. ADIM: Firestore'dan kullanıcı verilerini çek
-        if (!window.allUsers || window.allUsers.length === 0) {
-          try {
-            const snap = await getDocs(collection(db, "users"));
-            const freshList = [];
-            snap.forEach(d => freshList.push({ id: d.id, ...d.data() }));
-            window.allUsers = deduplicateUsers(freshList);
-          } catch (e) {
-            console.warn("Firestore users ilk çekme:", e);
+        // 1. ADIM: Firestore'dan güncel kullanıcı verilerini CANLI çek (Tek kaynak doğrulama)
+        let freshRawList = [];
+        try {
+          const snap = await getDocs(collection(db, "users"));
+          snap.forEach(d => freshRawList.push({ id: d.id, ...d.data() }));
+          window.allUsers = deduplicateUsers(freshRawList);
+        } catch (e) {
+          console.warn("Firestore users canlı çekme:", e);
+        }
+
+        // Bu kullanıcıya ait tüm Firestore kayıtlarını bul ve son güncelleme tarihine göre sırala
+        const matchingDocs = (freshRawList.length > 0 ? freshRawList : (window.allUsers || [])).filter(u => {
+          const uEmail = (u.email || "").trim().toLowerCase();
+          const uName = (u.username || "").trim().toLowerCase();
+          const uId = (u.userId || u.id || "").trim();
+          return (uEmail && uEmail === emailToAuth.toLowerCase()) ||
+                 (uName && uName === cleanId.toLowerCase()) ||
+                 (isMaster && (u.id === "admin_uslu" || u.id === "master_admin")) ||
+                 (uId && uId === cleanId);
+        }).sort((a, b) => {
+          const timeA = (a.updatedAt?.seconds ? a.updatedAt.seconds * 1000 : 0) || (a.createdAt?.seconds ? a.createdAt.seconds * 1000 : 0) || (a.lastActiveMillis || 0);
+          const timeB = (b.updatedAt?.seconds ? b.updatedAt.seconds * 1000 : 0) || (b.createdAt?.seconds ? b.createdAt.seconds * 1000 : 0) || (b.lastActiveMillis || 0);
+          return timeB - timeA;
+        });
+
+        // En güncel dokümandaki şifreyi yetkili (tek geçerli) şifre olarak belirle
+        let authoritativePass = null;
+        for (const docItem of matchingDocs) {
+          const p = (docItem.password || "").trim();
+          if (p) {
+            authoritativePass = p;
+            break;
           }
         }
 
-        let dbUser = (window.allUsers || []).find(u => 
-          (u.email && u.email.toLowerCase() === emailToAuth.toLowerCase()) || 
-          (u.username && u.username.toLowerCase() === cleanId.toLowerCase())
-        );
-
-        // 2. ADIM: Şifre Doğrulama
-        // Master admin şifreleri: tekinak123, 123456, admin veya profilindeki şifre
-        const isPassValid = isMaster 
-          ? (cleanPass === "tekinak123" || cleanPass === "123456" || cleanPass === "admin" || (dbUser && dbUser.password === cleanPass))
-          : (dbUser && (!dbUser.password || dbUser.password === cleanPass));
+        // 2. ADIM: Katı Şifre Doğrulama (Eski şifreler veya tekinak123 KESİNLİKLE kabul edilmez)
+        let isPassValid = false;
+        if (authoritativePass) {
+          isPassValid = (cleanPass === authoritativePass);
+        } else {
+          // Henüz veritabanında hiç şifre alanı kaydedilmemişse ilk kurulum için varsayılan kontrol
+          isPassValid = isMaster ? (cleanPass === "tekinak123") : (cleanPass === "123456");
+        }
 
         if (!isPassValid) {
           showAuthError("Hatalı kullanıcı adı veya şifre!");
@@ -1621,6 +1642,11 @@
           if (btnText) btnText.innerText = "Giriş Yap";
           return;
         }
+
+        let dbUser = matchingDocs[0] || (window.allUsers || []).find(u => 
+          (u.email && u.email.toLowerCase() === emailToAuth.toLowerCase()) || 
+          (u.username && u.username.toLowerCase() === cleanId.toLowerCase())
+        );
 
         if (dbUser) {
           if (dbUser.isBlocked) {
@@ -2449,9 +2475,16 @@
     };
 
     function deduplicateUsers(rawList) {
+      // En son güncellenen dokümanları en başa al (en güncel şifre ve veriler kazansın)
+      const sortedList = [...(rawList || [])].sort((a, b) => {
+        const timeA = (a.updatedAt?.seconds ? a.updatedAt.seconds * 1000 : 0) || (a.createdAt?.seconds ? a.createdAt.seconds * 1000 : 0) || (a.lastActiveMillis || 0);
+        const timeB = (b.updatedAt?.seconds ? b.updatedAt.seconds * 1000 : 0) || (b.createdAt?.seconds ? b.createdAt.seconds * 1000 : 0) || (b.lastActiveMillis || 0);
+        return timeB - timeA;
+      });
+
       const uniqueMap = new Map();
 
-      for (const u of rawList) {
+      for (const u of sortedList) {
         const email = (u.email || "").trim().toLowerCase();
         const username = (u.username || "").trim().toLowerCase();
         const isMaster = email === "usluozaykagan@gmail.com" || username === "usluozaykagan";
@@ -2479,7 +2512,7 @@
           displayName: displayName || (isMaster ? "Özay Kağan Uslu" : (username || (email ? email.split('@')[0] : "Personel"))),
           username: username || (isMaster ? "usluozaykagan" : (email ? email.split('@')[0] : "personel")),
           email: u.email || (isMaster ? "usluozaykagan@gmail.com" : ""),
-          password: u.password || (isMaster ? "tekinak123" : "123456"),
+          password: u.password || (isMaster ? "" : "123456"),
           role: isMaster ? "ADMIN" : (u.role || "OPERATOR"),
           department: isMaster ? "Fabrika Yönetimi" : (u.department || "Mekanik Bakım"),
           phoneNumber: u.phoneNumber || "",
@@ -2501,18 +2534,18 @@
           const ex = uniqueMap.get(foundKey);
           uniqueMap.set(foundKey, {
             ...ex,
-            displayName: (candidate.displayName && candidate.displayName !== "Personel" && candidate.displayName !== "Fabrika Personeli") ? candidate.displayName : ex.displayName,
-            password: (candidate.password && candidate.password !== "123456") ? candidate.password : ex.password,
-            department: candidate.department || ex.department,
-            role: isMaster ? "ADMIN" : (candidate.role || ex.role),
-            phoneNumber: candidate.phoneNumber || ex.phoneNumber,
-            isHidden: candidate.isHidden || ex.isHidden,
-            isBlocked: candidate.isBlocked || ex.isBlocked,
-            canExportExcel: candidate.canExportExcel || ex.canExportExcel,
-            canManageSchedules: candidate.canManageSchedules || ex.canManageSchedules,
-            canDeleteAnyMessage: candidate.canDeleteAnyMessage || ex.canDeleteAnyMessage,
-            canReopenTickets: candidate.canReopenTickets || ex.canReopenTickets,
-            lastActiveMillis: Math.max(candidate.lastActiveMillis, ex.lastActiveMillis || 0)
+            displayName: (ex.displayName && ex.displayName !== "Personel" && ex.displayName !== "Fabrika Personeli") ? ex.displayName : candidate.displayName,
+            password: ex.password || candidate.password, // en yeni olan (ex) öncelikli
+            department: ex.department || candidate.department,
+            role: isMaster ? "ADMIN" : (ex.role || candidate.role),
+            phoneNumber: ex.phoneNumber || candidate.phoneNumber,
+            isHidden: ex.isHidden || candidate.isHidden,
+            isBlocked: ex.isBlocked || candidate.isBlocked,
+            canExportExcel: ex.canExportExcel || candidate.canExportExcel,
+            canManageSchedules: ex.canManageSchedules || candidate.canManageSchedules,
+            canDeleteAnyMessage: ex.canDeleteAnyMessage || candidate.canDeleteAnyMessage,
+            canReopenTickets: ex.canReopenTickets || candidate.canReopenTickets,
+            lastActiveMillis: Math.max(ex.lastActiveMillis || 0, candidate.lastActiveMillis || 0)
           });
         } else {
           const key = email || username || u.id;
@@ -3022,14 +3055,18 @@
         // Varsa aynı e-posta veya kullanıcı adına sahip diğer belgeleri de güncelle
         try {
           const snap = await getDocs(collection(db, "users"));
+          const syncPromises = [];
           snap.forEach(d => {
             const dData = d.data();
             const dEmail = (dData.email || "").toLowerCase();
             const dUname = (dData.username || "").toLowerCase();
             if (d.id !== docId && ((userEmail && dEmail === userEmail) || (userUname && dUname === userUname))) {
-              setDoc(doc(db, "users", d.id), updateData, { merge: true });
+              syncPromises.push(setDoc(doc(db, "users", d.id), updateData, { merge: true }));
             }
           });
+          if (syncPromises.length > 0) {
+            await Promise.all(syncPromises);
+          }
         } catch (_) {}
 
         // Yerel listeyi anında güncelle
@@ -3483,6 +3520,7 @@
 
         // Firestore üzerindeki TÜM eşleşen kullanıcı belgelerini bul ve güncelle
         let updatedCount = 0;
+        const updatePromises = [];
         try {
           const snap = await getDocs(collection(db, "users"));
           snap.forEach(d => {
@@ -3492,7 +3530,7 @@
             const dUid = (dData.userId || "").trim();
 
             if (d.id === currentUid || (isMaster && d.id === "admin_uslu") || dUid === currentUid || (uEmail && dEmail === uEmail) || (newU && dUname === newU)) {
-              setDoc(doc(db, "users", d.id), updatePayload, { merge: true });
+              updatePromises.push(setDoc(doc(db, "users", d.id), updatePayload, { merge: true }));
               updatedCount++;
             }
           });
@@ -3502,14 +3540,17 @@
 
         // Eğer master admin ise veya henüz doküman bulunamadıysa admin_uslu ve currentUid dokümanlarını oluştur/güncelle
         if (updatedCount === 0 || isMaster) {
-          await setDoc(doc(db, "users", isMaster ? "admin_uslu" : currentUid), {
+          updatePromises.push(setDoc(doc(db, "users", isMaster ? "admin_uslu" : currentUid), {
             ...updatePayload,
             userId: isMaster ? "admin_uslu" : currentUid,
             email: uEmail,
             role: window.currentUser.role || "ADMIN",
             allowedTabs: ["fault_reports", "work_orders", "schedule", "analytics", "members", "team"]
-          }, { merge: true });
+          }, { merge: true }));
         }
+
+        // Tüm güncellemelerin Firestore'a tam yazılmasını bekle
+        await Promise.all(updatePromises);
 
         // Firebase Auth şifresi
         if (auth.currentUser && newPass) {
