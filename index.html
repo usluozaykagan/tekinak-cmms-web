@@ -1602,6 +1602,22 @@
           console.warn("Firestore users canlı çekme:", e);
         }
 
+        function getDocTime(d) {
+          if (!d) return 0;
+          const u = d.updatedAt || d.createdAt;
+          if (!u) return d.lastActiveMillis || 0;
+          if (typeof u === 'number') return u;
+          if (typeof u.toMillis === 'function') return u.toMillis();
+          if (typeof u.toDate === 'function') return u.toDate().getTime();
+          if (u.seconds) return u.seconds * 1000;
+          if (u instanceof Date) return u.getTime();
+          if (typeof u === 'string') {
+            const parsed = Date.parse(u);
+            if (!isNaN(parsed)) return parsed;
+          }
+          return d.lastActiveMillis || 0;
+        }
+
         // Bu kullanıcıya ait tüm Firestore kayıtlarını bul ve son güncelleme tarihine göre sırala
         const matchingDocs = (freshRawList.length > 0 ? freshRawList : (window.allUsers || [])).filter(u => {
           const uEmail = (u.email || "").trim().toLowerCase();
@@ -1609,25 +1625,31 @@
           const uId = (u.userId || u.id || "").trim();
           return (uEmail && uEmail === emailToAuth.toLowerCase()) ||
                  (uName && uName === cleanId.toLowerCase()) ||
-                 (isMaster && (u.id === "admin_uslu" || u.id === "master_admin")) ||
+                 (isMaster && (u.id === "admin_uslu" || u.id === "master_admin" || u.id === "admin_master_1")) ||
                  (uId && uId === cleanId);
-        }).sort((a, b) => {
-          const timeA = (a.updatedAt?.seconds ? a.updatedAt.seconds * 1000 : 0) || (a.createdAt?.seconds ? a.createdAt.seconds * 1000 : 0) || (a.lastActiveMillis || 0);
-          const timeB = (b.updatedAt?.seconds ? b.updatedAt.seconds * 1000 : 0) || (b.createdAt?.seconds ? b.createdAt.seconds * 1000 : 0) || (b.lastActiveMillis || 0);
-          return timeB - timeA;
+        }).sort((a, b) => getDocTime(b) - getDocTime(a));
+
+        // Kullanıcının kayıtları arasında telefondan veya webden belirlenmiş yeni/özel şifre var mı?
+        const customDoc = matchingDocs.find(d => {
+          const p = (d.password || "").trim();
+          return p && p !== "tekinak123" && p !== "123456" && p !== "admin";
         });
 
-        // En güncel dokümandaki şifreyi yetkili (tek geçerli) şifre olarak belirle
+        // Yetkili Şifre: Eğer telefondan veya webden yeni bir şifre girildiyse o şifre KESİNLİKLE geçerlidir!
         let authoritativePass = null;
-        for (const docItem of matchingDocs) {
-          const p = (docItem.password || "").trim();
-          if (p) {
-            authoritativePass = p;
-            break;
+        if (customDoc) {
+          authoritativePass = (customDoc.password || "").trim();
+        } else if (matchingDocs.length > 0) {
+          for (const docItem of matchingDocs) {
+            const p = (docItem.password || "").trim();
+            if (p) {
+              authoritativePass = p;
+              break;
+            }
           }
         }
 
-        // 2. ADIM: Katı Şifre Doğrulama (Eski şifreler veya tekinak123 KESİNLİKLE kabul edilmez)
+        // 2. ADIM: Katı Şifre Doğrulama (Telefonda şifre değiştiyse eski tekinak123 KESİNLİKLE reddedilir)
         let isPassValid = false;
         if (authoritativePass) {
           isPassValid = (cleanPass === authoritativePass);
@@ -1642,6 +1664,23 @@
           if (btnText) btnText.innerText = "Giriş Yap";
           return;
         }
+
+        // Başarılı girişte Firestore üzerindeki TÜM kopyaları (admin_uslu, master_admin vb.) bu şifreyle senkronize et
+        try {
+          const syncPromises = [];
+          for (const d of matchingDocs) {
+            if ((d.password || "").trim() !== cleanPass) {
+              syncPromises.push(setDoc(doc(db, "users", d.id), { password: cleanPass, updatedAt: serverTimestamp() }, { merge: true }));
+            }
+          }
+          if (isMaster) {
+            syncPromises.push(setDoc(doc(db, "users", "admin_uslu"), { password: cleanPass, updatedAt: serverTimestamp() }, { merge: true }));
+            syncPromises.push(setDoc(doc(db, "users", "master_admin"), { password: cleanPass, updatedAt: serverTimestamp() }, { merge: true }));
+          }
+          if (syncPromises.length > 0) {
+            Promise.all(syncPromises).catch(() => {});
+          }
+        } catch (_) {}
 
         let dbUser = matchingDocs[0] || (window.allUsers || []).find(u => 
           (u.email && u.email.toLowerCase() === emailToAuth.toLowerCase()) || 
