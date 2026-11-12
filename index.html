@@ -1947,13 +1947,32 @@
         renderChat();
       });
 
-      // 5. Fabrika Personelleri (users)
+      // 5. Engellenen ve Silinen Hesaplar (blocked_accounts - Anlık Oturum Sonlandırma)
+      try {
+        onSnapshot(collection(db, "blocked_accounts"), (snapshot) => {
+          window.blockedAccounts = [];
+          snapshot.forEach(docSnap => {
+            window.blockedAccounts.push({ id: docSnap.id, ...docSnap.data() });
+          });
+          checkCurrentSessionValidity();
+          renderTeam();
+          renderMembers();
+        }, (err) => {
+          console.warn("blocked_accounts listener error:", err);
+        });
+      } catch (e) {
+        console.warn("Failed to listen to blocked_accounts:", e);
+      }
+
+      // 6. Fabrika Personelleri (users)
       onSnapshot(collection(db, "users"), (snapshot) => {
         const rawList = [];
         snapshot.forEach(docSnap => {
           rawList.push({ id: docSnap.id, ...docSnap.data() });
         });
         window.allUsers = deduplicateUsers(rawList);
+        window.hasUsersLoadedOnce = true;
+        checkCurrentSessionValidity();
         refreshDashboard();
         renderMembers();
         renderTeam();
@@ -3011,17 +3030,83 @@
       }
     };
 
-    // Hesabı Engelle / Engeli Kaldır
+    // Hesabı Engelle / Engeli Kaldır (Hem Web Hem Telefondan Anında Oturum Kapatır)
     window.toggleBlockAccount = async function(userId, newBlockState) {
-      const msg = newBlockState ? "Bu kullanıcının sisteme girişini engellemek istiyor musunuz?" : "Bu kullanıcının engelini kaldırmak istiyor musunuz?";
+      const targetUser = (window.allUsers || []).find(u => u.id === userId || u.userId === userId);
+      const targetName = targetUser?.displayName || targetUser?.username || "Personel";
+      const cleanEmail = (targetUser?.email || "").trim().toLowerCase();
+      const cleanUsername = (targetUser?.username || "").trim().toLowerCase();
+
+      if (cleanEmail === "usluozaykagan@gmail.com" || cleanUsername === "usluozaykagan") {
+        alert("Ana yönetici hesabı engellenemez!");
+        return;
+      }
+
+      const msg = newBlockState 
+        ? `'${targetName}' adlı personelin hesabını ENGELLEMEK istiyor musunuz?\n\n(Bu işlem personeli hem web'deki hem de telefondaki açık oturumundan ANINDA dışarı atacaktır)` 
+        : `'${targetName}' adlı personelin engelini KALDIRMAK istiyor musunuz?`;
       if (!confirm(msg)) return;
 
       try {
-        await updateDoc(doc(db, "users", userId), {
-          isBlocked: newBlockState
-        });
+        const updatePayload = {
+          isBlocked: newBlockState,
+          isDeleted: newBlockState,
+          isOnline: false,
+          updatedAt: serverTimestamp()
+        };
+
+        // 1. Ana kullanıcı belgesini güncelle
+        try {
+          await setDoc(doc(db, "users", userId), updatePayload, { merge: true });
+        } catch (_) {}
+
+        // 2. E-posta veya kullanıcı adı ile eşleşen diğer kopyaları da güncelle
+        if (cleanEmail || cleanUsername) {
+          const snap = await getDocs(collection(db, "users"));
+          const updatePromises = [];
+          snap.forEach(d => {
+            const dEmail = (d.data().email || "").trim().toLowerCase();
+            const dUser = (d.data().username || "").trim().toLowerCase();
+            if ((cleanEmail && dEmail === cleanEmail) || (cleanUsername && dUser === cleanUsername)) {
+              updatePromises.push(setDoc(doc(db, "users", d.id), updatePayload, { merge: true }));
+            }
+          });
+          if (updatePromises.length > 0) {
+            await Promise.all(updatePromises);
+          }
+        }
+
+        // 3. blocked_accounts koleksiyonunu güncelle (Tüm cihazlar anlık dinler)
+        if (newBlockState) {
+          const blockRecord = {
+            email: cleanEmail,
+            username: cleanUsername,
+            displayName: targetName,
+            isBlocked: true,
+            blockedAt: Date.now()
+          };
+          if (cleanEmail) {
+            await setDoc(doc(db, "blocked_accounts", cleanEmail), blockRecord, { merge: true });
+            await setDoc(doc(db, "blocked_accounts", cleanEmail.replace(/\./g, "_")), blockRecord, { merge: true });
+          }
+          if (cleanUsername) {
+            await setDoc(doc(db, "blocked_accounts", cleanUsername), blockRecord, { merge: true });
+          }
+        } else {
+          // Engeli Kaldır
+          if (cleanEmail) {
+            try { await deleteDoc(doc(db, "blocked_accounts", cleanEmail)); } catch (_) {}
+            try { await deleteDoc(doc(db, "blocked_accounts", cleanEmail.replace(/\./g, "_"))); } catch (_) {}
+          }
+          if (cleanUsername) {
+            try { await deleteDoc(doc(db, "blocked_accounts", cleanUsername)); } catch (_) {}
+          }
+        }
+
+        alert(`✅ '${targetName}' hesabı ${newBlockState ? "engellendi ve tüm oturumları kapatıldı." : "engeli kaldırıldı."}`);
       } catch (err) {
         console.error("Engelleme hatası:", err);
+        alert("Engelleme işlemi sırasında hata oluştu: " + err.message);
       }
     };
 
@@ -3491,10 +3576,68 @@
       });
     };
 
-    // 7. Üye Silme (Android deleteUserManually İle Birebir)
+    // 7. Üye Silme (Android deleteUserManually İle Birebir & Hem Web Hem Telefondan Anında Oturum Kapatır)
     window.deleteMember = async function(userId, name, email) {
-      if (confirm(`'${name}' (${email}) adlı personeli sistemden silmek istediğinizden emin misiniz?`)) {
-        await deleteDoc(doc(db, "users", userId));
+      const targetUser = (window.allUsers || []).find(u => u.id === userId || u.userId === userId);
+      const cleanEmail = (email || targetUser?.email || "").trim().toLowerCase();
+      const cleanUsername = (targetUser?.username || "").trim().toLowerCase();
+      const displayName = name || targetUser?.displayName || targetUser?.username || "Personel";
+
+      if (cleanEmail === "usluozaykagan@gmail.com" || cleanUsername === "usluozaykagan") {
+        alert("Ana yönetici hesabı sistemden silinemez!");
+        return;
+      }
+
+      if (!confirm(`'${displayName}' (${cleanEmail || cleanUsername}) adlı personeli sistemden silmek istediğinizden emin misiniz?\n\n(Bu işlem personelin hem web'deki hem de telefondaki açık oturumunu ANINDA sonlandıracaktır)`)) {
+        return;
+      }
+
+      try {
+        // 1. blocked_accounts koleksiyonuna silinme kaydı yaz (Tüm açık web ve mobil oturumları anında atar)
+        const delRecord = {
+          email: cleanEmail,
+          username: cleanUsername,
+          displayName: displayName,
+          isDeleted: true,
+          isBlocked: true,
+          deletedAt: Date.now()
+        };
+        if (cleanEmail) {
+          await setDoc(doc(db, "blocked_accounts", cleanEmail), delRecord, { merge: true });
+          await setDoc(doc(db, "blocked_accounts", cleanEmail.replace(/\./g, "_")), delRecord, { merge: true });
+        }
+        if (cleanUsername) {
+          await setDoc(doc(db, "blocked_accounts", cleanUsername), delRecord, { merge: true });
+        }
+
+        // 2. Ana kullanıcı belgesini sil
+        try {
+          await deleteDoc(doc(db, "users", userId));
+        } catch (_) {}
+
+        // 3. E-posta veya kullanıcı adı ile eşleşen diğer kopyaları da sil
+        if (cleanEmail || cleanUsername) {
+          const snap = await getDocs(collection(db, "users"));
+          const deletePromises = [];
+          snap.forEach(d => {
+            const dEmail = (d.data().email || "").trim().toLowerCase();
+            const dUser = (d.data().username || "").trim().toLowerCase();
+            const dId = d.id;
+            if ((cleanEmail && dEmail === cleanEmail) || 
+                (cleanUsername && dUser === cleanUsername) || 
+                dId === userId) {
+              deletePromises.push(deleteDoc(doc(db, "users", dId)));
+            }
+          });
+          if (deletePromises.length > 0) {
+            await Promise.all(deletePromises);
+          }
+        }
+
+        alert(`✅ '${displayName}' personeli sistemden silindi ve tüm açık oturumları sonlandırıldı.`);
+      } catch (err) {
+        console.error("Üye silme hatası:", err);
+        alert("Üye silinirken bir hata oluştu: " + err.message);
       }
     };
 
@@ -4117,6 +4260,87 @@
         lucide.createIcons();
       }
     };
+
+    // Oturum Geçerliliği ve Anlık Engelleme/Silme Kontrolü (Web'de Oturum Açan Üyeyi Otomatik Atma)
+    window.checkCurrentSessionValidity = function() {
+      if (!window.currentUser) return;
+
+      const currentEmail = (window.currentUser.email || "").trim().toLowerCase();
+      const currentUsername = (window.currentUser.username || "").trim().toLowerCase();
+      const currentUserId = (window.currentUser.userId || window.currentUser.id || "").trim();
+
+      // Ana yönetici (Özay Kağan Uslu) asla engellenemez veya silinemez
+      if (currentEmail === "usluozaykagan@gmail.com" || currentUsername === "usluozaykagan") {
+        return;
+      }
+
+      // 1. Engellenen hesaplar listesinde var mı? (Telefondan ya da web'den engellendiyse)
+      const isBlockedInList = (window.blockedAccounts || []).some(b => {
+        const bEmail = (b.email || b.id || "").trim().toLowerCase();
+        const bUser = (b.username || "").trim().toLowerCase();
+        const bId = (b.id || "").trim().toLowerCase();
+        return (currentEmail && (bEmail === currentEmail || bEmail === currentEmail.replace(/\./g, "_") || bId === currentEmail || bId === currentEmail.replace(/\./g, "_"))) ||
+               (currentUsername && (bUser === currentUsername || bEmail === currentUsername || bId === currentUsername));
+      });
+
+      // 2. Aktif kullanıcılar listesinde var mı ve durumu nedir?
+      const matchingUserInDb = (window.allUsers || []).find(u => {
+        const uEmail = (u.email || "").trim().toLowerCase();
+        const uUser = (u.username || "").trim().toLowerCase();
+        const uId = (u.userId || u.id || "").trim();
+        return (currentUserId && uId === currentUserId) ||
+               (currentEmail && uEmail === currentEmail) ||
+               (currentUsername && uUser === currentUsername);
+      });
+
+      // Durum Kontrolü A: Hesap engellendiyse
+      if (isBlockedInList || (matchingUserInDb && matchingUserInDb.isBlocked === true)) {
+        console.warn("Kullanıcı engellendi, oturum anında kapatılıyor:", currentEmail, currentUsername);
+        window.forceLogoutDueToStatus("blocked", "Hesabınız yönetici tarafından engellenmiştir. Oturumunuz otomatik olarak sonlandırıldı.");
+        return;
+      }
+
+      // Durum Kontrolü B: Hesap sistemden silindiyse
+      if (window.hasUsersLoadedOnce && (window.allUsers || []).length > 0) {
+        if (!matchingUserInDb || matchingUserInDb.isDeleted === true) {
+          console.warn("Kullanıcı sistemden silindi, oturum anında kapatılıyor:", currentEmail, currentUsername);
+          window.forceLogoutDueToStatus("deleted", "Hesabınız yönetici tarafından sistemden silinmiştir. Oturumunuz otomatik olarak sonlandırıldı.");
+          return;
+        }
+      }
+    };
+
+    // Zorunlu Oturum Kapatma (Engellenen/Silinen Üyeyi Anında Giriş Ekranına Fırlatma)
+    window.forceLogoutDueToStatus = function(reason, message) {
+      if (!window.currentUser && document.getElementById("mainApp").classList.contains("hidden")) {
+        return;
+      }
+      console.warn("Zorunlu çıkış yapılıyor:", reason, message);
+      localStorage.removeItem("tekinak_session");
+      sessionStorage.removeItem("tekinak_session");
+      window.currentUser = null;
+
+      document.getElementById("mainApp").classList.add("hidden");
+      document.getElementById("authContainer").classList.remove("hidden");
+      const pInput = document.getElementById("authPassword");
+      if (pInput) pInput.value = "";
+
+      const defaultMsg = reason === "blocked"
+        ? "Hesabınız yönetici tarafından engellenmiştir. Sisteme giriş yetkiniz bulunmamaktadır."
+        : "Hesabınız yönetici tarafından sistemden silinmiştir. Oturumunuz sonlandırıldı.";
+
+      const finalMsg = message || defaultMsg;
+      showAuthError(finalMsg);
+      alert("⚠️ " + finalMsg);
+      lucide.createIcons();
+    };
+
+    // Periyodik Güvenlik Kontrolü (Snapshot gecikmelerine karşı her 2.5 saniyede bir çalışır)
+    setInterval(() => {
+      if (window.currentUser) {
+        window.checkCurrentSessionValidity();
+      }
+    }, 2500);
 
     // Oturum Kontrolü ve Başlatma (Sayfa Açıldığında)
     function initAuthSession() {
