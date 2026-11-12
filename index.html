@@ -331,10 +331,10 @@
             </p>
           </div>
           <div class="flex flex-wrap items-center gap-2">
-            <button onclick="openNewFaultModal()" class="px-4 py-2.5 bg-amber-500 hover:bg-amber-400 text-blue-950 font-bold rounded-xl text-xs flex items-center gap-1.5 shadow transition">
+            <button id="dashBtnNewFault" onclick="openNewFaultModal()" class="btn-create-fault px-4 py-2.5 bg-amber-500 hover:bg-amber-400 text-blue-950 font-bold rounded-xl text-xs flex items-center gap-1.5 shadow transition">
               <i data-lucide="plus-circle" class="w-4 h-4"></i> Yeni Arıza Bildir
             </button>
-            <button onclick="openNewWoModal()" class="px-4 py-2.5 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl text-xs flex items-center gap-1.5 transition">
+            <button id="dashBtnNewWo" onclick="openNewWoModal()" class="btn-create-wo px-4 py-2.5 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl text-xs flex items-center gap-1.5 transition">
               <i data-lucide="wrench" class="w-4 h-4"></i> İş Emri Başlat
             </button>
             <button onclick="toggleChatDrawer()" class="px-3.5 py-2.5 bg-blue-700/60 hover:bg-blue-700 text-white font-semibold rounded-xl text-xs flex items-center gap-1.5 transition">
@@ -401,7 +401,7 @@
             <h3 class="font-bold text-sm text-slate-800 flex items-center gap-2">
               <i data-lucide="alert-triangle" class="w-4 h-4 text-rose-500"></i> Son Arıza Kayıtları
             </h3>
-            <button onclick="switchTab('faults')" class="text-xs text-blue-700 hover:underline font-bold">Tümünü Gör</button>
+            <button id="dashSeeAllFaultsBtn" onclick="switchTab('faults')" class="text-xs text-blue-700 hover:underline font-bold">Tümünü Gör</button>
           </div>
           <div class="overflow-x-auto">
             <table class="w-full text-left text-xs">
@@ -426,7 +426,7 @@
             <h3 class="font-bold text-sm text-slate-800 flex items-center gap-2">
               <i data-lucide="wrench" class="w-4 h-4 text-amber-500"></i> Güncel İş Emirleri
             </h3>
-            <button onclick="switchTab('workOrders')" class="text-xs text-blue-700 hover:underline font-bold">Tümünü Gör</button>
+            <button id="dashSeeAllWoBtn" onclick="switchTab('workOrders')" class="text-xs text-blue-700 hover:underline font-bold">Tümünü Gör</button>
           </div>
           <div class="overflow-x-auto">
             <table class="w-full text-left text-xs">
@@ -472,7 +472,7 @@
             <option value="Çözüldü">Çözüldü</option>
           </select>
         </div>
-        <button onclick="openNewFaultModal()" class="px-4 py-2 bg-[#1E3A8A] hover:bg-blue-800 text-white font-bold rounded-lg text-xs flex items-center justify-center gap-1.5 shadow transition">
+        <button onclick="openNewFaultModal()" class="btn-create-fault px-4 py-2 bg-[#1E3A8A] hover:bg-blue-800 text-white font-bold rounded-lg text-xs flex items-center justify-center gap-1.5 shadow transition">
           <i data-lucide="plus" class="w-4 h-4"></i> Yeni Arıza Bildir
         </button>
       </div>
@@ -499,7 +499,7 @@
             <option value="Tamamlandı">Tamamlandı</option>
           </select>
         </div>
-        <button onclick="openNewWoModal()" class="px-4 py-2 bg-amber-600 hover:bg-amber-500 text-white font-bold rounded-lg text-xs flex items-center justify-center gap-1.5 shadow transition">
+        <button onclick="openNewWoModal()" class="btn-create-wo px-4 py-2 bg-amber-600 hover:bg-amber-500 text-white font-bold rounded-lg text-xs flex items-center justify-center gap-1.5 shadow transition">
           <i data-lucide="plus" class="w-4 h-4"></i> Yeni İş Emri Aç
         </button>
       </div>
@@ -1152,6 +1152,14 @@
         <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 space-y-2">
           <label class="block font-bold text-slate-800 text-[11px] mb-1">Yetki ve İzin Matrisi</label>
           <label class="flex items-center gap-2 text-slate-700 cursor-pointer">
+            <input type="checkbox" id="adminPermFault" checked class="w-4 h-4 rounded text-[#1E3A8A]">
+            <span>⚠️ Yeni Arıza Bildirebilir</span>
+          </label>
+          <label class="flex items-center gap-2 text-slate-700 cursor-pointer">
+            <input type="checkbox" id="adminPermWo" checked class="w-4 h-4 rounded text-[#1E3A8A]">
+            <span>🔧 Yeni İş Emri Açabilir / Başlatabilir</span>
+          </label>
+          <label class="flex items-center gap-2 text-slate-700 cursor-pointer">
             <input type="checkbox" id="adminPermExcel" checked class="w-4 h-4 rounded text-[#1E3A8A]">
             <span>📊 Excel ve CSV Rapor Çıktısı Alabilir</span>
           </label>
@@ -1281,6 +1289,14 @@
         <!-- Yetki İzinleri -->
         <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 space-y-2">
           <label class="block font-bold text-slate-800 text-[11px] mb-1">Özel Yetkiler</label>
+          <label class="flex items-center gap-2 text-slate-700 cursor-pointer">
+            <input type="checkbox" id="editPermCanFault" class="w-4 h-4 rounded text-[#1E3A8A]">
+            <span>⚠️ Yeni Arıza Bildirebilir</span>
+          </label>
+          <label class="flex items-center gap-2 text-slate-700 cursor-pointer">
+            <input type="checkbox" id="editPermCanWo" class="w-4 h-4 rounded text-[#1E3A8A]">
+            <span>🔧 Yeni İş Emri Açabilir / Başlatabilir</span>
+          </label>
           <label class="flex items-center gap-2 text-slate-700 cursor-pointer">
             <input type="checkbox" id="editPermCanExcel" class="w-4 h-4 rounded text-[#1E3A8A]">
             <span>📊 Excel Rapor İndirme</span>
@@ -1483,7 +1499,29 @@
     window.currentUser = null;
     let isRealtimeSyncStarted = false;
 
-    // Top Bar Kullanıcı Bilgilerini Güncelle
+    // Kullanıcının Yeni Arıza Bildirme Yetkisi Kontrolü
+    window.canUserCreateFault = function(u) {
+      if (!u) return false;
+      const isMaster = u.email === "usluozaykagan@gmail.com" || u.username === "usluozaykagan";
+      if (isMaster || u.role === "ADMIN") return true;
+      if (u.role === "OBSERVER") return false;
+      if (u.canCreateFault === false) return false;
+      const tabs = Array.isArray(u.allowedTabs) ? u.allowedTabs : ["fault_reports", "work_orders", "schedule", "analytics", "members"];
+      return tabs.includes("fault_reports");
+    };
+
+    // Kullanıcının Yeni İş Emri Başlatma Yetkisi Kontrolü
+    window.canUserCreateWorkOrder = function(u) {
+      if (!u) return false;
+      const isMaster = u.email === "usluozaykagan@gmail.com" || u.username === "usluozaykagan";
+      if (isMaster || u.role === "ADMIN") return true;
+      if (u.role === "OBSERVER") return false;
+      if (u.canCreateWorkOrder === false) return false;
+      const tabs = Array.isArray(u.allowedTabs) ? u.allowedTabs : ["fault_reports", "work_orders", "schedule", "analytics", "members"];
+      return tabs.includes("work_orders");
+    };
+
+    // Top Bar ve Sayfa Genel Yetki Bilgilerini Güncelle
     window.updateTopBarUser = function(u) {
       if (!u) return;
       const name = u.displayName || u.username || "Kullanıcı";
@@ -1535,6 +1573,45 @@
       setTabVisibility("nav-analytics", isAdmin || userTabs.includes("analytics"));
       setTabVisibility("nav-members", isAdmin || userTabs.includes("members"));
       setTabVisibility("nav-team", isAdmin || userTabs.includes("team"));
+
+      // ⚠️ Arıza Bildirme ve 🔧 İş Emri Başlatma Yetki Kontrolleri (Genel Bakış Sütunundaki Butonlar)
+      const canFault = window.canUserCreateFault(u);
+      const canWo = window.canUserCreateWorkOrder(u);
+
+      const btnDashFault = document.getElementById("dashBtnNewFault");
+      if (btnDashFault) {
+        if (canFault) btnDashFault.classList.remove("hidden");
+        else btnDashFault.classList.add("hidden");
+      }
+
+      const btnDashWo = document.getElementById("dashBtnNewWo");
+      if (btnDashWo) {
+        if (canWo) btnDashWo.classList.remove("hidden");
+        else btnDashWo.classList.add("hidden");
+      }
+
+      // Tüm sayfalardaki arıza ve iş emri açma butonları
+      document.querySelectorAll(".btn-create-fault").forEach(btn => {
+        if (canFault) btn.classList.remove("hidden");
+        else btn.classList.add("hidden");
+      });
+
+      document.querySelectorAll(".btn-create-wo").forEach(btn => {
+        if (canWo) btn.classList.remove("hidden");
+        else btn.classList.add("hidden");
+      });
+
+      const dashSeeFaults = document.getElementById("dashSeeAllFaultsBtn");
+      if (dashSeeFaults) {
+        if (isAdmin || userTabs.includes("fault_reports")) dashSeeFaults.classList.remove("hidden");
+        else dashSeeFaults.classList.add("hidden");
+      }
+
+      const dashSeeWo = document.getElementById("dashSeeAllWoBtn");
+      if (dashSeeWo) {
+        if (isAdmin || userTabs.includes("work_orders")) dashSeeWo.classList.remove("hidden");
+        else dashSeeWo.classList.add("hidden");
+      }
 
       // 📊 Özel Excel İndirme Yetkisi Kontrolü (Yetkisi olmayan personelde butonlar tamamen gizlenir)
       const canExcel = isMaster || (u.canExportExcel === true);
@@ -2112,6 +2189,8 @@
             window.currentUser.role = updatedMe.role;
             window.currentUser.department = updatedMe.department;
             window.currentUser.allowedTabs = updatedMe.allowedTabs || [];
+            window.currentUser.canCreateFault = updatedMe.canCreateFault;
+            window.currentUser.canCreateWorkOrder = updatedMe.canCreateWorkOrder;
             window.currentUser.canExportExcel = updatedMe.canExportExcel;
             window.currentUser.canManageSchedules = updatedMe.canManageSchedules;
             window.currentUser.canViewChat = updatedMe.canViewChat;
@@ -2874,6 +2953,8 @@
           updatedAtMillis: getDocTime(u),
           canExportExcel: isMaster || (u.canExportExcel === true),
           canManageSchedules: isMaster || (u.canManageSchedules === true),
+          canCreateFault: isMaster || (u.canCreateFault !== false),
+          canCreateWorkOrder: isMaster || (u.canCreateWorkOrder !== false),
           canViewChat: isMaster || (u.canViewChat !== false),
           canSendChat: isMaster || (u.canSendChat !== false),
           canDeleteAnyMessage: isMaster || (u.canDeleteAnyMessage === true),
@@ -2908,6 +2989,8 @@
             isHidden: newer.isHidden !== undefined ? newer.isHidden : older.isHidden,
             isBlocked: !!(newer.isBlocked || older.isBlocked),
             isDeleted: !!(newer.isDeleted || older.isDeleted),
+            canCreateFault: isMaster || (newer.canCreateFault !== undefined ? (newer.canCreateFault === true) : (older.canCreateFault !== false)),
+            canCreateWorkOrder: isMaster || (newer.canCreateWorkOrder !== undefined ? (newer.canCreateWorkOrder === true) : (older.canCreateWorkOrder !== false)),
             canExportExcel: isMaster || (newer.canExportExcel !== undefined ? (newer.canExportExcel === true) : (older.canExportExcel === true)),
             canManageSchedules: isMaster || (newer.canManageSchedules !== undefined ? (newer.canManageSchedules === true) : (older.canManageSchedules === true)),
             canViewChat: isMaster || (newer.canViewChat !== undefined ? newer.canViewChat : older.canViewChat),
@@ -3191,6 +3274,12 @@
               <div class="mt-3 pt-2 border-t border-slate-100">
                 <div class="text-[10px] font-bold text-slate-500 mb-1.5">Yetkiler:</div>
                 <div class="flex flex-wrap gap-1 text-[10px]">
+                  <span class="px-2 py-0.5 rounded font-semibold border ${window.canUserCreateFault(u) ? 'bg-amber-50 text-amber-800 border-amber-200' : 'bg-slate-100 text-slate-400 border-slate-200'}">
+                    ⚠️ Arıza Bildir: ${window.canUserCreateFault(u) ? 'Açık' : 'Kapalı'}
+                  </span>
+                  <span class="px-2 py-0.5 rounded font-semibold border ${window.canUserCreateWorkOrder(u) ? 'bg-blue-50 text-blue-800 border-blue-200' : 'bg-slate-100 text-slate-400 border-slate-200'}">
+                    🔧 İş Emri Aç: ${window.canUserCreateWorkOrder(u) ? 'Açık' : 'Kapalı'}
+                  </span>
                   <span class="px-2 py-0.5 rounded font-semibold border ${u.canExportExcel !== false ? 'bg-emerald-50 text-emerald-700 border-emerald-200' : 'bg-slate-100 text-slate-400 border-slate-200'}">
                     📊 Excel: ${u.canExportExcel !== false ? 'Açık' : 'Kapalı'}
                   </span>
@@ -3401,6 +3490,8 @@
       const role = document.getElementById("adminNewRole").value;
       const phone = document.getElementById("adminNewPhone").value.trim();
 
+      const canFault = document.getElementById("adminPermFault").checked;
+      const canWo = document.getElementById("adminPermWo").checked;
       const canExcel = document.getElementById("adminPermExcel").checked;
       const canSchedules = document.getElementById("adminPermSchedules").checked;
       const canChat = document.getElementById("adminPermChat").checked;
@@ -3443,6 +3534,8 @@
           department: dept,
           role: role,
           phoneNumber: phone,
+          canCreateFault: canFault,
+          canCreateWorkOrder: canWo,
           canExportExcel: canExcel,
           canManageSchedules: canSchedules,
           canViewChat: canChat,
@@ -3498,6 +3591,8 @@
       document.getElementById("editPermTabMembers").checked = isAdm || tabs.includes("members");
 
       // Özel İzinler
+      document.getElementById("editPermCanFault").checked = user.canCreateFault !== false;
+      document.getElementById("editPermCanWo").checked = user.canCreateWorkOrder !== false;
       document.getElementById("editPermCanExcel").checked = user.canExportExcel !== false;
       document.getElementById("editPermCanSchedules").checked = user.canManageSchedules !== false;
       document.getElementById("editPermCanChat").checked = user.canViewChat !== false;
@@ -3519,6 +3614,8 @@
       const newDept = document.getElementById("editPermDept").value;
       const newPassword = document.getElementById("editPermPassword").value.trim();
 
+      const canFault = document.getElementById("editPermCanFault").checked;
+      const canWo = document.getElementById("editPermCanWo").checked;
       const canExcel = document.getElementById("editPermCanExcel").checked;
       const canSchedules = document.getElementById("editPermCanSchedules").checked;
       const canChat = document.getElementById("editPermCanChat").checked;
@@ -3538,6 +3635,8 @@
         role: newRole,
         department: newDept,
         allowedTabs: updatedTabs,
+        canCreateFault: canFault,
+        canCreateWorkOrder: canWo,
         canExportExcel: canExcel,
         canManageSchedules: canSchedules,
         canViewChat: canChat,
@@ -3584,6 +3683,8 @@
           targetUser.department = newDept;
           if (newPassword) targetUser.password = newPassword;
           targetUser.allowedTabs = updatedTabs;
+          targetUser.canCreateFault = canFault;
+          targetUser.canCreateWorkOrder = canWo;
           targetUser.canExportExcel = canExcel;
           targetUser.canManageSchedules = canSchedules;
           targetUser.canViewChat = canChat;
@@ -3602,6 +3703,8 @@
           window.currentUser.role = newRole;
           window.currentUser.department = newDept;
           window.currentUser.allowedTabs = updatedTabs;
+          window.currentUser.canCreateFault = canFault;
+          window.currentUser.canCreateWorkOrder = canWo;
           window.currentUser.canExportExcel = canExcel;
           window.currentUser.canManageSchedules = canSchedules;
           window.currentUser.canViewChat = canChat;
@@ -3650,6 +3753,10 @@
 
     // 1. Yeni Arıza Kaydet
     window.saveNewFault = async function() {
+      if (!window.canUserCreateFault(window.currentUser)) {
+        alert("⚠️ Yeni arıza bildirme yetkiniz bulunmamaktadır. Lütfen sistem yöneticisi ile iletişime geçiniz.");
+        return;
+      }
       const machine = document.getElementById("fMachine").value.trim();
       const dept = document.getElementById("fDept").value;
       const priority = document.getElementById("fPriority").value;
@@ -3705,6 +3812,10 @@
 
     // 2. Yeni İş Emri Kaydet
     window.saveNewWo = async function() {
+      if (!window.canUserCreateWorkOrder(window.currentUser)) {
+        alert("⚠️ Yeni iş emri başlatma yetkiniz bulunmamaktadır. Lütfen sistem yöneticisi ile iletişime geçiniz.");
+        return;
+      }
       const title = document.getElementById("woTitle").value.trim();
       const machine = document.getElementById("woMachine").value.trim();
       const assignedVal = document.getElementById("woAssigned").value;
@@ -3881,6 +3992,10 @@
 
     // 5. Arızayı İş Emrine Dönüştür
     window.convertToWo = async function(faultId) {
+      if (!window.canUserCreateWorkOrder(window.currentUser)) {
+        alert("⚠️ Arızayı iş emrine dönüştürme (yeni iş emri başlatma) yetkiniz bulunmamaktadır.");
+        return;
+      }
       const f = window.allFaults.find(item => item.id === faultId);
       if (!f) return;
       document.getElementById("woTitle").value = "Onarım: " + (f.machineName || "Ekipman");
@@ -4504,8 +4619,19 @@
     };
 
     // Modal Fonksiyonları
-    window.openNewFaultModal = () => document.getElementById("modalNewFault").classList.remove("hidden");
+    window.openNewFaultModal = () => {
+      if (!window.canUserCreateFault(window.currentUser)) {
+        alert("⚠️ Arıza bildirme yetkiniz bulunmamaktadır. Lütfen sistem yöneticisi ile iletişime geçiniz.");
+        return;
+      }
+      document.getElementById("modalNewFault").classList.remove("hidden");
+    };
+
     window.openNewWoModal = function() {
+      if (!window.canUserCreateWorkOrder(window.currentUser)) {
+        alert("⚠️ İş emri başlatma yetkiniz bulunmamaktadır. Lütfen sistem yöneticisi ile iletişime geçiniz.");
+        return;
+      }
       const select = document.getElementById("woAssigned");
       if (select && window.allUsers) {
         select.innerHTML = '<option value="">-- Personel Seçiniz (Telefona Bildirim Gider) --</option>' +
