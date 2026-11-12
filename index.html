@@ -1413,16 +1413,23 @@
           <textarea id="verFormChangelog" rows="3" class="w-full px-3 py-2 border rounded-xl text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Personel yetkilendirmesi güncellendi&#10;Arıza bildirim hızı artırıldı"></textarea>
         </div>
 
-        <div class="p-3 bg-amber-50 border border-amber-200 rounded-xl text-amber-900 text-[11px] leading-relaxed">
-          ⚡ <b>Anlık Canlı Tetikleme:</b> Bu formu kaydettiğinizde Firebase Firestore'daki <code>app_version/current</code> dokümanı güncellenir. Sahadaki tüm fabrika personellerinin telefonlarında <b>anında güncelleme bildirimi ve popup penceresi</b> açılır. Uygulaması zaten güncel olan telefonlarda popup asla görünmez.
+        <div class="p-3 bg-amber-50 border border-amber-200 rounded-xl text-amber-900 text-[11px] leading-relaxed space-y-1">
+          <div>⚡ <b>Canlı Sürüm Tetikleme Uyarısı:</b> Sürüm kodunu (Build Code) <u>yalnızca yeni bir APK derleyip GitHub'a yüklediğinizde</u> artırınız.</div>
+          <div class="text-amber-800 font-medium">Telefonda yüklü APK kodundan büyük bir sayı yazarsanız, telefonlar sürekli "Yeni güncelleme var" uyarısı verir.</div>
         </div>
 
-        <div class="flex justify-end gap-2 pt-2 border-t">
-          <button type="button" onclick="closeModal('modalAppVersion')" class="px-4 py-2 border rounded-xl font-semibold text-slate-600 hover:bg-slate-50">Kapat</button>
-          <button type="submit" id="btnPublishVersion" class="px-5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold shadow flex items-center gap-1.5">
-            <i data-lucide="upload-cloud" class="w-4 h-4"></i>
-            <span>Firebase'e Yayınla</span>
+        <div class="flex items-center justify-between gap-2 pt-2 border-t">
+          <button type="button" onclick="syncWithDeployedApk()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs rounded-xl font-bold border border-slate-300 flex items-center gap-1.5" title="Firebase'i şu an dağıtılan v1.2.1 (Kod: 4) APK ile eşitler ve güncellenen telefonlardaki popup'ı kapatır">
+            <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-blue-600"></i>
+            <span>Mevcut APK ile Eşitle (v1.2.1 - Kod: 4)</span>
           </button>
+          <div class="flex gap-2">
+            <button type="button" onclick="closeModal('modalAppVersion')" class="px-4 py-2 border rounded-xl font-semibold text-slate-600 hover:bg-slate-50">Kapat</button>
+            <button type="submit" id="btnPublishVersion" class="px-5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold shadow flex items-center gap-1.5">
+              <i data-lucide="upload-cloud" class="w-4 h-4"></i>
+              <span>Firebase'e Yayınla</span>
+            </button>
+          </div>
         </div>
       </form>
     </div>
@@ -4623,6 +4630,34 @@
       } finally {
         btn.disabled = false;
         btn.innerHTML = oldHtml;
+      }
+    };
+
+    window.syncWithDeployedApk = async function() {
+      try {
+        const payload = {
+          versionCode: 4,
+          versionName: "1.2.1",
+          releaseTag: "v1.2.1",
+          releaseDate: new Date().toISOString().slice(0, 10),
+          apkUrl: "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
+          fallbackUrl: "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
+          title: "Tekinak CMMS v1.2.1",
+          changelog: [
+            "Personel yeniden kayıt ve silinen kullanıcı e-posta çakışması (auth/email-already-in-use) çözüldü.",
+            "Web portalı ve mobil uygulama anlık şifre ve rol senkronizasyonu güncellendi.",
+            "Firebase Firestore üzerinden otomatik sürüm kontrolü ve canlı güncelleme bildirimi devrede."
+          ],
+          forceUpdate: false,
+          updatedAtMillis: Date.now()
+        };
+        await setDoc(doc(db, "app_version", "current"), payload);
+        window.currentAppVersion = payload;
+        renderAppVersionBadge();
+        closeModal("modalAppVersion");
+        alert("✅ Başarılı! Firebase sürümü şu an dağıtılan v1.2.1 (Kod: 4) ile eşitlendi.\n\nGüncellenen telefonlardaki popup penceresi anında kalktı.");
+      } catch (err) {
+        alert("Eşitleme hatası: " + err.message);
       }
     };
 
