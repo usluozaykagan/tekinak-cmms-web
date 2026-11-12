@@ -1,15 +1,15 @@
 {
-  "versionCode": 4,
-  "versionName": "1.2.1",
-  "releaseTag": "v1.2.1",
+  "versionCode": 6,
+  "versionName": "1.2.4",
+  "releaseTag": "v1.2.4",
   "releaseDate": "2026-11-12",
   "apkUrl": "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
   "fallbackUrl": "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-  "title": "Yeni Sürüm Mevcut (v1.2.1)",
+  "title": "Yeni Sürüm Mevcut (v1.2.4)",
   "changelog": [
-    "Personel yeniden kayıt ve silinen kullanıcı e-posta çakışması (auth/email-already-in-use) çözüldü.",
-    "Web portalı ve mobil uygulama anlık şifre ve rol senkronizasyonu güncellendi.",
-    "Firebase Firestore üzerinden otomatik sürüm kontrolü ve canlı güncelleme bildirimi devrede."
+    "Üyeler listesine telefon numaraları ve doğrudan arama butonu eklendi.",
+    "Excel dışa aktarma yetkileri ve gizlilik kontrolleri tamamlandı.",
+    "Firebase Firestore üzerinden otomatik sürüm kontrolü ve canlı güncelleme devrede."
   ],
   "forceUpdate": false
 }
