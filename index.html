@@ -2975,9 +2975,19 @@
         return;
       }
 
+      const isViewerAdmin = window.currentUser && (
+        window.currentUser.email === "usluozaykagan@gmail.com" || 
+        window.currentUser.username === "usluozaykagan" || 
+        window.currentUser.role === "ADMIN"
+      );
+
       container.innerHTML = filtered.map(u => {
         const isMaster = u.email === "usluozaykagan@gmail.com" || u.username === "usluozaykagan";
-        const isCurrent = isMaster || (window.currentUser && (u.email === window.currentUser.email || u.username === window.currentUser.username));
+        const isCurrent = window.currentUser && (
+          (u.email && window.currentUser.email && u.email.toLowerCase() === window.currentUser.email.toLowerCase()) || 
+          (u.username && window.currentUser.username && u.username.toLowerCase() === window.currentUser.username.toLowerCase()) ||
+          (u.id && (u.id === window.currentUser.userId || u.id === window.currentUser.id))
+        );
         const cleanName = (u.displayName || u.username || "Personel").trim();
         const initials = cleanName.split(' ').map(n => n[0]).filter(Boolean).slice(0, 2).join('').toUpperCase() || "Ü";
         const role = u.role || "OPERATOR";
@@ -3035,24 +3045,49 @@
               </div>
             </div>
 
-            <!-- 3. Satır: Yönetici Aksiyonları -->
+            <!-- 3. Satır: Yönetici Aksiyonları veya Kullanıcı Durumu -->
             <div class="mt-3.5 pt-2.5 border-t border-slate-100 flex items-center justify-between text-xs">
-              ${(!isMaster && !isCurrent) ? `
-                <div class="flex items-center gap-1.5">
-                  <span class="text-[11px] font-semibold text-slate-600">Gizlilik:</span>
-                  <button onclick="toggleUserVisibility('${u.id}', ${!u.isHidden})" class="px-2 py-1 rounded text-[10px] font-bold border transition ${u.isHidden ? 'bg-rose-50 text-rose-700 border-rose-200' : 'bg-slate-100 text-slate-700 border-slate-200'}">
-                    ${u.isHidden ? 'Gizli' : 'Görünür'}
+              ${isViewerAdmin ? `
+                ${(!isMaster && !isCurrent) ? `
+                  <div class="flex items-center gap-1.5">
+                    <span class="text-[11px] font-semibold text-slate-600">Gizlilik:</span>
+                    <button onclick="toggleUserVisibility('${u.id}', ${!u.isHidden})" class="px-2 py-1 rounded text-[10px] font-bold border transition ${u.isHidden ? 'bg-rose-50 text-rose-700 border-rose-200' : 'bg-slate-100 text-slate-700 border-slate-200'}">
+                      ${u.isHidden ? 'Gizli' : 'Görünür'}
+                    </button>
+                  </div>
+                  <button onclick="deleteMember('${u.id}', '${cleanName}', '${u.email}')" class="px-2.5 py-1 bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold rounded-lg text-[10px] border border-rose-200 transition">
+                    🗑️ Sil
                   </button>
-                </div>
-                <button onclick="deleteMember('${u.id}', '${cleanName}', '${u.email}')" class="px-2.5 py-1 bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold rounded-lg text-[10px] border border-rose-200 transition">
-                  🗑️ Sil
-                </button>
+                ` : `
+                  <div class="flex items-center gap-1 text-[11px] font-bold ${isMaster ? 'text-amber-700' : 'text-blue-700'}">
+                    <i data-lucide="${isMaster ? 'shield' : 'user-check'}" class="w-3.5 h-3.5 ${isMaster ? 'text-amber-600' : 'text-blue-600'}"></i>
+                    <span>${isMaster ? 'Ana Sistem Yöneticisi' : 'Siz (Aktif Oturum)'}</span>
+                  </div>
+                  <span class="text-[10px] font-bold ${isMaster ? 'text-amber-800 bg-amber-100 border-amber-200' : 'text-blue-800 bg-blue-100 border-blue-200'} px-2 py-0.5 rounded border">
+                    ${isMaster ? '👑 Ana Yönetici' : '👤 Siz'}
+                  </span>
+                `}
               ` : `
-                <div class="flex items-center gap-1 text-[11px] font-bold text-amber-700">
-                  <i data-lucide="shield" class="w-3.5 h-3.5 text-amber-600"></i>
-                  <span>${isMaster ? 'Ana Sistem Yöneticisi' : 'Aktif Oturum'}</span>
-                </div>
-                <span class="text-[10px] font-bold text-amber-800 bg-amber-100 px-2 py-0.5 rounded border border-amber-200">🛡️ Korumalı</span>
+                <!-- Normal Personel Görünümü (Silme / Gizleme Butonları KESİNLİKLE GÖRÜNMEZ) -->
+                ${isCurrent ? `
+                  <div class="flex items-center gap-1 text-[11px] font-bold text-blue-700">
+                    <i data-lucide="user-check" class="w-3.5 h-3.5 text-blue-600"></i>
+                    <span>Siz (Mevcut Oturum)</span>
+                  </div>
+                  <span class="text-[10px] font-bold text-blue-800 bg-blue-100 px-2 py-0.5 rounded border border-blue-200">👤 Siz</span>
+                ` : isMaster ? `
+                  <div class="flex items-center gap-1 text-[11px] font-bold text-amber-700">
+                    <i data-lucide="shield" class="w-3.5 h-3.5 text-amber-600"></i>
+                    <span>Ana Sistem Yöneticisi</span>
+                  </div>
+                  <span class="text-[10px] font-bold text-amber-800 bg-amber-100 px-2 py-0.5 rounded border border-amber-200">👑 Yönetici</span>
+                ` : `
+                  <div class="flex items-center gap-1 text-[11px] text-slate-500">
+                    <i data-lucide="user" class="w-3.5 h-3.5 text-slate-400"></i>
+                    <span>Kayıtlı Personel</span>
+                  </div>
+                  <span class="text-[10px] text-slate-500 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">${u.department || 'Fabrika'}</span>
+                `}
               `}
             </div>
           </div>
@@ -3840,15 +3875,34 @@
       openNewWoModal();
     };
 
-    // 6. Üye Gizleme / Açma (Android MemberCard Toggle İle Birebir)
+    // 6. Üye Gizleme / Açma (Sadece Sistem Yöneticisi Yapabilir)
     window.toggleUserVisibility = async function(userId, newHiddenState) {
+      const isViewerAdmin = window.currentUser && (
+        window.currentUser.email === "usluozaykagan@gmail.com" || 
+        window.currentUser.username === "usluozaykagan" || 
+        window.currentUser.role === "ADMIN"
+      );
+      if (!isViewerAdmin) {
+        alert("⛔ Yetkisiz İşlem: Üye gizlilik ayarlarını yalnızca sistem yöneticisi değiştirebilir.");
+        return;
+      }
       await updateDoc(doc(db, "users", userId), {
         isHidden: newHiddenState
       });
     };
 
-    // 7. Üye Silme (Android deleteUserManually İle Birebir & Hem Web Hem Telefondan Anında Oturum Kapatır)
+    // 7. Üye Silme (Sadece Sistem Yöneticisi Yapabilir & Tüm Açık Oturumları Anında Atar)
     window.deleteMember = async function(userId, name, email) {
+      const isViewerAdmin = window.currentUser && (
+        window.currentUser.email === "usluozaykagan@gmail.com" || 
+        window.currentUser.username === "usluozaykagan" || 
+        window.currentUser.role === "ADMIN"
+      );
+      if (!isViewerAdmin) {
+        alert("⛔ Yetkisiz İşlem: Personel silme yetkiniz bulunmamaktadır! Bu işlemi yalnızca sistem yöneticisi yapabilir.");
+        return;
+      }
+
       const targetUser = (window.allUsers || []).find(u => u.id === userId || u.userId === userId);
       const cleanEmail = (email || targetUser?.email || "").trim().toLowerCase();
       const cleanUsername = (targetUser?.username || "").trim().toLowerCase();
