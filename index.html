@@ -228,10 +228,16 @@
         </div>
 
         <!-- Android APK İndir Butonu -->
-        <a href="app-release.apk" download="tekinak-bakim.apk" class="hidden sm:inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-700/60 hover:bg-blue-600 text-white border border-blue-400/40 transition shadow-sm" title="Android Mobil APK İndir">
+        <a href="app-release.apk" id="topApkDownloadLink" download="tekinak-bakim.apk" class="hidden sm:inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-700/60 hover:bg-blue-600 text-white border border-blue-400/40 transition shadow-sm" title="Android Mobil APK İndir">
           <i data-lucide="download" class="w-3.5 h-3.5 text-amber-300"></i>
-          <span>APK İndir (v1.2.0)</span>
+          <span id="topApkBtnText">APK İndir (v1.2.0)</span>
         </a>
+
+        <!-- Mobil Sürüm Yönetimi Butonu (Firebase Firestore app_version) -->
+        <button onclick="openAppVersionModal()" class="hidden sm:inline-flex items-center space-x-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-600/70 hover:bg-emerald-600 text-white border border-emerald-400/40 transition shadow-sm" title="Firebase Mobil Sürüm Kontrolü ve Güncelleme">
+          <i data-lucide="smartphone" class="w-3.5 h-3.5 text-amber-300"></i>
+          <span id="topVersionBadgeText">Sürüm: v1.2.0</span>
+        </button>
 
         <!-- Bildirim Sihirbazı Butonu -->
         <button onclick="openNotificationWizard()" class="p-2 hover:bg-blue-800 text-amber-300 rounded-xl transition relative" title="Yüksek Öncelikli Bildirim Ayarı">
@@ -1355,6 +1361,73 @@
     </div>
   </div>
 
+  <!-- MODAL: MOBİL UYGULAMA SÜRÜM & GÜNCELLEME YÖNETİMİ (Firebase Firestore app_version/current) -->
+  <div id="modalAppVersion" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl space-y-4 max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between border-b pb-3">
+        <h3 class="font-bold text-base text-slate-800 flex items-center gap-2">
+          <i data-lucide="smartphone" class="w-5 h-5 text-emerald-600"></i> Mobil Sürüm & Firebase Güncelleme
+        </h3>
+        <button onclick="closeModal('modalAppVersion')" class="text-slate-400 hover:text-slate-600"><i data-lucide="x" class="w-5 h-5"></i></button>
+      </div>
+
+      <div class="p-3 bg-emerald-50 border border-emerald-200 rounded-xl flex items-center justify-between">
+        <div>
+          <div class="text-[11px] font-bold text-emerald-800 uppercase tracking-wider">Aktif Firebase Sürümü</div>
+          <div class="text-sm font-extrabold text-emerald-950 flex items-center gap-2" id="verModalCurrentBadge">
+            <span id="verModalVersionName">v1.2.0</span>
+            <span id="verModalVersionCode" class="text-xs px-2 py-0.5 bg-emerald-200 text-emerald-800 rounded-md font-semibold">Kod: 3</span>
+          </div>
+        </div>
+        <div class="text-right text-[11px] text-emerald-700">
+          <div>Son Yayın: <span id="verModalReleaseDate" class="font-semibold">2026-11-11</span></div>
+          <div class="text-emerald-600 font-medium flex items-center justify-end gap-1"><span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Anlık Dinlemede</div>
+        </div>
+      </div>
+
+      <form id="appVersionForm" onsubmit="handlePublishNewVersion(event)" class="space-y-3 text-xs">
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Yeni Sürüm Kodu (Build Code) *</label>
+            <input type="number" id="verFormCode" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 4" min="1">
+            <span class="text-[10px] text-slate-400">Yeni sürüm için kod mevcut koddan büyük olmalıdır</span>
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Yeni Sürüm Adı (Version Name) *</label>
+            <input type="text" id="verFormName" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 1.3.0">
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-semibold text-slate-700 mb-1">Güncelleme Bildirim Başlığı *</label>
+          <input type="text" id="verFormTitle" required class="w-full px-3 py-2 border rounded-xl text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: Yeni Sürüm Yayınlandı (v1.3.0)">
+        </div>
+
+        <div>
+          <label class="block font-semibold text-slate-700 mb-1">APK İndirme Doğrudan Linki</label>
+          <input type="url" id="verFormApkUrl" class="w-full px-3 py-2 border rounded-xl text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk">
+        </div>
+
+        <div>
+          <label class="block font-semibold text-slate-700 mb-1">Yenilikler / Değişiklik Maddeleri (Her satıra bir madde)</label>
+          <textarea id="verFormChangelog" rows="3" class="w-full px-3 py-2 border rounded-xl text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Personel yetkilendirmesi güncellendi&#10;Arıza bildirim hızı artırıldı"></textarea>
+        </div>
+
+        <div class="p-3 bg-amber-50 border border-amber-200 rounded-xl text-amber-900 text-[11px] leading-relaxed">
+          ⚡ <b>Anlık Canlı Tetikleme:</b> Bu formu kaydettiğinizde Firebase Firestore'daki <code>app_version/current</code> dokümanı güncellenir. Sahadaki tüm fabrika personellerinin telefonlarında <b>anında güncelleme bildirimi ve popup penceresi</b> açılır. Uygulaması zaten güncel olan telefonlarda popup asla görünmez.
+        </div>
+
+        <div class="flex justify-end gap-2 pt-2 border-t">
+          <button type="button" onclick="closeModal('modalAppVersion')" class="px-4 py-2 border rounded-xl font-semibold text-slate-600 hover:bg-slate-50">Kapat</button>
+          <button type="submit" id="btnPublishVersion" class="px-5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold shadow flex items-center gap-1.5">
+            <i data-lucide="upload-cloud" class="w-4 h-4"></i>
+            <span>Firebase'e Yayınla</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   </div> <!-- /mainApp -->
 
   <!-- ================= FIREBASE JAVASCRIPT & CMMS ENGINE ================= -->
@@ -1372,6 +1445,7 @@
       getFirestore, 
       collection, 
       getDocs,
+      getDoc,
       onSnapshot, 
       addDoc, 
       setDoc,
@@ -1884,6 +1958,23 @@
         renderMembers();
         renderTeam();
       });
+
+      // 6. Mobil Uygulama Sürüm Takibi ve Firebase Yönetimi (app_version/current)
+      try {
+        onSnapshot(doc(db, "app_version", "current"), (docSnap) => {
+          if (docSnap && docSnap.exists()) {
+            window.currentAppVersion = docSnap.data();
+            renderAppVersionBadge();
+          } else {
+            // Başlangıç sürüm dokümanı Firebase'de yoksa otomatik oluştur
+            seedInitialAppVersionInFirebase();
+          }
+        }, (err) => {
+          console.warn("app_version snapshot listener notice:", err);
+        });
+      } catch (e) {
+        console.warn("Failed to listen to app_version:", e);
+      }
     }
 
     // DASHBOARD GÜNCELLEME
@@ -3892,6 +3983,109 @@
     window.openExcelDialog = () => document.getElementById("modalExcel").classList.remove("hidden");
     window.openNotificationWizard = () => document.getElementById("modalNotifWizard").classList.remove("hidden");
     window.closeModal = (id) => document.getElementById(id).classList.add("hidden");
+
+    function renderAppVersionBadge() {
+      const v = window.currentAppVersion || { versionName: "1.2.0", versionCode: 3 };
+      const badgeText = document.getElementById("topVersionBadgeText");
+      if (badgeText) badgeText.innerText = `Sürüm: v${v.versionName} (Kod: ${v.versionCode})`;
+      const topApkText = document.getElementById("topApkBtnText");
+      if (topApkText) topApkText.innerText = `APK İndir (v${v.versionName})`;
+
+      const modalVerName = document.getElementById("verModalVersionName");
+      if (modalVerName) modalVerName.innerText = `v${v.versionName}`;
+      const modalVerCode = document.getElementById("verModalVersionCode");
+      if (modalVerCode) modalVerCode.innerText = `Kod: ${v.versionCode}`;
+      const modalDate = document.getElementById("verModalReleaseDate");
+      if (modalDate) modalDate.innerText = v.releaseDate || new Date().toISOString().slice(0, 10);
+    }
+
+    async function seedInitialAppVersionInFirebase() {
+      try {
+        const initialData = {
+          versionCode: 3,
+          versionName: "1.2.0",
+          releaseTag: "v1.2.0",
+          releaseDate: "2026-11-11",
+          apkUrl: "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
+          fallbackUrl: "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
+          title: "Yeni Sürüm Mevcut (v1.2.0)",
+          changelog: [
+            "Personel rol ve sekme yetkilerinin Firestore bulut senkronizasyonu düzeltildi.",
+            "Web portalı ve mobil uygulama çift yönlü anlık şifre eşitlemesi tamamlandı.",
+            "Firebase Firestore üzerinden anlık sürüm kontrolü ve otomatik güncelleme devreye alındı."
+          ],
+          forceUpdate: false,
+          updatedAtMillis: Date.now()
+        };
+        await setDoc(doc(db, "app_version", "current"), initialData);
+        window.currentAppVersion = initialData;
+        renderAppVersionBadge();
+      } catch (e) {
+        console.warn("seedInitialAppVersionInFirebase notice:", e);
+      }
+    }
+
+    window.openAppVersionModal = function() {
+      const v = window.currentAppVersion || { versionCode: 3, versionName: "1.2.0", title: "Yeni Sürüm Mevcut", apkUrl: "", changelog: [] };
+      document.getElementById("verFormCode").value = (v.versionCode || 3) + 1;
+      document.getElementById("verFormName").value = v.versionName || "1.3.0";
+      document.getElementById("verFormTitle").value = `Yeni Sürüm Yayınlandı (v${v.versionName || "1.3.0"})`;
+      document.getElementById("verFormApkUrl").value = v.apkUrl || "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk";
+      document.getElementById("verFormChangelog").value = (v.changelog && v.changelog.length) ? v.changelog.join("\n") : "Yeni bakım özellikleri ve performans iyileştirmeleri eklendi.";
+      document.getElementById("modalAppVersion").classList.remove("hidden");
+    };
+
+    window.handlePublishNewVersion = async function(e) {
+      e.preventDefault();
+      const code = parseInt(document.getElementById("verFormCode").value.trim(), 10);
+      const name = document.getElementById("verFormName").value.trim();
+      const title = document.getElementById("verFormTitle").value.trim();
+      const apkUrl = document.getElementById("verFormApkUrl").value.trim() || "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk";
+      const changelogRaw = document.getElementById("verFormChangelog").value.trim();
+      const changelog = changelogRaw.split("\n").map(s => s.trim()).filter(s => s.length > 0);
+
+      if (isNaN(code) || code < 1) {
+        alert("Lütfen geçerli bir sürüm kodu giriniz.");
+        return;
+      }
+      if (!name) {
+        alert("Lütfen sürüm adı giriniz (örn: 1.3.0).");
+        return;
+      }
+
+      const btn = document.getElementById("btnPublishVersion");
+      const oldHtml = btn.innerHTML;
+      btn.disabled = true;
+      btn.innerHTML = `<span class="animate-spin mr-1">⏳</span> Firebase'e Yazılıyor...`;
+
+      try {
+        const payload = {
+          versionCode: code,
+          versionName: name,
+          releaseTag: `v${name}`,
+          releaseDate: new Date().toISOString().slice(0, 10),
+          apkUrl: apkUrl,
+          fallbackUrl: "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
+          title: title,
+          changelog: changelog,
+          forceUpdate: false,
+          updatedAtMillis: Date.now()
+        };
+
+        await setDoc(doc(db, "app_version", "current"), payload);
+        window.currentAppVersion = payload;
+        renderAppVersionBadge();
+        closeModal("modalAppVersion");
+
+        alert(`🚀 Tebrikler! v${name} (Kod: ${code}) sürümü Firebase'e başarıyla yüklendi.\n\nSahadaki tüm Android telefonlar anında güncelleme bildirimi ve popup penceresi alacak.`);
+      } catch (err) {
+        console.error("Yayınlama hatası:", err);
+        alert("Sürüm Firebase'e yüklenirken hata oluştu: " + err.message);
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = oldHtml;
+      }
+    };
 
     window.openEditProfileModal = function() {
       if (!window.currentUser) return;
