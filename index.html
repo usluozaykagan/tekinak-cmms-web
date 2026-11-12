@@ -4621,9 +4621,22 @@
         await setDoc(doc(db, "app_version", "current"), payload);
         window.currentAppVersion = payload;
         renderAppVersionBadge();
+
+        // Sahadaki tüm telefonlara anında sesli bildirim ve chat uyarısı gönder
+        try {
+          await addDoc(collection(db, "chat_messages"), {
+            senderUid: window.currentUser ? window.currentUser.userId : "system_admin",
+            senderName: (window.currentUser ? window.currentUser.displayName : "Fabrika Yönetimi"),
+            senderRole: "Sistem Bildirimi",
+            message: `📢 YENİ GÜNCELLEME DUYURUSU: Tekinak CMMS v${name} (Kod: ${code}) yayınlandı! ${title}`,
+            timestamp: serverTimestamp(),
+            timestampMillis: Date.now()
+          });
+        } catch (_) {}
+
         closeModal("modalAppVersion");
 
-        alert(`🚀 Tebrikler! v${name} (Kod: ${code}) sürümü Firebase'e başarıyla yüklendi.\n\nSahadaki tüm Android telefonlar anında güncelleme bildirimi ve popup penceresi alacak.`);
+        alert(`🚀 Tebrikler! v${name} (Kod: ${code}) sürümü Firebase'e başarıyla yüklendi.\n\nSahadaki tüm Android telefonlara hem sesli duyuru bildirimi iletildi hem de eski sürümlü telefonlarda güncelleme penceresi açıldı.`);
       } catch (err) {
         console.error("Yayınlama hatası:", err);
         alert("Sürüm Firebase'e yüklenirken hata oluştu: " + err.message);
