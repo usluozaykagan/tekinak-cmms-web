@@ -1509,7 +1509,7 @@
       // Sekme Yetkileri Kontrolü (Android AppTab ile birebir eşleşme)
       const userTabs = isAdmin
         ? ["fault_reports", "work_orders", "schedule", "analytics", "members", "team"]
-        : ((u.allowedTabs && Array.isArray(u.allowedTabs) && u.allowedTabs.length) ? u.allowedTabs : ["fault_reports", "work_orders", "schedule", "analytics", "members"]);
+        : (Array.isArray(u.allowedTabs) ? u.allowedTabs : ["fault_reports", "work_orders", "schedule", "analytics", "members"]);
 
       const setTabVisibility = (tabNavId, hasAccess) => {
         const el = document.getElementById(tabNavId);
@@ -1972,6 +1972,54 @@
         });
         window.allUsers = deduplicateUsers(rawList);
         window.hasUsersLoadedOnce = true;
+
+        // Aktif oturum sahibinin yetkileri web veya mobilden güncellendiyse anında yansıt
+        if (window.currentUser) {
+          const myEmail = (window.currentUser.email || "").toLowerCase();
+          const myUname = (window.currentUser.username || "").toLowerCase();
+          const myUid = (window.currentUser.userId || window.currentUser.id || "");
+          const updatedMe = window.allUsers.find(u => 
+            (myEmail && (u.email || "").toLowerCase() === myEmail) ||
+            (myUname && (u.username || "").toLowerCase() === myUname) ||
+            (myUid && (u.userId === myUid || u.id === myUid))
+          );
+          if (updatedMe) {
+            window.currentUser.role = updatedMe.role;
+            window.currentUser.department = updatedMe.department;
+            window.currentUser.allowedTabs = updatedMe.allowedTabs || [];
+            window.currentUser.canExportExcel = updatedMe.canExportExcel;
+            window.currentUser.canManageSchedules = updatedMe.canManageSchedules;
+            window.currentUser.canViewChat = updatedMe.canViewChat;
+            window.currentUser.canSendChat = updatedMe.canSendChat;
+            window.currentUser.canReopenTickets = updatedMe.canReopenTickets;
+            window.currentUser.canDeleteAnyMessage = updatedMe.canDeleteAnyMessage;
+            if (updatedMe.password) window.currentUser.password = updatedMe.password;
+            
+            localStorage.setItem("tekinak_session", JSON.stringify(window.currentUser));
+            sessionStorage.setItem("tekinak_session", JSON.stringify(window.currentUser));
+            updateTopBarUser(window.currentUser);
+            
+            // Eğer kullanıcının şu an üzerinde bulunduğu sekme yetkisi kaldırıldıysa, dashboard'a yönlendir
+            const currentActiveNav = document.querySelector(".nav-btn.border-amber-400");
+            if (currentActiveNav) {
+              const currentTabId = currentActiveNav.id.replace("nav-", "");
+              const tabMap = {
+                'faults': 'fault_reports',
+                'workOrders': 'work_orders',
+                'schedules': 'schedule',
+                'analytics': 'analytics',
+                'members': 'members',
+                'team': 'team'
+              };
+              const reqPerm = tabMap[currentTabId];
+              const isAdm = updatedMe.role === "ADMIN" || myEmail === "usluozaykagan@gmail.com" || myUname === "usluozaykagan";
+              if (reqPerm && !isAdm && (!updatedMe.allowedTabs || !updatedMe.allowedTabs.includes(reqPerm))) {
+                window.switchTab('dashboard');
+              }
+            }
+          }
+        }
+
         checkCurrentSessionValidity();
         refreshDashboard();
         renderMembers();
@@ -2620,12 +2668,31 @@
     };
 
     function deduplicateUsers(rawList) {
-      // En son güncellenen dokümanları en başa al (en güncel şifre ve veriler kazansın)
-      const sortedList = [...(rawList || [])].sort((a, b) => {
-        const timeA = (a.updatedAt?.seconds ? a.updatedAt.seconds * 1000 : 0) || (a.createdAt?.seconds ? a.createdAt.seconds * 1000 : 0) || (a.lastActiveMillis || 0);
-        const timeB = (b.updatedAt?.seconds ? b.updatedAt.seconds * 1000 : 0) || (b.createdAt?.seconds ? b.createdAt.seconds * 1000 : 0) || (b.lastActiveMillis || 0);
-        return timeB - timeA;
-      });
+      function getDocTime(d) {
+        if (!d) return 0;
+        if (typeof d.updatedAtMillis === 'number') return d.updatedAtMillis;
+        const u = d.updatedAt;
+        if (u) {
+          if (typeof u.toMillis === 'function') return u.toMillis();
+          if (typeof u.toDate === 'function') return u.toDate().getTime();
+          if (typeof u.seconds === 'number') return u.seconds * 1000;
+          if (typeof u === 'number') return u;
+          if (typeof u === 'string') { const t = new Date(u).getTime(); if (!isNaN(t)) return t; }
+        }
+        const c = d.createdAt;
+        if (c) {
+          if (typeof c.toMillis === 'function') return c.toMillis();
+          if (typeof c.toDate === 'function') return c.toDate().getTime();
+          if (typeof c.seconds === 'number') return c.seconds * 1000;
+          if (typeof c === 'number') return c;
+          if (typeof c === 'string') { const t = new Date(c).getTime(); if (!isNaN(t)) return t; }
+        }
+        if (typeof d.createdAtMillis === 'number') return d.createdAtMillis;
+        return d.lastActiveMillis || 0;
+      }
+
+      // En son güncellenen dokümanları en başa al (en güncel yetki ve şifre kazansın)
+      const sortedList = [...(rawList || [])].sort((a, b) => getDocTime(b) - getDocTime(a));
 
       const uniqueMap = new Map();
 
@@ -2645,7 +2712,12 @@
         for (const [key, existing] of uniqueMap.entries()) {
           const exEmail = (existing.email || "").trim().toLowerCase();
           const exUser = (existing.username || "").trim().toLowerCase();
-          if ((email && exEmail && email === exEmail) || (username && exUser && username === exUser)) {
+          const exId = (existing.id || existing.userId || "").trim().toLowerCase();
+          const uId = (u.id || u.userId || "").trim().toLowerCase();
+          if ((email && exEmail && email === exEmail) || 
+              (username && exUser && (username === exUser || username.replace(/\./g, "_") === exUser.replace(/\./g, "_"))) ||
+              (uId && exId && uId === exId) ||
+              (isMaster && (exEmail === "usluozaykagan@gmail.com" || exUser === "usluozaykagan"))) {
             foundKey = key;
             break;
           }
@@ -2657,14 +2729,16 @@
           displayName: displayName || (isMaster ? "Özay Kağan Uslu" : (username || (email ? email.split('@')[0] : "Personel"))),
           username: username || (isMaster ? "usluozaykagan" : (email ? email.split('@')[0] : "personel")),
           email: u.email || (isMaster ? "usluozaykagan@gmail.com" : ""),
-          password: u.password || (isMaster ? "" : "123456"),
+          password: u.password || (isMaster ? "tekinak123" : "123456"),
           role: isMaster ? "ADMIN" : (u.role || "OPERATOR"),
           department: isMaster ? "Fabrika Yönetimi" : (u.department || "Mekanik Bakım"),
           phoneNumber: u.phoneNumber || "",
           isHidden: !!u.isHidden,
           isBlocked: !!u.isBlocked,
+          isDeleted: !!u.isDeleted,
           isOnline: !!u.isOnline,
           lastActiveMillis: u.lastActiveMillis || 0,
+          updatedAtMillis: getDocTime(u),
           canExportExcel: isMaster || (u.canExportExcel !== false),
           canManageSchedules: isMaster || !!u.canManageSchedules,
           canViewChat: isMaster || (u.canViewChat !== false),
@@ -2672,25 +2746,43 @@
           canDeleteAnyMessage: isMaster || !!u.canDeleteAnyMessage,
           canReopenTickets: isMaster || !!u.canReopenTickets,
           canEditProfile: isMaster || !!u.canEditProfile,
-          allowedTabs: u.allowedTabs || ["fault_reports", "work_orders", "schedule", "analytics", "members"]
+          allowedTabs: (Array.isArray(u.allowedTabs) && u.allowedTabs.length > 0)
+            ? u.allowedTabs
+            : (isMaster ? ["fault_reports", "work_orders", "schedule", "analytics", "members", "team"] : ["fault_reports", "work_orders", "schedule", "analytics", "members"])
         };
 
         if (foundKey) {
           const ex = uniqueMap.get(foundKey);
+          const isCandNewer = (candidate.updatedAtMillis || 0) >= (ex.updatedAtMillis || 0);
+          const newer = isCandNewer ? candidate : ex;
+          const older = isCandNewer ? ex : candidate;
+
           uniqueMap.set(foundKey, {
-            ...ex,
-            displayName: (ex.displayName && ex.displayName !== "Personel" && ex.displayName !== "Fabrika Personeli") ? ex.displayName : candidate.displayName,
-            password: ex.password || candidate.password, // en yeni olan (ex) öncelikli
-            department: ex.department || candidate.department,
-            role: isMaster ? "ADMIN" : (ex.role || candidate.role),
-            phoneNumber: ex.phoneNumber || candidate.phoneNumber,
-            isHidden: ex.isHidden || candidate.isHidden,
-            isBlocked: ex.isBlocked || candidate.isBlocked,
-            canExportExcel: ex.canExportExcel || candidate.canExportExcel,
-            canManageSchedules: ex.canManageSchedules || candidate.canManageSchedules,
-            canDeleteAnyMessage: ex.canDeleteAnyMessage || candidate.canDeleteAnyMessage,
-            canReopenTickets: ex.canReopenTickets || candidate.canReopenTickets,
-            lastActiveMillis: Math.max(ex.lastActiveMillis || 0, candidate.lastActiveMillis || 0)
+            ...older,
+            ...newer,
+            id: newer.id || older.id,
+            userId: newer.userId || older.userId,
+            displayName: (newer.displayName && newer.displayName !== "Personel" && newer.displayName !== "Fabrika Personeli") ? newer.displayName : (older.displayName || "Personel"),
+            username: newer.username || older.username || "personel",
+            email: newer.email || older.email || "",
+            password: newer.password || older.password,
+            department: newer.department || older.department,
+            role: isMaster ? "ADMIN" : (newer.role || older.role || "OPERATOR"),
+            allowedTabs: (Array.isArray(newer.allowedTabs) && newer.allowedTabs.length > 0)
+              ? newer.allowedTabs
+              : (Array.isArray(older.allowedTabs) && older.allowedTabs.length > 0 ? older.allowedTabs : ["fault_reports", "work_orders", "schedule", "analytics", "members"]),
+            phoneNumber: newer.phoneNumber || older.phoneNumber,
+            isHidden: newer.isHidden !== undefined ? newer.isHidden : older.isHidden,
+            isBlocked: !!(newer.isBlocked || older.isBlocked),
+            isDeleted: !!(newer.isDeleted || older.isDeleted),
+            canExportExcel: isMaster || (newer.canExportExcel !== undefined ? newer.canExportExcel : older.canExportExcel),
+            canManageSchedules: isMaster || (newer.canManageSchedules !== undefined ? newer.canManageSchedules : older.canManageSchedules),
+            canViewChat: isMaster || (newer.canViewChat !== undefined ? newer.canViewChat : older.canViewChat),
+            canSendChat: isMaster || (newer.canSendChat !== undefined ? newer.canSendChat : older.canSendChat),
+            canDeleteAnyMessage: isMaster || (newer.canDeleteAnyMessage !== undefined ? newer.canDeleteAnyMessage : older.canDeleteAnyMessage),
+            canReopenTickets: isMaster || (newer.canReopenTickets !== undefined ? newer.canReopenTickets : older.canReopenTickets),
+            lastActiveMillis: Math.max(newer.lastActiveMillis || 0, older.lastActiveMillis || 0),
+            updatedAtMillis: Math.max(newer.updatedAtMillis || 0, older.updatedAtMillis || 0)
           });
         } else {
           const key = email || username || u.id;
@@ -3052,7 +3144,8 @@
           isBlocked: newBlockState,
           isDeleted: newBlockState,
           isOnline: false,
-          updatedAt: serverTimestamp()
+          updatedAt: serverTimestamp(),
+          updatedAtMillis: Date.now()
         };
 
         // 1. Ana kullanıcı belgesini güncelle
@@ -3061,13 +3154,17 @@
         } catch (_) {}
 
         // 2. E-posta veya kullanıcı adı ile eşleşen diğer kopyaları da güncelle
-        if (cleanEmail || cleanUsername) {
+        if (cleanEmail || cleanUsername || userId) {
           const snap = await getDocs(collection(db, "users"));
           const updatePromises = [];
           snap.forEach(d => {
             const dEmail = (d.data().email || "").trim().toLowerCase();
             const dUser = (d.data().username || "").trim().toLowerCase();
-            if ((cleanEmail && dEmail === cleanEmail) || (cleanUsername && dUser === cleanUsername)) {
+            const dUid = (d.data().userId || "").trim().toLowerCase();
+            const dId = d.id.trim().toLowerCase();
+            if ((cleanEmail && (dEmail === cleanEmail || dEmail.replace(/\./g, "_") === cleanEmail.replace(/\./g, "_"))) ||
+                (cleanUsername && (dUser === cleanUsername || dUser.replace(/\./g, "_") === cleanUsername.replace(/\./g, "_"))) ||
+                (userId && (dId === userId.toLowerCase() || dUid === userId.toLowerCase()))) {
               updatePromises.push(setDoc(doc(db, "users", d.id), updatePayload, { merge: true }));
             }
           });
@@ -3079,10 +3176,13 @@
         // 3. blocked_accounts koleksiyonunu güncelle (Tüm cihazlar anlık dinler)
         if (newBlockState) {
           const blockRecord = {
+            id: userId,
+            userId: userId,
             email: cleanEmail,
             username: cleanUsername,
             displayName: targetName,
             isBlocked: true,
+            isDeleted: true,
             blockedAt: Date.now()
           };
           if (cleanEmail) {
@@ -3091,6 +3191,11 @@
           }
           if (cleanUsername) {
             await setDoc(doc(db, "blocked_accounts", cleanUsername), blockRecord, { merge: true });
+            await setDoc(doc(db, "blocked_accounts", cleanUsername.replace(/\./g, "_")), blockRecord, { merge: true });
+          }
+          if (userId) {
+            await setDoc(doc(db, "blocked_accounts", userId), blockRecord, { merge: true });
+            await setDoc(doc(db, "blocked_accounts", userId.replace(/\./g, "_")), blockRecord, { merge: true });
           }
         } else {
           // Engeli Kaldır
@@ -3100,6 +3205,11 @@
           }
           if (cleanUsername) {
             try { await deleteDoc(doc(db, "blocked_accounts", cleanUsername)); } catch (_) {}
+            try { await deleteDoc(doc(db, "blocked_accounts", cleanUsername.replace(/\./g, "_"))); } catch (_) {}
+          }
+          if (userId) {
+            try { await deleteDoc(doc(db, "blocked_accounts", userId)); } catch (_) {}
+            try { await deleteDoc(doc(db, "blocked_accounts", userId.replace(/\./g, "_"))); } catch (_) {}
           }
         }
 
@@ -3253,7 +3363,8 @@
         canSendChat: canChat,
         canReopenTickets: canReopen,
         canDeleteAnyMessage: canDeleteMsg,
-        updatedAt: serverTimestamp()
+        updatedAt: serverTimestamp(),
+        updatedAtMillis: Date.now()
       };
       if (newPassword) {
         updateData.password = newPassword;
@@ -3267,11 +3378,17 @@
         try {
           const snap = await getDocs(collection(db, "users"));
           const syncPromises = [];
+          const userUid = (targetUser?.userId || "").toLowerCase();
           snap.forEach(d => {
             const dData = d.data();
             const dEmail = (dData.email || "").toLowerCase();
             const dUname = (dData.username || "").toLowerCase();
-            if (d.id !== docId && ((userEmail && dEmail === userEmail) || (userUname && dUname === userUname))) {
+            const dUid = (dData.userId || "").toLowerCase();
+            const isMatch = (d.id === docId) ||
+                            (userUid && (d.id === userUid || dUid === userUid)) ||
+                            (userEmail && (dEmail === userEmail || dEmail.replace(/\./g, "_") === userEmail.replace(/\./g, "_"))) ||
+                            (userUname && (dUname === userUname || dUname.replace(/\./g, "_") === userUname.replace(/\./g, "_")));
+            if (isMatch) {
               syncPromises.push(setDoc(doc(db, "users", d.id), updateData, { merge: true }));
             }
           });
@@ -3292,9 +3409,32 @@
           targetUser.canSendChat = canChat;
           targetUser.canReopenTickets = canReopen;
           targetUser.canDeleteAnyMessage = canDeleteMsg;
+          targetUser.updatedAtMillis = Date.now();
+        }
+
+        // Eğer düzenlenen kişi aktif oturum sahibi ise oturumunu da anında güncelle
+        if (window.currentUser && (
+            (userEmail && window.currentUser.email && window.currentUser.email.toLowerCase() === userEmail) ||
+            (userUname && window.currentUser.username && window.currentUser.username.toLowerCase() === userUname) ||
+            (docId && (window.currentUser.userId === docId || window.currentUser.id === docId))
+        )) {
+          window.currentUser.role = newRole;
+          window.currentUser.department = newDept;
+          window.currentUser.allowedTabs = updatedTabs;
+          window.currentUser.canExportExcel = canExcel;
+          window.currentUser.canManageSchedules = canSchedules;
+          window.currentUser.canViewChat = canChat;
+          window.currentUser.canSendChat = canChat;
+          window.currentUser.canReopenTickets = canReopen;
+          window.currentUser.canDeleteAnyMessage = canDeleteMsg;
+          if (newPassword) window.currentUser.password = newPassword;
+          localStorage.setItem("tekinak_session", JSON.stringify(window.currentUser));
+          sessionStorage.setItem("tekinak_session", JSON.stringify(window.currentUser));
+          updateTopBarUser(window.currentUser);
         }
 
         renderTeam();
+        renderMembers();
         closeModal('modalEditPermissions');
         alert("Yetkiler ve hesap şifresi başarıyla kaydedildi.");
       } catch (err) {
@@ -3595,6 +3735,8 @@
       try {
         // 1. blocked_accounts koleksiyonuna silinme kaydı yaz (Tüm açık web ve mobil oturumları anında atar)
         const delRecord = {
+          id: userId,
+          userId: userId,
           email: cleanEmail,
           username: cleanUsername,
           displayName: displayName,
@@ -3608,31 +3750,52 @@
         }
         if (cleanUsername) {
           await setDoc(doc(db, "blocked_accounts", cleanUsername), delRecord, { merge: true });
+          await setDoc(doc(db, "blocked_accounts", cleanUsername.replace(/\./g, "_")), delRecord, { merge: true });
+        }
+        if (userId) {
+          await setDoc(doc(db, "blocked_accounts", userId), delRecord, { merge: true });
+          await setDoc(doc(db, "blocked_accounts", userId.replace(/\./g, "_")), delRecord, { merge: true });
         }
 
-        // 2. Ana kullanıcı belgesini sil
+        // 2. Ana kullanıcı belgesine önce isDeleted bayrağı koy, ardından sil
         try {
+          await setDoc(doc(db, "users", userId), { isDeleted: true, isBlocked: true, updatedAt: serverTimestamp() }, { merge: true });
           await deleteDoc(doc(db, "users", userId));
         } catch (_) {}
 
         // 3. E-posta veya kullanıcı adı ile eşleşen diğer kopyaları da sil
-        if (cleanEmail || cleanUsername) {
+        if (cleanEmail || cleanUsername || userId) {
           const snap = await getDocs(collection(db, "users"));
           const deletePromises = [];
           snap.forEach(d => {
             const dEmail = (d.data().email || "").trim().toLowerCase();
             const dUser = (d.data().username || "").trim().toLowerCase();
-            const dId = d.id;
-            if ((cleanEmail && dEmail === cleanEmail) || 
-                (cleanUsername && dUser === cleanUsername) || 
-                dId === userId) {
-              deletePromises.push(deleteDoc(doc(db, "users", dId)));
+            const dUid = (d.data().userId || "").trim().toLowerCase();
+            const dId = d.id.trim().toLowerCase();
+            if ((cleanEmail && (dEmail === cleanEmail || dEmail.replace(/\./g, "_") === cleanEmail.replace(/\./g, "_"))) || 
+                (cleanUsername && (dUser === cleanUsername || dUser.replace(/\./g, "_") === cleanUsername.replace(/\./g, "_"))) || 
+                (userId && (dId === userId.toLowerCase() || dUid === userId.toLowerCase()))) {
+              deletePromises.push(
+                setDoc(doc(db, "users", d.id), { isDeleted: true, isBlocked: true, updatedAt: serverTimestamp() }, { merge: true })
+                  .then(() => deleteDoc(doc(db, "users", d.id)))
+                  .catch(() => {})
+              );
             }
           });
           if (deletePromises.length > 0) {
             await Promise.all(deletePromises);
           }
         }
+
+        // Yerel allUsers listesinden de anında çıkar
+        window.allUsers = (window.allUsers || []).filter(u => {
+          const uEmail = (u.email || "").toLowerCase();
+          const uName = (u.username || "").toLowerCase();
+          const uId = (u.id || u.userId || "").toLowerCase();
+          return !(uId === userId.toLowerCase() || (cleanEmail && uEmail === cleanEmail) || (cleanUsername && uName === cleanUsername));
+        });
+        renderMembers();
+        renderTeam();
 
         alert(`✅ '${displayName}' personeli sistemden silindi ve tüm açık oturumları sonlandırıldı.`);
       } catch (err) {
@@ -4085,8 +4248,29 @@
       return Object.keys(counts).reduce((a, b) => counts[a] > counts[b] ? a : b);
     }
 
-    // Navigasyon Sekme Değiştirici
+    // Navigasyon Sekme Değiştirici (Yetki Korumalı)
     window.switchTab = function(tabId) {
+      if (tabId !== 'dashboard' && window.currentUser) {
+        const isMaster = window.currentUser.email === "usluozaykagan@gmail.com" || window.currentUser.username === "usluozaykagan";
+        const isAdmin = isMaster || window.currentUser.role === "ADMIN";
+        if (!isAdmin) {
+          const tabMap = {
+            'faults': 'fault_reports',
+            'workOrders': 'work_orders',
+            'schedules': 'schedule',
+            'analytics': 'analytics',
+            'members': 'members',
+            'team': 'team'
+          };
+          const reqPerm = tabMap[tabId];
+          const allowed = Array.isArray(window.currentUser.allowedTabs) ? window.currentUser.allowedTabs : [];
+          if (reqPerm && !allowed.includes(reqPerm)) {
+            alert("⚠️ Bu sekmeye erişim yetkiniz bulunmamaktadır. Lütfen sistem yöneticisi ile iletişime geçiniz.");
+            return;
+          }
+        }
+      }
+
       document.querySelectorAll(".tab-pane").forEach(el => el.classList.add("hidden"));
       document.querySelectorAll(".nav-btn").forEach(el => {
         el.classList.remove("border-amber-400", "text-amber-400");
@@ -4276,33 +4460,53 @@
 
       // 1. Engellenen hesaplar listesinde var mı? (Telefondan ya da web'den engellendiyse)
       const isBlockedInList = (window.blockedAccounts || []).some(b => {
-        const bEmail = (b.email || b.id || "").trim().toLowerCase();
+        const bEmail = (b.email || "").trim().toLowerCase();
         const bUser = (b.username || "").trim().toLowerCase();
         const bId = (b.id || "").trim().toLowerCase();
-        return (currentEmail && (bEmail === currentEmail || bEmail === currentEmail.replace(/\./g, "_") || bId === currentEmail || bId === currentEmail.replace(/\./g, "_"))) ||
-               (currentUsername && (bUser === currentUsername || bEmail === currentUsername || bId === currentUsername));
+        const bUid = (b.userId || "").trim().toLowerCase();
+
+        const matchEmail = currentEmail && (
+          bEmail === currentEmail || 
+          bEmail === currentEmail.replace(/\./g, "_") || 
+          bId === currentEmail || 
+          bId === currentEmail.replace(/\./g, "_")
+        );
+        const matchUser = currentUsername && (
+          bUser === currentUsername || 
+          bUser === currentUsername.replace(/\./g, "_") || 
+          bId === currentUsername || 
+          bId === currentUsername.replace(/\./g, "_") ||
+          (currentEmail && bEmail === currentUsername)
+        );
+        const matchId = currentUserId && (
+          bId === currentUserId.toLowerCase() || 
+          bUid === currentUserId.toLowerCase()
+        );
+        return matchEmail || matchUser || matchId;
       });
 
       // 2. Aktif kullanıcılar listesinde var mı ve durumu nedir?
       const matchingUserInDb = (window.allUsers || []).find(u => {
         const uEmail = (u.email || "").trim().toLowerCase();
         const uUser = (u.username || "").trim().toLowerCase();
-        const uId = (u.userId || u.id || "").trim();
-        return (currentUserId && uId === currentUserId) ||
+        const uId = (u.userId || u.id || "").trim().toLowerCase();
+        return (currentUserId && uId === currentUserId.toLowerCase()) ||
                (currentEmail && uEmail === currentEmail) ||
-               (currentUsername && uUser === currentUsername);
+               (currentUsername && uUser === currentUsername) ||
+               (currentUsername && uEmail.split('@')[0] === currentUsername) ||
+               (currentEmail && uUser === currentEmail.split('@')[0]);
       });
 
-      // Durum Kontrolü A: Hesap engellendiyse
-      if (isBlockedInList || (matchingUserInDb && matchingUserInDb.isBlocked === true)) {
-        console.warn("Kullanıcı engellendi, oturum anında kapatılıyor:", currentEmail, currentUsername);
+      // Durum Kontrolü A: Hesap engellendiyse veya silindiyse
+      if (isBlockedInList || (matchingUserInDb && (matchingUserInDb.isBlocked === true || matchingUserInDb.isDeleted === true))) {
+        console.warn("Kullanıcı engellendi veya silindi, oturum anında kapatılıyor:", currentEmail, currentUsername);
         window.forceLogoutDueToStatus("blocked", "Hesabınız yönetici tarafından engellenmiştir. Oturumunuz otomatik olarak sonlandırıldı.");
         return;
       }
 
-      // Durum Kontrolü B: Hesap sistemden silindiyse
+      // Durum Kontrolü B: Hesap sistemden tamamen silindiyse ve veritabanı yüklendiyse
       if (window.hasUsersLoadedOnce && (window.allUsers || []).length > 0) {
-        if (!matchingUserInDb || matchingUserInDb.isDeleted === true) {
+        if (!matchingUserInDb) {
           console.warn("Kullanıcı sistemden silindi, oturum anında kapatılıyor:", currentEmail, currentUsername);
           window.forceLogoutDueToStatus("deleted", "Hesabınız yönetici tarafından sistemden silinmiştir. Oturumunuz otomatik olarak sonlandırıldı.");
           return;
@@ -4343,7 +4547,7 @@
     }, 2500);
 
     // Oturum Kontrolü ve Başlatma (Sayfa Açıldığında)
-    function initAuthSession() {
+    async function initAuthSession() {
       // Arka planda veritabanı listener'larını başlat (kullanıcı havuzu anında hazır olsun)
       startRealtimeSync();
 
@@ -4353,6 +4557,35 @@
         try {
           const user = JSON.parse(savedSession);
           if (user && (user.email || user.username)) {
+            const isMaster = user.email === "usluozaykagan@gmail.com" || user.username === "usluozaykagan";
+            if (!isMaster) {
+              const uEmail = (user.email || "").trim().toLowerCase();
+              const uName = (user.username || "").trim().toLowerCase();
+              const uId = (user.userId || user.id || "").trim().toLowerCase();
+              try {
+                const bSnap = await getDocs(collection(db, "blocked_accounts"));
+                let isBlocked = false;
+                bSnap.forEach(docSnap => {
+                  const b = docSnap.data();
+                  const bid = docSnap.id.toLowerCase();
+                  if (bid === uEmail || bid === uEmail.replace(/\./g, "_") || bid === uName || bid === uName.replace(/\./g, "_") || bid === uId ||
+                      (b.email && b.email.toLowerCase() === uEmail) || (b.username && b.username.toLowerCase() === uName)) {
+                    isBlocked = true;
+                  }
+                });
+                if (isBlocked) {
+                  localStorage.removeItem("tekinak_session");
+                  sessionStorage.removeItem("tekinak_session");
+                  window.currentUser = null;
+                  document.getElementById("authContainer").classList.remove("hidden");
+                  document.getElementById("mainApp").classList.add("hidden");
+                  showAuthError("Hesabınız engellenmiştir veya silinmiştir. Giriş yetkiniz bulunmamaktadır.");
+                  lucide.createIcons();
+                  return;
+                }
+              } catch (_) {}
+            }
+
             window.currentUser = user;
             updateTopBarUser(user);
             document.getElementById("authContainer").classList.add("hidden");
