@@ -177,7 +177,7 @@
         <div class="pt-3 text-center border-t border-slate-100 flex flex-col items-center justify-center gap-2">
           <a href="app-release.apk" download="tekinak-bakim.apk" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold rounded-lg border border-emerald-300 transition shadow-sm">
             <i data-lucide="smartphone" class="w-3.5 h-3.5 text-emerald-600"></i>
-            <span>Android APK İndir (v1.2.0)</span>
+            <span>Android APK İndir (v1.2.1)</span>
           </a>
           <div class="text-[11px] text-slate-400 flex items-center justify-center gap-1.5">
             <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600"></i>
@@ -230,13 +230,13 @@
         <!-- Android APK İndir Butonu -->
         <a href="app-release.apk" id="topApkDownloadLink" download="tekinak-bakim.apk" class="hidden sm:inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-700/60 hover:bg-blue-600 text-white border border-blue-400/40 transition shadow-sm" title="Android Mobil APK İndir">
           <i data-lucide="download" class="w-3.5 h-3.5 text-amber-300"></i>
-          <span id="topApkBtnText">APK İndir (v1.2.0)</span>
+          <span id="topApkBtnText">APK İndir (v1.2.1)</span>
         </a>
 
         <!-- Mobil Sürüm Yönetimi Butonu (Firebase Firestore app_version) -->
         <button onclick="openAppVersionModal()" class="hidden sm:inline-flex items-center space-x-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-600/70 hover:bg-emerald-600 text-white border border-emerald-400/40 transition shadow-sm" title="Firebase Mobil Sürüm Kontrolü ve Güncelleme">
           <i data-lucide="smartphone" class="w-3.5 h-3.5 text-amber-300"></i>
-          <span id="topVersionBadgeText">Sürüm: v1.2.0</span>
+          <span id="topVersionBadgeText">Sürüm: v1.2.1</span>
         </button>
 
         <!-- Bildirim Sihirbazı Butonu -->
@@ -2146,10 +2146,18 @@
 
       // 6. Mobil Uygulama Sürüm Takibi ve Firebase Yönetimi (app_version/current)
       try {
-        onSnapshot(doc(db, "app_version", "current"), (docSnap) => {
+        onSnapshot(doc(db, "app_version", "current"), async (docSnap) => {
           if (docSnap && docSnap.exists()) {
-            window.currentAppVersion = docSnap.data();
+            const data = docSnap.data();
+            window.currentAppVersion = data;
             renderAppVersionBadge();
+
+            // Sürüm kodu 4'ten küçükse otomatik olarak v1.2.1 (Kod: 4)'e yükselt
+            const verCodeNum = Number(data.versionCode || 0);
+            if (verCodeNum < 4) {
+              console.log("Firestore app_version sürüm kodu 4'e otomatik eşitleniyor...");
+              seedInitialAppVersionInFirebase();
+            }
           } else {
             // Başlangıç sürüm dokümanı Firebase'de yoksa otomatik oluştur
             seedInitialAppVersionInFirebase();
@@ -4533,17 +4541,17 @@
     async function seedInitialAppVersionInFirebase() {
       try {
         const initialData = {
-          versionCode: 3,
-          versionName: "1.2.0",
-          releaseTag: "v1.2.0",
-          releaseDate: "2026-11-11",
+          versionCode: 4,
+          versionName: "1.2.1",
+          releaseTag: "v1.2.1",
+          releaseDate: new Date().toISOString().slice(0, 10),
           apkUrl: "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
           fallbackUrl: "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-          title: "Yeni Sürüm Mevcut (v1.2.0)",
+          title: "Yeni Sürüm Mevcut (v1.2.1)",
           changelog: [
-            "Personel rol ve sekme yetkilerinin Firestore bulut senkronizasyonu düzeltildi.",
-            "Web portalı ve mobil uygulama çift yönlü anlık şifre eşitlemesi tamamlandı.",
-            "Firebase Firestore üzerinden anlık sürüm kontrolü ve otomatik güncelleme devreye alındı."
+            "Personel yeniden kayıt ve silinen kullanıcı e-posta çakışması (auth/email-already-in-use) çözüldü.",
+            "Web portalı ve mobil uygulama anlık şifre ve rol senkronizasyonu güncellendi.",
+            "Firebase Firestore üzerinden otomatik sürüm kontrolü ve canlı güncelleme bildirimi devrede."
           ],
           forceUpdate: false,
           updatedAtMillis: Date.now()
@@ -4557,10 +4565,10 @@
     }
 
     window.openAppVersionModal = function() {
-      const v = window.currentAppVersion || { versionCode: 3, versionName: "1.2.0", title: "Yeni Sürüm Mevcut", apkUrl: "", changelog: [] };
-      document.getElementById("verFormCode").value = (v.versionCode || 3) + 1;
-      document.getElementById("verFormName").value = v.versionName || "1.3.0";
-      document.getElementById("verFormTitle").value = `Yeni Sürüm Yayınlandı (v${v.versionName || "1.3.0"})`;
+      const v = window.currentAppVersion || { versionCode: 4, versionName: "1.2.1", title: "Yeni Sürüm Mevcut", apkUrl: "", changelog: [] };
+      document.getElementById("verFormCode").value = Math.max(v.versionCode || 4, 4);
+      document.getElementById("verFormName").value = v.versionName || "1.2.1";
+      document.getElementById("verFormTitle").value = `Yeni Sürüm Yayınlandı (v${v.versionName || "1.2.1"})`;
       document.getElementById("verFormApkUrl").value = v.apkUrl || "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk";
       document.getElementById("verFormChangelog").value = (v.changelog && v.changelog.length) ? v.changelog.join("\n") : "Yeni bakım özellikleri ve performans iyileştirmeleri eklendi.";
       document.getElementById("modalAppVersion").classList.remove("hidden");
