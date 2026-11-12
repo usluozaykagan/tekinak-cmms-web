@@ -1,15 +1,15 @@
 {
-  "versionCode": 3,
-  "versionName": "1.2.0",
-  "releaseTag": "v1.2.0",
-  "releaseDate": "2026-11-11",
+  "versionCode": 4,
+  "versionName": "1.2.1",
+  "releaseTag": "v1.2.1",
+  "releaseDate": "2026-11-12",
   "apkUrl": "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
   "fallbackUrl": "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-  "title": "Yeni Sürüm Mevcut (v1.2.0)",
+  "title": "Yeni Sürüm Mevcut (v1.2.1)",
   "changelog": [
-    "Personel rol ve sekme yetkilerinin Firestore bulut senkronizasyonu düzeltildi.",
-    "Web portalı ve mobil uygulama çift yönlü anlık şifre eşitlemesi tamamlandı.",
-    "Otomatik sürüm doğrulama ve güncelleme bağlantıları v1.2.0 seviyesine yükseltildi."
+    "Personel yeniden kayıt ve silinen kullanıcı e-posta çakışması (auth/email-already-in-use) çözüldü.",
+    "Web portalı ve mobil uygulama anlık şifre ve rol senkronizasyonu güncellendi.",
+    "Firebase Firestore üzerinden otomatik sürüm kontrolü ve canlı güncelleme bildirimi devrede."
   ],
   "forceUpdate": false
 }

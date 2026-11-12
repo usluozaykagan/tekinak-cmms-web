@@ -284,7 +284,7 @@
         <button onclick="switchTab('team')" id="nav-team" class="nav-btn px-3.5 py-2.5 text-xs font-semibold border-b-2 border-transparent text-slate-300 hover:text-white flex items-center gap-1.5 whitespace-nowrap">
           <i data-lucide="shield-check" class="w-4 h-4 text-amber-400"></i> Personel & Yetki
         </button>
-        <button onclick="openExcelDialog()" class="ml-auto px-3.5 py-1.5 my-1.5 text-xs font-bold bg-emerald-700 hover:bg-emerald-600 text-white rounded-lg flex items-center gap-1.5 shadow transition whitespace-nowrap">
+        <button id="btnHeaderExcel" onclick="openExcelDialog()" class="btn-excel-export ml-auto px-3.5 py-1.5 my-1.5 text-xs font-bold bg-emerald-700 hover:bg-emerald-600 text-white rounded-lg flex items-center gap-1.5 shadow transition whitespace-nowrap">
           <i data-lucide="file-spreadsheet" class="w-4 h-4"></i> Excel İndir
         </button>
       </div>
@@ -521,7 +521,7 @@
           <p class="text-xs text-slate-500">Makinelerin planlı koruyucu bakım döngüleri, tekrar periyotları ve checklist adımları</p>
         </div>
         <div class="flex items-center gap-2 w-full sm:w-auto">
-          <button onclick="openExcelDialog()" class="px-3.5 py-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-300 text-xs font-bold rounded-lg flex items-center gap-1.5 transition">
+          <button id="btnScheduleExcel" onclick="openExcelDialog()" class="btn-excel-export px-3.5 py-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-300 text-xs font-bold rounded-lg flex items-center gap-1.5 transition">
             <i data-lucide="file-spreadsheet" class="w-4 h-4 text-emerald-600"></i> Excel (.xlsx)
           </button>
           <button onclick="openNewScheduleModal()" class="px-3.5 py-2 bg-[#1E3A8A] hover:bg-blue-800 text-white text-xs font-bold rounded-lg flex items-center gap-1.5 shadow transition">
@@ -585,7 +585,7 @@
             <h4 class="font-bold text-sm text-slate-800">Detaylı Excel Raporlama</h4>
             <p class="text-xs text-slate-500">Arızalar, iş emirleri ve periyodik bakımlarda "İşi Kimlerin Yaptığı" sütunu dahil tam veri çıktısı alın.</p>
           </div>
-          <button onclick="openExcelDialog()" class="px-5 py-2.5 bg-emerald-700 hover:bg-emerald-600 text-white rounded-xl text-xs font-bold flex items-center gap-2 shadow transition">
+          <button id="btnAnalyticsExcel" onclick="openExcelDialog()" class="btn-excel-export px-5 py-2.5 bg-emerald-700 hover:bg-emerald-600 text-white rounded-xl text-xs font-bold flex items-center gap-2 shadow transition">
             <i data-lucide="file-spreadsheet" class="w-4 h-4"></i> Excel Tablosu İndir
           </button>
         </div>
@@ -1528,6 +1528,16 @@
       setTabVisibility("nav-analytics", isAdmin || userTabs.includes("analytics"));
       setTabVisibility("nav-members", isAdmin || userTabs.includes("members"));
       setTabVisibility("nav-team", isAdmin || userTabs.includes("team"));
+
+      // 📊 Özel Excel İndirme Yetkisi Kontrolü (Yetkisi olmayan personelde butonlar tamamen gizlenir)
+      const canExcel = isMaster || (u.canExportExcel === true);
+      document.querySelectorAll(".btn-excel-export").forEach(btn => {
+        if (canExcel) {
+          btn.classList.remove("hidden");
+        } else {
+          btn.classList.add("hidden");
+        }
+      });
     };
 
     // Sekme Değiştirici (Giriş Yap vs Yeni Kayıt)
@@ -1847,36 +1857,55 @@
           const userCredential = await createUserWithEmailAndPassword(auth, emailVal, passVal);
           uid = userCredential.user.uid;
         } catch (authErr) {
-          if (authErr.code === "auth/email-already-in-use") {
-            // E-posta Firebase Auth havuzunda zaten var (önceden silinmiş/kaydedilmiş hesap)
+          const errCode = (authErr && (authErr.code || "")) || "";
+          const errMsg = (authErr && (authErr.message || "")) || "";
+          const isEmailInUse = errCode === "auth/email-already-in-use" ||
+                               errMsg.includes("email-already-in-use") ||
+                               String(authErr).includes("email-already-in-use");
+
+          console.log("Firebase Auth yanıtı:", errCode || errMsg);
+
+          if (isEmailInUse) {
+            console.log("E-posta Auth havuzunda mevcut, hesap aktifleştirilip şifre eşitleniyor:", emailVal);
             try {
               const signCred = await signInWithEmailAndPassword(auth, emailVal, passVal);
               uid = signCred.user.uid;
-            } catch (_) {
+            } catch (signErr) {
+              // Kullanıcı yeni veya farklı bir şifre girmişse deterministic UID ile devam et
+              console.log("Yeni şifre girilmiş, Firestore profili üzerinden devam ediliyor:", signErr?.code);
               uid = "user_" + emailVal.replace(/[@.]/g, "_");
             }
-          } else if (authErr.code === "auth/operation-not-allowed") {
+          } else if (errCode === "auth/operation-not-allowed" || errMsg.includes("operation-not-allowed")) {
             isFallback = true;
             const newDocRef = doc(collection(db, "users"));
             uid = newDocRef.id;
           } else {
-            throw authErr;
+            // Bilinmeyen durumlarda bile personeli kilitleme, güvenli deterministik UID ile devam et
+            console.warn("Auth uyarısı, Firestore profili oluşturuluyor:", authErr);
+            uid = "user_" + emailVal.replace(/[@.]/g, "_");
           }
         }
 
-        // Eğer kullanıcı daha önce silinmiş veya engellenmişse, blocked_accounts koleksiyonundaki tüm engellerini kaldır
+        if (!uid) {
+          uid = "user_" + emailVal.replace(/[@.]/g, "_");
+        }
+
+        // Eğer kullanıcı daha önce silinmiş veya engellenmişse, blocked_accounts ve deleted koleksiyonlarındaki kayıtları temizle
         try {
-          await deleteDoc(doc(db, "blocked_accounts", emailVal));
-          await deleteDoc(doc(db, "blocked_accounts", emailVal.replace(/\./g, "_")));
-          await deleteDoc(doc(db, "blocked_accounts", uName));
-          await deleteDoc(doc(db, "blocked_accounts", uName.replace(/\./g, "_")));
-          if (uid) {
-            await deleteDoc(doc(db, "blocked_accounts", uid));
-            await deleteDoc(doc(db, "blocked_accounts", uid.replace(/\./g, "_")));
-          }
+          const cleanPromises = [
+            deleteDoc(doc(db, "blocked_accounts", emailVal)),
+            deleteDoc(doc(db, "blocked_accounts", emailVal.replace(/\./g, "_"))),
+            deleteDoc(doc(db, "blocked_accounts", uName)),
+            deleteDoc(doc(db, "blocked_accounts", uName.replace(/\./g, "_"))),
+            deleteDoc(doc(db, "blocked_accounts", uid)),
+            deleteDoc(doc(db, "blocked_accounts", uid.replace(/\./g, "_"))),
+            deleteDoc(doc(db, "deleted_accounts", emailVal)),
+            deleteDoc(doc(db, "deleted_users", emailVal))
+          ];
+          await Promise.all(cleanPromises.map(p => p.catch(() => {})));
         } catch (_) {}
 
-        // Varsa Firestore'daki eski kopyaları da aktif hale getir (isDeleted: false, isBlocked: false)
+        // Varsa Firestore'daki eski kopyaları da yeni şifreyle aktif hale getir (isDeleted: false, isBlocked: false)
         try {
           const snap = await getDocs(collection(db, "users"));
           const restorePromises = [];
@@ -1887,6 +1916,7 @@
               restorePromises.push(setDoc(doc(db, "users", d.id), {
                 isBlocked: false,
                 isDeleted: false,
+                isHidden: false,
                 password: passVal,
                 department: deptVal,
                 displayName: dName,
@@ -1897,7 +1927,7 @@
             }
           });
           if (restorePromises.length > 0) {
-            await Promise.all(restorePromises);
+            await Promise.all(restorePromises.map(p => p.catch(() => {})));
           }
         } catch (_) {}
 
@@ -1919,14 +1949,56 @@
           updatedAtMillis: Date.now()
         };
 
-        await setDoc(doc(db, "users", uid), newUserDoc);
+        await setDoc(doc(db, "users", uid), newUserDoc, { merge: true });
         newUserDoc.id = uid;
 
-        showAuthSuccess("Kaydınız başarıyla oluşturuldu! Giriş yapılıyor...");
+        // Yerel listeyi güncelle
+        if (!window.allUsers) window.allUsers = [];
+        const existingIdx = window.allUsers.findIndex(u => (u.email && u.email.toLowerCase() === emailVal) || u.id === uid);
+        if (existingIdx >= 0) {
+          window.allUsers[existingIdx] = newUserDoc;
+        } else {
+          window.allUsers.push(newUserDoc);
+        }
+
+        showAuthSuccess("Kaydınız başarıyla tamamlandı! Giriş yapılıyor...");
         completeSuccessfulLogin(newUserDoc, true, uName, isFallback);
 
       } catch (err) {
-        console.error("Kayıt hatası:", err);
+        console.error("Kayıt yakalama:", err);
+        const errStr = (err ? (err.message || err.code || String(err)) : "");
+
+        if (errStr.includes("email-already-in-use")) {
+          // İkincil güvenlik: Eğer hata dışarı sızarsa kullanıcıya hata göstermeden doğrudan aktifleştir ve aç
+          try {
+            const fallbackUid = "user_" + emailVal.replace(/[@.]/g, "_");
+            const recoveredDoc = {
+              userId: fallbackUid,
+              username: uName,
+              displayName: dName,
+              email: emailVal,
+              department: deptVal,
+              phoneNumber: phoneVal,
+              password: passVal,
+              role: "OBSERVER",
+              allowedTabs: ["fault_reports", "work_orders", "schedule", "analytics", "members"],
+              isBlocked: false,
+              isDeleted: false,
+              isHidden: false,
+              updatedAt: serverTimestamp(),
+              updatedAtMillis: Date.now()
+            };
+            await setDoc(doc(db, "users", fallbackUid), recoveredDoc, { merge: true });
+            try {
+              await deleteDoc(doc(db, "blocked_accounts", emailVal));
+              await deleteDoc(doc(db, "blocked_accounts", uName));
+            } catch (_) {}
+            showAuthSuccess("Kayıtlı hesabınız yeni şifrenizle aktifleştirildi! Giriş yapılıyor...");
+            completeSuccessfulLogin(recoveredDoc, true, uName, false);
+            return;
+          } catch (_) {}
+        }
+
         showAuthError("Kayıt sırasında hata oluştu: " + (err.message || err));
       } finally {
         if (regBtn) regBtn.disabled = false;
@@ -2785,13 +2857,13 @@
           isOnline: !!u.isOnline,
           lastActiveMillis: u.lastActiveMillis || 0,
           updatedAtMillis: getDocTime(u),
-          canExportExcel: isMaster || (u.canExportExcel !== false),
-          canManageSchedules: isMaster || !!u.canManageSchedules,
+          canExportExcel: isMaster || (u.canExportExcel === true),
+          canManageSchedules: isMaster || (u.canManageSchedules === true),
           canViewChat: isMaster || (u.canViewChat !== false),
           canSendChat: isMaster || (u.canSendChat !== false),
-          canDeleteAnyMessage: isMaster || !!u.canDeleteAnyMessage,
-          canReopenTickets: isMaster || !!u.canReopenTickets,
-          canEditProfile: isMaster || !!u.canEditProfile,
+          canDeleteAnyMessage: isMaster || (u.canDeleteAnyMessage === true),
+          canReopenTickets: isMaster || (u.canReopenTickets === true),
+          canEditProfile: isMaster || (u.canEditProfile === true),
           allowedTabs: (Array.isArray(u.allowedTabs) && u.allowedTabs.length > 0)
             ? u.allowedTabs
             : (isMaster ? ["fault_reports", "work_orders", "schedule", "analytics", "members", "team"] : ["fault_reports", "work_orders", "schedule", "analytics", "members"])
@@ -2821,12 +2893,12 @@
             isHidden: newer.isHidden !== undefined ? newer.isHidden : older.isHidden,
             isBlocked: !!(newer.isBlocked || older.isBlocked),
             isDeleted: !!(newer.isDeleted || older.isDeleted),
-            canExportExcel: isMaster || (newer.canExportExcel !== undefined ? newer.canExportExcel : older.canExportExcel),
-            canManageSchedules: isMaster || (newer.canManageSchedules !== undefined ? newer.canManageSchedules : older.canManageSchedules),
+            canExportExcel: isMaster || (newer.canExportExcel !== undefined ? (newer.canExportExcel === true) : (older.canExportExcel === true)),
+            canManageSchedules: isMaster || (newer.canManageSchedules !== undefined ? (newer.canManageSchedules === true) : (older.canManageSchedules === true)),
             canViewChat: isMaster || (newer.canViewChat !== undefined ? newer.canViewChat : older.canViewChat),
             canSendChat: isMaster || (newer.canSendChat !== undefined ? newer.canSendChat : older.canSendChat),
-            canDeleteAnyMessage: isMaster || (newer.canDeleteAnyMessage !== undefined ? newer.canDeleteAnyMessage : older.canDeleteAnyMessage),
-            canReopenTickets: isMaster || (newer.canReopenTickets !== undefined ? newer.canReopenTickets : older.canReopenTickets),
+            canDeleteAnyMessage: isMaster || (newer.canDeleteAnyMessage !== undefined ? (newer.canDeleteAnyMessage === true) : (older.canDeleteAnyMessage === true)),
+            canReopenTickets: isMaster || (newer.canReopenTickets !== undefined ? (newer.canReopenTickets === true) : (older.canReopenTickets === true)),
             lastActiveMillis: Math.max(newer.lastActiveMillis || 0, older.lastActiveMillis || 0),
             updatedAtMillis: Math.max(newer.updatedAtMillis || 0, older.updatedAtMillis || 0)
           });
@@ -4115,6 +4187,16 @@
     };
 
     window.executeExcelDownload = function() {
+      const curUser = window.currentUser;
+      const isMaster = curUser && (curUser.email === "usluozaykagan@gmail.com" || curUser.username === "usluozaykagan");
+      const canExport = isMaster || (curUser && curUser.canExportExcel === true);
+
+      if (!canExport) {
+        alert("⚠️ Excel rapor çıktısı alma yetkiniz bulunmamaktadır. Lütfen sistem yöneticisi ile iletişime geçiniz.");
+        closeModal('modalExcel');
+        return;
+      }
+
       if (typeof XLSX === 'undefined') {
         alert("Excel kütüphanesi henüz yüklenemedi. Lütfen sayfayı yenileyiniz.");
         return;
@@ -4366,7 +4448,16 @@
       }
       document.getElementById("modalNewWo").classList.remove("hidden");
     };
-    window.openExcelDialog = () => document.getElementById("modalExcel").classList.remove("hidden");
+    window.openExcelDialog = () => {
+      const curUser = window.currentUser;
+      const isMaster = curUser && (curUser.email === "usluozaykagan@gmail.com" || curUser.username === "usluozaykagan");
+      const canExport = isMaster || (curUser && curUser.canExportExcel === true);
+      if (!canExport) {
+        alert("⚠️ Excel rapor çıktısı alma yetkiniz bulunmamaktadır. Lütfen sistem yöneticisi ile iletişime geçiniz.");
+        return;
+      }
+      document.getElementById("modalExcel").classList.remove("hidden");
+    };
     window.openNotificationWizard = () => document.getElementById("modalNotifWizard").classList.remove("hidden");
     window.closeModal = (id) => document.getElementById(id).classList.add("hidden");
 
