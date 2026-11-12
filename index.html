@@ -1847,7 +1847,15 @@
           const userCredential = await createUserWithEmailAndPassword(auth, emailVal, passVal);
           uid = userCredential.user.uid;
         } catch (authErr) {
-          if (authErr.code === "auth/operation-not-allowed") {
+          if (authErr.code === "auth/email-already-in-use") {
+            // E-posta Firebase Auth havuzunda zaten var (önceden silinmiş/kaydedilmiş hesap)
+            try {
+              const signCred = await signInWithEmailAndPassword(auth, emailVal, passVal);
+              uid = signCred.user.uid;
+            } catch (_) {
+              uid = "user_" + emailVal.replace(/[@.]/g, "_");
+            }
+          } else if (authErr.code === "auth/operation-not-allowed") {
             isFallback = true;
             const newDocRef = doc(collection(db, "users"));
             uid = newDocRef.id;
@@ -1855,6 +1863,43 @@
             throw authErr;
           }
         }
+
+        // Eğer kullanıcı daha önce silinmiş veya engellenmişse, blocked_accounts koleksiyonundaki tüm engellerini kaldır
+        try {
+          await deleteDoc(doc(db, "blocked_accounts", emailVal));
+          await deleteDoc(doc(db, "blocked_accounts", emailVal.replace(/\./g, "_")));
+          await deleteDoc(doc(db, "blocked_accounts", uName));
+          await deleteDoc(doc(db, "blocked_accounts", uName.replace(/\./g, "_")));
+          if (uid) {
+            await deleteDoc(doc(db, "blocked_accounts", uid));
+            await deleteDoc(doc(db, "blocked_accounts", uid.replace(/\./g, "_")));
+          }
+        } catch (_) {}
+
+        // Varsa Firestore'daki eski kopyaları da aktif hale getir (isDeleted: false, isBlocked: false)
+        try {
+          const snap = await getDocs(collection(db, "users"));
+          const restorePromises = [];
+          snap.forEach(d => {
+            const dEmail = (d.data().email || "").toLowerCase();
+            const dUser = (d.data().username || "").toLowerCase();
+            if ((dEmail && dEmail === emailVal) || (dUser && dUser === uName) || d.id === uid) {
+              restorePromises.push(setDoc(doc(db, "users", d.id), {
+                isBlocked: false,
+                isDeleted: false,
+                password: passVal,
+                department: deptVal,
+                displayName: dName,
+                phoneNumber: phoneVal,
+                updatedAt: serverTimestamp(),
+                updatedAtMillis: Date.now()
+              }, { merge: true }));
+            }
+          });
+          if (restorePromises.length > 0) {
+            await Promise.all(restorePromises);
+          }
+        } catch (_) {}
 
         const newUserDoc = {
           userId: uid,
@@ -1870,7 +1915,8 @@
           isDeleted: false,
           isHidden: false,
           createdAt: serverTimestamp(),
-          updatedAt: serverTimestamp()
+          updatedAt: serverTimestamp(),
+          updatedAtMillis: Date.now()
         };
 
         await setDoc(doc(db, "users", uid), newUserDoc);
@@ -3256,6 +3302,16 @@
       const newUserId = "user_" + now;
 
       try {
+        // Eğer yönetici daha önce silinmiş/engellenmiş bir kullanıcıyı yeniden ekliyorsa blocked_accounts'tan kaldır
+        if (email) {
+          try { await deleteDoc(doc(db, "blocked_accounts", email.toLowerCase())); } catch (_) {}
+          try { await deleteDoc(doc(db, "blocked_accounts", email.toLowerCase().replace(/\./g, "_"))); } catch (_) {}
+        }
+        if (username) {
+          try { await deleteDoc(doc(db, "blocked_accounts", username.toLowerCase())); } catch (_) {}
+          try { await deleteDoc(doc(db, "blocked_accounts", username.toLowerCase().replace(/\./g, "_"))); } catch (_) {}
+        }
+
         await addDoc(collection(db, "users"), {
           userId: newUserId,
           displayName: name,
@@ -3274,9 +3330,12 @@
           canEditProfile: true,
           isHidden: false,
           isBlocked: false,
+          isDeleted: false,
           allowedTabs: newTabs.length ? newTabs : ["fault_reports", "work_orders", "schedule", "analytics", "members"],
           createdAtMillis: now,
-          createdAt: serverTimestamp()
+          updatedAtMillis: now,
+          createdAt: serverTimestamp(),
+          updatedAt: serverTimestamp()
         });
 
         closeModal('modalAddUserAdmin');
