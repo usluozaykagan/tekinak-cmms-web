@@ -155,6 +155,7 @@
               <select id="regDept" class="w-full px-2.5 py-2 text-xs bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-[#1E3A8A] outline-none font-medium">
                 <option value="Mekanik Bakım">Mekanik Bakım</option>
                 <option value="Elektrik & Otomasyon">Elektrik & Otomasyon</option>
+                <option value="Yardımcı Tesisler Teknisyeni">Yardımcı Tesisler Teknisyeni</option>
                 <option value="Üretim & Paketleme">Üretim & Paketleme</option>
                 <option value="Değirmen & İrmik">Değirmen & İrmik</option>
                 <option value="Kalite Kontrol">Kalite Kontrol</option>
@@ -175,9 +176,9 @@
         </form>
 
         <div class="pt-3 text-center border-t border-slate-100 flex flex-col items-center justify-center gap-2">
-          <a href="app-release.apk?v=9" id="loginApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold rounded-lg border border-emerald-300 transition shadow-sm">
+          <a href="app-release.apk?v=10" id="loginApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold rounded-lg border border-emerald-300 transition shadow-sm">
             <i data-lucide="smartphone" class="w-3.5 h-3.5 text-emerald-600"></i>
-            <span id="loginApkBtnText">Android APK İndir (v1.3.1)</span>
+            <span id="loginApkBtnText">Android APK İndir (v1.3.2)</span>
           </a>
           <div class="text-[11px] text-slate-400 flex items-center justify-center gap-1.5">
             <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600"></i>
@@ -228,15 +229,15 @@
         </div>
 
         <!-- Android APK İndir Butonu (Tüm Kullanıcılar Görür) -->
-        <a href="app-release.apk?v=9" id="topApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-700/60 hover:bg-blue-600 text-white border border-blue-400/40 transition shadow-sm" title="Android Mobil APK İndir">
+        <a href="app-release.apk?v=10" id="topApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-700/60 hover:bg-blue-600 text-white border border-blue-400/40 transition shadow-sm" title="Android Mobil APK İndir">
           <i data-lucide="download" class="w-3.5 h-3.5 text-amber-300"></i>
-          <span id="topApkBtnText">APK İndir (v1.3.1)</span>
+          <span id="topApkBtnText">APK İndir (v1.3.2)</span>
         </a>
 
         <!-- Mobil Sürüm Yönetimi Butonu (Sadece usluozaykagan@gmail.com için görünür) -->
         <button id="topAppVersionBtn" onclick="openAppVersionModal()" style="display: none;" class="hidden items-center space-x-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-600/70 hover:bg-emerald-600 text-white border border-emerald-400/40 transition shadow-sm" title="Firebase Mobil Sürüm Kontrolü ve Güncelleme">
           <i data-lucide="smartphone" class="w-3.5 h-3.5 text-amber-300"></i>
-          <span id="topVersionBadgeText">Sürüm: v1.3.1</span>
+          <span id="topVersionBadgeText">Sürüm: v1.3.2</span>
         </button>
 
         <!-- Bildirim Sihirbazı Butonu -->
@@ -277,6 +278,9 @@
         <button onclick="switchTab('analytics')" id="nav-analytics" class="nav-btn px-3.5 py-2.5 text-xs font-semibold border-b-2 border-transparent text-slate-300 hover:text-white flex items-center gap-1.5 whitespace-nowrap">
           <i data-lucide="bar-chart-3" class="w-4 h-4 text-emerald-400"></i> Analiz & Rapor
         </button>
+        <button onclick="switchTab('utilityControls')" id="nav-utilityControls" class="nav-btn px-3.5 py-2.5 text-xs font-semibold border-b-2 border-transparent text-slate-300 hover:text-white flex items-center gap-1.5 whitespace-nowrap">
+          <i data-lucide="gauge" class="w-4 h-4 text-sky-400"></i> Yardımcı Tesisler
+        </button>
         <button onclick="switchTab('members')" id="nav-members" class="nav-btn px-3.5 py-2.5 text-xs font-semibold border-b-2 border-transparent text-slate-300 hover:text-white flex items-center gap-1.5 whitespace-nowrap">
           <i data-lucide="contact" class="w-4 h-4 text-emerald-400"></i> Üyeler
           <span id="tabMembersBadge" class="bg-blue-600 text-white text-[10px] px-1.5 py-0.2 rounded-full font-bold ml-1">0</span>
@@ -300,11 +304,11 @@
         </span>
         <div>
           <div class="flex flex-wrap items-center gap-1.5 font-extrabold text-blue-950">
-            <span id="webUpdateBannerTitle">🚀 Yeni Mobil Sürüm Yayında: Tekinak CMMS v1.3.1</span>
-            <span id="webUpdateBannerCodeBadge" class="px-1.5 py-0.5 rounded bg-emerald-600 text-white text-[10px] font-bold">v1.3.1 (Kod: 9)</span>
+            <span id="webUpdateBannerTitle">🚀 Yeni Mobil Sürüm Yayında: Tekinak CMMS v1.3.2</span>
+            <span id="webUpdateBannerCodeBadge" class="px-1.5 py-0.5 rounded bg-emerald-600 text-white text-[10px] font-bold">v1.3.2 (Kod: 10)</span>
           </div>
           <div id="webUpdateBannerSummary" class="text-[11px] text-slate-600 mt-0.5">
-            Yeni kayıt olanlara sıfır varsayılan yetki ve yalnızca bulut tabanlı şifre senkronizasyonu yayınlandı.
+            Yardımcı Tesisler Teknisyeni departmanı ve 4 resmi saha kontrol formu (Kompresör, Chiller, Kazan & Buhar, Su Arıtma) eklendi.
           </div>
         </div>
       </div>
@@ -312,9 +316,9 @@
         <button type="button" onclick="toggleWebUpdateChangelog()" class="px-2.5 py-1.5 bg-white hover:bg-slate-100 text-blue-800 border border-blue-200 rounded-lg font-bold text-[11px] transition">
           Yenilikler
         </button>
-        <a id="webUpdateBannerDownloadBtn" href="app-release.apk?v=9" download="tekinak-bakim.apk" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold text-[11px] shadow-sm flex items-center gap-1.5 transition">
+        <a id="webUpdateBannerDownloadBtn" href="app-release.apk?v=10" download="tekinak-bakim.apk" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold text-[11px] shadow-sm flex items-center gap-1.5 transition">
           <i data-lucide="download" class="w-3.5 h-3.5"></i>
-          <span id="webUpdateBannerDownloadText">APK İndir (v1.3.1)</span>
+          <span id="webUpdateBannerDownloadText">APK İndir (v1.3.2)</span>
         </a>
         <button type="button" onclick="dismissWebUpdateBanner()" class="p-1 text-slate-400 hover:text-slate-700 rounded-lg" title="Bu sürüm için gizle">
           <i data-lucide="x" class="w-4 h-4"></i>
@@ -515,6 +519,7 @@
             <option value="ALL">Tüm Departmanlar</option>
             <option>Mekanik Bakım</option>
             <option>Elektrik & Otomasyon</option>
+            <option>Yardımcı Tesisler Teknisyeni</option>
             <option>Üretim & Operasyon</option>
             <option>Değirmen Mekanik</option>
             <option>Fabrika Yönetimi</option>
@@ -655,6 +660,89 @@
       </div>
     </section>
 
+    <!-- 5.5 TAB: YARDIMCI TESİSLER KONTROL FORMLARI (FR-38, FR-129, FR-37, FR-41) -->
+    <section id="pane-utilityControls" class="tab-pane hidden space-y-4">
+      <div id="utilityReadOnlyBanner" class="hidden bg-amber-50 border border-amber-200 text-amber-900 px-3.5 py-2.5 rounded-xl text-xs font-semibold flex items-center gap-2">
+        <i data-lucide="lock" class="w-4 h-4 text-amber-700 flex-shrink-0"></i>
+        <span>Salt Okunur (Sadece Görüntüleme): Bu sekmede kontrol formlarını doldurma veya düzenleme yetkiniz kapalıdır.</span>
+      </div>
+
+      <!-- Üst Form Seçim & Tarih Çubuğu -->
+      <div class="bg-white p-4 rounded-2xl border border-slate-200 custom-shadow space-y-3">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 bg-[#1E3A8A] text-amber-300 rounded text-[10px] font-black tracking-wide" id="utilityFormCodeBadge">FR-38</span>
+              <h2 class="text-base font-extrabold text-slate-900" id="utilityFormMainTitle">KOMPRESÖR KONTROL FORMU</h2>
+            </div>
+            <p class="text-[11px] text-slate-500 mt-0.5" id="utilityFormMetaText">TEKİNAK GIDA SAN. VE TİC. A.Ş. • Canlı Bulut Senkronizasyonu</p>
+          </div>
+
+          <!-- Tarih Seçimi & Kaydet / Dışa Aktar -->
+          <div class="flex flex-wrap items-center gap-2">
+            <div class="flex items-center bg-slate-50 border border-slate-300 rounded-xl overflow-hidden">
+              <button type="button" onclick="changeUtilityDate(-1)" class="px-2.5 py-2 hover:bg-slate-200 text-slate-700 text-xs font-bold" title="Önceki Gün">◀</button>
+              <input type="date" id="utilityDateInput" onchange="setUtilityDate(this.value)" class="bg-transparent px-2 py-1.5 text-xs font-extrabold text-[#1E3A8A] outline-none">
+              <button type="button" onclick="changeUtilityDate(1)" class="px-2.5 py-2 hover:bg-slate-200 text-slate-700 text-xs font-bold" title="Sonraki Gün">▶</button>
+            </div>
+            <button type="button" onclick="setUtilityDateToday()" class="px-3 py-2 bg-sky-50 hover:bg-sky-100 text-sky-800 border border-sky-200 rounded-xl text-xs font-bold transition">Bugün</button>
+            <button type="button" onclick="exportUtilityFormCsv()" class="px-3 py-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 rounded-xl text-xs font-bold flex items-center gap-1 transition">
+              <i data-lucide="file-spreadsheet" class="w-3.5 h-3.5"></i> Excel/CSV
+            </button>
+            <button type="button" id="btnUtilitySaveTop" onclick="saveUtilityControlForm()" class="px-4 py-2 bg-emerald-700 hover:bg-emerald-600 text-white rounded-xl text-xs font-bold shadow flex items-center gap-1.5 transition">
+              <i data-lucide="save" class="w-3.5 h-3.5"></i> Formu Kaydet
+            </button>
+          </div>
+        </div>
+
+        <!-- 4 Resmi Form Alt Sekmesi -->
+        <div class="flex flex-wrap gap-2 pt-2 border-t border-slate-100">
+          <button type="button" onclick="selectUtilityForm('COMPRESSOR')" id="utilSubTab_COMPRESSOR" class="util-sub-btn px-3.5 py-2 rounded-xl text-xs font-bold bg-[#1E3A8A] text-amber-300 shadow-sm transition">
+            💨 Kompresör (FR-38)
+          </button>
+          <button type="button" onclick="selectUtilityForm('CHILLER')" id="utilSubTab_CHILLER" class="util-sub-btn px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
+            ❄️ Chiller Soğutma (FR-129)
+          </button>
+          <button type="button" onclick="selectUtilityForm('BOILER')" id="utilSubTab_BOILER" class="util-sub-btn px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
+            🔥 Kazan &amp; Buhar Dairesi (FR-37)
+          </button>
+          <button type="button" onclick="selectUtilityForm('WATER_TREATMENT')" id="utilSubTab_WATER_TREATMENT" class="util-sub-btn px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
+            💧 Su Arıtma (FR-41)
+          </button>
+        </div>
+
+        <!-- Geçmiş Kayıtlar Hızlı Erişim -->
+        <div id="utilitySavedDatesBar" class="flex flex-wrap items-center gap-1.5 text-[11px] pt-1"></div>
+      </div>
+
+      <!-- Dinamik Tablo Alanı -->
+      <div id="utilityFormTablesContainer" class="space-y-4"></div>
+
+      <!-- Alt İmza, Görevli & Notlar Kartı -->
+      <div class="bg-white p-4 rounded-2xl border border-slate-200 custom-shadow space-y-3">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+          <div>
+            <label id="utilityOperatorLabel" class="block font-bold text-slate-700 mb-1">KONTROL EDEN / TEKNİSYEN</label>
+            <input type="text" id="utilityOperatorInput" oninput="markUtilityDirty()" placeholder="Görevli teknisyen adı soyadı" class="w-full border border-slate-300 rounded-xl px-3 py-2 font-semibold outline-none focus:ring-2 focus:ring-[#1E3A8A]">
+          </div>
+          <div id="utilitySupervisorWrapper" class="hidden">
+            <label id="utilitySupervisorLabel" class="block font-bold text-slate-700 mb-1">BAKIM VE ONARIM ŞEFİ</label>
+            <input type="text" id="utilitySupervisorInput" oninput="markUtilityDirty()" value="YUSUF KÖRÖSMANOĞLU" class="w-full border border-slate-300 rounded-xl px-3 py-2 font-semibold outline-none focus:ring-2 focus:ring-[#1E3A8A]">
+          </div>
+        </div>
+        <div class="text-xs">
+          <label class="block font-bold text-slate-700 mb-1">Ek Not / Açıklama</label>
+          <textarea id="utilityNotesInput" rows="2" oninput="markUtilityDirty()" placeholder="Varsa anormallik, blöf, filtre değişimi veya bakım notları..." class="w-full border border-slate-300 rounded-xl px-3 py-2 outline-none focus:ring-2 focus:ring-[#1E3A8A]"></textarea>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-slate-100">
+          <span id="utilityDirtyBadge" class="text-[11px] font-semibold text-slate-500">Değişiklikler anında buluta kaydedilmeye hazır</span>
+          <button type="button" id="btnUtilitySaveBottom" onclick="saveUtilityControlForm()" class="px-5 py-2.5 bg-emerald-700 hover:bg-emerald-600 text-white rounded-xl text-xs font-bold shadow flex items-center gap-1.5 transition">
+            <i data-lucide="cloud-upload" class="w-4 h-4"></i> Kaydet &amp; Buluta Gönder
+          </button>
+        </div>
+      </div>
+    </section>
+
     <!-- 6. TAB: FABRİKA ÜYELERİ (MEMBERS - Android MembersScreen ile Birebir) -->
     <section id="pane-members" class="tab-pane hidden space-y-4">
       <!-- Üst Başlık & Yönetici Rozeti -->
@@ -684,6 +772,7 @@
           <button onclick="filterMembersDept('Üretim & Operasyon', this)" class="dept-filter-btn px-3 py-1.5 rounded-lg font-semibold bg-slate-100 text-slate-600 hover:bg-slate-200 transition">Üretim & Operasyon</button>
           <button onclick="filterMembersDept('Mekanik Bakım', this)" class="dept-filter-btn px-3 py-1.5 rounded-lg font-semibold bg-slate-100 text-slate-600 hover:bg-slate-200 transition">Mekanik Bakım</button>
           <button onclick="filterMembersDept('Elektrik & Otomasyon', this)" class="dept-filter-btn px-3 py-1.5 rounded-lg font-semibold bg-slate-100 text-slate-600 hover:bg-slate-200 transition">Elektrik & Otomasyon</button>
+          <button onclick="filterMembersDept('Yardımcı Tesisler Teknisyeni', this)" class="dept-filter-btn px-3 py-1.5 rounded-lg font-semibold bg-slate-100 text-slate-600 hover:bg-slate-200 transition">Yardımcı Tesisler Teknisyeni</button>
           <button onclick="filterMembersDept('Fabrika Yönetimi', this)" class="dept-filter-btn px-3 py-1.5 rounded-lg font-semibold bg-slate-100 text-slate-600 hover:bg-slate-200 transition">Fabrika Yönetimi</button>
         </div>
       </div>
@@ -801,6 +890,7 @@
             <select id="fDept" class="w-full border rounded-lg p-2.5 bg-white">
               <option>Mekanik Bakım</option>
               <option>Elektrik & Otomasyon</option>
+              <option>Yardımcı Tesisler Teknisyeni</option>
               <option>Üretim & Operasyon</option>
               <option>Değirmen Mekanik</option>
               <option>Fabrika Yönetimi</option>
@@ -864,6 +954,7 @@
             <select id="woDept" class="w-full border rounded-lg p-2.5 bg-white">
               <option>Mekanik Bakım</option>
               <option>Elektrik & Otomasyon</option>
+              <option>Yardımcı Tesisler Teknisyeni</option>
               <option>Değirmen Mekanik</option>
               <option>Üretim & Operasyon</option>
             </select>
@@ -922,6 +1013,7 @@
             <option>Fabrika Yönetimi</option>
             <option>Mekanik Bakım</option>
             <option>Elektrik & Otomasyon</option>
+            <option>Yardımcı Tesisler Teknisyeni</option>
             <option>Üretim & Operasyon</option>
             <option>Değirmen Mekanik</option>
           </select>
@@ -937,7 +1029,7 @@
         <div class="p-2.5 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-between text-[11px] text-slate-600">
           <div class="flex items-center gap-1.5 font-semibold text-slate-700">
             <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600"></i>
-            <span>Sistem Sürümü: v1.3.1</span>
+            <span>Sistem Sürümü: v1.3.2</span>
           </div>
           <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-300">Güncel ✓</span>
         </div>
@@ -1201,9 +1293,10 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div>
             <label class="block font-semibold text-slate-700 mb-1">Departman *</label>
-            <select id="adminNewDept" class="w-full border rounded-lg p-2.5 bg-white outline-none focus:ring-2 focus:ring-[#1E3A8A]">
+            <select id="adminNewDept" onchange="onAdminDeptSelectChange('adminNew', this.value)" class="w-full border rounded-lg p-2.5 bg-white outline-none focus:ring-2 focus:ring-[#1E3A8A]">
               <option>Mekanik Bakım</option>
               <option>Elektrik & Otomasyon</option>
+              <option>Yardımcı Tesisler Teknisyeni</option>
               <option>Üretim & Operasyon</option>
               <option>Değirmen Mekanik</option>
               <option>Fabrika Yönetimi</option>
@@ -1233,8 +1326,9 @@
               <label class="block font-bold text-indigo-950 text-[11px]">Sekme Bazlı Görme & Düzenleme Yetkileri</label>
               <div class="text-[10px] text-indigo-700">Yeni eklenen kullanıcılarda varsayılan olarak tüm yetkiler kapalıdır.</div>
             </div>
-            <div class="flex items-center gap-1.5">
+            <div class="flex flex-wrap items-center gap-1.5">
               <button type="button" onclick="applyTabMatrixPreset('adminNew', 'DASHBOARD_ONLY')" class="px-2 py-1 bg-white hover:bg-indigo-100 text-indigo-900 border border-indigo-300 rounded-lg text-[10px] font-bold transition">Sadece Genel Bakış</button>
+              <button type="button" onclick="applyTabMatrixPreset('adminNew', 'UTILITY_ONLY')" class="px-2 py-1 bg-sky-50 hover:bg-sky-100 text-sky-800 border border-sky-300 rounded-lg text-[10px] font-bold transition">Yardımcı Tesisler</button>
               <button type="button" onclick="applyTabMatrixPreset('adminNew', 'NONE')" class="px-2 py-1 bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 rounded-lg text-[10px] font-bold transition">Tümünü Kapat</button>
             </div>
           </div>
@@ -1269,6 +1363,11 @@
               <span class="col-span-6 font-semibold text-slate-700">📊 KPI & Raporlar</span>
               <label class="col-span-3 flex justify-center cursor-pointer"><input type="checkbox" id="adminNewTabViewAnalytics" onchange="onTabViewToggle('adminNew', 'Analytics')" class="w-4 h-4 rounded text-[#1E3A8A]"></label>
               <label class="col-span-3 flex justify-center cursor-pointer"><input type="checkbox" id="adminNewTabEditAnalytics" onchange="onTabEditToggle('adminNew', 'Analytics')" class="w-4 h-4 rounded text-amber-600"></label>
+            </div>
+            <div class="grid grid-cols-12 items-center px-3 py-2 text-[11px]">
+              <span class="col-span-6 font-semibold text-slate-700">🏭 Yardımcı Tesisler</span>
+              <label class="col-span-3 flex justify-center cursor-pointer"><input type="checkbox" id="adminNewTabViewUtility" onchange="onTabViewToggle('adminNew', 'Utility')" class="w-4 h-4 rounded text-[#1E3A8A]"></label>
+              <label class="col-span-3 flex justify-center cursor-pointer"><input type="checkbox" id="adminNewTabEditUtility" onchange="onTabEditToggle('adminNew', 'Utility')" class="w-4 h-4 rounded text-amber-600"></label>
             </div>
             <div class="grid grid-cols-12 items-center px-3 py-2 text-[11px]">
               <span class="col-span-6 font-semibold text-slate-700">👥 Üyeler</span>
@@ -1336,7 +1435,7 @@
             <div class="font-bold text-blue-900 text-sm" id="editPermDisplayName">Personel Adı</div>
             <div class="text-[11px] text-blue-700 font-mono" id="editPermUsername">@kullaniciadi</div>
           </div>
-          <span id="editPermMatrixSummary" class="text-[10px] font-bold px-2 py-1 rounded-lg bg-white text-blue-900 border border-blue-200">0/6 Gör</span>
+          <span id="editPermMatrixSummary" class="text-[10px] font-bold px-2 py-1 rounded-lg bg-white text-blue-900 border border-blue-200">0/7 Gör</span>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -1352,9 +1451,10 @@
           </div>
           <div>
             <label class="block font-semibold text-slate-700 mb-1">Departman</label>
-            <select id="editPermDept" class="w-full border rounded-lg p-2.5 bg-white">
+            <select id="editPermDept" onchange="onAdminDeptSelectChange('editPerm', this.value)" class="w-full border rounded-lg p-2.5 bg-white">
               <option>Mekanik Bakım</option>
               <option>Elektrik & Otomasyon</option>
+              <option>Yardımcı Tesisler Teknisyeni</option>
               <option>Üretim & Operasyon</option>
               <option>Değirmen Mekanik</option>
               <option>Fabrika Yönetimi</option>
@@ -1379,6 +1479,7 @@
             </div>
             <div class="flex flex-wrap items-center gap-1">
               <button type="button" onclick="applyTabMatrixPreset('editPerm', 'DASHBOARD_ONLY')" class="px-2 py-1 bg-white hover:bg-indigo-100 text-indigo-900 border border-indigo-300 rounded-lg text-[10px] font-bold transition">Sadece Genel Bakış</button>
+              <button type="button" onclick="applyTabMatrixPreset('editPerm', 'UTILITY_ONLY')" class="px-2 py-1 bg-sky-50 hover:bg-sky-100 text-sky-800 border border-sky-300 rounded-lg text-[10px] font-bold transition">Yardımcı Tesisler</button>
               <button type="button" onclick="applyTabMatrixPreset('editPerm', 'NONE')" class="px-2 py-1 bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 rounded-lg text-[10px] font-bold transition">Tümünü Kapat</button>
               <button type="button" onclick="applyTabMatrixPreset('editPerm', 'ALL')" class="px-2 py-1 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 rounded-lg text-[10px] font-bold transition">Tümünü Aç</button>
             </div>
@@ -1414,6 +1515,11 @@
               <span class="col-span-6 font-semibold text-slate-700">📊 KPI & Raporlar</span>
               <label class="col-span-3 flex justify-center cursor-pointer"><input type="checkbox" id="editPermTabViewAnalytics" onchange="onTabViewToggle('editPerm', 'Analytics')" class="w-4 h-4 rounded text-[#1E3A8A]"></label>
               <label class="col-span-3 flex justify-center cursor-pointer"><input type="checkbox" id="editPermTabEditAnalytics" onchange="onTabEditToggle('editPerm', 'Analytics')" class="w-4 h-4 rounded text-amber-600"></label>
+            </div>
+            <div class="grid grid-cols-12 items-center px-3 py-2 text-[11px]">
+              <span class="col-span-6 font-semibold text-slate-700">🏭 Yardımcı Tesisler</span>
+              <label class="col-span-3 flex justify-center cursor-pointer"><input type="checkbox" id="editPermTabViewUtility" onchange="onTabViewToggle('editPerm', 'Utility')" class="w-4 h-4 rounded text-[#1E3A8A]"></label>
+              <label class="col-span-3 flex justify-center cursor-pointer"><input type="checkbox" id="editPermTabEditUtility" onchange="onTabEditToggle('editPerm', 'Utility')" class="w-4 h-4 rounded text-amber-600"></label>
             </div>
             <div class="grid grid-cols-12 items-center px-3 py-2 text-[11px]">
               <span class="col-span-6 font-semibold text-slate-700">👥 Üyeler</span>
@@ -1542,8 +1648,8 @@
         <div>
           <div class="text-[11px] font-bold text-emerald-800 uppercase tracking-wider">Aktif Firebase Sürümü</div>
           <div class="text-sm font-extrabold text-emerald-950 flex items-center gap-2" id="verModalCurrentBadge">
-            <span id="verModalVersionName">v1.3.1</span>
-            <span id="verModalVersionCode" class="text-xs px-2 py-0.5 bg-emerald-200 text-emerald-800 rounded-md font-semibold">Kod: 9</span>
+            <span id="verModalVersionName">v1.3.2</span>
+            <span id="verModalVersionCode" class="text-xs px-2 py-0.5 bg-emerald-200 text-emerald-800 rounded-md font-semibold">Kod: 10</span>
           </div>
         </div>
         <div class="text-right text-[11px] text-emerald-700">
@@ -1556,18 +1662,18 @@
         <div class="grid grid-cols-2 gap-3">
           <div>
             <label class="block font-semibold text-slate-700 mb-1">Yeni Sürüm Kodu (Build Code) *</label>
-            <input type="number" id="verFormCode" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 9" min="1">
+            <input type="number" id="verFormCode" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 10" min="1">
             <span class="text-[10px] text-slate-400">Yeni sürüm için kod mevcut koddan büyük olmalıdır</span>
           </div>
           <div>
             <label class="block font-semibold text-slate-700 mb-1">Yeni Sürüm Adı (Version Name) *</label>
-            <input type="text" id="verFormName" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 1.3.1">
+            <input type="text" id="verFormName" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 1.3.2">
           </div>
         </div>
 
         <div>
           <label class="block font-semibold text-slate-700 mb-1">Güncelleme Bildirim Başlığı *</label>
-          <input type="text" id="verFormTitle" required class="w-full px-3 py-2 border rounded-xl text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: Yeni Sürüm Yayınlandı (v1.3.1)">
+          <input type="text" id="verFormTitle" required class="w-full px-3 py-2 border rounded-xl text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: Yeni Sürüm Yayınlandı (v1.3.2)">
         </div>
 
         <div>
@@ -1586,9 +1692,9 @@
         </div>
 
         <div class="flex items-center justify-between gap-2 pt-2 border-t">
-          <button type="button" onclick="syncWithDeployedApk()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs rounded-xl font-bold border border-slate-300 flex items-center gap-1.5" title="Firebase'i şu an dağıtılan v1.3.1 (Kod: 9) APK ile eşitler ve güncellenen telefonlardaki popup'ı kapatır">
+          <button type="button" onclick="syncWithDeployedApk()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs rounded-xl font-bold border border-slate-300 flex items-center gap-1.5" title="Firebase'i şu an dağıtılan v1.3.2 (Kod: 10) APK ile eşitler ve güncellenen telefonlardaki popup'ı kapatır">
             <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-blue-600"></i>
-            <span>Mevcut APK ile Eşitle (v1.3.1 - Kod: 9)</span>
+            <span>Mevcut APK ile Eşitle (v1.3.2 - Kod: 10)</span>
           </button>
           <div class="flex gap-2">
             <button type="button" onclick="closeModal('modalAppVersion')" class="px-4 py-2 border rounded-xl font-semibold text-slate-600 hover:bg-slate-50">Kapat</button>
@@ -1700,6 +1806,7 @@
       workOrders: "work_orders",
       schedules: "schedule",
       analytics: "analytics",
+      utilityControls: "utility_controls",
       members: "members",
       team: "team"
     };
@@ -1709,6 +1816,7 @@
       work_orders: "workOrders",
       schedule: "schedules",
       analytics: "analytics",
+      utility_controls: "utilityControls",
       members: "members",
       team: "team"
     };
@@ -1718,6 +1826,7 @@
       { suffix: "Wo", id: "work_orders" },
       { suffix: "Schedule", id: "schedule" },
       { suffix: "Analytics", id: "analytics" },
+      { suffix: "Utility", id: "utility_controls" },
       { suffix: "Members", id: "members" }
     ];
 
@@ -1731,7 +1840,7 @@
     window.getUserAllowedTabs = function(u) {
       if (!u) return [];
       if (window.isMasterUser(u)) {
-        return ["dashboard", "fault_reports", "work_orders", "schedule", "analytics", "members", "team"];
+        return ["dashboard", "fault_reports", "work_orders", "schedule", "analytics", "utility_controls", "members", "team"];
       }
       const raw = Array.isArray(u.allowedTabs) ? u.allowedTabs : [];
       return [...new Set(raw.filter(t => typeof t === "string" && t.length > 0 && t !== "team"))];
@@ -1740,7 +1849,7 @@
     window.getUserEditableTabs = function(u) {
       if (!u) return [];
       if (window.isMasterUser(u)) {
-        return ["dashboard", "fault_reports", "work_orders", "schedule", "analytics", "members", "team"];
+        return ["dashboard", "fault_reports", "work_orders", "schedule", "analytics", "utility_controls", "members", "team"];
       }
       const allowed = window.getUserAllowedTabs(u);
       const raw = Array.isArray(u.editableTabs) ? u.editableTabs : [];
@@ -1880,9 +1989,10 @@
       });
       const badge = document.getElementById("editPermMatrixSummary");
       if (badge) {
+        const total = window.TAB_MATRIX_KEYS.length;
         badge.innerText = viewCount === 0
           ? "Tüm Sekmeler Kapalı"
-          : `${viewCount}/6 Gör • ${editCount} Düzenle`;
+          : `${viewCount}/${total} Gör • ${editCount} Düzenle`;
       }
     };
 
@@ -1931,6 +2041,9 @@
         } else if (preset === "DASHBOARD_ONLY") {
           vEl.checked = (item.id === "dashboard");
           eEl.checked = false;
+        } else if (preset === "UTILITY_ONLY") {
+          vEl.checked = (item.id === "utility_controls");
+          eEl.checked = (item.id === "utility_controls");
         } else if (preset === "ALL") {
           vEl.checked = true;
           eEl.checked = true;
@@ -1941,8 +2054,18 @@
       window.updatePermMatrixSummary(prefix);
     };
 
+    window.onAdminDeptSelectChange = function(prefix, deptVal) {
+      if (deptVal === "Yardımcı Tesisler Teknisyeni") {
+        const vEl = document.getElementById(`${prefix}TabViewUtility`);
+        const eEl = document.getElementById(`${prefix}TabEditUtility`);
+        if (vEl) vEl.checked = true;
+        if (eEl) eEl.checked = true;
+        window.updatePermMatrixSummary(prefix);
+      }
+    };
+
     window.getFirstAllowedNavTabId = function(u = window.currentUser) {
-      const order = ["dashboard", "faults", "workOrders", "schedules", "analytics", "members", "team"];
+      const order = ["dashboard", "faults", "workOrders", "schedules", "analytics", "utilityControls", "members", "team"];
       for (const navTab of order) {
         if (window.canUserViewTab(navTab, u)) return navTab;
       }
@@ -2016,6 +2139,7 @@
       setTabVisibility("nav-workOrders", window.canUserViewTab("work_orders", u));
       setTabVisibility("nav-schedules", window.canUserViewTab("schedule", u));
       setTabVisibility("nav-analytics", window.canUserViewTab("analytics", u));
+      setTabVisibility("nav-utilityControls", window.canUserViewTab("utility_controls", u));
       setTabVisibility("nav-members", window.canUserViewTab("members", u));
       setTabVisibility("nav-team", window.isMasterUser(u));
 
@@ -2023,6 +2147,7 @@
       const canFault = window.canUserCreateFault(u);
       const canWo = window.canUserCreateWorkOrder(u);
       const canSchedEdit = window.canUserManageSchedules(u);
+      const canUtilityEdit = window.canUserEditTab("utility_controls", u);
       const canMembersEdit = window.canUserEditTab("members", u);
 
       const btnDashFault = document.getElementById("dashBtnNewFault");
@@ -2046,6 +2171,13 @@
 
       const schedBanner = document.getElementById("schedulesReadOnlyBanner");
       if (schedBanner) schedBanner.classList.toggle("hidden", !window.canUserViewTab("schedule", u) || canSchedEdit);
+
+      const utilBanner = document.getElementById("utilityReadOnlyBanner");
+      if (utilBanner) utilBanner.classList.toggle("hidden", !window.canUserViewTab("utility_controls", u) || canUtilityEdit);
+      const btnUtilTop = document.getElementById("btnUtilitySaveTop");
+      if (btnUtilTop) btnUtilTop.classList.toggle("hidden", !canUtilityEdit);
+      const btnUtilBottom = document.getElementById("btnUtilitySaveBottom");
+      if (btnUtilBottom) btnUtilBottom.classList.toggle("hidden", !canUtilityEdit);
 
       const membersBadge = document.getElementById("membersModeBadge");
       if (membersBadge) {
@@ -2682,6 +2814,7 @@
     window.allWorkOrders = [];
     window.allSchedules = [];
     window.allChatMessages = [];
+    window.allUtilityLogs = [];
     window.allUsers = [];
     window.firestoreDb = db;
 
@@ -2725,6 +2858,25 @@
         window.allSchedules.sort((a,b) => (a.scheduledDateMillis || 0) - (b.scheduledDateMillis || 0));
         renderSchedules();
       });
+
+      // 3.5 Yardımcı Tesisler Kontrol Formları (utility_control_logs)
+      try {
+        onSnapshot(collection(db, "utility_control_logs"), (snapshot) => {
+          window.allUtilityLogs = [];
+          snapshot.forEach(docSnap => {
+            window.allUtilityLogs.push({ ...docSnap.data(), docId: docSnap.id, id: docSnap.id });
+          });
+          window.allUtilityLogs.sort((a,b) => (b.updatedAtMillis || 0) - (a.updatedAtMillis || 0));
+          const pane = document.getElementById("pane-utilityControls");
+          if (pane && !pane.classList.contains("hidden") && typeof window.renderUtilityControls === "function") {
+            window.renderUtilityControls();
+          }
+        }, (err) => {
+          console.warn("utility_control_logs listener error:", err);
+        });
+      } catch (e) {
+        console.warn("Failed to listen to utility_control_logs:", e);
+      }
 
       // 4. Saha Chat Mesajları (chat_messages)
       onSnapshot(collection(db, "chat_messages"), (snapshot) => {
@@ -2813,6 +2965,7 @@
               if (currentTabId === "faults") renderFaults();
               if (currentTabId === "workOrders") renderWorkOrders();
               if (currentTabId === "schedules") renderSchedules();
+              if (currentTabId === "utilityControls" && typeof window.renderUtilityControls === "function") window.renderUtilityControls();
               if (currentTabId === "members") renderMembers();
               if (currentTabId === "team") renderTeam();
             }
@@ -2829,7 +2982,7 @@
       });
 
       // 6. Mobil Uygulama Sürüm Takibi ve Firebase Yönetimi (app_version/current)
-      let hasAutoSyncedV9 = false;
+      let hasAutoSyncedV10 = false;
       try {
         onSnapshot(doc(db, "app_version", "current"), async (docSnap) => {
           if (docSnap && docSnap.exists()) {
@@ -2837,15 +2990,15 @@
             window.currentAppVersion = data;
             renderAppVersionBadge();
 
-            // Sürüm kodu 9'dan küçükse otomatik olarak v1.3.1 (Kod: 9)'e yükselt
+            // Sürüm kodu 10'dan küçükse otomatik olarak v1.3.2 (Kod: 10)'a yükselt
             const verCodeNum = Number(data.versionCode || 0);
-            if (verCodeNum < 9 && !hasAutoSyncedV9) {
-              hasAutoSyncedV9 = true;
-              console.log("Firestore app_version sürüm kodu 9 (v1.3.1) olarak otomatik eşitleniyor...");
+            if (verCodeNum < 10 && !hasAutoSyncedV10) {
+              hasAutoSyncedV10 = true;
+              console.log("Firestore app_version sürüm kodu 10 (v1.3.2) olarak otomatik eşitleniyor...");
               seedInitialAppVersionInFirebase();
             }
-          } else if (!hasAutoSyncedV9) {
-            hasAutoSyncedV9 = true;
+          } else if (!hasAutoSyncedV10) {
+            hasAutoSyncedV10 = true;
             // Başlangıç sürüm dokümanı Firebase'de yoksa otomatik oluştur
             seedInitialAppVersionInFirebase();
           }
@@ -3932,6 +4085,7 @@
         { id: "work_orders", title: "İş Emirleri", icon: "🔧" },
         { id: "schedule", title: "Bakım Takvimi", icon: "📅" },
         { id: "analytics", title: "KPI & Raporlar", icon: "📊" },
+        { id: "utility_controls", title: "Yardımcı Tesisler", icon: "🏭" },
         { id: "members", title: "Üyeler", icon: "👥" },
         { id: "team", title: "Personel & Yetki", icon: "🛡️" }
       ];
@@ -4465,8 +4619,8 @@
       let updatedAllowedTabs = [];
       let updatedEditableTabs = [];
       if (isTargetMaster) {
-        updatedAllowedTabs = ["dashboard", "fault_reports", "work_orders", "schedule", "analytics", "members", "team"];
-        updatedEditableTabs = ["dashboard", "fault_reports", "work_orders", "schedule", "analytics", "members", "team"];
+        updatedAllowedTabs = ["dashboard", "fault_reports", "work_orders", "schedule", "analytics", "utility_controls", "members", "team"];
+        updatedEditableTabs = ["dashboard", "fault_reports", "work_orders", "schedule", "analytics", "utility_controls", "members", "team"];
       } else {
         window.TAB_MATRIX_KEYS.forEach(item => {
           const vEl = document.getElementById(`editPermTabView${item.suffix}`);
@@ -5344,10 +5498,10 @@
         // Eğer master admin ise veya henüz doküman bulunamadıysa dokümanı mevcut yetkilerini koruyarak oluştur/güncelle
         if (updatedCount === 0 || isMaster) {
           const fallbackTabs = isMaster
-            ? ["dashboard", "fault_reports", "work_orders", "schedule", "analytics", "members", "team"]
+            ? ["dashboard", "fault_reports", "work_orders", "schedule", "analytics", "utility_controls", "members", "team"]
             : window.getUserAllowedTabs(window.currentUser);
           const fallbackEditTabs = isMaster
-            ? ["dashboard", "fault_reports", "work_orders", "schedule", "analytics", "members", "team"]
+            ? ["dashboard", "fault_reports", "work_orders", "schedule", "analytics", "utility_controls", "members", "team"]
             : window.getUserEditableTabs(window.currentUser);
 
           updatePromises.push(setDoc(doc(db, "users", isMaster ? "admin_uslu" : currentUid), {
@@ -5663,6 +5817,509 @@
       return Object.keys(counts).reduce((a, b) => counts[a] > counts[b] ? a : b);
     }
 
+    // ================= YARDIMCI TESİSLER KONTROL FORMLARI (FR-38, FR-129, FR-37, FR-41) =================
+    const UTILITY_BOILER_HOURS = [
+      "08:00", "09:30", "10:00", "11:00", "12:00",
+      "14:00", "15:00", "16:00", "17:00", "18:00",
+      "19:00", "20:00", "21:30", "22:00", "23:00",
+      "00:00", "01:00", "02:00", "03:00", "04:00",
+      "05:00", "06:00", "07:00"
+    ];
+    const UTILITY_WATER_HOURS = [
+      "08:00", "10:00", "12:00", "14:00", "16:00", "18:00",
+      "20:00", "22:00", "00:00", "02:00", "04:00", "06:00"
+    ];
+    const UTILITY_COMP_STD_HOURS = ["08:00", "11:00", "14:00", "17:00", "20:00", "00:00", "02:00", "05:00"];
+    const UTILITY_COMP_SARMAR37_HOURS = ["08:00", "11:00", "14:00", "17:00", "20:00", "23:00", "02:00", "05:00"];
+    const UTILITY_COMP_COLS = [
+      { id: "basinc", title: "BASINÇ", hint: "7.5", options: ["—"] },
+      { id: "genel_temizlik", title: "GENEL TEMİZLİK", hint: "✓", options: ["✓", "✗", "—"] },
+      { id: "bakimi", title: "BAKIMI", hint: "✓", options: ["✓", "✗", "—"] },
+      { id: "kurutma_tank_blof", title: "KURUTMA TANK BLÖF", hint: "Nor", options: ["Nor", "✓", "Arızalı", "—"] }
+    ];
+    const UTILITY_HOT_BOILER_COLS = [
+      { id: "pano_sicakligi", title: "KAZAN PANO SICAKLIĞI", hint: "136", options: ["—"] },
+      { id: "baca_sicakligi", title: "KAZAN BACA SICAKLIĞI", hint: "187", options: ["—"] },
+      { id: "manometre_sicakligi", title: "MANOMETRE SICAKLIĞI", hint: "137", options: ["—"] },
+      { id: "bar_basinci", title: "KAZAN BAR BASINCI", hint: "5.0", options: ["—"] }
+    ];
+    const UTILITY_LEVEL_OPTIONS = ["YÜKSEK", "ORTA", "DÜŞÜK"];
+    const UTILITY_PUMP_OPTIONS = ["ÇALIŞIYOR", "BASINCI", "ARIZALI"];
+
+    const UTILITY_FORM_DEFS = {
+      COMPRESSOR: {
+        id: "COMPRESSOR",
+        shortBadge: "FR-38",
+        documentTitle: "KOMPRESÖR KONTROL FORMU",
+        formCode: "FR-38 07.07.2017/01/7.02.2025",
+        operatorLabel: "KONTROL EDEN / TEKNİSYEN",
+        supervisorLabel: null,
+        defaultSupervisor: "",
+        sections: [
+          { id: "khell_132", title: "KHELL 2024 132 KW", hours: UTILITY_COMP_STD_HOURS, columns: UTILITY_COMP_COLS },
+          { id: "ekomak_45", title: "EKOMAK 2023 45 KW", hours: UTILITY_COMP_STD_HOURS, columns: UTILITY_COMP_COLS },
+          { id: "sarmar_55", title: "SARMAR 2022 55 KW", hours: UTILITY_COMP_STD_HOURS, columns: UTILITY_COMP_COLS },
+          { id: "sarmar_37", title: "SARMAR 2022 37 KW", hours: UTILITY_COMP_SARMAR37_HOURS, columns: UTILITY_COMP_COLS }
+        ]
+      },
+      CHILLER: {
+        id: "CHILLER",
+        shortBadge: "FR-129",
+        documentTitle: "CHILLER SOĞUTMA SİSTEMİ KONTROL FORMU",
+        formCode: "FR-129 07.07.2017/01/22.12.2025",
+        operatorLabel: "KONTROL EDEN / TEKNİSYEN",
+        supervisorLabel: null,
+        defaultSupervisor: "",
+        sections: [
+          {
+            id: "chiller_main",
+            title: "CHILLER SOĞUTMA SİSTEMİ",
+            hours: ["08:00", "12:00", "17:00", "20:00", "00:00", "05:00"],
+            columns: [
+              { id: "giris_su_sicakligi", title: "GİRİŞ SU SICAKLIĞI", hint: "°C", options: ["—"] },
+              { id: "cikis_su_sicakligi", title: "ÇIKIŞ SU SICAKLIĞI", hint: "°C", options: ["—"] },
+              { id: "giris_su_basinci", title: "GİRİŞ SU BASINCI", hint: "Bar", options: ["—"] },
+              { id: "cikis_su_basinci", title: "ÇIKIŞ SU BASINCI", hint: "Bar", options: ["—"] },
+              { id: "radyator_petek_kontrolu", title: "RADYATÖR PETEK KONTROLÜ", hint: "Temiz", options: ["Temiz", "Kirli", "Yıkandı", "—"] }
+            ]
+          }
+        ]
+      },
+      BOILER: {
+        id: "BOILER",
+        shortBadge: "FR-37",
+        documentTitle: "KAZAN VE BUHAR DAİRESİ GÜNLÜK KONTROL FORMU",
+        formCode: "FR-37 07.07.2017/01/27.02.2025",
+        operatorLabel: "KAZAN GÖREVLİSİ",
+        supervisorLabel: "BAKIM VE ONARIM ŞEFİ",
+        defaultSupervisor: "YUSUF KÖRÖSMANOĞLU",
+        sections: [
+          { id: "kazan_1_4000kw", title: "1- 4.000 KW KIZGIN SU KAZANI KONTROL", hours: UTILITY_BOILER_HOURS, columns: UTILITY_HOT_BOILER_COLS },
+          { id: "kazan_2_3150kcal", title: "2- 3.150.000 KCAL/H KIZGIN SU KAZANI KONTROL", hours: UTILITY_BOILER_HOURS, columns: UTILITY_HOT_BOILER_COLS },
+          { id: "kazan_3_4000kw", title: "3- 4.000 KW KIZGIN SU KAZANI KONTROLÜ", hours: UTILITY_BOILER_HOURS, columns: UTILITY_HOT_BOILER_COLS },
+          {
+            id: "kazan_4_400kw_buhar",
+            title: "4- 400 KW BUHAR KAZANI KONTROL",
+            hours: UTILITY_BOILER_HOURS,
+            columns: [
+              { id: "baca_sicakligi", title: "KAZAN BACA SICAKLIĞI", hint: "135", options: ["—"] },
+              { id: "manometre_sicakligi", title: "MANOMETRE SICAKLIĞI", hint: "80", options: ["—"] },
+              { id: "bar_basinci", title: "KAZAN BAR BASINCI", hint: "1.6", options: ["—"] },
+              { id: "su_seviyesi", title: "KAZAN SU SEVİYESİ", hint: "Nor", options: ["Nor", "Yüksek", "Düşük", "—"] },
+              { id: "hat_motor_bar", title: "HAT MOTOR BAR", hint: "7.0", options: ["—"] },
+              { id: "kontrol_eden", title: "KONTROL EDEN", hint: "Ad/Başharf", options: [] }
+            ]
+          }
+        ]
+      },
+      WATER_TREATMENT: {
+        id: "WATER_TREATMENT",
+        shortBadge: "FR-41",
+        documentTitle: "SU ARITMA KONTROL FORMU",
+        formCode: "FR-41 07.07.2017/01/27.02.2025",
+        operatorLabel: "ARITMA GÖREVLİSİ",
+        supervisorLabel: null,
+        defaultSupervisor: "",
+        sections: [
+          {
+            id: "aritma_9ton",
+            title: "9 TON SU ARITMA CİHAZI",
+            hours: UTILITY_WATER_HOURS,
+            columns: [
+              { id: "temiz_su_tanki", title: "TEMİZ SU TANKI ORANI", hint: "", tristate: UTILITY_LEVEL_OPTIONS },
+              { id: "ham_su_tanki", title: "HAM SU TANKI ORANI", hint: "", tristate: UTILITY_LEVEL_OPTIONS },
+              { id: "kuyu_su_cikis_filtresi", title: "KUYU SU ÇIKIŞ FİLTRESİ ORANI", hint: "", tristate: UTILITY_LEVEL_OPTIONS },
+              { id: "ozmoz_giris_filtresi", title: "OZMOZ GİRİŞ FİLTRESİ ORANI", hint: "", tristate: UTILITY_LEVEL_OPTIONS },
+              { id: "ozmoz_cikis_filtresi", title: "OZMOZ ÇIKIŞ FİLTRESİ ORANI", hint: "", tristate: UTILITY_LEVEL_OPTIONS },
+              { id: "kuyu_su_pompasi", title: "KUYU SU POMPASI", hint: "", tristate: UTILITY_PUMP_OPTIONS },
+              { id: "ozmoz_besi_pompasi", title: "OZMOZ BESİ POMPASI", hint: "", tristate: UTILITY_PUMP_OPTIONS },
+              { id: "ozmoz_basinc_pompasi", title: "OZMOZ BASINÇ POMPASI", hint: "", tristate: UTILITY_PUMP_OPTIONS },
+              { id: "temiz_su_ph", title: "TEMİZ SU PH ORANI", hint: "177", options: [] }
+            ]
+          },
+          {
+            id: "aritma_2ton",
+            title: "2 TON SU ARITMA CİHAZI",
+            hours: UTILITY_WATER_HOURS,
+            columns: [
+              { id: "temiz_su_tanki", title: "TEMİZ SU TANKI ORANI", hint: "", tristate: UTILITY_LEVEL_OPTIONS },
+              { id: "ham_su_tanki", title: "HAM SU TANKI ORANI", hint: "", tristate: UTILITY_LEVEL_OPTIONS },
+              { id: "temiz_su_ph", title: "TEMİZ SU PH ORANI", hint: "18.0", options: [] },
+              { id: "kontrol_eden", title: "KONTROL EDEN", hint: "NK", options: [] }
+            ]
+          }
+        ]
+      }
+    };
+
+    function getLocalTodayIso() {
+      const d = new Date();
+      const y = d.getFullYear();
+      const m = String(d.getMonth() + 1).padStart(2, "0");
+      const day = String(d.getDate()).padStart(2, "0");
+      return `${y}-${m}-${day}`;
+    }
+
+    function formatDisplayDateTr(dateIso) {
+      if (!dateIso || !dateIso.includes("-")) return dateIso || "";
+      const [y, m, d] = dateIso.split("-");
+      return `${d}.${m}.${y}`;
+    }
+
+    window.utilityUiState = {
+      formType: "COMPRESSOR",
+      dateIso: getLocalTodayIso(),
+      loadedKey: "",
+      draftCells: {},
+      dirty: false
+    };
+
+    function syncUtilityDraftFromCloud(force = false) {
+      const formType = window.utilityUiState.formType;
+      const dateIso = window.utilityUiState.dateIso;
+      const key = `${formType}_${dateIso}`;
+      if (!force && window.utilityUiState.loadedKey === key && window.utilityUiState.dirty) {
+        return;
+      }
+      const def = UTILITY_FORM_DEFS[formType] || UTILITY_FORM_DEFS.COMPRESSOR;
+      const existing = (window.allUtilityLogs || []).find(l => l.id === key || (l.formType === formType && l.dateIso === dateIso));
+      window.utilityUiState.loadedKey = key;
+      window.utilityUiState.draftCells = existing && existing.cells ? { ...existing.cells } : {};
+      window.utilityUiState.dirty = false;
+
+      const opEl = document.getElementById("utilityOperatorInput");
+      const supEl = document.getElementById("utilitySupervisorInput");
+      const notesEl = document.getElementById("utilityNotesInput");
+      if (opEl) opEl.value = existing?.operatorName || "";
+      if (supEl) supEl.value = (existing && typeof existing.supervisorName === "string" && existing.supervisorName.length > 0)
+        ? existing.supervisorName
+        : (def.defaultSupervisor || "");
+      if (notesEl) notesEl.value = existing?.notes || "";
+    }
+
+    window.selectUtilityForm = function(formId) {
+      if (!UTILITY_FORM_DEFS[formId]) return;
+      window.utilityUiState.formType = formId;
+      syncUtilityDraftFromCloud(true);
+      window.renderUtilityControls();
+    };
+
+    window.setUtilityDate = function(dateIso) {
+      if (!dateIso) return;
+      window.utilityUiState.dateIso = dateIso;
+      syncUtilityDraftFromCloud(true);
+      window.renderUtilityControls();
+    };
+
+    window.changeUtilityDate = function(deltaDays) {
+      const base = window.utilityUiState.dateIso || getLocalTodayIso();
+      const parts = base.split("-").map(Number);
+      const dt = (parts.length === 3) ? new Date(parts[0], parts[1] - 1, parts[2]) : new Date();
+      dt.setDate(dt.getDate() + deltaDays);
+      const nextIso = `${dt.getFullYear()}-${String(dt.getMonth() + 1).padStart(2, "0")}-${String(dt.getDate()).padStart(2, "0")}`;
+      window.setUtilityDate(nextIso);
+    };
+
+    window.setUtilityDateToday = function() {
+      window.setUtilityDate(getLocalTodayIso());
+    };
+
+    window.markUtilityDirty = function() {
+      window.utilityUiState.dirty = true;
+      const badge = document.getElementById("utilityDirtyBadge");
+      if (badge) {
+        badge.className = "text-[11px] font-bold text-amber-700";
+        badge.innerText = "● Kaydedilmemiş değişiklikler var — Kaydet'e basın";
+      }
+    };
+
+    window.onUtilityCellChange = function(cellKey, val) {
+      if (!window.canUserEditTab("utility_controls", window.currentUser)) return;
+      if (val && val.trim().length > 0) {
+        window.utilityUiState.draftCells[cellKey] = val;
+      } else {
+        delete window.utilityUiState.draftCells[cellKey];
+      }
+      window.markUtilityDirty();
+    };
+
+    window.onUtilityOptionSelect = function(cellKey, val) {
+      if (!window.canUserEditTab("utility_controls", window.currentUser)) return;
+      const current = window.utilityUiState.draftCells[cellKey] || "";
+      if (current === val) {
+        delete window.utilityUiState.draftCells[cellKey];
+      } else {
+        window.utilityUiState.draftCells[cellKey] = val;
+      }
+      window.markUtilityDirty();
+      window.renderUtilityControls();
+    };
+
+    window.saveUtilityControlForm = async function() {
+      if (!window.canUserEditTab("utility_controls", window.currentUser)) {
+        alert("⛔ Salt Okunur Yetki: Yardımcı Tesisler formlarını kaydetme yetkiniz kapalıdır.");
+        return;
+      }
+      const formType = window.utilityUiState.formType;
+      const dateIso = window.utilityUiState.dateIso || getLocalTodayIso();
+      const def = UTILITY_FORM_DEFS[formType] || UTILITY_FORM_DEFS.COMPRESSOR;
+      const docId = `${formType}_${dateIso}`;
+      const operatorName = (document.getElementById("utilityOperatorInput")?.value || "").trim();
+      const supervisorName = def.supervisorLabel
+        ? (document.getElementById("utilitySupervisorInput")?.value || "").trim()
+        : "";
+      const notes = (document.getElementById("utilityNotesInput")?.value || "").trim();
+
+      const cleanedCells = {};
+      Object.entries(window.utilityUiState.draftCells || {}).forEach(([k, v]) => {
+        if (typeof v === "string" && v.trim().length > 0) cleanedCells[k] = v.trim();
+      });
+
+      const now = Date.now();
+      const u = window.currentUser || {};
+      const payload = {
+        id: docId,
+        formType: def.id,
+        formCode: def.formCode,
+        dateIso: dateIso,
+        displayDate: formatDisplayDateTr(dateIso),
+        cells: cleanedCells,
+        operatorName: operatorName,
+        supervisorName: supervisorName,
+        notes: notes,
+        updatedByUid: u.userId || u.id || "",
+        updatedByName: u.displayName || u.username || "Teknisyen",
+        updatedAtMillis: now,
+        updatedAt: serverTimestamp()
+      };
+
+      const btnTop = document.getElementById("btnUtilitySaveTop");
+      const btnBot = document.getElementById("btnUtilitySaveBottom");
+      if (btnTop) btnTop.disabled = true;
+      if (btnBot) btnBot.disabled = true;
+      try {
+        await setDoc(doc(db, "utility_control_logs", docId), payload, { merge: true });
+        window.utilityUiState.dirty = false;
+        const badge = document.getElementById("utilityDirtyBadge");
+        if (badge) {
+          badge.className = "text-[11px] font-bold text-emerald-700";
+          badge.innerText = `✅ Buluta kaydedildi (${new Date(now).toLocaleTimeString("tr-TR", { hour: "2-digit", minute: "2-digit" })})`;
+        }
+      } catch (err) {
+        console.error("Yardımcı tesis formu kaydetme hatası:", err);
+        alert("❌ Form buluta kaydedilemedi: " + err.message);
+      } finally {
+        if (btnTop) btnTop.disabled = false;
+        if (btnBot) btnBot.disabled = false;
+      }
+    };
+
+    window.exportUtilityFormCsv = function() {
+      const formType = window.utilityUiState.formType;
+      const dateIso = window.utilityUiState.dateIso || getLocalTodayIso();
+      const def = UTILITY_FORM_DEFS[formType] || UTILITY_FORM_DEFS.COMPRESSOR;
+      const cells = window.utilityUiState.draftCells || {};
+      const lines = [];
+      lines.push(`"TEKİNAK GIDA SAN. VE TİC. A.Ş.";"${def.documentTitle}";"${def.formCode}";"TARİH: ${formatDisplayDateTr(dateIso)}"`);
+      def.sections.forEach(sec => {
+        lines.push("");
+        lines.push(`"${sec.title}"`);
+        lines.push(["SAAT", ...sec.columns.map(c => `"${c.title.replace(/"/g, '""')}"`)].join(";"));
+        sec.hours.forEach(hr => {
+          const row = [`"${hr}"`];
+          sec.columns.forEach(col => {
+            const val = (cells[`${sec.id}__${hr}__${col.id}`] || "").replace(/"/g, '""');
+            row.push(`"${val}"`);
+          });
+          lines.push(row.join(";"));
+        });
+      });
+      const op = (document.getElementById("utilityOperatorInput")?.value || "").replace(/"/g, '""');
+      const sup = def.supervisorLabel ? (document.getElementById("utilitySupervisorInput")?.value || "").replace(/"/g, '""') : "";
+      lines.push("");
+      lines.push(`"${def.operatorLabel}";"${op}"`);
+      if (def.supervisorLabel) lines.push(`"${def.supervisorLabel}";"${sup}"`);
+
+      const bom = "\uFEFF";
+      const blob = new Blob([bom + lines.join("\r\n")], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `${def.shortBadge}_${formType}_${dateIso}.csv`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    };
+
+    window.renderUtilityControls = function() {
+      const formType = window.utilityUiState.formType;
+      const dateIso = window.utilityUiState.dateIso || getLocalTodayIso();
+      const def = UTILITY_FORM_DEFS[formType] || UTILITY_FORM_DEFS.COMPRESSOR;
+      const canEdit = window.canUserEditTab("utility_controls", window.currentUser);
+      const key = `${formType}_${dateIso}`;
+
+      if (window.utilityUiState.loadedKey !== key) {
+        syncUtilityDraftFromCloud(true);
+      }
+
+      const codeBadge = document.getElementById("utilityFormCodeBadge");
+      if (codeBadge) codeBadge.innerText = def.shortBadge;
+      const titleEl = document.getElementById("utilityFormMainTitle");
+      if (titleEl) titleEl.innerText = def.documentTitle;
+
+      const existing = (window.allUtilityLogs || []).find(l => l.id === key || (l.formType === formType && l.dateIso === dateIso));
+      const metaEl = document.getElementById("utilityFormMetaText");
+      if (metaEl) {
+        metaEl.innerText = existing
+          ? `TEKİNAK GIDA • Form Kodu: ${def.formCode} • Son Kayıt: ${existing.updatedByName || 'Teknisyen'} (${formatDate(existing.updatedAtMillis)})`
+          : `TEKİNAK GIDA SAN. VE TİC. A.Ş. • Form Kodu: ${def.formCode} • Yeni Günlük Kayıt`;
+      }
+
+      const dateInput = document.getElementById("utilityDateInput");
+      if (dateInput) dateInput.value = dateIso;
+
+      // Alt sekme buton stilleri
+      Object.keys(UTILITY_FORM_DEFS).forEach(fid => {
+        const btn = document.getElementById(`utilSubTab_${fid}`);
+        if (!btn) return;
+        if (fid === formType) {
+          btn.className = "util-sub-btn px-3.5 py-2 rounded-xl text-xs font-bold bg-[#1E3A8A] text-amber-300 shadow-sm transition";
+        } else {
+          btn.className = "util-sub-btn px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition";
+        }
+      });
+
+      // Salt Okunur / Düzenleme durumu
+      const utilBanner = document.getElementById("utilityReadOnlyBanner");
+      if (utilBanner) utilBanner.classList.toggle("hidden", canEdit);
+      const btnTop = document.getElementById("btnUtilitySaveTop");
+      if (btnTop) btnTop.classList.toggle("hidden", !canEdit);
+      const btnBot = document.getElementById("btnUtilitySaveBottom");
+      if (btnBot) btnBot.classList.toggle("hidden", !canEdit);
+
+      const opLabel = document.getElementById("utilityOperatorLabel");
+      if (opLabel) opLabel.innerText = def.operatorLabel;
+      const opEl = document.getElementById("utilityOperatorInput");
+      if (opEl) opEl.disabled = !canEdit;
+      const supWrap = document.getElementById("utilitySupervisorWrapper");
+      if (supWrap) supWrap.classList.toggle("hidden", !def.supervisorLabel);
+      const supLabel = document.getElementById("utilitySupervisorLabel");
+      if (supLabel && def.supervisorLabel) supLabel.innerText = def.supervisorLabel;
+      const supEl = document.getElementById("utilitySupervisorInput");
+      if (supEl) supEl.disabled = !canEdit;
+      const notesEl = document.getElementById("utilityNotesInput");
+      if (notesEl) notesEl.disabled = !canEdit;
+
+      // Geçmiş kayıtlı tarihler
+      const savedDatesBar = document.getElementById("utilitySavedDatesBar");
+      if (savedDatesBar) {
+        const recentDates = (window.allUtilityLogs || [])
+          .filter(l => l.formType === formType && l.dateIso)
+          .slice(0, 8);
+        if (recentDates.length) {
+          savedDatesBar.innerHTML = `<span class="text-slate-500 font-semibold mr-1">Kayıtlı Günler:</span>` +
+            recentDates.map(l => {
+              const active = l.dateIso === dateIso;
+              return `<button type="button" onclick="setUtilityDate('${escapeJsSingle(l.dateIso)}')" class="px-2 py-0.5 rounded-lg border text-[10px] font-bold transition ${active ? 'bg-amber-100 border-amber-400 text-amber-900' : 'bg-slate-50 border-slate-200 text-slate-600 hover:bg-slate-100'}">${escapeHtml(l.displayDate || formatDisplayDateTr(l.dateIso))}</button>`;
+            }).join("");
+        } else {
+          savedDatesBar.innerHTML = `<span class="text-slate-400 italic">Bu form için henüz bulutta kayıtlı geçmiş gün yok.</span>`;
+        }
+      }
+
+      // Tabloları çiz
+      const container = document.getElementById("utilityFormTablesContainer");
+      if (!container) return;
+      const cells = window.utilityUiState.draftCells || {};
+
+      container.innerHTML = def.sections.map(sec => {
+        const colHeaders = sec.columns.map(col => `
+          <th class="px-2.5 py-2 text-center text-[10px] font-extrabold text-[#1E3A8A] border border-slate-200 bg-slate-100 min-w-[115px] uppercase leading-tight">
+            ${escapeHtml(col.title)}
+          </th>
+        `).join("");
+
+        const rowsHtml = sec.hours.map((hr, idx) => {
+          const zebra = idx % 2 === 0 ? "bg-white" : "bg-slate-50/60";
+          const tds = sec.columns.map(col => {
+            const cKey = `${sec.id}__${hr}__${col.id}`;
+            const curVal = cells[cKey] || "";
+            if (Array.isArray(col.tristate) && col.tristate.length) {
+              const btns = col.tristate.map(opt => {
+                const selected = curVal === opt;
+                let activeCls = "bg-[#1E3A8A] text-white border-[#1E3A8A]";
+                if (opt === "YÜKSEK" || opt === "ARIZALI") activeCls = "bg-rose-600 text-white border-rose-600";
+                else if (opt === "ORTA" || opt === "BASINCI") activeCls = "bg-amber-500 text-white border-amber-500";
+                else if (opt === "DÜŞÜK" || opt === "ÇALIŞIYOR") activeCls = "bg-emerald-600 text-white border-emerald-600";
+                const cls = selected
+                  ? `${activeCls} font-black shadow-sm`
+                  : "bg-white text-slate-600 border-slate-300 hover:bg-slate-100 font-semibold";
+                return `<button type="button" ${canEdit ? `onclick="onUtilityOptionSelect('${escapeJsSingle(cKey)}', '${escapeJsSingle(opt)}')"` : "disabled"} class="px-1.5 py-1 rounded text-[9px] border transition ${cls} ${!canEdit ? 'opacity-70 cursor-not-allowed' : ''}">${escapeHtml(opt)}</button>`;
+              }).join("");
+              return `<td class="p-1.5 border border-slate-200 text-center align-middle"><div class="flex flex-wrap justify-center gap-1">${btns}</div></td>`;
+            }
+
+            const quickChips = (canEdit && Array.isArray(col.options) && col.options.length)
+              ? `<div class="flex flex-wrap gap-1 mt-1 justify-center">${col.options.map(opt => {
+                  const sel = curVal === opt;
+                  return `<button type="button" onclick="onUtilityOptionSelect('${escapeJsSingle(cKey)}', '${escapeJsSingle(opt)}')" class="px-1.5 py-0.5 rounded text-[9px] font-bold border ${sel ? 'bg-[#1E3A8A] text-amber-300 border-[#1E3A8A]' : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-200'}">${escapeHtml(opt)}</button>`;
+                }).join("")}</div>`
+              : "";
+
+            return `
+              <td class="p-1.5 border border-slate-200 align-top">
+                <input type="text"
+                  value="${escapeHtml(curVal)}"
+                  placeholder="${escapeHtml(col.hint || '')}"
+                  ${canEdit ? `oninput="onUtilityCellChange('${escapeJsSingle(cKey)}', this.value)"` : "readonly disabled"}
+                  class="w-full text-center text-xs font-bold px-1.5 py-1 rounded-lg border ${curVal ? 'border-blue-400 bg-blue-50/40 text-slate-900' : 'border-slate-200 bg-white text-slate-700'} outline-none focus:ring-2 focus:ring-[#1E3A8A] ${!canEdit ? 'bg-slate-100 text-slate-600' : ''}">
+                ${quickChips}
+              </td>
+            `;
+          }).join("");
+
+          return `
+            <tr class="${zebra} hover:bg-amber-50/30 transition">
+              <td class="px-2.5 py-2 text-center font-mono text-xs font-extrabold text-slate-800 border border-slate-200 bg-slate-50 sticky left-0 z-10 whitespace-nowrap">${escapeHtml(hr)}</td>
+              ${tds}
+            </tr>
+          `;
+        }).join("");
+
+        return `
+          <div class="bg-white rounded-2xl border border-slate-200 custom-shadow overflow-hidden">
+            <div class="px-4 py-2.5 bg-[#1E3A8A] text-white flex items-center justify-between gap-2">
+              <span class="text-xs font-extrabold tracking-wide">${escapeHtml(sec.title)}</span>
+              <span class="text-[10px] font-semibold text-amber-300">${sec.hours.length} Kontrol Saati • ${escapeHtml(formatDisplayDateTr(dateIso))}</span>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="w-full border-collapse text-xs">
+                <thead>
+                  <tr>
+                    <th class="px-2.5 py-2 text-center text-[10px] font-black text-slate-700 border border-slate-200 bg-slate-200 sticky left-0 z-20 min-w-[74px]">SAAT</th>
+                    ${colHeaders}
+                  </tr>
+                </thead>
+                <tbody>
+                  ${rowsHtml}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        `;
+      }).join("");
+
+      const badge = document.getElementById("utilityDirtyBadge");
+      if (badge && !window.utilityUiState.dirty) {
+        badge.className = "text-[11px] font-semibold text-slate-500";
+        badge.innerText = existing
+          ? `Buluttan yüklendi • Son güncelleyen: ${existing.updatedByName || 'Teknisyen'}`
+          : "Bu tarih için henüz kayıt yok — hücreleri doldurup Kaydet'e basın";
+      }
+      lucide.createIcons();
+    };
+
     // Navigasyon Sekme Değiştirici (Yetki Korumalı)
     window.switchTab = function(tabId) {
       if (window.currentUser && !window.canUserViewTab(tabId, window.currentUser)) {
@@ -5690,6 +6347,7 @@
       if (tabId === 'faults') renderFaults();
       if (tabId === 'workOrders') renderWorkOrders();
       if (tabId === 'analytics') renderAnalytics();
+      if (tabId === 'utilityControls') renderUtilityControls();
       if (tabId === 'members') renderMembers();
       if (tabId === 'team') renderTeam();
       lucide.createIcons();
@@ -5732,18 +6390,18 @@
 
     function renderAppVersionBadge() {
       const v = window.currentAppVersion || {
-        versionName: "1.3.1",
-        versionCode: 9,
+        versionName: "1.3.2",
+        versionCode: 10,
         releaseDate: "2026-11-13",
-        title: "Tekinak CMMS v1.3.1",
+        title: "Tekinak CMMS v1.3.2",
         changelog: [
-          "Yeni kayıt olan kullanıcılar varsayılan olarak sıfır yetki ile başlatılıyor; yönetici yetki tanımlayana kadar hiçbir içerik görüntülenmiyor.",
-          "Tüm şifreler yalnızca bulut sunucusu üzerinde depolanıyor; web ve mobil arasında anlık senkronize ediliyor.",
-          "Sekme bazlı Görme/Düzenleme yetkileri ve Tüm Aygıtlardan Çıkış Yap özellikleri iyileştirildi."
+          "Yardımcı Tesisler Teknisyeni departmanı ve Yardımcı Tesisler kontrol sekmesi eklendi.",
+          "Kompresör (FR-38), Chiller (FR-129), Kazan & Buhar Dairesi (FR-37) ve Su Arıtma (FR-41) formları Android ve Web'e eksiksiz eklendi.",
+          "Tüm formlar gerçek zamanlı bulut veritabanında günlük bazda senkronize ediliyor."
         ]
       };
-      const vName = v.versionName || "1.3.1";
-      const vCode = Number(v.versionCode || 9);
+      const vName = v.versionName || "1.3.2";
+      const vCode = Number(v.versionCode || 10);
       const localApkHref = `app-release.apk?v=${vCode}`;
 
       const badgeText = document.getElementById("topVersionBadgeText");
@@ -5800,7 +6458,7 @@
     };
 
     window.dismissWebUpdateBanner = function() {
-      const vCode = Number((window.currentAppVersion && window.currentAppVersion.versionCode) || 9);
+      const vCode = Number((window.currentAppVersion && window.currentAppVersion.versionCode) || 10);
       localStorage.setItem("tekinak_dismissed_ver_" + vCode, "1");
       const banner = document.getElementById("webAppUpdateBanner");
       if (banner) banner.classList.add("hidden");
@@ -5809,17 +6467,17 @@
     async function seedInitialAppVersionInFirebase() {
       try {
         const initialData = {
-          versionCode: 9,
-          versionName: "1.3.1",
-          releaseTag: "v1.3.1",
+          versionCode: 10,
+          versionName: "1.3.2",
+          releaseTag: "v1.3.2",
           releaseDate: new Date().toISOString().slice(0, 10),
           apkUrl: "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
           fallbackUrl: "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-          title: "Tekinak CMMS v1.3.1",
+          title: "Tekinak CMMS v1.3.2",
           changelog: [
-            "Yeni kayıt olan kullanıcılar varsayılan olarak sıfır yetki ile başlatılıyor; yönetici yetki tanımlayana kadar hiçbir içerik görüntülenmiyor.",
-            "Tüm şifreler yalnızca bulut sunucusu üzerinde depolanıyor; web ve mobil arasında anlık senkronize ediliyor.",
-            "Sekme bazlı Görme/Düzenleme yetkileri ve Tüm Aygıtlardan Çıkış Yap özellikleri iyileştirildi."
+            "Yardımcı Tesisler Teknisyeni departmanı ve Yardımcı Tesisler kontrol sekmesi eklendi.",
+            "Kompresör (FR-38), Chiller (FR-129), Kazan & Buhar Dairesi (FR-37) ve Su Arıtma (FR-41) formları Android ve Web'e eksiksiz eklendi.",
+            "Tüm formlar gerçek zamanlı bulut veritabanında günlük bazda senkronize ediliyor."
           ],
           forceUpdate: false,
           updatedAtMillis: Date.now()
@@ -5838,10 +6496,10 @@
         alert("⛔ Yetkisiz İşlem: Mobil sürüm güncelleme yönetimi yalnızca usluozaykagan@gmail.com hesabına tanımlıdır.");
         return;
       }
-      const v = window.currentAppVersion || { versionCode: 9, versionName: "1.3.1", title: "Tekinak CMMS v1.3.1", apkUrl: "", changelog: [] };
-      document.getElementById("verFormCode").value = v.versionCode || 9;
-      document.getElementById("verFormName").value = v.versionName || "1.3.1";
-      document.getElementById("verFormTitle").value = `Yeni Sürüm Yayınlandı (v${v.versionName || "1.3.1"})`;
+      const v = window.currentAppVersion || { versionCode: 10, versionName: "1.3.2", title: "Tekinak CMMS v1.3.2", apkUrl: "", changelog: [] };
+      document.getElementById("verFormCode").value = v.versionCode || 10;
+      document.getElementById("verFormName").value = v.versionName || "1.3.2";
+      document.getElementById("verFormTitle").value = `Yeni Sürüm Yayınlandı (v${v.versionName || "1.3.2"})`;
       document.getElementById("verFormApkUrl").value = v.apkUrl || "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk";
       document.getElementById("verFormChangelog").value = (v.changelog && v.changelog.length) ? v.changelog.join("\n") : "Yeni bakım özellikleri ve performans iyileştirmeleri eklendi.";
       document.getElementById("modalAppVersion").classList.remove("hidden");
@@ -5866,7 +6524,7 @@
         return;
       }
       if (!name) {
-        alert("Lütfen sürüm adı giriniz (örn: 1.3.1).");
+        alert("Lütfen sürüm adı giriniz (örn: 1.3.2).");
         return;
       }
 
@@ -5925,17 +6583,17 @@
       }
       try {
         const payload = {
-          versionCode: 9,
-          versionName: "1.3.1",
-          releaseTag: "v1.3.1",
+          versionCode: 10,
+          versionName: "1.3.2",
+          releaseTag: "v1.3.2",
           releaseDate: new Date().toISOString().slice(0, 10),
           apkUrl: "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
           fallbackUrl: "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-          title: "Tekinak CMMS v1.3.1",
+          title: "Tekinak CMMS v1.3.2",
           changelog: [
-            "Yeni kayıt olan kullanıcılar varsayılan olarak sıfır yetki ile başlatılıyor; yönetici yetki tanımlayana kadar hiçbir içerik görüntülenmiyor.",
-            "Tüm şifreler yalnızca bulut sunucusu üzerinde depolanıyor; web ve mobil arasında anlık senkronize ediliyor.",
-            "Sekme bazlı Görme/Düzenleme yetkileri ve Tüm Aygıtlardan Çıkış Yap özellikleri iyileştirildi."
+            "Yardımcı Tesisler Teknisyeni departmanı ve Yardımcı Tesisler kontrol sekmesi eklendi.",
+            "Kompresör (FR-38), Chiller (FR-129), Kazan & Buhar Dairesi (FR-37) ve Su Arıtma (FR-41) formları Android ve Web'e eksiksiz eklendi.",
+            "Tüm formlar gerçek zamanlı bulut veritabanında günlük bazda senkronize ediliyor."
           ],
           forceUpdate: false,
           updatedAtMillis: Date.now()
@@ -5944,7 +6602,7 @@
         window.currentAppVersion = payload;
         renderAppVersionBadge();
         closeModal("modalAppVersion");
-        alert("✅ Başarılı! Firebase sürümü şu an dağıtılan v1.3.1 (Kod: 9) APK ile eşitlendi.\n\nGüncellenen telefonlardaki popup penceresi anında kalktı.");
+        alert("✅ Başarılı! Firebase sürümü şu an dağıtılan v1.3.2 (Kod: 10) APK ile eşitlendi.\n\nGüncellenen telefonlardaki popup penceresi anında kalktı.");
       } catch (err) {
         alert("Eşitleme hatası: " + err.message);
       }

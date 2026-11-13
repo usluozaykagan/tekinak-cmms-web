@@ -1,15 +1,15 @@
 {
-  "versionCode": 9,
-  "versionName": "1.3.1",
-  "releaseTag": "v1.3.1",
+  "versionCode": 10,
+  "versionName": "1.3.2",
+  "releaseTag": "v1.3.2",
   "releaseDate": "2026-11-13",
   "apkUrl": "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
   "fallbackUrl": "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-  "title": "Yeni Sürüm Mevcut (v1.3.1)",
+  "title": "Yeni Sürüm Mevcut (v1.3.2)",
   "changelog": [
-    "Yeni kayıt olan kullanıcılar varsayılan olarak sıfır yetki ile başlatılıyor; yönetici yetki tanımlayana kadar hiçbir içerik görüntülenmiyor.",
-    "Tüm şifreler yalnızca bulut sunucusu üzerinde depolanıyor; web ve mobil arasında anlık senkronize ediliyor.",
-    "Sekme bazlı Görme/Düzenleme yetkileri ve Tüm Aygıtlardan Çıkış Yap özellikleri iyileştirildi."
+    "Departmanlara 'Yardımcı Tesisler Teknisyeni' eklendi.",
+    "Kompresör (FR-38), Chiller (FR-129), Kazan & Buhar (FR-37) ve Su Arıtma (FR-41) kontrol formları eklendi.",
+    "Tüm kontrol tabloları web ve mobil arasında gerçek zamanlı bulut senkronizasyonu ile çalışır."
   ],
   "forceUpdate": false
 }
