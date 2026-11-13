@@ -233,8 +233,8 @@
           <span id="topApkBtnText">APK İndir (v1.2.4)</span>
         </a>
 
-        <!-- Mobil Sürüm Yönetimi Butonu (Firebase Firestore app_version) -->
-        <button onclick="openAppVersionModal()" class="hidden sm:inline-flex items-center space-x-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-600/70 hover:bg-emerald-600 text-white border border-emerald-400/40 transition shadow-sm" title="Firebase Mobil Sürüm Kontrolü ve Güncelleme">
+        <!-- Mobil Sürüm Yönetimi Butonu (Sadece usluozaykagan@gmail.com için görünür) -->
+        <button id="topAppVersionBtn" onclick="openAppVersionModal()" style="display: none;" class="hidden items-center space-x-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-600/70 hover:bg-emerald-600 text-white border border-emerald-400/40 transition shadow-sm" title="Firebase Mobil Sürüm Kontrolü ve Güncelleme">
           <i data-lucide="smartphone" class="w-3.5 h-3.5 text-amber-300"></i>
           <span id="topVersionBadgeText">Sürüm: v1.2.4</span>
         </button>
@@ -1435,9 +1435,9 @@
         </div>
 
         <div class="flex items-center justify-between gap-2 pt-2 border-t">
-          <button type="button" onclick="syncWithDeployedApk()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs rounded-xl font-bold border border-slate-300 flex items-center gap-1.5" title="Firebase'i şu an dağıtılan v1.2.1 (Kod: 4) APK ile eşitler ve güncellenen telefonlardaki popup'ı kapatır">
+          <button type="button" onclick="syncWithDeployedApk()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs rounded-xl font-bold border border-slate-300 flex items-center gap-1.5" title="Firebase'i şu an dağıtılan v1.2.4 (Kod: 6) APK ile eşitler ve güncellenen telefonlardaki popup'ı kapatır">
             <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-blue-600"></i>
-            <span>Mevcut APK ile Eşitle (v1.2.1 - Kod: 4)</span>
+            <span>Mevcut APK ile Eşitle (v1.2.4 - Kod: 6)</span>
           </button>
           <div class="flex gap-2">
             <button type="button" onclick="closeModal('modalAppVersion')" class="px-4 py-2 border rounded-xl font-semibold text-slate-600 hover:bg-slate-50">Kapat</button>
@@ -1446,6 +1446,48 @@
               <span>Firebase'e Yayınla</span>
             </button>
           </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: ARIZA / İŞ EMRİ ÇÖZME & TEKRAR AÇMA -->
+  <div id="modalTicketAction" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4">
+      <div class="flex items-center justify-between border-b pb-3">
+        <h3 id="ticketActionTitle" class="font-bold text-base text-slate-800 flex items-center gap-2">
+          <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-600"></i> Kayıt İşlemi
+        </h3>
+        <button type="button" onclick="closeModal('modalTicketAction')" class="text-slate-400 hover:text-slate-600">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div id="ticketActionTargetBox" class="p-3 bg-slate-50 border border-slate-200 rounded-xl text-xs">
+        <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">İlgili Kayıt</div>
+        <div id="ticketActionTargetLabel" class="font-bold text-slate-800 mt-0.5 text-sm">-</div>
+      </div>
+
+      <form id="ticketActionForm" onsubmit="handleTicketActionSubmit(event)" class="space-y-3 text-xs">
+        <input type="hidden" id="ticketActionColl" value="">
+        <input type="hidden" id="ticketActionDocId" value="">
+        <input type="hidden" id="ticketActionMode" value="">
+
+        <div>
+          <label id="ticketActionActorLabel" class="block font-semibold text-slate-700 mb-1">Müdahale Eden Personel(ler) *</label>
+          <input type="text" id="ticketActionActor" required class="w-full px-3 py-2 border border-slate-300 rounded-xl text-slate-800 font-semibold focus:ring-2 focus:ring-blue-500 outline-none" placeholder="Örn: Ahmet Usta, Mehmet Usta">
+        </div>
+
+        <div>
+          <label id="ticketActionNoteLabel" class="block font-semibold text-slate-700 mb-1">Çözüm / Müdahale Notu</label>
+          <textarea id="ticketActionNote" rows="3" class="w-full px-3 py-2 border border-slate-300 rounded-xl text-slate-800 focus:ring-2 focus:ring-blue-500 outline-none" placeholder="Yapılan işlem veya gerekçeyi yazınız..."></textarea>
+        </div>
+
+        <div class="flex justify-end gap-2 pt-2 border-t">
+          <button type="button" onclick="closeModal('modalTicketAction')" class="px-4 py-2 border rounded-xl font-semibold text-slate-600 hover:bg-slate-50">İptal</button>
+          <button type="submit" id="ticketActionSubmitBtn" class="px-5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold shadow flex items-center gap-1.5">
+            <span>Onayla</span>
+          </button>
         </div>
       </form>
     </div>
@@ -1622,6 +1664,25 @@
           btn.classList.add("hidden");
         }
       });
+
+      // 📱 Mobil Sürüm Güncelleme Butonu Yetkisi (Yalnızca usluozaykagan@gmail.com hesabına tanımlıdır)
+      const isVersionOwner = (u.email || "").trim().toLowerCase() === "usluozaykagan@gmail.com";
+      const topVerBtn = document.getElementById("topAppVersionBtn");
+      if (topVerBtn) {
+        if (isVersionOwner) {
+          topVerBtn.classList.remove("hidden");
+          topVerBtn.classList.add("inline-flex");
+          topVerBtn.style.display = "";
+        } else {
+          topVerBtn.classList.add("hidden");
+          topVerBtn.classList.remove("inline-flex", "sm:inline-flex");
+          topVerBtn.style.display = "none";
+        }
+      }
+      if (!isVersionOwner) {
+        const modalVer = document.getElementById("modalAppVersion");
+        if (modalVer) modalVer.classList.add("hidden");
+      }
     };
 
     // Sekme Değiştirici (Giriş Yap vs Yeni Kayıt)
@@ -2103,12 +2164,12 @@
       if (isRealtimeSyncStarted) return;
       isRealtimeSyncStarted = true;
 
-      // 1. Arızalar (fault_reports)
+      // 1. Arızalar (fault_reports) - Gerçek Firestore document ID her zaman önceliklidir
       onSnapshot(collection(db, "fault_reports"), (snapshot) => {
         window.allFaults = [];
         snapshot.forEach(docSnap => {
           const d = docSnap.data();
-          window.allFaults.push({ id: docSnap.id, ...d });
+          window.allFaults.push({ ...d, docId: docSnap.id, id: docSnap.id });
         });
         window.allFaults.sort((a,b) => (b.createdAtMillis || 0) - (a.createdAtMillis || 0));
         refreshDashboard();
@@ -2121,7 +2182,7 @@
         window.allWorkOrders = [];
         snapshot.forEach(docSnap => {
           const d = docSnap.data();
-          window.allWorkOrders.push({ id: docSnap.id, ...d });
+          window.allWorkOrders.push({ ...d, docId: docSnap.id, id: docSnap.id });
         });
         window.allWorkOrders.sort((a,b) => (b.createdAtMillis || 0) - (a.createdAtMillis || 0));
         refreshDashboard();
@@ -2133,7 +2194,7 @@
       onSnapshot(collection(db, "maintenance_schedules"), (snapshot) => {
         window.allSchedules = [];
         snapshot.forEach(docSnap => {
-          window.allSchedules.push({ id: docSnap.id, ...docSnap.data() });
+          window.allSchedules.push({ ...docSnap.data(), docId: docSnap.id, id: docSnap.id });
         });
         window.allSchedules.sort((a,b) => (a.scheduledDateMillis || 0) - (b.scheduledDateMillis || 0));
         renderSchedules();
@@ -2143,7 +2204,7 @@
       onSnapshot(collection(db, "chat_messages"), (snapshot) => {
         window.allChatMessages = [];
         snapshot.forEach(docSnap => {
-          window.allChatMessages.push({ id: docSnap.id, ...docSnap.data() });
+          window.allChatMessages.push({ ...docSnap.data(), docId: docSnap.id, id: docSnap.id });
         });
         window.allChatMessages.sort((a,b) => (a.timestampMillis || 0) - (b.timestampMillis || 0));
         renderChat();
@@ -2324,43 +2385,53 @@
         return;
       }
 
+      const isObserver = window.currentUser && window.currentUser.role === "OBSERVER";
       container.innerHTML = filtered.map(f => {
         const isResolved = f.status === "Çözüldü";
+        const safeId = escapeJsSingle(f.docId || f.id || "");
+        const machineTitle = escapeHtml(f.machineName || f.location || "Arıza Kaydı");
+        const deptName = escapeHtml(f.department || "Mekanik Bakım");
+        const descText = escapeHtml(f.description || "Açıklama girilmedi.");
+        const resNote = f.resolutionNotes ? `<div class="mt-2 text-[11px] text-emerald-700 bg-emerald-50 px-2.5 py-1.5 rounded-lg border border-emerald-100">✅ <b>Çözüm Notu:</b> ${escapeHtml(f.resolutionNotes)}</div>` : "";
+        const reopenNote = (!isResolved && f.reopenReason) ? `<div class="mt-2 text-[11px] text-amber-800 bg-amber-50 px-2.5 py-1.5 rounded-lg border border-amber-200">🔄 <b>Tekrar Açma Gerekçesi:</b> ${escapeHtml(f.reopenReason)}</div>` : "";
         return `
           <div class="bg-white rounded-xl p-4 custom-shadow border border-slate-200 flex flex-col justify-between hover:border-blue-400 transition">
             <div>
               <div class="flex items-center justify-between gap-2 mb-2">
-                <span class="text-[10px] font-bold px-2 py-0.5 rounded ${getPriorityClass(f.severity || f.priority)}">${f.severity || f.priority || "Orta"}</span>
-                <span class="text-[10px] font-bold px-2 py-0.5 rounded ${getStatusClass(f.status)}">${f.status || "Açık"}</span>
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded ${getPriorityClass(f.severity || f.priority)}">${escapeHtml(f.severity || f.priority || "Orta")}</span>
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded ${getStatusClass(f.status)}">${escapeHtml(f.status || "Açık")}</span>
               </div>
-              <h3 class="font-bold text-sm text-slate-800 leading-snug">${f.machineName || f.location || "Arıza Kaydı"}</h3>
-              <div class="text-xs text-blue-800 font-semibold mt-0.5">${f.department || "Mekanik Bakım"}</div>
-              <p class="text-xs text-slate-600 mt-2 bg-slate-50 p-2.5 rounded-lg border border-slate-100 line-clamp-3">${f.description || "Açıklama girilmedi."}</p>
+              <h3 class="font-bold text-sm text-slate-800 leading-snug">${machineTitle}</h3>
+              <div class="text-xs text-blue-800 font-semibold mt-0.5">${deptName}</div>
+              <p class="text-xs text-slate-600 mt-2 bg-slate-50 p-2.5 rounded-lg border border-slate-100 line-clamp-3">${descText}</p>
+              ${resNote}
+              ${reopenNote}
               
               <!-- İşi Yapanlar Satırı -->
               <div class="mt-2 text-[11px] text-slate-500 flex items-center gap-1">
                 <span>🔧 İşi Yapanlar:</span>
-                <span class="font-semibold text-slate-700">${formatIntervened(f)}</span>
+                <span class="font-semibold text-slate-700">${escapeHtml(formatIntervened(f))}</span>
               </div>
             </div>
 
             <!-- Alt Aksiyon Çubuğu (Android İle Birebir) -->
             <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px]">
-              <span class="text-slate-400">👤 ${f.reportedByName || "Personel"} • ${formatDate(f.createdAtMillis)}</span>
+              <span class="text-slate-400">👤 ${escapeHtml(f.reportedByName || "Personel")} • ${formatDate(f.createdAtMillis)}</span>
+              ${isObserver ? `<span class="text-[10px] text-slate-400 font-semibold">Sadece İzleme</span>` : `
               <div class="flex items-center gap-1.5">
                 ${isResolved ? `
-                  <button onclick="reopenTicket('fault_reports', '${f.id}', '${f.machineName}')" class="px-2.5 py-1 bg-amber-50 hover:bg-amber-100 text-amber-800 font-bold rounded-lg border border-amber-200 transition">
+                  <button type="button" onclick="reopenTicket('fault_reports', '${safeId}')" class="px-2.5 py-1 bg-amber-50 hover:bg-amber-100 text-amber-800 font-bold rounded-lg border border-amber-200 transition">
                     🔄 Tekrar Aç
                   </button>
                 ` : `
-                  <button onclick="convertToWo('${f.id}')" class="px-2 py-1 bg-blue-50 hover:bg-blue-100 text-blue-700 font-bold rounded-lg border border-blue-200 transition">
+                  <button type="button" onclick="convertToWo('${safeId}')" class="px-2 py-1 bg-blue-50 hover:bg-blue-100 text-blue-700 font-bold rounded-lg border border-blue-200 transition">
                     İş Emri Yap
                   </button>
-                  <button onclick="resolveTicket('fault_reports', '${f.id}', '${f.machineName}')" class="px-2.5 py-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg shadow transition">
+                  <button type="button" onclick="resolveTicket('fault_reports', '${safeId}')" class="px-2.5 py-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg shadow transition">
                     Çözüldü Yap
                   </button>
                 `}
-              </div>
+              </div>`}
             </div>
           </div>
         `;
@@ -2386,21 +2457,23 @@
         return;
       }
 
+      const isObserverWo = window.currentUser && window.currentUser.role === "OBSERVER";
       container.innerHTML = filtered.map(w => {
         const isDone = w.status === "Tamamlandı";
-        const cleanTitle = (w.title || 'İş Emri').replace(/'/g, "\\'");
-        const cleanMachine = (w.machineName || 'Genel').replace(/'/g, "\\'");
+        const safeWoId = escapeJsSingle(w.docId || w.id || "");
+        const cleanTitle = escapeJsSingle(w.title || 'İş Emri');
+        const cleanMachine = escapeJsSingle(w.machineName || 'Genel');
 
         return `
           <div class="bg-white rounded-xl p-4 custom-shadow border border-slate-200 flex flex-col justify-between hover:border-amber-400 transition">
             <div>
               <div class="flex items-center justify-between gap-2 mb-2">
-                <span class="text-[10px] font-bold px-2 py-0.5 rounded ${getPriorityClass(w.priority)}">${w.priority || "Orta"}</span>
-                <span class="text-[10px] font-bold px-2 py-0.5 rounded ${getStatusClass(w.status)}">${w.status || "Beklemede"}</span>
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded ${getPriorityClass(w.priority)}">${escapeHtml(w.priority || "Orta")}</span>
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded ${getStatusClass(w.status)}">${escapeHtml(w.status || "Beklemede")}</span>
               </div>
-              <h3 class="font-bold text-sm text-slate-800 leading-snug">${w.title || "İş Emri"}</h3>
-              <div class="text-xs text-amber-800 font-semibold mt-0.5">Ekipman: ${w.machineName || "Genel"}</div>
-              <p class="text-xs text-slate-600 mt-2 bg-slate-50 p-2.5 rounded-lg border border-slate-100 line-clamp-3">${w.description || "Talimat girilmemiş."}</p>
+              <h3 class="font-bold text-sm text-slate-800 leading-snug">${escapeHtml(w.title || "İş Emri")}</h3>
+              <div class="text-xs text-amber-800 font-semibold mt-0.5">Ekipman: ${escapeHtml(w.machineName || "Genel")}</div>
+              <p class="text-xs text-slate-600 mt-2 bg-slate-50 p-2.5 rounded-lg border border-slate-100 line-clamp-3">${escapeHtml(w.description || "Talimat girilmemiş.")}</p>
               
               <!-- Personel Ata (Açılır Sekme - Telefona Bildirim Gönderir) -->
               <div class="mt-3 pt-2.5 border-t border-slate-100 space-y-1.5">
@@ -2412,39 +2485,40 @@
                     📱 Telefona Bildirim Gider
                   </span>
                 </div>
-                <select onchange="assignPersonnelToWorkOrder('${w.id}', this.value, '${cleanTitle}', '${cleanMachine}')"
+                <select ${isObserverWo ? 'disabled' : ''} onchange="assignPersonnelToWorkOrder('${safeWoId}', this.value, '${cleanTitle}', '${cleanMachine}')"
                         class="w-full text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 bg-slate-50 text-slate-800 font-semibold focus:ring-2 focus:ring-[#1E3A8A] outline-none">
-                  <option value="">-- Personel Seçiniz (${w.assignedToName ? 'Şu An: ' + w.assignedToName : 'Atanmadı'}) --</option>
+                  <option value="">-- Personel Seçiniz (${w.assignedToName ? 'Şu An: ' + escapeHtml(w.assignedToName) : 'Atanmadı'}) --</option>
                   ${(window.allUsers || []).map(u => {
                     const uName = (u.displayName || u.username || u.email || 'Personel').trim();
                     const uId = u.userId || u.id || uName;
                     const isSelected = (w.assignedToUid && w.assignedToUid === uId) || (w.assignedToName && w.assignedToName === uName);
-                    return `<option value="${uId}|${uName}" ${isSelected ? 'selected' : ''}>👤 ${uName} (${u.department || 'Genel'})</option>`;
+                    return `<option value="${escapeHtml(uId)}|${escapeHtml(uName)}" ${isSelected ? 'selected' : ''}>👤 ${escapeHtml(uName)} (${escapeHtml(u.department || 'Genel')})</option>`;
                   }).join('')}
                 </select>
                 <div class="text-[10px] text-slate-400 flex items-center justify-between">
-                  <span>Mevcut Sorumlu: <strong class="text-slate-700">${w.assignedToName || "Atanmadı"}</strong></span>
-                  ${w.intervenedByNames?.length ? `<span>Müdahale: ${w.intervenedByNames.join(', ')}</span>` : ''}
+                  <span>Mevcut Sorumlu: <strong class="text-slate-700">${escapeHtml(w.assignedToName || "Atanmadı")}</strong></span>
+                  ${w.intervenedByNames?.length ? `<span>Müdahale: ${escapeHtml(w.intervenedByNames.join(', '))}</span>` : ''}
                 </div>
               </div>
             </div>
 
             <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px]">
               <span class="text-slate-400">${formatDate(w.createdAtMillis)}</span>
+              ${isObserverWo ? `<span class="text-[10px] text-slate-400 font-semibold">Sadece İzleme</span>` : `
               <div class="flex items-center gap-1.5">
                 ${isDone ? `
-                  <button onclick="reopenTicket('work_orders', '${w.id}', '${cleanTitle}')" class="px-2.5 py-1 bg-amber-50 hover:bg-amber-100 text-amber-800 font-bold rounded-lg border border-amber-200 transition">
+                  <button type="button" onclick="reopenTicket('work_orders', '${safeWoId}')" class="px-2.5 py-1 bg-amber-50 hover:bg-amber-100 text-amber-800 font-bold rounded-lg border border-amber-200 transition">
                     🔄 İşi Tekrar Aç
                   </button>
                 ` : `
-                  <button onclick="updateWoStatus('${w.id}', 'Yapılıyor')" class="px-2 py-1 bg-blue-50 hover:bg-blue-100 text-blue-700 font-bold rounded-lg border border-blue-200 transition">
+                  <button type="button" onclick="updateWoStatus('${safeWoId}', 'Yapılıyor')" class="px-2 py-1 bg-blue-50 hover:bg-blue-100 text-blue-700 font-bold rounded-lg border border-blue-200 transition">
                     Yapılıyor
                   </button>
-                  <button onclick="resolveTicket('work_orders', '${w.id}', '${cleanTitle}')" class="px-2.5 py-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg shadow transition">
+                  <button type="button" onclick="resolveTicket('work_orders', '${safeWoId}')" class="px-2.5 py-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg shadow transition">
                     Tamamla
                   </button>
                 `}
-              </div>
+              </div>`}
             </div>
           </div>
         `;
@@ -3751,7 +3825,7 @@
 
     // ================= VERİTABANI İŞLEM FONKSİYONLARI =================
 
-    // 1. Yeni Arıza Kaydet
+    // 1. Yeni Arıza Kaydet (Doc ID doğrudan Firestore belge ID'si ile eşitlenir)
     window.saveNewFault = async function() {
       if (!window.canUserCreateFault(window.currentUser)) {
         alert("⚠️ Yeni arıza bildirme yetkiniz bulunmamaktadır. Lütfen sistem yöneticisi ile iletişime geçiniz.");
@@ -3772,42 +3846,53 @@
       const now = Date.now();
       const docId = "fault_" + now;
 
-      await addDoc(collection(db, "fault_reports"), {
-        id: docId,
-        machineName: machine,
-        department: dept,
-        severity: priority,
-        priority: priority,
-        description: desc,
-        status: "Açık",
-        reportedByName: window.currentUser.displayName,
-        reportedByUid: window.currentUser.username,
-        intervenedByNames: intervened,
-        createdAtMillis: now,
-        createdAt: serverTimestamp()
-      });
+      try {
+        await setDoc(doc(db, "fault_reports", docId), {
+          id: docId,
+          machineName: machine,
+          faultType: dept,
+          location: dept,
+          department: dept,
+          impact: "Üretim / Hat Etkisi",
+          severity: priority,
+          priority: priority,
+          description: desc,
+          status: "Açık",
+          reportedByName: window.currentUser.displayName || window.currentUser.username || "Personel",
+          reportedByUid: window.currentUser.username || window.currentUser.userId || "user",
+          intervenedByNames: intervened,
+          createdAtMillis: now,
+          createdAt: serverTimestamp(),
+          updatedAt: serverTimestamp()
+        });
 
-      // Sohbete otomatik yayın
-      const faultMsg = `⚠️ YENİ ARIZA: ${machine} makinesinde '${priority}' öncelikli arıza bildirildi: ${desc}`;
-      await addDoc(collection(db, "chat_messages"), {
-        id: "msg_" + now,
-        senderName: "Sistem Bildirimi",
-        senderDepartment: dept,
-        senderUid: "system",
-        senderRole: "Sistem",
-        message: faultMsg,
-        messageText: faultMsg,
-        text: faultMsg,
-        timestampMillis: now,
-        createdAt: serverTimestamp(),
-        timestamp: serverTimestamp()
-      });
+        // Sohbete otomatik yayın
+        try {
+          const faultMsg = `⚠️ YENİ ARIZA: ${machine} makinesinde '${priority}' öncelikli arıza bildirildi: ${desc}`;
+          await addDoc(collection(db, "chat_messages"), {
+            id: "msg_" + now,
+            senderName: "Sistem Bildirimi",
+            senderDepartment: dept,
+            senderUid: "system",
+            senderRole: "Sistem",
+            message: faultMsg,
+            messageText: faultMsg,
+            text: faultMsg,
+            timestampMillis: now,
+            createdAt: serverTimestamp(),
+            timestamp: serverTimestamp()
+          });
+        } catch (_) {}
 
-      closeModal('modalNewFault');
-      document.getElementById("fMachine").value = "";
-      document.getElementById("fDesc").value = "";
-      document.getElementById("fIntervened").value = "";
-      switchTab('faults');
+        closeModal('modalNewFault');
+        document.getElementById("fMachine").value = "";
+        document.getElementById("fDesc").value = "";
+        document.getElementById("fIntervened").value = "";
+        switchTab('faults');
+      } catch (err) {
+        console.error("Arıza kaydetme hatası:", err);
+        alert("Arıza kaydedilirken hata oluştu: " + (err?.message || err));
+      }
     };
 
     // 2. Yeni İş Emri Kaydet
@@ -3839,67 +3924,86 @@
 
       const now = Date.now();
       const newDocId = "wo_" + now;
-      await addDoc(collection(db, "work_orders"), {
-        id: newDocId,
-        title: title,
-        machineName: machine,
-        assignedToName: assignedName,
-        assignedToUid: assignedUid,
-        assignedAtMillis: now,
-        department: dept,
-        priority: priority,
-        description: desc,
-        status: "Beklemede",
-        reportedByName: window.currentUser.displayName,
-        reportedByUid: window.currentUser.username,
-        intervenedByNames: [assignedName],
-        createdAtMillis: now,
-        createdAt: serverTimestamp()
-      });
 
-      // Eğer bir personele atandıysa telefona bildirim gitmesi için chat_messages'a bildirim bırak
-      if (assignedUid || (assignedName && assignedName !== "Teknik Ekip")) {
-        const assignMsg = `📋 Size Yeni Bir İş Emri Atandı!\nSayın ${assignedName}, '${title}' (${machine}) iş emrine atandınız. Lütfen kontrol ediniz.`;
-        await addDoc(collection(db, "chat_messages"), {
-          id: "msg_assign_" + now,
-          senderName: "Sistem Bildirimi",
-          senderDepartment: dept,
-          senderUid: "system",
-          senderRole: "Sistem",
-          message: assignMsg,
-          messageText: assignMsg,
-          text: assignMsg,
-          assignedToUid: assignedUid,
+      try {
+        await setDoc(doc(db, "work_orders", newDocId), {
+          id: newDocId,
+          title: title,
+          machineName: machine,
           assignedToName: assignedName,
-          notificationType: "WORK_ORDER_ASSIGNED",
-          targetWorkOrderId: newDocId,
-          timestampMillis: now,
+          assignedToUid: assignedUid,
+          assignedAtMillis: now,
+          department: dept,
+          priority: priority,
+          description: desc,
+          status: "Beklemede",
+          reportedByName: window.currentUser.displayName || window.currentUser.username || "Personel",
+          reportedByUid: window.currentUser.username || window.currentUser.userId || "user",
+          intervenedByNames: [assignedName],
+          createdAtMillis: now,
           createdAt: serverTimestamp(),
-          timestamp: serverTimestamp()
+          updatedAt: serverTimestamp()
         });
-      }
 
-      closeModal('modalNewWo');
-      document.getElementById("woTitle").value = "";
-      document.getElementById("woMachine").value = "";
-      document.getElementById("woDesc").value = "";
-      switchTab('workOrders');
+        // Eğer bir personele atandıysa telefona bildirim gitmesi için chat_messages'a bildirim bırak
+        if (assignedUid || (assignedName && assignedName !== "Teknik Ekip")) {
+          try {
+            const assignMsg = `📋 Size Yeni Bir İş Emri Atandı!\nSayın ${assignedName}, '${title}' (${machine}) iş emrine atandınız. Lütfen kontrol ediniz.`;
+            await addDoc(collection(db, "chat_messages"), {
+              id: "msg_assign_" + now,
+              senderName: "Sistem Bildirimi",
+              senderDepartment: dept,
+              senderUid: "system",
+              senderRole: "Sistem",
+              message: assignMsg,
+              messageText: assignMsg,
+              text: assignMsg,
+              assignedToUid: assignedUid,
+              assignedToName: assignedName,
+              notificationType: "WORK_ORDER_ASSIGNED",
+              targetWorkOrderId: newDocId,
+              timestampMillis: now,
+              createdAt: serverTimestamp(),
+              timestamp: serverTimestamp()
+            });
+          } catch (_) {}
+        }
+
+        closeModal('modalNewWo');
+        document.getElementById("woTitle").value = "";
+        document.getElementById("woMachine").value = "";
+        document.getElementById("woDesc").value = "";
+        switchTab('workOrders');
+      } catch (err) {
+        console.error("İş emri kaydetme hatası:", err);
+        alert("İş emri kaydedilirken hata oluştu: " + (err?.message || err));
+      }
     };
 
     // İş Emri Durum Güncelle
     window.updateWoStatus = async function(docId, newStatus) {
+      if (window.currentUser && window.currentUser.role === "OBSERVER") {
+        alert("⛔ Gözlemci (OBSERVER) hesabı ile durum güncellemesi yapılamaz.");
+        return;
+      }
       try {
-        await updateDoc(doc(db, "work_orders", docId), {
-          status: newStatus
-        });
+        await setDoc(doc(db, "work_orders", docId), {
+          status: newStatus,
+          updatedAt: serverTimestamp()
+        }, { merge: true });
       } catch (err) {
         console.error("Durum güncelleme hatası:", err);
+        alert("Durum güncellenirken hata oluştu: " + (err?.message || err));
       }
     };
 
     // İş Emrine Personel Ata (Açılır Sekme) & Telefona Anlık Bildirim Gönder
     window.assignPersonnelToWorkOrder = async function(woId, selectedVal, title, machine) {
       if (!selectedVal) return;
+      if (window.currentUser && window.currentUser.role === "OBSERVER") {
+        alert("⛔ Gözlemci (OBSERVER) hesabı ile personel ataması yapılamaz.");
+        return;
+      }
       const parts = selectedVal.split('|');
       const uId = parts[0];
       const uName = parts[1] || uId;
@@ -3907,11 +4011,12 @@
       try {
         const now = Date.now();
         // 1. İş Emrini güncelle
-        await updateDoc(doc(db, "work_orders", woId), {
+        await setDoc(doc(db, "work_orders", woId), {
           assignedToUid: uId,
           assignedToName: uName,
-          assignedAtMillis: now
-        });
+          assignedAtMillis: now,
+          updatedAt: serverTimestamp()
+        }, { merge: true });
 
         // 2. Telefona anlık yüksek sesli bildirim gitmesi için chat_messages koleksiyonuna yayın yap
         const assignMsg = `📋 Size Yeni Bir İş Emri Atandı!\nSayın ${uName}, '${title}' (${machine}) iş emrine atandınız. Lütfen kontrol ediniz.`;
@@ -3940,54 +4045,207 @@
       }
     };
 
-    // 3. Arıza Çözme / İş Emri Tamamlama
-    window.resolveTicket = async function(collName, docId, label) {
-      const resolver = prompt(`'${label}' kaydını ÇÖZÜLDÜ olarak kapatmak için müdahale eden personelleri ve çözüm notunu yazınız:`, window.currentUser.displayName);
-      if (resolver === null) return;
-
-      const now = Date.now();
-      const updateData = {
-        status: collName === "fault_reports" ? "Çözüldü" : "Tamamlandı",
-        intervenedByNames: [resolver.trim() || window.currentUser.displayName]
-      };
-      if (collName === "fault_reports") {
-        updateData.resolvedAtMillis = now;
-        updateData.resolvedByName = resolver.trim();
-      } else {
-        updateData.completedAtMillis = now;
+    // 3 & 4. Arıza / İş Emri Çözme ve Tekrar Açma (window.prompt yerine HTML Modal kullanır - Iframe/WebView uyumlu)
+    window.openTicketActionModal = function(collName, docId, mode, fallbackLabel) {
+      if (!window.currentUser) {
+        alert("Lütfen önce oturum açınız.");
+        return;
+      }
+      if (window.currentUser.role === "OBSERVER") {
+        alert("⛔ Gözlemci (OBSERVER) hesabı ile bu işlem yapılamaz.");
+        return;
       }
 
-      await updateDoc(doc(db, collName, docId), updateData);
+      const list = collName === "fault_reports" ? (window.allFaults || []) : (window.allWorkOrders || []);
+      const item = list.find(x => (x.docId === docId || x.id === docId));
+      const actualDocId = item ? (item.docId || item.id) : docId;
+      const itemLabel = item
+        ? (item.machineName || item.title || item.location || fallbackLabel || "Kayıt")
+        : (fallbackLabel || "Kayıt");
+
+      document.getElementById("ticketActionColl").value = collName;
+      document.getElementById("ticketActionDocId").value = actualDocId;
+      document.getElementById("ticketActionMode").value = mode;
+      document.getElementById("ticketActionTargetLabel").innerText = itemLabel;
+
+      const titleEl = document.getElementById("ticketActionTitle");
+      const actorLabelEl = document.getElementById("ticketActionActorLabel");
+      const actorInputEl = document.getElementById("ticketActionActor");
+      const noteLabelEl = document.getElementById("ticketActionNoteLabel");
+      const noteInputEl = document.getElementById("ticketActionNote");
+      const submitBtnEl = document.getElementById("ticketActionSubmitBtn");
+
+      const currentActorName = window.currentUser.displayName || window.currentUser.username || "Personel";
+      actorInputEl.value = currentActorName;
+
+      if (mode === "resolve") {
+        titleEl.innerHTML = `<i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-600"></i> ${collName === "fault_reports" ? "Arızayı Çözüldü Olarak Kapat" : "İş Emrini Tamamla"}`;
+        actorLabelEl.innerText = "Müdahale Eden Personel(ler) (virgülle ayırabilirsiniz) *";
+        noteLabelEl.innerText = "Çözüm / Müdahale Notu (İsteğe bağlı)";
+        noteInputEl.required = false;
+        noteInputEl.value = "";
+        noteInputEl.placeholder = "Yapılan onarım veya değişen parça bilgisini yazabilirsiniz...";
+        submitBtnEl.className = "px-5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold shadow flex items-center gap-1.5";
+        submitBtnEl.innerHTML = `<span>${collName === "fault_reports" ? "Çözüldü Yap" : "Tamamla"}</span>`;
+      } else {
+        titleEl.innerHTML = `<i data-lucide="rotate-ccw" class="w-5 h-5 text-amber-600"></i> ${collName === "fault_reports" ? "Arızayı Tekrar Aç" : "İş Emrini Tekrar Aç"}`;
+        actorLabelEl.innerText = "Tekrar Açan Yetkili *";
+        noteLabelEl.innerText = "Tekrar Açma Gerekçesi *";
+        noteInputEl.required = true;
+        noteInputEl.value = "Sorun nüksetti / Testte giderilemedi";
+        noteInputEl.placeholder = "Tekrar açma sebebini yazınız...";
+        submitBtnEl.className = "px-5 py-2 bg-amber-600 hover:bg-amber-700 text-white rounded-xl font-bold shadow flex items-center gap-1.5";
+        submitBtnEl.innerHTML = `<span>Tekrar Aç</span>`;
+      }
+
+      document.getElementById("modalTicketAction").classList.remove("hidden");
+      lucide.createIcons();
     };
 
-    // 4. Tekrar Açma (Kayıt nüksettiğinde)
-    window.reopenTicket = async function(collName, docId, label) {
-      const reason = prompt(`'${label}' kaydı neden tekrar açılıyor? Gerekçesini yazınız:`, "Sorun nüksetti / Testte giderilemedi");
-      if (reason === null) return;
+    window.resolveTicket = function(collName, docId, label) {
+      window.openTicketActionModal(collName, docId, "resolve", label);
+    };
 
-      const now = Date.now();
-      await updateDoc(doc(db, collName, docId), {
-        status: collName === "fault_reports" ? "Açık" : "Beklemede",
-        reopenedAtMillis: now,
-        reopenReason: reason,
-        reopenedByName: window.currentUser.displayName
-      });
+    window.reopenTicket = function(collName, docId, label) {
+      window.openTicketActionModal(collName, docId, "reopen", label);
+    };
 
-      // Sohbete otomatik uyarı
-      const reopenMsg = `🔄 TEKRAR AÇILDI: '${label}' çözülmedi olarak işaretlendi. Neden: ${reason}`;
-      await addDoc(collection(db, "chat_messages"), {
-        id: "msg_reopen_" + now,
-        senderName: "Sistem Uyarısı",
-        senderDepartment: "Bakım Yönetimi",
-        senderUid: "system",
-        senderRole: "Sistem",
-        message: reopenMsg,
-        messageText: reopenMsg,
-        text: reopenMsg,
-        timestampMillis: now,
-        createdAt: serverTimestamp(),
-        timestamp: serverTimestamp()
-      });
+    window.handleTicketActionSubmit = async function(e) {
+      e.preventDefault();
+      if (!window.currentUser) return;
+
+      const collName = document.getElementById("ticketActionColl").value;
+      const actualDocId = document.getElementById("ticketActionDocId").value;
+      const mode = document.getElementById("ticketActionMode").value;
+      const targetLabel = document.getElementById("ticketActionTargetLabel").innerText || "Kayıt";
+      const actorRaw = document.getElementById("ticketActionActor").value.trim();
+      const noteRaw = document.getElementById("ticketActionNote").value.trim();
+
+      const fallbackActor = window.currentUser.displayName || window.currentUser.username || "Personel";
+      const actorNames = actorRaw
+        ? actorRaw.split(",").map(s => s.trim()).filter(Boolean)
+        : [fallbackActor];
+      const primaryActor = actorNames[0] || fallbackActor;
+
+      const submitBtn = document.getElementById("ticketActionSubmitBtn");
+      const oldHtml = submitBtn.innerHTML;
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `<span class="animate-spin mr-1">⏳</span> Kaydediliyor...`;
+
+      try {
+        const now = Date.now();
+        if (mode === "resolve") {
+          const newStatus = collName === "fault_reports" ? "Çözüldü" : "Tamamlandı";
+          const updateData = {
+            status: newStatus,
+            intervenedByNames: actorNames,
+            updatedAt: serverTimestamp()
+          };
+          if (collName === "fault_reports") {
+            updateData.resolvedAtMillis = now;
+            updateData.resolvedAt = serverTimestamp();
+            updateData.resolvedByName = actorNames.join(", ");
+            if (noteRaw) updateData.resolutionNotes = noteRaw;
+          } else {
+            updateData.completedAtMillis = now;
+            updateData.completedAt = serverTimestamp();
+            if (noteRaw) updateData.solutionNotes = noteRaw;
+          }
+
+          await setDoc(doc(db, collName, actualDocId), updateData, { merge: true });
+
+          // Yerel listeyi anında güncelle
+          if (collName === "fault_reports") {
+            window.allFaults = (window.allFaults || []).map(f =>
+              (f.docId === actualDocId || f.id === actualDocId)
+                ? { ...f, ...updateData, status: newStatus }
+                : f
+            );
+          } else {
+            window.allWorkOrders = (window.allWorkOrders || []).map(w =>
+              (w.docId === actualDocId || w.id === actualDocId)
+                ? { ...w, ...updateData, status: newStatus }
+                : w
+            );
+          }
+
+          // Sohbete otomatik çözüm bildirimi
+          try {
+            const msgPrefix = collName === "fault_reports" ? "✅ ARIZA ÇÖZÜLDÜ" : "✅ İŞ EMRİ TAMAMLANDI";
+            const msgText = `${msgPrefix}: '${targetLabel}' (${actorNames.join(", ")}) tarafından kapatıldı.${noteRaw ? " Not: " + noteRaw : ""}`;
+            await addDoc(collection(db, "chat_messages"), {
+              id: "msg_resolve_" + now,
+              senderName: "Sistem Bildirimi",
+              senderDepartment: "Bakım Yönetimi",
+              senderUid: "system",
+              senderRole: "Sistem",
+              message: msgText,
+              messageText: msgText,
+              text: msgText,
+              timestampMillis: now,
+              createdAt: serverTimestamp(),
+              timestamp: serverTimestamp()
+            });
+          } catch (_) {}
+        } else {
+          const reasonText = noteRaw || "Sorun nüksetti / Testte giderilemedi";
+          const newStatus = collName === "fault_reports" ? "Açık" : "Beklemede";
+          const updateData = {
+            status: newStatus,
+            reopenedAtMillis: now,
+            reopenReason: reasonText,
+            reopenedByName: primaryActor,
+            updatedAt: serverTimestamp()
+          };
+
+          await setDoc(doc(db, collName, actualDocId), updateData, { merge: true });
+
+          // Yerel listeyi anında güncelle
+          if (collName === "fault_reports") {
+            window.allFaults = (window.allFaults || []).map(f =>
+              (f.docId === actualDocId || f.id === actualDocId)
+                ? { ...f, ...updateData, status: newStatus }
+                : f
+            );
+          } else {
+            window.allWorkOrders = (window.allWorkOrders || []).map(w =>
+              (w.docId === actualDocId || w.id === actualDocId)
+                ? { ...w, ...updateData, status: newStatus }
+                : w
+            );
+          }
+
+          // Sohbete otomatik uyarı
+          try {
+            const reopenMsg = `🔄 TEKRAR AÇILDI: '${targetLabel}' (${primaryActor}) tarafından tekrar açıldı. Neden: ${reasonText}`;
+            await addDoc(collection(db, "chat_messages"), {
+              id: "msg_reopen_" + now,
+              senderName: "Sistem Uyarısı",
+              senderDepartment: "Bakım Yönetimi",
+              senderUid: "system",
+              senderRole: "Sistem",
+              message: reopenMsg,
+              messageText: reopenMsg,
+              text: reopenMsg,
+              timestampMillis: now,
+              createdAt: serverTimestamp(),
+              timestamp: serverTimestamp()
+            });
+          } catch (_) {}
+        }
+
+        refreshDashboard();
+        renderFaults();
+        renderWorkOrders();
+        renderAnalytics();
+        closeModal("modalTicketAction");
+      } catch (err) {
+        console.error("Kayıt güncelleme hatası:", err);
+        alert("İşlem kaydedilirken bir hata oluştu: " + (err?.message || err));
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = oldHtml;
+      }
     };
 
     // 5. Arızayı İş Emrine Dönüştür
@@ -4512,6 +4770,24 @@
       return String(str).replace(/"/g, '""');
     }
 
+    function escapeHtml(str) {
+      if (str === null || str === undefined) return "";
+      return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+    }
+
+    function escapeJsSingle(str) {
+      if (str === null || str === undefined) return "";
+      return String(str)
+        .replace(/\\/g, "\\\\")
+        .replace(/'/g, "\\'")
+        .replace(/\r?\n/g, " ");
+    }
+
     function formatIntervened(item) {
       if (item.intervenedByNames && item.intervenedByNames.length) {
         return item.intervenedByNames.join(', ');
@@ -4698,6 +4974,11 @@
     }
 
     window.openAppVersionModal = function() {
+      const email = (window.currentUser?.email || "").trim().toLowerCase();
+      if (email !== "usluozaykagan@gmail.com") {
+        alert("⛔ Yetkisiz İşlem: Mobil sürüm güncelleme yönetimi yalnızca usluozaykagan@gmail.com hesabına tanımlıdır.");
+        return;
+      }
       const v = window.currentAppVersion || { versionCode: 6, versionName: "1.2.4", title: "Tekinak CMMS v1.2.4", apkUrl: "", changelog: [] };
       document.getElementById("verFormCode").value = v.versionCode || 6;
       document.getElementById("verFormName").value = v.versionName || "1.2.4";
@@ -4709,6 +4990,11 @@
 
     window.handlePublishNewVersion = async function(e) {
       e.preventDefault();
+      const email = (window.currentUser?.email || "").trim().toLowerCase();
+      if (email !== "usluozaykagan@gmail.com") {
+        alert("⛔ Yetkisiz İşlem: Mobil sürüm yayınlama yetkisi yalnızca usluozaykagan@gmail.com hesabına tanımlıdır.");
+        return;
+      }
       const code = parseInt(document.getElementById("verFormCode").value.trim(), 10);
       const name = document.getElementById("verFormName").value.trim();
       const title = document.getElementById("verFormTitle").value.trim();
@@ -4773,6 +5059,11 @@
     };
 
     window.syncWithDeployedApk = async function() {
+      const email = (window.currentUser?.email || "").trim().toLowerCase();
+      if (email !== "usluozaykagan@gmail.com") {
+        alert("⛔ Yetkisiz İşlem: Mobil sürüm eşitleme yetkisi yalnızca usluozaykagan@gmail.com hesabına tanımlıdır.");
+        return;
+      }
       try {
         const payload = {
           versionCode: 6,
@@ -4821,6 +5112,14 @@
         localStorage.removeItem("tekinak_session");
         sessionStorage.removeItem("tekinak_session");
         window.currentUser = null;
+        const topVerBtn = document.getElementById("topAppVersionBtn");
+        if (topVerBtn) {
+          topVerBtn.classList.add("hidden");
+          topVerBtn.classList.remove("inline-flex", "sm:inline-flex");
+          topVerBtn.style.display = "none";
+        }
+        const modalVer = document.getElementById("modalAppVersion");
+        if (modalVer) modalVer.classList.add("hidden");
         document.getElementById("mainApp").classList.add("hidden");
         document.getElementById("authContainer").classList.remove("hidden");
         const pInput = document.getElementById("authPassword");
@@ -4909,6 +5208,14 @@
       localStorage.removeItem("tekinak_session");
       sessionStorage.removeItem("tekinak_session");
       window.currentUser = null;
+      const topVerBtn = document.getElementById("topAppVersionBtn");
+      if (topVerBtn) {
+        topVerBtn.classList.add("hidden");
+        topVerBtn.classList.remove("inline-flex", "sm:inline-flex");
+        topVerBtn.style.display = "none";
+      }
+      const modalVer = document.getElementById("modalAppVersion");
+      if (modalVer) modalVer.classList.add("hidden");
 
       document.getElementById("mainApp").classList.add("hidden");
       document.getElementById("authContainer").classList.remove("hidden");
