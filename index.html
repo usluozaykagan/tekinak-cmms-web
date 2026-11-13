@@ -175,9 +175,9 @@
         </form>
 
         <div class="pt-3 text-center border-t border-slate-100 flex flex-col items-center justify-center gap-2">
-          <a href="app-release.apk?v=7" id="loginApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold rounded-lg border border-emerald-300 transition shadow-sm">
+          <a href="app-release.apk?v=8" id="loginApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold rounded-lg border border-emerald-300 transition shadow-sm">
             <i data-lucide="smartphone" class="w-3.5 h-3.5 text-emerald-600"></i>
-            <span id="loginApkBtnText">Android APK İndir (v1.2.5)</span>
+            <span id="loginApkBtnText">Android APK İndir (v1.3.0)</span>
           </a>
           <div class="text-[11px] text-slate-400 flex items-center justify-center gap-1.5">
             <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600"></i>
@@ -228,15 +228,15 @@
         </div>
 
         <!-- Android APK İndir Butonu (Tüm Kullanıcılar Görür) -->
-        <a href="app-release.apk?v=7" id="topApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-700/60 hover:bg-blue-600 text-white border border-blue-400/40 transition shadow-sm" title="Android Mobil APK İndir">
+        <a href="app-release.apk?v=8" id="topApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-700/60 hover:bg-blue-600 text-white border border-blue-400/40 transition shadow-sm" title="Android Mobil APK İndir">
           <i data-lucide="download" class="w-3.5 h-3.5 text-amber-300"></i>
-          <span id="topApkBtnText">APK İndir (v1.2.5)</span>
+          <span id="topApkBtnText">APK İndir (v1.3.0)</span>
         </a>
 
         <!-- Mobil Sürüm Yönetimi Butonu (Sadece usluozaykagan@gmail.com için görünür) -->
         <button id="topAppVersionBtn" onclick="openAppVersionModal()" style="display: none;" class="hidden items-center space-x-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-600/70 hover:bg-emerald-600 text-white border border-emerald-400/40 transition shadow-sm" title="Firebase Mobil Sürüm Kontrolü ve Güncelleme">
           <i data-lucide="smartphone" class="w-3.5 h-3.5 text-amber-300"></i>
-          <span id="topVersionBadgeText">Sürüm: v1.2.5</span>
+          <span id="topVersionBadgeText">Sürüm: v1.3.0</span>
         </button>
 
         <!-- Bildirim Sihirbazı Butonu -->
@@ -245,7 +245,7 @@
         </button>
 
         <!-- Saha Chatbox Butonu (Badged) -->
-        <button onclick="toggleChatDrawer()" class="p-2 hover:bg-blue-800 text-white rounded-xl transition relative" title="Saha Chatbox">
+        <button id="topChatBtn" onclick="toggleChatDrawer()" class="p-2 hover:bg-blue-800 text-white rounded-xl transition relative" title="Saha Chatbox">
           <i data-lucide="message-square" class="w-5 h-5"></i>
           <span id="chatBadge" class="absolute top-1 right-1 bg-rose-500 text-white text-[9px] font-black w-4 h-4 rounded-full flex items-center justify-center shadow hidden">0</span>
         </button>
@@ -300,11 +300,11 @@
         </span>
         <div>
           <div class="flex flex-wrap items-center gap-1.5 font-extrabold text-blue-950">
-            <span id="webUpdateBannerTitle">🚀 Yeni Mobil Sürüm Yayında: Tekinak CMMS v1.2.5</span>
-            <span id="webUpdateBannerCodeBadge" class="px-1.5 py-0.5 rounded bg-emerald-600 text-white text-[10px] font-bold">v1.2.5 (Kod: 7)</span>
+            <span id="webUpdateBannerTitle">🚀 Yeni Mobil Sürüm Yayında: Tekinak CMMS v1.3.0</span>
+            <span id="webUpdateBannerCodeBadge" class="px-1.5 py-0.5 rounded bg-emerald-600 text-white text-[10px] font-bold">v1.3.0 (Kod: 8)</span>
           </div>
           <div id="webUpdateBannerSummary" class="text-[11px] text-slate-600 mt-0.5">
-            Arıza çöz/tekrar aç iyileştirmeleri ve canlı sürüm takibi güncellendi. Android uygulamanızı güncelleyebilirsiniz.
+            Genel Bakış sekmesi, ayrı Görme/Düzenleme yetkileri ve Tüm Aygıtlardan Çıkış Yap özelliği yayınlandı.
           </div>
         </div>
       </div>
@@ -312,9 +312,9 @@
         <button type="button" onclick="toggleWebUpdateChangelog()" class="px-2.5 py-1.5 bg-white hover:bg-slate-100 text-blue-800 border border-blue-200 rounded-lg font-bold text-[11px] transition">
           Yenilikler
         </button>
-        <a id="webUpdateBannerDownloadBtn" href="app-release.apk?v=7" download="tekinak-bakim.apk" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold text-[11px] shadow-sm flex items-center gap-1.5 transition">
+        <a id="webUpdateBannerDownloadBtn" href="app-release.apk?v=8" download="tekinak-bakim.apk" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold text-[11px] shadow-sm flex items-center gap-1.5 transition">
           <i data-lucide="download" class="w-3.5 h-3.5"></i>
-          <span id="webUpdateBannerDownloadText">APK İndir (v1.2.5)</span>
+          <span id="webUpdateBannerDownloadText">APK İndir (v1.3.0)</span>
         </a>
         <button type="button" onclick="dismissWebUpdateBanner()" class="p-1 text-slate-400 hover:text-slate-700 rounded-lg" title="Bu sürüm için gizle">
           <i data-lucide="x" class="w-4 h-4"></i>
@@ -348,6 +348,19 @@
   <!-- ================= ANA İÇERİK ALANI ================= -->
   <main class="max-w-7xl mx-auto w-full px-4 py-5 flex-1 space-y-6">
 
+    <!-- BOŞ DURUM: HİÇBİR SEKME YETKİSİ YOKSA -->
+    <section id="pane-no-permissions" class="tab-pane hidden">
+      <div class="bg-white rounded-2xl border border-slate-200 custom-shadow p-8 max-w-lg mx-auto my-8 text-center space-y-3">
+        <div class="w-14 h-14 mx-auto rounded-2xl bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-600">
+          <i data-lucide="shield-off" class="w-7 h-7"></i>
+        </div>
+        <h3 class="text-base font-black text-slate-800">Henüz Yetkilendirilmiş Sekme Yok</h3>
+        <p class="text-xs text-slate-500 leading-relaxed">
+          Hesabınız için tanımlı görüntülenecek bir sekme yetkisi bulunmuyor. Sekme ve düzenleme yetkileri için sistem yöneticinizle iletişime geçiniz.
+        </p>
+      </div>
+    </section>
+
     <!-- 1. TAB: GENEL BAKIŞ (DASHBOARD) -->
     <section id="pane-dashboard" class="tab-pane block space-y-6">
       
@@ -370,7 +383,7 @@
             <button id="dashBtnNewWo" onclick="openNewWoModal()" class="btn-create-wo px-4 py-2.5 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl text-xs flex items-center gap-1.5 transition">
               <i data-lucide="wrench" class="w-4 h-4"></i> İş Emri Başlat
             </button>
-            <button onclick="toggleChatDrawer()" class="px-3.5 py-2.5 bg-blue-700/60 hover:bg-blue-700 text-white font-semibold rounded-xl text-xs flex items-center gap-1.5 transition">
+            <button id="dashChatBtn" onclick="toggleChatDrawer()" class="px-3.5 py-2.5 bg-blue-700/60 hover:bg-blue-700 text-white font-semibold rounded-xl text-xs flex items-center gap-1.5 transition">
               <i data-lucide="message-square" class="w-4 h-4"></i> Saha Chat
             </button>
           </div>
@@ -482,6 +495,10 @@
 
     <!-- 2. TAB: ARIZA BİLDİRİMLERİ (FAULTS) -->
     <section id="pane-faults" class="tab-pane hidden space-y-4">
+      <div id="faultsReadOnlyBanner" class="hidden bg-amber-50 border border-amber-200 text-amber-900 px-3.5 py-2.5 rounded-xl text-xs font-semibold flex items-center gap-2">
+        <i data-lucide="eye" class="w-4 h-4 text-amber-700 flex-shrink-0"></i>
+        <span>Salt Okunur (Sadece Görüntüleme): Bu sekmede arıza ekleme veya değişiklik yapma yetkiniz kapalıdır.</span>
+      </div>
       <div class="bg-white p-4 rounded-xl border border-slate-200 custom-shadow flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
         <!-- Arama ve Filtre -->
         <div class="flex-1 flex flex-wrap items-center gap-2">
@@ -518,6 +535,10 @@
 
     <!-- 3. TAB: İŞ EMİRLERİ (WORK ORDERS) -->
     <section id="pane-workOrders" class="tab-pane hidden space-y-4">
+      <div id="woReadOnlyBanner" class="hidden bg-amber-50 border border-amber-200 text-amber-900 px-3.5 py-2.5 rounded-xl text-xs font-semibold flex items-center gap-2">
+        <i data-lucide="eye" class="w-4 h-4 text-amber-700 flex-shrink-0"></i>
+        <span>Salt Okunur (Sadece Görüntüleme): Bu sekmede iş emri ekleme, personel atama veya durum güncelleme yetkiniz kapalıdır.</span>
+      </div>
       <div class="bg-white p-4 rounded-xl border border-slate-200 custom-shadow flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
         <div class="flex-1 flex flex-wrap items-center gap-2">
           <div class="relative flex-1 min-w-[200px]">
@@ -545,6 +566,10 @@
 
     <!-- 4. TAB: PERİYODİK BAKIM (SCHEDULES) -->
     <section id="pane-schedules" class="tab-pane hidden space-y-4">
+      <div id="schedulesReadOnlyBanner" class="hidden bg-amber-50 border border-amber-200 text-amber-900 px-3.5 py-2.5 rounded-xl text-xs font-semibold flex items-center gap-2">
+        <i data-lucide="eye" class="w-4 h-4 text-amber-700 flex-shrink-0"></i>
+        <span>Salt Okunur (Sadece Görüntüleme): Bakım planı ekleme, tamamlama veya silme yetkiniz kapalıdır.</span>
+      </div>
       <!-- Başlık ve Aksiyon Kartı -->
       <div class="bg-white p-4 rounded-xl border border-slate-200 custom-shadow flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
         <div>
@@ -557,7 +582,7 @@
           <button id="btnScheduleExcel" onclick="openExcelDialog()" class="btn-excel-export px-3.5 py-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-300 text-xs font-bold rounded-lg flex items-center gap-1.5 transition">
             <i data-lucide="file-spreadsheet" class="w-4 h-4 text-emerald-600"></i> Excel (.xlsx)
           </button>
-          <button onclick="openNewScheduleModal()" class="px-3.5 py-2 bg-[#1E3A8A] hover:bg-blue-800 text-white text-xs font-bold rounded-lg flex items-center gap-1.5 shadow transition">
+          <button id="btnSchedNewPlan" onclick="openNewScheduleModal()" class="px-3.5 py-2 bg-[#1E3A8A] hover:bg-blue-800 text-white text-xs font-bold rounded-lg flex items-center gap-1.5 shadow transition">
             <i data-lucide="plus" class="w-4 h-4"></i> Yeni Bakım Planı Ekle
           </button>
         </div>
@@ -637,7 +662,7 @@
           <p class="text-xs text-slate-500 mt-0.5">Sistemde aktif kayıtlı fabrika teknisyenleri, operatörler ve yöneticiler</p>
         </div>
         <div class="flex items-center gap-2">
-          <span class="text-xs font-bold text-amber-800 bg-amber-100 px-2.5 py-1 rounded-lg border border-amber-200 flex items-center gap-1.5">
+          <span id="membersModeBadge" class="text-xs font-bold text-amber-800 bg-amber-100 px-2.5 py-1 rounded-lg border border-amber-200 flex items-center gap-1.5">
             <i data-lucide="shield" class="w-3.5 h-3.5 text-amber-600"></i> Yönetici Görünümü
           </span>
         </div>
@@ -738,11 +763,14 @@
     </div>
 
     <!-- Mesaj Girişi -->
-    <div class="p-3 bg-white border-t border-slate-200 flex items-center gap-2">
+    <div id="chatInputBar" class="p-3 bg-white border-t border-slate-200 flex items-center gap-2">
       <input type="text" id="chatInput" placeholder="Mesaj veya arıza sorusu yazın..." class="flex-1 border border-slate-300 rounded-xl px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-blue-600" onkeydown="if(event.key==='Enter') sendChatMessage()">
       <button onclick="sendChatMessage()" class="bg-[#1E3A8A] hover:bg-blue-800 text-white p-2.5 rounded-xl shadow transition">
         <i data-lucide="send" class="w-4 h-4"></i>
       </button>
+    </div>
+    <div id="chatReadOnlyBar" class="hidden p-3 bg-amber-50 border-t border-amber-200 text-[11px] font-semibold text-amber-900 text-center">
+      🔒 Sohbete mesaj gönderme yetkiniz kapalıdır (Yalnızca okuma).
     </div>
   </div>
 
@@ -859,12 +887,16 @@
 
   <!-- MODAL: KULLANICI BİLGİLERİNİ DÜZENLE (EditProfileDialog ile Birebir) -->
   <div id="modalEditProfile" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
-    <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4">
+    <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4 max-h-[92vh] overflow-y-auto">
       <div class="flex items-center justify-between border-b pb-3">
         <h3 class="font-bold text-base text-[#1E3A8A] flex items-center gap-2">
           <i data-lucide="user" class="w-5 h-5 text-amber-500"></i> Kullanıcı Bilgilerini Düzenle
         </h3>
         <button onclick="closeModal('modalEditProfile')" class="text-slate-400 hover:text-slate-600"><i data-lucide="x" class="w-5 h-5"></i></button>
+      </div>
+      <div id="profReadOnlyNotice" class="hidden p-2.5 bg-amber-50 border border-amber-200 rounded-xl text-[11px] font-semibold text-amber-900 flex items-center gap-2">
+        <i data-lucide="lock" class="w-4 h-4 text-amber-700 flex-shrink-0"></i>
+        <span>Profil bilgilerini düzenleme yetkiniz yönetici tarafından kısıtlanmıştır. Bilgilerinizi sadece görüntüleyebilirsiniz.</span>
       </div>
       <div class="space-y-3 text-xs">
         <div>
@@ -900,7 +932,7 @@
         <div class="p-2.5 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-between text-[11px] text-slate-600">
           <div class="flex items-center gap-1.5 font-semibold text-slate-700">
             <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600"></i>
-            <span>Sistem Sürümü: v1.2.0</span>
+            <span>Sistem Sürümü: v1.3.0</span>
           </div>
           <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-300">Güncel ✓</span>
         </div>
@@ -908,6 +940,13 @@
       <div class="flex justify-end gap-2 pt-2">
         <button onclick="closeModal('modalEditProfile')" class="px-4 py-2 border rounded-xl text-xs font-semibold text-slate-600">İptal</button>
         <button id="saveProfileBtn" onclick="saveProfileChanges()" class="px-5 py-2 bg-[#1E3A8A] hover:bg-blue-800 text-white rounded-xl text-xs font-bold shadow">Güncelle</button>
+      </div>
+      <div class="pt-3 border-t border-slate-200 space-y-1.5">
+        <button type="button" id="selfForceLogoutAllBtn" onclick="selfForceLogoutAllDevices()" class="w-full py-2.5 bg-rose-600 hover:bg-rose-700 text-white rounded-xl text-xs font-bold shadow flex items-center justify-center gap-2 transition">
+          <i data-lucide="log-out" class="w-4 h-4"></i>
+          <span>Tüm Aygıtlardan Çıkış Yap</span>
+        </button>
+        <p class="text-[10px] text-slate-400 text-center">Açık olan bu tarayıcı ve diğer tüm telefon/web oturumlarınızı anında kapatır.</p>
       </div>
     </div>
   </div>
@@ -1168,8 +1207,9 @@
           <div>
             <label class="block font-semibold text-slate-700 mb-1">Rol Tanımı *</label>
             <select id="adminNewRole" class="w-full border rounded-lg p-2.5 bg-white outline-none focus:ring-2 focus:ring-[#1E3A8A]">
-              <option value="TECHNICIAN">Bakım Teknisyeni (TECHNICIAN)</option>
+              <option value="OBSERVER" selected>Gözlemci (OBSERVER - Sadece Genel Bakış)</option>
               <option value="OPERATOR">Hat Operatörü (OPERATOR)</option>
+              <option value="TECHNICIAN">Bakım Teknisyeni (TECHNICIAN)</option>
               <option value="MANAGER">Bakım Yöneticisi (MANAGER)</option>
               <option value="ADMIN">Sistem Yöneticisi (ADMIN)</option>
             </select>
@@ -1181,60 +1221,89 @@
           <input type="tel" id="adminNewPhone" placeholder="05XX XXX XX XX" class="w-full border rounded-lg p-2.5 outline-none focus:ring-2 focus:ring-[#1E3A8A]">
         </div>
 
+        <!-- Sekme Bazlı Görme & Düzenleme Yetkileri (İlk Kurulumda Yalnızca Genel Bakış Görünür) -->
+        <div class="bg-indigo-50/70 p-3 rounded-xl border border-indigo-200 space-y-2.5">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <label class="block font-bold text-indigo-950 text-[11px]">Sekme Bazlı Görme & Düzenleme Yetkileri</label>
+              <div class="text-[10px] text-indigo-700">İlk kurulumda sadece Genel Bakış görüntüleme açıktır. İstenirse tüm yetkiler kapatılabilir.</div>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <button type="button" onclick="applyTabMatrixPreset('adminNew', 'DASHBOARD_ONLY')" class="px-2 py-1 bg-white hover:bg-indigo-100 text-indigo-900 border border-indigo-300 rounded-lg text-[10px] font-bold transition">Sadece Genel Bakış</button>
+              <button type="button" onclick="applyTabMatrixPreset('adminNew', 'NONE')" class="px-2 py-1 bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 rounded-lg text-[10px] font-bold transition">Tümünü Kapat</button>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl border border-indigo-100 divide-y divide-slate-100 overflow-hidden">
+            <div class="grid grid-cols-12 px-3 py-1.5 bg-slate-50 text-[10px] font-bold text-slate-500">
+              <span class="col-span-6">Sekme</span>
+              <span class="col-span-3 text-center">Gör</span>
+              <span class="col-span-3 text-center">Düzenle</span>
+            </div>
+            <div class="grid grid-cols-12 items-center px-3 py-2 text-[11px]">
+              <span class="col-span-6 font-semibold text-slate-700">🏠 Genel Bakış</span>
+              <label class="col-span-3 flex justify-center cursor-pointer"><input type="checkbox" id="adminNewTabViewDash" checked onchange="onTabViewToggle('adminNew', 'Dash')" class="w-4 h-4 rounded text-[#1E3A8A]"></label>
+              <label class="col-span-3 flex justify-center cursor-pointer"><input type="checkbox" id="adminNewTabEditDash" onchange="onTabEditToggle('adminNew', 'Dash')" class="w-4 h-4 rounded text-amber-600"></label>
+            </div>
+            <div class="grid grid-cols-12 items-center px-3 py-2 text-[11px]">
+              <span class="col-span-6 font-semibold text-slate-700">⚠️ Arıza Kayıtları</span>
+              <label class="col-span-3 flex justify-center cursor-pointer"><input type="checkbox" id="adminNewTabViewFaults" onchange="onTabViewToggle('adminNew', 'Faults')" class="w-4 h-4 rounded text-[#1E3A8A]"></label>
+              <label class="col-span-3 flex justify-center cursor-pointer"><input type="checkbox" id="adminNewTabEditFaults" onchange="onTabEditToggle('adminNew', 'Faults')" class="w-4 h-4 rounded text-amber-600"></label>
+            </div>
+            <div class="grid grid-cols-12 items-center px-3 py-2 text-[11px]">
+              <span class="col-span-6 font-semibold text-slate-700">🔧 İş Emirleri</span>
+              <label class="col-span-3 flex justify-center cursor-pointer"><input type="checkbox" id="adminNewTabViewWo" onchange="onTabViewToggle('adminNew', 'Wo')" class="w-4 h-4 rounded text-[#1E3A8A]"></label>
+              <label class="col-span-3 flex justify-center cursor-pointer"><input type="checkbox" id="adminNewTabEditWo" onchange="onTabEditToggle('adminNew', 'Wo')" class="w-4 h-4 rounded text-amber-600"></label>
+            </div>
+            <div class="grid grid-cols-12 items-center px-3 py-2 text-[11px]">
+              <span class="col-span-6 font-semibold text-slate-700">📅 Bakım Takvimi</span>
+              <label class="col-span-3 flex justify-center cursor-pointer"><input type="checkbox" id="adminNewTabViewSchedule" onchange="onTabViewToggle('adminNew', 'Schedule')" class="w-4 h-4 rounded text-[#1E3A8A]"></label>
+              <label class="col-span-3 flex justify-center cursor-pointer"><input type="checkbox" id="adminNewTabEditSchedule" onchange="onTabEditToggle('adminNew', 'Schedule')" class="w-4 h-4 rounded text-amber-600"></label>
+            </div>
+            <div class="grid grid-cols-12 items-center px-3 py-2 text-[11px]">
+              <span class="col-span-6 font-semibold text-slate-700">📊 KPI & Raporlar</span>
+              <label class="col-span-3 flex justify-center cursor-pointer"><input type="checkbox" id="adminNewTabViewAnalytics" onchange="onTabViewToggle('adminNew', 'Analytics')" class="w-4 h-4 rounded text-[#1E3A8A]"></label>
+              <label class="col-span-3 flex justify-center cursor-pointer"><input type="checkbox" id="adminNewTabEditAnalytics" onchange="onTabEditToggle('adminNew', 'Analytics')" class="w-4 h-4 rounded text-amber-600"></label>
+            </div>
+            <div class="grid grid-cols-12 items-center px-3 py-2 text-[11px]">
+              <span class="col-span-6 font-semibold text-slate-700">👥 Üyeler</span>
+              <label class="col-span-3 flex justify-center cursor-pointer"><input type="checkbox" id="adminNewTabViewMembers" onchange="onTabViewToggle('adminNew', 'Members')" class="w-4 h-4 rounded text-[#1E3A8A]"></label>
+              <label class="col-span-3 flex justify-center cursor-pointer"><input type="checkbox" id="adminNewTabEditMembers" onchange="onTabEditToggle('adminNew', 'Members')" class="w-4 h-4 rounded text-amber-600"></label>
+            </div>
+          </div>
+        </div>
+
         <!-- Özel Yetki Kutucukları -->
         <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 space-y-2">
-          <label class="block font-bold text-slate-800 text-[11px] mb-1">Yetki ve İzin Matrisi</label>
+          <label class="block font-bold text-slate-800 text-[11px] mb-1">Özel Aksiyon & Sistem Yetkileri</label>
           <label class="flex items-center gap-2 text-slate-700 cursor-pointer">
-            <input type="checkbox" id="adminPermFault" checked class="w-4 h-4 rounded text-[#1E3A8A]">
-            <span>⚠️ Yeni Arıza Bildirebilir</span>
-          </label>
-          <label class="flex items-center gap-2 text-slate-700 cursor-pointer">
-            <input type="checkbox" id="adminPermWo" checked class="w-4 h-4 rounded text-[#1E3A8A]">
-            <span>🔧 Yeni İş Emri Açabilir / Başlatabilir</span>
-          </label>
-          <label class="flex items-center gap-2 text-slate-700 cursor-pointer">
-            <input type="checkbox" id="adminPermExcel" checked class="w-4 h-4 rounded text-[#1E3A8A]">
+            <input type="checkbox" id="adminPermExcel" class="w-4 h-4 rounded text-[#1E3A8A]">
             <span>📊 Excel ve CSV Rapor Çıktısı Alabilir</span>
           </label>
           <label class="flex items-center gap-2 text-slate-700 cursor-pointer">
-            <input type="checkbox" id="adminPermSchedules" checked class="w-4 h-4 rounded text-[#1E3A8A]">
-            <span>📅 Periyodik Bakım Planlarını Onaylayabilir</span>
+            <input type="checkbox" id="adminPermSchedules" onchange="syncScheduleCheckbox('adminNew', this.checked)" class="w-4 h-4 rounded text-[#1E3A8A]">
+            <span>📅 Periyodik Bakım Planlarını Düzenleyebilir</span>
           </label>
           <label class="flex items-center gap-2 text-slate-700 cursor-pointer">
-            <input type="checkbox" id="adminPermChat" checked class="w-4 h-4 rounded text-[#1E3A8A]">
-            <span>💬 Saha Sohbetine Katılabilir & Mesaj Gönderebilir</span>
+            <input type="checkbox" id="adminPermChatView" checked class="w-4 h-4 rounded text-[#1E3A8A]">
+            <span>💬 Saha Sohbetini Görüntüleyebilir</span>
           </label>
           <label class="flex items-center gap-2 text-slate-700 cursor-pointer">
-            <input type="checkbox" id="adminPermReopen" checked class="w-4 h-4 rounded text-[#1E3A8A]">
+            <input type="checkbox" id="adminPermChatSend" class="w-4 h-4 rounded text-[#1E3A8A]">
+            <span>✉️ Saha Sohbetine Mesaj Gönderebilir</span>
+          </label>
+          <label class="flex items-center gap-2 text-slate-700 cursor-pointer">
+            <input type="checkbox" id="adminPermReopen" class="w-4 h-4 rounded text-[#1E3A8A]">
             <span>🔄 Kapanan Arıza & İş Emirlerini Tekrar Açabilir</span>
           </label>
-        </div>
-
-        <!-- Erişebileceği Sekmeler (Android TeamScreen Birebir) -->
-        <div class="bg-indigo-50/70 p-3 rounded-xl border border-indigo-200 space-y-2">
-          <label class="block font-bold text-indigo-950 text-[11px] mb-1">Erişebileceği Sekmeler (Yetkili Sayfalar)</label>
-          <div class="grid grid-cols-2 gap-2 text-slate-700">
-            <label class="flex items-center gap-2 cursor-pointer text-[11px]">
-              <input type="checkbox" id="adminNewTabFaults" checked class="w-4 h-4 rounded text-[#1E3A8A]">
-              <span>⚠️ Arıza Kayıtları</span>
-            </label>
-            <label class="flex items-center gap-2 cursor-pointer text-[11px]">
-              <input type="checkbox" id="adminNewTabWo" checked class="w-4 h-4 rounded text-[#1E3A8A]">
-              <span>🔧 İş Emirleri</span>
-            </label>
-            <label class="flex items-center gap-2 cursor-pointer text-[11px]">
-              <input type="checkbox" id="adminNewTabSchedule" checked class="w-4 h-4 rounded text-[#1E3A8A]">
-              <span>📅 Bakım Takvimi</span>
-            </label>
-            <label class="flex items-center gap-2 cursor-pointer text-[11px]">
-              <input type="checkbox" id="adminNewTabAnalytics" checked class="w-4 h-4 rounded text-[#1E3A8A]">
-              <span>📊 KPI & Raporlar</span>
-            </label>
-            <label class="flex items-center gap-2 cursor-pointer text-[11px] col-span-2">
-              <input type="checkbox" id="adminNewTabMembers" checked class="w-4 h-4 rounded text-[#1E3A8A]">
-              <span>👥 Üyeler</span>
-            </label>
-          </div>
+          <label class="flex items-center gap-2 text-slate-700 cursor-pointer">
+            <input type="checkbox" id="adminPermDeleteMsg" class="w-4 h-4 rounded text-[#1E3A8A]">
+            <span>🗑️ Saha Sohbetindeki Mesajları Silebilir</span>
+          </label>
+          <label class="flex items-center gap-2 text-slate-700 cursor-pointer">
+            <input type="checkbox" id="adminPermEditProfile" class="w-4 h-4 rounded text-[#1E3A8A]">
+            <span>✏️ Kendi Profil & Kullanıcı Bilgilerini Düzenleyebilir</span>
+          </label>
         </div>
       </div>
 
@@ -1257,19 +1326,23 @@
 
       <input type="hidden" id="editPermUserId">
       <div class="space-y-3 text-xs">
-        <div class="bg-blue-50 p-3 rounded-xl border border-blue-200">
-          <div class="font-bold text-blue-900 text-sm" id="editPermDisplayName">Personel Adı</div>
-          <div class="text-[11px] text-blue-700 font-mono" id="editPermUsername">@kullaniciadi</div>
+        <div class="bg-blue-50 p-3 rounded-xl border border-blue-200 flex items-center justify-between gap-2">
+          <div>
+            <div class="font-bold text-blue-900 text-sm" id="editPermDisplayName">Personel Adı</div>
+            <div class="text-[11px] text-blue-700 font-mono" id="editPermUsername">@kullaniciadi</div>
+          </div>
+          <span id="editPermMatrixSummary" class="text-[10px] font-bold px-2 py-1 rounded-lg bg-white text-blue-900 border border-blue-200">0/6 Gör</span>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div>
             <label class="block font-semibold text-slate-700 mb-1">Rol</label>
             <select id="editPermRole" class="w-full border rounded-lg p-2.5 bg-white">
-              <option value="ADMIN">Sistem Yöneticisi (ADMIN)</option>
-              <option value="MANAGER">Bakım Yöneticisi (MANAGER)</option>
-              <option value="TECHNICIAN">Bakım Teknisyeni (TECHNICIAN)</option>
+              <option value="OBSERVER">Gözlemci (OBSERVER)</option>
               <option value="OPERATOR">Hat Operatörü (OPERATOR)</option>
+              <option value="TECHNICIAN">Bakım Teknisyeni (TECHNICIAN)</option>
+              <option value="MANAGER">Bakım Yöneticisi (MANAGER)</option>
+              <option value="ADMIN">Sistem Yöneticisi (ADMIN)</option>
             </select>
           </div>
           <div>
@@ -1292,55 +1365,77 @@
           </div>
         </div>
 
-        <!-- Erişebileceği Sekmeler (Android TeamScreen EditAccountDialog Birebir) -->
-        <div class="bg-indigo-50/70 p-3 rounded-xl border border-indigo-200 space-y-2">
-          <label class="block font-bold text-indigo-950 text-[11px] mb-1">Erişebileceği Sekmeler (Yetkili Sayfalar)</label>
-          <div class="grid grid-cols-2 gap-2 text-slate-700">
-            <label class="flex items-center gap-2 cursor-pointer text-[11px]">
-              <input type="checkbox" id="editPermTabFaults" class="w-4 h-4 rounded text-[#1E3A8A]">
-              <span>⚠️ Arıza Kayıtları</span>
-            </label>
-            <label class="flex items-center gap-2 cursor-pointer text-[11px]">
-              <input type="checkbox" id="editPermTabWo" class="w-4 h-4 rounded text-[#1E3A8A]">
-              <span>🔧 İş Emirleri</span>
-            </label>
-            <label class="flex items-center gap-2 cursor-pointer text-[11px]">
-              <input type="checkbox" id="editPermTabSchedule" class="w-4 h-4 rounded text-[#1E3A8A]">
-              <span>📅 Bakım Takvimi</span>
-            </label>
-            <label class="flex items-center gap-2 cursor-pointer text-[11px]">
-              <input type="checkbox" id="editPermTabAnalytics" class="w-4 h-4 rounded text-[#1E3A8A]">
-              <span>📊 KPI & Raporlar</span>
-            </label>
-            <label class="flex items-center gap-2 cursor-pointer text-[11px] col-span-2">
-              <input type="checkbox" id="editPermTabMembers" class="w-4 h-4 rounded text-[#1E3A8A]">
-              <span>👥 Üyeler</span>
-            </label>
+        <!-- Sekme Bazlı Görme & Düzenleme Yetkileri (Android EditAccountDialog Birebir) -->
+        <div class="bg-indigo-50/70 p-3 rounded-xl border border-indigo-200 space-y-2.5">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <label class="block font-bold text-indigo-950 text-[11px]">Sekme Bazlı Görme & Düzenleme Yetkileri</label>
+              <div class="text-[10px] text-indigo-700">Görüntüleme kapalıysa sekme gizlenir; Düzenleme kapalıysa salt okunur açılır.</div>
+            </div>
+            <div class="flex flex-wrap items-center gap-1">
+              <button type="button" onclick="applyTabMatrixPreset('editPerm', 'DASHBOARD_ONLY')" class="px-2 py-1 bg-white hover:bg-indigo-100 text-indigo-900 border border-indigo-300 rounded-lg text-[10px] font-bold transition">Sadece Genel Bakış</button>
+              <button type="button" onclick="applyTabMatrixPreset('editPerm', 'NONE')" class="px-2 py-1 bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 rounded-lg text-[10px] font-bold transition">Tümünü Kapat</button>
+              <button type="button" onclick="applyTabMatrixPreset('editPerm', 'ALL')" class="px-2 py-1 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 rounded-lg text-[10px] font-bold transition">Tümünü Aç</button>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl border border-indigo-100 divide-y divide-slate-100 overflow-hidden">
+            <div class="grid grid-cols-12 px-3 py-1.5 bg-slate-50 text-[10px] font-bold text-slate-500">
+              <span class="col-span-6">Sekme</span>
+              <span class="col-span-3 text-center">Gör</span>
+              <span class="col-span-3 text-center">Düzenle</span>
+            </div>
+            <div class="grid grid-cols-12 items-center px-3 py-2 text-[11px]">
+              <span class="col-span-6 font-semibold text-slate-700">🏠 Genel Bakış</span>
+              <label class="col-span-3 flex justify-center cursor-pointer"><input type="checkbox" id="editPermTabViewDash" onchange="onTabViewToggle('editPerm', 'Dash')" class="w-4 h-4 rounded text-[#1E3A8A]"></label>
+              <label class="col-span-3 flex justify-center cursor-pointer"><input type="checkbox" id="editPermTabEditDash" onchange="onTabEditToggle('editPerm', 'Dash')" class="w-4 h-4 rounded text-amber-600"></label>
+            </div>
+            <div class="grid grid-cols-12 items-center px-3 py-2 text-[11px]">
+              <span class="col-span-6 font-semibold text-slate-700">⚠️ Arıza Kayıtları</span>
+              <label class="col-span-3 flex justify-center cursor-pointer"><input type="checkbox" id="editPermTabViewFaults" onchange="onTabViewToggle('editPerm', 'Faults')" class="w-4 h-4 rounded text-[#1E3A8A]"></label>
+              <label class="col-span-3 flex justify-center cursor-pointer"><input type="checkbox" id="editPermTabEditFaults" onchange="onTabEditToggle('editPerm', 'Faults')" class="w-4 h-4 rounded text-amber-600"></label>
+            </div>
+            <div class="grid grid-cols-12 items-center px-3 py-2 text-[11px]">
+              <span class="col-span-6 font-semibold text-slate-700">🔧 İş Emirleri</span>
+              <label class="col-span-3 flex justify-center cursor-pointer"><input type="checkbox" id="editPermTabViewWo" onchange="onTabViewToggle('editPerm', 'Wo')" class="w-4 h-4 rounded text-[#1E3A8A]"></label>
+              <label class="col-span-3 flex justify-center cursor-pointer"><input type="checkbox" id="editPermTabEditWo" onchange="onTabEditToggle('editPerm', 'Wo')" class="w-4 h-4 rounded text-amber-600"></label>
+            </div>
+            <div class="grid grid-cols-12 items-center px-3 py-2 text-[11px]">
+              <span class="col-span-6 font-semibold text-slate-700">📅 Bakım Takvimi</span>
+              <label class="col-span-3 flex justify-center cursor-pointer"><input type="checkbox" id="editPermTabViewSchedule" onchange="onTabViewToggle('editPerm', 'Schedule')" class="w-4 h-4 rounded text-[#1E3A8A]"></label>
+              <label class="col-span-3 flex justify-center cursor-pointer"><input type="checkbox" id="editPermTabEditSchedule" onchange="onTabEditToggle('editPerm', 'Schedule')" class="w-4 h-4 rounded text-amber-600"></label>
+            </div>
+            <div class="grid grid-cols-12 items-center px-3 py-2 text-[11px]">
+              <span class="col-span-6 font-semibold text-slate-700">📊 KPI & Raporlar</span>
+              <label class="col-span-3 flex justify-center cursor-pointer"><input type="checkbox" id="editPermTabViewAnalytics" onchange="onTabViewToggle('editPerm', 'Analytics')" class="w-4 h-4 rounded text-[#1E3A8A]"></label>
+              <label class="col-span-3 flex justify-center cursor-pointer"><input type="checkbox" id="editPermTabEditAnalytics" onchange="onTabEditToggle('editPerm', 'Analytics')" class="w-4 h-4 rounded text-amber-600"></label>
+            </div>
+            <div class="grid grid-cols-12 items-center px-3 py-2 text-[11px]">
+              <span class="col-span-6 font-semibold text-slate-700">👥 Üyeler</span>
+              <label class="col-span-3 flex justify-center cursor-pointer"><input type="checkbox" id="editPermTabViewMembers" onchange="onTabViewToggle('editPerm', 'Members')" class="w-4 h-4 rounded text-[#1E3A8A]"></label>
+              <label class="col-span-3 flex justify-center cursor-pointer"><input type="checkbox" id="editPermTabEditMembers" onchange="onTabEditToggle('editPerm', 'Members')" class="w-4 h-4 rounded text-amber-600"></label>
+            </div>
           </div>
         </div>
 
-        <!-- Yetki İzinleri -->
+        <!-- Özel Yetki İzinleri -->
         <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 space-y-2">
-          <label class="block font-bold text-slate-800 text-[11px] mb-1">Özel Yetkiler</label>
-          <label class="flex items-center gap-2 text-slate-700 cursor-pointer">
-            <input type="checkbox" id="editPermCanFault" class="w-4 h-4 rounded text-[#1E3A8A]">
-            <span>⚠️ Yeni Arıza Bildirebilir</span>
-          </label>
-          <label class="flex items-center gap-2 text-slate-700 cursor-pointer">
-            <input type="checkbox" id="editPermCanWo" class="w-4 h-4 rounded text-[#1E3A8A]">
-            <span>🔧 Yeni İş Emri Açabilir / Başlatabilir</span>
-          </label>
+          <label class="block font-bold text-slate-800 text-[11px] mb-1">Özel Aksiyon & Sistem Yetkileri</label>
           <label class="flex items-center gap-2 text-slate-700 cursor-pointer">
             <input type="checkbox" id="editPermCanExcel" class="w-4 h-4 rounded text-[#1E3A8A]">
             <span>📊 Excel Rapor İndirme</span>
           </label>
           <label class="flex items-center gap-2 text-slate-700 cursor-pointer">
-            <input type="checkbox" id="editPermCanSchedules" class="w-4 h-4 rounded text-[#1E3A8A]">
-            <span>📅 Periyodik Bakım Planı Yönetimi</span>
+            <input type="checkbox" id="editPermCanSchedules" onchange="syncScheduleCheckbox('editPerm', this.checked)" class="w-4 h-4 rounded text-[#1E3A8A]">
+            <span>📅 Periyodik Bakım Planı Düzenleme</span>
           </label>
           <label class="flex items-center gap-2 text-slate-700 cursor-pointer">
-            <input type="checkbox" id="editPermCanChat" class="w-4 h-4 rounded text-[#1E3A8A]">
-            <span>💬 Saha Sohbetine Katılma & Mesaj Yazma</span>
+            <input type="checkbox" id="editPermCanViewChat" class="w-4 h-4 rounded text-[#1E3A8A]">
+            <span>💬 Saha Sohbetini Görüntüleme</span>
+          </label>
+          <label class="flex items-center gap-2 text-slate-700 cursor-pointer">
+            <input type="checkbox" id="editPermCanSendChat" class="w-4 h-4 rounded text-[#1E3A8A]">
+            <span>✉️ Saha Sohbetine Mesaj Yazma</span>
           </label>
           <label class="flex items-center gap-2 text-slate-700 cursor-pointer">
             <input type="checkbox" id="editPermCanReopen" class="w-4 h-4 rounded text-[#1E3A8A]">
@@ -1350,12 +1445,22 @@
             <input type="checkbox" id="editPermCanDeleteMsg" class="w-4 h-4 rounded text-[#1E3A8A]">
             <span>🗑️ Saha Sohbetindeki Mesajları Silebilme</span>
           </label>
+          <label class="flex items-center gap-2 text-slate-700 cursor-pointer">
+            <input type="checkbox" id="editPermCanEditProfile" class="w-4 h-4 rounded text-[#1E3A8A]">
+            <span>✏️ Kendi Profil & Kullanıcı Bilgilerini Düzenleme</span>
+          </label>
         </div>
       </div>
 
-      <div class="flex justify-end gap-2 pt-2 border-t">
-        <button onclick="closeModal('modalEditPermissions')" class="px-4 py-2 border rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-50">İptal</button>
-        <button onclick="saveUserPermissions()" class="px-5 py-2 bg-amber-600 hover:bg-amber-700 text-white rounded-xl text-xs font-bold shadow">Yetkileri Kaydet</button>
+      <div class="pt-2 border-t space-y-2">
+        <button type="button" id="adminForceLogoutUserBtn" onclick="adminForceLogoutTargetUser()" class="w-full py-2 bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-300 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition">
+          <i data-lucide="log-out" class="w-4 h-4"></i>
+          <span>Bu Kullanıcının Tüm Aygıtlardan Oturumunu Kapat</span>
+        </button>
+        <div class="flex justify-end gap-2">
+          <button onclick="closeModal('modalEditPermissions')" class="px-4 py-2 border rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-50">İptal</button>
+          <button onclick="saveUserPermissions()" class="px-5 py-2 bg-amber-600 hover:bg-amber-700 text-white rounded-xl text-xs font-bold shadow">Yetkileri Kaydet</button>
+        </div>
       </div>
     </div>
   </div>
@@ -1374,9 +1479,9 @@
         <div class="p-3 bg-rose-50 border border-rose-200 rounded-xl space-y-1">
           <div class="flex items-center justify-between">
             <span class="font-bold text-rose-800 text-xs flex items-center gap-1.5"><i data-lucide="shield-alert" class="w-4 h-4"></i> Sistem Yöneticisi (ADMIN)</span>
-            <span class="px-2 py-0.5 bg-rose-200 text-rose-900 rounded font-bold text-[10px]">Tam Yetki</span>
+            <span class="px-2 py-0.5 bg-rose-200 text-rose-900 rounded font-bold text-[10px]">Ana Yönetici</span>
           </div>
-          <p class="text-rose-700 text-[11px]">Tüm arıza ve iş emirlerini yönetir, şifreleri görüntüler/değiştirir, üyeleri siler ve yetkilendirir.</p>
+          <p class="text-rose-700 text-[11px]">Arıza, iş emri ve bakım süreçlerini koordine eder; sekme bazlı görme/düzenleme yetkileri ana yönetici tarafından özelleştirilir.</p>
         </div>
 
         <div class="p-3 bg-purple-50 border border-purple-200 rounded-xl space-y-1">
@@ -1402,6 +1507,14 @@
           </div>
           <p class="text-emerald-700 text-[11px]">Üretim hatlarında oluşan arızaları ses, fotoğraf ve notla sisteme bildirir.</p>
         </div>
+
+        <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-slate-800 text-xs flex items-center gap-1.5"><i data-lucide="eye" class="w-4 h-4"></i> Gözlemci (OBSERVER)</span>
+            <span class="px-2 py-0.5 bg-slate-200 text-slate-800 rounded font-bold text-[10px]">Başlangıç Rolü</span>
+          </div>
+          <p class="text-slate-600 text-[11px]">İlk yetkilendirmede yalnızca Genel Bakış sekmesini salt okunur olarak görüntüler.</p>
+        </div>
       </div>
 
       <div class="flex justify-end pt-2 border-t">
@@ -1424,8 +1537,8 @@
         <div>
           <div class="text-[11px] font-bold text-emerald-800 uppercase tracking-wider">Aktif Firebase Sürümü</div>
           <div class="text-sm font-extrabold text-emerald-950 flex items-center gap-2" id="verModalCurrentBadge">
-            <span id="verModalVersionName">v1.2.5</span>
-            <span id="verModalVersionCode" class="text-xs px-2 py-0.5 bg-emerald-200 text-emerald-800 rounded-md font-semibold">Kod: 7</span>
+            <span id="verModalVersionName">v1.3.0</span>
+            <span id="verModalVersionCode" class="text-xs px-2 py-0.5 bg-emerald-200 text-emerald-800 rounded-md font-semibold">Kod: 8</span>
           </div>
         </div>
         <div class="text-right text-[11px] text-emerald-700">
@@ -1468,9 +1581,9 @@
         </div>
 
         <div class="flex items-center justify-between gap-2 pt-2 border-t">
-          <button type="button" onclick="syncWithDeployedApk()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs rounded-xl font-bold border border-slate-300 flex items-center gap-1.5" title="Firebase'i şu an dağıtılan v1.2.5 (Kod: 7) APK ile eşitler ve güncellenen telefonlardaki popup'ı kapatır">
+          <button type="button" onclick="syncWithDeployedApk()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs rounded-xl font-bold border border-slate-300 flex items-center gap-1.5" title="Firebase'i şu an dağıtılan v1.3.0 (Kod: 8) APK ile eşitler ve güncellenen telefonlardaki popup'ı kapatır">
             <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-blue-600"></i>
-            <span>Mevcut APK ile Eşitle (v1.2.5 - Kod: 7)</span>
+            <span>Mevcut APK ile Eşitle (v1.3.0 - Kod: 8)</span>
           </button>
           <div class="flex gap-2">
             <button type="button" onclick="closeModal('modalAppVersion')" class="px-4 py-2 border rounded-xl font-semibold text-slate-600 hover:bg-slate-50">Kapat</button>
@@ -1574,26 +1687,239 @@
     window.currentUser = null;
     let isRealtimeSyncStarted = false;
 
-    // Kullanıcının Yeni Arıza Bildirme Yetkisi Kontrolü
-    window.canUserCreateFault = function(u) {
+    // ================= MERKEZİ YETKİ & GÖRME/DÜZENLEME MOTORU =================
+    window.TAB_ID_MAP = {
+      dashboard: "dashboard",
+      faults: "fault_reports",
+      workOrders: "work_orders",
+      schedules: "schedule",
+      analytics: "analytics",
+      members: "members",
+      team: "team"
+    };
+    window.REVERSE_TAB_ID_MAP = {
+      dashboard: "dashboard",
+      fault_reports: "faults",
+      work_orders: "workOrders",
+      schedule: "schedules",
+      analytics: "analytics",
+      members: "members",
+      team: "team"
+    };
+    window.TAB_MATRIX_KEYS = [
+      { suffix: "Dash", id: "dashboard" },
+      { suffix: "Faults", id: "fault_reports" },
+      { suffix: "Wo", id: "work_orders" },
+      { suffix: "Schedule", id: "schedule" },
+      { suffix: "Analytics", id: "analytics" },
+      { suffix: "Members", id: "members" }
+    ];
+
+    window.isMasterUser = function(u) {
       if (!u) return false;
-      const isMaster = u.email === "usluozaykagan@gmail.com" || u.username === "usluozaykagan";
-      if (isMaster || u.role === "ADMIN") return true;
-      if (u.role === "OBSERVER") return false;
-      if (u.canCreateFault === false) return false;
-      const tabs = Array.isArray(u.allowedTabs) ? u.allowedTabs : ["fault_reports", "work_orders", "schedule", "analytics", "members"];
-      return tabs.includes("fault_reports");
+      const e = (u.email || "").trim().toLowerCase();
+      const un = (u.username || "").trim().toLowerCase();
+      return e === "usluozaykagan@gmail.com" || un === "usluozaykagan";
     };
 
-    // Kullanıcının Yeni İş Emri Başlatma Yetkisi Kontrolü
-    window.canUserCreateWorkOrder = function(u) {
+    window.getUserAllowedTabs = function(u) {
+      if (!u) return [];
+      if (window.isMasterUser(u)) {
+        return ["dashboard", "fault_reports", "work_orders", "schedule", "analytics", "members", "team"];
+      }
+      const raw = Array.isArray(u.allowedTabs) ? u.allowedTabs : [];
+      const clean = [...new Set(raw.filter(t => typeof t === "string" && t.length > 0 && t !== "team"))];
+      if (u.hasExplicitPermissions === true) {
+        return clean;
+      }
+      if (clean.length > 0) {
+        return clean;
+      }
+      return ["dashboard"];
+    };
+
+    window.getUserEditableTabs = function(u) {
+      if (!u) return [];
+      if (window.isMasterUser(u)) {
+        return ["dashboard", "fault_reports", "work_orders", "schedule", "analytics", "members", "team"];
+      }
+      const allowed = window.getUserAllowedTabs(u);
+      const raw = Array.isArray(u.editableTabs) ? u.editableTabs : [];
+      return [...new Set(raw.filter(t => allowed.includes(t) && t !== "team"))];
+    };
+
+    window.canUserViewTab = function(tabKeyOrId, u = window.currentUser) {
       if (!u) return false;
-      const isMaster = u.email === "usluozaykagan@gmail.com" || u.username === "usluozaykagan";
-      if (isMaster || u.role === "ADMIN") return true;
-      if (u.role === "OBSERVER") return false;
-      if (u.canCreateWorkOrder === false) return false;
-      const tabs = Array.isArray(u.allowedTabs) ? u.allowedTabs : ["fault_reports", "work_orders", "schedule", "analytics", "members"];
-      return tabs.includes("work_orders");
+      const tabId = window.TAB_ID_MAP[tabKeyOrId] || tabKeyOrId;
+      if (tabId === "team") return window.isMasterUser(u);
+      if (window.isMasterUser(u)) return true;
+      return window.getUserAllowedTabs(u).includes(tabId);
+    };
+
+    window.canUserEditTab = function(tabKeyOrId, u = window.currentUser) {
+      if (!u) return false;
+      const tabId = window.TAB_ID_MAP[tabKeyOrId] || tabKeyOrId;
+      if (tabId === "team") return window.isMasterUser(u);
+      if (window.isMasterUser(u)) return true;
+      if (!window.canUserViewTab(tabId, u)) return false;
+
+      const editable = Array.isArray(u.editableTabs) ? u.editableTabs : [];
+      if (u.hasExplicitPermissions === true || editable.length > 0) {
+        if (tabId === "schedule") {
+          return editable.includes("schedule") || u.canManageSchedules === true;
+        }
+        return editable.includes(tabId);
+      }
+      if (tabId === "schedule") return u.canManageSchedules === true;
+      return u.role !== "OBSERVER" && window.getUserAllowedTabs(u).includes(tabId);
+    };
+
+    window.canUserCreateFault = function(u = window.currentUser) {
+      if (!u) return false;
+      if (window.isMasterUser(u)) return true;
+      if (!u.hasExplicitPermissions && (!Array.isArray(u.editableTabs) || u.editableTabs.length === 0) && u.canCreateFault === false) {
+        return false;
+      }
+      return window.canUserEditTab("fault_reports", u);
+    };
+
+    window.canUserCreateWorkOrder = function(u = window.currentUser) {
+      if (!u) return false;
+      if (window.isMasterUser(u)) return true;
+      if (!u.hasExplicitPermissions && (!Array.isArray(u.editableTabs) || u.editableTabs.length === 0) && u.canCreateWorkOrder === false) {
+        return false;
+      }
+      return window.canUserEditTab("work_orders", u);
+    };
+
+    window.canUserManageSchedules = function(u = window.currentUser) {
+      if (!u) return false;
+      return window.isMasterUser(u) || window.canUserEditTab("schedule", u);
+    };
+
+    window.canUserExportExcel = function(u = window.currentUser) {
+      if (!u) return false;
+      return window.isMasterUser(u) || u.canExportExcel === true;
+    };
+
+    window.canUserViewChat = function(u = window.currentUser) {
+      if (!u) return false;
+      return window.isMasterUser(u) || u.canViewChat !== false;
+    };
+
+    window.canUserSendChat = function(u = window.currentUser) {
+      if (!u) return false;
+      return window.canUserViewChat(u) && (window.isMasterUser(u) || u.canSendChat === true);
+    };
+
+    window.canUserReopenTickets = function(u = window.currentUser) {
+      if (!u) return false;
+      return window.isMasterUser(u) || u.canReopenTickets === true;
+    };
+
+    window.canUserDeleteAnyMessage = function(u = window.currentUser) {
+      if (!u) return false;
+      return window.isMasterUser(u) || u.canDeleteAnyMessage === true;
+    };
+
+    window.canUserEditProfile = function(u = window.currentUser) {
+      if (!u) return false;
+      return window.isMasterUser(u) || u.canEditProfile === true;
+    };
+
+    window.updatePermMatrixSummary = function(prefix) {
+      if (prefix !== "editPerm") return;
+      let viewCount = 0;
+      let editCount = 0;
+      window.TAB_MATRIX_KEYS.forEach(item => {
+        if (document.getElementById(`${prefix}TabView${item.suffix}`)?.checked) viewCount++;
+        if (document.getElementById(`${prefix}TabEdit${item.suffix}`)?.checked) editCount++;
+      });
+      const badge = document.getElementById("editPermMatrixSummary");
+      if (badge) {
+        badge.innerText = viewCount === 0
+          ? "Tüm Sekmeler Kapalı"
+          : `${viewCount}/6 Gör • ${editCount} Düzenle`;
+      }
+    };
+
+    window.onTabViewToggle = function(prefix, suffix) {
+      const viewEl = document.getElementById(`${prefix}TabView${suffix}`);
+      const editEl = document.getElementById(`${prefix}TabEdit${suffix}`);
+      if (viewEl && editEl && !viewEl.checked) {
+        editEl.checked = false;
+        if (suffix === "Schedule") {
+          const schedPerm = document.getElementById(prefix === "adminNew" ? "adminPermSchedules" : "editPermCanSchedules");
+          if (schedPerm) schedPerm.checked = false;
+        }
+      }
+      window.updatePermMatrixSummary(prefix);
+    };
+
+    window.onTabEditToggle = function(prefix, suffix) {
+      const viewEl = document.getElementById(`${prefix}TabView${suffix}`);
+      const editEl = document.getElementById(`${prefix}TabEdit${suffix}`);
+      if (viewEl && editEl && editEl.checked) {
+        viewEl.checked = true;
+      }
+      if (suffix === "Schedule") {
+        const schedPerm = document.getElementById(prefix === "adminNew" ? "adminPermSchedules" : "editPermCanSchedules");
+        if (schedPerm) schedPerm.checked = !!editEl?.checked;
+      }
+      window.updatePermMatrixSummary(prefix);
+    };
+
+    window.syncScheduleCheckbox = function(prefix, checked) {
+      const viewEl = document.getElementById(`${prefix}TabViewSchedule`);
+      const editEl = document.getElementById(`${prefix}TabEditSchedule`);
+      if (editEl) editEl.checked = !!checked;
+      if (checked && viewEl) viewEl.checked = true;
+      window.updatePermMatrixSummary(prefix);
+    };
+
+    window.applyTabMatrixPreset = function(prefix, preset) {
+      window.TAB_MATRIX_KEYS.forEach(item => {
+        const vEl = document.getElementById(`${prefix}TabView${item.suffix}`);
+        const eEl = document.getElementById(`${prefix}TabEdit${item.suffix}`);
+        if (!vEl || !eEl) return;
+        if (preset === "NONE") {
+          vEl.checked = false;
+          eEl.checked = false;
+        } else if (preset === "DASHBOARD_ONLY") {
+          vEl.checked = (item.id === "dashboard");
+          eEl.checked = false;
+        } else if (preset === "ALL") {
+          vEl.checked = true;
+          eEl.checked = true;
+        }
+      });
+      const schedPerm = document.getElementById(prefix === "adminNew" ? "adminPermSchedules" : "editPermCanSchedules");
+      if (schedPerm) schedPerm.checked = (preset === "ALL");
+      window.updatePermMatrixSummary(prefix);
+    };
+
+    window.getFirstAllowedNavTabId = function(u = window.currentUser) {
+      const order = ["dashboard", "faults", "workOrders", "schedules", "analytics", "members", "team"];
+      for (const navTab of order) {
+        if (window.canUserViewTab(navTab, u)) return navTab;
+      }
+      return null;
+    };
+
+    window.switchToFirstAllowedTab = function() {
+      const first = window.getFirstAllowedNavTabId(window.currentUser);
+      if (first) {
+        window.switchTab(first);
+      } else {
+        document.querySelectorAll(".tab-pane").forEach(el => el.classList.add("hidden"));
+        document.querySelectorAll(".nav-btn").forEach(el => {
+          el.classList.remove("border-amber-400", "text-amber-400");
+          el.classList.add("border-transparent", "text-slate-300");
+        });
+        const emptyPane = document.getElementById("pane-no-permissions");
+        if (emptyPane) emptyPane.classList.remove("hidden");
+        lucide.createIcons();
+      }
     };
 
     // Top Bar ve Sayfa Genel Yetki Bilgilerini Güncelle
@@ -1601,7 +1927,7 @@
       if (!u) return;
       const name = u.displayName || u.username || "Kullanıcı";
       const initials = name.split(' ').map(n=>n[0]).filter(Boolean).slice(0,2).join('').toUpperCase() || "TP";
-      const isMaster = u.email === "usluozaykagan@gmail.com" || u.username === "usluozaykagan";
+      const isMaster = window.isMasterUser(u);
       const isAdmin = isMaster || u.role === "ADMIN";
       
       const elName = document.getElementById("topDisplayName");
@@ -1611,14 +1937,14 @@
       if (elDept) elDept.innerText = u.department || "Genel Bakım";
       
       const elRole = document.getElementById("topRole");
-      if (elRole) elRole.innerText = isAdmin ? "Sistem Yöneticisi" : (u.role || "Teknik Personel");
+      if (elRole) elRole.innerText = isMaster ? "Ana Sistem Yöneticisi" : (u.role || "Gözlemci");
       
       const elAvatar = document.getElementById("topAvatar");
       if (elAvatar) elAvatar.innerText = initials;
       
       const elBadge = document.getElementById("topRoleBadge");
       if (elBadge) {
-        elBadge.innerText = isAdmin ? "Yönetici" : "Personel";
+        elBadge.innerText = isMaster ? "Ana Yönetici" : (isAdmin ? "Yönetici" : "Personel");
         if (isAdmin) {
           elBadge.className = "text-[10px] bg-amber-500/20 text-amber-300 px-1.5 py-0.2 rounded font-semibold border border-amber-500/30";
         } else {
@@ -1626,77 +1952,82 @@
         }
       }
 
-      // Sekme Yetkileri Kontrolü (Android AppTab ile birebir eşleşme)
-      const userTabs = isAdmin
-        ? ["fault_reports", "work_orders", "schedule", "analytics", "members", "team"]
-        : (Array.isArray(u.allowedTabs) ? u.allowedTabs : ["fault_reports", "work_orders", "schedule", "analytics", "members"]);
-
       const setTabVisibility = (tabNavId, hasAccess) => {
         const el = document.getElementById(tabNavId);
         if (el) {
-          if (hasAccess) {
-            el.classList.remove("hidden");
-          } else {
-            el.classList.add("hidden");
-          }
+          if (hasAccess) el.classList.remove("hidden");
+          else el.classList.add("hidden");
         }
       };
 
-      setTabVisibility("nav-faults", isAdmin || userTabs.includes("fault_reports"));
-      setTabVisibility("nav-workOrders", isAdmin || userTabs.includes("work_orders"));
-      setTabVisibility("nav-schedules", isAdmin || userTabs.includes("schedule"));
-      setTabVisibility("nav-analytics", isAdmin || userTabs.includes("analytics"));
-      setTabVisibility("nav-members", isAdmin || userTabs.includes("members"));
-      setTabVisibility("nav-team", isAdmin || userTabs.includes("team"));
+      setTabVisibility("nav-dashboard", window.canUserViewTab("dashboard", u));
+      setTabVisibility("nav-faults", window.canUserViewTab("fault_reports", u));
+      setTabVisibility("nav-workOrders", window.canUserViewTab("work_orders", u));
+      setTabVisibility("nav-schedules", window.canUserViewTab("schedule", u));
+      setTabVisibility("nav-analytics", window.canUserViewTab("analytics", u));
+      setTabVisibility("nav-members", window.canUserViewTab("members", u));
+      setTabVisibility("nav-team", window.isMasterUser(u));
 
-      // ⚠️ Arıza Bildirme ve 🔧 İş Emri Başlatma Yetki Kontrolleri (Genel Bakış Sütunundaki Butonlar)
+      // Arıza Bildirme, İş Emri Başlatma ve Bakım Planı Ekleme Yetkileri (Düzenleme Yetkisine Göre)
       const canFault = window.canUserCreateFault(u);
       const canWo = window.canUserCreateWorkOrder(u);
+      const canSchedEdit = window.canUserManageSchedules(u);
+      const canMembersEdit = window.canUserEditTab("members", u);
 
       const btnDashFault = document.getElementById("dashBtnNewFault");
-      if (btnDashFault) {
-        if (canFault) btnDashFault.classList.remove("hidden");
-        else btnDashFault.classList.add("hidden");
-      }
+      if (btnDashFault) btnDashFault.classList.toggle("hidden", !canFault);
 
       const btnDashWo = document.getElementById("dashBtnNewWo");
-      if (btnDashWo) {
-        if (canWo) btnDashWo.classList.remove("hidden");
-        else btnDashWo.classList.add("hidden");
+      if (btnDashWo) btnDashWo.classList.toggle("hidden", !canWo);
+
+      document.querySelectorAll(".btn-create-fault").forEach(btn => btn.classList.toggle("hidden", !canFault));
+      document.querySelectorAll(".btn-create-wo").forEach(btn => btn.classList.toggle("hidden", !canWo));
+
+      const btnSchedNew = document.getElementById("btnSchedNewPlan");
+      if (btnSchedNew) btnSchedNew.classList.toggle("hidden", !canSchedEdit);
+
+      // Salt Okunur Uyarı Şeritleri
+      const faultsBanner = document.getElementById("faultsReadOnlyBanner");
+      if (faultsBanner) faultsBanner.classList.toggle("hidden", !window.canUserViewTab("fault_reports", u) || canFault);
+
+      const woBanner = document.getElementById("woReadOnlyBanner");
+      if (woBanner) woBanner.classList.toggle("hidden", !window.canUserViewTab("work_orders", u) || canWo);
+
+      const schedBanner = document.getElementById("schedulesReadOnlyBanner");
+      if (schedBanner) schedBanner.classList.toggle("hidden", !window.canUserViewTab("schedule", u) || canSchedEdit);
+
+      const membersBadge = document.getElementById("membersModeBadge");
+      if (membersBadge) {
+        if (isMaster || canMembersEdit) {
+          membersBadge.className = "text-xs font-bold text-amber-800 bg-amber-100 px-2.5 py-1 rounded-lg border border-amber-200 flex items-center gap-1.5";
+          membersBadge.innerHTML = `<i data-lucide="shield" class="w-3.5 h-3.5 text-amber-600"></i> ${isMaster ? "Yönetici Görünümü" : "Düzenleme Yetkili"}`;
+        } else {
+          membersBadge.className = "text-xs font-bold text-slate-700 bg-slate-100 px-2.5 py-1 rounded-lg border border-slate-200 flex items-center gap-1.5";
+          membersBadge.innerHTML = `<i data-lucide="eye" class="w-3.5 h-3.5 text-slate-500"></i> Salt Okunur`;
+        }
       }
-
-      // Tüm sayfalardaki arıza ve iş emri açma butonları
-      document.querySelectorAll(".btn-create-fault").forEach(btn => {
-        if (canFault) btn.classList.remove("hidden");
-        else btn.classList.add("hidden");
-      });
-
-      document.querySelectorAll(".btn-create-wo").forEach(btn => {
-        if (canWo) btn.classList.remove("hidden");
-        else btn.classList.add("hidden");
-      });
 
       const dashSeeFaults = document.getElementById("dashSeeAllFaultsBtn");
-      if (dashSeeFaults) {
-        if (isAdmin || userTabs.includes("fault_reports")) dashSeeFaults.classList.remove("hidden");
-        else dashSeeFaults.classList.add("hidden");
-      }
+      if (dashSeeFaults) dashSeeFaults.classList.toggle("hidden", !window.canUserViewTab("fault_reports", u));
 
       const dashSeeWo = document.getElementById("dashSeeAllWoBtn");
-      if (dashSeeWo) {
-        if (isAdmin || userTabs.includes("work_orders")) dashSeeWo.classList.remove("hidden");
-        else dashSeeWo.classList.add("hidden");
-      }
+      if (dashSeeWo) dashSeeWo.classList.toggle("hidden", !window.canUserViewTab("work_orders", u));
 
-      // 📊 Özel Excel İndirme Yetkisi Kontrolü (Yetkisi olmayan personelde butonlar tamamen gizlenir)
-      const canExcel = isMaster || (u.canExportExcel === true);
-      document.querySelectorAll(".btn-excel-export").forEach(btn => {
-        if (canExcel) {
-          btn.classList.remove("hidden");
-        } else {
-          btn.classList.add("hidden");
-        }
-      });
+      // Saha Sohbet Görünümü ve Mesaj Gönderme Kontrolü
+      const canChatView = window.canUserViewChat(u);
+      const canChatSend = window.canUserSendChat(u);
+      const topChatBtn = document.getElementById("topChatBtn");
+      if (topChatBtn) topChatBtn.classList.toggle("hidden", !canChatView);
+      const dashChatBtn = document.getElementById("dashChatBtn");
+      if (dashChatBtn) dashChatBtn.classList.toggle("hidden", !canChatView);
+      const chatInputBar = document.getElementById("chatInputBar");
+      if (chatInputBar) chatInputBar.classList.toggle("hidden", !canChatSend);
+      const chatReadOnlyBar = document.getElementById("chatReadOnlyBar");
+      if (chatReadOnlyBar) chatReadOnlyBar.classList.toggle("hidden", !canChatView || canChatSend);
+
+      // 📊 Özel Excel İndirme Yetkisi Kontrolü
+      const canExcel = window.canUserExportExcel(u);
+      document.querySelectorAll(".btn-excel-export").forEach(btn => btn.classList.toggle("hidden", !canExcel));
 
       // 📱 Mobil Sürüm Güncelleme Butonu Yetkisi (Yalnızca usluozaykagan@gmail.com hesabına tanımlıdır)
       const isVersionOwner = (u.email || "").trim().toLowerCase() === "usluozaykagan@gmail.com";
@@ -1792,6 +2123,9 @@
 
     // Başarılı Giriş Sonrası Ortak Oturum Başlatıcı
     function completeSuccessfulLogin(authenticatedUser, rememberMe, identifier, isFallback = false) {
+      if (!authenticatedUser.loginAtMillis) {
+        authenticatedUser.loginAtMillis = Date.now();
+      }
       window.currentUser = authenticatedUser;
       updateTopBarUser(authenticatedUser);
 
@@ -1814,6 +2148,7 @@
       renderWorkOrders();
       renderSchedules();
       renderAnalytics();
+      window.switchToFirstAllowedTab();
       lucide.createIcons();
 
       if (isFallback) {
@@ -1965,17 +2300,41 @@
         }
 
         // 3. ADIM: Oturumu ANINDA Başlat (Kullanıcı asla Firebase Auth hatasıyla beklemez/kilitlenmez)
+        const resolvedUser = !isMaster ? ((window.allUsers || []).find(u =>
+          (u.email && u.email.toLowerCase() === emailToAuth.toLowerCase()) ||
+          (u.username && u.username.toLowerCase() === cleanId.toLowerCase())
+        ) || dbUser) : dbUser;
+
+        const nowLoginMillis = Date.now();
         const authenticatedUser = {
-          userId: dbUser?.userId || dbUser?.id || (isMaster ? "master-admin" : "user-" + Date.now()),
-          email: dbUser?.email || emailToAuth,
-          username: dbUser?.username || cleanId,
-          displayName: dbUser?.displayName || (isMaster ? "Özay Kağan USLU" : (cleanId.split('@')[0])),
-          role: isMaster ? "ADMIN" : (dbUser?.role || "OPERATOR"),
-          department: isMaster ? "Fabrika Yönetimi" : (dbUser?.department || "Mekanik Bakım"),
-          phoneNumber: dbUser?.phoneNumber || "",
-          allowedTabs: isMaster 
-            ? ["fault_reports", "work_orders", "schedule", "analytics", "members", "team"]
-            : (dbUser?.allowedTabs || ["fault_reports", "work_orders", "schedule", "analytics", "members"])
+          userId: resolvedUser?.userId || resolvedUser?.id || (isMaster ? "master-admin" : "user-" + nowLoginMillis),
+          email: resolvedUser?.email || emailToAuth,
+          username: resolvedUser?.username || cleanId,
+          displayName: resolvedUser?.displayName || (isMaster ? "Özay Kağan USLU" : (cleanId.split('@')[0])),
+          role: isMaster ? "ADMIN" : (resolvedUser?.role || "OBSERVER"),
+          department: isMaster ? "Fabrika Yönetimi" : (resolvedUser?.department || "Mekanik Bakım"),
+          phoneNumber: resolvedUser?.phoneNumber || "",
+          hasExplicitPermissions: isMaster ? true : (resolvedUser?.hasExplicitPermissions === true),
+          permissionsUpdatedAtMillis: Number(resolvedUser?.permissionsUpdatedAtMillis || 0),
+          forceLogoutAfterMillis: Number(resolvedUser?.forceLogoutAfterMillis || 0),
+          loginAtMillis: nowLoginMillis,
+          allowedTabs: isMaster
+            ? ["dashboard", "fault_reports", "work_orders", "schedule", "analytics", "members", "team"]
+            : (Array.isArray(resolvedUser?.allowedTabs)
+                ? resolvedUser.allowedTabs
+                : (resolvedUser?.hasExplicitPermissions ? [] : ["dashboard"])),
+          editableTabs: isMaster
+            ? ["dashboard", "fault_reports", "work_orders", "schedule", "analytics", "members", "team"]
+            : (Array.isArray(resolvedUser?.editableTabs) ? resolvedUser.editableTabs : []),
+          canCreateFault: isMaster || (resolvedUser?.canCreateFault === true),
+          canCreateWorkOrder: isMaster || (resolvedUser?.canCreateWorkOrder === true),
+          canExportExcel: isMaster || (resolvedUser?.canExportExcel === true),
+          canManageSchedules: isMaster || (resolvedUser?.canManageSchedules === true),
+          canViewChat: isMaster || (resolvedUser?.canViewChat !== false),
+          canSendChat: isMaster || (resolvedUser?.canSendChat === true),
+          canReopenTickets: isMaster || (resolvedUser?.canReopenTickets === true),
+          canDeleteAnyMessage: isMaster || (resolvedUser?.canDeleteAnyMessage === true),
+          canEditProfile: isMaster || (resolvedUser?.canEditProfile === true)
         };
 
         // Oturumu hemen aç!
@@ -2109,6 +2468,7 @@
           }
         } catch (_) {}
 
+        const regNow = Date.now();
         const newUserDoc = {
           userId: uid,
           username: uName,
@@ -2118,17 +2478,31 @@
           phoneNumber: phoneVal,
           password: passVal,
           role: "OBSERVER",
-          allowedTabs: ["fault_reports", "work_orders", "schedule", "analytics", "members"],
+          allowedTabs: ["dashboard"],
+          editableTabs: [],
+          hasExplicitPermissions: true,
+          permissionsUpdatedAtMillis: regNow,
+          forceLogoutAfterMillis: 0,
+          canCreateFault: false,
+          canCreateWorkOrder: false,
+          canExportExcel: false,
+          canManageSchedules: false,
+          canViewChat: true,
+          canSendChat: false,
+          canReopenTickets: false,
+          canDeleteAnyMessage: false,
+          canEditProfile: false,
           isBlocked: false,
           isDeleted: false,
           isHidden: false,
           createdAt: serverTimestamp(),
           updatedAt: serverTimestamp(),
-          updatedAtMillis: Date.now()
+          updatedAtMillis: regNow
         };
 
         await setDoc(doc(db, "users", uid), newUserDoc, { merge: true });
         newUserDoc.id = uid;
+        newUserDoc.loginAtMillis = regNow;
 
         // Yerel listeyi güncelle
         if (!window.allUsers) window.allUsers = [];
@@ -2149,6 +2523,7 @@
         if (errStr.includes("email-already-in-use")) {
           // İkincil güvenlik: Eğer hata dışarı sızarsa kullanıcıya hata göstermeden doğrudan aktifleştir ve aç
           try {
+            const recNow = Date.now();
             const fallbackUid = "user_" + emailVal.replace(/[@.]/g, "_");
             const recoveredDoc = {
               userId: fallbackUid,
@@ -2159,14 +2534,28 @@
               phoneNumber: phoneVal,
               password: passVal,
               role: "OBSERVER",
-              allowedTabs: ["fault_reports", "work_orders", "schedule", "analytics", "members"],
+              allowedTabs: ["dashboard"],
+              editableTabs: [],
+              hasExplicitPermissions: true,
+              permissionsUpdatedAtMillis: recNow,
+              forceLogoutAfterMillis: 0,
+              canCreateFault: false,
+              canCreateWorkOrder: false,
+              canExportExcel: false,
+              canManageSchedules: false,
+              canViewChat: true,
+              canSendChat: false,
+              canReopenTickets: false,
+              canDeleteAnyMessage: false,
+              canEditProfile: false,
               isBlocked: false,
               isDeleted: false,
               isHidden: false,
               updatedAt: serverTimestamp(),
-              updatedAtMillis: Date.now()
+              updatedAtMillis: recNow
             };
             await setDoc(doc(db, "users", fallbackUid), recoveredDoc, { merge: true });
+            recoveredDoc.loginAtMillis = recNow;
             try {
               await deleteDoc(doc(db, "blocked_accounts", emailVal));
               await deleteDoc(doc(db, "blocked_accounts", uName));
@@ -2280,9 +2669,22 @@
             (myUid && (u.userId === myUid || u.id === myUid))
           );
           if (updatedMe) {
+            const myLoginAt = Number(window.currentUser.loginAtMillis || 0);
+            const forceAfter = Number(updatedMe.forceLogoutAfterMillis || 0);
+            if (forceAfter > 0 && myLoginAt > 0 && forceAfter > myLoginAt) {
+              window.forceLogoutDueToStatus("forced", "Bu hesap için tüm aygıtlardan çıkış yapıldı. Lütfen yeniden giriş yapınız.");
+              return;
+            }
+
             window.currentUser.role = updatedMe.role;
             window.currentUser.department = updatedMe.department;
-            window.currentUser.allowedTabs = updatedMe.allowedTabs || [];
+            window.currentUser.displayName = updatedMe.displayName || window.currentUser.displayName;
+            window.currentUser.phoneNumber = updatedMe.phoneNumber || window.currentUser.phoneNumber;
+            window.currentUser.allowedTabs = Array.isArray(updatedMe.allowedTabs) ? updatedMe.allowedTabs : [];
+            window.currentUser.editableTabs = Array.isArray(updatedMe.editableTabs) ? updatedMe.editableTabs : [];
+            window.currentUser.hasExplicitPermissions = updatedMe.hasExplicitPermissions === true;
+            window.currentUser.permissionsUpdatedAtMillis = Number(updatedMe.permissionsUpdatedAtMillis || 0);
+            window.currentUser.forceLogoutAfterMillis = forceAfter;
             window.currentUser.canCreateFault = updatedMe.canCreateFault;
             window.currentUser.canCreateWorkOrder = updatedMe.canCreateWorkOrder;
             window.currentUser.canExportExcel = updatedMe.canExportExcel;
@@ -2291,41 +2693,41 @@
             window.currentUser.canSendChat = updatedMe.canSendChat;
             window.currentUser.canReopenTickets = updatedMe.canReopenTickets;
             window.currentUser.canDeleteAnyMessage = updatedMe.canDeleteAnyMessage;
+            window.currentUser.canEditProfile = updatedMe.canEditProfile;
             if (updatedMe.password) window.currentUser.password = updatedMe.password;
             
             localStorage.setItem("tekinak_session", JSON.stringify(window.currentUser));
-            sessionStorage.setItem("tekinak_session", JSON.stringify(window.currentUser));
+            if (sessionStorage.getItem("tekinak_session")) {
+              sessionStorage.setItem("tekinak_session", JSON.stringify(window.currentUser));
+            }
             updateTopBarUser(window.currentUser);
             
-            // Eğer kullanıcının şu an üzerinde bulunduğu sekme yetkisi kaldırıldıysa, dashboard'a yönlendir
+            // Kullanıcının aktif sekmesi artık görüntülenemiyorsa ilk izinli sekmeye (veya boş duruma) yönlendir
             const currentActiveNav = document.querySelector(".nav-btn.border-amber-400");
-            if (currentActiveNav) {
-              const currentTabId = currentActiveNav.id.replace("nav-", "");
-              const tabMap = {
-                'faults': 'fault_reports',
-                'workOrders': 'work_orders',
-                'schedules': 'schedule',
-                'analytics': 'analytics',
-                'members': 'members',
-                'team': 'team'
-              };
-              const reqPerm = tabMap[currentTabId];
-              const isAdm = updatedMe.role === "ADMIN" || myEmail === "usluozaykagan@gmail.com" || myUname === "usluozaykagan";
-              if (reqPerm && !isAdm && (!updatedMe.allowedTabs || !updatedMe.allowedTabs.includes(reqPerm))) {
-                window.switchTab('dashboard');
-              }
+            const currentTabId = currentActiveNav ? currentActiveNav.id.replace("nav-", "") : null;
+            if (!currentTabId || !window.canUserViewTab(currentTabId, window.currentUser)) {
+              window.switchToFirstAllowedTab();
+            } else {
+              if (currentTabId === "faults") renderFaults();
+              if (currentTabId === "workOrders") renderWorkOrders();
+              if (currentTabId === "schedules") renderSchedules();
+              if (currentTabId === "members") renderMembers();
+              if (currentTabId === "team") renderTeam();
             }
           }
         }
 
         checkCurrentSessionValidity();
         refreshDashboard();
+        renderFaults();
+        renderWorkOrders();
+        renderSchedules();
         renderMembers();
         renderTeam();
       });
 
       // 6. Mobil Uygulama Sürüm Takibi ve Firebase Yönetimi (app_version/current)
-      let hasAutoSyncedV7 = false;
+      let hasAutoSyncedV8 = false;
       try {
         onSnapshot(doc(db, "app_version", "current"), async (docSnap) => {
           if (docSnap && docSnap.exists()) {
@@ -2333,15 +2735,15 @@
             window.currentAppVersion = data;
             renderAppVersionBadge();
 
-            // Sürüm kodu 7'den küçükse otomatik olarak v1.2.5 (Kod: 7)'ye yükselt
+            // Sürüm kodu 8'den küçükse otomatik olarak v1.3.0 (Kod: 8)'e yükselt
             const verCodeNum = Number(data.versionCode || 0);
-            if (verCodeNum < 7 && !hasAutoSyncedV7) {
-              hasAutoSyncedV7 = true;
-              console.log("Firestore app_version sürüm kodu 7 (v1.2.5) olarak otomatik eşitleniyor...");
+            if (verCodeNum < 8 && !hasAutoSyncedV8) {
+              hasAutoSyncedV8 = true;
+              console.log("Firestore app_version sürüm kodu 8 (v1.3.0) olarak otomatik eşitleniyor...");
               seedInitialAppVersionInFirebase();
             }
-          } else if (!hasAutoSyncedV7) {
-            hasAutoSyncedV7 = true;
+          } else if (!hasAutoSyncedV8) {
+            hasAutoSyncedV8 = true;
             // Başlangıç sürüm dokümanı Firebase'de yoksa otomatik oluştur
             seedInitialAppVersionInFirebase();
           }
@@ -2369,17 +2771,20 @@
       document.getElementById("tabWoBadge").innerText = pendingWo.length;
 
       // Dashboard mini tabloları
+      const canViewFaults = window.canUserViewTab("fault_reports", window.currentUser);
+      const canViewWo = window.canUserViewTab("work_orders", window.currentUser);
+
       const fTbody = document.getElementById("dashFaultsTbody");
       const recentF = window.allFaults.slice(0, 5);
       if (recentF.length === 0) {
         fTbody.innerHTML = `<tr><td colspan="4" class="py-3 text-slate-400">Henüz arıza kaydı bulunmuyor.</td></tr>`;
       } else {
         fTbody.innerHTML = recentF.map(f => `
-          <tr class="hover:bg-slate-50 cursor-pointer" onclick="switchTab('faults')">
-            <td class="py-2.5 font-bold text-slate-800">${f.machineName || f.location || "Genel"}</td>
-            <td class="py-2.5"><span class="px-2 py-0.5 rounded text-[10px] font-bold ${getPriorityClass(f.severity || f.priority)}">${f.severity || f.priority || "Orta"}</span></td>
-            <td class="py-2.5"><span class="px-2 py-0.5 rounded text-[10px] font-bold ${getStatusClass(f.status)}">${f.status || "Açık"}</span></td>
-            <td class="py-2.5 text-slate-600 text-[11px]">${formatIntervened(f)}</td>
+          <tr class="${canViewFaults ? 'hover:bg-slate-50 cursor-pointer' : ''}" ${canViewFaults ? `onclick="switchTab('faults')"` : ''}>
+            <td class="py-2.5 font-bold text-slate-800">${escapeHtml(f.machineName || f.location || "Genel")}</td>
+            <td class="py-2.5"><span class="px-2 py-0.5 rounded text-[10px] font-bold ${getPriorityClass(f.severity || f.priority)}">${escapeHtml(f.severity || f.priority || "Orta")}</span></td>
+            <td class="py-2.5"><span class="px-2 py-0.5 rounded text-[10px] font-bold ${getStatusClass(f.status)}">${escapeHtml(f.status || "Açık")}</span></td>
+            <td class="py-2.5 text-slate-600 text-[11px]">${escapeHtml(formatIntervened(f))}</td>
           </tr>
         `).join('');
       }
@@ -2390,11 +2795,11 @@
         woTbody.innerHTML = `<tr><td colspan="4" class="py-3 text-slate-400">Henüz iş emri bulunmuyor.</td></tr>`;
       } else {
         woTbody.innerHTML = recentWo.map(w => `
-          <tr class="hover:bg-slate-50 cursor-pointer" onclick="switchTab('workOrders')">
-            <td class="py-2.5 font-bold text-slate-800">${w.title || "İş Emri"}</td>
-            <td class="py-2.5 text-slate-600">${w.assignedToName || "Atanmadı"}</td>
-            <td class="py-2.5"><span class="px-2 py-0.5 rounded text-[10px] font-bold ${getStatusClass(w.status)}">${w.status || "Beklemede"}</span></td>
-            <td class="py-2.5"><span class="px-2 py-0.5 rounded text-[10px] font-bold ${getPriorityClass(w.priority)}">${w.priority || "Orta"}</span></td>
+          <tr class="${canViewWo ? 'hover:bg-slate-50 cursor-pointer' : ''}" ${canViewWo ? `onclick="switchTab('workOrders')"` : ''}>
+            <td class="py-2.5 font-bold text-slate-800">${escapeHtml(w.title || "İş Emri")}</td>
+            <td class="py-2.5 text-slate-600">${escapeHtml(w.assignedToName || "Atanmadı")}</td>
+            <td class="py-2.5"><span class="px-2 py-0.5 rounded text-[10px] font-bold ${getStatusClass(w.status)}">${escapeHtml(w.status || "Beklemede")}</span></td>
+            <td class="py-2.5"><span class="px-2 py-0.5 rounded text-[10px] font-bold ${getPriorityClass(w.priority)}">${escapeHtml(w.priority || "Orta")}</span></td>
           </tr>
         `).join('');
       }
@@ -2421,7 +2826,9 @@
         return;
       }
 
-      const isObserver = window.currentUser && window.currentUser.role === "OBSERVER";
+      const canEditFaults = window.canUserEditTab("fault_reports", window.currentUser);
+      const canCreateWo = window.canUserCreateWorkOrder(window.currentUser);
+      const canReopen = window.canUserReopenTickets(window.currentUser);
       container.innerHTML = filtered.map(f => {
         const isResolved = f.status === "Çözüldü";
         const safeId = escapeJsSingle(f.docId || f.id || "");
@@ -2453,16 +2860,17 @@
             <!-- Alt Aksiyon Çubuğu (Android İle Birebir) -->
             <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px]">
               <span class="text-slate-400">👤 ${escapeHtml(f.reportedByName || "Personel")} • ${formatDate(f.createdAtMillis)}</span>
-              ${isObserver ? `<span class="text-[10px] text-slate-400 font-semibold">Sadece İzleme</span>` : `
+              ${!canEditFaults ? `<span class="text-[10px] text-slate-500 bg-slate-100 px-2 py-0.5 rounded font-semibold border border-slate-200">🔒 Salt Okunur</span>` : `
               <div class="flex items-center gap-1.5">
-                ${isResolved ? `
+                ${isResolved ? (canReopen ? `
                   <button type="button" onclick="reopenTicket('fault_reports', '${safeId}')" class="px-2.5 py-1 bg-amber-50 hover:bg-amber-100 text-amber-800 font-bold rounded-lg border border-amber-200 transition">
                     🔄 Tekrar Aç
                   </button>
-                ` : `
+                ` : `<span class="text-[10px] text-emerald-700 font-semibold">✅ Çözüldü</span>`) : `
+                  ${canCreateWo ? `
                   <button type="button" onclick="convertToWo('${safeId}')" class="px-2 py-1 bg-blue-50 hover:bg-blue-100 text-blue-700 font-bold rounded-lg border border-blue-200 transition">
                     İş Emri Yap
-                  </button>
+                  </button>` : ''}
                   <button type="button" onclick="resolveTicket('fault_reports', '${safeId}')" class="px-2.5 py-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg shadow transition">
                     Çözüldü Yap
                   </button>
@@ -2493,7 +2901,8 @@
         return;
       }
 
-      const isObserverWo = window.currentUser && window.currentUser.role === "OBSERVER";
+      const canEditWo = window.canUserEditTab("work_orders", window.currentUser);
+      const canReopenWo = window.canUserReopenTickets(window.currentUser);
       container.innerHTML = filtered.map(w => {
         const isDone = w.status === "Tamamlandı";
         const safeWoId = escapeJsSingle(w.docId || w.id || "");
@@ -2521,8 +2930,8 @@
                     📱 Telefona Bildirim Gider
                   </span>
                 </div>
-                <select ${isObserverWo ? 'disabled' : ''} onchange="assignPersonnelToWorkOrder('${safeWoId}', this.value, '${cleanTitle}', '${cleanMachine}')"
-                        class="w-full text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 bg-slate-50 text-slate-800 font-semibold focus:ring-2 focus:ring-[#1E3A8A] outline-none">
+                <select ${!canEditWo ? 'disabled' : ''} onchange="assignPersonnelToWorkOrder('${safeWoId}', this.value, '${cleanTitle}', '${cleanMachine}')"
+                        class="w-full text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 ${!canEditWo ? 'bg-slate-100 text-slate-500 cursor-not-allowed' : 'bg-slate-50 text-slate-800'} font-semibold focus:ring-2 focus:ring-[#1E3A8A] outline-none">
                   <option value="">-- Personel Seçiniz (${w.assignedToName ? 'Şu An: ' + escapeHtml(w.assignedToName) : 'Atanmadı'}) --</option>
                   ${(window.allUsers || []).map(u => {
                     const uName = (u.displayName || u.username || u.email || 'Personel').trim();
@@ -2540,13 +2949,13 @@
 
             <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px]">
               <span class="text-slate-400">${formatDate(w.createdAtMillis)}</span>
-              ${isObserverWo ? `<span class="text-[10px] text-slate-400 font-semibold">Sadece İzleme</span>` : `
+              ${!canEditWo ? `<span class="text-[10px] text-slate-500 bg-slate-100 px-2 py-0.5 rounded font-semibold border border-slate-200">🔒 Salt Okunur</span>` : `
               <div class="flex items-center gap-1.5">
-                ${isDone ? `
+                ${isDone ? (canReopenWo ? `
                   <button type="button" onclick="reopenTicket('work_orders', '${safeWoId}')" class="px-2.5 py-1 bg-amber-50 hover:bg-amber-100 text-amber-800 font-bold rounded-lg border border-amber-200 transition">
                     🔄 İşi Tekrar Aç
                   </button>
-                ` : `
+                ` : `<span class="text-[10px] text-emerald-700 font-semibold">✅ Tamamlandı</span>`) : `
                   <button type="button" onclick="updateWoStatus('${safeWoId}', 'Yapılıyor')" class="px-2 py-1 bg-blue-50 hover:bg-blue-100 text-blue-700 font-bold rounded-lg border border-blue-200 transition">
                     Yapılıyor
                   </button>
@@ -2626,6 +3035,10 @@
 
     let isSeedingSchedules = false;
     window.seedDefaultSchedules = async function() {
+      if (!window.canUserManageSchedules(window.currentUser)) {
+        alert("⚠️ Periyodik bakım planı ekleme/düzenleme yetkiniz bulunmamaktadır.");
+        return;
+      }
       if (isSeedingSchedules) return;
       isSeedingSchedules = true;
       try {
@@ -2658,6 +3071,7 @@
       const container = document.getElementById("schedulesContainer");
       if (!container) return;
 
+      const canEditSched = window.canUserManageSchedules(window.currentUser);
       const now = Date.now();
       const all = window.allSchedules || [];
 
@@ -2681,7 +3095,8 @@
           <div class="col-span-full py-12 text-center text-slate-400 bg-white rounded-2xl border border-slate-200 p-8">
             <i data-lucide="calendar" class="w-12 h-12 text-slate-300 mx-auto mb-3"></i>
             <div class="font-bold text-slate-700 text-sm">Tanımlı periyodik bakım planı bulunmuyor.</div>
-            <p class="text-xs text-slate-500 mt-1">Fabrika makinelerinin planlı koruyucu bakımlarını ekleyebilir veya örnek fabrika planlarını yükleyebilirsiniz.</p>
+            <p class="text-xs text-slate-500 mt-1">${canEditSched ? 'Fabrika makinelerinin planlı koruyucu bakımlarını ekleyebilir veya örnek fabrika planlarını yükleyebilirsiniz.' : '🔒 Bu sekmede yalnızca görüntüleme (salt okunur) yetkiniz bulunmaktadır.'}</p>
+            ${canEditSched ? `
             <div class="mt-4 flex justify-center gap-3">
               <button onclick="seedDefaultSchedules()" class="px-4 py-2 bg-blue-50 text-blue-800 hover:bg-blue-100 font-bold rounded-xl text-xs border border-blue-200 shadow-sm transition">
                 🌾 Örnek Fabrika Planlarını Yükle
@@ -2689,7 +3104,7 @@
               <button onclick="openNewScheduleModal()" class="px-4 py-2 bg-[#1E3A8A] text-white hover:bg-blue-800 font-bold rounded-xl text-xs shadow transition">
                 + Yeni Bakım Planı Ekle
               </button>
-            </div>
+            </div>` : ''}
           </div>
         `;
         lucide.createIcons();
@@ -2808,18 +3223,20 @@
               </div>
 
               <div class="flex items-center gap-1.5">
-                ${isCompleted ? `
-                  <button onclick="completeSchedule('${s.id}')" class="px-2.5 py-1.5 bg-blue-50 hover:bg-blue-100 text-blue-800 font-bold rounded-lg text-xs border border-blue-200 transition flex items-center gap-1">
-                    <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i> Sonraki Döngü
-                  </button>
-                ` : `
-                  <button onclick="completeSchedule('${s.id}')" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg text-xs shadow transition flex items-center gap-1">
-                    <i data-lucide="check" class="w-3.5 h-3.5"></i> Tamamla
+                ${!canEditSched ? `<span class="text-[10px] text-slate-500 bg-slate-100 px-2 py-0.5 rounded font-semibold border border-slate-200">🔒 Salt Okunur</span>` : `
+                  ${isCompleted ? `
+                    <button onclick="completeSchedule('${s.id}')" class="px-2.5 py-1.5 bg-blue-50 hover:bg-blue-100 text-blue-800 font-bold rounded-lg text-xs border border-blue-200 transition flex items-center gap-1">
+                      <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i> Sonraki Döngü
+                    </button>
+                  ` : `
+                    <button onclick="completeSchedule('${s.id}')" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg text-xs shadow transition flex items-center gap-1">
+                      <i data-lucide="check" class="w-3.5 h-3.5"></i> Tamamla
+                    </button>
+                  `}
+                  <button onclick="deleteSchedule('${s.id}')" class="p-1.5 text-slate-400 hover:text-rose-600 rounded-lg hover:bg-rose-50 transition" title="Planı Sil">
+                    <i data-lucide="trash-2" class="w-4 h-4"></i>
                   </button>
                 `}
-                <button onclick="deleteSchedule('${s.id}')" class="p-1.5 text-slate-400 hover:text-rose-600 rounded-lg hover:bg-rose-50 transition" title="Planı Sil">
-                  <i data-lucide="trash-2" class="w-4 h-4"></i>
-                </button>
               </div>
             </div>
           </div>
@@ -2830,6 +3247,10 @@
 
     // Modal ve Bakım Planı İşleyicileri
     window.openNewScheduleModal = function() {
+      if (!window.canUserManageSchedules(window.currentUser)) {
+        alert("⚠️ Periyodik bakım planı ekleme/düzenleme yetkiniz bulunmamaktadır.");
+        return;
+      }
       const select = document.getElementById("schAssigned");
       if (select && window.allUsers) {
         select.innerHTML = '<option value="">-- Personel Seçiniz --</option>' +
@@ -2861,6 +3282,10 @@
     };
 
     window.saveNewSchedule = async function() {
+      if (!window.canUserManageSchedules(window.currentUser)) {
+        alert("⚠️ Periyodik bakım planı ekleme/düzenleme yetkiniz bulunmamaktadır.");
+        return;
+      }
       const title = document.getElementById("schTitle").value.trim();
       const machineName = document.getElementById("schMachineName").value.trim();
       const machineId = document.getElementById("schMachineId").value.trim();
@@ -2914,6 +3339,10 @@
     };
 
     window.completeSchedule = async function(id) {
+      if (!window.canUserManageSchedules(window.currentUser)) {
+        alert("⚠️ Periyodik bakım planlarını güncelleme yetkiniz bulunmamaktadır.");
+        return;
+      }
       const s = window.allSchedules.find(item => item.id === id);
       if (!s) return;
       const repeatDays = parseInt(s.repeatDays || (s.period && s.period.match(/\d+/) ? s.period.match(/\d+/)[0] : 30)) || 30;
@@ -2942,6 +3371,10 @@
     };
 
     window.deleteSchedule = async function(id) {
+      if (!window.canUserManageSchedules(window.currentUser)) {
+        alert("⚠️ Periyodik bakım planını silme yetkiniz bulunmamaktadır.");
+        return;
+      }
       if (confirm("Bu periyodik bakım planını silmek istediğinizden emin misiniz?")) {
         try {
           await deleteDoc(doc(db, "maintenance_schedules", id));
@@ -2990,31 +3423,44 @@
     };
 
     function deduplicateUsers(rawList) {
-      function getDocTime(d) {
-        if (!d) return 0;
-        if (typeof d.updatedAtMillis === 'number') return d.updatedAtMillis;
-        const u = d.updatedAt;
-        if (u) {
-          if (typeof u.toMillis === 'function') return u.toMillis();
-          if (typeof u.toDate === 'function') return u.toDate().getTime();
-          if (typeof u.seconds === 'number') return u.seconds * 1000;
-          if (typeof u === 'number') return u;
-          if (typeof u === 'string') { const t = new Date(u).getTime(); if (!isNaN(t)) return t; }
-        }
-        const c = d.createdAt;
-        if (c) {
-          if (typeof c.toMillis === 'function') return c.toMillis();
-          if (typeof c.toDate === 'function') return c.toDate().getTime();
-          if (typeof c.seconds === 'number') return c.seconds * 1000;
-          if (typeof c === 'number') return c;
-          if (typeof c === 'string') { const t = new Date(c).getTime(); if (!isNaN(t)) return t; }
-        }
-        if (typeof d.createdAtMillis === 'number') return d.createdAtMillis;
-        return d.lastActiveMillis || 0;
+      function parseFieldMillis(v) {
+        if (!v) return 0;
+        if (typeof v === 'number') return v;
+        if (typeof v.toMillis === 'function') return v.toMillis();
+        if (typeof v.toDate === 'function') return v.toDate().getTime();
+        if (typeof v.seconds === 'number') return v.seconds * 1000;
+        if (typeof v === 'string') { const t = new Date(v).getTime(); if (!isNaN(t)) return t; }
+        return 0;
       }
 
-      // En son güncellenen dokümanları en başa al (en güncel yetki ve şifre kazansın)
-      const sortedList = [...(rawList || [])].sort((a, b) => getDocTime(b) - getDocTime(a));
+      // Presence (lastActiveMillis) ASLA yetki zamanını ezmemeli
+      function getDocTime(d) {
+        if (!d) return 0;
+        if (typeof d.updatedAtMillis === 'number' && d.updatedAtMillis > 0) return d.updatedAtMillis;
+        const uMs = parseFieldMillis(d.updatedAt);
+        if (uMs > 0) return uMs;
+        const cMs = parseFieldMillis(d.createdAt);
+        if (cMs > 0) return cMs;
+        if (typeof d.createdAtMillis === 'number' && d.createdAtMillis > 0) return d.createdAtMillis;
+        return 0;
+      }
+
+      function getPermissionAuthorityTime(d) {
+        if (!d) return 0;
+        if (typeof d.permissionsUpdatedAtMillis === 'number' && d.permissionsUpdatedAtMillis > 0) {
+          return d.permissionsUpdatedAtMillis;
+        }
+        return getDocTime(d);
+      }
+
+      // En güncel yetki güncellemesine sahip dokümanı başa al
+      const sortedList = [...(rawList || [])].sort((a, b) => {
+        const permDiff = getPermissionAuthorityTime(b) - getPermissionAuthorityTime(a);
+        if (permDiff !== 0) return permDiff;
+        const expDiff = (b.hasExplicitPermissions === true ? 1 : 0) - (a.hasExplicitPermissions === true ? 1 : 0);
+        if (expDiff !== 0) return expDiff;
+        return getDocTime(b) - getDocTime(a);
+      });
 
       const uniqueMap = new Map();
 
@@ -3045,6 +3491,26 @@
           }
         }
 
+        const hasExplicit = isMaster || (u.hasExplicitPermissions === true);
+        const rawAllowed = Array.isArray(u.allowedTabs)
+          ? [...new Set(u.allowedTabs.filter(t => typeof t === 'string' && t.length > 0 && (isMaster || t !== 'team')))]
+          : null;
+        const resolvedAllowed = isMaster
+          ? ["dashboard", "fault_reports", "work_orders", "schedule", "analytics", "members", "team"]
+          : (rawAllowed !== null
+              ? (hasExplicit ? rawAllowed : (rawAllowed.length > 0 ? rawAllowed : ["dashboard"]))
+              : ["dashboard"]);
+
+        const rawEditable = Array.isArray(u.editableTabs)
+          ? [...new Set(u.editableTabs.filter(t => typeof t === 'string' && t.length > 0 && (isMaster || t !== 'team')))]
+          : [];
+        const resolvedEditable = isMaster
+          ? ["dashboard", "fault_reports", "work_orders", "schedule", "analytics", "members", "team"]
+          : rawEditable.filter(t => resolvedAllowed.includes(t));
+
+        const docTime = getDocTime(u);
+        const permTime = getPermissionAuthorityTime(u);
+
         const candidate = {
           id: u.id,
           userId: u.userId || u.id,
@@ -3052,7 +3518,7 @@
           username: username || (isMaster ? "usluozaykagan" : (email ? email.split('@')[0] : "personel")),
           email: u.email || (isMaster ? "usluozaykagan@gmail.com" : ""),
           password: u.password || (isMaster ? "tekinak123" : "123456"),
-          role: isMaster ? "ADMIN" : (u.role || "OPERATOR"),
+          role: isMaster ? "ADMIN" : (u.role || "OBSERVER"),
           department: isMaster ? "Fabrika Yönetimi" : (u.department || "Mekanik Bakım"),
           phoneNumber: u.phoneNumber || "",
           isHidden: !!u.isHidden,
@@ -3060,26 +3526,45 @@
           isDeleted: !!u.isDeleted,
           isOnline: !!u.isOnline,
           lastActiveMillis: u.lastActiveMillis || 0,
-          updatedAtMillis: getDocTime(u),
+          updatedAtMillis: docTime,
+          permissionsUpdatedAtMillis: permTime,
+          forceLogoutAfterMillis: Number(u.forceLogoutAfterMillis || 0),
+          hasExplicitPermissions: hasExplicit,
+          allowedTabs: resolvedAllowed,
+          editableTabs: resolvedEditable,
           canExportExcel: isMaster || (u.canExportExcel === true),
-          canManageSchedules: isMaster || (u.canManageSchedules === true),
-          canCreateFault: isMaster || (u.canCreateFault !== false),
-          canCreateWorkOrder: isMaster || (u.canCreateWorkOrder !== false),
+          canManageSchedules: isMaster || resolvedEditable.includes("schedule") || (u.canManageSchedules === true),
+          canCreateFault: isMaster || (resolvedEditable.length > 0 ? resolvedEditable.includes("fault_reports") : (u.canCreateFault === true)),
+          canCreateWorkOrder: isMaster || (resolvedEditable.length > 0 ? resolvedEditable.includes("work_orders") : (u.canCreateWorkOrder === true)),
           canViewChat: isMaster || (u.canViewChat !== false),
-          canSendChat: isMaster || (u.canSendChat !== false),
+          canSendChat: isMaster || (u.canSendChat === true),
           canDeleteAnyMessage: isMaster || (u.canDeleteAnyMessage === true),
           canReopenTickets: isMaster || (u.canReopenTickets === true),
-          canEditProfile: isMaster || (u.canEditProfile === true),
-          allowedTabs: (Array.isArray(u.allowedTabs) && u.allowedTabs.length > 0)
-            ? u.allowedTabs
-            : (isMaster ? ["fault_reports", "work_orders", "schedule", "analytics", "members", "team"] : ["fault_reports", "work_orders", "schedule", "analytics", "members"])
+          canEditProfile: isMaster || (u.canEditProfile === true)
         };
 
         if (foundKey) {
           const ex = uniqueMap.get(foundKey);
-          const isCandNewer = (candidate.updatedAtMillis || 0) >= (ex.updatedAtMillis || 0);
+          const candPermScore = candidate.permissionsUpdatedAtMillis || 0;
+          const exPermScore = ex.permissionsUpdatedAtMillis || 0;
+          let isCandNewer = candPermScore > exPermScore;
+          if (candPermScore === exPermScore) {
+            const expDiff = (candidate.hasExplicitPermissions ? 1 : 0) - (ex.hasExplicitPermissions ? 1 : 0);
+            isCandNewer = expDiff > 0 || (expDiff === 0 && (candidate.updatedAtMillis || 0) >= (ex.updatedAtMillis || 0));
+          }
           const newer = isCandNewer ? candidate : ex;
           const older = isCandNewer ? ex : candidate;
+
+          const mergedAllowed = isMaster
+            ? ["dashboard", "fault_reports", "work_orders", "schedule", "analytics", "members", "team"]
+            : (newer.hasExplicitPermissions
+                ? [...newer.allowedTabs]
+                : (newer.allowedTabs.length > 0 ? [...newer.allowedTabs] : [...older.allowedTabs]));
+          const mergedEditable = isMaster
+            ? ["dashboard", "fault_reports", "work_orders", "schedule", "analytics", "members", "team"]
+            : (newer.hasExplicitPermissions
+                ? newer.editableTabs.filter(t => mergedAllowed.includes(t))
+                : (newer.editableTabs.length > 0 ? newer.editableTabs : older.editableTabs).filter(t => mergedAllowed.includes(t)));
 
           uniqueMap.set(foundKey, {
             ...older,
@@ -3091,22 +3576,25 @@
             email: newer.email || older.email || "",
             password: newer.password || older.password,
             department: newer.department || older.department,
-            role: isMaster ? "ADMIN" : (newer.role || older.role || "OPERATOR"),
-            allowedTabs: (Array.isArray(newer.allowedTabs) && newer.allowedTabs.length > 0)
-              ? newer.allowedTabs
-              : (Array.isArray(older.allowedTabs) && older.allowedTabs.length > 0 ? older.allowedTabs : ["fault_reports", "work_orders", "schedule", "analytics", "members"]),
+            role: isMaster ? "ADMIN" : (newer.role || older.role || "OBSERVER"),
+            hasExplicitPermissions: isMaster || newer.hasExplicitPermissions || older.hasExplicitPermissions,
+            allowedTabs: mergedAllowed,
+            editableTabs: mergedEditable,
             phoneNumber: newer.phoneNumber || older.phoneNumber,
-            isHidden: newer.isHidden !== undefined ? newer.isHidden : older.isHidden,
+            isHidden: newer.isHidden,
             isBlocked: !!(newer.isBlocked || older.isBlocked),
             isDeleted: !!(newer.isDeleted || older.isDeleted),
-            canCreateFault: isMaster || (newer.canCreateFault !== undefined ? (newer.canCreateFault === true) : (older.canCreateFault !== false)),
-            canCreateWorkOrder: isMaster || (newer.canCreateWorkOrder !== undefined ? (newer.canCreateWorkOrder === true) : (older.canCreateWorkOrder !== false)),
-            canExportExcel: isMaster || (newer.canExportExcel !== undefined ? (newer.canExportExcel === true) : (older.canExportExcel === true)),
-            canManageSchedules: isMaster || (newer.canManageSchedules !== undefined ? (newer.canManageSchedules === true) : (older.canManageSchedules === true)),
-            canViewChat: isMaster || (newer.canViewChat !== undefined ? newer.canViewChat : older.canViewChat),
-            canSendChat: isMaster || (newer.canSendChat !== undefined ? newer.canSendChat : older.canSendChat),
-            canDeleteAnyMessage: isMaster || (newer.canDeleteAnyMessage !== undefined ? (newer.canDeleteAnyMessage === true) : (older.canDeleteAnyMessage === true)),
-            canReopenTickets: isMaster || (newer.canReopenTickets !== undefined ? (newer.canReopenTickets === true) : (older.canReopenTickets === true)),
+            canCreateFault: isMaster || newer.canCreateFault,
+            canCreateWorkOrder: isMaster || newer.canCreateWorkOrder,
+            canExportExcel: isMaster || newer.canExportExcel,
+            canManageSchedules: isMaster || newer.canManageSchedules,
+            canViewChat: isMaster || newer.canViewChat,
+            canSendChat: isMaster || newer.canSendChat,
+            canDeleteAnyMessage: isMaster || newer.canDeleteAnyMessage,
+            canReopenTickets: isMaster || newer.canReopenTickets,
+            canEditProfile: isMaster || newer.canEditProfile,
+            forceLogoutAfterMillis: Math.max(newer.forceLogoutAfterMillis || 0, older.forceLogoutAfterMillis || 0),
+            permissionsUpdatedAtMillis: Math.max(newer.permissionsUpdatedAtMillis || 0, older.permissionsUpdatedAtMillis || 0),
             lastActiveMillis: Math.max(newer.lastActiveMillis || 0, older.lastActiveMillis || 0),
             updatedAtMillis: Math.max(newer.updatedAtMillis || 0, older.updatedAtMillis || 0)
           });
@@ -3139,6 +3627,11 @@
           isBlocked: false,
           isOnline: true,
           lastActiveMillis: Date.now(),
+          permissionsUpdatedAtMillis: Date.now(),
+          forceLogoutAfterMillis: 0,
+          hasExplicitPermissions: true,
+          canCreateFault: true,
+          canCreateWorkOrder: true,
           canExportExcel: true,
           canManageSchedules: true,
           canViewChat: true,
@@ -3146,7 +3639,8 @@
           canDeleteAnyMessage: true,
           canReopenTickets: true,
           canEditProfile: true,
-          allowedTabs: ["fault_reports", "work_orders", "schedule", "analytics", "members", "team"]
+          allowedTabs: ["dashboard", "fault_reports", "work_orders", "schedule", "analytics", "members", "team"],
+          editableTabs: ["dashboard", "fault_reports", "work_orders", "schedule", "analytics", "members", "team"]
         });
       }
 
@@ -3183,11 +3677,7 @@
         return;
       }
 
-      const isViewerAdmin = window.currentUser && (
-        window.currentUser.email === "usluozaykagan@gmail.com" || 
-        window.currentUser.username === "usluozaykagan" || 
-        window.currentUser.role === "ADMIN"
-      );
+      const isViewerAdmin = window.isMasterUser(window.currentUser) || window.canUserEditTab("members", window.currentUser);
 
       container.innerHTML = filtered.map(u => {
         const isMaster = u.email === "usluozaykagan@gmail.com" || u.username === "usluozaykagan";
@@ -3313,6 +3803,7 @@
       if (totalBadge) totalBadge.innerText = (window.allUsers || []).length;
 
       const allTabsListDef = [
+        { id: "dashboard", title: "Genel Bakış", icon: "🏠" },
         { id: "fault_reports", title: "Arıza Kayıtları", icon: "⚠️" },
         { id: "work_orders", title: "İş Emirleri", icon: "🔧" },
         { id: "schedule", title: "Bakım Takvimi", icon: "📅" },
@@ -3322,22 +3813,31 @@
       ];
 
       container.innerHTML = (window.allUsers || []).map(u => {
-        const isMaster = u.email === "usluozaykagan@gmail.com" || u.username === "usluozaykagan";
+        const isMaster = window.isMasterUser(u);
         const isCurrent = isMaster || (window.currentUser && (u.email === window.currentUser.email || u.username === window.currentUser.username));
         const cleanName = (u.displayName || u.username || "Personel").trim();
         const initials = cleanName.split(' ').map(n => n[0]).filter(Boolean).slice(0, 2).join('').toUpperCase() || "Ü";
-        const role = u.role || "OPERATOR";
+        const role = u.role || "OBSERVER";
         const roleColor = getRoleBadgeClass(role);
         const pass = u.password || (isMaster ? "tekinak123" : "123456");
         const cardPassId = `cardPass_${u.id}`;
 
-        // Sekme Yetkileri Hesaplama (Android AppTab & TeamScreen ile Birebir)
-        const relevantTabsDef = allTabsListDef.filter(t => t.id !== 'team' || isMaster || role === 'ADMIN');
-        const userTabs = (isMaster || role === "ADMIN")
-          ? relevantTabsDef.map(t => t.id)
-          : ((u.allowedTabs && Array.isArray(u.allowedTabs) && u.allowedTabs.length) ? u.allowedTabs : ["fault_reports", "work_orders", "schedule", "analytics", "members"]);
+        // Sekme Yetkileri Hesaplama (Görme ve Düzenleme Ayrı)
+        const relevantTabsDef = allTabsListDef.filter(t => t.id !== 'team' || isMaster);
+        const userAllowed = window.getUserAllowedTabs(u);
+        const userEditable = window.getUserEditableTabs(u);
+        const authorizedCount = isMaster ? relevantTabsDef.length : relevantTabsDef.filter(t => userAllowed.includes(t.id)).length;
+        const editableCount = isMaster ? relevantTabsDef.length : relevantTabsDef.filter(t => userEditable.includes(t.id)).length;
 
-        const authorizedCount = relevantTabsDef.filter(t => isMaster || role === "ADMIN" || userTabs.includes(t.id)).length;
+        const cFault = window.canUserCreateFault(u);
+        const cWo = window.canUserCreateWorkOrder(u);
+        const cExcel = window.canUserExportExcel(u);
+        const cSched = window.canUserManageSchedules(u);
+        const cChatView = window.canUserViewChat(u);
+        const cChatSend = window.canUserSendChat(u);
+        const cReopen = window.canUserReopenTickets(u);
+        const cDelMsg = window.canUserDeleteAnyMessage(u);
+        const cEditProf = window.canUserEditProfile(u);
 
         return `
           <div class="bg-white rounded-2xl custom-shadow border ${u.isBlocked ? 'border-rose-400 bg-rose-50/20' : (isMaster ? 'border-amber-300 shadow-md' : 'border-slate-200')} p-4 space-y-3 flex flex-col justify-between">
@@ -3349,19 +3849,19 @@
                 </div>
                 <div class="flex-1 min-w-0">
                   <div class="flex items-center gap-1.5">
-                    <span class="font-bold text-sm text-slate-900 truncate">${cleanName}</span>
+                    <span class="font-bold text-sm text-slate-900 truncate">${escapeHtml(cleanName)}</span>
                     ${isMaster ? '<span class="text-[10px] text-amber-900 font-black bg-amber-200 px-1.5 py-0.2 rounded border border-amber-300">Yönetici</span>' : ''}
                     ${isCurrent && !isMaster ? '<span class="text-[10px] text-blue-800 font-bold bg-blue-100 px-1.5 py-0.2 rounded border border-blue-200">Siz</span>' : ''}
                     ${u.isBlocked ? '<span class="text-[9px] text-white font-bold bg-rose-600 px-1.5 py-0.2 rounded">ENGELLİ</span>' : ''}
                   </div>
-                  <div class="text-[11px] text-slate-500 font-mono mt-0.5">@${u.username || 'personel'} • ${u.department || 'Mekanik Bakım'}</div>
+                  <div class="text-[11px] text-slate-500 font-mono mt-0.5">@${escapeHtml(u.username || 'personel')} • ${escapeHtml(u.department || 'Mekanik Bakım')}</div>
                 </div>
                 <div class="px-2.5 py-1 rounded-lg text-[10px] font-bold ${roleColor} border flex-shrink-0">
-                  ${role}
+                  ${escapeHtml(role)}
                 </div>
               </div>
 
-              <!-- 2. Satır: Şifre Görüntüleme & Değiştirme Kutusu (Android TeamScreen Birebir) -->
+              <!-- 2. Satır: Şifre Görüntüleme & Değiştirme Kutusu -->
               <div class="mt-3 bg-amber-50/70 p-3 rounded-xl border border-amber-200 flex items-center justify-between gap-2">
                 <div class="flex items-center gap-2 min-w-0">
                   <i data-lucide="key" class="w-4 h-4 text-amber-700 flex-shrink-0"></i>
@@ -3371,82 +3871,99 @@
                   </div>
                 </div>
                 <div class="flex items-center gap-1.5 flex-shrink-0">
-                  <button onclick="toggleCardPassword('${u.id}', '${pass}')" class="px-2 py-1 bg-white hover:bg-amber-100 text-amber-900 text-[11px] font-bold rounded-lg border border-amber-300 shadow-sm transition flex items-center gap-1">
+                  <button onclick="toggleCardPassword('${escapeJsSingle(u.id)}', '${escapeJsSingle(pass)}')" class="px-2 py-1 bg-white hover:bg-amber-100 text-amber-900 text-[11px] font-bold rounded-lg border border-amber-300 shadow-sm transition flex items-center gap-1">
                     <i data-lucide="eye" class="w-3.5 h-3.5"></i> Göster
                   </button>
-                  <button onclick="changeUserPassword('${u.id}', '${cleanName}', '${pass}')" class="px-2 py-1 bg-amber-600 hover:bg-amber-700 text-white text-[11px] font-bold rounded-lg shadow-sm transition">
+                  <button onclick="changeUserPassword('${escapeJsSingle(u.id)}', '${escapeJsSingle(cleanName)}', '${escapeJsSingle(pass)}')" class="px-2 py-1 bg-amber-600 hover:bg-amber-700 text-white text-[11px] font-bold rounded-lg shadow-sm transition">
                     Şifre Değiştir
                   </button>
                 </div>
               </div>
 
-              <!-- 3. Satır: İzinler & Yetki Matrisi Rozetleri -->
+              <!-- 3. Satır: Özel İzin Rozetleri -->
               <div class="mt-3 pt-2 border-t border-slate-100">
-                <div class="text-[10px] font-bold text-slate-500 mb-1.5">Yetkiler:</div>
+                <div class="text-[10px] font-bold text-slate-500 mb-1.5">Özel İzinler:</div>
                 <div class="flex flex-wrap gap-1 text-[10px]">
-                  <span class="px-2 py-0.5 rounded font-semibold border ${window.canUserCreateFault(u) ? 'bg-amber-50 text-amber-800 border-amber-200' : 'bg-slate-100 text-slate-400 border-slate-200'}">
-                    ⚠️ Arıza Bildir: ${window.canUserCreateFault(u) ? 'Açık' : 'Kapalı'}
+                  <span class="px-2 py-0.5 rounded font-semibold border ${cFault ? 'bg-amber-50 text-amber-800 border-amber-200' : 'bg-slate-100 text-slate-400 border-slate-200'}">
+                    ⚠️ Arıza Bildir: ${cFault ? 'Açık' : 'Kapalı'}
                   </span>
-                  <span class="px-2 py-0.5 rounded font-semibold border ${window.canUserCreateWorkOrder(u) ? 'bg-blue-50 text-blue-800 border-blue-200' : 'bg-slate-100 text-slate-400 border-slate-200'}">
-                    🔧 İş Emri Aç: ${window.canUserCreateWorkOrder(u) ? 'Açık' : 'Kapalı'}
+                  <span class="px-2 py-0.5 rounded font-semibold border ${cWo ? 'bg-blue-50 text-blue-800 border-blue-200' : 'bg-slate-100 text-slate-400 border-slate-200'}">
+                    🔧 İş Emri Aç: ${cWo ? 'Açık' : 'Kapalı'}
                   </span>
-                  <span class="px-2 py-0.5 rounded font-semibold border ${u.canExportExcel !== false ? 'bg-emerald-50 text-emerald-700 border-emerald-200' : 'bg-slate-100 text-slate-400 border-slate-200'}">
-                    📊 Excel: ${u.canExportExcel !== false ? 'Açık' : 'Kapalı'}
+                  <span class="px-2 py-0.5 rounded font-semibold border ${cExcel ? 'bg-emerald-50 text-emerald-700 border-emerald-200' : 'bg-slate-100 text-slate-400 border-slate-200'}">
+                    📊 Excel: ${cExcel ? 'Açık' : 'Kapalı'}
                   </span>
-                  <span class="px-2 py-0.5 rounded font-semibold border ${u.canManageSchedules !== false ? 'bg-blue-50 text-blue-700 border-blue-200' : 'bg-slate-100 text-slate-400 border-slate-200'}">
-                    📅 Bakım Planı: ${u.canManageSchedules !== false ? 'Açık' : 'Kapalı'}
+                  <span class="px-2 py-0.5 rounded font-semibold border ${cSched ? 'bg-blue-50 text-blue-700 border-blue-200' : 'bg-slate-100 text-slate-400 border-slate-200'}">
+                    📅 Bakım Düzenle: ${cSched ? 'Açık' : 'Kapalı'}
                   </span>
-                  <span class="px-2 py-0.5 rounded font-semibold border ${u.canViewChat !== false ? 'bg-indigo-50 text-indigo-700 border-indigo-200' : 'bg-slate-100 text-slate-400 border-slate-200'}">
-                    💬 Sohbet: ${u.canViewChat !== false ? 'Açık' : 'Kapalı'}
+                  <span class="px-2 py-0.5 rounded font-semibold border ${cChatView ? 'bg-indigo-50 text-indigo-700 border-indigo-200' : 'bg-slate-100 text-slate-400 border-slate-200'}">
+                    💬 Sohbet Gör: ${cChatView ? 'Açık' : 'Kapalı'}
                   </span>
-                  <span class="px-2 py-0.5 rounded font-semibold border ${u.canReopenTickets ? 'bg-purple-50 text-purple-700 border-purple-200' : 'bg-slate-100 text-slate-400 border-slate-200'}">
-                    🔄 Tekrar Aç: ${u.canReopenTickets ? 'Açık' : 'Kapalı'}
+                  <span class="px-2 py-0.5 rounded font-semibold border ${cChatSend ? 'bg-indigo-50 text-indigo-800 border-indigo-200' : 'bg-slate-100 text-slate-400 border-slate-200'}">
+                    ✉️ Sohbet Yaz: ${cChatSend ? 'Açık' : 'Kapalı'}
                   </span>
-                  <span class="px-2 py-0.5 rounded font-semibold border ${u.canDeleteAnyMessage ? 'bg-rose-50 text-rose-700 border-rose-200' : 'bg-slate-100 text-slate-400 border-slate-200'}">
-                    🗑️ Mesaj Sil: ${u.canDeleteAnyMessage ? 'Açık' : 'Kapalı'}
+                  <span class="px-2 py-0.5 rounded font-semibold border ${cReopen ? 'bg-purple-50 text-purple-700 border-purple-200' : 'bg-slate-100 text-slate-400 border-slate-200'}">
+                    🔄 Tekrar Aç: ${cReopen ? 'Açık' : 'Kapalı'}
+                  </span>
+                  <span class="px-2 py-0.5 rounded font-semibold border ${cDelMsg ? 'bg-rose-50 text-rose-700 border-rose-200' : 'bg-slate-100 text-slate-400 border-slate-200'}">
+                    🗑️ Mesaj Sil: ${cDelMsg ? 'Açık' : 'Kapalı'}
+                  </span>
+                  <span class="px-2 py-0.5 rounded font-semibold border ${cEditProf ? 'bg-teal-50 text-teal-700 border-teal-200' : 'bg-slate-100 text-slate-400 border-slate-200'}">
+                    ✏️ Profil Düzenle: ${cEditProf ? 'Açık' : 'Kapalı'}
                   </span>
                 </div>
               </div>
 
-              <!-- 4. Satır: Erişebildiği Sekmeler (Android TeamScreen FlowRow Birebir) -->
+              <!-- 4. Satır: Sekme Bazlı Görme & Düzenleme Yetkileri -->
               <div class="mt-3 pt-2 border-t border-slate-100">
                 <div class="text-[10px] font-bold text-slate-600 mb-1.5 flex items-center justify-between">
                   <span class="flex items-center gap-1 font-bold text-slate-800">
-                    <i data-lucide="layout-grid" class="w-3 h-3 text-[#1E3A8A]"></i> Erişebildiği Sekmeler:
+                    <i data-lucide="layout-grid" class="w-3 h-3 text-[#1E3A8A]"></i> Sekme Yetkileri:
                   </span>
                   <span class="text-[9px] font-extrabold text-[#1E3A8A] bg-blue-50 px-2 py-0.5 rounded border border-blue-200">
-                    ${authorizedCount} / ${relevantTabsDef.length} Yetkili
+                    ${authorizedCount}/${relevantTabsDef.length} Gör • ${editableCount} Düzenle
                   </span>
                 </div>
-                <div class="flex flex-wrap gap-1.5">
-                  ${relevantTabsDef.map(tab => {
-                    const hasAccess = isMaster || role === "ADMIN" || userTabs.includes(tab.id);
-                    if (hasAccess) {
-                      return `<span class="px-2 py-0.5 rounded-md text-[10px] font-bold bg-indigo-50 text-[#1E3A8A] border border-indigo-200 flex items-center gap-1 shadow-2xs">
-                        <span>${tab.icon}</span> <span>${tab.title}</span>
-                      </span>`;
-                    } else {
-                      return `<span class="px-1.5 py-0.5 rounded-md text-[9px] font-medium bg-slate-50 text-slate-400 border border-slate-200 line-through opacity-60 flex items-center gap-1">
-                        <span>${tab.icon}</span> <span>${tab.title}</span>
-                      </span>`;
-                    }
-                  }).join('')}
-                </div>
+                ${(userAllowed.length === 0 && !isMaster) ? `
+                  <div class="px-2.5 py-1.5 rounded-lg text-[10px] font-bold bg-rose-50 text-rose-700 border border-rose-200">
+                    🚫 Tüm Sekmeler Kapalı (Yetki Yok)
+                  </div>
+                ` : `
+                  <div class="flex flex-wrap gap-1.5">
+                    ${relevantTabsDef.map(tab => {
+                      const canEdit = isMaster || userEditable.includes(tab.id);
+                      const canView = isMaster || userAllowed.includes(tab.id);
+                      if (canEdit) {
+                        return `<span class="px-2 py-0.5 rounded-md text-[10px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200 flex items-center gap-1">
+                          <span>${tab.icon}</span> <span>${tab.title}</span> <span class="text-[9px] opacity-80">• Düzenle</span>
+                        </span>`;
+                      } else if (canView) {
+                        return `<span class="px-2 py-0.5 rounded-md text-[10px] font-bold bg-indigo-50 text-[#1E3A8A] border border-indigo-200 flex items-center gap-1">
+                          <span>${tab.icon}</span> <span>${tab.title}</span> <span class="text-[9px] opacity-75">• Gör</span>
+                        </span>`;
+                      } else {
+                        return `<span class="px-1.5 py-0.5 rounded-md text-[9px] font-medium bg-slate-50 text-slate-400 border border-slate-200 line-through opacity-60 flex items-center gap-1">
+                          <span>${tab.icon}</span> <span>${tab.title}</span>
+                        </span>`;
+                      }
+                    }).join('')}
+                  </div>
+                `}
               </div>
             </div>
 
             <!-- 5. Satır: Aksiyon Butonları (Yetkileri Düzenle, Blokla, Sil) -->
             <div class="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between text-xs">
-              <button onclick="openEditPermissionsModal('${u.id}')" class="px-3 py-1.5 bg-[#1E3A8A] hover:bg-blue-900 text-white font-bold rounded-lg text-[11px] flex items-center gap-1 shadow-sm transition">
+              <button onclick="openEditPermissionsModal('${escapeJsSingle(u.id)}')" class="px-3 py-1.5 bg-[#1E3A8A] hover:bg-blue-900 text-white font-bold rounded-lg text-[11px] flex items-center gap-1 shadow-sm transition">
                 <i data-lucide="settings" class="w-3.5 h-3.5"></i> Yetkileri Düzenle
               </button>
 
               <div class="flex items-center gap-1.5">
                 ${!isMaster ? `
-                  <button onclick="toggleBlockAccount('${u.id}', ${!u.isBlocked})" class="px-2.5 py-1.5 rounded-lg text-[11px] font-bold border transition ${u.isBlocked ? 'bg-emerald-50 text-emerald-800 border-emerald-300' : 'bg-amber-50 text-amber-800 border-amber-300'}">
+                  <button onclick="toggleBlockAccount('${escapeJsSingle(u.id)}', ${!u.isBlocked})" class="px-2.5 py-1.5 rounded-lg text-[11px] font-bold border transition ${u.isBlocked ? 'bg-emerald-50 text-emerald-800 border-emerald-300' : 'bg-amber-50 text-amber-800 border-amber-300'}">
                     ${u.isBlocked ? 'Engeli Kaldır' : '🚫 Engelle'}
                   </button>
-                  <button onclick="deleteMember('${u.id}', '${cleanName}', '${u.email}')" class="px-2.5 py-1.5 bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold rounded-lg text-[11px] border border-rose-200 transition">
+                  <button onclick="deleteMember('${escapeJsSingle(u.id)}', '${escapeJsSingle(cleanName)}', '${escapeJsSingle(u.email)}')" class="px-2.5 py-1.5 bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold rounded-lg text-[11px] border border-rose-200 transition">
                     🗑️ Sil
                   </button>
                 ` : `
@@ -3507,12 +4024,14 @@
       if (!confirm(msg)) return;
 
       try {
+        const nowTs = Date.now();
         const updatePayload = {
           isBlocked: newBlockState,
           isDeleted: newBlockState,
           isOnline: false,
+          permissionsUpdatedAtMillis: nowTs,
           updatedAt: serverTimestamp(),
-          updatedAtMillis: Date.now()
+          updatedAtMillis: nowTs
         };
 
         // 1. Ana kullanıcı belgesini güncelle
@@ -3587,8 +4106,27 @@
       }
     };
 
-    // Yönetici Yeni Üye Ekleme
-    window.openAddUserAdminModal = () => document.getElementById("modalAddUserAdmin").classList.remove("hidden");
+    // Yönetici Yeni Üye Ekleme (İlk Kurulumda Yalnızca Genel Bakış Görünür)
+    window.openAddUserAdminModal = function() {
+      document.getElementById("adminNewName").value = "";
+      document.getElementById("adminNewUsername").value = "";
+      document.getElementById("adminNewPassword").value = "";
+      document.getElementById("adminNewEmail").value = "";
+      document.getElementById("adminNewPhone").value = "";
+      const roleSelect = document.getElementById("adminNewRole");
+      if (roleSelect) roleSelect.value = "OBSERVER";
+      window.applyTabMatrixPreset("adminNew", "DASHBOARD_ONLY");
+      const setChk = (id, val) => { const el = document.getElementById(id); if (el) el.checked = val; };
+      setChk("adminPermExcel", false);
+      setChk("adminPermSchedules", false);
+      setChk("adminPermChatView", true);
+      setChk("adminPermChatSend", false);
+      setChk("adminPermReopen", false);
+      setChk("adminPermDeleteMsg", false);
+      setChk("adminPermEditProfile", false);
+      document.getElementById("modalAddUserAdmin").classList.remove("hidden");
+      lucide.createIcons();
+    };
     window.openManageRolesModal = () => document.getElementById("modalManageRoles").classList.remove("hidden");
 
     window.saveNewUserAdmin = async function() {
@@ -3597,24 +4135,34 @@
       const password = document.getElementById("adminNewPassword").value.trim();
       const email = document.getElementById("adminNewEmail").value.trim();
       const dept = document.getElementById("adminNewDept").value;
-      const role = document.getElementById("adminNewRole").value;
+      const role = document.getElementById("adminNewRole").value || "OBSERVER";
       const phone = document.getElementById("adminNewPhone").value.trim();
 
-      const canFault = document.getElementById("adminPermFault").checked;
-      const canWo = document.getElementById("adminPermWo").checked;
-      const canExcel = document.getElementById("adminPermExcel").checked;
-      const canSchedules = document.getElementById("adminPermSchedules").checked;
-      const canChat = document.getElementById("adminPermChat").checked;
-      const canReopen = document.getElementById("adminPermReopen").checked;
+      const canExcel = !!document.getElementById("adminPermExcel")?.checked;
+      const canSchedulesPerm = !!document.getElementById("adminPermSchedules")?.checked;
+      const canChatView = document.getElementById("adminPermChatView")?.checked !== false;
+      const canChatSend = !!document.getElementById("adminPermChatSend")?.checked;
+      const canReopen = !!document.getElementById("adminPermReopen")?.checked;
+      const canDeleteMsg = !!document.getElementById("adminPermDeleteMsg")?.checked;
+      const canEditProf = !!document.getElementById("adminPermEditProfile")?.checked;
 
-      // Sekme Yetkilerini Topla (Android AppTab ile Birebir)
-      const newTabs = [];
-      if (document.getElementById("adminNewTabFaults").checked) newTabs.push("fault_reports");
-      if (document.getElementById("adminNewTabWo").checked) newTabs.push("work_orders");
-      if (document.getElementById("adminNewTabSchedule").checked) newTabs.push("schedule");
-      if (document.getElementById("adminNewTabAnalytics").checked) newTabs.push("analytics");
-      if (document.getElementById("adminNewTabMembers").checked) newTabs.push("members");
-      if (role === "ADMIN") newTabs.push("team");
+      // Dual Görme & Düzenleme Sekme Matrisi
+      const newAllowedTabs = [];
+      const newEditableTabs = [];
+      window.TAB_MATRIX_KEYS.forEach(item => {
+        const vEl = document.getElementById(`adminNewTabView${item.suffix}`);
+        const eEl = document.getElementById(`adminNewTabEdit${item.suffix}`);
+        const isEdit = !!(eEl && eEl.checked) || (item.id === "schedule" && canSchedulesPerm);
+        const isView = !!(vEl && vEl.checked) || isEdit;
+        if (isView) newAllowedTabs.push(item.id);
+        if (isEdit && newAllowedTabs.includes(item.id)) newEditableTabs.push(item.id);
+      });
+
+      const isMasterTarget = email.toLowerCase() === "usluozaykagan@gmail.com" || username.toLowerCase() === "usluozaykagan";
+      if (isMasterTarget) {
+        if (!newAllowedTabs.includes("team")) newAllowedTabs.push("team");
+        if (!newEditableTabs.includes("team")) newEditableTabs.push("team");
+      }
 
       if (!name || !username || !password) {
         alert("Lütfen Ad Soyad, Kullanıcı Adı ve Şifre alanlarını doldurunuz.");
@@ -3623,6 +4171,7 @@
 
       const now = Date.now();
       const newUserId = "user_" + now;
+      const finalCanSchedules = newEditableTabs.includes("schedule") || canSchedulesPerm;
 
       try {
         // Eğer yönetici daha önce silinmiş/engellenmiş bir kullanıcıyı yeniden ekliyorsa blocked_accounts'tan kaldır
@@ -3635,30 +4184,35 @@
           try { await deleteDoc(doc(db, "blocked_accounts", username.toLowerCase().replace(/\./g, "_"))); } catch (_) {}
         }
 
-        await addDoc(collection(db, "users"), {
+        await setDoc(doc(db, "users", newUserId), {
+          id: newUserId,
           userId: newUserId,
           displayName: name,
-          username: username,
+          username: username.toLowerCase(),
           password: password,
           email: email,
           department: dept,
           role: role,
           phoneNumber: phone,
-          canCreateFault: canFault,
-          canCreateWorkOrder: canWo,
+          hasExplicitPermissions: true,
+          allowedTabs: newAllowedTabs,
+          editableTabs: newEditableTabs,
+          canCreateFault: newEditableTabs.includes("fault_reports"),
+          canCreateWorkOrder: newEditableTabs.includes("work_orders"),
           canExportExcel: canExcel,
-          canManageSchedules: canSchedules,
-          canViewChat: canChat,
-          canSendChat: canChat,
+          canManageSchedules: finalCanSchedules,
+          canViewChat: canChatView,
+          canSendChat: canChatView && canChatSend,
           canReopenTickets: canReopen,
-          canDeleteAnyMessage: role === "ADMIN",
-          canEditProfile: true,
+          canDeleteAnyMessage: canDeleteMsg,
+          canEditProfile: canEditProf,
+          forceLogoutAfterMillis: 0,
           isHidden: false,
           isBlocked: false,
           isDeleted: false,
-          allowedTabs: newTabs.length ? newTabs : ["fault_reports", "work_orders", "schedule", "analytics", "members"],
           createdAtMillis: now,
           updatedAtMillis: now,
+          permissionsUpdatedAtMillis: now,
           createdAt: serverTimestamp(),
           updatedAt: serverTimestamp()
         });
@@ -3669,47 +4223,53 @@
         document.getElementById("adminNewPassword").value = "";
         document.getElementById("adminNewEmail").value = "";
         document.getElementById("adminNewPhone").value = "";
-        alert(`✅ '${name}' personeli başarıyla kaydedildi ve sekmeleri yetkilendirildi!`);
+        alert(`✅ '${name}' personeli (${newAllowedTabs.length} görme / ${newEditableTabs.length} düzenleme yetkisiyle) kaydedildi.`);
       } catch (err) {
         console.error("Yeni üye kaydetme hatası:", err);
         alert("Personel kaydedilirken hata oluştu: " + err.message);
       }
     };
 
-    // Yetki Düzenleme Modalını Aç (Erişebildiği Sekmeler Dahil)
+    // Yetki Düzenleme Modalını Aç (Görme & Düzenleme Ayrı Matris)
     window.openEditPermissionsModal = function(userId) {
       const user = (window.allUsers || []).find(u => u.id === userId || u.userId === userId);
       if (!user) return;
 
+      const isMaster = window.isMasterUser(user);
       document.getElementById("editPermUserId").value = user.id;
       document.getElementById("editPermDisplayName").innerText = user.displayName || user.username || "Personel";
       document.getElementById("editPermUsername").innerText = "@" + (user.username || "personel");
-      document.getElementById("editPermRole").value = user.role || "OPERATOR";
+      document.getElementById("editPermRole").value = user.role || "OBSERVER";
       document.getElementById("editPermDept").value = user.department || "Mekanik Bakım";
       document.getElementById("editPermPassword").value = user.password || "123456";
 
-      // Sekme Yetkilerini Doldur (Android EditAccountDialog Birebir)
-      const isAdm = user.role === "ADMIN" || user.email === "usluozaykagan@gmail.com";
-      const tabs = isAdm 
-        ? ["fault_reports", "work_orders", "schedule", "analytics", "members", "team"]
-        : ((user.allowedTabs && Array.isArray(user.allowedTabs) && user.allowedTabs.length) ? user.allowedTabs : ["fault_reports", "work_orders", "schedule", "analytics", "members"]);
+      const allowed = window.getUserAllowedTabs(user);
+      const editable = window.getUserEditableTabs(user);
 
-      document.getElementById("editPermTabFaults").checked = isAdm || tabs.includes("fault_reports");
-      document.getElementById("editPermTabWo").checked = isAdm || tabs.includes("work_orders");
-      document.getElementById("editPermTabSchedule").checked = isAdm || tabs.includes("schedule");
-      document.getElementById("editPermTabAnalytics").checked = isAdm || tabs.includes("analytics");
-      document.getElementById("editPermTabMembers").checked = isAdm || tabs.includes("members");
+      window.TAB_MATRIX_KEYS.forEach(item => {
+        const vEl = document.getElementById(`editPermTabView${item.suffix}`);
+        const eEl = document.getElementById(`editPermTabEdit${item.suffix}`);
+        const canEdit = isMaster || editable.includes(item.id);
+        const canView = isMaster || allowed.includes(item.id) || canEdit;
+        if (vEl) vEl.checked = canView;
+        if (eEl) eEl.checked = canEdit;
+      });
 
-      // Özel İzinler
-      document.getElementById("editPermCanFault").checked = user.canCreateFault !== false;
-      document.getElementById("editPermCanWo").checked = user.canCreateWorkOrder !== false;
-      document.getElementById("editPermCanExcel").checked = user.canExportExcel !== false;
-      document.getElementById("editPermCanSchedules").checked = user.canManageSchedules !== false;
-      document.getElementById("editPermCanChat").checked = user.canViewChat !== false;
-      document.getElementById("editPermCanReopen").checked = !!user.canReopenTickets;
-      document.getElementById("editPermCanDeleteMsg").checked = !!user.canDeleteAnyMessage;
+      const setChk = (id, val) => { const el = document.getElementById(id); if (el) el.checked = !!val; };
+      setChk("editPermCanExcel", window.canUserExportExcel(user));
+      setChk("editPermCanSchedules", window.canUserManageSchedules(user));
+      setChk("editPermCanViewChat", window.canUserViewChat(user));
+      setChk("editPermCanSendChat", window.canUserSendChat(user));
+      setChk("editPermCanReopen", window.canUserReopenTickets(user));
+      setChk("editPermCanDeleteMsg", window.canUserDeleteAnyMessage(user));
+      setChk("editPermCanEditProfile", window.canUserEditProfile(user));
 
+      const forceBtn = document.getElementById("adminForceLogoutUserBtn");
+      if (forceBtn) forceBtn.classList.toggle("hidden", isMaster);
+
+      window.updatePermMatrixSummary("editPerm");
       document.getElementById("modalEditPermissions").classList.remove("hidden");
+      lucide.createIcons();
     };
 
     window.saveUserPermissions = async function() {
@@ -3719,42 +4279,60 @@
       const targetUser = (window.allUsers || []).find(u => u.id === docId || u.userId === docId);
       const userEmail = (targetUser?.email || "").toLowerCase();
       const userUname = (targetUser?.username || "").toLowerCase();
+      const isTargetMaster = window.isMasterUser(targetUser);
 
-      const newRole = document.getElementById("editPermRole").value;
+      const newRole = isTargetMaster ? "ADMIN" : (document.getElementById("editPermRole").value || "OBSERVER");
       const newDept = document.getElementById("editPermDept").value;
       const newPassword = document.getElementById("editPermPassword").value.trim();
 
-      const canFault = document.getElementById("editPermCanFault").checked;
-      const canWo = document.getElementById("editPermCanWo").checked;
-      const canExcel = document.getElementById("editPermCanExcel").checked;
-      const canSchedules = document.getElementById("editPermCanSchedules").checked;
-      const canChat = document.getElementById("editPermCanChat").checked;
-      const canReopen = document.getElementById("editPermCanReopen").checked;
-      const canDeleteMsg = document.getElementById("editPermCanDeleteMsg").checked;
+      const canExcel = isTargetMaster || !!document.getElementById("editPermCanExcel")?.checked;
+      const canSchedulesCheckbox = isTargetMaster || !!document.getElementById("editPermCanSchedules")?.checked;
+      const canChatView = isTargetMaster || !!document.getElementById("editPermCanViewChat")?.checked;
+      const canChatSend = isTargetMaster || (canChatView && !!document.getElementById("editPermCanSendChat")?.checked);
+      const canReopen = isTargetMaster || !!document.getElementById("editPermCanReopen")?.checked;
+      const canDeleteMsg = isTargetMaster || !!document.getElementById("editPermCanDeleteMsg")?.checked;
+      const canEditProf = isTargetMaster || !!document.getElementById("editPermCanEditProfile")?.checked;
 
-      // Sekme Yetkilerini Topla
-      const updatedTabs = [];
-      if (document.getElementById("editPermTabFaults").checked) updatedTabs.push("fault_reports");
-      if (document.getElementById("editPermTabWo").checked) updatedTabs.push("work_orders");
-      if (document.getElementById("editPermTabSchedule").checked) updatedTabs.push("schedule");
-      if (document.getElementById("editPermTabAnalytics").checked) updatedTabs.push("analytics");
-      if (document.getElementById("editPermTabMembers").checked) updatedTabs.push("members");
-      if (newRole === "ADMIN") updatedTabs.push("team");
+      // Görme & Düzenleme Sekme Matrisini Topla (Tümünü Kapat destekli -> boş [] geçerlidir!)
+      let updatedAllowedTabs = [];
+      let updatedEditableTabs = [];
+      if (isTargetMaster) {
+        updatedAllowedTabs = ["dashboard", "fault_reports", "work_orders", "schedule", "analytics", "members", "team"];
+        updatedEditableTabs = ["dashboard", "fault_reports", "work_orders", "schedule", "analytics", "members", "team"];
+      } else {
+        window.TAB_MATRIX_KEYS.forEach(item => {
+          const vEl = document.getElementById(`editPermTabView${item.suffix}`);
+          const eEl = document.getElementById(`editPermTabEdit${item.suffix}`);
+          const isEdit = !!(eEl && eEl.checked) || (item.id === "schedule" && canSchedulesCheckbox);
+          const isView = !!(vEl && vEl.checked) || isEdit;
+          if (isView) updatedAllowedTabs.push(item.id);
+          if (isEdit && updatedAllowedTabs.includes(item.id)) updatedEditableTabs.push(item.id);
+        });
+      }
+
+      const now = Date.now();
+      const finalCanSchedules = isTargetMaster || updatedEditableTabs.includes("schedule") || canSchedulesCheckbox;
+      const canFault = isTargetMaster || updatedEditableTabs.includes("fault_reports");
+      const canWo = isTargetMaster || updatedEditableTabs.includes("work_orders");
 
       const updateData = {
         role: newRole,
         department: newDept,
-        allowedTabs: updatedTabs,
+        hasExplicitPermissions: true,
+        allowedTabs: updatedAllowedTabs,
+        editableTabs: updatedEditableTabs,
         canCreateFault: canFault,
         canCreateWorkOrder: canWo,
         canExportExcel: canExcel,
-        canManageSchedules: canSchedules,
-        canViewChat: canChat,
-        canSendChat: canChat,
+        canManageSchedules: finalCanSchedules,
+        canViewChat: canChatView,
+        canSendChat: canChatSend,
         canReopenTickets: canReopen,
         canDeleteAnyMessage: canDeleteMsg,
+        canEditProfile: canEditProf,
+        permissionsUpdatedAtMillis: now,
         updatedAt: serverTimestamp(),
-        updatedAtMillis: Date.now()
+        updatedAtMillis: now
       };
       if (newPassword) {
         updateData.password = newPassword;
@@ -3764,7 +4342,7 @@
         // Doğrudan hedef dokümanı setDoc merge ile güncelle
         await setDoc(doc(db, "users", docId), updateData, { merge: true });
 
-        // Varsa aynı e-posta veya kullanıcı adına sahip diğer belgeleri de güncelle
+        // Varsa aynı e-posta veya kullanıcı adına sahip diğer kopyaları da eşitle
         try {
           const snap = await getDocs(collection(db, "users"));
           const syncPromises = [];
@@ -3789,19 +4367,8 @@
 
         // Yerel listeyi anında güncelle
         if (targetUser) {
-          targetUser.role = newRole;
-          targetUser.department = newDept;
-          if (newPassword) targetUser.password = newPassword;
-          targetUser.allowedTabs = updatedTabs;
-          targetUser.canCreateFault = canFault;
-          targetUser.canCreateWorkOrder = canWo;
-          targetUser.canExportExcel = canExcel;
-          targetUser.canManageSchedules = canSchedules;
-          targetUser.canViewChat = canChat;
-          targetUser.canSendChat = canChat;
-          targetUser.canReopenTickets = canReopen;
-          targetUser.canDeleteAnyMessage = canDeleteMsg;
-          targetUser.updatedAtMillis = Date.now();
+          Object.assign(targetUser, updateData);
+          targetUser.updatedAtMillis = now;
         }
 
         // Eğer düzenlenen kişi aktif oturum sahibi ise oturumunu da anında güncelle
@@ -3810,27 +4377,21 @@
             (userUname && window.currentUser.username && window.currentUser.username.toLowerCase() === userUname) ||
             (docId && (window.currentUser.userId === docId || window.currentUser.id === docId))
         )) {
-          window.currentUser.role = newRole;
-          window.currentUser.department = newDept;
-          window.currentUser.allowedTabs = updatedTabs;
-          window.currentUser.canCreateFault = canFault;
-          window.currentUser.canCreateWorkOrder = canWo;
-          window.currentUser.canExportExcel = canExcel;
-          window.currentUser.canManageSchedules = canSchedules;
-          window.currentUser.canViewChat = canChat;
-          window.currentUser.canSendChat = canChat;
-          window.currentUser.canReopenTickets = canReopen;
-          window.currentUser.canDeleteAnyMessage = canDeleteMsg;
-          if (newPassword) window.currentUser.password = newPassword;
+          Object.assign(window.currentUser, updateData);
+          window.currentUser.updatedAtMillis = now;
           localStorage.setItem("tekinak_session", JSON.stringify(window.currentUser));
           sessionStorage.setItem("tekinak_session", JSON.stringify(window.currentUser));
           updateTopBarUser(window.currentUser);
+          window.switchToFirstAllowedTab();
         }
 
         renderTeam();
         renderMembers();
+        renderFaults();
+        renderWorkOrders();
+        renderSchedules();
         closeModal('modalEditPermissions');
-        alert("Yetkiler ve hesap şifresi başarıyla kaydedildi.");
+        alert("✅ Yetkiler ve hesap ayarları tüm cihazlar için senkronize edildi.");
       } catch (err) {
         console.error("Yetki güncelleme hatası:", err);
         alert("Yetkiler kaydedilirken hata oluştu: " + err.message);
@@ -4018,8 +4579,8 @@
 
     // İş Emri Durum Güncelle
     window.updateWoStatus = async function(docId, newStatus) {
-      if (window.currentUser && window.currentUser.role === "OBSERVER") {
-        alert("⛔ Gözlemci (OBSERVER) hesabı ile durum güncellemesi yapılamaz.");
+      if (!window.canUserEditTab("work_orders", window.currentUser)) {
+        alert("⛔ İş emirlerini güncelleme yetkiniz bulunmamaktadır (Salt Okunur).");
         return;
       }
       try {
@@ -4036,8 +4597,9 @@
     // İş Emrine Personel Ata (Açılır Sekme) & Telefona Anlık Bildirim Gönder
     window.assignPersonnelToWorkOrder = async function(woId, selectedVal, title, machine) {
       if (!selectedVal) return;
-      if (window.currentUser && window.currentUser.role === "OBSERVER") {
-        alert("⛔ Gözlemci (OBSERVER) hesabı ile personel ataması yapılamaz.");
+      if (!window.canUserEditTab("work_orders", window.currentUser)) {
+        alert("⛔ İş emirlerine personel atama yetkiniz bulunmamaktadır (Salt Okunur).");
+        renderWorkOrders();
         return;
       }
       const parts = selectedVal.split('|');
@@ -4087,8 +4649,12 @@
         alert("Lütfen önce oturum açınız.");
         return;
       }
-      if (window.currentUser.role === "OBSERVER") {
-        alert("⛔ Gözlemci (OBSERVER) hesabı ile bu işlem yapılamaz.");
+      if (!window.canUserEditTab(collName, window.currentUser)) {
+        alert("⛔ Bu sekmede düzenleme yetkiniz bulunmamaktadır (Salt Okunur).");
+        return;
+      }
+      if (mode === "reopen" && !window.canUserReopenTickets(window.currentUser)) {
+        alert("⛔ Kapanan kayıtları tekrar açma yetkiniz bulunmamaktadır.");
         return;
       }
 
@@ -4153,6 +4719,14 @@
       const collName = document.getElementById("ticketActionColl").value;
       const actualDocId = document.getElementById("ticketActionDocId").value;
       const mode = document.getElementById("ticketActionMode").value;
+      if (!window.canUserEditTab(collName, window.currentUser)) {
+        alert("⛔ Bu sekmede düzenleme yetkiniz bulunmamaktadır.");
+        return;
+      }
+      if (mode === "reopen" && !window.canUserReopenTickets(window.currentUser)) {
+        alert("⛔ Kapanan kayıtları tekrar açma yetkiniz bulunmamaktadır.");
+        return;
+      }
       const targetLabel = document.getElementById("ticketActionTargetLabel").innerText || "Kayıt";
       const actorRaw = document.getElementById("ticketActionActor").value.trim();
       const noteRaw = document.getElementById("ticketActionNote").value.trim();
@@ -4299,15 +4873,11 @@
       openNewWoModal();
     };
 
-    // 6. Üye Gizleme / Açma (Sadece Sistem Yöneticisi Yapabilir)
+    // 6. Üye Gizleme / Açma (Yalnızca Yetkili Yönetici Yapabilir)
     window.toggleUserVisibility = async function(userId, newHiddenState) {
-      const isViewerAdmin = window.currentUser && (
-        window.currentUser.email === "usluozaykagan@gmail.com" || 
-        window.currentUser.username === "usluozaykagan" || 
-        window.currentUser.role === "ADMIN"
-      );
-      if (!isViewerAdmin) {
-        alert("⛔ Yetkisiz İşlem: Üye gizlilik ayarlarını yalnızca sistem yöneticisi değiştirebilir.");
+      const canManageMembers = window.isMasterUser(window.currentUser) || window.canUserEditTab("members", window.currentUser);
+      if (!canManageMembers) {
+        alert("⛔ Yetkisiz İşlem: Üye gizlilik ayarlarını değiştirme yetkiniz bulunmamaktadır.");
         return;
       }
       await updateDoc(doc(db, "users", userId), {
@@ -4315,15 +4885,11 @@
       });
     };
 
-    // 7. Üye Silme (Sadece Sistem Yöneticisi Yapabilir & Tüm Açık Oturumları Anında Atar)
+    // 7. Üye Silme (Yalnızca Yetkili Yönetici Yapabilir & Tüm Açık Oturumları Anında Atar)
     window.deleteMember = async function(userId, name, email) {
-      const isViewerAdmin = window.currentUser && (
-        window.currentUser.email === "usluozaykagan@gmail.com" || 
-        window.currentUser.username === "usluozaykagan" || 
-        window.currentUser.role === "ADMIN"
-      );
-      if (!isViewerAdmin) {
-        alert("⛔ Yetkisiz İşlem: Personel silme yetkiniz bulunmamaktadır! Bu işlemi yalnızca sistem yöneticisi yapabilir.");
+      const canManageMembers = window.isMasterUser(window.currentUser) || window.canUserEditTab("members", window.currentUser);
+      if (!canManageMembers) {
+        alert("⛔ Yetkisiz İşlem: Personel silme yetkiniz bulunmamaktadır.");
         return;
       }
 
@@ -4415,6 +4981,10 @@
 
     // 8. Saha Chat Mesaj Gönder
     window.sendChatMessage = async function() {
+      if (!window.canUserSendChat(window.currentUser)) {
+        alert("⚠️ Saha sohbetine mesaj gönderme yetkiniz kapalıdır (Salt Okunur).");
+        return;
+      }
       const input = document.getElementById("chatInput");
       const text = input.value.trim();
       if (!text) return;
@@ -4425,8 +4995,8 @@
       const senderName = (user.displayName || user.username || "Özay Kağan Uslu").trim();
       const senderDept = user.department || "Mekanik Bakım";
       const senderUid = user.userId || user.id || user.username || "user_" + now;
-      const isMaster = user.email === "usluozaykagan@gmail.com" || user.username === "usluozaykagan";
-      const senderRole = user.role || (isMaster ? "ADMIN" : "OPERATOR");
+      const isMaster = window.isMasterUser(user);
+      const senderRole = user.role || (isMaster ? "ADMIN" : "OBSERVER");
       const msgId = "msg_" + now;
 
       const payload = {
@@ -4457,6 +5027,10 @@
 
     // 9. AI Arıza Çözüm Asistanı (Gemini Desteği)
     window.requestAiMaintenanceHelp = async function() {
+      if (!window.canUserSendChat(window.currentUser)) {
+        alert("⚠️ Saha sohbetine mesaj gönderme yetkiniz kapalıdır (Salt Okunur).");
+        return;
+      }
       const prompt = window.prompt("Lütfen arıza veya belirtiyi giriniz (Yapay zeka kök neden ve adımları üretecektir):", "Un değirmeni vals motorunda aşırı ısınma ve rulman sesi var");
       if (!prompt) return;
 
@@ -4514,6 +5088,10 @@
 
     // 10. Profil Güncelleme (Android EditProfileDialog İle Birebir)
     window.saveProfileChanges = async function() {
+      if (!window.canUserEditProfile(window.currentUser)) {
+        alert("⛔ Profil bilgilerinizi düzenleme yetkiniz yönetici tarafından kısıtlanmıştır.");
+        return;
+      }
       const btn = document.getElementById("saveProfileBtn");
       const newD = document.getElementById("profDisplayName").value.trim();
       const newU = document.getElementById("profUsername").value.trim().toLowerCase();
@@ -4532,34 +5110,37 @@
       }
 
       try {
-        const uEmail = (window.currentUser?.email || "usluozaykagan@gmail.com").trim().toLowerCase();
-        const currentUid = window.currentUser?.userId || window.currentUser?.id || "admin_uslu";
-        const isMaster = uEmail === "usluozaykagan@gmail.com" || newU === "usluozaykagan";
+        const nowTs = Date.now();
+        const uEmail = (window.currentUser?.email || "").trim().toLowerCase();
+        const currentUid = window.currentUser?.userId || window.currentUser?.id || "user_" + nowTs;
+        const isMaster = window.isMasterUser(window.currentUser) || uEmail === "usluozaykagan@gmail.com" || newU === "usluozaykagan";
 
         window.currentUser.displayName = newD;
         window.currentUser.username = newU;
         window.currentUser.department = newDept;
         window.currentUser.phoneNumber = newPhone;
+        window.currentUser.updatedAtMillis = nowTs;
         if (newPass) {
           window.currentUser.password = newPass;
         }
 
         document.getElementById("topDisplayName").innerText = newD;
         document.getElementById("topDept").innerText = newDept;
-        document.getElementById("topAvatar").innerText = newD.split(' ').map(n=>n[0]).slice(0,2).join('').toUpperCase();
+        document.getElementById("topAvatar").innerText = newD.split(' ').map(n=>n[0]).filter(Boolean).slice(0,2).join('').toUpperCase() || "TP";
 
         const updatePayload = {
           displayName: newD,
           username: newU,
           department: newDept,
           phoneNumber: newPhone,
+          updatedAtMillis: nowTs,
           updatedAt: serverTimestamp()
         };
         if (newPass) {
           updatePayload.password = newPass;
         }
 
-        // Firestore üzerindeki TÜM eşleşen kullanıcı belgelerini bul ve güncelle
+        // Firestore üzerindeki TÜM eşleşen kullanıcı belgelerini bul ve güncelle (Yetkileri ASLA ezme!)
         let updatedCount = 0;
         const updatePromises = [];
         try {
@@ -4579,14 +5160,23 @@
           console.warn("Firestore liste taraması:", fetchErr);
         }
 
-        // Eğer master admin ise veya henüz doküman bulunamadıysa admin_uslu ve currentUid dokümanlarını oluştur/güncelle
+        // Eğer master admin ise veya henüz doküman bulunamadıysa dokümanı mevcut yetkilerini koruyarak oluştur/güncelle
         if (updatedCount === 0 || isMaster) {
+          const fallbackTabs = isMaster
+            ? ["dashboard", "fault_reports", "work_orders", "schedule", "analytics", "members", "team"]
+            : window.getUserAllowedTabs(window.currentUser);
+          const fallbackEditTabs = isMaster
+            ? ["dashboard", "fault_reports", "work_orders", "schedule", "analytics", "members", "team"]
+            : window.getUserEditableTabs(window.currentUser);
+
           updatePromises.push(setDoc(doc(db, "users", isMaster ? "admin_uslu" : currentUid), {
             ...updatePayload,
             userId: isMaster ? "admin_uslu" : currentUid,
             email: uEmail,
-            role: window.currentUser.role || "ADMIN",
-            allowedTabs: ["fault_reports", "work_orders", "schedule", "analytics", "members", "team"]
+            role: isMaster ? "ADMIN" : (window.currentUser.role || "OBSERVER"),
+            hasExplicitPermissions: true,
+            allowedTabs: fallbackTabs,
+            editableTabs: fallbackEditTabs
           }, { merge: true }));
         }
 
@@ -4609,12 +5199,17 @@
             u.username = newU;
             u.department = newDept;
             u.phoneNumber = newPhone;
+            u.updatedAtMillis = nowTs;
             if (newPass) u.password = newPass;
           }
         });
 
         // Oturumu depola
-        localStorage.setItem("tekinak_session", JSON.stringify(window.currentUser));
+        if (localStorage.getItem("tekinak_session") !== null) {
+          localStorage.setItem("tekinak_session", JSON.stringify(window.currentUser));
+        } else {
+          sessionStorage.setItem("tekinak_session", JSON.stringify(window.currentUser));
+        }
 
         closeModal('modalEditProfile');
         document.getElementById("profPassword").value = "";
@@ -4665,11 +5260,7 @@
     };
 
     window.executeExcelDownload = function() {
-      const curUser = window.currentUser;
-      const isMaster = curUser && (curUser.email === "usluozaykagan@gmail.com" || curUser.username === "usluozaykagan");
-      const canExport = isMaster || (curUser && curUser.canExportExcel === true);
-
-      if (!canExport) {
+      if (!window.canUserExportExcel(window.currentUser)) {
         alert("⚠️ Excel rapor çıktısı alma yetkiniz bulunmamaktadır. Lütfen sistem yöneticisi ile iletişime geçiniz.");
         closeModal('modalExcel');
         return;
@@ -4887,28 +5478,14 @@
 
     // Navigasyon Sekme Değiştirici (Yetki Korumalı)
     window.switchTab = function(tabId) {
-      if (tabId !== 'dashboard' && window.currentUser) {
-        const isMaster = window.currentUser.email === "usluozaykagan@gmail.com" || window.currentUser.username === "usluozaykagan";
-        const isAdmin = isMaster || window.currentUser.role === "ADMIN";
-        if (!isAdmin) {
-          const tabMap = {
-            'faults': 'fault_reports',
-            'workOrders': 'work_orders',
-            'schedules': 'schedule',
-            'analytics': 'analytics',
-            'members': 'members',
-            'team': 'team'
-          };
-          const reqPerm = tabMap[tabId];
-          const allowed = Array.isArray(window.currentUser.allowedTabs) ? window.currentUser.allowedTabs : [];
-          if (reqPerm && !allowed.includes(reqPerm)) {
-            alert("⚠️ Bu sekmeye erişim yetkiniz bulunmamaktadır. Lütfen sistem yöneticisi ile iletişime geçiniz.");
-            return;
-          }
-        }
+      if (window.currentUser && !window.canUserViewTab(tabId, window.currentUser)) {
+        alert("⚠️ Bu sekmeye erişim yetkiniz bulunmamaktadır. Lütfen sistem yöneticisi ile iletişime geçiniz.");
+        return;
       }
 
       document.querySelectorAll(".tab-pane").forEach(el => el.classList.add("hidden"));
+      const emptyPane = document.getElementById("pane-no-permissions");
+      if (emptyPane) emptyPane.classList.add("hidden");
       document.querySelectorAll(".nav-btn").forEach(el => {
         el.classList.remove("border-amber-400", "text-amber-400");
         el.classList.add("border-transparent", "text-slate-300");
@@ -4921,6 +5498,7 @@
         activeNav.classList.remove("border-transparent", "text-slate-300");
         activeNav.classList.add("border-amber-400", "text-amber-400");
       }
+      if (tabId === 'dashboard') refreshDashboard();
       if (tabId === 'schedules') renderSchedules();
       if (tabId === 'faults') renderFaults();
       if (tabId === 'workOrders') renderWorkOrders();
@@ -4956,10 +5534,7 @@
       document.getElementById("modalNewWo").classList.remove("hidden");
     };
     window.openExcelDialog = () => {
-      const curUser = window.currentUser;
-      const isMaster = curUser && (curUser.email === "usluozaykagan@gmail.com" || curUser.username === "usluozaykagan");
-      const canExport = isMaster || (curUser && curUser.canExportExcel === true);
-      if (!canExport) {
+      if (!window.canUserExportExcel(window.currentUser)) {
         alert("⚠️ Excel rapor çıktısı alma yetkiniz bulunmamaktadır. Lütfen sistem yöneticisi ile iletişime geçiniz.");
         return;
       }
@@ -4970,18 +5545,18 @@
 
     function renderAppVersionBadge() {
       const v = window.currentAppVersion || {
-        versionName: "1.2.5",
-        versionCode: 7,
+        versionName: "1.3.0",
+        versionCode: 8,
         releaseDate: "2026-11-13",
-        title: "Tekinak CMMS v1.2.5",
+        title: "Tekinak CMMS v1.3.0",
         changelog: [
-          "Web portalında arıza ve iş emri Çözüldü Yap / Tekrar Aç butonları tüm tarayıcılarda çalışacak şekilde yenilendi.",
-          "Web ve mobil uygulama arasında Firestore belge kimlik senkronizasyonu iyileştirildi.",
-          "Otomatik sürüm güncelleme bildirimi ve kullanıcı görünürlüğü güncellendi."
+          "Genel Bakış sekmesi eklendi; yeni kullanıcılar ilk yetkide sadece Genel Bakış görme yetkisiyle başlar.",
+          "Tüm sekmelerde Görme ve Düzenleme yetkileri ayrıldı, yönetici tüm yetkileri kapatabilir.",
+          "Profil düzenleme ekranına 'Tüm Aygıtlardan Çıkış Yap' butonu ve gelişmiş kullanıcı yetki senkronizasyonu eklendi."
         ]
       };
-      const vName = v.versionName || "1.2.5";
-      const vCode = Number(v.versionCode || 7);
+      const vName = v.versionName || "1.3.0";
+      const vCode = Number(v.versionCode || 8);
       const localApkHref = `app-release.apk?v=${vCode}`;
 
       const badgeText = document.getElementById("topVersionBadgeText");
@@ -5038,7 +5613,7 @@
     };
 
     window.dismissWebUpdateBanner = function() {
-      const vCode = Number((window.currentAppVersion && window.currentAppVersion.versionCode) || 7);
+      const vCode = Number((window.currentAppVersion && window.currentAppVersion.versionCode) || 8);
       localStorage.setItem("tekinak_dismissed_ver_" + vCode, "1");
       const banner = document.getElementById("webAppUpdateBanner");
       if (banner) banner.classList.add("hidden");
@@ -5047,17 +5622,17 @@
     async function seedInitialAppVersionInFirebase() {
       try {
         const initialData = {
-          versionCode: 7,
-          versionName: "1.2.5",
-          releaseTag: "v1.2.5",
+          versionCode: 8,
+          versionName: "1.3.0",
+          releaseTag: "v1.3.0",
           releaseDate: new Date().toISOString().slice(0, 10),
           apkUrl: "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
           fallbackUrl: "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-          title: "Tekinak CMMS v1.2.5",
+          title: "Tekinak CMMS v1.3.0",
           changelog: [
-            "Web portalında arıza ve iş emri Çözüldü Yap / Tekrar Aç butonları tüm tarayıcılarda çalışacak şekilde yenilendi.",
-            "Web ve mobil uygulama arasında Firestore belge kimlik senkronizasyonu iyileştirildi.",
-            "Otomatik sürüm güncelleme bildirimi ve kullanıcı görünürlüğü güncellendi."
+            "Genel Bakış sekmesi eklendi; yeni kullanıcılar ilk yetkide sadece Genel Bakış görme yetkisiyle başlar.",
+            "Tüm sekmelerde Görme ve Düzenleme yetkileri ayrıldı, yönetici tüm yetkileri kapatabilir.",
+            "Profil düzenleme ekranına 'Tüm Aygıtlardan Çıkış Yap' butonu ve gelişmiş kullanıcı yetki senkronizasyonu eklendi."
           ],
           forceUpdate: false,
           updatedAtMillis: Date.now()
@@ -5076,10 +5651,10 @@
         alert("⛔ Yetkisiz İşlem: Mobil sürüm güncelleme yönetimi yalnızca usluozaykagan@gmail.com hesabına tanımlıdır.");
         return;
       }
-      const v = window.currentAppVersion || { versionCode: 7, versionName: "1.2.5", title: "Tekinak CMMS v1.2.5", apkUrl: "", changelog: [] };
-      document.getElementById("verFormCode").value = v.versionCode || 7;
-      document.getElementById("verFormName").value = v.versionName || "1.2.5";
-      document.getElementById("verFormTitle").value = `Yeni Sürüm Yayınlandı (v${v.versionName || "1.2.5"})`;
+      const v = window.currentAppVersion || { versionCode: 8, versionName: "1.3.0", title: "Tekinak CMMS v1.3.0", apkUrl: "", changelog: [] };
+      document.getElementById("verFormCode").value = v.versionCode || 8;
+      document.getElementById("verFormName").value = v.versionName || "1.3.0";
+      document.getElementById("verFormTitle").value = `Yeni Sürüm Yayınlandı (v${v.versionName || "1.3.0"})`;
       document.getElementById("verFormApkUrl").value = v.apkUrl || "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk";
       document.getElementById("verFormChangelog").value = (v.changelog && v.changelog.length) ? v.changelog.join("\n") : "Yeni bakım özellikleri ve performans iyileştirmeleri eklendi.";
       document.getElementById("modalAppVersion").classList.remove("hidden");
@@ -5163,17 +5738,17 @@
       }
       try {
         const payload = {
-          versionCode: 7,
-          versionName: "1.2.5",
-          releaseTag: "v1.2.5",
+          versionCode: 8,
+          versionName: "1.3.0",
+          releaseTag: "v1.3.0",
           releaseDate: new Date().toISOString().slice(0, 10),
           apkUrl: "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
           fallbackUrl: "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-          title: "Tekinak CMMS v1.2.5",
+          title: "Tekinak CMMS v1.3.0",
           changelog: [
-            "Web portalında arıza ve iş emri Çözüldü Yap / Tekrar Aç butonları tüm tarayıcılarda çalışacak şekilde yenilendi.",
-            "Web ve mobil uygulama arasında Firestore belge kimlik senkronizasyonu iyileştirildi.",
-            "Otomatik sürüm güncelleme bildirimi ve kullanıcı görünürlüğü güncellendi."
+            "Genel Bakış sekmesi eklendi; yeni kullanıcılar ilk yetkide sadece Genel Bakış görme yetkisiyle başlar.",
+            "Tüm sekmelerde Görme ve Düzenleme yetkileri ayrıldı, yönetici tüm yetkileri kapatabilir.",
+            "Profil düzenleme ekranına 'Tüm Aygıtlardan Çıkış Yap' butonu ve gelişmiş kullanıcı yetki senkronizasyonu eklendi."
           ],
           forceUpdate: false,
           updatedAtMillis: Date.now()
@@ -5182,7 +5757,7 @@
         window.currentAppVersion = payload;
         renderAppVersionBadge();
         closeModal("modalAppVersion");
-        alert("✅ Başarılı! Firebase sürümü şu an dağıtılan v1.2.5 (Kod: 7) APK ile eşitlendi.\n\nGüncellenen telefonlardaki popup penceresi anında kalktı.");
+        alert("✅ Başarılı! Firebase sürümü şu an dağıtılan v1.3.0 (Kod: 8) APK ile eşitlendi.\n\nGüncellenen telefonlardaki popup penceresi anında kalktı.");
       } catch (err) {
         alert("Eşitleme hatası: " + err.message);
       }
@@ -5190,17 +5765,179 @@
 
     window.openEditProfileModal = function() {
       if (!window.currentUser) return;
+      const canEdit = window.canUserEditProfile(window.currentUser);
+
       document.getElementById("profEmail").value = window.currentUser.email || "";
       document.getElementById("profUsername").value = window.currentUser.username || "";
       document.getElementById("profDisplayName").value = window.currentUser.displayName || "";
       document.getElementById("profDept").value = window.currentUser.department || "Mekanik Bakım";
       document.getElementById("profPhone").value = window.currentUser.phoneNumber || "";
+      document.getElementById("profPassword").value = "";
+
+      const roNotice = document.getElementById("profReadOnlyNotice");
+      if (roNotice) roNotice.classList.toggle("hidden", canEdit);
+
+      ["profUsername", "profDisplayName", "profDept", "profPhone", "profPassword"].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.disabled = !canEdit;
+          el.classList.toggle("bg-slate-100", !canEdit);
+          el.classList.toggle("text-slate-500", !canEdit);
+        }
+      });
+
+      const saveBtn = document.getElementById("saveProfileBtn");
+      if (saveBtn) saveBtn.classList.toggle("hidden", !canEdit);
+
+      const forceBtn = document.getElementById("selfForceLogoutAllBtn");
+      if (forceBtn) {
+        forceBtn.disabled = false;
+        forceBtn.classList.remove("hidden");
+      }
+
       document.getElementById("modalEditProfile").classList.remove("hidden");
+      lucide.createIcons();
     };
 
     window.toggleChatDrawer = function() {
       const drawer = document.getElementById("chatDrawer");
+      const isOpening = drawer.classList.contains("translate-x-full");
+      if (isOpening && !window.canUserViewChat(window.currentUser)) {
+        alert("⚠️ Saha sohbetini görüntüleme yetkiniz bulunmamaktadır.");
+        return;
+      }
       drawer.classList.toggle("translate-x-full");
+    };
+
+    // Tüm Aygıtlardan Zorunlu Çıkış Yapma Yardımcıları (Web + Mobil Anında Senkronize)
+    window.forceLogoutAllDevicesForTarget = async function(targetUid, targetEmail, targetUsername) {
+      const now = Date.now();
+      const cleanEmail = (targetEmail || "").trim().toLowerCase();
+      const cleanUser = (targetUsername || "").trim().toLowerCase();
+      const cleanUid = (targetUid || "").trim();
+      const cleanUidLower = cleanUid.toLowerCase();
+
+      const payload = {
+        forceLogoutAfterMillis: now,
+        isOnline: false,
+        updatedAtMillis: now,
+        updatedAt: serverTimestamp()
+      };
+
+      const promises = [];
+      if (cleanUid) {
+        promises.push(setDoc(doc(db, "users", cleanUid), payload, { merge: true }).catch(() => {}));
+      }
+
+      try {
+        const snap = await getDocs(collection(db, "users"));
+        snap.forEach(d => {
+          const dData = d.data() || {};
+          const dEmail = (dData.email || "").trim().toLowerCase();
+          const dUser = (dData.username || "").trim().toLowerCase();
+          const dUid = (dData.userId || "").trim().toLowerCase();
+          const dId = d.id.trim().toLowerCase();
+          const isMatch = (cleanUidLower && (dId === cleanUidLower || dUid === cleanUidLower)) ||
+                          (cleanEmail && (dEmail === cleanEmail || dEmail.replace(/\./g, "_") === cleanEmail.replace(/\./g, "_"))) ||
+                          (cleanUser && (dUser === cleanUser || dUser.replace(/\./g, "_") === cleanUser.replace(/\./g, "_")));
+          if (isMatch) {
+            promises.push(setDoc(doc(db, "users", d.id), payload, { merge: true }).catch(() => {}));
+          }
+        });
+      } catch (err) {
+        console.warn("forceLogoutAllDevicesForTarget tarama uyarısı:", err);
+      }
+
+      if (promises.length > 0) {
+        await Promise.all(promises);
+      }
+      return now;
+    };
+
+    window.adminForceLogoutTargetUser = async function() {
+      const docId = document.getElementById("editPermUserId")?.value;
+      if (!docId) return;
+      const targetUser = (window.allUsers || []).find(u => u.id === docId || u.userId === docId);
+      if (!targetUser) return;
+      if (window.isMasterUser(targetUser)) {
+        alert("Ana yönetici oturumu buradan sonlandırılamaz. Kendi profilinizden çıkış yapabilirsiniz.");
+        return;
+      }
+
+      const targetName = targetUser.displayName || targetUser.username || "Personel";
+      if (!confirm(`'${targetName}' kullanıcısının tüm telefon ve web tarayıcılarındaki açık oturumlarını kapatmak istiyor musunuz?`)) {
+        return;
+      }
+
+      const btn = document.getElementById("adminForceLogoutUserBtn");
+      if (btn) btn.disabled = true;
+      try {
+        const ts = await window.forceLogoutAllDevicesForTarget(targetUser.id || targetUser.userId, targetUser.email, targetUser.username);
+        targetUser.forceLogoutAfterMillis = ts;
+        targetUser.isOnline = false;
+        alert(`✅ '${targetName}' kullanıcısının tüm aygıtlardaki oturumları kapatıldı.`);
+      } catch (err) {
+        console.error("Yönetici tüm aygıtlardan çıkış hatası:", err);
+        alert("Oturum kapatma sırasında hata oluştu: " + (err?.message || err));
+      } finally {
+        if (btn) btn.disabled = false;
+      }
+    };
+
+    window.selfForceLogoutAllDevices = async function() {
+      if (!window.currentUser) return;
+      if (!confirm("Açık olan bu tarayıcı ve diğer tüm telefon/web oturumlarınız anında kapatılacaktır. Devam etmek istiyor musunuz?")) {
+        return;
+      }
+
+      const btn = document.getElementById("selfForceLogoutAllBtn");
+      const oldHtml = btn ? btn.innerHTML : "";
+      if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = `<span class="animate-spin mr-1">⏳</span> Tüm Aygıtlardan Çıkış Yapılıyor...`;
+      }
+
+      try {
+        await window.forceLogoutAllDevicesForTarget(
+          window.currentUser.userId || window.currentUser.id,
+          window.currentUser.email,
+          window.currentUser.username
+        );
+      } catch (err) {
+        console.warn("Self force logout Firestore notice:", err);
+      }
+
+      try {
+        await signOut(auth);
+      } catch (_) {}
+
+      localStorage.removeItem("tekinak_session");
+      sessionStorage.removeItem("tekinak_session");
+      window.currentUser = null;
+
+      ["modalEditProfile", "modalAppVersion", "modalEditPermissions", "modalAddUserAdmin"].forEach(id => {
+        const m = document.getElementById(id);
+        if (m) m.classList.add("hidden");
+      });
+
+      const topVerBtn = document.getElementById("topAppVersionBtn");
+      if (topVerBtn) {
+        topVerBtn.classList.add("hidden");
+        topVerBtn.classList.remove("inline-flex", "sm:inline-flex");
+        topVerBtn.style.display = "none";
+      }
+
+      document.getElementById("mainApp").classList.add("hidden");
+      document.getElementById("authContainer").classList.remove("hidden");
+      const pInput = document.getElementById("authPassword");
+      if (pInput) pInput.value = "";
+      showAuthSuccess("Tüm aygıtlardaki oturumlarınız başarıyla kapatıldı.");
+
+      if (btn) {
+        btn.disabled = false;
+        btn.innerHTML = oldHtml;
+      }
+      lucide.createIcons();
     };
 
     // Oturumu Kapat (Tüm oturum izlerini temizler ve Giriş Ekranına döner)
@@ -5227,16 +5964,37 @@
       }
     };
 
-    // Oturum Geçerliliği ve Anlık Engelleme/Silme Kontrolü (Web'de Oturum Açan Üyeyi Otomatik Atma)
+    // Oturum Geçerliliği ve Anlık Engelleme/Silme/Tüm Aygıtlardan Çıkış Kontrolü
     window.checkCurrentSessionValidity = function() {
       if (!window.currentUser) return;
 
       const currentEmail = (window.currentUser.email || "").trim().toLowerCase();
       const currentUsername = (window.currentUser.username || "").trim().toLowerCase();
       const currentUserId = (window.currentUser.userId || window.currentUser.id || "").trim();
+      const isMaster = window.isMasterUser(window.currentUser);
+
+      // Aktif kullanıcılar listesinde var mı ve durumu nedir?
+      const matchingUserInDb = (window.allUsers || []).find(u => {
+        const uEmail = (u.email || "").trim().toLowerCase();
+        const uUser = (u.username || "").trim().toLowerCase();
+        const uId = (u.userId || u.id || "").trim().toLowerCase();
+        return (currentUserId && uId === currentUserId.toLowerCase()) ||
+               (currentEmail && uEmail === currentEmail) ||
+               (currentUsername && uUser === currentUsername) ||
+               (currentUsername && uEmail.split('@')[0] === currentUsername) ||
+               (currentEmail && uUser === currentEmail.split('@')[0]);
+      });
+
+      // Tüm Aygıtlardan Çıkış Yap kontrolü (Ana yönetici dahil her hesap için geçerlidir)
+      const sessionLoginAt = Number(window.currentUser.loginAtMillis || 0);
+      if (matchingUserInDb && sessionLoginAt > 0 && Number(matchingUserInDb.forceLogoutAfterMillis || 0) > sessionLoginAt) {
+        console.warn("Tüm aygıtlardan çıkış sinyali alındı, oturum kapatılıyor:", currentEmail, currentUsername);
+        window.forceLogoutDueToStatus("forced", "Tüm aygıtlardan çıkış yapıldı. Güvenliğiniz için yeniden giriş yapınız.");
+        return;
+      }
 
       // Ana yönetici (Özay Kağan Uslu) asla engellenemez veya silinemez
-      if (currentEmail === "usluozaykagan@gmail.com" || currentUsername === "usluozaykagan") {
+      if (isMaster) {
         return;
       }
 
@@ -5267,18 +6025,6 @@
         return matchEmail || matchUser || matchId;
       });
 
-      // 2. Aktif kullanıcılar listesinde var mı ve durumu nedir?
-      const matchingUserInDb = (window.allUsers || []).find(u => {
-        const uEmail = (u.email || "").trim().toLowerCase();
-        const uUser = (u.username || "").trim().toLowerCase();
-        const uId = (u.userId || u.id || "").trim().toLowerCase();
-        return (currentUserId && uId === currentUserId.toLowerCase()) ||
-               (currentEmail && uEmail === currentEmail) ||
-               (currentUsername && uUser === currentUsername) ||
-               (currentUsername && uEmail.split('@')[0] === currentUsername) ||
-               (currentEmail && uUser === currentEmail.split('@')[0]);
-      });
-
       // Durum Kontrolü A: Hesap engellendiyse veya silindiyse
       if (isBlockedInList || (matchingUserInDb && (matchingUserInDb.isBlocked === true || matchingUserInDb.isDeleted === true))) {
         console.warn("Kullanıcı engellendi veya silindi, oturum anında kapatılıyor:", currentEmail, currentUsername);
@@ -5296,7 +6042,7 @@
       }
     };
 
-    // Zorunlu Oturum Kapatma (Engellenen/Silinen Üyeyi Anında Giriş Ekranına Fırlatma)
+    // Zorunlu Oturum Kapatma (Engellenen/Silinen/Çıkış Yaptırılan Üyeyi Anında Giriş Ekranına Fırlatma)
     window.forceLogoutDueToStatus = function(reason, message) {
       if (!window.currentUser && document.getElementById("mainApp").classList.contains("hidden")) {
         return;
@@ -5305,27 +6051,35 @@
       localStorage.removeItem("tekinak_session");
       sessionStorage.removeItem("tekinak_session");
       window.currentUser = null;
+      ["modalEditProfile", "modalAppVersion", "modalEditPermissions", "modalAddUserAdmin"].forEach(id => {
+        const m = document.getElementById(id);
+        if (m) m.classList.add("hidden");
+      });
       const topVerBtn = document.getElementById("topAppVersionBtn");
       if (topVerBtn) {
         topVerBtn.classList.add("hidden");
         topVerBtn.classList.remove("inline-flex", "sm:inline-flex");
         topVerBtn.style.display = "none";
       }
-      const modalVer = document.getElementById("modalAppVersion");
-      if (modalVer) modalVer.classList.add("hidden");
 
       document.getElementById("mainApp").classList.add("hidden");
       document.getElementById("authContainer").classList.remove("hidden");
       const pInput = document.getElementById("authPassword");
       if (pInput) pInput.value = "";
 
-      const defaultMsg = reason === "blocked"
-        ? "Hesabınız yönetici tarafından engellenmiştir. Sisteme giriş yetkiniz bulunmamaktadır."
-        : "Hesabınız yönetici tarafından sistemden silinmiştir. Oturumunuz sonlandırıldı.";
+      const defaultMsg = reason === "forced"
+        ? "Tüm aygıtlardan çıkış yapıldı. Güvenliğiniz için yeniden giriş yapınız."
+        : (reason === "blocked"
+            ? "Hesabınız yönetici tarafından engellenmiştir. Sisteme giriş yetkiniz bulunmamaktadır."
+            : "Hesabınız yönetici tarafından sistemden silinmiştir. Oturumunuz sonlandırıldı.");
 
       const finalMsg = message || defaultMsg;
-      showAuthError(finalMsg);
-      alert("⚠️ " + finalMsg);
+      if (reason === "forced") {
+        showAuthSuccess(finalMsg);
+      } else {
+        showAuthError(finalMsg);
+        alert("⚠️ " + finalMsg);
+      }
       lucide.createIcons();
     };
 
@@ -5347,7 +6101,10 @@
         try {
           const user = JSON.parse(savedSession);
           if (user && (user.email || user.username)) {
-            const isMaster = user.email === "usluozaykagan@gmail.com" || user.username === "usluozaykagan";
+            if (!user.loginAtMillis) {
+              user.loginAtMillis = Date.now();
+            }
+            const isMaster = window.isMasterUser(user);
             if (!isMaster) {
               const uEmail = (user.email || "").trim().toLowerCase();
               const uName = (user.username || "").trim().toLowerCase();
@@ -5380,7 +6137,7 @@
             updateTopBarUser(user);
             document.getElementById("authContainer").classList.add("hidden");
             document.getElementById("mainApp").classList.remove("hidden");
-            refreshDashboard();
+            window.switchToFirstAllowedTab();
             lucide.createIcons();
             return;
           }

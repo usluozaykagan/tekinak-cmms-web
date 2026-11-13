@@ -1,15 +1,15 @@
 {
-  "versionCode": 7,
-  "versionName": "1.2.5",
-  "releaseTag": "v1.2.5",
+  "versionCode": 8,
+  "versionName": "1.3.0",
+  "releaseTag": "v1.3.0",
   "releaseDate": "2026-11-13",
   "apkUrl": "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
   "fallbackUrl": "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-  "title": "Yeni Sürüm Mevcut (v1.2.5)",
+  "title": "Yeni Sürüm Mevcut (v1.3.0)",
   "changelog": [
-    "Web portalında arıza ve iş emri Çözüldü Yap / Tekrar Aç butonları tüm tarayıcılarda çalışacak şekilde yenilendi.",
-    "Web ve mobil uygulama arasında Firestore belge kimlik senkronizasyonu iyileştirildi.",
-    "Web ve mobil tarafında otomatik sürüm güncelleme bildirimi ve kullanıcı görünürlüğü geliştirildi."
+    "Genel Bakış sekmesi eklendi; yeni kullanıcılar ilk yetkide sadece Genel Bakış görme yetkisiyle başlar.",
+    "Tüm sekmelerde Görme ve Düzenleme yetkileri ayrıldı, yönetici tüm yetkileri kapatabilir.",
+    "Profil düzenleme ekranına 'Tüm Aygıtlardan Çıkış Yap' butonu ve gelişmiş kullanıcı yetki senkronizasyonu eklendi."
   ],
   "forceUpdate": false
 }
