@@ -175,9 +175,9 @@
         </form>
 
         <div class="pt-3 text-center border-t border-slate-100 flex flex-col items-center justify-center gap-2">
-          <a href="app-release.apk?v=8" id="loginApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold rounded-lg border border-emerald-300 transition shadow-sm">
+          <a href="app-release.apk?v=9" id="loginApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold rounded-lg border border-emerald-300 transition shadow-sm">
             <i data-lucide="smartphone" class="w-3.5 h-3.5 text-emerald-600"></i>
-            <span id="loginApkBtnText">Android APK İndir (v1.3.0)</span>
+            <span id="loginApkBtnText">Android APK İndir (v1.3.1)</span>
           </a>
           <div class="text-[11px] text-slate-400 flex items-center justify-center gap-1.5">
             <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600"></i>
@@ -228,19 +228,19 @@
         </div>
 
         <!-- Android APK İndir Butonu (Tüm Kullanıcılar Görür) -->
-        <a href="app-release.apk?v=8" id="topApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-700/60 hover:bg-blue-600 text-white border border-blue-400/40 transition shadow-sm" title="Android Mobil APK İndir">
+        <a href="app-release.apk?v=9" id="topApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-700/60 hover:bg-blue-600 text-white border border-blue-400/40 transition shadow-sm" title="Android Mobil APK İndir">
           <i data-lucide="download" class="w-3.5 h-3.5 text-amber-300"></i>
-          <span id="topApkBtnText">APK İndir (v1.3.0)</span>
+          <span id="topApkBtnText">APK İndir (v1.3.1)</span>
         </a>
 
         <!-- Mobil Sürüm Yönetimi Butonu (Sadece usluozaykagan@gmail.com için görünür) -->
         <button id="topAppVersionBtn" onclick="openAppVersionModal()" style="display: none;" class="hidden items-center space-x-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-600/70 hover:bg-emerald-600 text-white border border-emerald-400/40 transition shadow-sm" title="Firebase Mobil Sürüm Kontrolü ve Güncelleme">
           <i data-lucide="smartphone" class="w-3.5 h-3.5 text-amber-300"></i>
-          <span id="topVersionBadgeText">Sürüm: v1.3.0</span>
+          <span id="topVersionBadgeText">Sürüm: v1.3.1</span>
         </button>
 
         <!-- Bildirim Sihirbazı Butonu -->
-        <button onclick="openNotificationWizard()" class="p-2 hover:bg-blue-800 text-amber-300 rounded-xl transition relative" title="Yüksek Öncelikli Bildirim Ayarı">
+        <button id="topNotifBtn" onclick="openNotificationWizard()" class="p-2 hover:bg-blue-800 text-amber-300 rounded-xl transition relative" title="Yüksek Öncelikli Bildirim Ayarı">
           <i data-lucide="bell-ring" class="w-5 h-5"></i>
         </button>
 
@@ -258,7 +258,7 @@
     </div>
 
     <!-- TAB NAVİGASYON ÇUBUĞU (Android AppTab İle Birebir) -->
-    <nav class="bg-[#172554] border-t border-blue-900/80 overflow-x-auto hide-scrollbar">
+    <nav id="mainNavBar" class="bg-[#172554] border-t border-blue-900/80 overflow-x-auto hide-scrollbar">
       <div class="max-w-7xl mx-auto px-4 flex space-x-1">
         <button onclick="switchTab('dashboard')" id="nav-dashboard" class="nav-btn px-3.5 py-2.5 text-xs font-bold border-b-2 border-amber-400 text-amber-400 flex items-center gap-1.5 whitespace-nowrap">
           <i data-lucide="layout-dashboard" class="w-4 h-4"></i> Genel Bakış
@@ -300,11 +300,11 @@
         </span>
         <div>
           <div class="flex flex-wrap items-center gap-1.5 font-extrabold text-blue-950">
-            <span id="webUpdateBannerTitle">🚀 Yeni Mobil Sürüm Yayında: Tekinak CMMS v1.3.0</span>
-            <span id="webUpdateBannerCodeBadge" class="px-1.5 py-0.5 rounded bg-emerald-600 text-white text-[10px] font-bold">v1.3.0 (Kod: 8)</span>
+            <span id="webUpdateBannerTitle">🚀 Yeni Mobil Sürüm Yayında: Tekinak CMMS v1.3.1</span>
+            <span id="webUpdateBannerCodeBadge" class="px-1.5 py-0.5 rounded bg-emerald-600 text-white text-[10px] font-bold">v1.3.1 (Kod: 9)</span>
           </div>
           <div id="webUpdateBannerSummary" class="text-[11px] text-slate-600 mt-0.5">
-            Genel Bakış sekmesi, ayrı Görme/Düzenleme yetkileri ve Tüm Aygıtlardan Çıkış Yap özelliği yayınlandı.
+            Yeni kayıt olanlara sıfır varsayılan yetki ve yalnızca bulut tabanlı şifre senkronizasyonu yayınlandı.
           </div>
         </div>
       </div>
@@ -312,9 +312,9 @@
         <button type="button" onclick="toggleWebUpdateChangelog()" class="px-2.5 py-1.5 bg-white hover:bg-slate-100 text-blue-800 border border-blue-200 rounded-lg font-bold text-[11px] transition">
           Yenilikler
         </button>
-        <a id="webUpdateBannerDownloadBtn" href="app-release.apk?v=8" download="tekinak-bakim.apk" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold text-[11px] shadow-sm flex items-center gap-1.5 transition">
+        <a id="webUpdateBannerDownloadBtn" href="app-release.apk?v=9" download="tekinak-bakim.apk" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold text-[11px] shadow-sm flex items-center gap-1.5 transition">
           <i data-lucide="download" class="w-3.5 h-3.5"></i>
-          <span id="webUpdateBannerDownloadText">APK İndir (v1.3.0)</span>
+          <span id="webUpdateBannerDownloadText">APK İndir (v1.3.1)</span>
         </a>
         <button type="button" onclick="dismissWebUpdateBanner()" class="p-1 text-slate-400 hover:text-slate-700 rounded-lg" title="Bu sürüm için gizle">
           <i data-lucide="x" class="w-4 h-4"></i>
@@ -350,14 +350,19 @@
 
     <!-- BOŞ DURUM: HİÇBİR SEKME YETKİSİ YOKSA -->
     <section id="pane-no-permissions" class="tab-pane hidden">
-      <div class="bg-white rounded-2xl border border-slate-200 custom-shadow p-8 max-w-lg mx-auto my-8 text-center space-y-3">
+      <div class="bg-white rounded-2xl border border-slate-200 custom-shadow p-8 max-w-lg mx-auto my-8 text-center space-y-4">
         <div class="w-14 h-14 mx-auto rounded-2xl bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-600">
           <i data-lucide="shield-off" class="w-7 h-7"></i>
         </div>
-        <h3 class="text-base font-black text-slate-800">Henüz Yetkilendirilmiş Sekme Yok</h3>
+        <h3 class="text-base font-black text-slate-800">Henüz Hiçbir Yetkiniz Tanımlanmamış</h3>
         <p class="text-xs text-slate-500 leading-relaxed">
-          Hesabınız için tanımlı görüntülenecek bir sekme yetkisi bulunmuyor. Sekme ve düzenleme yetkileri için sistem yöneticinizle iletişime geçiniz.
+          Hesabınız oluşturuldu ancak sistem yöneticiniz tarafından henüz hiçbir sekme veya işlem yetkisi verilmedi. Yetki tanımlandığında sistem içeriği otomatik olarak açılacaktır.
         </p>
+        <div class="pt-1">
+          <button onclick="handleLogout()" class="px-4 py-2 bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5">
+            <i data-lucide="log-out" class="w-3.5 h-3.5"></i> Çıkış Yap
+          </button>
+        </div>
       </div>
     </section>
 
@@ -932,7 +937,7 @@
         <div class="p-2.5 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-between text-[11px] text-slate-600">
           <div class="flex items-center gap-1.5 font-semibold text-slate-700">
             <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600"></i>
-            <span>Sistem Sürümü: v1.3.0</span>
+            <span>Sistem Sürümü: v1.3.1</span>
           </div>
           <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-300">Güncel ✓</span>
         </div>
@@ -1221,12 +1226,12 @@
           <input type="tel" id="adminNewPhone" placeholder="05XX XXX XX XX" class="w-full border rounded-lg p-2.5 outline-none focus:ring-2 focus:ring-[#1E3A8A]">
         </div>
 
-        <!-- Sekme Bazlı Görme & Düzenleme Yetkileri (İlk Kurulumda Yalnızca Genel Bakış Görünür) -->
+        <!-- Sekme Bazlı Görme & Düzenleme Yetkileri (İlk Kurulumda Hiçbir Yetki Açık Değildir) -->
         <div class="bg-indigo-50/70 p-3 rounded-xl border border-indigo-200 space-y-2.5">
           <div class="flex flex-wrap items-center justify-between gap-2">
             <div>
               <label class="block font-bold text-indigo-950 text-[11px]">Sekme Bazlı Görme & Düzenleme Yetkileri</label>
-              <div class="text-[10px] text-indigo-700">İlk kurulumda sadece Genel Bakış görüntüleme açıktır. İstenirse tüm yetkiler kapatılabilir.</div>
+              <div class="text-[10px] text-indigo-700">Yeni eklenen kullanıcılarda varsayılan olarak tüm yetkiler kapalıdır.</div>
             </div>
             <div class="flex items-center gap-1.5">
               <button type="button" onclick="applyTabMatrixPreset('adminNew', 'DASHBOARD_ONLY')" class="px-2 py-1 bg-white hover:bg-indigo-100 text-indigo-900 border border-indigo-300 rounded-lg text-[10px] font-bold transition">Sadece Genel Bakış</button>
@@ -1242,7 +1247,7 @@
             </div>
             <div class="grid grid-cols-12 items-center px-3 py-2 text-[11px]">
               <span class="col-span-6 font-semibold text-slate-700">🏠 Genel Bakış</span>
-              <label class="col-span-3 flex justify-center cursor-pointer"><input type="checkbox" id="adminNewTabViewDash" checked onchange="onTabViewToggle('adminNew', 'Dash')" class="w-4 h-4 rounded text-[#1E3A8A]"></label>
+              <label class="col-span-3 flex justify-center cursor-pointer"><input type="checkbox" id="adminNewTabViewDash" onchange="onTabViewToggle('adminNew', 'Dash')" class="w-4 h-4 rounded text-[#1E3A8A]"></label>
               <label class="col-span-3 flex justify-center cursor-pointer"><input type="checkbox" id="adminNewTabEditDash" onchange="onTabEditToggle('adminNew', 'Dash')" class="w-4 h-4 rounded text-amber-600"></label>
             </div>
             <div class="grid grid-cols-12 items-center px-3 py-2 text-[11px]">
@@ -1285,7 +1290,7 @@
             <span>📅 Periyodik Bakım Planlarını Düzenleyebilir</span>
           </label>
           <label class="flex items-center gap-2 text-slate-700 cursor-pointer">
-            <input type="checkbox" id="adminPermChatView" checked class="w-4 h-4 rounded text-[#1E3A8A]">
+            <input type="checkbox" id="adminPermChatView" class="w-4 h-4 rounded text-[#1E3A8A]">
             <span>💬 Saha Sohbetini Görüntüleyebilir</span>
           </label>
           <label class="flex items-center gap-2 text-slate-700 cursor-pointer">
@@ -1537,8 +1542,8 @@
         <div>
           <div class="text-[11px] font-bold text-emerald-800 uppercase tracking-wider">Aktif Firebase Sürümü</div>
           <div class="text-sm font-extrabold text-emerald-950 flex items-center gap-2" id="verModalCurrentBadge">
-            <span id="verModalVersionName">v1.3.0</span>
-            <span id="verModalVersionCode" class="text-xs px-2 py-0.5 bg-emerald-200 text-emerald-800 rounded-md font-semibold">Kod: 8</span>
+            <span id="verModalVersionName">v1.3.1</span>
+            <span id="verModalVersionCode" class="text-xs px-2 py-0.5 bg-emerald-200 text-emerald-800 rounded-md font-semibold">Kod: 9</span>
           </div>
         </div>
         <div class="text-right text-[11px] text-emerald-700">
@@ -1551,18 +1556,18 @@
         <div class="grid grid-cols-2 gap-3">
           <div>
             <label class="block font-semibold text-slate-700 mb-1">Yeni Sürüm Kodu (Build Code) *</label>
-            <input type="number" id="verFormCode" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 4" min="1">
+            <input type="number" id="verFormCode" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 9" min="1">
             <span class="text-[10px] text-slate-400">Yeni sürüm için kod mevcut koddan büyük olmalıdır</span>
           </div>
           <div>
             <label class="block font-semibold text-slate-700 mb-1">Yeni Sürüm Adı (Version Name) *</label>
-            <input type="text" id="verFormName" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 1.3.0">
+            <input type="text" id="verFormName" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 1.3.1">
           </div>
         </div>
 
         <div>
           <label class="block font-semibold text-slate-700 mb-1">Güncelleme Bildirim Başlığı *</label>
-          <input type="text" id="verFormTitle" required class="w-full px-3 py-2 border rounded-xl text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: Yeni Sürüm Yayınlandı (v1.3.0)">
+          <input type="text" id="verFormTitle" required class="w-full px-3 py-2 border rounded-xl text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: Yeni Sürüm Yayınlandı (v1.3.1)">
         </div>
 
         <div>
@@ -1581,9 +1586,9 @@
         </div>
 
         <div class="flex items-center justify-between gap-2 pt-2 border-t">
-          <button type="button" onclick="syncWithDeployedApk()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs rounded-xl font-bold border border-slate-300 flex items-center gap-1.5" title="Firebase'i şu an dağıtılan v1.3.0 (Kod: 8) APK ile eşitler ve güncellenen telefonlardaki popup'ı kapatır">
+          <button type="button" onclick="syncWithDeployedApk()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs rounded-xl font-bold border border-slate-300 flex items-center gap-1.5" title="Firebase'i şu an dağıtılan v1.3.1 (Kod: 9) APK ile eşitler ve güncellenen telefonlardaki popup'ı kapatır">
             <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-blue-600"></i>
-            <span>Mevcut APK ile Eşitle (v1.3.0 - Kod: 8)</span>
+            <span>Mevcut APK ile Eşitle (v1.3.1 - Kod: 9)</span>
           </button>
           <div class="flex gap-2">
             <button type="button" onclick="closeModal('modalAppVersion')" class="px-4 py-2 border rounded-xl font-semibold text-slate-600 hover:bg-slate-50">Kapat</button>
@@ -1656,6 +1661,7 @@
       getFirestore, 
       collection, 
       getDocs,
+      getDocsFromServer,
       getDoc,
       onSnapshot, 
       addDoc, 
@@ -1728,14 +1734,7 @@
         return ["dashboard", "fault_reports", "work_orders", "schedule", "analytics", "members", "team"];
       }
       const raw = Array.isArray(u.allowedTabs) ? u.allowedTabs : [];
-      const clean = [...new Set(raw.filter(t => typeof t === "string" && t.length > 0 && t !== "team"))];
-      if (u.hasExplicitPermissions === true) {
-        return clean;
-      }
-      if (clean.length > 0) {
-        return clean;
-      }
-      return ["dashboard"];
+      return [...new Set(raw.filter(t => typeof t === "string" && t.length > 0 && t !== "team"))];
     };
 
     window.getUserEditableTabs = function(u) {
@@ -1804,7 +1803,7 @@
 
     window.canUserViewChat = function(u = window.currentUser) {
       if (!u) return false;
-      return window.isMasterUser(u) || u.canViewChat !== false;
+      return window.isMasterUser(u) || u.canViewChat === true;
     };
 
     window.canUserSendChat = function(u = window.currentUser) {
@@ -1825,6 +1824,50 @@
     window.canUserEditProfile = function(u = window.currentUser) {
       if (!u) return false;
       return window.isMasterUser(u) || u.canEditProfile === true;
+    };
+
+    // Güvenli Oturum Yardımcıları (Yerel tarayıcı hafızasında ASLA şifre saklanmaz!)
+    window.buildSessionPayload = function(userObj) {
+      if (!userObj || typeof userObj !== "object") return null;
+      const clean = { ...userObj };
+      delete clean.password;
+      return clean;
+    };
+
+    window.saveSafeSession = function(userObj, preferLocal = null) {
+      const clean = window.buildSessionPayload(userObj);
+      if (!clean) return;
+      try { localStorage.removeItem("tekinak_saved_password"); } catch (_) {}
+      const serialized = JSON.stringify(clean);
+      if (preferLocal === true) {
+        localStorage.setItem("tekinak_session", serialized);
+        sessionStorage.removeItem("tekinak_session");
+      } else if (preferLocal === false) {
+        sessionStorage.setItem("tekinak_session", serialized);
+        localStorage.removeItem("tekinak_session");
+      } else {
+        if (localStorage.getItem("tekinak_session") !== null) {
+          localStorage.setItem("tekinak_session", serialized);
+        } else {
+          sessionStorage.setItem("tekinak_session", serialized);
+        }
+      }
+    };
+
+    window.scrubStoredPasswords = function() {
+      try { localStorage.removeItem("tekinak_saved_password"); } catch (_) {}
+      [localStorage, sessionStorage].forEach(store => {
+        try {
+          const raw = store.getItem("tekinak_session");
+          if (raw) {
+            const parsed = JSON.parse(raw);
+            if (parsed && typeof parsed === "object" && Object.prototype.hasOwnProperty.call(parsed, "password")) {
+              delete parsed.password;
+              store.setItem("tekinak_session", JSON.stringify(parsed));
+            }
+          }
+        } catch (_) {}
+      });
     };
 
     window.updatePermMatrixSummary = function(prefix) {
@@ -1959,6 +2002,14 @@
           else el.classList.add("hidden");
         }
       };
+
+      const hasAnyTab = isMaster || window.getUserAllowedTabs(u).length > 0;
+      const mainNavBar = document.getElementById("mainNavBar");
+      if (mainNavBar) mainNavBar.classList.toggle("hidden", !hasAnyTab);
+      const notifBanner = document.getElementById("notificationAlertBanner");
+      if (notifBanner) notifBanner.classList.toggle("hidden", !hasAnyTab);
+      const topNotifBtn = document.getElementById("topNotifBtn");
+      if (topNotifBtn) topNotifBtn.classList.toggle("hidden", !hasAnyTab);
 
       setTabVisibility("nav-dashboard", window.canUserViewTab("dashboard", u));
       setTabVisibility("nav-faults", window.canUserViewTab("fault_reports", u));
@@ -2123,18 +2174,16 @@
 
     // Başarılı Giriş Sonrası Ortak Oturum Başlatıcı
     function completeSuccessfulLogin(authenticatedUser, rememberMe, identifier, isFallback = false) {
-      if (!authenticatedUser.loginAtMillis) {
-        authenticatedUser.loginAtMillis = Date.now();
+      const safeUser = window.buildSessionPayload(authenticatedUser) || {};
+      if (!safeUser.loginAtMillis) {
+        safeUser.loginAtMillis = Date.now();
       }
-      window.currentUser = authenticatedUser;
-      updateTopBarUser(authenticatedUser);
+      window.currentUser = safeUser;
+      updateTopBarUser(safeUser);
 
-      if (rememberMe) {
-        localStorage.setItem("tekinak_session", JSON.stringify(authenticatedUser));
-        if (identifier) localStorage.setItem("tekinak_saved_username", identifier);
-      } else {
-        sessionStorage.setItem("tekinak_session", JSON.stringify(authenticatedUser));
-        localStorage.removeItem("tekinak_session");
+      window.saveSafeSession(safeUser, !!rememberMe);
+      if (rememberMe && identifier) {
+        localStorage.setItem("tekinak_saved_username", identifier);
       }
 
       // Giriş ekranını gizle, ana paneli göster
@@ -2160,7 +2209,7 @@
       }
     }
 
-    // Giriş Doğrulama Motoru (Doğrudan ve Hızlı Firestore + Arka Plan Firebase Auth)
+    // Giriş Doğrulama Motoru (Yalnızca Bulut Sunucusundan Canlı Doğrulama - Yerel Şifre Yok)
     async function executeLogin(identifier, password, rememberMe) {
       const btn = document.getElementById("authLoginSubmitBtn");
       const btnText = document.getElementById("authLoginBtnText");
@@ -2170,146 +2219,196 @@
       }
 
       if (btn) btn.disabled = true;
-      if (btnText) btnText.innerText = "Doğrulanıyor...";
+      if (btnText) btnText.innerText = "Buluttan Doğrulanıyor...";
 
       try {
         const cleanId = identifier.trim();
+        const cleanIdLower = cleanId.toLowerCase();
         const cleanPass = password.trim();
 
-        // E-posta ve kullanıcı adı çözümleme
+        // 1. ADIM: Sunucudan DOĞRUDAN canlı users + blocked_accounts verilerini çek (önbellek kullanılmaz!)
+        let freshRawList = [];
+        try {
+          const snap = await getDocsFromServer(collection(db, "users"));
+          snap.forEach(d => freshRawList.push({ id: d.id, ...d.data() }));
+        } catch (serverErr) {
+          console.error("Bulut sunucu bağlantı hatası:", serverErr);
+          showAuthError("Bulut sunucusuna bağlanılamadı. İnternet bağlantınızı kontrol edip tekrar deneyiniz.");
+          return;
+        }
+
+        let blockedRawList = [];
+        try {
+          const bSnap = await getDocsFromServer(collection(db, "blocked_accounts"));
+          bSnap.forEach(d => blockedRawList.push({ id: d.id, ...d.data() }));
+        } catch (_) {}
+
+        window.allUsers = deduplicateUsers(freshRawList);
+
+        // E-posta ve kullanıcı adı çözümleme (canlı sunucu kayıtlarından)
         let emailToAuth = cleanId;
         if (!cleanId.includes("@")) {
-          const matchedInDb = (window.allUsers || []).find(u => u.username && u.username.toLowerCase() === cleanId.toLowerCase());
+          const matchedInDb = freshRawList.find(u => u.username && u.username.trim().toLowerCase() === cleanIdLower)
+            || (window.allUsers || []).find(u => u.username && u.username.trim().toLowerCase() === cleanIdLower);
           if (matchedInDb && matchedInDb.email) {
             emailToAuth = matchedInDb.email.trim();
           } else {
-            emailToAuth = cleanId.toLowerCase() + "@tekinakgida.com";
+            emailToAuth = cleanIdLower + "@tekinakgida.com";
           }
         }
+        const emailLower = emailToAuth.trim().toLowerCase();
+        const isMaster = emailLower === "usluozaykagan@gmail.com" || cleanIdLower === "usluozaykagan";
 
-        const isMaster = emailToAuth.toLowerCase() === "usluozaykagan@gmail.com" || cleanId.toLowerCase() === "usluozaykagan";
-
-        // 1. ADIM: Firestore'dan güncel kullanıcı verilerini CANLI çek (Tek kaynak doğrulama)
-        let freshRawList = [];
-        try {
-          const snap = await getDocs(collection(db, "users"));
-          snap.forEach(d => freshRawList.push({ id: d.id, ...d.data() }));
-          window.allUsers = deduplicateUsers(freshRawList);
-        } catch (e) {
-          console.warn("Firestore users canlı çekme:", e);
+        function parseMillisAny(v) {
+          if (!v) return 0;
+          if (typeof v === 'number') return v;
+          if (typeof v.toMillis === 'function') return v.toMillis();
+          if (typeof v.toDate === 'function') return v.toDate().getTime();
+          if (typeof v.seconds === 'number') return v.seconds * 1000;
+          if (v instanceof Date) return v.getTime();
+          if (typeof v === 'string') {
+            const parsed = Date.parse(v);
+            if (!isNaN(parsed)) return parsed;
+          }
+          return 0;
         }
 
         function getDocTime(d) {
           if (!d) return 0;
-          const u = d.updatedAt || d.createdAt;
-          if (!u) return d.lastActiveMillis || 0;
-          if (typeof u === 'number') return u;
-          if (typeof u.toMillis === 'function') return u.toMillis();
-          if (typeof u.toDate === 'function') return u.toDate().getTime();
-          if (u.seconds) return u.seconds * 1000;
-          if (u instanceof Date) return u.getTime();
-          if (typeof u === 'string') {
-            const parsed = Date.parse(u);
-            if (!isNaN(parsed)) return parsed;
-          }
-          return d.lastActiveMillis || 0;
+          if (typeof d.updatedAtMillis === 'number' && d.updatedAtMillis > 0) return d.updatedAtMillis;
+          const uMs = parseMillisAny(d.updatedAt);
+          if (uMs > 0) return uMs;
+          const cMs = parseMillisAny(d.createdAt);
+          if (cMs > 0) return cMs;
+          if (typeof d.createdAtMillis === 'number' && d.createdAtMillis > 0) return d.createdAtMillis;
+          return 0;
         }
 
-        // Bu kullanıcıya ait tüm Firestore kayıtlarını bul ve son güncelleme tarihine göre sırala
-        const matchingDocs = (freshRawList.length > 0 ? freshRawList : (window.allUsers || [])).filter(u => {
+        function getPasswordAuthorityTime(d) {
+          if (!d) return 0;
+          if (typeof d.passwordUpdatedAtMillis === 'number' && d.passwordUpdatedAtMillis > 0) return d.passwordUpdatedAtMillis;
+          return getDocTime(d);
+        }
+
+        // İlk eşleşen kayıtları bul, sonra keşfedilen tüm e-posta/kullanıcı adlarıyla genişlet
+        const seedDocs = freshRawList.filter(u => {
           const uEmail = (u.email || "").trim().toLowerCase();
           const uName = (u.username || "").trim().toLowerCase();
-          const uId = (u.userId || u.id || "").trim();
-          return (uEmail && uEmail === emailToAuth.toLowerCase()) ||
-                 (uName && uName === cleanId.toLowerCase()) ||
-                 (isMaster && (u.id === "admin_uslu" || u.id === "master_admin" || u.id === "admin_master_1")) ||
-                 (uId && uId === cleanId);
-        }).sort((a, b) => getDocTime(b) - getDocTime(a));
-
-        // Kullanıcının kayıtları arasında telefondan veya webden belirlenmiş yeni/özel şifre var mı?
-        const customDoc = matchingDocs.find(d => {
-          const p = (d.password || "").trim();
-          return p && p !== "tekinak123" && p !== "123456" && p !== "admin";
+          const uUid = (u.userId || "").trim().toLowerCase();
+          const docId = (u.id || "").trim().toLowerCase();
+          return (uEmail && uEmail === emailLower) ||
+                 (uName && (uName === cleanIdLower || uName.replace(/\./g, "_") === cleanIdLower.replace(/\./g, "_"))) ||
+                 (isMaster && (docId === "admin_uslu" || docId === "master_admin" || docId === "admin_master_1")) ||
+                 (uUid && uUid === cleanIdLower) ||
+                 (docId === cleanIdLower);
         });
 
-        // Yetkili Şifre: Eğer telefondan veya webden yeni bir şifre girildiyse o şifre KESİNLİKLE geçerlidir!
-        let authoritativePass = null;
-        if (customDoc) {
-          authoritativePass = (customDoc.password || "").trim();
-        } else if (matchingDocs.length > 0) {
-          for (const docItem of matchingDocs) {
-            const p = (docItem.password || "").trim();
-            if (p) {
-              authoritativePass = p;
-              break;
-            }
+        const discoveredEmails = new Set(seedDocs.map(d => (d.email || "").trim().toLowerCase()).filter(Boolean));
+        if (emailLower) discoveredEmails.add(emailLower);
+        const discoveredUsernames = new Set(seedDocs.map(d => (d.username || "").trim().toLowerCase()).filter(Boolean));
+        if (cleanIdLower && !cleanIdLower.includes("@")) discoveredUsernames.add(cleanIdLower);
+
+        const matchingDocs = freshRawList.filter(u => {
+          const uEmail = (u.email || "").trim().toLowerCase();
+          const uName = (u.username || "").trim().toLowerCase();
+          const uUid = (u.userId || "").trim().toLowerCase();
+          const docId = (u.id || "").trim().toLowerCase();
+          return (uEmail && discoveredEmails.has(uEmail)) ||
+                 (uName && discoveredUsernames.has(uName)) ||
+                 (isMaster && (docId === "admin_uslu" || docId === "master_admin" || docId === "admin_master_1")) ||
+                 (uUid && uUid === cleanIdLower) ||
+                 (docId === cleanIdLower);
+        }).sort((a, b) => {
+          const passTimeDiff = getPasswordAuthorityTime(b) - getPasswordAuthorityTime(a);
+          if (passTimeDiff !== 0) return passTimeDiff;
+          return getDocTime(b) - getDocTime(a);
+        });
+
+        // Engelleme / Silme kontrolü (Master admin hariç)
+        if (!isMaster) {
+          const isBlocked = blockedRawList.some(b => {
+            const bEmail = (b.email || "").trim().toLowerCase();
+            const bUser = (b.username || "").trim().toLowerCase();
+            const bId = (b.id || "").trim().toLowerCase();
+            const bUid = (b.userId || "").trim().toLowerCase();
+            return (bEmail && discoveredEmails.has(bEmail)) ||
+                   (bUser && discoveredUsernames.has(bUser)) ||
+                   discoveredEmails.has(bId) ||
+                   discoveredUsernames.has(bId) ||
+                   (bUid && bUid === cleanIdLower);
+          });
+          if (isBlocked) {
+            showAuthError("Bu kullanıcı hesabı engellenmiştir veya silinmiştir. Giriş yetkiniz bulunmamaktadır.");
+            return;
           }
         }
 
-        // 2. ADIM: Katı Şifre Doğrulama (Telefonda şifre değiştiyse eski tekinak123 KESİNLİKLE reddedilir)
+        if (matchingDocs.length === 0 && !isMaster) {
+          showAuthError("Bu kullanıcı adı veya e-posta ile kayıtlı hesap bulunamadı.");
+          return;
+        }
+
+        // En yeni şifre güncelleme zamanına sahip belgeden yetkili bulut şifresini al
+        const topPassDoc = matchingDocs.find(d => (d.password || "").trim().length > 0);
+        const authoritativePass = topPassDoc ? (topPassDoc.password || "").trim() : "";
+        const authoritativePassTs = topPassDoc ? getPasswordAuthorityTime(topPassDoc) : 0;
+
+        // 2. ADIM: Yalnızca buluttaki yetkili şifre ile katı doğrulama
         let isPassValid = false;
         if (authoritativePass) {
           isPassValid = (cleanPass === authoritativePass);
-        } else {
-          // Henüz veritabanında hiç şifre alanı kaydedilmemişse ilk kurulum için varsayılan kontrol
-          isPassValid = isMaster ? (cleanPass === "tekinak123") : (cleanPass === "123456");
+        } else if (isMaster && freshRawList.length === 0) {
+          // Yalnızca veritabanı tamamen boşsa ilk kurulum için master girişine izin ver
+          isPassValid = (cleanPass === "tekinak123");
         }
 
         if (!isPassValid) {
           showAuthError("Hatalı kullanıcı adı veya şifre!");
-          if (btn) btn.disabled = false;
-          if (btnText) btnText.innerText = "Giriş Yap";
           return;
         }
 
-        // Başarılı girişte Firestore üzerindeki TÜM kopyaları (admin_uslu, master_admin vb.) bu şifreyle senkronize et
+        // Başarılı girişte eski şifreye sahip kopya dokümanları tek yetkili bulut şifresine eşitle
+        const nowSyncMillis = Date.now();
         try {
           const syncPromises = [];
           for (const d of matchingDocs) {
             if ((d.password || "").trim() !== cleanPass) {
-              syncPromises.push(setDoc(doc(db, "users", d.id), { password: cleanPass, updatedAt: serverTimestamp() }, { merge: true }));
+              syncPromises.push(setDoc(doc(db, "users", d.id), {
+                password: cleanPass,
+                passwordUpdatedAtMillis: authoritativePassTs || nowSyncMillis,
+                updatedAtMillis: nowSyncMillis,
+                updatedAt: serverTimestamp()
+              }, { merge: true }));
             }
           }
-          if (isMaster) {
-            syncPromises.push(setDoc(doc(db, "users", "admin_uslu"), { password: cleanPass, updatedAt: serverTimestamp() }, { merge: true }));
-            syncPromises.push(setDoc(doc(db, "users", "master_admin"), { password: cleanPass, updatedAt: serverTimestamp() }, { merge: true }));
-          }
           if (syncPromises.length > 0) {
-            Promise.all(syncPromises).catch(() => {});
+            await Promise.all(syncPromises.map(p => p.catch(() => {})));
           }
         } catch (_) {}
 
-        let dbUser = matchingDocs[0] || (window.allUsers || []).find(u => 
-          (u.email && u.email.toLowerCase() === emailToAuth.toLowerCase()) || 
-          (u.username && u.username.toLowerCase() === cleanId.toLowerCase())
-        );
+        const resolvedUser = (window.allUsers || []).find(u => {
+          const uEmail = (u.email || "").trim().toLowerCase();
+          const uName = (u.username || "").trim().toLowerCase();
+          return (uEmail && discoveredEmails.has(uEmail)) || (uName && discoveredUsernames.has(uName));
+        }) || matchingDocs[0];
 
-        if (dbUser) {
-          if (dbUser.isBlocked) {
+        if (resolvedUser && !isMaster) {
+          if (resolvedUser.isBlocked) {
             showAuthError("Bu kullanıcı hesabı engellenmiştir. Giriş yetkiniz bulunmamaktadır.");
-            if (btn) btn.disabled = false;
-            if (btnText) btnText.innerText = "Giriş Yap";
             return;
           }
-          if (dbUser.isDeleted) {
+          if (resolvedUser.isDeleted) {
             showAuthError("Bu kullanıcı hesabı sistemden silinmiştir.");
-            if (btn) btn.disabled = false;
-            if (btnText) btnText.innerText = "Giriş Yap";
             return;
           }
         }
 
-        // 3. ADIM: Oturumu ANINDA Başlat (Kullanıcı asla Firebase Auth hatasıyla beklemez/kilitlenmez)
-        const resolvedUser = !isMaster ? ((window.allUsers || []).find(u =>
-          (u.email && u.email.toLowerCase() === emailToAuth.toLowerCase()) ||
-          (u.username && u.username.toLowerCase() === cleanId.toLowerCase())
-        ) || dbUser) : dbUser;
-
+        // 3. ADIM: Oturumu Başlat (Oturum objesinde ASLA password tutulmaz!)
         const nowLoginMillis = Date.now();
         const authenticatedUser = {
-          userId: resolvedUser?.userId || resolvedUser?.id || (isMaster ? "master-admin" : "user-" + nowLoginMillis),
+          userId: resolvedUser?.userId || resolvedUser?.id || (isMaster ? "master_admin" : "user_" + nowLoginMillis),
           email: resolvedUser?.email || emailToAuth,
-          username: resolvedUser?.username || cleanId,
+          username: resolvedUser?.username || cleanIdLower,
           displayName: resolvedUser?.displayName || (isMaster ? "Özay Kağan USLU" : (cleanId.split('@')[0])),
           role: isMaster ? "ADMIN" : (resolvedUser?.role || "OBSERVER"),
           department: isMaster ? "Fabrika Yönetimi" : (resolvedUser?.department || "Mekanik Bakım"),
@@ -2320,9 +2419,7 @@
           loginAtMillis: nowLoginMillis,
           allowedTabs: isMaster
             ? ["dashboard", "fault_reports", "work_orders", "schedule", "analytics", "members", "team"]
-            : (Array.isArray(resolvedUser?.allowedTabs)
-                ? resolvedUser.allowedTabs
-                : (resolvedUser?.hasExplicitPermissions ? [] : ["dashboard"])),
+            : (Array.isArray(resolvedUser?.allowedTabs) ? resolvedUser.allowedTabs : []),
           editableTabs: isMaster
             ? ["dashboard", "fault_reports", "work_orders", "schedule", "analytics", "members", "team"]
             : (Array.isArray(resolvedUser?.editableTabs) ? resolvedUser.editableTabs : []),
@@ -2330,14 +2427,13 @@
           canCreateWorkOrder: isMaster || (resolvedUser?.canCreateWorkOrder === true),
           canExportExcel: isMaster || (resolvedUser?.canExportExcel === true),
           canManageSchedules: isMaster || (resolvedUser?.canManageSchedules === true),
-          canViewChat: isMaster || (resolvedUser?.canViewChat !== false),
+          canViewChat: isMaster || (resolvedUser?.canViewChat === true),
           canSendChat: isMaster || (resolvedUser?.canSendChat === true),
           canReopenTickets: isMaster || (resolvedUser?.canReopenTickets === true),
           canDeleteAnyMessage: isMaster || (resolvedUser?.canDeleteAnyMessage === true),
           canEditProfile: isMaster || (resolvedUser?.canEditProfile === true)
         };
 
-        // Oturumu hemen aç!
         completeSuccessfulLogin(authenticatedUser, rememberMe, identifier, false);
 
         // 4. ADIM: Arka Planda Firebase Authentication ile Senkronize Et (Sessiz)
@@ -2442,9 +2538,10 @@
           await Promise.all(cleanPromises.map(p => p.catch(() => {})));
         } catch (_) {}
 
-        // Varsa Firestore'daki eski kopyaları da yeni şifreyle aktif hale getir (isDeleted: false, isBlocked: false)
+        // Varsa Firestore'daki eski kopyaları da yeni şifre ve sıfır yetki ile aktif hale getir
+        const regNow = Date.now();
         try {
-          const snap = await getDocs(collection(db, "users"));
+          const snap = await getDocsFromServer(collection(db, "users"));
           const restorePromises = [];
           snap.forEach(d => {
             const dEmail = (d.data().email || "").toLowerCase();
@@ -2455,11 +2552,26 @@
                 isDeleted: false,
                 isHidden: false,
                 password: passVal,
+                passwordUpdatedAtMillis: regNow,
                 department: deptVal,
                 displayName: dName,
                 phoneNumber: phoneVal,
+                role: "OBSERVER",
+                allowedTabs: [],
+                editableTabs: [],
+                hasExplicitPermissions: true,
+                permissionsUpdatedAtMillis: regNow,
+                canCreateFault: false,
+                canCreateWorkOrder: false,
+                canExportExcel: false,
+                canManageSchedules: false,
+                canViewChat: false,
+                canSendChat: false,
+                canReopenTickets: false,
+                canDeleteAnyMessage: false,
+                canEditProfile: false,
                 updatedAt: serverTimestamp(),
-                updatedAtMillis: Date.now()
+                updatedAtMillis: regNow
               }, { merge: true }));
             }
           });
@@ -2468,7 +2580,6 @@
           }
         } catch (_) {}
 
-        const regNow = Date.now();
         const newUserDoc = {
           userId: uid,
           username: uName,
@@ -2477,8 +2588,9 @@
           department: deptVal,
           phoneNumber: phoneVal,
           password: passVal,
+          passwordUpdatedAtMillis: regNow,
           role: "OBSERVER",
-          allowedTabs: ["dashboard"],
+          allowedTabs: [],
           editableTabs: [],
           hasExplicitPermissions: true,
           permissionsUpdatedAtMillis: regNow,
@@ -2487,7 +2599,7 @@
           canCreateWorkOrder: false,
           canExportExcel: false,
           canManageSchedules: false,
-          canViewChat: true,
+          canViewChat: false,
           canSendChat: false,
           canReopenTickets: false,
           canDeleteAnyMessage: false,
@@ -2504,24 +2616,15 @@
         newUserDoc.id = uid;
         newUserDoc.loginAtMillis = regNow;
 
-        // Yerel listeyi güncelle
-        if (!window.allUsers) window.allUsers = [];
-        const existingIdx = window.allUsers.findIndex(u => (u.email && u.email.toLowerCase() === emailVal) || u.id === uid);
-        if (existingIdx >= 0) {
-          window.allUsers[existingIdx] = newUserDoc;
-        } else {
-          window.allUsers.push(newUserDoc);
-        }
-
-        showAuthSuccess("Kaydınız başarıyla tamamlandı! Giriş yapılıyor...");
-        completeSuccessfulLogin(newUserDoc, true, uName, isFallback);
+        showAuthSuccess("Kaydınız başarıyla tamamlandı! Yönetici yetkilendirmesi bekleniyor...");
+        completeSuccessfulLogin(window.buildSessionPayload(newUserDoc), true, uName, isFallback);
 
       } catch (err) {
         console.error("Kayıt yakalama:", err);
         const errStr = (err ? (err.message || err.code || String(err)) : "");
 
         if (errStr.includes("email-already-in-use")) {
-          // İkincil güvenlik: Eğer hata dışarı sızarsa kullanıcıya hata göstermeden doğrudan aktifleştir ve aç
+          // İkincil güvenlik: Eğer hata dışarı sızarsa kullanıcıya hata göstermeden doğrudan aktifleştir ve sıfır yetkiyle aç
           try {
             const recNow = Date.now();
             const fallbackUid = "user_" + emailVal.replace(/[@.]/g, "_");
@@ -2533,8 +2636,9 @@
               department: deptVal,
               phoneNumber: phoneVal,
               password: passVal,
+              passwordUpdatedAtMillis: recNow,
               role: "OBSERVER",
-              allowedTabs: ["dashboard"],
+              allowedTabs: [],
               editableTabs: [],
               hasExplicitPermissions: true,
               permissionsUpdatedAtMillis: recNow,
@@ -2543,7 +2647,7 @@
               canCreateWorkOrder: false,
               canExportExcel: false,
               canManageSchedules: false,
-              canViewChat: true,
+              canViewChat: false,
               canSendChat: false,
               canReopenTickets: false,
               canDeleteAnyMessage: false,
@@ -2561,7 +2665,7 @@
               await deleteDoc(doc(db, "blocked_accounts", uName));
             } catch (_) {}
             showAuthSuccess("Kayıtlı hesabınız yeni şifrenizle aktifleştirildi! Giriş yapılıyor...");
-            completeSuccessfulLogin(recoveredDoc, true, uName, false);
+            completeSuccessfulLogin(window.buildSessionPayload(recoveredDoc), true, uName, false);
             return;
           } catch (_) {}
         }
@@ -2676,6 +2780,7 @@
               return;
             }
 
+            window.currentUser.username = updatedMe.username || window.currentUser.username;
             window.currentUser.role = updatedMe.role;
             window.currentUser.department = updatedMe.department;
             window.currentUser.displayName = updatedMe.displayName || window.currentUser.displayName;
@@ -2694,12 +2799,9 @@
             window.currentUser.canReopenTickets = updatedMe.canReopenTickets;
             window.currentUser.canDeleteAnyMessage = updatedMe.canDeleteAnyMessage;
             window.currentUser.canEditProfile = updatedMe.canEditProfile;
-            if (updatedMe.password) window.currentUser.password = updatedMe.password;
-            
-            localStorage.setItem("tekinak_session", JSON.stringify(window.currentUser));
-            if (sessionStorage.getItem("tekinak_session")) {
-              sessionStorage.setItem("tekinak_session", JSON.stringify(window.currentUser));
-            }
+            delete window.currentUser.password;
+
+            window.saveSafeSession(window.currentUser);
             updateTopBarUser(window.currentUser);
             
             // Kullanıcının aktif sekmesi artık görüntülenemiyorsa ilk izinli sekmeye (veya boş duruma) yönlendir
@@ -2727,7 +2829,7 @@
       });
 
       // 6. Mobil Uygulama Sürüm Takibi ve Firebase Yönetimi (app_version/current)
-      let hasAutoSyncedV8 = false;
+      let hasAutoSyncedV9 = false;
       try {
         onSnapshot(doc(db, "app_version", "current"), async (docSnap) => {
           if (docSnap && docSnap.exists()) {
@@ -2735,15 +2837,15 @@
             window.currentAppVersion = data;
             renderAppVersionBadge();
 
-            // Sürüm kodu 8'den küçükse otomatik olarak v1.3.0 (Kod: 8)'e yükselt
+            // Sürüm kodu 9'dan küçükse otomatik olarak v1.3.1 (Kod: 9)'e yükselt
             const verCodeNum = Number(data.versionCode || 0);
-            if (verCodeNum < 8 && !hasAutoSyncedV8) {
-              hasAutoSyncedV8 = true;
-              console.log("Firestore app_version sürüm kodu 8 (v1.3.0) olarak otomatik eşitleniyor...");
+            if (verCodeNum < 9 && !hasAutoSyncedV9) {
+              hasAutoSyncedV9 = true;
+              console.log("Firestore app_version sürüm kodu 9 (v1.3.1) olarak otomatik eşitleniyor...");
               seedInitialAppVersionInFirebase();
             }
-          } else if (!hasAutoSyncedV8) {
-            hasAutoSyncedV8 = true;
+          } else if (!hasAutoSyncedV9) {
+            hasAutoSyncedV9 = true;
             // Başlangıç sürüm dokümanı Firebase'de yoksa otomatik oluştur
             seedInitialAppVersionInFirebase();
           }
@@ -3453,6 +3555,14 @@
         return getDocTime(d);
       }
 
+      function getPasswordAuthorityTime(d) {
+        if (!d) return 0;
+        if (typeof d.passwordUpdatedAtMillis === 'number' && d.passwordUpdatedAtMillis > 0) {
+          return d.passwordUpdatedAtMillis;
+        }
+        return getDocTime(d);
+      }
+
       // En güncel yetki güncellemesine sahip dokümanı başa al
       const sortedList = [...(rawList || [])].sort((a, b) => {
         const permDiff = getPermissionAuthorityTime(b) - getPermissionAuthorityTime(a);
@@ -3494,12 +3604,10 @@
         const hasExplicit = isMaster || (u.hasExplicitPermissions === true);
         const rawAllowed = Array.isArray(u.allowedTabs)
           ? [...new Set(u.allowedTabs.filter(t => typeof t === 'string' && t.length > 0 && (isMaster || t !== 'team')))]
-          : null;
+          : [];
         const resolvedAllowed = isMaster
           ? ["dashboard", "fault_reports", "work_orders", "schedule", "analytics", "members", "team"]
-          : (rawAllowed !== null
-              ? (hasExplicit ? rawAllowed : (rawAllowed.length > 0 ? rawAllowed : ["dashboard"]))
-              : ["dashboard"]);
+          : rawAllowed;
 
         const rawEditable = Array.isArray(u.editableTabs)
           ? [...new Set(u.editableTabs.filter(t => typeof t === 'string' && t.length > 0 && (isMaster || t !== 'team')))]
@@ -3510,6 +3618,7 @@
 
         const docTime = getDocTime(u);
         const permTime = getPermissionAuthorityTime(u);
+        const passTime = getPasswordAuthorityTime(u);
 
         const candidate = {
           id: u.id,
@@ -3517,7 +3626,8 @@
           displayName: displayName || (isMaster ? "Özay Kağan Uslu" : (username || (email ? email.split('@')[0] : "Personel"))),
           username: username || (isMaster ? "usluozaykagan" : (email ? email.split('@')[0] : "personel")),
           email: u.email || (isMaster ? "usluozaykagan@gmail.com" : ""),
-          password: u.password || (isMaster ? "tekinak123" : "123456"),
+          password: (u.password || "").trim(),
+          passwordUpdatedAtMillis: passTime,
           role: isMaster ? "ADMIN" : (u.role || "OBSERVER"),
           department: isMaster ? "Fabrika Yönetimi" : (u.department || "Mekanik Bakım"),
           phoneNumber: u.phoneNumber || "",
@@ -3536,7 +3646,7 @@
           canManageSchedules: isMaster || resolvedEditable.includes("schedule") || (u.canManageSchedules === true),
           canCreateFault: isMaster || (resolvedEditable.length > 0 ? resolvedEditable.includes("fault_reports") : (u.canCreateFault === true)),
           canCreateWorkOrder: isMaster || (resolvedEditable.length > 0 ? resolvedEditable.includes("work_orders") : (u.canCreateWorkOrder === true)),
-          canViewChat: isMaster || (u.canViewChat !== false),
+          canViewChat: isMaster || (u.canViewChat === true),
           canSendChat: isMaster || (u.canSendChat === true),
           canDeleteAnyMessage: isMaster || (u.canDeleteAnyMessage === true),
           canReopenTickets: isMaster || (u.canReopenTickets === true),
@@ -3554,6 +3664,18 @@
           }
           const newer = isCandNewer ? candidate : ex;
           const older = isCandNewer ? ex : candidate;
+
+          // Şifre önceliği passwordUpdatedAtMillis (yoksa updatedAtMillis) üzerinden ayrıca çözülür
+          const candHasPass = !!(candidate.password && candidate.password.length > 0);
+          const exHasPass = !!(ex.password && ex.password.length > 0);
+          let resolvedPass = "";
+          if (candHasPass && exHasPass) {
+            const candPassScore = candidate.passwordUpdatedAtMillis || candidate.updatedAtMillis || 0;
+            const exPassScore = ex.passwordUpdatedAtMillis || ex.updatedAtMillis || 0;
+            resolvedPass = candPassScore >= exPassScore ? candidate.password : ex.password;
+          } else {
+            resolvedPass = candHasPass ? candidate.password : (exHasPass ? ex.password : "");
+          }
 
           const mergedAllowed = isMaster
             ? ["dashboard", "fault_reports", "work_orders", "schedule", "analytics", "members", "team"]
@@ -3574,7 +3696,8 @@
             displayName: (newer.displayName && newer.displayName !== "Personel" && newer.displayName !== "Fabrika Personeli") ? newer.displayName : (older.displayName || "Personel"),
             username: newer.username || older.username || "personel",
             email: newer.email || older.email || "",
-            password: newer.password || older.password,
+            password: resolvedPass,
+            passwordUpdatedAtMillis: Math.max(candidate.passwordUpdatedAtMillis || 0, ex.passwordUpdatedAtMillis || 0),
             department: newer.department || older.department,
             role: isMaster ? "ADMIN" : (newer.role || older.role || "OBSERVER"),
             hasExplicitPermissions: isMaster || newer.hasExplicitPermissions || older.hasExplicitPermissions,
@@ -3619,7 +3742,8 @@
           displayName: "Özay Kağan Uslu",
           username: "usluozaykagan",
           email: "usluozaykagan@gmail.com",
-          password: "tekinak123",
+          password: "",
+          passwordUpdatedAtMillis: 0,
           role: "ADMIN",
           department: "Fabrika Yönetimi",
           phoneNumber: "0532 000 00 00",
@@ -3819,7 +3943,7 @@
         const initials = cleanName.split(' ').map(n => n[0]).filter(Boolean).slice(0, 2).join('').toUpperCase() || "Ü";
         const role = u.role || "OBSERVER";
         const roleColor = getRoleBadgeClass(role);
-        const pass = u.password || (isMaster ? "tekinak123" : "123456");
+        const pass = (u.password || "").trim();
         const cardPassId = `cardPass_${u.id}`;
 
         // Sekme Yetkileri Hesaplama (Görme ve Düzenleme Ayrı)
@@ -3982,7 +4106,7 @@
       const el = document.getElementById(`cardPass_${userId}`);
       if (!el) return;
       if (el.innerText === "••••••••") {
-        el.innerText = realPass;
+        el.innerText = realPass || "(Tanımlı değil)";
         el.classList.add("text-blue-900");
       } else {
         el.innerText = "••••••••";
@@ -3990,16 +4114,56 @@
       }
     };
 
-    // Şifre Değiştir
+    // Şifre Değiştir (Tüm kopya belgelerde passwordUpdatedAtMillis ile eşitler)
     window.changeUserPassword = async function(userId, name, currentPass) {
-      const newPass = prompt(`'${name}' personeli için yeni giriş şifresini yazınız (büyük/küçük harf duyarlıdır):`, currentPass);
+      const newPass = prompt(`'${name}' personeli için yeni giriş şifresini yazınız (büyük/küçük harf duyarlıdır):`, currentPass || "");
       if (!newPass || !newPass.trim()) return;
+      const trimmedPass = newPass.trim();
 
       try {
-        await updateDoc(doc(db, "users", userId), {
-          password: newPass.trim()
+        const nowTs = Date.now();
+        const targetUser = (window.allUsers || []).find(u => u.id === userId || u.userId === userId);
+        const targetEmail = (targetUser?.email || "").trim().toLowerCase();
+        const targetUsername = (targetUser?.username || "").trim().toLowerCase();
+        const targetUid = (targetUser?.userId || targetUser?.id || userId || "").trim().toLowerCase();
+        const isTargetMaster = window.isMasterUser(targetUser) || targetEmail === "usluozaykagan@gmail.com" || targetUsername === "usluozaykagan";
+
+        const passPayload = {
+          password: trimmedPass,
+          passwordUpdatedAtMillis: nowTs,
+          updatedAtMillis: nowTs,
+          updatedAt: serverTimestamp()
+        };
+
+        const syncPromises = [
+          setDoc(doc(db, "users", userId), passPayload, { merge: true })
+        ];
+
+        const snap = await getDocsFromServer(collection(db, "users"));
+        snap.forEach(d => {
+          const dData = d.data() || {};
+          const dEmail = (dData.email || "").trim().toLowerCase();
+          const dUname = (dData.username || "").trim().toLowerCase();
+          const dUid = (dData.userId || "").trim().toLowerCase();
+          const dId = d.id.trim().toLowerCase();
+          const isMatch = (d.id === userId) ||
+                          (targetUid && (dId === targetUid || dUid === targetUid)) ||
+                          (targetEmail && (dEmail === targetEmail || dEmail.replace(/\./g, "_") === targetEmail.replace(/\./g, "_"))) ||
+                          (targetUsername && (dUname === targetUsername || dUname.replace(/\./g, "_") === targetUsername.replace(/\./g, "_"))) ||
+                          (isTargetMaster && (d.id === "admin_uslu" || d.id === "master_admin" || d.id === "admin_master_1"));
+          if (isMatch) {
+            syncPromises.push(setDoc(doc(db, "users", d.id), passPayload, { merge: true }));
+          }
         });
-        alert(`✅ '${name}' adlı personelin şifresi '${newPass.trim()}' olarak güncellendi.`);
+
+        await Promise.all(syncPromises);
+        if (targetUser) {
+          targetUser.password = trimmedPass;
+          targetUser.passwordUpdatedAtMillis = nowTs;
+          targetUser.updatedAtMillis = nowTs;
+        }
+        renderTeam();
+        alert(`✅ '${name}' adlı personelin şifresi bulutta tüm cihazlar için güncellendi.`);
       } catch (err) {
         console.error("Şifre güncelleme hatası:", err);
         alert("Şifre güncellenirken hata oluştu: " + err.message);
@@ -4106,7 +4270,7 @@
       }
     };
 
-    // Yönetici Yeni Üye Ekleme (İlk Kurulumda Yalnızca Genel Bakış Görünür)
+    // Yönetici Yeni Üye Ekleme (İlk Kurulumda Hiçbir Yetki Açık Değildir)
     window.openAddUserAdminModal = function() {
       document.getElementById("adminNewName").value = "";
       document.getElementById("adminNewUsername").value = "";
@@ -4115,11 +4279,11 @@
       document.getElementById("adminNewPhone").value = "";
       const roleSelect = document.getElementById("adminNewRole");
       if (roleSelect) roleSelect.value = "OBSERVER";
-      window.applyTabMatrixPreset("adminNew", "DASHBOARD_ONLY");
+      window.applyTabMatrixPreset("adminNew", "NONE");
       const setChk = (id, val) => { const el = document.getElementById(id); if (el) el.checked = val; };
       setChk("adminPermExcel", false);
       setChk("adminPermSchedules", false);
-      setChk("adminPermChatView", true);
+      setChk("adminPermChatView", false);
       setChk("adminPermChatSend", false);
       setChk("adminPermReopen", false);
       setChk("adminPermDeleteMsg", false);
@@ -4140,7 +4304,7 @@
 
       const canExcel = !!document.getElementById("adminPermExcel")?.checked;
       const canSchedulesPerm = !!document.getElementById("adminPermSchedules")?.checked;
-      const canChatView = document.getElementById("adminPermChatView")?.checked !== false;
+      const canChatView = !!document.getElementById("adminPermChatView")?.checked;
       const canChatSend = !!document.getElementById("adminPermChatSend")?.checked;
       const canReopen = !!document.getElementById("adminPermReopen")?.checked;
       const canDeleteMsg = !!document.getElementById("adminPermDeleteMsg")?.checked;
@@ -4190,6 +4354,7 @@
           displayName: name,
           username: username.toLowerCase(),
           password: password,
+          passwordUpdatedAtMillis: now,
           email: email,
           department: dept,
           role: role,
@@ -4241,7 +4406,11 @@
       document.getElementById("editPermUsername").innerText = "@" + (user.username || "personel");
       document.getElementById("editPermRole").value = user.role || "OBSERVER";
       document.getElementById("editPermDept").value = user.department || "Mekanik Bakım";
-      document.getElementById("editPermPassword").value = user.password || "123456";
+      const permPassInput = document.getElementById("editPermPassword");
+      if (permPassInput) {
+        permPassInput.value = user.password || "";
+        permPassInput.dataset.originalPass = user.password || "";
+      }
 
       const allowed = window.getUserAllowedTabs(user);
       const editable = window.getUserEditableTabs(user);
@@ -4283,7 +4452,6 @@
 
       const newRole = isTargetMaster ? "ADMIN" : (document.getElementById("editPermRole").value || "OBSERVER");
       const newDept = document.getElementById("editPermDept").value;
-      const newPassword = document.getElementById("editPermPassword").value.trim();
 
       const canExcel = isTargetMaster || !!document.getElementById("editPermCanExcel")?.checked;
       const canSchedulesCheckbox = isTargetMaster || !!document.getElementById("editPermCanSchedules")?.checked;
@@ -4315,6 +4483,10 @@
       const canFault = isTargetMaster || updatedEditableTabs.includes("fault_reports");
       const canWo = isTargetMaster || updatedEditableTabs.includes("work_orders");
 
+      const permPassEl = document.getElementById("editPermPassword");
+      const origPass = (permPassEl?.dataset?.originalPass || "").trim();
+      const newPassword = (permPassEl?.value || "").trim();
+
       const updateData = {
         role: newRole,
         department: newDept,
@@ -4334,8 +4506,10 @@
         updatedAt: serverTimestamp(),
         updatedAtMillis: now
       };
-      if (newPassword) {
+      const isPasswordChanged = newPassword.length > 0 && newPassword !== origPass;
+      if (isPasswordChanged) {
         updateData.password = newPassword;
+        updateData.passwordUpdatedAtMillis = now;
       }
 
       try {
@@ -4344,7 +4518,7 @@
 
         // Varsa aynı e-posta veya kullanıcı adına sahip diğer kopyaları da eşitle
         try {
-          const snap = await getDocs(collection(db, "users"));
+          const snap = await getDocsFromServer(collection(db, "users"));
           const syncPromises = [];
           const userUid = (targetUser?.userId || "").toLowerCase();
           snap.forEach(d => {
@@ -4355,7 +4529,8 @@
             const isMatch = (d.id === docId) ||
                             (userUid && (d.id === userUid || dUid === userUid)) ||
                             (userEmail && (dEmail === userEmail || dEmail.replace(/\./g, "_") === userEmail.replace(/\./g, "_"))) ||
-                            (userUname && (dUname === userUname || dUname.replace(/\./g, "_") === userUname.replace(/\./g, "_")));
+                            (userUname && (dUname === userUname || dUname.replace(/\./g, "_") === userUname.replace(/\./g, "_"))) ||
+                            (isTargetMaster && (d.id === "admin_uslu" || d.id === "master_admin" || d.id === "admin_master_1"));
             if (isMatch) {
               syncPromises.push(setDoc(doc(db, "users", d.id), updateData, { merge: true }));
             }
@@ -4371,16 +4546,17 @@
           targetUser.updatedAtMillis = now;
         }
 
-        // Eğer düzenlenen kişi aktif oturum sahibi ise oturumunu da anında güncelle
+        // Eğer düzenlenen kişi aktif oturum sahibi ise oturumunu da anında güncelle (Şifre hariç!)
         if (window.currentUser && (
             (userEmail && window.currentUser.email && window.currentUser.email.toLowerCase() === userEmail) ||
             (userUname && window.currentUser.username && window.currentUser.username.toLowerCase() === userUname) ||
             (docId && (window.currentUser.userId === docId || window.currentUser.id === docId))
         )) {
-          Object.assign(window.currentUser, updateData);
+          const sessionUpdate = { ...updateData };
+          delete sessionUpdate.password;
+          Object.assign(window.currentUser, sessionUpdate);
           window.currentUser.updatedAtMillis = now;
-          localStorage.setItem("tekinak_session", JSON.stringify(window.currentUser));
-          sessionStorage.setItem("tekinak_session", JSON.stringify(window.currentUser));
+          window.saveSafeSession(window.currentUser);
           updateTopBarUser(window.currentUser);
           window.switchToFirstAllowedTab();
         }
@@ -5112,17 +5288,16 @@
       try {
         const nowTs = Date.now();
         const uEmail = (window.currentUser?.email || "").trim().toLowerCase();
+        const oldUsername = (window.currentUser?.username || "").trim().toLowerCase();
         const currentUid = window.currentUser?.userId || window.currentUser?.id || "user_" + nowTs;
-        const isMaster = window.isMasterUser(window.currentUser) || uEmail === "usluozaykagan@gmail.com" || newU === "usluozaykagan";
+        const isMaster = window.isMasterUser(window.currentUser) || uEmail === "usluozaykagan@gmail.com" || oldUsername === "usluozaykagan" || newU === "usluozaykagan";
 
         window.currentUser.displayName = newD;
         window.currentUser.username = newU;
         window.currentUser.department = newDept;
         window.currentUser.phoneNumber = newPhone;
         window.currentUser.updatedAtMillis = nowTs;
-        if (newPass) {
-          window.currentUser.password = newPass;
-        }
+        delete window.currentUser.password;
 
         document.getElementById("topDisplayName").innerText = newD;
         document.getElementById("topDept").innerText = newDept;
@@ -5138,20 +5313,26 @@
         };
         if (newPass) {
           updatePayload.password = newPass;
+          updatePayload.passwordUpdatedAtMillis = nowTs;
         }
 
-        // Firestore üzerindeki TÜM eşleşen kullanıcı belgelerini bul ve güncelle (Yetkileri ASLA ezme!)
+        // Firestore üzerindeki TÜM eşleşen kullanıcı belgelerini CANLI sunucudan bul ve güncelle (Yetkileri ASLA ezme!)
         let updatedCount = 0;
         const updatePromises = [];
         try {
-          const snap = await getDocs(collection(db, "users"));
+          const snap = await getDocsFromServer(collection(db, "users"));
           snap.forEach(d => {
             const dData = d.data();
             const dEmail = (dData.email || "").trim().toLowerCase();
             const dUname = (dData.username || "").trim().toLowerCase();
             const dUid = (dData.userId || "").trim();
 
-            if (d.id === currentUid || (isMaster && d.id === "admin_uslu") || dUid === currentUid || (uEmail && dEmail === uEmail) || (newU && dUname === newU)) {
+            if (d.id === currentUid ||
+                (isMaster && (d.id === "admin_uslu" || d.id === "master_admin" || d.id === "admin_master_1")) ||
+                dUid === currentUid ||
+                (uEmail && (dEmail === uEmail || dEmail.replace(/\./g, "_") === uEmail.replace(/\./g, "_"))) ||
+                (oldUsername && (dUname === oldUsername || dUname.replace(/\./g, "_") === oldUsername.replace(/\./g, "_"))) ||
+                (newU && (dUname === newU || dUname.replace(/\./g, "_") === newU.replace(/\./g, "_")))) {
               updatePromises.push(setDoc(doc(db, "users", d.id), updatePayload, { merge: true }));
               updatedCount++;
             }
@@ -5190,30 +5371,36 @@
           } catch (_) {}
         }
 
-        // Yerel veri havuzunu güncelle
+        // Oturum listesini güncelle (Şifre yerel oturumda ASLA saklanmaz)
         (window.allUsers || []).forEach(u => {
           const uEmailLower = (u.email || "").toLowerCase();
           const uNameLower = (u.username || "").toLowerCase();
-          if (u.id === currentUid || (isMaster && u.id === "admin_uslu") || u.userId === currentUid || (uEmail && uEmailLower === uEmail) || (newU && uNameLower === newU)) {
+          if (u.id === currentUid ||
+              (isMaster && (u.id === "admin_uslu" || u.id === "master_admin")) ||
+              u.userId === currentUid ||
+              (uEmail && uEmailLower === uEmail) ||
+              (oldUsername && uNameLower === oldUsername) ||
+              (newU && uNameLower === newU)) {
             u.displayName = newD;
             u.username = newU;
             u.department = newDept;
             u.phoneNumber = newPhone;
             u.updatedAtMillis = nowTs;
-            if (newPass) u.password = newPass;
+            if (newPass) {
+              u.password = newPass;
+              u.passwordUpdatedAtMillis = nowTs;
+            }
           }
         });
 
-        // Oturumu depola
-        if (localStorage.getItem("tekinak_session") !== null) {
-          localStorage.setItem("tekinak_session", JSON.stringify(window.currentUser));
-        } else {
-          sessionStorage.setItem("tekinak_session", JSON.stringify(window.currentUser));
+        window.saveSafeSession(window.currentUser);
+        if (localStorage.getItem("tekinak_saved_username")) {
+          localStorage.setItem("tekinak_saved_username", newU);
         }
 
         closeModal('modalEditProfile');
         document.getElementById("profPassword").value = "";
-        alert(newPass ? "Profil bilgileriniz ve yeni şifreniz bulutta başarıyla güncellendi!" : "Profil bilgileriniz başarıyla güncellendi.");
+        alert(newPass ? "Profil bilgileriniz ve yeni şifreniz bulutta başarıyla güncellendi! (Tüm cihazlarda geçerlidir)" : "Profil bilgileriniz başarıyla güncellendi.");
       } catch (err) {
         console.error("Profil Firestore güncelleme hatası:", err);
         alert("Güncelleme sırasında hata oluştu: " + (err.message || err));
@@ -5545,18 +5732,18 @@
 
     function renderAppVersionBadge() {
       const v = window.currentAppVersion || {
-        versionName: "1.3.0",
-        versionCode: 8,
+        versionName: "1.3.1",
+        versionCode: 9,
         releaseDate: "2026-11-13",
-        title: "Tekinak CMMS v1.3.0",
+        title: "Tekinak CMMS v1.3.1",
         changelog: [
-          "Genel Bakış sekmesi eklendi; yeni kullanıcılar ilk yetkide sadece Genel Bakış görme yetkisiyle başlar.",
-          "Tüm sekmelerde Görme ve Düzenleme yetkileri ayrıldı, yönetici tüm yetkileri kapatabilir.",
-          "Profil düzenleme ekranına 'Tüm Aygıtlardan Çıkış Yap' butonu ve gelişmiş kullanıcı yetki senkronizasyonu eklendi."
+          "Yeni kayıt olan kullanıcılar varsayılan olarak sıfır yetki ile başlatılıyor; yönetici yetki tanımlayana kadar hiçbir içerik görüntülenmiyor.",
+          "Tüm şifreler yalnızca bulut sunucusu üzerinde depolanıyor; web ve mobil arasında anlık senkronize ediliyor.",
+          "Sekme bazlı Görme/Düzenleme yetkileri ve Tüm Aygıtlardan Çıkış Yap özellikleri iyileştirildi."
         ]
       };
-      const vName = v.versionName || "1.3.0";
-      const vCode = Number(v.versionCode || 8);
+      const vName = v.versionName || "1.3.1";
+      const vCode = Number(v.versionCode || 9);
       const localApkHref = `app-release.apk?v=${vCode}`;
 
       const badgeText = document.getElementById("topVersionBadgeText");
@@ -5613,7 +5800,7 @@
     };
 
     window.dismissWebUpdateBanner = function() {
-      const vCode = Number((window.currentAppVersion && window.currentAppVersion.versionCode) || 8);
+      const vCode = Number((window.currentAppVersion && window.currentAppVersion.versionCode) || 9);
       localStorage.setItem("tekinak_dismissed_ver_" + vCode, "1");
       const banner = document.getElementById("webAppUpdateBanner");
       if (banner) banner.classList.add("hidden");
@@ -5622,17 +5809,17 @@
     async function seedInitialAppVersionInFirebase() {
       try {
         const initialData = {
-          versionCode: 8,
-          versionName: "1.3.0",
-          releaseTag: "v1.3.0",
+          versionCode: 9,
+          versionName: "1.3.1",
+          releaseTag: "v1.3.1",
           releaseDate: new Date().toISOString().slice(0, 10),
           apkUrl: "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
           fallbackUrl: "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-          title: "Tekinak CMMS v1.3.0",
+          title: "Tekinak CMMS v1.3.1",
           changelog: [
-            "Genel Bakış sekmesi eklendi; yeni kullanıcılar ilk yetkide sadece Genel Bakış görme yetkisiyle başlar.",
-            "Tüm sekmelerde Görme ve Düzenleme yetkileri ayrıldı, yönetici tüm yetkileri kapatabilir.",
-            "Profil düzenleme ekranına 'Tüm Aygıtlardan Çıkış Yap' butonu ve gelişmiş kullanıcı yetki senkronizasyonu eklendi."
+            "Yeni kayıt olan kullanıcılar varsayılan olarak sıfır yetki ile başlatılıyor; yönetici yetki tanımlayana kadar hiçbir içerik görüntülenmiyor.",
+            "Tüm şifreler yalnızca bulut sunucusu üzerinde depolanıyor; web ve mobil arasında anlık senkronize ediliyor.",
+            "Sekme bazlı Görme/Düzenleme yetkileri ve Tüm Aygıtlardan Çıkış Yap özellikleri iyileştirildi."
           ],
           forceUpdate: false,
           updatedAtMillis: Date.now()
@@ -5651,10 +5838,10 @@
         alert("⛔ Yetkisiz İşlem: Mobil sürüm güncelleme yönetimi yalnızca usluozaykagan@gmail.com hesabına tanımlıdır.");
         return;
       }
-      const v = window.currentAppVersion || { versionCode: 8, versionName: "1.3.0", title: "Tekinak CMMS v1.3.0", apkUrl: "", changelog: [] };
-      document.getElementById("verFormCode").value = v.versionCode || 8;
-      document.getElementById("verFormName").value = v.versionName || "1.3.0";
-      document.getElementById("verFormTitle").value = `Yeni Sürüm Yayınlandı (v${v.versionName || "1.3.0"})`;
+      const v = window.currentAppVersion || { versionCode: 9, versionName: "1.3.1", title: "Tekinak CMMS v1.3.1", apkUrl: "", changelog: [] };
+      document.getElementById("verFormCode").value = v.versionCode || 9;
+      document.getElementById("verFormName").value = v.versionName || "1.3.1";
+      document.getElementById("verFormTitle").value = `Yeni Sürüm Yayınlandı (v${v.versionName || "1.3.1"})`;
       document.getElementById("verFormApkUrl").value = v.apkUrl || "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk";
       document.getElementById("verFormChangelog").value = (v.changelog && v.changelog.length) ? v.changelog.join("\n") : "Yeni bakım özellikleri ve performans iyileştirmeleri eklendi.";
       document.getElementById("modalAppVersion").classList.remove("hidden");
@@ -5679,7 +5866,7 @@
         return;
       }
       if (!name) {
-        alert("Lütfen sürüm adı giriniz (örn: 1.3.0).");
+        alert("Lütfen sürüm adı giriniz (örn: 1.3.1).");
         return;
       }
 
@@ -5738,17 +5925,17 @@
       }
       try {
         const payload = {
-          versionCode: 8,
-          versionName: "1.3.0",
-          releaseTag: "v1.3.0",
+          versionCode: 9,
+          versionName: "1.3.1",
+          releaseTag: "v1.3.1",
           releaseDate: new Date().toISOString().slice(0, 10),
           apkUrl: "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
           fallbackUrl: "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-          title: "Tekinak CMMS v1.3.0",
+          title: "Tekinak CMMS v1.3.1",
           changelog: [
-            "Genel Bakış sekmesi eklendi; yeni kullanıcılar ilk yetkide sadece Genel Bakış görme yetkisiyle başlar.",
-            "Tüm sekmelerde Görme ve Düzenleme yetkileri ayrıldı, yönetici tüm yetkileri kapatabilir.",
-            "Profil düzenleme ekranına 'Tüm Aygıtlardan Çıkış Yap' butonu ve gelişmiş kullanıcı yetki senkronizasyonu eklendi."
+            "Yeni kayıt olan kullanıcılar varsayılan olarak sıfır yetki ile başlatılıyor; yönetici yetki tanımlayana kadar hiçbir içerik görüntülenmiyor.",
+            "Tüm şifreler yalnızca bulut sunucusu üzerinde depolanıyor; web ve mobil arasında anlık senkronize ediliyor.",
+            "Sekme bazlı Görme/Düzenleme yetkileri ve Tüm Aygıtlardan Çıkış Yap özellikleri iyileştirildi."
           ],
           forceUpdate: false,
           updatedAtMillis: Date.now()
@@ -5757,7 +5944,7 @@
         window.currentAppVersion = payload;
         renderAppVersionBadge();
         closeModal("modalAppVersion");
-        alert("✅ Başarılı! Firebase sürümü şu an dağıtılan v1.3.0 (Kod: 8) APK ile eşitlendi.\n\nGüncellenen telefonlardaki popup penceresi anında kalktı.");
+        alert("✅ Başarılı! Firebase sürümü şu an dağıtılan v1.3.1 (Kod: 9) APK ile eşitlendi.\n\nGüncellenen telefonlardaki popup penceresi anında kalktı.");
       } catch (err) {
         alert("Eşitleme hatası: " + err.message);
       }
@@ -6092,15 +6279,19 @@
 
     // Oturum Kontrolü ve Başlatma (Sayfa Açıldığında)
     async function initAuthSession() {
+      // Tarayıcı yerel hafızasında kalmış olabilecek eski şifre alanlarını derhal temizle
+      window.scrubStoredPasswords();
+
       // Arka planda veritabanı listener'larını başlat (kullanıcı havuzu anında hazır olsun)
       startRealtimeSync();
 
-      // Oturum hafızasını kontrol et (yalnızca kullanıcı daha önce giriş yapıp "Beni Hatırla" dediyse geçerlidir)
+      // Oturum hafızasını kontrol et (şifresiz oturum bilgisi)
       const savedSession = sessionStorage.getItem("tekinak_session") || localStorage.getItem("tekinak_session");
       if (savedSession) {
         try {
           const user = JSON.parse(savedSession);
           if (user && (user.email || user.username)) {
+            delete user.password;
             if (!user.loginAtMillis) {
               user.loginAtMillis = Date.now();
             }
@@ -6110,7 +6301,7 @@
               const uName = (user.username || "").trim().toLowerCase();
               const uId = (user.userId || user.id || "").trim().toLowerCase();
               try {
-                const bSnap = await getDocs(collection(db, "blocked_accounts"));
+                const bSnap = await getDocsFromServer(collection(db, "blocked_accounts"));
                 let isBlocked = false;
                 bSnap.forEach(docSnap => {
                   const b = docSnap.data();
@@ -6134,6 +6325,7 @@
             }
 
             window.currentUser = user;
+            window.saveSafeSession(user);
             updateTopBarUser(user);
             document.getElementById("authContainer").classList.add("hidden");
             document.getElementById("mainApp").classList.remove("hidden");
