@@ -175,9 +175,9 @@
         </form>
 
         <div class="pt-3 text-center border-t border-slate-100 flex flex-col items-center justify-center gap-2">
-          <a href="app-release.apk?v=12" id="loginApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold rounded-lg border border-emerald-300 transition shadow-sm">
+          <a href="app-release.apk?v=13" id="loginApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold rounded-lg border border-emerald-300 transition shadow-sm">
             <i data-lucide="smartphone" class="w-3.5 h-3.5 text-emerald-600"></i>
-            <span id="loginApkBtnText">Android APK İndir (v1.4.1)</span>
+            <span id="loginApkBtnText">Android APK İndir (v1.4.2)</span>
           </a>
           <div class="text-[11px] text-slate-400 flex items-center justify-center gap-1.5">
             <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600"></i>
@@ -228,15 +228,15 @@
         </div>
 
         <!-- Android APK İndir Butonu (Tüm Kullanıcılar Görür) -->
-        <a href="app-release.apk?v=12" id="topApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-700/60 hover:bg-blue-600 text-white border border-blue-400/40 transition shadow-sm" title="Android Mobil APK İndir">
+        <a href="app-release.apk?v=13" id="topApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-700/60 hover:bg-blue-600 text-white border border-blue-400/40 transition shadow-sm" title="Android Mobil APK İndir">
           <i data-lucide="download" class="w-3.5 h-3.5 text-amber-300"></i>
-          <span id="topApkBtnText">APK İndir (v1.4.1)</span>
+          <span id="topApkBtnText">APK İndir (v1.4.2)</span>
         </a>
 
         <!-- Mobil Sürüm Yönetimi Butonu (Sadece usluozaykagan@gmail.com için görünür) -->
         <button id="topAppVersionBtn" onclick="openAppVersionModal()" style="display: none;" class="hidden items-center space-x-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-600/70 hover:bg-emerald-600 text-white border border-emerald-400/40 transition shadow-sm" title="Firebase Mobil Sürüm Kontrolü ve Güncelleme">
           <i data-lucide="smartphone" class="w-3.5 h-3.5 text-amber-300"></i>
-          <span id="topVersionBadgeText">Sürüm: v1.4.1</span>
+          <span id="topVersionBadgeText">Sürüm: v1.4.2</span>
         </button>
 
         <!-- Bildirim Sihirbazı Butonu -->
@@ -296,24 +296,24 @@
         <span class="p-1.5 bg-blue-600 text-white rounded-lg shadow-sm flex-shrink-0">
           <i data-lucide="sparkles" class="w-4 h-4"></i>
         </span>
-        <div>
-          <div class="flex flex-wrap items-center gap-1.5 font-extrabold text-blue-950">
-            <span id="webUpdateBannerTitle">🚀 Yeni Mobil Sürüm Yayında: Tekinak CMMS v1.4.1</span>
-            <span id="webUpdateBannerCodeBadge" class="px-1.5 py-0.5 rounded bg-emerald-600 text-white text-[10px] font-bold">v1.4.1 (Kod: 12)</span>
-          </div>
-          <div id="webUpdateBannerSummary" class="text-[11px] text-slate-600 mt-0.5">
-            Sekme içi alt sayfalar için ayrı Görüntüleme (Gör) ve Düzenleme (Düzenle) yetki matrisi Android ve Web arasında eşitlendi.
+          <div>
+            <div class="flex flex-wrap items-center gap-1.5 font-extrabold text-blue-950">
+              <span id="webUpdateBannerTitle">🚀 Yeni Mobil Sürüm Yayında: Tekinak CMMS v1.4.2</span>
+              <span id="webUpdateBannerCodeBadge" class="px-1.5 py-0.5 rounded bg-emerald-600 text-white text-[10px] font-bold">v1.4.2 (Kod: 13)</span>
+            </div>
+            <div id="webUpdateBannerSummary" class="text-[11px] text-slate-600 mt-0.5">
+              Bulut senkronlu özel rol ve departman yönetimi, departman bazlı Genel Bakış görünüm yetkileri ve açılır müdahale personeli seçicisi eklendi.
+            </div>
           </div>
         </div>
-      </div>
-      <div class="flex items-center gap-2 flex-shrink-0">
-        <button type="button" onclick="toggleWebUpdateChangelog()" class="px-2.5 py-1.5 bg-white hover:bg-slate-100 text-blue-800 border border-blue-200 rounded-lg font-bold text-[11px] transition">
-          Yenilikler
-        </button>
-        <a id="webUpdateBannerDownloadBtn" href="app-release.apk?v=12" download="tekinak-bakim.apk" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold text-[11px] shadow-sm flex items-center gap-1.5 transition">
-          <i data-lucide="download" class="w-3.5 h-3.5"></i>
-          <span id="webUpdateBannerDownloadText">APK İndir (v1.4.1)</span>
-        </a>
+        <div class="flex items-center gap-2 flex-shrink-0">
+          <button type="button" onclick="toggleWebUpdateChangelog()" class="px-2.5 py-1.5 bg-white hover:bg-slate-100 text-blue-800 border border-blue-200 rounded-lg font-bold text-[11px] transition">
+            Yenilikler
+          </button>
+          <a id="webUpdateBannerDownloadBtn" href="app-release.apk?v=13" download="tekinak-bakim.apk" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold text-[11px] shadow-sm flex items-center gap-1.5 transition">
+            <i data-lucide="download" class="w-3.5 h-3.5"></i>
+            <span id="webUpdateBannerDownloadText">APK İndir (v1.4.2)</span>
+          </a>
         <button type="button" onclick="dismissWebUpdateBanner()" class="p-1 text-slate-400 hover:text-slate-700 rounded-lg" title="Bu sürüm için gizle">
           <i data-lucide="x" class="w-4 h-4"></i>
         </button>
@@ -937,7 +937,7 @@
           <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-3"></i>
           <input type="text" id="memberSearchInput" oninput="renderMembers()" placeholder="Üye ara (Ad, kullanıcı adı, e-posta, departman...)" class="w-full pl-9 pr-4 py-2 border border-slate-300 rounded-lg text-xs outline-none focus:ring-2 focus:ring-[#1E3A8A]">
         </div>
-        <div class="flex items-center gap-1.5 overflow-x-auto hide-scrollbar text-xs">
+        <div id="memberDeptFilterButtons" class="flex items-center gap-1.5 overflow-x-auto hide-scrollbar text-xs">
           <button onclick="filterMembersDept('Tümü', this)" class="dept-filter-btn px-3 py-1.5 rounded-lg font-bold bg-[#1E3A8A] text-white transition">Tümü</button>
           <button onclick="filterMembersDept('Üretim & Operasyon', this)" class="dept-filter-btn px-3 py-1.5 rounded-lg font-semibold bg-slate-100 text-slate-600 hover:bg-slate-200 transition">Üretim &amp; Operasyon</button>
           <button onclick="filterMembersDept('Mekanik Bakım', this)" class="dept-filter-btn px-3 py-1.5 rounded-lg font-semibold bg-slate-100 text-slate-600 hover:bg-slate-200 transition">Mekanik Bakım</button>
@@ -972,12 +972,15 @@
               <p class="text-xs text-amber-900/80">Kullanıcı şifrelerini görüntüleme & düzenleme, yetki matrisi ve hesap engelleme</p>
             </div>
           </div>
-          <div class="flex items-center gap-2.5 w-full sm:w-auto">
-            <button onclick="openAddUserAdminModal()" class="flex-1 sm:flex-initial px-4 py-2.5 bg-[#1E3A8A] hover:bg-blue-900 text-white text-xs font-bold rounded-xl flex items-center justify-center gap-1.5 shadow transition">
-              <i data-lucide="user-plus" class="w-4 h-4"></i> + Yeni Üye Kaydet
+          <div class="flex flex-wrap items-center gap-2 w-full sm:w-auto">
+            <button onclick="openAddUserAdminModal()" class="flex-1 sm:flex-initial px-3.5 py-2.5 bg-[#1E3A8A] hover:bg-blue-900 text-white text-xs font-bold rounded-xl flex items-center justify-center gap-1.5 shadow transition">
+              <i data-lucide="user-plus" class="w-4 h-4"></i> + Yeni Üye
             </button>
-            <button onclick="openManageRolesModal()" class="flex-1 sm:flex-initial px-4 py-2.5 bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold rounded-xl flex items-center justify-center gap-1.5 shadow transition">
+            <button onclick="openManageRolesModal()" class="flex-1 sm:flex-initial px-3.5 py-2.5 bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold rounded-xl flex items-center justify-center gap-1.5 shadow transition">
               <i data-lucide="shield" class="w-4 h-4"></i> Rolleri Yönet
+            </button>
+            <button onclick="openManageDepartmentsModal()" class="flex-1 sm:flex-initial px-3.5 py-2.5 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold rounded-xl flex items-center justify-center gap-1.5 shadow transition">
+              <i data-lucide="building-2" class="w-4 h-4"></i> Departmanlar
             </button>
           </div>
         </div>
@@ -1119,8 +1122,9 @@
           <textarea id="fDesc" rows="3" placeholder="Arızanın belirtisi, ses, ısınma veya koku durumunu açıklayınız..." class="w-full border rounded-lg p-2.5"></textarea>
         </div>
         <div>
-          <label class="block font-semibold text-slate-700 mb-1">Müdahale Eden / İşi Yapan Personeller (İsteğe Bağlı)</label>
-          <input type="text" id="fIntervened" placeholder="Örn: Ahmet Usta, Mehmet Teknisyen" class="w-full border rounded-lg p-2.5">
+          <label class="block font-semibold text-slate-700 mb-1">Arızaya Müdahale Eden Personeller (Açılır Sekme)</label>
+          <input type="hidden" id="fIntervened" value="">
+          <div id="faultCreateIntervenedWrap"></div>
         </div>
       </div>
       <div class="flex justify-end gap-2 pt-2">
@@ -1240,7 +1244,7 @@
         <div class="p-2.5 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-between text-[11px] text-slate-600">
           <div class="flex items-center gap-1.5 font-semibold text-slate-700">
             <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600"></i>
-            <span id="profSystemVersionText">Sistem Sürümü: v1.4.1</span>
+            <span id="profSystemVersionText">Sistem Sürümü: v1.4.2</span>
           </div>
           <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-300">Güncel ✓</span>
         </div>
@@ -1516,11 +1520,12 @@
           </div>
           <div>
             <label class="block font-semibold text-slate-700 mb-1">Rol Tanımı *</label>
-            <select id="adminNewRole" class="w-full border rounded-lg p-2.5 bg-white outline-none focus:ring-2 focus:ring-[#1E3A8A]">
+            <select id="adminNewRole" onchange="onAdminRoleSelectChange('adminNew', this.value)" class="w-full border rounded-lg p-2.5 bg-white outline-none focus:ring-2 focus:ring-[#1E3A8A]">
               <option value="OBSERVER" selected>Gözlemci (OBSERVER - Sadece Genel Bakış)</option>
-              <option value="OPERATOR">Hat Operatörü (OPERATOR)</option>
+              <option value="OPERATOR">Operatör (OPERATOR)</option>
               <option value="TECHNICIAN">Bakım Teknisyeni (TECHNICIAN)</option>
-              <option value="MANAGER">Bakım Yöneticisi (MANAGER)</option>
+              <option value="Vardiya Amiri">Vardiya Amiri</option>
+              <option value="MANAGER">Bakım Müdürü (MANAGER)</option>
               <option value="ADMIN">Sistem Yöneticisi (ADMIN)</option>
             </select>
           </div>
@@ -1590,6 +1595,15 @@
             <span>✏️ Kendi Profil & Kullanıcı Bilgilerini Düzenleyebilir</span>
           </label>
         </div>
+
+        <!-- Genel Bakış Departman Görünüm Yetkileri -->
+        <div class="bg-sky-50/70 p-3 rounded-xl border border-sky-200 space-y-2">
+          <div>
+            <label class="block font-bold text-sky-950 text-[11px]">👁️ Genel Bakış Departman Görünüm Yetkileri</label>
+            <div class="text-[10px] text-sky-800">Kişinin Genel Bakış ekranında hangi departmanların özetini görebileceğini seçin. Kendi departmanı her zaman açıktır.</div>
+          </div>
+          <div id="adminNewDashDeptsContainer" class="flex flex-wrap gap-1.5"></div>
+        </div>
       </div>
 
       <div class="flex justify-end gap-2 pt-2 border-t">
@@ -1622,11 +1636,12 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div>
             <label class="block font-semibold text-slate-700 mb-1">Rol</label>
-            <select id="editPermRole" class="w-full border rounded-lg p-2.5 bg-white">
+            <select id="editPermRole" onchange="onAdminRoleSelectChange('editPerm', this.value)" class="w-full border rounded-lg p-2.5 bg-white">
               <option value="OBSERVER">Gözlemci (OBSERVER)</option>
-              <option value="OPERATOR">Hat Operatörü (OPERATOR)</option>
+              <option value="OPERATOR">Operatör (OPERATOR)</option>
               <option value="TECHNICIAN">Bakım Teknisyeni (TECHNICIAN)</option>
-              <option value="MANAGER">Bakım Yöneticisi (MANAGER)</option>
+              <option value="Vardiya Amiri">Vardiya Amiri</option>
+              <option value="MANAGER">Bakım Müdürü (MANAGER)</option>
               <option value="ADMIN">Sistem Yöneticisi (ADMIN)</option>
             </select>
           </div>
@@ -1708,6 +1723,15 @@
             <span>✏️ Kendi Profil & Kullanıcı Bilgilerini Düzenleme</span>
           </label>
         </div>
+
+        <!-- Genel Bakış Departman Görünüm Yetkileri -->
+        <div class="bg-sky-50/70 p-3 rounded-xl border border-sky-200 space-y-2">
+          <div>
+            <label class="block font-bold text-sky-950 text-[11px]">👁️ Genel Bakış Departman Görünüm Yetkileri</label>
+            <div class="text-[10px] text-sky-800">Kişinin Genel Bakış ekranında görebileceği departmanları seçin. Kendi departmanı otomatik açıktır.</div>
+          </div>
+          <div id="editPermDashDeptsContainer" class="flex flex-wrap gap-1.5"></div>
+        </div>
       </div>
 
       <div class="pt-2 border-t space-y-2">
@@ -1723,60 +1747,131 @@
     </div>
   </div>
 
-  <!-- MODAL: ROLLERİ YÖNET (Android TeamScreen ManageRoles Birebir) -->
+  <!-- MODAL: ROLLERİ YÖNET (BULUT SENKRONLU TAM ROL YÖNETİCİSİ) -->
   <div id="modalManageRoles" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
-    <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl space-y-4 max-h-[90vh] overflow-y-auto">
+    <div class="bg-white rounded-2xl max-w-2xl w-full p-6 shadow-2xl space-y-4 max-h-[92vh] overflow-y-auto">
       <div class="flex items-center justify-between border-b pb-3">
-        <h3 class="font-bold text-base text-slate-800 flex items-center gap-2">
-          <i data-lucide="shield-check" class="w-5 h-5 text-amber-600"></i> Sistem Rolleri & Yetki Matrisi
-        </h3>
-        <button onclick="closeModal('modalManageRoles')" class="text-slate-400 hover:text-slate-600"><i data-lucide="x" class="w-5 h-5"></i></button>
+        <div>
+          <h3 class="font-bold text-base text-slate-800 flex items-center gap-2">
+            <i data-lucide="shield-check" class="w-5 h-5 text-amber-600"></i> Bulut Senkronlu Rol Yönetimi
+          </h3>
+          <p class="text-[11px] text-slate-500 mt-0.5">Burada oluşturduğunuz veya düzenlediğiniz tüm roller Android &amp; Web arasında anında eşitlenir.</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button type="button" id="btnToggleNewRoleForm" onclick="startEditOrCreateRole(null)" class="px-3 py-1.5 bg-[#1E3A8A] hover:bg-blue-900 text-white rounded-xl text-xs font-bold flex items-center gap-1 shadow-sm">
+            <i data-lucide="plus" class="w-3.5 h-3.5"></i> Yeni Rol Ekle
+          </button>
+          <button onclick="closeModal('modalManageRoles')" class="text-slate-400 hover:text-slate-600"><i data-lucide="x" class="w-5 h-5"></i></button>
+        </div>
       </div>
 
+      <!-- ROL OLUŞTURMA / DÜZENLEME FORMU -->
+      <div id="roleEditorPanel" class="hidden bg-slate-50 border border-indigo-200 rounded-2xl p-4 space-y-3 text-xs">
+        <input type="hidden" id="roleEditId" value="">
+        <input type="hidden" id="roleEditCode" value="">
+        <input type="hidden" id="roleEditIsBuiltIn" value="0">
+        <div class="flex items-center justify-between">
+          <span id="roleEditorHeading" class="font-extrabold text-sm text-[#1E3A8A]">Yeni Özel Rol Oluştur</span>
+          <button type="button" onclick="cancelEditOrCreateRole()" class="text-[11px] text-slate-500 hover:text-slate-800 font-semibold">Vazgeç</button>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Rol Adı *</label>
+            <input type="text" id="roleEditName" placeholder="Örn: Vardiya Mühendisi, Kazan Operatörü" class="w-full border rounded-lg p-2 bg-white font-semibold">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Rol Açıklaması</label>
+            <input type="text" id="roleEditDesc" placeholder="Kısa görev &amp; yetki açıklaması" class="w-full border rounded-lg p-2 bg-white">
+          </div>
+        </div>
+
+        <div class="bg-indigo-50/70 p-3 rounded-xl border border-indigo-200 space-y-2">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div class="flex items-center gap-2">
+              <span class="font-bold text-indigo-950 text-[11px]">Varsayılan Sekme &amp; Alt Sayfa Yetki Matrisi</span>
+              <span id="roleEditMatrixSummary" class="text-[10px] font-bold px-2 py-0.5 rounded-lg bg-white text-blue-900 border border-indigo-200">0/5 Sekme</span>
+            </div>
+            <div class="flex flex-wrap gap-1">
+              <button type="button" onclick="applyTabMatrixPreset('roleEdit', 'DASHBOARD_ONLY')" class="px-2 py-1 bg-white hover:bg-indigo-100 text-indigo-900 border border-indigo-300 rounded-lg text-[10px] font-bold">Genel Bakış</button>
+              <button type="button" onclick="applyTabMatrixPreset('roleEdit', 'NONE')" class="px-2 py-1 bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 rounded-lg text-[10px] font-bold">Tümünü Kapat</button>
+              <button type="button" onclick="applyTabMatrixPreset('roleEdit', 'ALL')" class="px-2 py-1 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 rounded-lg text-[10px] font-bold">Tümünü Aç</button>
+            </div>
+          </div>
+          <div id="roleEditPermMatrixContainer" class="bg-white rounded-xl border border-indigo-100 divide-y divide-slate-100 overflow-hidden"></div>
+        </div>
+
+        <div class="bg-white p-3 rounded-xl border border-slate-200 grid grid-cols-1 sm:grid-cols-2 gap-1.5">
+          <label class="flex items-center gap-2 text-slate-700 cursor-pointer"><input type="checkbox" id="roleEditPermUtilRefs" onchange="syncUtilRefsCheckbox('roleEdit', this.checked)" class="w-4 h-4 rounded text-amber-600"><span>📏 Yan Tesis Referans Limitleri</span></label>
+          <label class="flex items-center gap-2 text-slate-700 cursor-pointer"><input type="checkbox" id="roleEditPermExcel" class="w-4 h-4 rounded text-[#1E3A8A]"><span>📊 Excel Rapor İndirme</span></label>
+          <label class="flex items-center gap-2 text-slate-700 cursor-pointer"><input type="checkbox" id="roleEditPermSchedules" onchange="syncScheduleCheckbox('roleEdit', this.checked)" class="w-4 h-4 rounded text-[#1E3A8A]"><span>📅 Bakım Planı Düzenleme</span></label>
+          <label class="flex items-center gap-2 text-slate-700 cursor-pointer"><input type="checkbox" id="roleEditPermChatView" class="w-4 h-4 rounded text-[#1E3A8A]"><span>💬 Saha Sohbetini Görüntüleme</span></label>
+          <label class="flex items-center gap-2 text-slate-700 cursor-pointer"><input type="checkbox" id="roleEditPermChatSend" class="w-4 h-4 rounded text-[#1E3A8A]"><span>✉️ Saha Sohbetine Yazma</span></label>
+          <label class="flex items-center gap-2 text-slate-700 cursor-pointer"><input type="checkbox" id="roleEditPermReopen" class="w-4 h-4 rounded text-[#1E3A8A]"><span>🔄 Kapanan Kaydı Tekrar Açma</span></label>
+          <label class="flex items-center gap-2 text-slate-700 cursor-pointer"><input type="checkbox" id="roleEditPermDeleteMsg" class="w-4 h-4 rounded text-[#1E3A8A]"><span>🗑️ Sohbet Mesajlarını Silme</span></label>
+          <label class="flex items-center gap-2 text-slate-700 cursor-pointer"><input type="checkbox" id="roleEditPermEditProfile" class="w-4 h-4 rounded text-[#1E3A8A]"><span>✏️ Kendi Profilini Düzenleme</span></label>
+        </div>
+
+        <div class="bg-sky-50/70 p-3 rounded-xl border border-sky-200 space-y-1.5">
+          <label class="block font-bold text-sky-950 text-[11px]">👁️ Varsayılan Genel Bakış Departman Görünüm Yetkisi</label>
+          <div id="roleEditDashDeptsContainer" class="flex flex-wrap gap-1.5"></div>
+        </div>
+
+        <div class="flex justify-end gap-2 pt-1">
+          <button type="button" onclick="cancelEditOrCreateRole()" class="px-3.5 py-2 border rounded-xl text-xs font-semibold text-slate-600 bg-white">İptal</button>
+          <button type="button" onclick="saveRoleDefinition()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow">Buluta Kaydet</button>
+        </div>
+      </div>
+
+      <!-- DİNAMİK ROL LİSTESİ -->
+      <div id="manageRolesListContainer" class="space-y-2.5 text-xs"></div>
+
+      <div class="flex justify-end pt-2 border-t">
+        <button onclick="closeModal('modalManageRoles')" class="px-5 py-2 bg-[#1E3A8A] text-white rounded-xl text-xs font-bold shadow">Kapat</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: DEPARTMANLARI YÖNET (BULUT SENKRONLU) -->
+  <div id="modalManageDepartments" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl space-y-4 max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between border-b pb-3">
+        <div>
+          <h3 class="font-bold text-base text-slate-800 flex items-center gap-2">
+            <i data-lucide="building-2" class="w-5 h-5 text-emerald-600"></i> Fabrika Departmanları Yönetimi
+          </h3>
+          <p class="text-[11px] text-slate-500 mt-0.5">Yeni departman ekleyip düzenleyebilirsiniz. Değişiklikler Android ve Web'e anında yansır.</p>
+        </div>
+        <button onclick="closeModal('modalManageDepartments')" class="text-slate-400 hover:text-slate-600"><i data-lucide="x" class="w-5 h-5"></i></button>
+      </div>
+
+      <form onsubmit="saveCustomDepartment(event)" class="bg-emerald-50/70 border border-emerald-200 rounded-xl p-3.5 space-y-2.5 text-xs">
+        <input type="hidden" id="deptEditId" value="">
+        <div class="flex items-center justify-between">
+          <span id="deptFormHeading" class="font-bold text-emerald-950">+ Yeni Departman Ekle</span>
+          <button type="button" id="deptCancelEditBtn" onclick="resetDeptForm()" class="hidden text-[11px] text-rose-600 font-bold hover:underline">Düzenlemeyi İptal Et</button>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          <input type="text" id="deptEditName" required placeholder="Departman adı (Örn: Un İrmik Değirmeni)" class="w-full border rounded-lg p-2 bg-white font-semibold">
+          <input type="text" id="deptEditDesc" placeholder="Kısa açıklama (İsteğe bağlı)" class="w-full border rounded-lg p-2 bg-white">
+        </div>
+        <div class="flex justify-end">
+          <button type="submit" id="deptSaveBtn" class="px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl text-xs font-bold shadow-sm">Buluta Kaydet</button>
+        </div>
+      </form>
+
       <div class="space-y-3 text-xs">
-        <div class="p-3 bg-rose-50 border border-rose-200 rounded-xl space-y-1">
-          <div class="flex items-center justify-between">
-            <span class="font-bold text-rose-800 text-xs flex items-center gap-1.5"><i data-lucide="shield-alert" class="w-4 h-4"></i> Sistem Yöneticisi (ADMIN)</span>
-            <span class="px-2 py-0.5 bg-rose-200 text-rose-900 rounded font-bold text-[10px]">Ana Yönetici</span>
-          </div>
-          <p class="text-rose-700 text-[11px]">Arıza, iş emri ve bakım süreçlerini koordine eder; sekme bazlı görme/düzenleme yetkileri ana yönetici tarafından özelleştirilir.</p>
+        <div>
+          <div class="text-[11px] font-bold text-slate-700 mb-1.5">Özel Departmanlar (Bulut)</div>
+          <div id="customDepartmentsList" class="space-y-2"></div>
         </div>
-
-        <div class="p-3 bg-purple-50 border border-purple-200 rounded-xl space-y-1">
-          <div class="flex items-center justify-between">
-            <span class="font-bold text-purple-800 text-xs flex items-center gap-1.5"><i data-lucide="briefcase" class="w-4 h-4"></i> Bakım Yöneticisi (MANAGER)</span>
-            <span class="px-2 py-0.5 bg-purple-200 text-purple-900 rounded font-bold text-[10px]">Yönetim Yetkisi</span>
-          </div>
-          <p class="text-purple-700 text-[11px]">İş emri atar, periyodik bakım onaylar, rapor alır ve saha sohbetini koordine eder.</p>
-        </div>
-
-        <div class="p-3 bg-blue-50 border border-blue-200 rounded-xl space-y-1">
-          <div class="flex items-center justify-between">
-            <span class="font-bold text-blue-800 text-xs flex items-center gap-1.5"><i data-lucide="wrench" class="w-4 h-4"></i> Bakım Teknisyeni (TECHNICIAN)</span>
-            <span class="px-2 py-0.5 bg-blue-200 text-blue-900 rounded font-bold text-[10px]">Saha Müdahale</span>
-          </div>
-          <p class="text-blue-700 text-[11px]">Kendisine atanan iş emirlerini tamamlar, müdahale notu yazar ve arıza çözer.</p>
-        </div>
-
-        <div class="p-3 bg-emerald-50 border border-emerald-200 rounded-xl space-y-1">
-          <div class="flex items-center justify-between">
-            <span class="font-bold text-emerald-800 text-xs flex items-center gap-1.5"><i data-lucide="user" class="w-4 h-4"></i> Hat Operatörü (OPERATOR)</span>
-            <span class="px-2 py-0.5 bg-emerald-200 text-emerald-900 rounded font-bold text-[10px]">Arıza Bildirimi</span>
-          </div>
-          <p class="text-emerald-700 text-[11px]">Üretim hatlarında oluşan arızaları ses, fotoğraf ve notla sisteme bildirir.</p>
-        </div>
-
-        <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
-          <div class="flex items-center justify-between">
-            <span class="font-bold text-slate-800 text-xs flex items-center gap-1.5"><i data-lucide="eye" class="w-4 h-4"></i> Gözlemci (OBSERVER)</span>
-            <span class="px-2 py-0.5 bg-slate-200 text-slate-800 rounded font-bold text-[10px]">Başlangıç Rolü</span>
-          </div>
-          <p class="text-slate-600 text-[11px]">İlk yetkilendirmede yalnızca Genel Bakış sekmesini salt okunur olarak görüntüler.</p>
+        <div class="pt-2 border-t border-slate-100">
+          <div class="text-[11px] font-bold text-slate-500 mb-1.5">Varsayılan Fabrika Departmanları (6)</div>
+          <div id="builtInDepartmentsList" class="flex flex-wrap gap-1.5"></div>
         </div>
       </div>
 
       <div class="flex justify-end pt-2 border-t">
-        <button onclick="closeModal('modalManageRoles')" class="px-5 py-2 bg-[#1E3A8A] text-white rounded-xl text-xs font-bold shadow">Kapat</button>
+        <button onclick="closeModal('modalManageDepartments')" class="px-5 py-2 bg-[#1E3A8A] text-white rounded-xl text-xs font-bold shadow">Kapat</button>
       </div>
     </div>
   </div>
@@ -1795,8 +1890,8 @@
         <div>
           <div class="text-[11px] font-bold text-emerald-800 uppercase tracking-wider">Aktif Firebase Sürümü</div>
           <div class="text-sm font-extrabold text-emerald-950 flex items-center gap-2" id="verModalCurrentBadge">
-            <span id="verModalVersionName">v1.4.1</span>
-            <span id="verModalVersionCode" class="text-xs px-2 py-0.5 bg-emerald-200 text-emerald-800 rounded-md font-semibold">Kod: 12</span>
+            <span id="verModalVersionName">v1.4.2</span>
+            <span id="verModalVersionCode" class="text-xs px-2 py-0.5 bg-emerald-200 text-emerald-800 rounded-md font-semibold">Kod: 13</span>
           </div>
         </div>
         <div class="text-right text-[11px] text-emerald-700">
@@ -1809,18 +1904,18 @@
         <div class="grid grid-cols-2 gap-3">
           <div>
             <label class="block font-semibold text-slate-700 mb-1">Yeni Sürüm Kodu (Build Code) *</label>
-            <input type="number" id="verFormCode" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 12" min="1">
+            <input type="number" id="verFormCode" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 13" min="1">
             <span class="text-[10px] text-slate-400">Yeni sürüm için kod mevcut koddan büyük olmalıdır</span>
           </div>
           <div>
             <label class="block font-semibold text-slate-700 mb-1">Yeni Sürüm Adı (Version Name) *</label>
-            <input type="text" id="verFormName" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 1.4.1">
+            <input type="text" id="verFormName" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 1.4.2">
           </div>
         </div>
 
         <div>
           <label class="block font-semibold text-slate-700 mb-1">Güncelleme Bildirim Başlığı *</label>
-          <input type="text" id="verFormTitle" required class="w-full px-3 py-2 border rounded-xl text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: Yeni Sürüm Yayınlandı (v1.4.1)">
+          <input type="text" id="verFormTitle" required class="w-full px-3 py-2 border rounded-xl text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: Yeni Sürüm Yayınlandı (v1.4.2)">
         </div>
 
         <div>
@@ -1839,9 +1934,9 @@
         </div>
 
         <div class="flex items-center justify-between gap-2 pt-2 border-t">
-          <button type="button" onclick="syncWithDeployedApk()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs rounded-xl font-bold border border-slate-300 flex items-center gap-1.5" title="Firebase'i şu an dağıtılan v1.4.1 (Kod: 12) APK ile eşitler ve güncellenen telefonlardaki popup'ı kapatır">
+          <button type="button" onclick="syncWithDeployedApk()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs rounded-xl font-bold border border-slate-300 flex items-center gap-1.5" title="Firebase'i şu an dağıtılan v1.4.2 (Kod: 13) APK ile eşitler ve güncellenen telefonlardaki popup'ı kapatır">
             <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-blue-600"></i>
-            <span>Mevcut APK ile Eşitle (v1.4.1 - Kod: 12)</span>
+            <span>Mevcut APK ile Eşitle (v1.4.2 - Kod: 13)</span>
           </button>
           <div class="flex gap-2">
             <button type="button" onclick="closeModal('modalAppVersion')" class="px-4 py-2 border rounded-xl font-semibold text-slate-600 hover:bg-slate-50">Kapat</button>
@@ -1878,8 +1973,9 @@
         <input type="hidden" id="ticketActionMode" value="">
 
         <div>
-          <label id="ticketActionActorLabel" class="block font-semibold text-slate-700 mb-1">Müdahale Eden Personel(ler) *</label>
-          <input type="text" id="ticketActionActor" required class="w-full px-3 py-2 border border-slate-300 rounded-xl text-slate-800 font-semibold focus:ring-2 focus:ring-blue-500 outline-none" placeholder="Örn: Ahmet Usta, Mehmet Usta">
+          <label id="ticketActionActorLabel" class="block font-semibold text-slate-700 mb-1">Müdahale Eden Personel(ler) (Açılır Sekme) *</label>
+          <input type="hidden" id="ticketActionActor" value="">
+          <div id="ticketActionIntervenedWrap"></div>
         </div>
 
         <div>
@@ -2261,6 +2357,206 @@
       { suffix: "Members", id: "members", icon: "👥", title: "Üyeler", hint: "Personel rehberi ve üye gizlilik / silme yönetimi" }
     ];
 
+    // Varsayılan Fabrika Departmanları & Bulut Senkronlu Özel Departman/Rol Yardımcıları
+    window.ALL_FACTORY_LABEL = "Tüm Fabrika";
+    window.BUILT_IN_DEPARTMENTS = [
+      "Üretim & Operasyon",
+      "Mekanik Bakım",
+      "Elektrik & Otomasyon",
+      "Yardımcı Tesisler Teknisyeni",
+      "Kalite & İSG",
+      "Fabrika Yönetimi"
+    ];
+    window.allCustomDepartments = [];
+    window.allCustomRoles = [];
+    window.BUILT_IN_ROLES_SEED = [
+      {
+        id: "builtin_observer",
+        roleCode: "OBSERVER",
+        name: "Gözlemci",
+        description: "Başlangıçta yalnızca Genel Bakış sekmesini salt okunur görüntüler.",
+        isBuiltIn: true,
+        allowedTabs: ["dashboard"],
+        editableTabs: [],
+        allowedSubPages: ["dash_kpis", "dash_quick_actions", "dash_recent_lists"],
+        editableSubPages: [],
+        allowedDashboardDepartments: [],
+        canCreateFault: false,
+        canCreateWorkOrder: false,
+        canExportExcel: false,
+        canManageSchedules: false,
+        canEditUtilityReferences: false,
+        canViewChat: false,
+        canSendChat: false,
+        canDeleteAnyMessage: false,
+        canReopenTickets: false,
+        canEditProfile: false
+      },
+      {
+        id: "builtin_operator",
+        roleCode: "OPERATOR",
+        name: "Operatör",
+        description: "Üretim hatlarında arıza bildirir ve kendi saha kayıtlarını takip eder.",
+        isBuiltIn: true,
+        allowedTabs: ["dashboard", "electrical_maintenance"],
+        editableTabs: ["electrical_maintenance"],
+        allowedSubPages: ["dash_kpis", "dash_quick_actions", "dash_recent_lists", "elec_faults"],
+        editableSubPages: ["elec_faults"],
+        allowedDashboardDepartments: [],
+        canCreateFault: true,
+        canCreateWorkOrder: false,
+        canExportExcel: false,
+        canManageSchedules: false,
+        canEditUtilityReferences: false,
+        canViewChat: true,
+        canSendChat: true,
+        canDeleteAnyMessage: false,
+        canReopenTickets: false,
+        canEditProfile: true
+      },
+      {
+        id: "builtin_technician",
+        roleCode: "TECHNICIAN",
+        name: "Bakım Teknisyeni",
+        description: "Arızalara müdahale eder, iş emirlerini tamamlar ve periyodik bakımları yürütür.",
+        isBuiltIn: true,
+        allowedTabs: ["dashboard", "electrical_maintenance", "members"],
+        editableTabs: ["electrical_maintenance"],
+        allowedSubPages: ["dash_kpis", "dash_quick_actions", "dash_recent_lists", "elec_faults", "elec_work_orders", "elec_schedules", "elec_analytics", "members_directory"],
+        editableSubPages: ["elec_faults", "elec_work_orders", "elec_schedules"],
+        allowedDashboardDepartments: [],
+        canCreateFault: true,
+        canCreateWorkOrder: true,
+        canExportExcel: false,
+        canManageSchedules: true,
+        canEditUtilityReferences: false,
+        canViewChat: true,
+        canSendChat: true,
+        canDeleteAnyMessage: false,
+        canReopenTickets: false,
+        canEditProfile: true
+      },
+      {
+        id: "builtin_shift_supervisor",
+        roleCode: "Vardiya Amiri",
+        name: "Vardiya Amiri",
+        description: "Paketleme ve saha vardiya akışını yönetir, Excel raporu çıkarabilir.",
+        isBuiltIn: true,
+        allowedTabs: ["dashboard", "electrical_maintenance", "packaging_unit", "members"],
+        editableTabs: ["electrical_maintenance", "packaging_unit"],
+        allowedSubPages: ["dash_kpis", "dash_quick_actions", "dash_recent_lists", "elec_faults", "elec_work_orders", "elec_schedules", "elec_analytics", "pkg_kpis", "pkg_logs", "pkg_ccp", "members_directory"],
+        editableSubPages: ["elec_faults", "elec_work_orders", "pkg_kpis", "pkg_logs", "pkg_ccp"],
+        allowedDashboardDepartments: [],
+        canCreateFault: true,
+        canCreateWorkOrder: true,
+        canExportExcel: true,
+        canManageSchedules: false,
+        canEditUtilityReferences: false,
+        canViewChat: true,
+        canSendChat: true,
+        canDeleteAnyMessage: false,
+        canReopenTickets: true,
+        canEditProfile: true
+      },
+      {
+        id: "builtin_manager",
+        roleCode: "MANAGER",
+        name: "Bakım Müdürü",
+        description: "Tüm sekmeleri, referans sınırlarını ve tüm fabrika departman görünümlerini yönetir.",
+        isBuiltIn: true,
+        allowedTabs: [...window.ALL_CONFIGURABLE_TABS],
+        editableTabs: [...window.ALL_CONFIGURABLE_TABS],
+        allowedSubPages: [],
+        editableSubPages: [],
+        allowedDashboardDepartments: ["Tüm Fabrika"],
+        canCreateFault: true,
+        canCreateWorkOrder: true,
+        canExportExcel: true,
+        canManageSchedules: true,
+        canEditUtilityReferences: true,
+        canViewChat: true,
+        canSendChat: true,
+        canDeleteAnyMessage: true,
+        canReopenTickets: true,
+        canEditProfile: true
+      }
+    ];
+    window.allCustomRoles = window.BUILT_IN_ROLES_SEED.map(r => ({ ...r }));
+
+    window.getAllDepartments = function() {
+      const seen = new Set();
+      const out = [];
+      const add = (val) => {
+        const clean = (val || "").trim();
+        if (!clean) return;
+        const low = clean.toLowerCase();
+        if (!seen.has(low)) {
+          seen.add(low);
+          out.push(clean);
+        }
+      };
+      window.BUILT_IN_DEPARTMENTS.forEach(add);
+      (window.allCustomDepartments || []).forEach(d => add(d.name));
+      return out;
+    };
+
+    window.getDashboardDepartmentOptionsForUser = function(u) {
+      if (!u) return [];
+      const allDepts = window.getAllDepartments();
+      if (window.isMasterUser(u)) {
+        return [window.ALL_FACTORY_LABEL, ...allDepts];
+      }
+      const ownDept = (u.department || "Üretim & Operasyon").trim();
+      const granted = Array.isArray(u.allowedDashboardDepartments) ? u.allowedDashboardDepartments : [];
+      const out = [];
+      const seen = new Set();
+      const add = (d) => {
+        const clean = (d || "").trim();
+        if (!clean) return;
+        const low = clean.toLowerCase();
+        if (!seen.has(low)) {
+          seen.add(low);
+          out.push(clean);
+        }
+      };
+      if (granted.some(x => (x || "").trim().toLowerCase() === window.ALL_FACTORY_LABEL.toLowerCase())) {
+        add(window.ALL_FACTORY_LABEL);
+      }
+      add(ownDept);
+      granted.forEach(d => {
+        const clean = (d || "").trim();
+        if (clean && clean.toLowerCase() !== window.ALL_FACTORY_LABEL.toLowerCase()) {
+          add(clean);
+        }
+      });
+      return out;
+    };
+
+    window.findRoleDefinition = function(roleVal) {
+      const target = (roleVal || "").trim().toLowerCase();
+      if (!target) return null;
+      return (window.allCustomRoles || []).find(r =>
+        (r.roleCode || "").trim().toLowerCase() === target ||
+        (r.name || "").trim().toLowerCase() === target ||
+        (r.id || "").trim().toLowerCase() === target
+      ) || null;
+    };
+
+    window.getRoleDisplayLabel = function(roleVal) {
+      const raw = (roleVal || "").trim();
+      if (!raw) return "Gözlemci";
+      if (raw.toUpperCase() === "ADMIN") return "Sistem Yöneticisi";
+      const found = window.findRoleDefinition(raw);
+      if (found && found.name) return found.name;
+      switch (raw.toUpperCase()) {
+        case "OBSERVER": return "Gözlemci";
+        case "OPERATOR": return "Operatör";
+        case "TECHNICIAN": return "Bakım Teknisyeni";
+        case "MANAGER": return "Bakım Müdürü";
+        default: return raw;
+      }
+    };
+
     // 17 Kanonik Alt Sayfa Tanımı (Android AppSubPage ile Birebir)
     window.SUB_PAGE_SCHEMA = [
       { id: "dash_kpis", parentTab: "dashboard", title: "Departman KPI & Özet Kartları", hint: "Gör: Özet metrik kartları • Düzenle: Departman önizleme seçicisi" },
@@ -2564,7 +2860,8 @@
     // ================= GENİŞLETİLEBİLİR SEKME & ALT SAYFA YETKİ MATRİSİ YÖNETİMİ =================
     window.permMatrixState = {
       adminNew: { allowedTabs: new Set(), editableTabs: new Set(), allowedSubs: new Set(), editableSubs: new Set(), expandedTabs: new Set() },
-      editPerm: { allowedTabs: new Set(), editableTabs: new Set(), allowedSubs: new Set(), editableSubs: new Set(), expandedTabs: new Set() }
+      editPerm: { allowedTabs: new Set(), editableTabs: new Set(), allowedSubs: new Set(), editableSubs: new Set(), expandedTabs: new Set() },
+      roleEdit: { allowedTabs: new Set(), editableTabs: new Set(), allowedSubs: new Set(), editableSubs: new Set(), expandedTabs: new Set() }
     };
 
     window.setPermMatrixStateFromLists = function(prefix, allowedTabs, editableTabs, allowedSubs, editableSubs) {
@@ -2612,15 +2909,19 @@
     function syncSpecialFlagsFromMatrix(prefix) {
       const st = window.permMatrixState[prefix];
       if (!st) return;
-      const schedEl = document.getElementById(prefix === "adminNew" ? "adminPermSchedules" : "editPermCanSchedules");
+      const schedId = prefix === "adminNew" ? "adminPermSchedules" : (prefix === "roleEdit" ? "roleEditPermSchedules" : "editPermCanSchedules");
+      const utilRefId = prefix === "adminNew" ? "adminPermUtilRefs" : (prefix === "roleEdit" ? "roleEditPermUtilRefs" : "editPermCanUtilRefs");
+      const schedEl = document.getElementById(schedId);
       if (schedEl) schedEl.checked = st.editableSubs.has("elec_schedules");
-      const utilRefEl = document.getElementById(prefix === "adminNew" ? "adminPermUtilRefs" : "editPermCanUtilRefs");
+      const utilRefEl = document.getElementById(utilRefId);
       if (utilRefEl) utilRefEl.checked = st.editableSubs.has("util_references");
     }
 
     window.updatePermMatrixSummary = function(prefix) {
       const res = window.getPermMatrixResult(prefix);
-      const badgeId = prefix === "adminNew" ? "adminNewMatrixSummary" : "editPermMatrixSummary";
+      const badgeId = prefix === "adminNew"
+        ? "adminNewMatrixSummary"
+        : (prefix === "roleEdit" ? "roleEditMatrixSummary" : "editPermMatrixSummary");
       const badge = document.getElementById(badgeId);
       if (badge) {
         const totalTabs = window.TAB_MATRIX_KEYS.length;
@@ -2758,7 +3059,9 @@
     };
 
     window.renderPermMatrix = function(prefix) {
-      const containerId = prefix === "adminNew" ? "adminNewPermMatrixContainer" : "editPermPermMatrixContainer";
+      const containerId = prefix === "adminNew"
+        ? "adminNewPermMatrixContainer"
+        : (prefix === "roleEdit" ? "roleEditPermMatrixContainer" : "editPermPermMatrixContainer");
       const container = document.getElementById(containerId);
       const st = window.permMatrixState[prefix];
       if (!container || !st) return;
@@ -2870,6 +3173,111 @@
       syncSpecialFlagsFromMatrix(prefix);
     };
 
+    // Genel Bakış Departman Görünüm Yetkileri Seçicisi (Admin / Edit / RoleEditor)
+    window.dashDeptSelectionState = {
+      adminNew: new Set(),
+      editPerm: new Set(),
+      roleEdit: new Set()
+    };
+
+    window.renderDashDeptVisibilitySelector = function(prefix, selectedList = null, ownDept = "", isMasterTarget = false) {
+      const containerId = prefix === "adminNew"
+        ? "adminNewDashDeptsContainer"
+        : (prefix === "roleEdit" ? "roleEditDashDeptsContainer" : "editPermDashDeptsContainer");
+      const container = document.getElementById(containerId);
+      if (!container) return;
+      if (Array.isArray(selectedList)) {
+        window.dashDeptSelectionState[prefix] = new Set(selectedList.map(s => (s || "").trim()).filter(Boolean));
+      }
+      const selSet = window.dashDeptSelectionState[prefix] || new Set();
+      const allDepts = window.getAllDepartments();
+      const options = [window.ALL_FACTORY_LABEL, ...allDepts];
+
+      if (isMasterTarget) {
+        container.innerHTML = `<span class="px-2.5 py-1 rounded-lg bg-amber-100 text-amber-900 border border-amber-300 text-[10px] font-bold">🛡️ Ana Sistem Yöneticisi için tüm fabrika ve departman görünümleri otomatik açıktır.</span>`;
+        return;
+      }
+
+      container.innerHTML = options.map(deptName => {
+        const isOwn = ownDept && deptName.toLowerCase() === ownDept.trim().toLowerCase();
+        const isAll = deptName === window.ALL_FACTORY_LABEL;
+        const checked = isOwn || Array.from(selSet).some(s => s.toLowerCase() === deptName.toLowerCase());
+        return `
+          <label class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border text-[10px] font-bold cursor-pointer transition ${checked ? (isAll ? 'bg-amber-100 border-amber-400 text-amber-950' : 'bg-sky-100 border-sky-400 text-sky-950') : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50'}">
+            <input type="checkbox" ${checked ? "checked" : ""} ${isOwn ? "disabled" : ""} onchange="onDashDeptVisibilityToggle('${prefix}', '${escapeJsSingle(deptName)}', this.checked)" class="w-3.5 h-3.5 rounded text-sky-700">
+            <span>${isAll ? "🏭 Tüm Fabrika (Konsolide Özet)" : escapeHtml(deptName)}${isOwn ? " (Kendi Dept.)" : ""}</span>
+          </label>
+        `;
+      }).join("");
+    };
+
+    window.onDashDeptVisibilityToggle = function(prefix, deptName, checked) {
+      const selSet = window.dashDeptSelectionState[prefix] || new Set();
+      const low = (deptName || "").trim().toLowerCase();
+      Array.from(selSet).forEach(x => {
+        if ((x || "").trim().toLowerCase() === low) selSet.delete(x);
+      });
+      if (checked) selSet.add(deptName);
+      window.dashDeptSelectionState[prefix] = selSet;
+      const ownDept = prefix === "adminNew"
+        ? (document.getElementById("adminNewDept")?.value || "")
+        : (prefix === "editPerm" ? (document.getElementById("editPermDept")?.value || "") : "");
+      window.renderDashDeptVisibilitySelector(prefix, null, ownDept, false);
+    };
+
+    window.getDashDeptVisibilityResult = function(prefix, ownDept = "") {
+      const selSet = window.dashDeptSelectionState[prefix] || new Set();
+      return Array.from(selSet).filter(d => {
+        const clean = (d || "").trim();
+        return clean && (!ownDept || clean.toLowerCase() !== ownDept.trim().toLowerCase());
+      });
+    };
+
+    window.onAdminRoleSelectChange = function(prefix, roleVal) {
+      const roleDef = window.findRoleDefinition(roleVal);
+      const isUtil = roleVal === "MANAGER" || (roleDef && roleDef.canEditUtilityReferences === true);
+      const allSubsFallback = (roleDef && (!roleDef.allowedSubPages || roleDef.allowedSubPages.length === 0) && (roleDef.allowedTabs || []).length > 0)
+        ? window.SUB_PAGE_SCHEMA.filter(s => (roleDef.allowedTabs || []).includes(s.parentTab)).map(s => s.id)
+        : (roleDef?.allowedSubPages || []);
+      const editSubsFallback = (roleDef && (!roleDef.editableSubPages || roleDef.editableSubPages.length === 0) && (roleDef.editableTabs || []).length > 0)
+        ? window.SUB_PAGE_SCHEMA.filter(s => (roleDef.editableTabs || []).includes(s.parentTab) && (s.id !== "util_references" || isUtil)).map(s => s.id)
+        : (roleDef?.editableSubPages || []);
+
+      if (roleVal === "ADMIN") {
+        window.applyTabMatrixPreset(prefix, "ALL");
+        const flagIds = prefix === "adminNew"
+          ? ["adminPermUtilRefs", "adminPermExcel", "adminPermSchedules", "adminPermChatView", "adminPermChatSend", "adminPermReopen", "adminPermDeleteMsg", "adminPermEditProfile"]
+          : ["editPermCanUtilRefs", "editPermCanExcel", "editPermCanSchedules", "editPermCanViewChat", "editPermCanSendChat", "editPermCanReopen", "editPermCanDeleteMsg", "editPermCanEditProfile"];
+        flagIds.forEach(id => { const el = document.getElementById(id); if (el) el.checked = true; });
+        const ownDept = document.getElementById(prefix === "adminNew" ? "adminNewDept" : "editPermDept")?.value || "";
+        window.renderDashDeptVisibilitySelector(prefix, [window.ALL_FACTORY_LABEL], ownDept, false);
+      } else if (roleDef) {
+        window.setPermMatrixStateFromLists(prefix, roleDef.allowedTabs || [], roleDef.editableTabs || [], allSubsFallback, editSubsFallback);
+        const setChk = (id, v) => { const el = document.getElementById(id); if (el) el.checked = !!v; };
+        if (prefix === "adminNew") {
+          setChk("adminPermUtilRefs", roleDef.canEditUtilityReferences);
+          setChk("adminPermExcel", roleDef.canExportExcel);
+          setChk("adminPermSchedules", roleDef.canManageSchedules);
+          setChk("adminPermChatView", roleDef.canViewChat);
+          setChk("adminPermChatSend", roleDef.canSendChat);
+          setChk("adminPermReopen", roleDef.canReopenTickets);
+          setChk("adminPermDeleteMsg", roleDef.canDeleteAnyMessage);
+          setChk("adminPermEditProfile", roleDef.canEditProfile);
+        } else {
+          setChk("editPermCanUtilRefs", roleDef.canEditUtilityReferences);
+          setChk("editPermCanExcel", roleDef.canExportExcel);
+          setChk("editPermCanSchedules", roleDef.canManageSchedules);
+          setChk("editPermCanViewChat", roleDef.canViewChat);
+          setChk("editPermCanSendChat", roleDef.canSendChat);
+          setChk("editPermCanReopen", roleDef.canReopenTickets);
+          setChk("editPermCanDeleteMsg", roleDef.canDeleteAnyMessage);
+          setChk("editPermCanEditProfile", roleDef.canEditProfile);
+        }
+        const ownDept = document.getElementById(prefix === "adminNew" ? "adminNewDept" : "editPermDept")?.value || "";
+        window.renderDashDeptVisibilitySelector(prefix, roleDef.allowedDashboardDepartments || [], ownDept, false);
+      }
+    };
+
     window.onAdminDeptSelectChange = function(prefix, deptVal) {
       const st = window.permMatrixState[prefix];
       if (!st) return;
@@ -2886,6 +3294,214 @@
         });
         syncSpecialFlagsFromMatrix(prefix);
         window.renderPermMatrix(prefix);
+      }
+      if (prefix === "adminNew" || prefix === "editPerm") {
+        window.renderDashDeptVisibilitySelector(prefix, null, deptVal, false);
+      }
+    };
+
+    window.refreshDepartmentAndRoleDropdowns = function() {
+      const depts = window.getAllDepartments();
+      const syncSelect = (id, prependOptions = []) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        const prev = el.value;
+        const opts = [...prependOptions.map(o => ({ val: o.val, label: o.label })), ...depts.map(d => ({ val: d, label: d }))];
+        if (prev && prev !== "ALL" && !opts.some(o => o.val === prev)) {
+          opts.push({ val: prev, label: prev });
+        }
+        el.innerHTML = opts.map(o => `<option value="${escapeHtml(o.val)}">${escapeHtml(o.label)}</option>`).join("");
+        if (prev && opts.some(o => o.val === prev)) el.value = prev;
+      };
+
+      syncSelect("regDept");
+      syncSelect("faultDeptFilter", [{ val: "ALL", label: "Tüm Departmanlar" }]);
+      syncSelect("woDeptFilter", [{ val: "ALL", label: "Tüm Departmanlar" }]);
+      syncSelect("fDept");
+      syncSelect("woDept");
+      syncSelect("profDept");
+      syncSelect("adminNewDept");
+      syncSelect("editPermDept");
+      syncSelect("schFaultType");
+      syncSelect("editSchFaultType");
+
+      // Üyeler departman filtre butonları
+      const mWrap = document.getElementById("memberDeptFilterButtons");
+      if (mWrap) {
+        const activeDept = window.selectedMemberDept || "Tümü";
+        const btns = ["Tümü", ...depts];
+        mWrap.innerHTML = btns.map(d => {
+          const isAct = d === activeDept;
+          return `<button onclick="filterMembersDept('${escapeJsSingle(d)}', this)" class="dept-filter-btn px-3 py-1.5 rounded-lg whitespace-nowrap transition ${isAct ? 'font-bold bg-[#1E3A8A] text-white' : 'font-semibold bg-slate-100 text-slate-600 hover:bg-slate-200'}">${escapeHtml(d)}</button>`;
+        }).join("");
+      }
+
+      // Rol dropdown'ları (#adminNewRole, #editPermRole)
+      const roleOptions = [];
+      const seenRoleVals = new Set();
+      (window.allCustomRoles || []).forEach(r => {
+        const val = (r.roleCode || r.name || "").trim();
+        if (!val || seenRoleVals.has(val.toLowerCase())) return;
+        seenRoleVals.add(val.toLowerCase());
+        const lbl = r.name && val && r.name !== val ? `${r.name} (${val})` : (r.name || val);
+        roleOptions.push({ val, label: lbl });
+      });
+      if (!seenRoleVals.has("admin")) {
+        roleOptions.push({ val: "ADMIN", label: "Sistem Yöneticisi (ADMIN)" });
+      }
+      ["adminNewRole", "editPermRole"].forEach(id => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        const prev = el.value;
+        const opts = [...roleOptions];
+        if (prev && !opts.some(o => o.val === prev)) {
+          opts.push({ val: prev, label: window.getRoleDisplayLabel(prev) });
+        }
+        el.innerHTML = opts.map(o => `<option value="${escapeHtml(o.val)}">${escapeHtml(o.label)}</option>`).join("");
+        if (prev && opts.some(o => o.val === prev)) el.value = prev;
+      });
+    };
+
+    // Açılır Sekme Tipinde Çoklu Müdahale Eden Personel Seçicisi (#fIntervened, #ticketActionActor)
+    window.intervenedDropdownState = {
+      faultCreate: { selected: [], isOpen: false, search: "" },
+      ticketAction: { selected: [], isOpen: false, search: "" }
+    };
+
+    window.initIntervenedDropdown = function(prefix, initialNames = []) {
+      const cleaned = Array.isArray(initialNames)
+        ? initialNames.map(s => (s || "").trim()).filter(Boolean)
+        : [];
+      window.intervenedDropdownState[prefix] = {
+        selected: Array.from(new Set(cleaned)),
+        isOpen: false,
+        search: ""
+      };
+      window.renderIntervenedDropdown(prefix);
+    };
+
+    window.getIntervenedDropdownNames = function(prefix) {
+      const st = window.intervenedDropdownState[prefix];
+      return st ? [...st.selected] : [];
+    };
+
+    window.toggleIntervenedDropdown = function(prefix) {
+      const st = window.intervenedDropdownState[prefix];
+      if (!st) return;
+      st.isOpen = !st.isOpen;
+      window.renderIntervenedDropdown(prefix);
+    };
+
+    window.onIntervenedSearchInput = function(prefix, val) {
+      const st = window.intervenedDropdownState[prefix];
+      if (!st) return;
+      st.search = val || "";
+      window.renderIntervenedDropdown(prefix, true);
+    };
+
+    window.toggleIntervenedMember = function(prefix, memberName) {
+      const st = window.intervenedDropdownState[prefix];
+      if (!st || !memberName) return;
+      const idx = st.selected.findIndex(x => x.toLowerCase() === memberName.trim().toLowerCase());
+      if (idx >= 0) st.selected.splice(idx, 1);
+      else st.selected.push(memberName.trim());
+      window.renderIntervenedDropdown(prefix);
+    };
+
+    window.addCustomIntervenedName = function(prefix) {
+      const inputEl = document.getElementById(`intervenedCustomInput_${prefix}`);
+      const val = (inputEl?.value || "").trim();
+      if (!val) return;
+      const st = window.intervenedDropdownState[prefix];
+      if (!st) return;
+      if (!st.selected.some(x => x.toLowerCase() === val.toLowerCase())) {
+        st.selected.push(val);
+      }
+      if (inputEl) inputEl.value = "";
+      window.renderIntervenedDropdown(prefix);
+    };
+
+    window.renderIntervenedDropdown = function(prefix, keepSearchFocus = false) {
+      const wrapId = prefix === "faultCreate" ? "faultCreateIntervenedWrap" : "ticketActionIntervenedWrap";
+      const hiddenId = prefix === "faultCreate" ? "fIntervened" : "ticketActionActor";
+      const wrap = document.getElementById(wrapId);
+      const hiddenEl = document.getElementById(hiddenId);
+      const st = window.intervenedDropdownState[prefix];
+      if (!wrap || !st) return;
+      if (hiddenEl) hiddenEl.value = st.selected.join(", ");
+
+      const searchCursor = keepSearchFocus ? (document.getElementById(`intervenedSearch_${prefix}`)?.selectionStart ?? null) : null;
+      const q = (st.search || "").trim().toLowerCase();
+      const users = (window.allUsers || []).filter(u => !u.isBlocked && !u.isDeleted).filter(u => {
+        const name = (u.displayName || u.username || u.email || "").toLowerCase();
+        const dept = (u.department || "").toLowerCase();
+        return !q || name.includes(q) || dept.includes(q);
+      });
+
+      const triggerSummary = st.selected.length === 0
+        ? `<span class="text-slate-400 font-normal">Personel seçmek için açılır sekmeye tıklayın...</span>`
+        : `<span class="text-[#1E3A8A] font-bold truncate">${escapeHtml(st.selected.join(", "))}</span>`;
+
+      const chipsHtml = st.selected.length > 0 ? `
+        <div class="flex flex-wrap gap-1 mt-1.5">
+          ${st.selected.map(name => `
+            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-blue-100 text-[#1E3A8A] border border-blue-200 text-[10px] font-bold">
+              <span>${escapeHtml(name)}</span>
+              <button type="button" onclick="toggleIntervenedMember('${prefix}', '${escapeJsSingle(name)}')" class="text-rose-600 hover:text-rose-800 font-black ml-0.5">×</button>
+            </span>
+          `).join("")}
+        </div>
+      ` : "";
+
+      const panelHtml = st.isOpen ? `
+        <div class="mt-1.5 border border-indigo-200 rounded-xl bg-slate-50 p-2.5 space-y-2 shadow-inner">
+          <div class="relative">
+            <input type="text" id="intervenedSearch_${prefix}" value="${escapeHtml(st.search || "")}" oninput="onIntervenedSearchInput('${prefix}', this.value)" placeholder="Üye adı veya departman ara..." class="w-full px-2.5 py-1.5 text-xs bg-white border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-[#1E3A8A]">
+          </div>
+          <div class="max-h-40 overflow-y-auto bg-white border border-slate-200 rounded-lg divide-y divide-slate-100">
+            ${users.length === 0 ? `<div class="p-2.5 text-[11px] text-slate-400 text-center">Eşleşen üye bulunamadı.</div>` : users.map(u => {
+              const uName = (u.displayName || u.username || u.email || "Personel").trim();
+              const isSel = st.selected.some(x => x.toLowerCase() === uName.toLowerCase());
+              return `
+                <label class="flex items-center justify-between px-2.5 py-1.5 hover:bg-blue-50/50 cursor-pointer text-xs">
+                  <span class="flex items-center gap-2 min-w-0">
+                    <input type="checkbox" ${isSel ? "checked" : ""} onchange="toggleIntervenedMember('${prefix}', '${escapeJsSingle(uName)}')" class="w-3.5 h-3.5 rounded text-[#1E3A8A]">
+                    <span class="font-semibold text-slate-800 truncate">${escapeHtml(uName)}</span>
+                  </span>
+                  <span class="text-[10px] text-slate-500 ml-2 flex-shrink-0">${escapeHtml(u.department || "")}</span>
+                </label>
+              `;
+            }).join("")}
+          </div>
+          <div class="flex items-center gap-1.5">
+            <input type="text" id="intervenedCustomInput_${prefix}" placeholder="Liste dışı özel isim ekle..." class="flex-1 px-2.5 py-1.5 text-xs bg-white border border-slate-300 rounded-lg outline-none" onkeydown="if(event.key==='Enter'){ event.preventDefault(); addCustomIntervenedName('${prefix}'); }">
+            <button type="button" onclick="addCustomIntervenedName('${prefix}')" class="px-2.5 py-1.5 bg-slate-700 hover:bg-slate-800 text-white rounded-lg text-[11px] font-bold">Ekle</button>
+          </div>
+        </div>
+      ` : "";
+
+      wrap.innerHTML = `
+        <div>
+          <button type="button" onclick="toggleIntervenedDropdown('${prefix}')" class="w-full flex items-center justify-between gap-2 px-3 py-2 border border-slate-300 rounded-xl bg-white hover:bg-slate-50 text-left text-xs transition">
+            <div class="flex items-center gap-2 min-w-0 flex-1">
+              <span class="px-1.5 py-0.5 rounded bg-[#1E3A8A] text-white text-[10px] font-black flex-shrink-0">${st.selected.length}</span>
+              ${triggerSummary}
+            </div>
+            <span class="text-[11px] font-bold text-slate-500 flex-shrink-0">${st.isOpen ? "▲ Kapat" : "▼ Üyeleri Seç"}</span>
+          </button>
+          ${chipsHtml}
+          ${panelHtml}
+        </div>
+      `;
+
+      if (keepSearchFocus) {
+        const sEl = document.getElementById(`intervenedSearch_${prefix}`);
+        if (sEl) {
+          sEl.focus();
+          if (searchCursor !== null) {
+            try { sEl.setSelectionRange(searchCursor, searchCursor); } catch (_) {}
+          }
+        }
       }
     };
 
@@ -2928,7 +3544,7 @@
       if (elDept) elDept.innerText = u.department || "Genel Bakım";
       
       const elRole = document.getElementById("topRole");
-      if (elRole) elRole.innerText = isMaster ? "Ana Sistem Yöneticisi" : (u.role || "Gözlemci");
+      if (elRole) elRole.innerText = isMaster ? "Ana Sistem Yöneticisi" : window.getRoleDisplayLabel(u.role);
       
       const elAvatar = document.getElementById("topAvatar");
       if (elAvatar) elAvatar.innerText = initials;
@@ -3423,6 +4039,9 @@
           editableSubPages: isMasterTargetUser
             ? [...window.ALL_SUB_PAGE_IDS]
             : window.normalizeSubPageList(resolvedUser?.editableSubPages),
+          allowedDashboardDepartments: isMasterTargetUser
+            ? [window.ALL_FACTORY_LABEL]
+            : (Array.isArray(resolvedUser?.allowedDashboardDepartments) ? resolvedUser.allowedDashboardDepartments : []),
           canCreateFault: isMaster || (resolvedUser?.canCreateFault === true),
           canCreateWorkOrder: isMaster || (resolvedUser?.canCreateWorkOrder === true),
           canExportExcel: isMaster || (resolvedUser?.canExportExcel === true),
@@ -3562,6 +4181,7 @@
                 editableTabs: [],
                 allowedSubPages: [],
                 editableSubPages: [],
+                allowedDashboardDepartments: [],
                 hasExplicitPermissions: true,
                 hasSubPagePermissions: true,
                 permissionsUpdatedAtMillis: regNow,
@@ -3599,6 +4219,7 @@
           editableTabs: [],
           allowedSubPages: [],
           editableSubPages: [],
+          allowedDashboardDepartments: [],
           hasExplicitPermissions: true,
           hasSubPagePermissions: true,
           permissionsUpdatedAtMillis: regNow,
@@ -3651,6 +4272,7 @@
               editableTabs: [],
               allowedSubPages: [],
               editableSubPages: [],
+              allowedDashboardDepartments: [],
               hasExplicitPermissions: true,
               hasSubPagePermissions: true,
               permissionsUpdatedAtMillis: recNow,
@@ -3970,7 +4592,7 @@
       });
 
       // 6. Mobil Uygulama Sürüm Takibi ve Firebase Yönetimi (app_version/current)
-      let hasAutoSyncedV12 = false;
+      let hasAutoSyncedV13 = false;
       try {
         onSnapshot(doc(db, "app_version", "current"), async (docSnap) => {
           if (docSnap && docSnap.exists()) {
@@ -3978,15 +4600,15 @@
             window.currentAppVersion = data;
             renderAppVersionBadge();
 
-            // Sürüm kodu 12'den küçükse otomatik olarak v1.4.1 (Kod: 12)'ye yükselt
+            // Sürüm kodu 13'ten küçükse otomatik olarak v1.4.2 (Kod: 13)'ye yükselt
             const verCodeNum = Number(data.versionCode || 0);
-            if (verCodeNum < 12 && !hasAutoSyncedV12) {
-              hasAutoSyncedV12 = true;
-              console.log("Firestore app_version sürüm kodu 12 (v1.4.1) olarak otomatik eşitleniyor...");
+            if (verCodeNum < 13 && !hasAutoSyncedV13) {
+              hasAutoSyncedV13 = true;
+              console.log("Firestore app_version sürüm kodu 13 (v1.4.2) olarak otomatik eşitleniyor...");
               seedInitialAppVersionInFirebase();
             }
-          } else if (!hasAutoSyncedV12) {
-            hasAutoSyncedV12 = true;
+          } else if (!hasAutoSyncedV13) {
+            hasAutoSyncedV13 = true;
             // Başlangıç sürüm dokümanı Firebase'de yoksa otomatik oluştur
             seedInitialAppVersionInFirebase();
           }
@@ -3995,6 +4617,78 @@
         });
       } catch (e) {
         console.warn("Failed to listen to app_version:", e);
+      }
+
+      // 7. Bulut Senkronlu Özel Roller (custom_roles)
+      let hasSeededCustomRoles = false;
+      try {
+        window.refreshDepartmentAndRoleDropdowns();
+        onSnapshot(collection(db, "custom_roles"), (snapshot) => {
+          if (snapshot.empty) {
+            window.allCustomRoles = window.BUILT_IN_ROLES_SEED.map(r => ({ ...r }));
+            if (!hasSeededCustomRoles) {
+              hasSeededCustomRoles = true;
+              const nowSeed = Date.now();
+              window.BUILT_IN_ROLES_SEED.forEach(seed => {
+                setDoc(doc(db, "custom_roles", seed.id), {
+                  ...seed,
+                  createdAtMillis: nowSeed,
+                  updatedAtMillis: nowSeed
+                }, { merge: true }).catch(() => {});
+              });
+            }
+          } else {
+            const cloudList = [];
+            snapshot.forEach(docSnap => {
+              cloudList.push({ ...docSnap.data(), id: docSnap.id });
+            });
+            cloudList.sort((a, b) => {
+              const bDiff = (b.isBuiltIn ? 1 : 0) - (a.isBuiltIn ? 1 : 0);
+              if (bDiff !== 0) return bDiff;
+              return (b.updatedAtMillis || 0) - (a.updatedAtMillis || 0);
+            });
+            window.allCustomRoles = cloudList;
+          }
+          window.refreshDepartmentAndRoleDropdowns();
+          if (window.currentUser) updateTopBarUser(window.currentUser);
+          renderTeam();
+          renderMembers();
+          const rolesModal = document.getElementById("modalManageRoles");
+          if (rolesModal && !rolesModal.classList.contains("hidden") && typeof window.renderManageRolesModal === "function") {
+            window.renderManageRolesModal();
+          }
+        }, (err) => {
+          console.warn("custom_roles listener notice:", err);
+        });
+      } catch (e) {
+        console.warn("Failed to listen to custom_roles:", e);
+      }
+
+      // 8. Bulut Senkronlu Özel Departmanlar (custom_departments)
+      try {
+        onSnapshot(collection(db, "custom_departments"), (snapshot) => {
+          const depts = [];
+          snapshot.forEach(docSnap => {
+            const d = docSnap.data() || {};
+            if ((d.name || "").trim()) {
+              depts.push({ ...d, id: docSnap.id, name: d.name.trim() });
+            }
+          });
+          depts.sort((a, b) => (b.updatedAtMillis || b.createdAtMillis || 0) - (a.updatedAtMillis || a.createdAtMillis || 0));
+          window.allCustomDepartments = depts;
+          window.refreshDepartmentAndRoleDropdowns();
+          refreshDashboard();
+          renderMembers();
+          renderTeam();
+          const deptModal = document.getElementById("modalManageDepartments");
+          if (deptModal && !deptModal.classList.contains("hidden") && typeof window.renderManageDepartmentsModal === "function") {
+            window.renderManageDepartmentsModal();
+          }
+        }, (err) => {
+          console.warn("custom_departments listener notice:", err);
+        });
+      } catch (e) {
+        console.warn("Failed to listen to custom_departments:", e);
       }
     }
 
@@ -4006,9 +4700,10 @@
     };
 
     function getEffectiveDashboardDept(u) {
-      const canPreview = u && (window.isMasterUser(u) || (u.department || "") === "Fabrika Yönetimi");
-      if (canPreview && window.dashDeptPreviewOverride && window.dashDeptPreviewOverride !== "AUTO") {
-        return window.dashDeptPreviewOverride;
+      const dashOpts = window.getDashboardDepartmentOptionsForUser(u);
+      if (window.dashDeptPreviewOverride && window.dashDeptPreviewOverride !== "AUTO") {
+        const matched = dashOpts.find(d => d.toLowerCase() === String(window.dashDeptPreviewOverride).toLowerCase());
+        if (matched) return matched;
       }
       return (u && u.department) ? u.department : "Fabrika Yönetimi";
     }
@@ -4078,8 +4773,20 @@
       const canDashRecentView = window.canUserViewSubPage("dash_recent_lists", u);
       const canDashRecentEdit = window.canUserEditSubPage("dash_recent_lists", u);
 
-      const canPreview = !!(u && (window.isMasterUser(u) || ((u.department || "") === "Fabrika Yönetimi" && canDashKpisEdit)));
+      const dashOpts = window.getDashboardDepartmentOptionsForUser(u);
+      const canPreview = !!(u && (window.isMasterUser(u) || dashOpts.length > 1));
       const previewWrap = document.getElementById("dashDeptPreviewWrap");
+      const previewSelect = document.getElementById("dashDeptPreviewSelect");
+      if (previewSelect && u) {
+        const ownDeptLabel = (u.department || "Fabrika Yönetimi").trim();
+        const optsHtml = `<option value="AUTO">Kendi Departmanım (${escapeHtml(ownDeptLabel)})</option>` +
+          dashOpts.map(d => `<option value="${escapeHtml(d)}">${d === window.ALL_FACTORY_LABEL ? "🏭 Tüm Fabrika (Konsolide Özet)" : escapeHtml(d)}</option>`).join("");
+        if (previewSelect.innerHTML !== optsHtml) previewSelect.innerHTML = optsHtml;
+        if (window.dashDeptPreviewOverride !== "AUTO" && !dashOpts.some(d => d.toLowerCase() === String(window.dashDeptPreviewOverride).toLowerCase())) {
+          window.dashDeptPreviewOverride = "AUTO";
+        }
+        previewSelect.value = window.dashDeptPreviewOverride || "AUTO";
+      }
       if (previewWrap) previewWrap.classList.toggle("hidden", !canPreview);
 
       const quickActionsCard = document.getElementById("dashQuickActionsCard");
@@ -4275,8 +4982,8 @@
           buildDeptKpiCardHtml("Gecikmiş Bakım", overdueSchedules.length, "İSG / periyodik kontrol takibi", "text-[#1E3A8A]", "calendar-check", "bg-blue-50 text-blue-700", clickElec("schedules"))
         ].join("");
         focusHtml = canDashRecentView ? (renderUtilityAlertsCard() + renderPackagingFocusCard()) : "";
-      } else {
-        deptPillText = "🏢 Fabrika Yönetimi";
+      } else if (effDept === window.ALL_FACTORY_LABEL || effDept === "Fabrika Yönetimi") {
+        deptPillText = effDept === window.ALL_FACTORY_LABEL ? "🏭 Tüm Fabrika" : "🏢 Fabrika Yönetimi";
         bannerTitle = "Tekinak Gıda — Tüm Fabrika Genel Bakış";
         bannerDesc = "Elektrik bakım, makarna paketleme birimi, yardımcı tesisler ve saha ekibi verilerinin gerçek zamanlı özeti.";
         kpiHtml = [
@@ -4286,6 +4993,20 @@
           buildDeptKpiCardHtml("Yan Tesis & Ekip", allUtilityAlerts.length, `${todayUtilityLogs.length}/4 bugünkü form • ${(window.allUsers || []).length} üye`, allUtilityAlerts.length > 0 ? "text-rose-600" : "text-emerald-600", "gauge", "bg-emerald-50 text-emerald-600", allUtilityAlerts.length > 0 ? clickUtil : clickMembers)
         ].join("");
         focusHtml = canDashRecentView ? ((allUtilityAlerts.length > 0 ? renderUtilityAlertsCard() : "") + (pkgLogs.length > 0 ? renderPackagingFocusCard() : "")) : "";
+      } else {
+        const customDeptFaults = openFaults.filter(f => (f.department || "").toLowerCase() === effDept.toLowerCase());
+        const customDeptWo = pendingWo.filter(w => (w.department || "").toLowerCase() === effDept.toLowerCase());
+        const customDeptMembers = (window.allUsers || []).filter(m => !m.isHidden && (m.department || "").toLowerCase() === effDept.toLowerCase());
+        deptPillText = `🏭 ${effDept}`;
+        bannerTitle = `${effDept} — Departman Özeti`;
+        bannerDesc = `${effDept} departmanına ait açık arızalar, aktif iş emirleri ve ekip durumu canlı izlenmektedir.`;
+        kpiHtml = [
+          buildDeptKpiCardHtml("Departman Arızaları", customDeptFaults.length, `Fabrika geneli toplam ${openFaults.length} açık`, "text-rose-600", "alert-circle", "bg-rose-50 text-rose-600", clickElec("faults")),
+          buildDeptKpiCardHtml("Departman İş Emirleri", customDeptWo.length, `Genel toplam ${pendingWo.length} aktif iş emri`, "text-amber-600", "wrench", "bg-amber-50 text-amber-600", clickElec("workOrders")),
+          buildDeptKpiCardHtml("Departman Ekibi", customDeptMembers.length, "Kayıtlı aktif personel", "text-[#1E3A8A]", "users", "bg-blue-50 text-blue-700", clickMembers),
+          buildDeptKpiCardHtml("Tamamlanan İşler", resolved, `${overdueSchedules.length} gecikmiş bakım planı`, "text-emerald-600", "check-circle-2", "bg-emerald-50 text-emerald-600", clickElec("analytics"))
+        ].join("");
+        focusHtml = (canDashRecentView && allUtilityAlerts.length > 0) ? renderUtilityAlertsCard() : "";
       }
 
       if (pillEl) pillEl.innerText = deptPillText;
@@ -5533,6 +6254,7 @@
           editableTabs: resolvedEditable,
           allowedSubPages: resolvedAllowedSubs,
           editableSubPages: resolvedEditableSubs,
+          allowedDashboardDepartments: isMaster ? [window.ALL_FACTORY_LABEL] : (Array.isArray(u.allowedDashboardDepartments) ? u.allowedDashboardDepartments : []),
           canExportExcel: isMaster || (u.canExportExcel === true),
           canManageSchedules: isMaster || (hasSubPerms ? resolvedEditableSubs.includes("elec_schedules") : (resolvedEditable.includes("electrical_maintenance") || (u.canManageSchedules === true))),
           canEditUtilityReferences: isMaster || (u.canEditUtilityReferences === true) || (hasSubPerms && resolvedEditableSubs.includes("util_references")),
@@ -5613,6 +6335,11 @@
             editableTabs: mergedEditable,
             allowedSubPages: mergedAllowedSubs,
             editableSubPages: mergedEditableSubs,
+            allowedDashboardDepartments: isMaster
+              ? [window.ALL_FACTORY_LABEL]
+              : (newer.hasExplicitPermissions
+                  ? (Array.isArray(newer.allowedDashboardDepartments) ? newer.allowedDashboardDepartments : [])
+                  : ((Array.isArray(newer.allowedDashboardDepartments) && newer.allowedDashboardDepartments.length) ? newer.allowedDashboardDepartments : (Array.isArray(older.allowedDashboardDepartments) ? older.allowedDashboardDepartments : []))),
             phoneNumber: newer.phoneNumber || older.phoneNumber,
             isHidden: newer.isHidden,
             isBlocked: !!(newer.isBlocked || older.isBlocked),
@@ -5679,7 +6406,8 @@
           allowedTabs: [...window.MASTER_ALL_TABS],
           editableTabs: [...window.MASTER_ALL_TABS],
           allowedSubPages: [...window.ALL_SUB_PAGE_IDS],
-          editableSubPages: [...window.ALL_SUB_PAGE_IDS]
+          editableSubPages: [...window.ALL_SUB_PAGE_IDS],
+          allowedDashboardDepartments: [window.ALL_FACTORY_LABEL]
         });
       }
 
@@ -5718,7 +6446,8 @@
           (u.username || "").toLowerCase().includes(search) ||
           (canViewDir && (u.email || "").toLowerCase().includes(search)) ||
           (u.department || "").toLowerCase().includes(search) ||
-          (u.role || "").toLowerCase().includes(search);
+          (u.role || "").toLowerCase().includes(search) ||
+          window.getRoleDisplayLabel(u.role).toLowerCase().includes(search);
         return matchesDept && matchesSearch;
       });
 
@@ -5767,7 +6496,7 @@
                   <div class="text-[11px] text-slate-500 font-mono mt-0.5">@${escapeHtml(u.username || 'personel')}</div>
                 </div>
                 <div class="px-2 py-0.5 rounded text-[10px] font-bold ${roleColor} flex-shrink-0 border">
-                  ${escapeHtml(role)}
+                  ${escapeHtml(window.getRoleDisplayLabel(role))}
                 </div>
               </div>
 
@@ -5948,7 +6677,7 @@
                   <div class="text-[11px] text-slate-500 font-mono mt-0.5">@${escapeHtml(u.username || 'personel')} • ${escapeHtml(u.department || 'Mekanik Bakım')}</div>
                 </div>
                 <div class="px-2.5 py-1 rounded-lg text-[10px] font-bold ${roleColor} border flex-shrink-0">
-                  ${escapeHtml(role)}
+                  ${escapeHtml(window.getRoleDisplayLabel(role))}
                 </div>
               </div>
 
@@ -6051,6 +6780,21 @@
                   </div>
                   ${subBreakdownHtml ? `<div id="teamSubBreakdown_${escapeHtml(u.id)}" class="hidden space-y-1.5 pt-1">${subBreakdownHtml}</div>` : ""}
                 `}
+              </div>
+
+              <!-- 4.5 Satır: Genel Bakış Departman Görünüm Yetkisi -->
+              <div class="mt-2.5 pt-2 border-t border-slate-100">
+                <div class="text-[10px] font-bold text-slate-600 mb-1 flex items-center gap-1">
+                  <i data-lucide="eye" class="w-3 h-3 text-sky-700"></i> Genel Bakış Departman Görünümü:
+                </div>
+                <div class="flex flex-wrap gap-1">
+                  ${isMaster
+                    ? `<span class="px-2 py-0.5 rounded bg-amber-100 text-amber-900 border border-amber-300 text-[9px] font-bold">🏭 Tüm Fabrika + Tüm Departmanlar</span>`
+                    : window.getDashboardDepartmentOptionsForUser(u).map(d =>
+                        `<span class="px-2 py-0.5 rounded ${d === window.ALL_FACTORY_LABEL ? 'bg-amber-50 text-amber-900 border-amber-200' : 'bg-sky-50 text-sky-900 border-sky-200'} border text-[9px] font-bold">${d === window.ALL_FACTORY_LABEL ? '🏭 Tüm Fabrika' : escapeHtml(d)}</span>`
+                      ).join("")
+                  }
+                </div>
               </div>
             </div>
 
@@ -6311,6 +7055,7 @@
 
     // Yönetici Yeni Üye Ekleme (İlk Kurulumda Hiçbir Yetki Açık Değildir)
     window.openAddUserAdminModal = function() {
+      window.refreshDepartmentAndRoleDropdowns();
       document.getElementById("adminNewName").value = "";
       document.getElementById("adminNewUsername").value = "";
       document.getElementById("adminNewPassword").value = "";
@@ -6318,6 +7063,7 @@
       document.getElementById("adminNewPhone").value = "";
       const roleSelect = document.getElementById("adminNewRole");
       if (roleSelect) roleSelect.value = "OBSERVER";
+      const deptVal = document.getElementById("adminNewDept")?.value || "Mekanik Bakım";
       const st = window.permMatrixState.adminNew;
       if (st && st.expandedTabs) st.expandedTabs.clear();
       window.applyTabMatrixPreset("adminNew", "NONE");
@@ -6330,10 +7076,279 @@
       setChk("adminPermReopen", false);
       setChk("adminPermDeleteMsg", false);
       setChk("adminPermEditProfile", false);
+      window.renderDashDeptVisibilitySelector("adminNew", [], deptVal, false);
       document.getElementById("modalAddUserAdmin").classList.remove("hidden");
       lucide.createIcons();
     };
-    window.openManageRolesModal = () => document.getElementById("modalManageRoles").classList.remove("hidden");
+
+    // ================= BULUT SENKRONLU ROL & DEPARTMAN YÖNETİMİ =================
+    window.openManageRolesModal = function() {
+      if (!window.isMasterUser(window.currentUser)) {
+        alert("⛔ Rolleri yönetme yetkisi yalnızca Ana Sistem Yöneticisine tanımlıdır.");
+        return;
+      }
+      window.cancelEditOrCreateRole();
+      window.renderManageRolesModal();
+      document.getElementById("modalManageRoles").classList.remove("hidden");
+      lucide.createIcons();
+    };
+
+    window.renderManageRolesModal = function() {
+      const container = document.getElementById("manageRolesListContainer");
+      if (!container) return;
+      const roles = window.allCustomRoles || [];
+      if (!roles.length) {
+        container.innerHTML = `<div class="p-4 text-center text-slate-400 border rounded-xl">Kayıtlı rol bulunamadı.</div>`;
+        return;
+      }
+      container.innerHTML = roles.map(r => {
+        const tabsCnt = Array.isArray(r.allowedTabs) ? r.allowedTabs.length : 0;
+        const editCnt = Array.isArray(r.editableTabs) ? r.editableTabs.length : 0;
+        const dashDepts = Array.isArray(r.allowedDashboardDepartments) ? r.allowedDashboardDepartments : [];
+        return `
+          <div class="p-3 bg-white border border-slate-200 rounded-xl flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div class="min-w-0 space-y-1">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="font-extrabold text-slate-900 text-xs">${escapeHtml(r.name || r.roleCode || "Rol")}</span>
+                <span class="px-1.5 py-0.5 rounded bg-slate-100 text-slate-600 font-mono text-[10px] border">${escapeHtml(r.roleCode || r.id)}</span>
+                ${r.isBuiltIn ? '<span class="px-1.5 py-0.5 rounded bg-blue-50 text-blue-700 text-[10px] font-bold border border-blue-200">Varsayılan</span>' : '<span class="px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 text-[10px] font-bold border border-emerald-200">Özel Bulut Rolü</span>'}
+              </div>
+              <div class="text-[11px] text-slate-500">${escapeHtml(r.description || "Açıklama yok.")}</div>
+              <div class="flex flex-wrap gap-1 text-[10px] pt-0.5">
+                <span class="px-2 py-0.5 rounded bg-indigo-50 text-[#1E3A8A] font-bold">${tabsCnt} Sekme Gör • ${editCnt} Düzenle</span>
+                ${dashDepts.length ? `<span class="px-2 py-0.5 rounded bg-sky-50 text-sky-900 font-semibold">Genel Bakış: ${escapeHtml(dashDepts.join(", "))}</span>` : ""}
+              </div>
+            </div>
+            <div class="flex items-center gap-1.5 flex-shrink-0">
+              <button type="button" onclick="startEditOrCreateRole('${escapeJsSingle(r.id)}')" class="px-2.5 py-1.5 bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-300 rounded-lg font-bold text-[11px]">Düzenle</button>
+              ${!r.isBuiltIn ? `<button type="button" onclick="deleteCustomRole('${escapeJsSingle(r.id)}', '${escapeJsSingle(r.name || r.roleCode)}')" class="px-2.5 py-1.5 bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 rounded-lg font-bold text-[11px]">Sil</button>` : ""}
+            </div>
+          </div>
+        `;
+      }).join("");
+    };
+
+    window.startEditOrCreateRole = function(roleId) {
+      const panel = document.getElementById("roleEditorPanel");
+      if (!panel) return;
+      const roleObj = roleId ? (window.allCustomRoles || []).find(r => r.id === roleId) : null;
+      document.getElementById("roleEditId").value = roleObj ? roleObj.id : "";
+      document.getElementById("roleEditCode").value = roleObj ? (roleObj.roleCode || roleObj.name || "") : "";
+      document.getElementById("roleEditIsBuiltIn").value = (roleObj && roleObj.isBuiltIn) ? "1" : "0";
+      document.getElementById("roleEditName").value = roleObj ? (roleObj.name || "") : "";
+      document.getElementById("roleEditDesc").value = roleObj ? (roleObj.description || "") : "";
+      document.getElementById("roleEditorHeading").innerText = roleObj ? `Rolü Düzenle: ${roleObj.name}` : "Yeni Özel Rol Oluştur";
+
+      const st = window.permMatrixState.roleEdit;
+      if (st && st.expandedTabs) st.expandedTabs.clear();
+      if (roleObj) {
+        const aTabs = roleObj.allowedTabs || [];
+        const eTabs = roleObj.editableTabs || [];
+        const aSubs = (Array.isArray(roleObj.allowedSubPages) && roleObj.allowedSubPages.length)
+          ? roleObj.allowedSubPages
+          : window.SUB_PAGE_SCHEMA.filter(s => aTabs.includes(s.parentTab)).map(s => s.id);
+        const eSubs = (Array.isArray(roleObj.editableSubPages) && roleObj.editableSubPages.length)
+          ? roleObj.editableSubPages
+          : window.SUB_PAGE_SCHEMA.filter(s => eTabs.includes(s.parentTab) && (s.id !== "util_references" || roleObj.canEditUtilityReferences === true)).map(s => s.id);
+        window.setPermMatrixStateFromLists("roleEdit", aTabs, eTabs, aSubs, eSubs);
+      } else {
+        window.applyTabMatrixPreset("roleEdit", "DASHBOARD_ONLY");
+      }
+
+      const setChk = (id, v) => { const el = document.getElementById(id); if (el) el.checked = !!v; };
+      setChk("roleEditPermUtilRefs", roleObj?.canEditUtilityReferences);
+      setChk("roleEditPermExcel", roleObj?.canExportExcel);
+      setChk("roleEditPermSchedules", roleObj?.canManageSchedules);
+      setChk("roleEditPermChatView", roleObj?.canViewChat);
+      setChk("roleEditPermChatSend", roleObj?.canSendChat);
+      setChk("roleEditPermReopen", roleObj?.canReopenTickets);
+      setChk("roleEditPermDeleteMsg", roleObj?.canDeleteAnyMessage);
+      setChk("roleEditPermEditProfile", roleObj?.canEditProfile);
+
+      window.renderDashDeptVisibilitySelector("roleEdit", roleObj?.allowedDashboardDepartments || [], "", false);
+      panel.classList.remove("hidden");
+    };
+
+    window.cancelEditOrCreateRole = function() {
+      const panel = document.getElementById("roleEditorPanel");
+      if (panel) panel.classList.add("hidden");
+    };
+
+    window.saveRoleDefinition = async function() {
+      if (!window.isMasterUser(window.currentUser)) {
+        alert("⛔ Yalnızca Ana Sistem Yöneticisi rol kaydedebilir.");
+        return;
+      }
+      const existingId = document.getElementById("roleEditId").value.trim();
+      const existingCode = document.getElementById("roleEditCode").value.trim();
+      const isBuiltIn = document.getElementById("roleEditIsBuiltIn").value === "1";
+      const name = document.getElementById("roleEditName").value.trim();
+      const desc = document.getElementById("roleEditDesc").value.trim();
+      if (!name) {
+        alert("Lütfen rol adını giriniz.");
+        return;
+      }
+
+      const now = Date.now();
+      const docId = existingId || ("role_" + now);
+      const roleCode = (isBuiltIn && existingCode) ? existingCode : (existingCode || name);
+      const matrix = window.getPermMatrixResult("roleEdit");
+      const canUtilRefs = !!document.getElementById("roleEditPermUtilRefs")?.checked;
+      const canSchedules = !!document.getElementById("roleEditPermSchedules")?.checked;
+      const canChatView = !!document.getElementById("roleEditPermChatView")?.checked;
+
+      const payload = {
+        id: docId,
+        roleCode: roleCode,
+        name: name,
+        description: desc,
+        isBuiltIn: isBuiltIn,
+        allowedTabs: matrix.allowedTabs,
+        editableTabs: matrix.editableTabs,
+        allowedSubPages: matrix.allowedSubPages,
+        editableSubPages: matrix.editableSubPages,
+        allowedDashboardDepartments: window.getDashDeptVisibilityResult("roleEdit", ""),
+        canCreateFault: matrix.editableSubPages.includes("elec_faults"),
+        canCreateWorkOrder: matrix.editableSubPages.includes("elec_work_orders"),
+        canEditUtilityReferences: canUtilRefs || matrix.editableSubPages.includes("util_references"),
+        canExportExcel: !!document.getElementById("roleEditPermExcel")?.checked,
+        canManageSchedules: canSchedules || matrix.editableSubPages.includes("elec_schedules"),
+        canViewChat: canChatView,
+        canSendChat: canChatView && !!document.getElementById("roleEditPermChatSend")?.checked,
+        canReopenTickets: !!document.getElementById("roleEditPermReopen")?.checked,
+        canDeleteAnyMessage: !!document.getElementById("roleEditPermDeleteMsg")?.checked,
+        canEditProfile: !!document.getElementById("roleEditPermEditProfile")?.checked,
+        updatedAtMillis: now,
+        updatedAt: serverTimestamp()
+      };
+      if (!existingId) payload.createdAtMillis = now;
+
+      try {
+        await setDoc(doc(db, "custom_roles", docId), payload, { merge: true });
+        window.cancelEditOrCreateRole();
+        alert(`✅ '${name}' rolü buluta kaydedildi ve Android/Web arasında eşitlendi.`);
+      } catch (err) {
+        console.error("Rol kaydetme hatası:", err);
+        alert("Rol kaydedilirken hata oluştu: " + err.message);
+      }
+    };
+
+    window.deleteCustomRole = async function(roleId, roleName) {
+      if (!window.isMasterUser(window.currentUser) || !roleId) return;
+      if (!confirm(`'${roleName}' özel rolünü buluttan silmek istiyor musunuz?`)) return;
+      try {
+        await deleteDoc(doc(db, "custom_roles", roleId));
+      } catch (err) {
+        alert("Rol silinemedi: " + err.message);
+      }
+    };
+
+    window.openManageDepartmentsModal = function() {
+      if (!window.isMasterUser(window.currentUser)) {
+        alert("⛔ Departman yönetimi yetkisi yalnızca Ana Sistem Yöneticisine tanımlıdır.");
+        return;
+      }
+      window.resetDeptForm();
+      window.renderManageDepartmentsModal();
+      document.getElementById("modalManageDepartments").classList.remove("hidden");
+      lucide.createIcons();
+    };
+
+    window.renderManageDepartmentsModal = function() {
+      const customEl = document.getElementById("customDepartmentsList");
+      const builtInEl = document.getElementById("builtInDepartmentsList");
+      if (builtInEl) {
+        builtInEl.innerHTML = window.BUILT_IN_DEPARTMENTS.map(d =>
+          `<span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 border border-slate-200 font-semibold text-[11px]">${escapeHtml(d)}</span>`
+        ).join("");
+      }
+      if (!customEl) return;
+      const list = window.allCustomDepartments || [];
+      if (!list.length) {
+        customEl.innerHTML = `<div class="p-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-400 text-center">Henüz özel departman eklenmemiş.</div>`;
+        return;
+      }
+      customEl.innerHTML = list.map(d => `
+        <div class="p-2.5 bg-white border border-emerald-200 rounded-xl flex items-center justify-between gap-2">
+          <div class="min-w-0">
+            <div class="font-bold text-slate-900 truncate">🏢 ${escapeHtml(d.name)}</div>
+            ${d.description ? `<div class="text-[10px] text-slate-500 truncate">${escapeHtml(d.description)}</div>` : ""}
+          </div>
+          <div class="flex items-center gap-1.5 flex-shrink-0">
+            <button type="button" onclick="editCustomDepartment('${escapeJsSingle(d.id)}')" class="px-2 py-1 bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-300 rounded-lg font-bold text-[10px]">Düzenle</button>
+            <button type="button" onclick="deleteCustomDepartment('${escapeJsSingle(d.id)}', '${escapeJsSingle(d.name)}')" class="px-2 py-1 bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 rounded-lg font-bold text-[10px]">Sil</button>
+          </div>
+        </div>
+      `).join("");
+    };
+
+    window.editCustomDepartment = function(deptId) {
+      const d = (window.allCustomDepartments || []).find(x => x.id === deptId);
+      if (!d) return;
+      document.getElementById("deptEditId").value = d.id;
+      document.getElementById("deptEditName").value = d.name || "";
+      document.getElementById("deptEditDesc").value = d.description || "";
+      document.getElementById("deptFormHeading").innerText = `Departmanı Düzenle: ${d.name}`;
+      document.getElementById("deptCancelEditBtn").classList.remove("hidden");
+    };
+
+    window.resetDeptForm = function() {
+      const idEl = document.getElementById("deptEditId");
+      const nameEl = document.getElementById("deptEditName");
+      const descEl = document.getElementById("deptEditDesc");
+      const headEl = document.getElementById("deptFormHeading");
+      const cancelBtn = document.getElementById("deptCancelEditBtn");
+      if (idEl) idEl.value = "";
+      if (nameEl) nameEl.value = "";
+      if (descEl) descEl.value = "";
+      if (headEl) headEl.innerText = "+ Yeni Departman Ekle";
+      if (cancelBtn) cancelBtn.classList.add("hidden");
+    };
+
+    window.saveCustomDepartment = async function(e) {
+      e.preventDefault();
+      if (!window.isMasterUser(window.currentUser)) return;
+      const existingId = document.getElementById("deptEditId").value.trim();
+      const name = document.getElementById("deptEditName").value.trim();
+      const desc = document.getElementById("deptEditDesc").value.trim();
+      if (!name) {
+        alert("Lütfen departman adını giriniz.");
+        return;
+      }
+      const dupBuiltIn = window.BUILT_IN_DEPARTMENTS.some(b => b.toLowerCase() === name.toLowerCase());
+      const dupCustom = (window.allCustomDepartments || []).some(c => c.id !== existingId && (c.name || "").trim().toLowerCase() === name.toLowerCase());
+      if (dupBuiltIn || dupCustom) {
+        alert("Bu isimde bir departman zaten mevcut.");
+        return;
+      }
+      const now = Date.now();
+      const docId = existingId || ("dept_" + now);
+      try {
+        const payload = {
+          id: docId,
+          name: name,
+          description: desc,
+          createdBy: window.currentUser.displayName || window.currentUser.username || "Yönetici",
+          updatedAtMillis: now,
+          updatedAt: serverTimestamp()
+        };
+        if (!existingId) payload.createdAtMillis = now;
+        await setDoc(doc(db, "custom_departments", docId), payload, { merge: true });
+        window.resetDeptForm();
+      } catch (err) {
+        alert("Departman kaydedilemedi: " + err.message);
+      }
+    };
+
+    window.deleteCustomDepartment = async function(deptId, deptName) {
+      if (!window.isMasterUser(window.currentUser) || !deptId) return;
+      if (!confirm(`'${deptName}' departmanını silmek istiyor musunuz?`)) return;
+      try {
+        await deleteDoc(doc(db, "custom_departments", deptId));
+      } catch (err) {
+        alert("Departman silinemedi: " + err.message);
+      }
+    };
 
     window.saveNewUserAdmin = async function() {
       const name = document.getElementById("adminNewName").value.trim();
@@ -6380,6 +7395,9 @@
         newAllowedSubs = [...window.ALL_SUB_PAGE_IDS];
         newEditableSubs = [...window.ALL_SUB_PAGE_IDS];
       }
+      const dashDepts = isMasterTarget
+        ? [window.ALL_FACTORY_LABEL]
+        : window.getDashDeptVisibilityResult("adminNew", dept);
 
       if (!name || !username || !password) {
         alert("Lütfen Ad Soyad, Kullanıcı Adı ve Şifre alanlarını doldurunuz.");
@@ -6420,6 +7438,7 @@
           editableTabs: newEditableTabs,
           allowedSubPages: newAllowedSubs,
           editableSubPages: newEditableSubs,
+          allowedDashboardDepartments: dashDepts,
           canCreateFault: finalCanCreateFault,
           canCreateWorkOrder: finalCanCreateWo,
           canExportExcel: canExcel,
@@ -6459,12 +7478,33 @@
       const user = (window.allUsers || []).find(u => u.id === userId || u.userId === userId);
       if (!user) return;
 
+      window.refreshDepartmentAndRoleDropdowns();
       const isMaster = window.isMasterUser(user);
       document.getElementById("editPermUserId").value = user.id;
       document.getElementById("editPermDisplayName").innerText = user.displayName || user.username || "Personel";
       document.getElementById("editPermUsername").innerText = "@" + (user.username || "personel");
-      document.getElementById("editPermRole").value = user.role || "OBSERVER";
-      document.getElementById("editPermDept").value = user.department || "Mekanik Bakım";
+      const roleSel = document.getElementById("editPermRole");
+      if (roleSel) {
+        const userRole = user.role || "OBSERVER";
+        if (!Array.from(roleSel.options).some(o => o.value === userRole)) {
+          const opt = document.createElement("option");
+          opt.value = userRole;
+          opt.text = window.getRoleDisplayLabel(userRole);
+          roleSel.appendChild(opt);
+        }
+        roleSel.value = userRole;
+      }
+      const deptSel = document.getElementById("editPermDept");
+      const userDept = user.department || "Mekanik Bakım";
+      if (deptSel) {
+        if (!Array.from(deptSel.options).some(o => o.value === userDept)) {
+          const opt = document.createElement("option");
+          opt.value = userDept;
+          opt.text = userDept;
+          deptSel.appendChild(opt);
+        }
+        deptSel.value = userDept;
+      }
       const permPassInput = document.getElementById("editPermPassword");
       if (permPassInput) {
         permPassInput.value = user.password || "";
@@ -6489,6 +7529,13 @@
       setChk("editPermCanReopen", window.canUserReopenTickets(user));
       setChk("editPermCanDeleteMsg", window.canUserDeleteAnyMessage(user));
       setChk("editPermCanEditProfile", window.canUserEditProfile(user));
+
+      window.renderDashDeptVisibilitySelector(
+        "editPerm",
+        isMaster ? [window.ALL_FACTORY_LABEL] : (user.allowedDashboardDepartments || []),
+        userDept,
+        isMaster
+      );
 
       const forceBtn = document.getElementById("adminForceLogoutUserBtn");
       if (forceBtn) forceBtn.classList.toggle("hidden", isMaster);
@@ -6554,6 +7601,9 @@
       const finalCanCreateWo = isTargetMaster || updatedEditableSubs.includes("elec_work_orders");
       const finalCanManageSched = isTargetMaster || updatedEditableSubs.includes("elec_schedules") || canSchedulesCheckbox;
       const finalCanUtilRefs = isTargetMaster || updatedEditableSubs.includes("util_references") || canUtilRefs;
+      const updatedDashDepts = isTargetMaster
+        ? [window.ALL_FACTORY_LABEL]
+        : window.getDashDeptVisibilityResult("editPerm", newDept);
 
       const permPassEl = document.getElementById("editPermPassword");
       const origPass = (permPassEl?.dataset?.originalPass || "").trim();
@@ -6568,6 +7618,7 @@
         editableTabs: updatedEditableTabs,
         allowedSubPages: updatedAllowedSubs,
         editableSubPages: updatedEditableSubs,
+        allowedDashboardDepartments: updatedDashDepts,
         canCreateFault: finalCanCreateFault,
         canCreateWorkOrder: finalCanCreateWo,
         canExportExcel: canExcel,
@@ -6654,6 +7705,27 @@
     window.editingChatMessageId = null;
     window.pendingChatImageBase64 = null;
 
+    window.isProcessingChatPhoto = false;
+
+    window.getChatImageRawField = function(m) {
+      if (!m) return "";
+      const raw = m.imageBase64 || m.photoBase64 || m.image || m.imageUrl || "";
+      return typeof raw === "string" ? raw.trim() : "";
+    };
+
+    window.getChatImageDataUrl = function(raw) {
+      if (!raw || typeof raw !== "string") return "";
+      const trimmed = raw.trim();
+      if (!trimmed) return "";
+      if (/^(https?:\/\/|data:image\/)/i.test(trimmed)) return trimmed;
+      return "data:image/jpeg;base64," + trimmed.replace(/\s+/g, "");
+    };
+
+    window.scrollChatToBottom = function() {
+      const container = document.getElementById("chatMessages");
+      if (container) container.scrollTop = container.scrollHeight;
+    };
+
     window.renderChat = function() {
       const container = document.getElementById("chatMessages");
       if (!container) return;
@@ -6678,14 +7750,25 @@
         const mUid = (m.senderUid || "").trim().toLowerCase();
         const isSystem = mUid === "system";
         const isMe = !isSystem && myIdentifiers.has(mUid);
-        const msgId = escapeJsSingle(m.docId || m.id || "");
-        const msgText = m.messageText || m.message || m.text || "";
+        const rawDocId = String(m.docId || m.id || "");
+        const msgId = escapeJsSingle(rawDocId);
+        const msgText = (m.messageText || m.message || m.text || "").trim();
         const canEditThis = isMe && !isSystem && canSend;
         const canDeleteThis = !isSystem && (isMe || canDelAny);
 
-        const imgHtml = m.imageBase64
-          ? `<img src="data:image/jpeg;base64,${escapeHtml(m.imageBase64)}" alt="Saha Fotoğrafı" onclick="openChatImagePreview('${escapeJsSingle(m.imageBase64)}')" class="mt-1.5 max-h-48 rounded-xl border border-black/10 cursor-pointer hover:opacity-90 object-cover">`
+        const rawImg = window.getChatImageRawField(m);
+        const imgSrc = rawImg ? window.getChatImageDataUrl(rawImg) : "";
+        const imgHtml = imgSrc
+          ? `<div class="mt-1.5">
+               <img src="${escapeHtml(imgSrc)}" alt="Saha Fotoğrafı" onload="window.scrollChatToBottom()" onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.classList.remove('hidden');" onclick="openChatImagePreviewById('${msgId}')" class="block max-w-[260px] max-h-56 rounded-xl border border-black/10 cursor-pointer hover:opacity-90 object-cover bg-slate-100">
+               <div class="hidden px-2.5 py-2 rounded-lg text-[11px] font-semibold ${isMe ? 'bg-white/10 text-blue-100' : 'bg-slate-100 text-slate-600'}">📷 Fotoğraf görüntülenemedi</div>
+             </div>`
           : "";
+
+        const isAutoPhotoText = msgText === "📷 Fotoğraf paylaşıldı" ||
+          msgText === "📷 Fotoğraf gönderdi" ||
+          msgText === "📷 Fotoğraf paylaştı";
+        const showText = msgText && (!imgSrc || !isAutoPhotoText);
 
         return `
           <div class="flex flex-col ${isMe ? 'items-end' : 'items-start'}">
@@ -6696,7 +7779,7 @@
               ${m.isEdited ? `<span class="italic text-[9px] text-slate-400">(düzenlendi)</span>` : ""}
             </div>
             <div class="max-w-[85%] rounded-2xl px-3.5 py-2 text-xs shadow-sm space-y-1 ${isMe ? 'bg-[#1E3A8A] text-white rounded-tr-none' : (isSystem ? 'bg-amber-50 text-amber-950 border border-amber-300 rounded-tl-none' : 'bg-white text-slate-800 border border-slate-200 rounded-tl-none')}">
-              ${msgText ? `<div class="whitespace-pre-wrap break-words">${escapeHtml(msgText)}</div>` : ""}
+              ${showText ? `<div class="whitespace-pre-wrap break-words">${escapeHtml(msgText)}</div>` : ""}
               ${imgHtml}
               ${(canEditThis || canDeleteThis) ? `
                 <div class="flex items-center justify-end gap-2 pt-1 text-[10px] opacity-80">
@@ -6724,8 +7807,11 @@
       const dept = document.getElementById("fDept").value;
       const priority = document.getElementById("fPriority").value;
       const desc = document.getElementById("fDesc").value.trim();
-      const intervenedStr = document.getElementById("fIntervened").value.trim();
-      const intervened = intervenedStr ? intervenedStr.split(',').map(s=>s.trim()).filter(Boolean) : [];
+      const dropdownIntervened = window.getIntervenedDropdownNames("faultCreate");
+      const intervenedStr = (document.getElementById("fIntervened")?.value || "").trim();
+      const intervened = dropdownIntervened.length > 0
+        ? dropdownIntervened
+        : (intervenedStr ? intervenedStr.split(',').map(s => s.trim()).filter(Boolean) : []);
 
       if (!machine || !desc) {
         alert("Lütfen makine adı ve arıza tanımını giriniz.");
@@ -6777,6 +7863,7 @@
         document.getElementById("fMachine").value = "";
         document.getElementById("fDesc").value = "";
         document.getElementById("fIntervened").value = "";
+        window.initIntervenedDropdown("faultCreate", []);
         switchTab('faults');
       } catch (err) {
         console.error("Arıza kaydetme hatası:", err);
@@ -6971,11 +8058,16 @@
       const submitBtnEl = document.getElementById("ticketActionSubmitBtn");
 
       const currentActorName = window.currentUser.displayName || window.currentUser.username || "Personel";
-      actorInputEl.value = currentActorName;
+      const existingIntervened = (item && Array.isArray(item.intervenedByNames)) ? item.intervenedByNames : [];
+      const initialActors = mode === "resolve"
+        ? Array.from(new Set([...existingIntervened, currentActorName].map(s => (s || "").trim()).filter(Boolean)))
+        : [currentActorName];
+      actorInputEl.value = initialActors.join(", ");
+      window.initIntervenedDropdown("ticketAction", initialActors);
 
       if (mode === "resolve") {
         titleEl.innerHTML = `<i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-600"></i> ${collName === "fault_reports" ? "Arızayı Çözüldü Olarak Kapat" : "İş Emrini Tamamla"}`;
-        actorLabelEl.innerText = "Müdahale Eden Personel(ler) (virgülle ayırabilirsiniz) *";
+        actorLabelEl.innerText = "Müdahale Eden Personel(ler) (Açılır Sekmeden Seçin) *";
         noteLabelEl.innerText = "Çözüm / Müdahale Notu (İsteğe bağlı)";
         noteInputEl.required = false;
         noteInputEl.value = "";
@@ -6984,7 +8076,7 @@
         submitBtnEl.innerHTML = `<span>${collName === "fault_reports" ? "Çözüldü Yap" : "Tamamla"}</span>`;
       } else {
         titleEl.innerHTML = `<i data-lucide="rotate-ccw" class="w-5 h-5 text-amber-600"></i> ${collName === "fault_reports" ? "Arızayı Tekrar Aç" : "İş Emrini Tekrar Aç"}`;
-        actorLabelEl.innerText = "Tekrar Açan Yetkili *";
+        actorLabelEl.innerText = "Tekrar Açan Yetkili(ler) *";
         noteLabelEl.innerText = "Tekrar Açma Gerekçesi *";
         noteInputEl.required = true;
         noteInputEl.value = "Sorun nüksetti / Testte giderilemedi";
@@ -7022,13 +8114,15 @@
         return;
       }
       const targetLabel = document.getElementById("ticketActionTargetLabel").innerText || "Kayıt";
-      const actorRaw = document.getElementById("ticketActionActor").value.trim();
+      const dropdownActors = window.getIntervenedDropdownNames("ticketAction");
+      const actorRaw = (document.getElementById("ticketActionActor")?.value || "").trim();
       const noteRaw = document.getElementById("ticketActionNote").value.trim();
 
       const fallbackActor = window.currentUser.displayName || window.currentUser.username || "Personel";
-      const actorNames = actorRaw
-        ? actorRaw.split(",").map(s => s.trim()).filter(Boolean)
-        : [fallbackActor];
+      const parsedActors = dropdownActors.length > 0
+        ? dropdownActors
+        : (actorRaw ? actorRaw.split(",").map(s => s.trim()).filter(Boolean) : []);
+      const actorNames = parsedActors.length > 0 ? parsedActors : [fallbackActor];
       const primaryActor = actorNames[0] || fallbackActor;
 
       const submitBtn = document.getElementById("ticketActionSubmitBtn");
@@ -7282,42 +8376,101 @@
     };
 
     window.openChatImagePreview = function(base64) {
+      const src = window.getChatImageDataUrl(base64);
+      if (!src) return;
       const img = document.getElementById("modalImagePreviewSrc");
-      if (img) img.src = "data:image/jpeg;base64," + base64;
+      if (img) img.src = src;
       document.getElementById("modalImagePreview").classList.remove("hidden");
+    };
+
+    window.openChatImagePreviewById = function(msgId) {
+      const m = (window.allChatMessages || []).find(x => (x.docId || x.id) === msgId);
+      const raw = window.getChatImageRawField(m);
+      if (!raw) return;
+      window.openChatImagePreview(raw);
     };
 
     window.clearChatPhotoPreview = function() {
       window.pendingChatImageBase64 = null;
+      window.isProcessingChatPhoto = false;
       const bar = document.getElementById("chatPhotoPreviewBar");
       if (bar) bar.classList.add("hidden");
+      const pImg = document.getElementById("chatPhotoPreviewImg");
+      if (pImg) pImg.src = "";
       const fIn = document.getElementById("chatFileInput");
       if (fIn) fIn.value = "";
+      const sendBtn = document.getElementById("chatSendBtn");
+      if (sendBtn) sendBtn.disabled = false;
+    };
+
+    window.compressImageElementForFirestore = function(img) {
+      const dims = [1024, 820, 640, 480];
+      const qualities = [0.78, 0.65, 0.52, 0.40];
+      const canvas = document.createElement("canvas");
+      const ctx = canvas.getContext("2d");
+      if (!ctx || !img.width || !img.height) return null;
+
+      for (const maxDim of dims) {
+        const maxSide = Math.max(img.width, img.height);
+        const scale = maxSide > maxDim ? (maxDim / maxSide) : 1;
+        canvas.width = Math.max(1, Math.round(img.width * scale));
+        canvas.height = Math.max(1, Math.round(img.height * scale));
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+        for (const q of qualities) {
+          const dataUrl = canvas.toDataURL("image/jpeg", q);
+          const b64 = (dataUrl.split(",")[1] || "").trim();
+          if (b64 && b64.length <= 580000) {
+            return { dataUrl, b64 };
+          }
+        }
+      }
+      const lastUrl = canvas.toDataURL("image/jpeg", 0.32);
+      const lastB64 = (lastUrl.split(",")[1] || "").trim();
+      if (lastB64 && lastB64.length <= 850000) {
+        return { dataUrl: lastUrl, b64: lastB64 };
+      }
+      return null;
     };
 
     window.handleChatPhotoSelect = function(event) {
       const file = event?.target?.files?.[0];
       if (!file) return;
+      window.isProcessingChatPhoto = true;
+      const sendBtn = document.getElementById("chatSendBtn");
+      if (sendBtn) sendBtn.disabled = true;
+
       const reader = new FileReader();
+      reader.onerror = function() {
+        window.isProcessingChatPhoto = false;
+        if (sendBtn) sendBtn.disabled = false;
+        alert("Seçilen fotoğraf dosyası okunamadı.");
+      };
       reader.onload = function(e) {
+        const rawDataUrl = String(e?.target?.result || "");
         const img = new Image();
+        img.onerror = function() {
+          window.isProcessingChatPhoto = false;
+          if (sendBtn) sendBtn.disabled = false;
+          alert("Bu görsel formatı tarayıcıda işlenemedi. Lütfen JPG veya PNG seçiniz.");
+        };
         img.onload = function() {
-          const maxW = 960;
-          const scale = img.width > maxW ? (maxW / img.width) : 1;
-          const canvas = document.createElement("canvas");
-          canvas.width = Math.round(img.width * scale);
-          canvas.height = Math.round(img.height * scale);
-          const ctx = canvas.getContext("2d");
-          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-          const dataUrl = canvas.toDataURL("image/jpeg", 0.7);
-          const b64 = dataUrl.split(",")[1] || "";
-          window.pendingChatImageBase64 = b64;
+          const compressed = window.compressImageElementForFirestore(img);
+          window.isProcessingChatPhoto = false;
+          if (sendBtn) sendBtn.disabled = false;
+
+          if (!compressed || !compressed.b64) {
+            alert("Fotoğraf boyutu bulut sınırı için küçültülemedi. Lütfen başka bir fotoğraf seçiniz.");
+            return;
+          }
+          window.pendingChatImageBase64 = compressed.b64;
           const pImg = document.getElementById("chatPhotoPreviewImg");
-          if (pImg) pImg.src = dataUrl;
+          if (pImg) pImg.src = compressed.dataUrl;
           const bar = document.getElementById("chatPhotoPreviewBar");
           if (bar) bar.classList.remove("hidden");
         };
-        img.src = e.target.result;
+        img.src = rawDataUrl;
       };
       reader.readAsDataURL(file);
     };
@@ -7366,9 +8519,16 @@
         alert("⚠️ Saha sohbetine mesaj gönderme yetkiniz kapalıdır (Salt Okunur).");
         return;
       }
+      if (window.isProcessingChatPhoto) {
+        alert("⏳ Fotoğraf hazırlanıyor, lütfen bir saniye bekleyip tekrar gönderin.");
+        return;
+      }
       const input = document.getElementById("chatInput");
       const text = input.value.trim();
-      const imageB64 = window.pendingChatImageBase64;
+      const rawPending = window.pendingChatImageBase64;
+      const imageB64 = (typeof rawPending === "string" && rawPending.trim())
+        ? rawPending.trim().replace(/^data:image\/[a-zA-Z0-9+.-]+;base64,/i, "").replace(/\s+/g, "")
+        : "";
       if (!text && !imageB64) return;
 
       if (window.editingChatMessageId) {
@@ -7407,9 +8567,9 @@
         senderName: senderName,
         senderRole: senderRole,
         senderDepartment: senderDept,
-        message: text || (imageB64 ? "📷 Fotoğraf gönderdi" : ""),
-        messageText: text || (imageB64 ? "📷 Fotoğraf gönderdi" : ""),
-        text: text || (imageB64 ? "📷 Fotoğraf gönderdi" : ""),
+        message: text || (imageB64 ? "📷 Fotoğraf paylaşıldı" : ""),
+        messageText: text || (imageB64 ? "📷 Fotoğraf paylaşıldı" : ""),
+        text: text || (imageB64 ? "📷 Fotoğraf paylaşıldı" : ""),
         imageBase64: imageB64 || null,
         timestampMillis: now,
         createdAt: serverTimestamp(),
@@ -7424,6 +8584,7 @@
           await addDoc(collection(db, "chat_messages"), payload);
         } catch (e2) {
           console.error("Mesaj gönderilemedi:", e2);
+          alert("Mesaj/fotoğraf gönderilemedi: " + (e2?.message || err?.message || "Bilinmeyen hata"));
         }
       }
     };
@@ -7532,7 +8693,8 @@
             allowedTabs: fallbackTabs,
             editableTabs: fallbackEditTabs,
             allowedSubPages: fallbackAllowedSubs,
-            editableSubPages: fallbackEditableSubs
+            editableSubPages: fallbackEditableSubs,
+            allowedDashboardDepartments: isMaster ? [window.ALL_FACTORY_LABEL] : (Array.isArray(window.currentUser.allowedDashboardDepartments) ? window.currentUser.allowedDashboardDepartments : [])
           }, { merge: true }));
         }
 
@@ -7819,12 +8981,20 @@
     }
 
     function getRoleBadgeClass(r) {
-      switch(r) {
-        case 'ADMIN': return 'bg-rose-100 text-rose-700 border border-rose-200';
-        case 'MANAGER': return 'bg-purple-100 text-purple-700 border border-purple-200';
-        case 'TECHNICIAN': return 'bg-blue-100 text-blue-700 border border-blue-200';
-        case 'OPERATOR': return 'bg-emerald-100 text-emerald-700 border border-emerald-200';
-        default: return 'bg-slate-100 text-slate-700';
+      const up = (r || "").trim().toUpperCase();
+      switch (up) {
+        case 'ADMIN':
+        case 'SİSTEM YÖNETİCİSİ': return 'bg-rose-100 text-rose-700 border border-rose-200';
+        case 'MANAGER':
+        case 'BAKIM MÜDÜRÜ': return 'bg-purple-100 text-purple-700 border border-purple-200';
+        case 'TECHNICIAN':
+        case 'BAKIM TEKNİSYENİ': return 'bg-blue-100 text-blue-700 border border-blue-200';
+        case 'OPERATOR':
+        case 'OPERATÖR': return 'bg-emerald-100 text-emerald-700 border border-emerald-200';
+        case 'VARDİYA AMİRİ': return 'bg-amber-100 text-amber-800 border border-amber-200';
+        case 'OBSERVER':
+        case 'GÖZLEMCİ': return 'bg-slate-100 text-slate-700 border border-slate-200';
+        default: return 'bg-indigo-50 text-indigo-700 border border-indigo-200';
       }
     }
 
@@ -9258,6 +10428,8 @@
         alert("⚠️ Arıza bildirme yetkiniz bulunmamaktadır. Lütfen sistem yöneticisi ile iletişime geçiniz.");
         return;
       }
+      window.refreshDepartmentAndRoleDropdowns();
+      window.initIntervenedDropdown("faultCreate", []);
       document.getElementById("modalNewFault").classList.remove("hidden");
     };
 
@@ -9266,6 +10438,7 @@
         alert("⚠️ İş emri başlatma yetkiniz bulunmamaktadır. Lütfen sistem yöneticisi ile iletişime geçiniz.");
         return;
       }
+      window.refreshDepartmentAndRoleDropdowns();
       const select = document.getElementById("woAssigned");
       if (select && window.allUsers) {
         select.innerHTML = '<option value="">-- Personel Seçiniz (Telefona Bildirim Gider) --</option>' +
@@ -9289,18 +10462,18 @@
 
     function renderAppVersionBadge() {
       const v = window.currentAppVersion || {
-        versionName: "1.4.1",
-        versionCode: 12,
+        versionName: "1.4.2",
+        versionCode: 13,
         releaseDate: "2026-11-14",
-        title: "Tekinak CMMS v1.4.1",
+        title: "Tekinak CMMS v1.4.2",
         changelog: [
-          "Personel & Yetki sekmesinde her ana sekmenin alt sayfaları için ayrı Görüntüleme (Gör) ve Düzenleme (Düzenle) yetki matrisi eklendi.",
-          "Genel Bakış, Elektrik Bakım, Paketleme Birimi, Yardımcı Tesisler ve Üyeler alt modülleri Android ve Web arasında 1:1 eşitlendi.",
-          "Genel Bakış departmana özel hale getirildi; Paketleme Birimi KKN kontrolleri ve Yardımcı Tesisler referans limit bildirimleri güçlendirildi."
+          "Roller (custom_roles) ve yeni departmanlar (custom_departments) Android ve Web arasında bulut üzerinden anında senkronize ediliyor.",
+          "Genel Bakış ekranına Departman Görünümü seçicisi eklendi; her personel yalnızca yetkilendirildiği departmanların görünümüne geçiş yapabiliyor.",
+          "Web arıza bildirme ve müdahale formlarında Müdahale Eden Personeller alanı çoklu seçimli açılır sekmeye (dropdown) dönüştürüldü."
         ]
       };
-      const vName = v.versionName || "1.4.1";
-      const vCode = Number(v.versionCode || 12);
+      const vName = v.versionName || "1.4.2";
+      const vCode = Number(v.versionCode || 13);
       const localApkHref = `app-release.apk?v=${vCode}`;
 
       const badgeText = document.getElementById("topVersionBadgeText");
@@ -9359,7 +10532,7 @@
     };
 
     window.dismissWebUpdateBanner = function() {
-      const vCode = Number((window.currentAppVersion && window.currentAppVersion.versionCode) || 12);
+      const vCode = Number((window.currentAppVersion && window.currentAppVersion.versionCode) || 13);
       localStorage.setItem("tekinak_dismissed_ver_" + vCode, "1");
       const banner = document.getElementById("webAppUpdateBanner");
       if (banner) banner.classList.add("hidden");
@@ -9368,17 +10541,17 @@
     async function seedInitialAppVersionInFirebase() {
       try {
         const initialData = {
-          versionCode: 12,
-          versionName: "1.4.1",
-          releaseTag: "v1.4.1",
+          versionCode: 13,
+          versionName: "1.4.2",
+          releaseTag: "v1.4.2",
           releaseDate: new Date().toISOString().slice(0, 10),
           apkUrl: "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
           fallbackUrl: "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-          title: "Tekinak CMMS v1.4.1",
+          title: "Tekinak CMMS v1.4.2",
           changelog: [
-            "Personel & Yetki sekmesinde her ana sekmenin alt sayfaları için ayrı Görüntüleme (Gör) ve Düzenleme (Düzenle) yetki matrisi eklendi.",
-            "Genel Bakış, Elektrik Bakım, Paketleme Birimi, Yardımcı Tesisler ve Üyeler alt modülleri Android ve Web arasında 1:1 eşitlendi.",
-            "Genel Bakış departmana özel hale getirildi; Paketleme Birimi KKN kontrolleri ve Yardımcı Tesisler referans limit bildirimleri güçlendirildi."
+            "Roller (custom_roles) ve yeni departmanlar (custom_departments) Android ve Web arasında bulut üzerinden anında senkronize ediliyor.",
+            "Genel Bakış ekranına Departman Görünümü seçicisi eklendi; her personel yalnızca yetkilendirildiği departmanların görünümüne geçiş yapabiliyor.",
+            "Web arıza bildirme ve müdahale formlarında Müdahale Eden Personeller alanı çoklu seçimli açılır sekmeye (dropdown) dönüştürüldü."
           ],
           forceUpdate: false,
           updatedAtMillis: Date.now()
@@ -9397,10 +10570,10 @@
         alert("⛔ Yetkisiz İşlem: Mobil sürüm güncelleme yönetimi yalnızca usluozaykagan@gmail.com hesabına tanımlıdır.");
         return;
       }
-      const v = window.currentAppVersion || { versionCode: 12, versionName: "1.4.1", title: "Tekinak CMMS v1.4.1", apkUrl: "", changelog: [] };
-      document.getElementById("verFormCode").value = v.versionCode || 12;
-      document.getElementById("verFormName").value = v.versionName || "1.4.1";
-      document.getElementById("verFormTitle").value = `Yeni Sürüm Yayınlandı (v${v.versionName || "1.4.1"})`;
+      const v = window.currentAppVersion || { versionCode: 13, versionName: "1.4.2", title: "Tekinak CMMS v1.4.2", apkUrl: "", changelog: [] };
+      document.getElementById("verFormCode").value = v.versionCode || 13;
+      document.getElementById("verFormName").value = v.versionName || "1.4.2";
+      document.getElementById("verFormTitle").value = `Yeni Sürüm Yayınlandı (v${v.versionName || "1.4.2"})`;
       document.getElementById("verFormApkUrl").value = v.apkUrl || "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk";
       document.getElementById("verFormChangelog").value = (v.changelog && v.changelog.length) ? v.changelog.join("\n") : "Yeni bakım özellikleri ve performans iyileştirmeleri eklendi.";
       document.getElementById("modalAppVersion").classList.remove("hidden");
@@ -9484,17 +10657,17 @@
       }
       try {
         const payload = {
-          versionCode: 12,
-          versionName: "1.4.1",
-          releaseTag: "v1.4.1",
+          versionCode: 13,
+          versionName: "1.4.2",
+          releaseTag: "v1.4.2",
           releaseDate: new Date().toISOString().slice(0, 10),
           apkUrl: "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
           fallbackUrl: "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-          title: "Tekinak CMMS v1.4.1",
+          title: "Tekinak CMMS v1.4.2",
           changelog: [
-            "Personel & Yetki sekmesinde her ana sekmenin alt sayfaları için ayrı Görüntüleme (Gör) ve Düzenleme (Düzenle) yetki matrisi eklendi.",
-            "Genel Bakış, Elektrik Bakım, Paketleme Birimi, Yardımcı Tesisler ve Üyeler alt modülleri Android ve Web arasında 1:1 eşitlendi.",
-            "Genel Bakış departmana özel hale getirildi; Paketleme Birimi KKN kontrolleri ve Yardımcı Tesisler referans limit bildirimleri güçlendirildi."
+            "Roller (custom_roles) ve yeni departmanlar (custom_departments) Android ve Web arasında bulut üzerinden anında senkronize ediliyor.",
+            "Genel Bakış ekranına Departman Görünümü seçicisi eklendi; her personel yalnızca yetkilendirildiği departmanların görünümüne geçiş yapabiliyor.",
+            "Web arıza bildirme ve müdahale formlarında Müdahale Eden Personeller alanı çoklu seçimli açılır sekmeye (dropdown) dönüştürüldü."
           ],
           forceUpdate: false,
           updatedAtMillis: Date.now()
@@ -9503,7 +10676,7 @@
         window.currentAppVersion = payload;
         renderAppVersionBadge();
         closeModal("modalAppVersion");
-        alert("✅ Başarılı! Firebase sürümü şu an dağıtılan v1.4.1 (Kod: 12) APK ile eşitlendi.\n\nGüncellenen telefonlardaki popup penceresi anında kalktı.");
+        alert("✅ Başarılı! Firebase sürümü şu an dağıtılan v1.4.2 (Kod: 13) APK ile eşitlendi.\n\nGüncellenen telefonlardaki popup penceresi anında kalktı.");
       } catch (err) {
         alert("Eşitleme hatası: " + err.message);
       }
@@ -9512,6 +10685,7 @@
     window.openEditProfileModal = function() {
       if (!window.currentUser) return;
       const canEdit = window.canUserEditProfile(window.currentUser);
+      window.refreshDepartmentAndRoleDropdowns();
 
       document.getElementById("profEmail").value = window.currentUser.email || "";
       document.getElementById("profUsername").value = window.currentUser.username || "";

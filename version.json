@@ -1,15 +1,15 @@
 {
-  "versionCode": 12,
-  "versionName": "1.4.1",
-  "releaseTag": "v1.4.1",
+  "versionCode": 13,
+  "versionName": "1.4.2",
+  "releaseTag": "v1.4.2",
   "releaseDate": "2026-11-14",
   "apkUrl": "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
   "fallbackUrl": "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-  "title": "Yeni Sürüm Mevcut (v1.4.1)",
+  "title": "Yeni Sürüm Mevcut (v1.4.2)",
   "changelog": [
-    "Personel & Yetki sekmesinde her ana sekmenin alt sayfaları için ayrı Görüntüleme (Gör) ve Düzenleme (Düzenle) yetki matrisi eklendi.",
-    "Genel Bakış, Elektrik Bakım, Paketleme Birimi, Yardımcı Tesisler ve Üyeler alt modülleri Android ve Web arasında 1:1 eşitlendi.",
-    "Genel Bakış departmana özel hale getirildi; Paketleme Birimi KKN kontrolleri ve Yardımcı Tesisler referans limit bildirimleri güçlendirildi."
+    "Roller (custom_roles) ve yeni departmanlar (custom_departments) Android ve Web arasında bulut üzerinden anında senkronize ediliyor.",
+    "Genel Bakış ekranına Departman Görünümü seçicisi eklendi; her personel yalnızca yetkilendirildiği departmanların görünümüne geçiş yapabiliyor.",
+    "Web arıza bildirme ve müdahale formlarında Müdahale Eden Personeller alanı çoklu seçimli açılır sekmeye (dropdown) dönüştürüldü."
   ],
   "forceUpdate": false
 }
