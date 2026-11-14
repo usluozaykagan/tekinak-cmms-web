@@ -1,16 +1,15 @@
 {
-  "versionCode": 11,
-  "versionName": "1.4.0",
-  "releaseTag": "v1.4.0",
-  "releaseDate": "2026-11-13",
+  "versionCode": 12,
+  "versionName": "1.4.1",
+  "releaseTag": "v1.4.1",
+  "releaseDate": "2026-11-14",
   "apkUrl": "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
   "fallbackUrl": "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-  "title": "Yeni Sürüm Mevcut (v1.4.0)",
+  "title": "Yeni Sürüm Mevcut (v1.4.1)",
   "changelog": [
-    "Genel Bakış üyenin bağlı olduğu departmana göre dinamik olarak uyarlandı.",
-    "Arıza Bildir, İş Emirleri, Periyodik Bakım ve Analiz & Rapor tek 'Elektrik Bakım' sekmesinde birleştirildi.",
-    "Makarna fabrikası için üretim, ambalaj fire, duruş ve KKN kalite kontrollerini içeren 'Paketleme Birimi' sekmesi eklendi.",
-    "Yardımcı Tesisler tablolarında alt/üst referans limit düzenleme yetkisi ve limit dışı değerlerde anlık Dikkat Bildirimi eklendi."
+    "Personel & Yetki sekmesinde her ana sekmenin alt sayfaları için ayrı Görüntüleme (Gör) ve Düzenleme (Düzenle) yetki matrisi eklendi.",
+    "Genel Bakış, Elektrik Bakım, Paketleme Birimi, Yardımcı Tesisler ve Üyeler alt modülleri Android ve Web arasında 1:1 eşitlendi.",
+    "Genel Bakış departmana özel hale getirildi; Paketleme Birimi KKN kontrolleri ve Yardımcı Tesisler referans limit bildirimleri güçlendirildi."
   ],
   "forceUpdate": false
 }
