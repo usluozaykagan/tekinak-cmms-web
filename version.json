@@ -1,15 +1,15 @@
 {
-  "versionCode": 13,
-  "versionName": "1.4.2",
-  "releaseTag": "v1.4.2",
-  "releaseDate": "2026-11-14",
+  "versionCode": 14,
+  "versionName": "1.4.3",
+  "releaseTag": "v1.4.3",
+  "releaseDate": "2026-11-15",
   "apkUrl": "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
   "fallbackUrl": "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-  "title": "Yeni Sürüm Mevcut (v1.4.2)",
+  "title": "Yeni Sürüm Mevcut (v1.4.3)",
   "changelog": [
-    "Roller (custom_roles) ve yeni departmanlar (custom_departments) Android ve Web arasında bulut üzerinden anında senkronize ediliyor.",
-    "Genel Bakış ekranına Departman Görünümü seçicisi eklendi; her personel yalnızca yetkilendirildiği departmanların görünümüne geçiş yapabiliyor.",
-    "Web arıza bildirme ve müdahale formlarında Müdahale Eden Personeller alanı çoklu seçimli açılır sekmeye (dropdown) dönüştürüldü."
+    "Özel roller ve yeni departmanlar bulut üzerinden hatasız çift kanallı senkronize ediliyor; yetki hataları giderildi.",
+    "Sohbette mesaja basılı tutarak çoklu seçim, Tümünü Seç ve toplu silme özelliği Android ve Web'e eklendi.",
+    "Web sohbetinde sistem mesajlarının yönetici tarafından silinebilmesi sağlandı ve buton taşması düzeltildi."
   ],
   "forceUpdate": false
 }

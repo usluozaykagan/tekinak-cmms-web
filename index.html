@@ -175,9 +175,9 @@
         </form>
 
         <div class="pt-3 text-center border-t border-slate-100 flex flex-col items-center justify-center gap-2">
-          <a href="app-release.apk?v=13" id="loginApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold rounded-lg border border-emerald-300 transition shadow-sm">
+          <a href="app-release.apk?v=14" id="loginApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold rounded-lg border border-emerald-300 transition shadow-sm">
             <i data-lucide="smartphone" class="w-3.5 h-3.5 text-emerald-600"></i>
-            <span id="loginApkBtnText">Android APK İndir (v1.4.2)</span>
+            <span id="loginApkBtnText">Android APK İndir (v1.4.3)</span>
           </a>
           <div class="text-[11px] text-slate-400 flex items-center justify-center gap-1.5">
             <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600"></i>
@@ -228,15 +228,15 @@
         </div>
 
         <!-- Android APK İndir Butonu (Tüm Kullanıcılar Görür) -->
-        <a href="app-release.apk?v=13" id="topApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-700/60 hover:bg-blue-600 text-white border border-blue-400/40 transition shadow-sm" title="Android Mobil APK İndir">
+        <a href="app-release.apk?v=14" id="topApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-700/60 hover:bg-blue-600 text-white border border-blue-400/40 transition shadow-sm" title="Android Mobil APK İndir">
           <i data-lucide="download" class="w-3.5 h-3.5 text-amber-300"></i>
-          <span id="topApkBtnText">APK İndir (v1.4.2)</span>
+          <span id="topApkBtnText">APK İndir (v1.4.3)</span>
         </a>
 
         <!-- Mobil Sürüm Yönetimi Butonu (Sadece usluozaykagan@gmail.com için görünür) -->
         <button id="topAppVersionBtn" onclick="openAppVersionModal()" style="display: none;" class="hidden items-center space-x-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-600/70 hover:bg-emerald-600 text-white border border-emerald-400/40 transition shadow-sm" title="Firebase Mobil Sürüm Kontrolü ve Güncelleme">
           <i data-lucide="smartphone" class="w-3.5 h-3.5 text-amber-300"></i>
-          <span id="topVersionBadgeText">Sürüm: v1.4.2</span>
+          <span id="topVersionBadgeText">Sürüm: v1.4.3</span>
         </button>
 
         <!-- Bildirim Sihirbazı Butonu -->
@@ -298,11 +298,11 @@
         </span>
           <div>
             <div class="flex flex-wrap items-center gap-1.5 font-extrabold text-blue-950">
-              <span id="webUpdateBannerTitle">🚀 Yeni Mobil Sürüm Yayında: Tekinak CMMS v1.4.2</span>
-              <span id="webUpdateBannerCodeBadge" class="px-1.5 py-0.5 rounded bg-emerald-600 text-white text-[10px] font-bold">v1.4.2 (Kod: 13)</span>
+              <span id="webUpdateBannerTitle">🚀 Yeni Mobil Sürüm Yayında: Tekinak CMMS v1.4.3</span>
+              <span id="webUpdateBannerCodeBadge" class="px-1.5 py-0.5 rounded bg-emerald-600 text-white text-[10px] font-bold">v1.4.3 (Kod: 14)</span>
             </div>
             <div id="webUpdateBannerSummary" class="text-[11px] text-slate-600 mt-0.5">
-              Bulut senkronlu özel rol ve departman yönetimi, departman bazlı Genel Bakış görünüm yetkileri ve açılır müdahale personeli seçicisi eklendi.
+              Chat mesajlarında basılı tutarak çoklu seçim ve Tümünü Seç silme, webde sistem mesajı silme ve departman/rol bulut izin düzeltmeleri yayınlandı.
             </div>
           </div>
         </div>
@@ -310,9 +310,9 @@
           <button type="button" onclick="toggleWebUpdateChangelog()" class="px-2.5 py-1.5 bg-white hover:bg-slate-100 text-blue-800 border border-blue-200 rounded-lg font-bold text-[11px] transition">
             Yenilikler
           </button>
-          <a id="webUpdateBannerDownloadBtn" href="app-release.apk?v=13" download="tekinak-bakim.apk" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold text-[11px] shadow-sm flex items-center gap-1.5 transition">
+          <a id="webUpdateBannerDownloadBtn" href="app-release.apk?v=14" download="tekinak-bakim.apk" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold text-[11px] shadow-sm flex items-center gap-1.5 transition">
             <i data-lucide="download" class="w-3.5 h-3.5"></i>
-            <span id="webUpdateBannerDownloadText">APK İndir (v1.4.2)</span>
+            <span id="webUpdateBannerDownloadText">APK İndir (v1.4.3)</span>
           </a>
         <button type="button" onclick="dismissWebUpdateBanner()" class="p-1 text-slate-400 hover:text-slate-700 rounded-lg" title="Bu sürüm için gizle">
           <i data-lucide="x" class="w-4 h-4"></i>
@@ -1025,13 +1025,31 @@
         <div class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></div>
         <div>
           <h3 class="font-bold text-sm">Saha Chatbox</h3>
-          <p class="text-[10px] text-blue-200">Canlı teknik ekip iletişimi &amp; fotoğraf paylaşımı</p>
+          <p class="text-[10px] text-blue-200">Basılı tutup çoklu seç • Canlı ekip iletişimi</p>
         </div>
       </div>
       <div class="flex items-center space-x-2">
         <span id="chatMsgCountBadge" class="text-[10px] font-bold bg-blue-800 text-amber-300 px-2 py-0.5 rounded-full">0</span>
         <button onclick="toggleChatDrawer()" class="p-1.5 text-blue-200 hover:text-white rounded-lg">
           <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Çoklu Mesaj Seçim & Toplu Silme Çubuğu -->
+    <div id="chatSelectionBar" class="hidden bg-slate-900 text-white px-3 py-2 flex items-center justify-between gap-2 border-b border-slate-700 text-xs shadow-sm">
+      <div class="flex items-center gap-2 min-w-0">
+        <button type="button" onclick="exitChatSelectionMode()" class="p-1 text-slate-300 hover:text-white rounded-lg" title="Seçimi İptal Et">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+        <span id="chatSelectedCountText" class="font-bold text-amber-300 truncate">0 seçildi</span>
+      </div>
+      <div class="flex items-center gap-1.5 flex-shrink-0">
+        <button type="button" id="btnChatSelectAll" onclick="toggleSelectAllChatMessages()" class="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-amber-300 border border-amber-400/50 rounded-lg font-bold text-[11px] transition">
+          Tümünü Seç
+        </button>
+        <button type="button" id="btnChatDeleteSelected" onclick="deleteSelectedChatMessages()" class="px-2.5 py-1 bg-rose-600 hover:bg-rose-700 text-white rounded-lg font-bold text-[11px] shadow transition">
+          🗑️ Sil
         </button>
       </div>
     </div>
@@ -1244,7 +1262,7 @@
         <div class="p-2.5 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-between text-[11px] text-slate-600">
           <div class="flex items-center gap-1.5 font-semibold text-slate-700">
             <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600"></i>
-            <span id="profSystemVersionText">Sistem Sürümü: v1.4.2</span>
+            <span id="profSystemVersionText">Sistem Sürümü: v1.4.3</span>
           </div>
           <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-300">Güncel ✓</span>
         </div>
@@ -1890,12 +1908,12 @@
         <div>
           <div class="text-[11px] font-bold text-emerald-800 uppercase tracking-wider">Aktif Firebase Sürümü</div>
           <div class="text-sm font-extrabold text-emerald-950 flex items-center gap-2" id="verModalCurrentBadge">
-            <span id="verModalVersionName">v1.4.2</span>
-            <span id="verModalVersionCode" class="text-xs px-2 py-0.5 bg-emerald-200 text-emerald-800 rounded-md font-semibold">Kod: 13</span>
+            <span id="verModalVersionName">v1.4.3</span>
+            <span id="verModalVersionCode" class="text-xs px-2 py-0.5 bg-emerald-200 text-emerald-800 rounded-md font-semibold">Kod: 14</span>
           </div>
         </div>
         <div class="text-right text-[11px] text-emerald-700">
-          <div>Son Yayın: <span id="verModalReleaseDate" class="font-semibold">2026-11-14</span></div>
+          <div>Son Yayın: <span id="verModalReleaseDate" class="font-semibold">2026-11-15</span></div>
           <div class="text-emerald-600 font-medium flex items-center justify-end gap-1"><span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Anlık Dinlemede</div>
         </div>
       </div>
@@ -1904,18 +1922,18 @@
         <div class="grid grid-cols-2 gap-3">
           <div>
             <label class="block font-semibold text-slate-700 mb-1">Yeni Sürüm Kodu (Build Code) *</label>
-            <input type="number" id="verFormCode" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 13" min="1">
+            <input type="number" id="verFormCode" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 14" min="1">
             <span class="text-[10px] text-slate-400">Yeni sürüm için kod mevcut koddan büyük olmalıdır</span>
           </div>
           <div>
             <label class="block font-semibold text-slate-700 mb-1">Yeni Sürüm Adı (Version Name) *</label>
-            <input type="text" id="verFormName" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 1.4.2">
+            <input type="text" id="verFormName" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 1.4.3">
           </div>
         </div>
 
         <div>
           <label class="block font-semibold text-slate-700 mb-1">Güncelleme Bildirim Başlığı *</label>
-          <input type="text" id="verFormTitle" required class="w-full px-3 py-2 border rounded-xl text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: Yeni Sürüm Yayınlandı (v1.4.2)">
+          <input type="text" id="verFormTitle" required class="w-full px-3 py-2 border rounded-xl text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: Yeni Sürüm Yayınlandı (v1.4.3)">
         </div>
 
         <div>
@@ -1934,9 +1952,9 @@
         </div>
 
         <div class="flex items-center justify-between gap-2 pt-2 border-t">
-          <button type="button" onclick="syncWithDeployedApk()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs rounded-xl font-bold border border-slate-300 flex items-center gap-1.5" title="Firebase'i şu an dağıtılan v1.4.2 (Kod: 13) APK ile eşitler ve güncellenen telefonlardaki popup'ı kapatır">
+          <button type="button" onclick="syncWithDeployedApk()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs rounded-xl font-bold border border-slate-300 flex items-center gap-1.5" title="Firebase'i şu an dağıtılan v1.4.3 (Kod: 14) APK ile eşitler ve güncellenen telefonlardaki popup'ı kapatır">
             <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-blue-600"></i>
-            <span>Mevcut APK ile Eşitle (v1.4.2 - Kod: 13)</span>
+            <span>Mevcut APK ile Eşitle (v1.4.3 - Kod: 14)</span>
           </button>
           <div class="flex gap-2">
             <button type="button" onclick="closeModal('modalAppVersion')" class="px-4 py-2 border rounded-xl font-semibold text-slate-600 hover:bg-slate-50">Kapat</button>
@@ -4592,7 +4610,7 @@
       });
 
       // 6. Mobil Uygulama Sürüm Takibi ve Firebase Yönetimi (app_version/current)
-      let hasAutoSyncedV13 = false;
+      let hasAutoSyncedV14 = false;
       try {
         onSnapshot(doc(db, "app_version", "current"), async (docSnap) => {
           if (docSnap && docSnap.exists()) {
@@ -4600,15 +4618,15 @@
             window.currentAppVersion = data;
             renderAppVersionBadge();
 
-            // Sürüm kodu 13'ten küçükse otomatik olarak v1.4.2 (Kod: 13)'ye yükselt
+            // Sürüm kodu 14'ten küçükse otomatik olarak v1.4.3 (Kod: 14)'e yükselt
             const verCodeNum = Number(data.versionCode || 0);
-            if (verCodeNum < 13 && !hasAutoSyncedV13) {
-              hasAutoSyncedV13 = true;
-              console.log("Firestore app_version sürüm kodu 13 (v1.4.2) olarak otomatik eşitleniyor...");
+            if (verCodeNum < 14 && !hasAutoSyncedV14) {
+              hasAutoSyncedV14 = true;
+              console.log("Firestore app_version sürüm kodu 14 (v1.4.3) olarak otomatik eşitleniyor...");
               seedInitialAppVersionInFirebase();
             }
-          } else if (!hasAutoSyncedV13) {
-            hasAutoSyncedV13 = true;
+          } else if (!hasAutoSyncedV14) {
+            hasAutoSyncedV14 = true;
             // Başlangıç sürüm dokümanı Firebase'de yoksa otomatik oluştur
             seedInitialAppVersionInFirebase();
           }
@@ -4619,76 +4637,186 @@
         console.warn("Failed to listen to app_version:", e);
       }
 
-      // 7. Bulut Senkronlu Özel Roller (custom_roles)
-      let hasSeededCustomRoles = false;
+      // 7. Bulut Senkronlu Özel Roller (custom_roles + app_version/custom_roles_registry çift kanal)
+      window._primaryRolesMap = {};
+      window._registryRolesMap = {};
+      window._deletedRoleTargets = new Set();
+      window._hasSeededRoles = false;
+      window._mergeAndApplyCustomRoles = function(fromCloud) {
+        const deleted = window._deletedRoleTargets || new Set();
+        const combined = new Map();
+        const ingest = (src) => {
+          Object.values(src || {}).forEach(r => {
+            if (!r || !r.name) return;
+            const idKey = String(r.id || r.name).trim().toLowerCase();
+            const nameKey = String(r.name || "").trim().toLowerCase();
+            if (deleted.has(idKey) || deleted.has(nameKey)) return;
+            const prev = combined.get(idKey);
+            if (!prev || (Number(r.updatedAtMillis || 0) >= Number(prev.updatedAtMillis || 0))) {
+              combined.set(idKey, r);
+            }
+          });
+        };
+        ingest(window._primaryRolesMap);
+        ingest(window._registryRolesMap);
+        const list = Array.from(combined.values());
+        if (list.length === 0 && fromCloud && !window._hasSeededRoles) {
+          window._hasSeededRoles = true;
+          const nowSeed = Date.now();
+          const seeded = window.BUILT_IN_ROLES_SEED.map(seed => ({
+            ...seed,
+            createdAtMillis: nowSeed,
+            updatedAtMillis: nowSeed
+          }));
+          window.allCustomRoles = seeded;
+          window.persistCustomRolesToCloud(seeded, Array.from(deleted)).catch(() => {});
+        } else if (list.length > 0) {
+          list.sort((a, b) => {
+            const bDiff = (b.isBuiltIn ? 1 : 0) - (a.isBuiltIn ? 1 : 0);
+            if (bDiff !== 0) return bDiff;
+            return (b.updatedAtMillis || 0) - (a.updatedAtMillis || 0);
+          });
+          window.allCustomRoles = list;
+        }
+        window.refreshDepartmentAndRoleDropdowns();
+        if (window.currentUser) updateTopBarUser(window.currentUser);
+        renderTeam();
+        renderMembers();
+        const rolesModal = document.getElementById("modalManageRoles");
+        if (rolesModal && !rolesModal.classList.contains("hidden") && typeof window.renderManageRolesModal === "function") {
+          window.renderManageRolesModal();
+        }
+      };
+
       try {
         window.refreshDepartmentAndRoleDropdowns();
         onSnapshot(collection(db, "custom_roles"), (snapshot) => {
-          if (snapshot.empty) {
-            window.allCustomRoles = window.BUILT_IN_ROLES_SEED.map(r => ({ ...r }));
-            if (!hasSeededCustomRoles) {
-              hasSeededCustomRoles = true;
-              const nowSeed = Date.now();
-              window.BUILT_IN_ROLES_SEED.forEach(seed => {
-                setDoc(doc(db, "custom_roles", seed.id), {
-                  ...seed,
-                  createdAtMillis: nowSeed,
-                  updatedAtMillis: nowSeed
-                }, { merge: true }).catch(() => {});
-              });
+          const map = {};
+          snapshot.forEach(docSnap => {
+            const d = docSnap.data() || {};
+            if ((d.name || "").trim()) {
+              map[docSnap.id.toLowerCase()] = { ...d, id: docSnap.id };
             }
-          } else {
-            const cloudList = [];
-            snapshot.forEach(docSnap => {
-              cloudList.push({ ...docSnap.data(), id: docSnap.id });
-            });
-            cloudList.sort((a, b) => {
-              const bDiff = (b.isBuiltIn ? 1 : 0) - (a.isBuiltIn ? 1 : 0);
-              if (bDiff !== 0) return bDiff;
-              return (b.updatedAtMillis || 0) - (a.updatedAtMillis || 0);
-            });
-            window.allCustomRoles = cloudList;
-          }
-          window.refreshDepartmentAndRoleDropdowns();
-          if (window.currentUser) updateTopBarUser(window.currentUser);
-          renderTeam();
-          renderMembers();
-          const rolesModal = document.getElementById("modalManageRoles");
-          if (rolesModal && !rolesModal.classList.contains("hidden") && typeof window.renderManageRolesModal === "function") {
-            window.renderManageRolesModal();
-          }
+          });
+          window._primaryRolesMap = map;
+          window._mergeAndApplyCustomRoles(!snapshot.metadata?.fromCache);
         }, (err) => {
-          console.warn("custom_roles listener notice:", err);
+          if (err && err.code === "permission-denied") {
+            console.info("custom_roles primary fallback aktif (app_version/custom_roles_registry kullanılıyor).");
+          } else {
+            console.warn("custom_roles listener notice:", err);
+          }
         });
       } catch (e) {
         console.warn("Failed to listen to custom_roles:", e);
       }
 
-      // 8. Bulut Senkronlu Özel Departmanlar (custom_departments)
+      try {
+        onSnapshot(doc(db, "app_version", "custom_roles_registry"), (docSnap) => {
+          if (docSnap && docSnap.exists()) {
+            const data = docSnap.data() || {};
+            const del = Array.isArray(data.deletedIds) ? data.deletedIds.map(x => String(x || "").trim().toLowerCase()).filter(Boolean) : [];
+            window._deletedRoleTargets = new Set(del);
+            const map = {};
+            const items = Array.isArray(data.items) ? data.items : [];
+            items.forEach(r => {
+              if (r && (r.name || "").trim()) {
+                const rid = String(r.id || r.name).trim();
+                map[rid.toLowerCase()] = { ...r, id: rid };
+              }
+            });
+            window._registryRolesMap = map;
+            window._mergeAndApplyCustomRoles(!docSnap.metadata?.fromCache);
+          } else if (!docSnap.metadata?.fromCache) {
+            window._mergeAndApplyCustomRoles(true);
+          }
+        }, (err) => {
+          console.warn("custom_roles_registry listener notice:", err);
+        });
+      } catch (e) {
+        console.warn("Failed to listen to custom_roles_registry:", e);
+      }
+
+      // 8. Bulut Senkronlu Özel Departmanlar (custom_departments + app_version/custom_departments_registry çift kanal)
+      window._primaryDeptsMap = {};
+      window._registryDeptsMap = {};
+      window._deletedDeptTargets = new Set();
+      window._mergeAndApplyCustomDepartments = function() {
+        const deleted = window._deletedDeptTargets || new Set();
+        const byName = new Map();
+        const ingest = (src) => {
+          Object.values(src || {}).forEach(d => {
+            const cleanName = (d && d.name ? String(d.name) : "").trim();
+            if (!cleanName) return;
+            const idKey = String(d.id || cleanName).trim().toLowerCase();
+            const nameKey = cleanName.toLowerCase();
+            if (deleted.has(idKey) || deleted.has(nameKey)) return;
+            const prev = byName.get(nameKey);
+            if (!prev || (Number(d.updatedAtMillis || d.createdAtMillis || 0) >= Number(prev.updatedAtMillis || prev.createdAtMillis || 0))) {
+              byName.set(nameKey, { ...d, id: d.id || idKey, name: cleanName });
+            }
+          });
+        };
+        ingest(window._primaryDeptsMap);
+        ingest(window._registryDeptsMap);
+        const depts = Array.from(byName.values());
+        depts.sort((a, b) => (b.updatedAtMillis || b.createdAtMillis || 0) - (a.updatedAtMillis || a.createdAtMillis || 0));
+        window.allCustomDepartments = depts;
+        window.refreshDepartmentAndRoleDropdowns();
+        refreshDashboard();
+        renderMembers();
+        renderTeam();
+        const deptModal = document.getElementById("modalManageDepartments");
+        if (deptModal && !deptModal.classList.contains("hidden") && typeof window.renderManageDepartmentsModal === "function") {
+          window.renderManageDepartmentsModal();
+        }
+      };
+
       try {
         onSnapshot(collection(db, "custom_departments"), (snapshot) => {
-          const depts = [];
+          const map = {};
           snapshot.forEach(docSnap => {
             const d = docSnap.data() || {};
             if ((d.name || "").trim()) {
-              depts.push({ ...d, id: docSnap.id, name: d.name.trim() });
+              map[docSnap.id.toLowerCase()] = { ...d, id: docSnap.id, name: d.name.trim() };
             }
           });
-          depts.sort((a, b) => (b.updatedAtMillis || b.createdAtMillis || 0) - (a.updatedAtMillis || a.createdAtMillis || 0));
-          window.allCustomDepartments = depts;
-          window.refreshDepartmentAndRoleDropdowns();
-          refreshDashboard();
-          renderMembers();
-          renderTeam();
-          const deptModal = document.getElementById("modalManageDepartments");
-          if (deptModal && !deptModal.classList.contains("hidden") && typeof window.renderManageDepartmentsModal === "function") {
-            window.renderManageDepartmentsModal();
-          }
+          window._primaryDeptsMap = map;
+          window._mergeAndApplyCustomDepartments();
         }, (err) => {
-          console.warn("custom_departments listener notice:", err);
+          if (err && err.code === "permission-denied") {
+            console.info("custom_departments primary fallback aktif (app_version/custom_departments_registry kullanılıyor).");
+          } else {
+            console.warn("custom_departments listener notice:", err);
+          }
         });
       } catch (e) {
         console.warn("Failed to listen to custom_departments:", e);
+      }
+
+      try {
+        onSnapshot(doc(db, "app_version", "custom_departments_registry"), (docSnap) => {
+          if (docSnap && docSnap.exists()) {
+            const data = docSnap.data() || {};
+            const del = Array.isArray(data.deletedIds) ? data.deletedIds.map(x => String(x || "").trim().toLowerCase()).filter(Boolean) : [];
+            window._deletedDeptTargets = new Set(del);
+            const map = {};
+            const items = Array.isArray(data.items) ? data.items : [];
+            items.forEach(d => {
+              const cleanName = (d && d.name ? String(d.name) : "").trim();
+              if (cleanName) {
+                const did = String(d.id || cleanName).trim();
+                map[did.toLowerCase()] = { ...d, id: did, name: cleanName };
+              }
+            });
+            window._registryDeptsMap = map;
+            window._mergeAndApplyCustomDepartments();
+          }
+        }, (err) => {
+          console.warn("custom_departments_registry listener notice:", err);
+        });
+      } catch (e) {
+        console.warn("Failed to listen to custom_departments_registry:", e);
       }
     }
 
@@ -7197,7 +7325,7 @@
       const canSchedules = !!document.getElementById("roleEditPermSchedules")?.checked;
       const canChatView = !!document.getElementById("roleEditPermChatView")?.checked;
 
-      const payload = {
+      const plainPayload = {
         id: docId,
         roleCode: roleCode,
         name: name,
@@ -7218,28 +7346,101 @@
         canReopenTickets: !!document.getElementById("roleEditPermReopen")?.checked,
         canDeleteAnyMessage: !!document.getElementById("roleEditPermDeleteMsg")?.checked,
         canEditProfile: !!document.getElementById("roleEditPermEditProfile")?.checked,
-        updatedAtMillis: now,
-        updatedAt: serverTimestamp()
+        updatedAtMillis: now
       };
-      if (!existingId) payload.createdAtMillis = now;
+      if (!existingId) plainPayload.createdAtMillis = now;
 
-      try {
-        await setDoc(doc(db, "custom_roles", docId), payload, { merge: true });
+      window._deletedRoleTargets = window._deletedRoleTargets || new Set();
+      window._deletedRoleTargets.delete(docId.toLowerCase());
+      window._deletedRoleTargets.delete(name.toLowerCase());
+      window._registryRolesMap = window._registryRolesMap || {};
+      window._registryRolesMap[docId.toLowerCase()] = plainPayload;
+      const nextList = (window.allCustomRoles || []).filter(r =>
+        String(r.id || "").toLowerCase() !== docId.toLowerCase() &&
+        String(r.name || "").trim().toLowerCase() !== name.toLowerCase()
+      );
+      nextList.push(plainPayload);
+      window.allCustomRoles = nextList;
+
+      const ok = await window.persistCustomRoleChange(docId, plainPayload, nextList, Array.from(window._deletedRoleTargets));
+      if (ok) {
+        window.refreshDepartmentAndRoleDropdowns();
+        if (window.currentUser) updateTopBarUser(window.currentUser);
+        renderTeam();
+        renderMembers();
+        if (typeof window.renderManageRolesModal === "function") window.renderManageRolesModal();
         window.cancelEditOrCreateRole();
         alert(`✅ '${name}' rolü buluta kaydedildi ve Android/Web arasında eşitlendi.`);
-      } catch (err) {
-        console.error("Rol kaydetme hatası:", err);
-        alert("Rol kaydedilirken hata oluştu: " + err.message);
+      } else {
+        alert("Rol kaydedilirken bulut bağlantı hatası oluştu.");
       }
+    };
+
+    window.persistCustomRolesToCloud = async function(rolesArray, deletedList) {
+      const now = Date.now();
+      const sanitizedItems = (rolesArray || []).map(r => {
+        const copy = { ...r };
+        delete copy.updatedAt;
+        delete copy.createdAt;
+        if (!copy.updatedAtMillis) copy.updatedAtMillis = now;
+        return copy;
+      });
+      await setDoc(doc(db, "app_version", "custom_roles_registry"), {
+        items: sanitizedItems,
+        deletedIds: (deletedList || []).slice(-100),
+        updatedAtMillis: now,
+        updatedAt: serverTimestamp()
+      });
+    };
+
+    window.persistCustomRoleChange = async function(docId, plainPayload, nextList, deletedList) {
+      let primaryOk = false;
+      let registryOk = false;
+      try {
+        await setDoc(doc(db, "custom_roles", docId), { ...plainPayload, updatedAt: serverTimestamp() }, { merge: true });
+        primaryOk = true;
+      } catch (_) {}
+      try {
+        await window.persistCustomRolesToCloud(nextList, deletedList);
+        registryOk = true;
+      } catch (err) {
+        console.error("custom_roles_registry write error:", err);
+      }
+      return primaryOk || registryOk;
     };
 
     window.deleteCustomRole = async function(roleId, roleName) {
       if (!window.isMasterUser(window.currentUser) || !roleId) return;
       if (!confirm(`'${roleName}' özel rolünü buluttan silmek istiyor musunuz?`)) return;
+      window._deletedRoleTargets = window._deletedRoleTargets || new Set();
+      window._deletedRoleTargets.add(String(roleId).trim().toLowerCase());
+      if (roleName) window._deletedRoleTargets.add(String(roleName).trim().toLowerCase());
+      if (window._primaryRolesMap) delete window._primaryRolesMap[String(roleId).trim().toLowerCase()];
+      if (window._registryRolesMap) delete window._registryRolesMap[String(roleId).trim().toLowerCase()];
+
+      const remaining = (window.allCustomRoles || []).filter(r =>
+        String(r.id || "").toLowerCase() !== String(roleId).toLowerCase() &&
+        String(r.name || "").trim().toLowerCase() !== String(roleName || "").trim().toLowerCase()
+      );
+      window.allCustomRoles = remaining;
+
+      let primaryOk = false;
+      let registryOk = false;
       try {
         await deleteDoc(doc(db, "custom_roles", roleId));
+        primaryOk = true;
+      } catch (_) {}
+      try {
+        await window.persistCustomRolesToCloud(remaining, Array.from(window._deletedRoleTargets));
+        registryOk = true;
       } catch (err) {
-        alert("Rol silinemedi: " + err.message);
+        console.error("deleteCustomRole registry error:", err);
+      }
+      if (primaryOk || registryOk) {
+        window.refreshDepartmentAndRoleDropdowns();
+        if (typeof window.renderManageRolesModal === "function") window.renderManageRolesModal();
+      } else {
+        alert("Rol silinemedi. Lütfen internet bağlantınızı kontrol ediniz.");
       }
     };
 
@@ -7305,6 +7506,24 @@
       if (cancelBtn) cancelBtn.classList.add("hidden");
     };
 
+    window.persistCustomDepartmentsToCloud = async function(deptsArray, deletedList) {
+      const now = Date.now();
+      const sanitizedItems = (deptsArray || []).map(d => ({
+        id: String(d.id || ("dept_" + now)),
+        name: String(d.name || "").trim(),
+        description: String(d.description || "").trim(),
+        createdBy: String(d.createdBy || "Yönetici"),
+        createdAtMillis: Number(d.createdAtMillis || now),
+        updatedAtMillis: Number(d.updatedAtMillis || now)
+      })).filter(d => d.name.length > 0);
+      await setDoc(doc(db, "app_version", "custom_departments_registry"), {
+        items: sanitizedItems,
+        deletedIds: (deletedList || []).slice(-100),
+        updatedAtMillis: now,
+        updatedAt: serverTimestamp()
+      });
+    };
+
     window.saveCustomDepartment = async function(e) {
       e.preventDefault();
       if (!window.isMasterUser(window.currentUser)) return;
@@ -7323,30 +7542,89 @@
       }
       const now = Date.now();
       const docId = existingId || ("dept_" + now);
+      const plainPayload = {
+        id: docId,
+        name: name,
+        description: desc,
+        createdBy: window.currentUser.displayName || window.currentUser.username || "Yönetici",
+        createdAtMillis: existingId ? (Number((window.allCustomDepartments || []).find(x => x.id === existingId)?.createdAtMillis || now)) : now,
+        updatedAtMillis: now
+      };
+
+      window._deletedDeptTargets = window._deletedDeptTargets || new Set();
+      window._deletedDeptTargets.delete(docId.toLowerCase());
+      window._deletedDeptTargets.delete(name.toLowerCase());
+      window._registryDeptsMap = window._registryDeptsMap || {};
+      window._registryDeptsMap[docId.toLowerCase()] = plainPayload;
+
+      const nextList = (window.allCustomDepartments || []).filter(d =>
+        String(d.id || "").toLowerCase() !== docId.toLowerCase() &&
+        String(d.name || "").trim().toLowerCase() !== name.toLowerCase()
+      );
+      nextList.push(plainPayload);
+      window.allCustomDepartments = nextList;
+
+      let primaryOk = false;
+      let registryOk = false;
       try {
-        const payload = {
-          id: docId,
-          name: name,
-          description: desc,
-          createdBy: window.currentUser.displayName || window.currentUser.username || "Yönetici",
-          updatedAtMillis: now,
-          updatedAt: serverTimestamp()
-        };
-        if (!existingId) payload.createdAtMillis = now;
-        await setDoc(doc(db, "custom_departments", docId), payload, { merge: true });
-        window.resetDeptForm();
+        await setDoc(doc(db, "custom_departments", docId), { ...plainPayload, updatedAt: serverTimestamp() }, { merge: true });
+        primaryOk = true;
+      } catch (_) {}
+      try {
+        await window.persistCustomDepartmentsToCloud(nextList, Array.from(window._deletedDeptTargets));
+        registryOk = true;
       } catch (err) {
-        alert("Departman kaydedilemedi: " + err.message);
+        console.error("custom_departments_registry write error:", err);
+      }
+
+      if (primaryOk || registryOk) {
+        window.resetDeptForm();
+        window.refreshDepartmentAndRoleDropdowns();
+        window.renderManageDepartmentsModal();
+        refreshDashboard();
+        renderMembers();
+        renderTeam();
+      } else {
+        alert("Departman kaydedilemedi. Lütfen internet bağlantınızı kontrol ediniz.");
       }
     };
 
     window.deleteCustomDepartment = async function(deptId, deptName) {
       if (!window.isMasterUser(window.currentUser) || !deptId) return;
       if (!confirm(`'${deptName}' departmanını silmek istiyor musunuz?`)) return;
+      window._deletedDeptTargets = window._deletedDeptTargets || new Set();
+      window._deletedDeptTargets.add(String(deptId).trim().toLowerCase());
+      if (deptName) window._deletedDeptTargets.add(String(deptName).trim().toLowerCase());
+      if (window._primaryDeptsMap) delete window._primaryDeptsMap[String(deptId).trim().toLowerCase()];
+      if (window._registryDeptsMap) delete window._registryDeptsMap[String(deptId).trim().toLowerCase()];
+
+      const remaining = (window.allCustomDepartments || []).filter(d =>
+        String(d.id || "").toLowerCase() !== String(deptId).toLowerCase() &&
+        String(d.name || "").trim().toLowerCase() !== String(deptName || "").trim().toLowerCase()
+      );
+      window.allCustomDepartments = remaining;
+
+      let primaryOk = false;
+      let registryOk = false;
       try {
         await deleteDoc(doc(db, "custom_departments", deptId));
+        primaryOk = true;
+      } catch (_) {}
+      try {
+        await window.persistCustomDepartmentsToCloud(remaining, Array.from(window._deletedDeptTargets));
+        registryOk = true;
       } catch (err) {
-        alert("Departman silinemedi: " + err.message);
+        console.error("deleteCustomDepartment registry error:", err);
+      }
+
+      if (primaryOk || registryOk) {
+        window.refreshDepartmentAndRoleDropdowns();
+        window.renderManageDepartmentsModal();
+        refreshDashboard();
+        renderMembers();
+        renderTeam();
+      } else {
+        alert("Departman silinemedi. Lütfen internet bağlantınızı kontrol ediniz.");
       }
     };
 
@@ -7726,6 +8004,139 @@
       if (container) container.scrollTop = container.scrollHeight;
     };
 
+    window.selectedChatMessageIds = new Set();
+    window.isChatSelectionMode = false;
+    window._chatLongPressTimer = null;
+    window._chatLongPressStartX = 0;
+    window._chatLongPressStartY = 0;
+    window._chatLongPressFired = false;
+    window._prevChatMsgCount = 0;
+
+    window.canUserDeleteChatMessage = function(m, u = window.currentUser) {
+      if (!m || !u) return false;
+      if (window.isMasterUser(u) || window.canUserDeleteAnyMessage(u)) return true;
+      const mUid = String(m.senderUid || "").trim().toLowerCase();
+      if (mUid === "system" || mUid === "system_admin") return false;
+      const myIds = new Set([
+        (u.userId || "").trim().toLowerCase(),
+        (u.id || "").trim().toLowerCase(),
+        (u.username || "").trim().toLowerCase(),
+        (u.email || "").trim().toLowerCase()
+      ].filter(Boolean));
+      return myIds.has(mUid);
+    };
+
+    window.getDeletableChatMessageIds = function() {
+      const cur = window.currentUser || {};
+      return (window.allChatMessages || [])
+        .filter(m => window.canUserDeleteChatMessage(m, cur))
+        .map(m => String(m.docId || m.id || ""))
+        .filter(Boolean);
+    };
+
+    window.updateChatSelectionBar = function() {
+      const bar = document.getElementById("chatSelectionBar");
+      const countEl = document.getElementById("chatSelectedCountText");
+      const selectAllBtn = document.getElementById("btnChatSelectAll");
+      const delBtn = document.getElementById("btnChatDeleteSelected");
+      if (!bar) return;
+
+      const deletableIds = window.getDeletableChatMessageIds();
+      const validSelected = new Set();
+      deletableIds.forEach(id => {
+        if (window.selectedChatMessageIds.has(id)) validSelected.add(id);
+      });
+      window.selectedChatMessageIds = validSelected;
+      if (validSelected.size === 0) window.isChatSelectionMode = false;
+
+      if (!window.isChatSelectionMode) {
+        bar.classList.add("hidden");
+        return;
+      }
+      bar.classList.remove("hidden");
+      if (countEl) countEl.innerText = `${validSelected.size} seçildi`;
+      if (delBtn) delBtn.innerText = `🗑️ Sil (${validSelected.size})`;
+      if (selectAllBtn) {
+        const allSelected = deletableIds.length > 0 && validSelected.size === deletableIds.length;
+        selectAllBtn.innerText = allSelected ? "Seçimi Kaldır" : "Tümünü Seç";
+      }
+    };
+
+    window.enterChatSelectionAndSelect = function(msgId) {
+      if (!msgId) return;
+      window.isChatSelectionMode = true;
+      if (window.selectedChatMessageIds.has(msgId)) {
+        window.selectedChatMessageIds.delete(msgId);
+        if (window.selectedChatMessageIds.size === 0) window.isChatSelectionMode = false;
+      } else {
+        window.selectedChatMessageIds.add(msgId);
+      }
+      window.renderChat();
+    };
+
+    window.exitChatSelectionMode = function() {
+      window.isChatSelectionMode = false;
+      window.selectedChatMessageIds.clear();
+      window.renderChat();
+    };
+
+    window.toggleSelectAllChatMessages = function() {
+      const deletableIds = window.getDeletableChatMessageIds();
+      if (!deletableIds.length) return;
+      const allSelected = deletableIds.every(id => window.selectedChatMessageIds.has(id));
+      if (allSelected) {
+        window.selectedChatMessageIds.clear();
+        window.isChatSelectionMode = false;
+      } else {
+        window.isChatSelectionMode = true;
+        window.selectedChatMessageIds = new Set(deletableIds);
+      }
+      window.renderChat();
+    };
+
+    window.startChatMsgLongPress = function(event, msgId, canDeleteThis) {
+      window.cancelChatMsgLongPress();
+      window._chatLongPressFired = false;
+      if (!canDeleteThis || !msgId) return;
+      if (event && event.target && event.target.closest("button")) return;
+      window._chatLongPressStartX = event ? (event.clientX || 0) : 0;
+      window._chatLongPressStartY = event ? (event.clientY || 0) : 0;
+      window._chatLongPressTimer = setTimeout(() => {
+        window._chatLongPressFired = true;
+        window.isChatSelectionMode = true;
+        window.selectedChatMessageIds.add(msgId);
+        window.renderChat();
+      }, 450);
+    };
+
+    window.cancelChatMsgLongPressIfMoved = function(event) {
+      if (!window._chatLongPressTimer || !event) return;
+      const dx = Math.abs((event.clientX || 0) - window._chatLongPressStartX);
+      const dy = Math.abs((event.clientY || 0) - window._chatLongPressStartY);
+      if (dx > 12 || dy > 12) window.cancelChatMsgLongPress();
+    };
+
+    window.cancelChatMsgLongPress = function() {
+      if (window._chatLongPressTimer) {
+        clearTimeout(window._chatLongPressTimer);
+        window._chatLongPressTimer = null;
+      }
+    };
+
+    window.handleChatBubbleClick = function(event, msgId, canDeleteThis) {
+      if (window._chatLongPressFired) {
+        window._chatLongPressFired = false;
+        if (event) event.stopPropagation();
+        return;
+      }
+      if (!window.isChatSelectionMode || !canDeleteThis || !msgId) return;
+      if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      window.enterChatSelectionAndSelect(msgId);
+    };
+
     window.renderChat = function() {
       const container = document.getElementById("chatMessages");
       if (!container) return;
@@ -7740,27 +8151,29 @@
         (cur.username || "").trim().toLowerCase(),
         (cur.email || "").trim().toLowerCase()
       ].filter(Boolean));
-      const canDelAny = window.canUserDeleteAnyMessage(window.currentUser);
       const canSend = window.canUserSendChat(window.currentUser);
 
       const extras = document.getElementById("chatComposerExtras");
       if (extras) extras.classList.toggle("hidden", !canSend);
 
+      window.updateChatSelectionBar();
+
       container.innerHTML = msgs.map(m => {
         const mUid = (m.senderUid || "").trim().toLowerCase();
-        const isSystem = mUid === "system";
+        const isSystem = mUid === "system" || mUid === "system_admin" || (m.senderRole || "").toLowerCase().includes("sistem");
         const isMe = !isSystem && myIdentifiers.has(mUid);
         const rawDocId = String(m.docId || m.id || "");
         const msgId = escapeJsSingle(rawDocId);
         const msgText = (m.messageText || m.message || m.text || "").trim();
         const canEditThis = isMe && !isSystem && canSend;
-        const canDeleteThis = !isSystem && (isMe || canDelAny);
+        const canDeleteThis = window.canUserDeleteChatMessage(m, cur);
+        const isSelected = window.isChatSelectionMode && window.selectedChatMessageIds.has(rawDocId);
 
         const rawImg = window.getChatImageRawField(m);
         const imgSrc = rawImg ? window.getChatImageDataUrl(rawImg) : "";
         const imgHtml = imgSrc
           ? `<div class="mt-1.5">
-               <img src="${escapeHtml(imgSrc)}" alt="Saha Fotoğrafı" onload="window.scrollChatToBottom()" onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.classList.remove('hidden');" onclick="openChatImagePreviewById('${msgId}')" class="block max-w-[260px] max-h-56 rounded-xl border border-black/10 cursor-pointer hover:opacity-90 object-cover bg-slate-100">
+               <img src="${escapeHtml(imgSrc)}" alt="Saha Fotoğrafı" onload="if(!window.isChatSelectionMode) window.scrollChatToBottom()" onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.classList.remove('hidden');" onclick="if(window.isChatSelectionMode && ${canDeleteThis}){ event.stopPropagation(); window.enterChatSelectionAndSelect('${msgId}'); } else { openChatImagePreviewById('${msgId}'); }" class="block max-w-[260px] max-h-56 rounded-xl border border-black/10 cursor-pointer hover:opacity-90 object-cover bg-slate-100">
                <div class="hidden px-2.5 py-2 rounded-lg text-[11px] font-semibold ${isMe ? 'bg-white/10 text-blue-100' : 'bg-slate-100 text-slate-600'}">📷 Fotoğraf görüntülenemedi</div>
              </div>`
           : "";
@@ -7771,8 +8184,16 @@
         const showText = msgText && (!imgSrc || !isAutoPhotoText);
 
         return `
-          <div class="flex flex-col ${isMe ? 'items-end' : 'items-start'}">
-            <div class="flex items-center gap-1 text-[10px] text-slate-400 mb-0.5 px-1">
+          <div
+            onpointerdown="startChatMsgLongPress(event, '${msgId}', ${canDeleteThis})"
+            onpointerup="cancelChatMsgLongPress()"
+            onpointermove="cancelChatMsgLongPressIfMoved(event)"
+            onpointercancel="cancelChatMsgLongPress()"
+            oncontextmenu="if(${canDeleteThis}){ event.preventDefault(); enterChatSelectionAndSelect('${msgId}'); }"
+            onclick="handleChatBubbleClick(event, '${msgId}', ${canDeleteThis})"
+            class="flex flex-col ${isMe ? 'items-end' : 'items-start'} ${isSelected ? 'bg-amber-100/80 ring-2 ring-amber-400 rounded-2xl p-1.5 -mx-1.5' : ''} ${window.isChatSelectionMode && canDeleteThis ? 'cursor-pointer select-none' : ''}">
+            <div class="flex items-center gap-1.5 text-[10px] text-slate-400 mb-0.5 px-1">
+              ${(window.isChatSelectionMode && canDeleteThis) ? `<span class="inline-flex items-center justify-center w-4 h-4 rounded-full border ${isSelected ? 'bg-amber-500 border-amber-600 text-white' : 'bg-white border-slate-300 text-transparent'} text-[10px] font-black">✓</span>` : ""}
               <span class="font-bold ${isSystem ? 'text-amber-700' : 'text-slate-600'}">${escapeHtml(m.senderName || "Personel")}</span>
               <span>• ${escapeHtml(m.senderDepartment || "Saha")}</span>
               <span>• ${formatTime(m.timestampMillis)}</span>
@@ -7781,7 +8202,7 @@
             <div class="max-w-[85%] rounded-2xl px-3.5 py-2 text-xs shadow-sm space-y-1 ${isMe ? 'bg-[#1E3A8A] text-white rounded-tr-none' : (isSystem ? 'bg-amber-50 text-amber-950 border border-amber-300 rounded-tl-none' : 'bg-white text-slate-800 border border-slate-200 rounded-tl-none')}">
               ${showText ? `<div class="whitespace-pre-wrap break-words">${escapeHtml(msgText)}</div>` : ""}
               ${imgHtml}
-              ${(canEditThis || canDeleteThis) ? `
+              ${(!window.isChatSelectionMode && (canEditThis || canDeleteThis)) ? `
                 <div class="flex items-center justify-end gap-2 pt-1 text-[10px] opacity-80">
                   ${canEditThis ? `<button type="button" onclick="startEditChatMessage('${msgId}')" class="hover:underline">✏️ Düzenle</button>` : ""}
                   ${canDeleteThis ? `<button type="button" onclick="deleteChatMessageById('${msgId}')" class="hover:underline ${isMe ? 'text-rose-200' : 'text-rose-600'}">🗑️ Sil</button>` : ""}
@@ -7791,7 +8212,10 @@
           </div>
         `;
       }).join('');
-      container.scrollTop = container.scrollHeight;
+      if (!window.isChatSelectionMode && msgs.length >= (window._prevChatMsgCount || 0)) {
+        container.scrollTop = container.scrollHeight;
+      }
+      window._prevChatMsgCount = msgs.length;
       lucide.createIcons();
     };
 
@@ -8499,10 +8923,7 @@
     window.deleteChatMessageById = async function(msgId) {
       const m = (window.allChatMessages || []).find(x => x.docId === msgId || x.id === msgId);
       if (!m) return;
-      const cur = window.currentUser || {};
-      const myIds = new Set([(cur.userId||"").toLowerCase(), (cur.id||"").toLowerCase(), (cur.username||"").toLowerCase()].filter(Boolean));
-      const isMine = myIds.has((m.senderUid || "").toLowerCase());
-      if (!isMine && !window.canUserDeleteAnyMessage(window.currentUser)) {
+      if (!window.canUserDeleteChatMessage(m, window.currentUser)) {
         alert("⛔ Bu mesajı silme yetkiniz bulunmamaktadır.");
         return;
       }
@@ -8511,6 +8932,29 @@
         await deleteDoc(doc(db, "chat_messages", m.docId || m.id));
       } catch (err) {
         alert("Mesaj silinemedi: " + err.message);
+      }
+    };
+
+    window.deleteSelectedChatMessages = async function() {
+      const targetIds = Array.from(window.selectedChatMessageIds || []).filter(Boolean);
+      if (!targetIds.length) return;
+      if (!confirm(`Seçilen ${targetIds.length} mesajı kalıcı olarak silmek istediğinizden emin misiniz?`)) return;
+
+      const cur = window.currentUser || {};
+      const authorizedDocs = targetIds.filter(id => {
+        const m = (window.allChatMessages || []).find(x => String(x.docId || x.id) === String(id));
+        return m && window.canUserDeleteChatMessage(m, cur);
+      });
+      if (!authorizedDocs.length) {
+        alert("⛔ Seçilen mesajları silme yetkiniz bulunmamaktadır.");
+        return;
+      }
+
+      try {
+        await Promise.all(authorizedDocs.map(docId => deleteDoc(doc(db, "chat_messages", docId))));
+        window.exitChatSelectionMode();
+      } catch (err) {
+        alert("Seçili mesajların bazıları silinemedi: " + err.message);
       }
     };
 
@@ -10462,18 +10906,18 @@
 
     function renderAppVersionBadge() {
       const v = window.currentAppVersion || {
-        versionName: "1.4.2",
-        versionCode: 13,
-        releaseDate: "2026-11-14",
-        title: "Tekinak CMMS v1.4.2",
+        versionName: "1.4.3",
+        versionCode: 14,
+        releaseDate: "2026-11-15",
+        title: "Tekinak CMMS v1.4.3",
         changelog: [
-          "Roller (custom_roles) ve yeni departmanlar (custom_departments) Android ve Web arasında bulut üzerinden anında senkronize ediliyor.",
-          "Genel Bakış ekranına Departman Görünümü seçicisi eklendi; her personel yalnızca yetkilendirildiği departmanların görünümüne geçiş yapabiliyor.",
-          "Web arıza bildirme ve müdahale formlarında Müdahale Eden Personeller alanı çoklu seçimli açılır sekmeye (dropdown) dönüştürüldü."
+          "Sohbet mesajlarında basılı tutarak çoklu seçim, 'Tümünü Seç' ve toplu silme özelliği eklendi.",
+          "Web sohbet ekranında sistem bildirim mesajlarının yetkili yöneticiler tarafından silinebilmesi düzeltildi.",
+          "Özel departman ve rol bulut senkronizasyonu yetki hatasına karşı çift kanallı dayanıklı yapıya geçirildi."
         ]
       };
-      const vName = v.versionName || "1.4.2";
-      const vCode = Number(v.versionCode || 13);
+      const vName = v.versionName || "1.4.3";
+      const vCode = Number(v.versionCode || 14);
       const localApkHref = `app-release.apk?v=${vCode}`;
 
       const badgeText = document.getElementById("topVersionBadgeText");
@@ -10532,7 +10976,7 @@
     };
 
     window.dismissWebUpdateBanner = function() {
-      const vCode = Number((window.currentAppVersion && window.currentAppVersion.versionCode) || 13);
+      const vCode = Number((window.currentAppVersion && window.currentAppVersion.versionCode) || 14);
       localStorage.setItem("tekinak_dismissed_ver_" + vCode, "1");
       const banner = document.getElementById("webAppUpdateBanner");
       if (banner) banner.classList.add("hidden");
@@ -10541,17 +10985,17 @@
     async function seedInitialAppVersionInFirebase() {
       try {
         const initialData = {
-          versionCode: 13,
-          versionName: "1.4.2",
-          releaseTag: "v1.4.2",
+          versionCode: 14,
+          versionName: "1.4.3",
+          releaseTag: "v1.4.3",
           releaseDate: new Date().toISOString().slice(0, 10),
           apkUrl: "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
           fallbackUrl: "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-          title: "Tekinak CMMS v1.4.2",
+          title: "Tekinak CMMS v1.4.3",
           changelog: [
-            "Roller (custom_roles) ve yeni departmanlar (custom_departments) Android ve Web arasında bulut üzerinden anında senkronize ediliyor.",
-            "Genel Bakış ekranına Departman Görünümü seçicisi eklendi; her personel yalnızca yetkilendirildiği departmanların görünümüne geçiş yapabiliyor.",
-            "Web arıza bildirme ve müdahale formlarında Müdahale Eden Personeller alanı çoklu seçimli açılır sekmeye (dropdown) dönüştürüldü."
+            "Sohbet mesajlarında basılı tutarak çoklu seçim, 'Tümünü Seç' ve toplu silme özelliği eklendi.",
+            "Web sohbet ekranında sistem bildirim mesajlarının yetkili yöneticiler tarafından silinebilmesi düzeltildi.",
+            "Özel departman ve rol bulut senkronizasyonu yetki hatasına karşı çift kanallı dayanıklı yapıya geçirildi."
           ],
           forceUpdate: false,
           updatedAtMillis: Date.now()
@@ -10570,10 +11014,10 @@
         alert("⛔ Yetkisiz İşlem: Mobil sürüm güncelleme yönetimi yalnızca usluozaykagan@gmail.com hesabına tanımlıdır.");
         return;
       }
-      const v = window.currentAppVersion || { versionCode: 13, versionName: "1.4.2", title: "Tekinak CMMS v1.4.2", apkUrl: "", changelog: [] };
-      document.getElementById("verFormCode").value = v.versionCode || 13;
-      document.getElementById("verFormName").value = v.versionName || "1.4.2";
-      document.getElementById("verFormTitle").value = `Yeni Sürüm Yayınlandı (v${v.versionName || "1.4.2"})`;
+      const v = window.currentAppVersion || { versionCode: 14, versionName: "1.4.3", title: "Tekinak CMMS v1.4.3", apkUrl: "", changelog: [] };
+      document.getElementById("verFormCode").value = v.versionCode || 14;
+      document.getElementById("verFormName").value = v.versionName || "1.4.3";
+      document.getElementById("verFormTitle").value = `Yeni Sürüm Yayınlandı (v${v.versionName || "1.4.3"})`;
       document.getElementById("verFormApkUrl").value = v.apkUrl || "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk";
       document.getElementById("verFormChangelog").value = (v.changelog && v.changelog.length) ? v.changelog.join("\n") : "Yeni bakım özellikleri ve performans iyileştirmeleri eklendi.";
       document.getElementById("modalAppVersion").classList.remove("hidden");
@@ -10598,7 +11042,7 @@
         return;
       }
       if (!name) {
-        alert("Lütfen sürüm adı giriniz (örn: 1.4.1).");
+        alert("Lütfen sürüm adı giriniz (örn: 1.4.3).");
         return;
       }
 
@@ -10657,17 +11101,17 @@
       }
       try {
         const payload = {
-          versionCode: 13,
-          versionName: "1.4.2",
-          releaseTag: "v1.4.2",
+          versionCode: 14,
+          versionName: "1.4.3",
+          releaseTag: "v1.4.3",
           releaseDate: new Date().toISOString().slice(0, 10),
           apkUrl: "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
           fallbackUrl: "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-          title: "Tekinak CMMS v1.4.2",
+          title: "Tekinak CMMS v1.4.3",
           changelog: [
-            "Roller (custom_roles) ve yeni departmanlar (custom_departments) Android ve Web arasında bulut üzerinden anında senkronize ediliyor.",
-            "Genel Bakış ekranına Departman Görünümü seçicisi eklendi; her personel yalnızca yetkilendirildiği departmanların görünümüne geçiş yapabiliyor.",
-            "Web arıza bildirme ve müdahale formlarında Müdahale Eden Personeller alanı çoklu seçimli açılır sekmeye (dropdown) dönüştürüldü."
+            "Sohbet mesajlarında basılı tutarak çoklu seçim, 'Tümünü Seç' ve toplu silme özelliği eklendi.",
+            "Web sohbet ekranında sistem bildirim mesajlarının yetkili yöneticiler tarafından silinebilmesi düzeltildi.",
+            "Özel departman ve rol bulut senkronizasyonu yetki hatasına karşı çift kanallı dayanıklı yapıya geçirildi."
           ],
           forceUpdate: false,
           updatedAtMillis: Date.now()
@@ -10676,7 +11120,7 @@
         window.currentAppVersion = payload;
         renderAppVersionBadge();
         closeModal("modalAppVersion");
-        alert("✅ Başarılı! Firebase sürümü şu an dağıtılan v1.4.2 (Kod: 13) APK ile eşitlendi.\n\nGüncellenen telefonlardaki popup penceresi anında kalktı.");
+        alert("✅ Başarılı! Firebase sürümü şu an dağıtılan v1.4.3 (Kod: 14) APK ile eşitlendi.\n\nGüncellenen telefonlardaki popup penceresi anında kalktı.");
       } catch (err) {
         alert("Eşitleme hatası: " + err.message);
       }
@@ -10725,6 +11169,9 @@
       if (isOpening && !window.canUserViewChat(window.currentUser)) {
         alert("⚠️ Saha sohbetini görüntüleme yetkiniz bulunmamaktadır.");
         return;
+      }
+      if (!isOpening && window.isChatSelectionMode) {
+        window.exitChatSelectionMode();
       }
       drawer.classList.toggle("translate-x-full");
     };
