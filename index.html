@@ -175,9 +175,9 @@
         </form>
 
         <div class="pt-3 text-center border-t border-slate-100 flex flex-col items-center justify-center gap-2">
-          <a href="app-release.apk?v=14" id="loginApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold rounded-lg border border-emerald-300 transition shadow-sm">
+          <a href="app-release.apk?v=15" id="loginApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold rounded-lg border border-emerald-300 transition shadow-sm">
             <i data-lucide="smartphone" class="w-3.5 h-3.5 text-emerald-600"></i>
-            <span id="loginApkBtnText">Android APK İndir (v1.4.3)</span>
+            <span id="loginApkBtnText">Android APK İndir (v1.4.4)</span>
           </a>
           <div class="text-[11px] text-slate-400 flex items-center justify-center gap-1.5">
             <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600"></i>
@@ -228,15 +228,15 @@
         </div>
 
         <!-- Android APK İndir Butonu (Tüm Kullanıcılar Görür) -->
-        <a href="app-release.apk?v=14" id="topApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-700/60 hover:bg-blue-600 text-white border border-blue-400/40 transition shadow-sm" title="Android Mobil APK İndir">
+        <a href="app-release.apk?v=15" id="topApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-700/60 hover:bg-blue-600 text-white border border-blue-400/40 transition shadow-sm" title="Android Mobil APK İndir">
           <i data-lucide="download" class="w-3.5 h-3.5 text-amber-300"></i>
-          <span id="topApkBtnText">APK İndir (v1.4.3)</span>
+          <span id="topApkBtnText">APK İndir (v1.4.4)</span>
         </a>
 
         <!-- Mobil Sürüm Yönetimi Butonu (Sadece usluozaykagan@gmail.com için görünür) -->
         <button id="topAppVersionBtn" onclick="openAppVersionModal()" style="display: none;" class="hidden items-center space-x-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-600/70 hover:bg-emerald-600 text-white border border-emerald-400/40 transition shadow-sm" title="Firebase Mobil Sürüm Kontrolü ve Güncelleme">
           <i data-lucide="smartphone" class="w-3.5 h-3.5 text-amber-300"></i>
-          <span id="topVersionBadgeText">Sürüm: v1.4.3</span>
+          <span id="topVersionBadgeText">Sürüm: v1.4.4</span>
         </button>
 
         <!-- Bildirim Sihirbazı Butonu -->
@@ -298,11 +298,11 @@
         </span>
           <div>
             <div class="flex flex-wrap items-center gap-1.5 font-extrabold text-blue-950">
-              <span id="webUpdateBannerTitle">🚀 Yeni Mobil Sürüm Yayında: Tekinak CMMS v1.4.3</span>
-              <span id="webUpdateBannerCodeBadge" class="px-1.5 py-0.5 rounded bg-emerald-600 text-white text-[10px] font-bold">v1.4.3 (Kod: 14)</span>
+              <span id="webUpdateBannerTitle">🚀 Yeni Mobil Sürüm Yayında: Tekinak CMMS v1.4.4</span>
+              <span id="webUpdateBannerCodeBadge" class="px-1.5 py-0.5 rounded bg-emerald-600 text-white text-[10px] font-bold">v1.4.4 (Kod: 15)</span>
             </div>
             <div id="webUpdateBannerSummary" class="text-[11px] text-slate-600 mt-0.5">
-              Chat mesajlarında basılı tutarak çoklu seçim ve Tümünü Seç silme, webde sistem mesajı silme ve departman/rol bulut izin düzeltmeleri yayınlandı.
+              Tüm rol, departman ve vardiyalar tam düzenlenebilir/silinebilir bulut yapısına geçirildi; Android sekme hizası ve Yardımcı Tesisler koyu tema okunurluğu düzeltildi.
             </div>
           </div>
         </div>
@@ -310,9 +310,9 @@
           <button type="button" onclick="toggleWebUpdateChangelog()" class="px-2.5 py-1.5 bg-white hover:bg-slate-100 text-blue-800 border border-blue-200 rounded-lg font-bold text-[11px] transition">
             Yenilikler
           </button>
-          <a id="webUpdateBannerDownloadBtn" href="app-release.apk?v=14" download="tekinak-bakim.apk" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold text-[11px] shadow-sm flex items-center gap-1.5 transition">
+          <a id="webUpdateBannerDownloadBtn" href="app-release.apk?v=15" download="tekinak-bakim.apk" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold text-[11px] shadow-sm flex items-center gap-1.5 transition">
             <i data-lucide="download" class="w-3.5 h-3.5"></i>
-            <span id="webUpdateBannerDownloadText">APK İndir (v1.4.3)</span>
+            <span id="webUpdateBannerDownloadText">APK İndir (v1.4.4)</span>
           </a>
         <button type="button" onclick="dismissWebUpdateBanner()" class="p-1 text-slate-400 hover:text-slate-700 rounded-lg" title="Bu sürüm için gizle">
           <i data-lucide="x" class="w-4 h-4"></i>
@@ -982,6 +982,9 @@
             <button onclick="openManageDepartmentsModal()" class="flex-1 sm:flex-initial px-3.5 py-2.5 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold rounded-xl flex items-center justify-center gap-1.5 shadow transition">
               <i data-lucide="building-2" class="w-4 h-4"></i> Departmanlar
             </button>
+            <button onclick="openManageShiftsModal()" class="flex-1 sm:flex-initial px-3.5 py-2.5 bg-sky-700 hover:bg-sky-800 text-white text-xs font-bold rounded-xl flex items-center justify-center gap-1.5 shadow transition">
+              <i data-lucide="clock" class="w-4 h-4"></i> Vardiyalar
+            </button>
           </div>
         </div>
       </div>
@@ -1262,7 +1265,7 @@
         <div class="p-2.5 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-between text-[11px] text-slate-600">
           <div class="flex items-center gap-1.5 font-semibold text-slate-700">
             <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600"></i>
-            <span id="profSystemVersionText">Sistem Sürümü: v1.4.3</span>
+            <span id="profSystemVersionText">Sistem Sürümü: v1.4.4</span>
           </div>
           <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-300">Güncel ✓</span>
         </div>
@@ -1879,17 +1882,54 @@
 
       <div class="space-y-3 text-xs">
         <div>
-          <div class="text-[11px] font-bold text-slate-700 mb-1.5">Özel Departmanlar (Bulut)</div>
+          <div class="text-[11px] font-bold text-slate-700 mb-1.5">Tüm Fabrika Departmanları (Bulut Senkronlu)</div>
           <div id="customDepartmentsList" class="space-y-2"></div>
-        </div>
-        <div class="pt-2 border-t border-slate-100">
-          <div class="text-[11px] font-bold text-slate-500 mb-1.5">Varsayılan Fabrika Departmanları (6)</div>
-          <div id="builtInDepartmentsList" class="flex flex-wrap gap-1.5"></div>
         </div>
       </div>
 
       <div class="flex justify-end pt-2 border-t">
         <button onclick="closeModal('modalManageDepartments')" class="px-5 py-2 bg-[#1E3A8A] text-white rounded-xl text-xs font-bold shadow">Kapat</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: VARDİYALARI YÖNET (BULUT SENKRONLU) -->
+  <div id="modalManageShifts" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl space-y-4 max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between border-b pb-3">
+        <div>
+          <h3 class="font-bold text-base text-slate-800 flex items-center gap-2">
+            <i data-lucide="clock" class="w-5 h-5 text-sky-600"></i> Vardiya Tanımları Yönetimi
+          </h3>
+          <p class="text-[11px] text-slate-500 mt-0.5">Tüm vardiyaları düzenleyebilir, silebilir veya yeni vardiya ekleyebilirsiniz. Değişiklikler Android ve Web'e anında yansır.</p>
+        </div>
+        <button onclick="closeModal('modalManageShifts')" class="text-slate-400 hover:text-slate-600"><i data-lucide="x" class="w-5 h-5"></i></button>
+      </div>
+
+      <form onsubmit="saveCustomShift(event)" class="bg-sky-50/70 border border-sky-200 rounded-xl p-3.5 space-y-2.5 text-xs">
+        <input type="hidden" id="shiftEditId" value="">
+        <div class="flex items-center justify-between">
+          <span id="shiftFormHeading" class="font-bold text-sky-950">+ Yeni Vardiya Ekle</span>
+          <button type="button" id="shiftCancelEditBtn" onclick="resetShiftForm()" class="hidden text-[11px] text-rose-600 font-bold hover:underline">Düzenlemeyi İptal Et</button>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          <input type="text" id="shiftEditName" required placeholder="Vardiya adı (Örn: 08:00 - 16:00 (Gündüz))" class="w-full border rounded-lg p-2 bg-white font-semibold">
+          <input type="text" id="shiftEditDesc" placeholder="Kısa açıklama (İsteğe bağlı)" class="w-full border rounded-lg p-2 bg-white">
+        </div>
+        <div class="flex justify-end">
+          <button type="submit" id="shiftSaveBtn" class="px-4 py-2 bg-sky-700 hover:bg-sky-800 text-white rounded-xl text-xs font-bold shadow-sm">Buluta Kaydet</button>
+        </div>
+      </form>
+
+      <div class="space-y-3 text-xs">
+        <div>
+          <div class="text-[11px] font-bold text-slate-700 mb-1.5">Tüm Vardiyalar (Bulut Senkronlu)</div>
+          <div id="customShiftsList" class="space-y-2"></div>
+        </div>
+      </div>
+
+      <div class="flex justify-end pt-2 border-t">
+        <button onclick="closeModal('modalManageShifts')" class="px-5 py-2 bg-[#1E3A8A] text-white rounded-xl text-xs font-bold shadow">Kapat</button>
       </div>
     </div>
   </div>
@@ -1908,8 +1948,8 @@
         <div>
           <div class="text-[11px] font-bold text-emerald-800 uppercase tracking-wider">Aktif Firebase Sürümü</div>
           <div class="text-sm font-extrabold text-emerald-950 flex items-center gap-2" id="verModalCurrentBadge">
-            <span id="verModalVersionName">v1.4.3</span>
-            <span id="verModalVersionCode" class="text-xs px-2 py-0.5 bg-emerald-200 text-emerald-800 rounded-md font-semibold">Kod: 14</span>
+            <span id="verModalVersionName">v1.4.4</span>
+            <span id="verModalVersionCode" class="text-xs px-2 py-0.5 bg-emerald-200 text-emerald-800 rounded-md font-semibold">Kod: 15</span>
           </div>
         </div>
         <div class="text-right text-[11px] text-emerald-700">
@@ -1922,18 +1962,18 @@
         <div class="grid grid-cols-2 gap-3">
           <div>
             <label class="block font-semibold text-slate-700 mb-1">Yeni Sürüm Kodu (Build Code) *</label>
-            <input type="number" id="verFormCode" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 14" min="1">
+            <input type="number" id="verFormCode" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 15" min="1">
             <span class="text-[10px] text-slate-400">Yeni sürüm için kod mevcut koddan büyük olmalıdır</span>
           </div>
           <div>
             <label class="block font-semibold text-slate-700 mb-1">Yeni Sürüm Adı (Version Name) *</label>
-            <input type="text" id="verFormName" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 1.4.3">
+            <input type="text" id="verFormName" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 1.4.4">
           </div>
         </div>
 
         <div>
           <label class="block font-semibold text-slate-700 mb-1">Güncelleme Bildirim Başlığı *</label>
-          <input type="text" id="verFormTitle" required class="w-full px-3 py-2 border rounded-xl text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: Yeni Sürüm Yayınlandı (v1.4.3)">
+          <input type="text" id="verFormTitle" required class="w-full px-3 py-2 border rounded-xl text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: Yeni Sürüm Yayınlandı (v1.4.4)">
         </div>
 
         <div>
@@ -1952,9 +1992,9 @@
         </div>
 
         <div class="flex items-center justify-between gap-2 pt-2 border-t">
-          <button type="button" onclick="syncWithDeployedApk()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs rounded-xl font-bold border border-slate-300 flex items-center gap-1.5" title="Firebase'i şu an dağıtılan v1.4.3 (Kod: 14) APK ile eşitler ve güncellenen telefonlardaki popup'ı kapatır">
+          <button type="button" onclick="syncWithDeployedApk()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs rounded-xl font-bold border border-slate-300 flex items-center gap-1.5" title="Firebase'i şu an dağıtılan v1.4.4 (Kod: 15) APK ile eşitler ve güncellenen telefonlardaki popup'ı kapatır">
             <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-blue-600"></i>
-            <span>Mevcut APK ile Eşitle (v1.4.3 - Kod: 14)</span>
+            <span>Mevcut APK ile Eşitle (v1.4.4 - Kod: 15)</span>
           </button>
           <div class="flex gap-2">
             <button type="button" onclick="closeModal('modalAppVersion')" class="px-4 py-2 border rounded-xl font-semibold text-slate-600 hover:bg-slate-50">Kapat</button>
@@ -2375,7 +2415,7 @@
       { suffix: "Members", id: "members", icon: "👥", title: "Üyeler", hint: "Personel rehberi ve üye gizlilik / silme yönetimi" }
     ];
 
-    // Varsayılan Fabrika Departmanları & Bulut Senkronlu Özel Departman/Rol Yardımcıları
+    // Bulut Senkronlu Fabrika Departmanları, Vardiyaları & Rol Yardımcıları (Tamamı Düzenlenebilir/Silinebilir)
     window.ALL_FACTORY_LABEL = "Tüm Fabrika";
     window.BUILT_IN_DEPARTMENTS = [
       "Üretim & Operasyon",
@@ -2385,7 +2425,27 @@
       "Kalite & İSG",
       "Fabrika Yönetimi"
     ];
+    window.BUILT_IN_DEPARTMENTS_SEED = [
+      { id: "dept_uretim", name: "Üretim & Operasyon", description: "Üretim hatları ve vardiya operasyonları" },
+      { id: "dept_mekanik", name: "Mekanik Bakım", description: "Mekanik arıza ve hat bakımı" },
+      { id: "dept_elektrik", name: "Elektrik & Otomasyon", description: "Elektrik panoları, sensör ve otomasyon" },
+      { id: "dept_yardimci", name: "Yardımcı Tesisler Teknisyeni", description: "Kompresör, chiller, kazan ve jeneratör" },
+      { id: "dept_kalite", name: "Kalite & İSG", description: "Gıda güvenliği, KKN ve İSG denetimleri" },
+      { id: "dept_yonetim", name: "Fabrika Yönetimi", description: "Genel fabrika yönetim ve koordinasyon" }
+    ];
+    window.BUILT_IN_SHIFTS_SEED = [
+      { id: "shift_day", name: "08:00 - 16:00 (Gündüz)", description: "Gündüz vardiyası" },
+      { id: "shift_evening", name: "16:00 - 00:00 (Akşam)", description: "Akşam vardiyası" },
+      { id: "shift_night", name: "00:00 - 08:00 (Gece)", description: "Gece vardiyası" }
+    ];
     window.allCustomDepartments = [];
+    window.allCustomShifts = [];
+    window._deptsInitialized = false;
+    window._deptsCloudSeeded = false;
+    window._deptsSeedAttempted = false;
+    window._shiftsInitialized = false;
+    window._shiftsCloudSeeded = false;
+    window._shiftsSeedAttempted = false;
     window.allCustomRoles = [];
     window.BUILT_IN_ROLES_SEED = [
       {
@@ -2393,7 +2453,7 @@
         roleCode: "OBSERVER",
         name: "Gözlemci",
         description: "Başlangıçta yalnızca Genel Bakış sekmesini salt okunur görüntüler.",
-        isBuiltIn: true,
+        isBuiltIn: false,
         allowedTabs: ["dashboard"],
         editableTabs: [],
         allowedSubPages: ["dash_kpis", "dash_quick_actions", "dash_recent_lists"],
@@ -2415,7 +2475,7 @@
         roleCode: "OPERATOR",
         name: "Operatör",
         description: "Üretim hatlarında arıza bildirir ve kendi saha kayıtlarını takip eder.",
-        isBuiltIn: true,
+        isBuiltIn: false,
         allowedTabs: ["dashboard", "electrical_maintenance"],
         editableTabs: ["electrical_maintenance"],
         allowedSubPages: ["dash_kpis", "dash_quick_actions", "dash_recent_lists", "elec_faults"],
@@ -2437,7 +2497,7 @@
         roleCode: "TECHNICIAN",
         name: "Bakım Teknisyeni",
         description: "Arızalara müdahale eder, iş emirlerini tamamlar ve periyodik bakımları yürütür.",
-        isBuiltIn: true,
+        isBuiltIn: false,
         allowedTabs: ["dashboard", "electrical_maintenance", "members"],
         editableTabs: ["electrical_maintenance"],
         allowedSubPages: ["dash_kpis", "dash_quick_actions", "dash_recent_lists", "elec_faults", "elec_work_orders", "elec_schedules", "elec_analytics", "members_directory"],
@@ -2459,7 +2519,7 @@
         roleCode: "Vardiya Amiri",
         name: "Vardiya Amiri",
         description: "Paketleme ve saha vardiya akışını yönetir, Excel raporu çıkarabilir.",
-        isBuiltIn: true,
+        isBuiltIn: false,
         allowedTabs: ["dashboard", "electrical_maintenance", "packaging_unit", "members"],
         editableTabs: ["electrical_maintenance", "packaging_unit"],
         allowedSubPages: ["dash_kpis", "dash_quick_actions", "dash_recent_lists", "elec_faults", "elec_work_orders", "elec_schedules", "elec_analytics", "pkg_kpis", "pkg_logs", "pkg_ccp", "members_directory"],
@@ -2481,7 +2541,7 @@
         roleCode: "MANAGER",
         name: "Bakım Müdürü",
         description: "Tüm sekmeleri, referans sınırlarını ve tüm fabrika departman görünümlerini yönetir.",
-        isBuiltIn: true,
+        isBuiltIn: false,
         allowedTabs: [...window.ALL_CONFIGURABLE_TABS],
         editableTabs: [...window.ALL_CONFIGURABLE_TABS],
         allowedSubPages: [],
@@ -2499,7 +2559,7 @@
         canEditProfile: true
       }
     ];
-    window.allCustomRoles = window.BUILT_IN_ROLES_SEED.map(r => ({ ...r }));
+    window.allCustomRoles = window.BUILT_IN_ROLES_SEED.map(r => ({ ...r, isBuiltIn: false }));
 
     window.getAllDepartments = function() {
       const seen = new Set();
@@ -2513,8 +2573,31 @@
           out.push(clean);
         }
       };
+      if (window._deptsInitialized || (window.allCustomDepartments && window.allCustomDepartments.length > 0)) {
+        (window.allCustomDepartments || []).forEach(d => add(d.name));
+        return out;
+      }
       window.BUILT_IN_DEPARTMENTS.forEach(add);
-      (window.allCustomDepartments || []).forEach(d => add(d.name));
+      return out;
+    };
+
+    window.getAllShifts = function() {
+      const seen = new Set();
+      const out = [];
+      const add = (val) => {
+        const clean = (val || "").trim();
+        if (!clean) return;
+        const low = clean.toLowerCase();
+        if (!seen.has(low)) {
+          seen.add(low);
+          out.push(clean);
+        }
+      };
+      if (window._shiftsInitialized || (window.allCustomShifts && window.allCustomShifts.length > 0)) {
+        (window.allCustomShifts || []).forEach(s => add(s.name));
+        return out;
+      }
+      window.BUILT_IN_SHIFTS_SEED.forEach(s => add(s.name));
       return out;
     };
 
@@ -4610,7 +4693,7 @@
       });
 
       // 6. Mobil Uygulama Sürüm Takibi ve Firebase Yönetimi (app_version/current)
-      let hasAutoSyncedV14 = false;
+      let hasAutoSyncedV15 = false;
       try {
         onSnapshot(doc(db, "app_version", "current"), async (docSnap) => {
           if (docSnap && docSnap.exists()) {
@@ -4618,16 +4701,15 @@
             window.currentAppVersion = data;
             renderAppVersionBadge();
 
-            // Sürüm kodu 14'ten küçükse otomatik olarak v1.4.3 (Kod: 14)'e yükselt
+            // Sürüm kodu 15'ten küçükse otomatik olarak v1.4.4 (Kod: 15)'e yükselt
             const verCodeNum = Number(data.versionCode || 0);
-            if (verCodeNum < 14 && !hasAutoSyncedV14) {
-              hasAutoSyncedV14 = true;
-              console.log("Firestore app_version sürüm kodu 14 (v1.4.3) olarak otomatik eşitleniyor...");
+            if (verCodeNum < 15 && !hasAutoSyncedV15) {
+              hasAutoSyncedV15 = true;
+              console.log("Firestore app_version sürüm kodu 15 (v1.4.4) olarak otomatik eşitleniyor...");
               seedInitialAppVersionInFirebase();
             }
-          } else if (!hasAutoSyncedV14) {
-            hasAutoSyncedV14 = true;
-            // Başlangıç sürüm dokümanı Firebase'de yoksa otomatik oluştur
+          } else if (!hasAutoSyncedV15) {
+            hasAutoSyncedV15 = true;
             seedInitialAppVersionInFirebase();
           }
         }, (err) => {
@@ -4637,11 +4719,12 @@
         console.warn("Failed to listen to app_version:", e);
       }
 
-      // 7. Bulut Senkronlu Özel Roller (custom_roles + app_version/custom_roles_registry çift kanal)
+      // 7. Bulut Senkronlu Roller (custom_roles + app_version/custom_roles_registry çift kanal; sabit rol kilidi yok)
       window._primaryRolesMap = {};
       window._registryRolesMap = {};
       window._deletedRoleTargets = new Set();
       window._hasSeededRoles = false;
+      window._rolesCloudSeeded = false;
       window._mergeAndApplyCustomRoles = function(fromCloud) {
         const deleted = window._deletedRoleTargets || new Set();
         const combined = new Map();
@@ -4653,29 +4736,27 @@
             if (deleted.has(idKey) || deleted.has(nameKey)) return;
             const prev = combined.get(idKey);
             if (!prev || (Number(r.updatedAtMillis || 0) >= Number(prev.updatedAtMillis || 0))) {
-              combined.set(idKey, r);
+              combined.set(idKey, { ...r, isBuiltIn: false });
             }
           });
         };
         ingest(window._primaryRolesMap);
         ingest(window._registryRolesMap);
         const list = Array.from(combined.values());
-        if (list.length === 0 && fromCloud && !window._hasSeededRoles) {
+        if (list.length === 0 && fromCloud && !window._hasSeededRoles && !window._rolesCloudSeeded && deleted.size === 0) {
           window._hasSeededRoles = true;
+          window._rolesCloudSeeded = true;
           const nowSeed = Date.now();
           const seeded = window.BUILT_IN_ROLES_SEED.map(seed => ({
             ...seed,
+            isBuiltIn: false,
             createdAtMillis: nowSeed,
             updatedAtMillis: nowSeed
           }));
           window.allCustomRoles = seeded;
           window.persistCustomRolesToCloud(seeded, Array.from(deleted)).catch(() => {});
-        } else if (list.length > 0) {
-          list.sort((a, b) => {
-            const bDiff = (b.isBuiltIn ? 1 : 0) - (a.isBuiltIn ? 1 : 0);
-            if (bDiff !== 0) return bDiff;
-            return (b.updatedAtMillis || 0) - (a.updatedAtMillis || 0);
-          });
+        } else if (list.length > 0 || window._rolesCloudSeeded || deleted.size > 0) {
+          list.sort((a, b) => String(a.name || "").localeCompare(String(b.name || ""), "tr"));
           window.allCustomRoles = list;
         }
         window.refreshDepartmentAndRoleDropdowns();
@@ -4695,7 +4776,7 @@
           snapshot.forEach(docSnap => {
             const d = docSnap.data() || {};
             if ((d.name || "").trim()) {
-              map[docSnap.id.toLowerCase()] = { ...d, id: docSnap.id };
+              map[docSnap.id.toLowerCase()] = { ...d, id: docSnap.id, isBuiltIn: false };
             }
           });
           window._primaryRolesMap = map;
@@ -4715,6 +4796,7 @@
         onSnapshot(doc(db, "app_version", "custom_roles_registry"), (docSnap) => {
           if (docSnap && docSnap.exists()) {
             const data = docSnap.data() || {};
+            if (data.seededDefaults === true) window._rolesCloudSeeded = true;
             const del = Array.isArray(data.deletedIds) ? data.deletedIds.map(x => String(x || "").trim().toLowerCase()).filter(Boolean) : [];
             window._deletedRoleTargets = new Set(del);
             const map = {};
@@ -4722,12 +4804,12 @@
             items.forEach(r => {
               if (r && (r.name || "").trim()) {
                 const rid = String(r.id || r.name).trim();
-                map[rid.toLowerCase()] = { ...r, id: rid };
+                map[rid.toLowerCase()] = { ...r, id: rid, isBuiltIn: false };
               }
             });
             window._registryRolesMap = map;
             window._mergeAndApplyCustomRoles(!docSnap.metadata?.fromCache);
-          } else if (!docSnap.metadata?.fromCache) {
+          } else if (docSnap && !docSnap.metadata?.fromCache) {
             window._mergeAndApplyCustomRoles(true);
           }
         }, (err) => {
@@ -4737,11 +4819,11 @@
         console.warn("Failed to listen to custom_roles_registry:", e);
       }
 
-      // 8. Bulut Senkronlu Özel Departmanlar (custom_departments + app_version/custom_departments_registry çift kanal)
+      // 8. Bulut Senkronlu Departmanlar (custom_departments + app_version/custom_departments_registry çift kanal; sabit kilit yok)
       window._primaryDeptsMap = {};
       window._registryDeptsMap = {};
       window._deletedDeptTargets = new Set();
-      window._mergeAndApplyCustomDepartments = function() {
+      window._mergeAndApplyCustomDepartments = function(fromCloud) {
         const deleted = window._deletedDeptTargets || new Set();
         const byName = new Map();
         const ingest = (src) => {
@@ -4759,9 +4841,27 @@
         };
         ingest(window._primaryDeptsMap);
         ingest(window._registryDeptsMap);
-        const depts = Array.from(byName.values());
-        depts.sort((a, b) => (b.updatedAtMillis || b.createdAtMillis || 0) - (a.updatedAtMillis || a.createdAtMillis || 0));
-        window.allCustomDepartments = depts;
+        let depts = Array.from(byName.values());
+        if (depts.length === 0 && fromCloud && !window._deptsSeedAttempted && !window._deptsCloudSeeded && deleted.size === 0) {
+          window._deptsSeedAttempted = true;
+          window._deptsCloudSeeded = true;
+          const nowSeed = Date.now();
+          depts = window.BUILT_IN_DEPARTMENTS_SEED
+            .filter(s => !deleted.has(s.id.toLowerCase()) && !deleted.has(s.name.toLowerCase()))
+            .map(s => ({
+              ...s,
+              createdBy: "Sistem",
+              createdAtMillis: nowSeed,
+              updatedAtMillis: nowSeed
+            }));
+          window._deptsInitialized = true;
+          window.allCustomDepartments = depts;
+          window.persistCustomDepartmentsToCloud(depts, Array.from(deleted)).catch(() => {});
+        } else if (depts.length > 0 || window._deptsCloudSeeded || deleted.size > 0) {
+          depts.sort((a, b) => String(a.name || "").localeCompare(String(b.name || ""), "tr"));
+          window._deptsInitialized = true;
+          window.allCustomDepartments = depts;
+        }
         window.refreshDepartmentAndRoleDropdowns();
         refreshDashboard();
         renderMembers();
@@ -4782,7 +4882,7 @@
             }
           });
           window._primaryDeptsMap = map;
-          window._mergeAndApplyCustomDepartments();
+          window._mergeAndApplyCustomDepartments(!snapshot.metadata?.fromCache);
         }, (err) => {
           if (err && err.code === "permission-denied") {
             console.info("custom_departments primary fallback aktif (app_version/custom_departments_registry kullanılıyor).");
@@ -4798,6 +4898,7 @@
         onSnapshot(doc(db, "app_version", "custom_departments_registry"), (docSnap) => {
           if (docSnap && docSnap.exists()) {
             const data = docSnap.data() || {};
+            if (data.seededDefaults === true) window._deptsCloudSeeded = true;
             const del = Array.isArray(data.deletedIds) ? data.deletedIds.map(x => String(x || "").trim().toLowerCase()).filter(Boolean) : [];
             window._deletedDeptTargets = new Set(del);
             const map = {};
@@ -4810,13 +4911,115 @@
               }
             });
             window._registryDeptsMap = map;
-            window._mergeAndApplyCustomDepartments();
+            window._mergeAndApplyCustomDepartments(!docSnap.metadata?.fromCache);
+          } else if (docSnap && !docSnap.metadata?.fromCache) {
+            window._mergeAndApplyCustomDepartments(true);
           }
         }, (err) => {
           console.warn("custom_departments_registry listener notice:", err);
         });
       } catch (e) {
         console.warn("Failed to listen to custom_departments_registry:", e);
+      }
+
+      // 9. Bulut Senkronlu Vardiyalar (custom_shifts + app_version/custom_shifts_registry çift kanal; sabit kilit yok)
+      window._primaryShiftsMap = {};
+      window._registryShiftsMap = {};
+      window._deletedShiftTargets = new Set();
+      window._mergeAndApplyCustomShifts = function(fromCloud) {
+        const deleted = window._deletedShiftTargets || new Set();
+        const byName = new Map();
+        const ingest = (src) => {
+          Object.values(src || {}).forEach(s => {
+            const cleanName = (s && s.name ? String(s.name) : "").trim();
+            if (!cleanName) return;
+            const idKey = String(s.id || cleanName).trim().toLowerCase();
+            const nameKey = cleanName.toLowerCase();
+            if (deleted.has(idKey) || deleted.has(nameKey)) return;
+            const prev = byName.get(nameKey);
+            if (!prev || (Number(s.updatedAtMillis || s.createdAtMillis || 0) >= Number(prev.updatedAtMillis || prev.createdAtMillis || 0))) {
+              byName.set(nameKey, { ...s, id: s.id || idKey, name: cleanName });
+            }
+          });
+        };
+        ingest(window._primaryShiftsMap);
+        ingest(window._registryShiftsMap);
+        let shifts = Array.from(byName.values());
+        if (shifts.length === 0 && fromCloud && !window._shiftsSeedAttempted && !window._shiftsCloudSeeded && deleted.size === 0) {
+          window._shiftsSeedAttempted = true;
+          window._shiftsCloudSeeded = true;
+          const nowSeed = Date.now();
+          shifts = window.BUILT_IN_SHIFTS_SEED
+            .filter(s => !deleted.has(s.id.toLowerCase()) && !deleted.has(s.name.toLowerCase()))
+            .map(s => ({
+              ...s,
+              createdBy: "Sistem",
+              createdAtMillis: nowSeed,
+              updatedAtMillis: nowSeed
+            }));
+          window._shiftsInitialized = true;
+          window.allCustomShifts = shifts;
+          window.persistCustomShiftsToCloud(shifts, Array.from(deleted)).catch(() => {});
+        } else if (shifts.length > 0 || window._shiftsCloudSeeded || deleted.size > 0) {
+          shifts.sort((a, b) => String(a.name || "").localeCompare(String(b.name || ""), "tr"));
+          window._shiftsInitialized = true;
+          window.allCustomShifts = shifts;
+        }
+        if (typeof populatePackagingFilterSelects === "function") populatePackagingFilterSelects();
+        const shiftsModal = document.getElementById("modalManageShifts");
+        if (shiftsModal && !shiftsModal.classList.contains("hidden") && typeof window.renderManageShiftsModal === "function") {
+          window.renderManageShiftsModal();
+        }
+      };
+
+      try {
+        onSnapshot(collection(db, "custom_shifts"), (snapshot) => {
+          const map = {};
+          snapshot.forEach(docSnap => {
+            const s = docSnap.data() || {};
+            if ((s.name || "").trim()) {
+              map[docSnap.id.toLowerCase()] = { ...s, id: docSnap.id, name: s.name.trim() };
+            }
+          });
+          window._primaryShiftsMap = map;
+          window._mergeAndApplyCustomShifts(!snapshot.metadata?.fromCache);
+        }, (err) => {
+          if (err && err.code === "permission-denied") {
+            console.info("custom_shifts primary fallback aktif (app_version/custom_shifts_registry kullanılıyor).");
+          } else {
+            console.warn("custom_shifts listener notice:", err);
+          }
+        });
+      } catch (e) {
+        console.warn("Failed to listen to custom_shifts:", e);
+      }
+
+      try {
+        onSnapshot(doc(db, "app_version", "custom_shifts_registry"), (docSnap) => {
+          if (docSnap && docSnap.exists()) {
+            const data = docSnap.data() || {};
+            if (data.seededDefaults === true) window._shiftsCloudSeeded = true;
+            const del = Array.isArray(data.deletedIds) ? data.deletedIds.map(x => String(x || "").trim().toLowerCase()).filter(Boolean) : [];
+            window._deletedShiftTargets = new Set(del);
+            const map = {};
+            const items = Array.isArray(data.items) ? data.items : [];
+            items.forEach(s => {
+              const cleanName = (s && s.name ? String(s.name) : "").trim();
+              if (cleanName) {
+                const sid = String(s.id || cleanName).trim();
+                map[sid.toLowerCase()] = { ...s, id: sid, name: cleanName };
+              }
+            });
+            window._registryShiftsMap = map;
+            window._mergeAndApplyCustomShifts(!docSnap.metadata?.fromCache);
+          } else if (docSnap && !docSnap.metadata?.fromCache) {
+            window._mergeAndApplyCustomShifts(true);
+          }
+        }, (err) => {
+          console.warn("custom_shifts_registry listener notice:", err);
+        });
+      } catch (e) {
+        console.warn("Failed to listen to custom_shifts_registry:", e);
       }
     }
 
@@ -7239,7 +7442,7 @@
               <div class="flex items-center gap-2 flex-wrap">
                 <span class="font-extrabold text-slate-900 text-xs">${escapeHtml(r.name || r.roleCode || "Rol")}</span>
                 <span class="px-1.5 py-0.5 rounded bg-slate-100 text-slate-600 font-mono text-[10px] border">${escapeHtml(r.roleCode || r.id)}</span>
-                ${r.isBuiltIn ? '<span class="px-1.5 py-0.5 rounded bg-blue-50 text-blue-700 text-[10px] font-bold border border-blue-200">Varsayılan</span>' : '<span class="px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 text-[10px] font-bold border border-emerald-200">Özel Bulut Rolü</span>'}
+                <span class="px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 text-[10px] font-bold border border-emerald-200">Bulut Rolü</span>
               </div>
               <div class="text-[11px] text-slate-500">${escapeHtml(r.description || "Açıklama yok.")}</div>
               <div class="flex flex-wrap gap-1 text-[10px] pt-0.5">
@@ -7249,7 +7452,7 @@
             </div>
             <div class="flex items-center gap-1.5 flex-shrink-0">
               <button type="button" onclick="startEditOrCreateRole('${escapeJsSingle(r.id)}')" class="px-2.5 py-1.5 bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-300 rounded-lg font-bold text-[11px]">Düzenle</button>
-              ${!r.isBuiltIn ? `<button type="button" onclick="deleteCustomRole('${escapeJsSingle(r.id)}', '${escapeJsSingle(r.name || r.roleCode)}')" class="px-2.5 py-1.5 bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 rounded-lg font-bold text-[11px]">Sil</button>` : ""}
+              <button type="button" onclick="deleteCustomRole('${escapeJsSingle(r.id)}', '${escapeJsSingle(r.name || r.roleCode)}')" class="px-2.5 py-1.5 bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 rounded-lg font-bold text-[11px]">Sil</button>
             </div>
           </div>
         `;
@@ -7309,7 +7512,6 @@
       }
       const existingId = document.getElementById("roleEditId").value.trim();
       const existingCode = document.getElementById("roleEditCode").value.trim();
-      const isBuiltIn = document.getElementById("roleEditIsBuiltIn").value === "1";
       const name = document.getElementById("roleEditName").value.trim();
       const desc = document.getElementById("roleEditDesc").value.trim();
       if (!name) {
@@ -7319,7 +7521,7 @@
 
       const now = Date.now();
       const docId = existingId || ("role_" + now);
-      const roleCode = (isBuiltIn && existingCode) ? existingCode : (existingCode || name);
+      const roleCode = existingCode || name;
       const matrix = window.getPermMatrixResult("roleEdit");
       const canUtilRefs = !!document.getElementById("roleEditPermUtilRefs")?.checked;
       const canSchedules = !!document.getElementById("roleEditPermSchedules")?.checked;
@@ -7330,7 +7532,7 @@
         roleCode: roleCode,
         name: name,
         description: desc,
-        isBuiltIn: isBuiltIn,
+        isBuiltIn: false,
         allowedTabs: matrix.allowedTabs,
         editableTabs: matrix.editableTabs,
         allowedSubPages: matrix.allowedSubPages,
@@ -7379,7 +7581,7 @@
     window.persistCustomRolesToCloud = async function(rolesArray, deletedList) {
       const now = Date.now();
       const sanitizedItems = (rolesArray || []).map(r => {
-        const copy = { ...r };
+        const copy = { ...r, isBuiltIn: false };
         delete copy.updatedAt;
         delete copy.createdAt;
         if (!copy.updatedAtMillis) copy.updatedAtMillis = now;
@@ -7388,6 +7590,7 @@
       await setDoc(doc(db, "app_version", "custom_roles_registry"), {
         items: sanitizedItems,
         deletedIds: (deletedList || []).slice(-100),
+        seededDefaults: true,
         updatedAtMillis: now,
         updatedAt: serverTimestamp()
       });
@@ -7457,16 +7660,12 @@
 
     window.renderManageDepartmentsModal = function() {
       const customEl = document.getElementById("customDepartmentsList");
-      const builtInEl = document.getElementById("builtInDepartmentsList");
-      if (builtInEl) {
-        builtInEl.innerHTML = window.BUILT_IN_DEPARTMENTS.map(d =>
-          `<span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 border border-slate-200 font-semibold text-[11px]">${escapeHtml(d)}</span>`
-        ).join("");
-      }
       if (!customEl) return;
-      const list = window.allCustomDepartments || [];
+      const list = (window._deptsInitialized || (window.allCustomDepartments && window.allCustomDepartments.length > 0))
+        ? (window.allCustomDepartments || [])
+        : window.BUILT_IN_DEPARTMENTS_SEED;
       if (!list.length) {
-        customEl.innerHTML = `<div class="p-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-400 text-center">Henüz özel departman eklenmemiş.</div>`;
+        customEl.innerHTML = `<div class="p-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-400 text-center">Henüz kayıtlı departman bulunmuyor.</div>`;
         return;
       }
       customEl.innerHTML = list.map(d => `
@@ -7484,7 +7683,10 @@
     };
 
     window.editCustomDepartment = function(deptId) {
-      const d = (window.allCustomDepartments || []).find(x => x.id === deptId);
+      const list = (window._deptsInitialized || (window.allCustomDepartments && window.allCustomDepartments.length > 0))
+        ? (window.allCustomDepartments || [])
+        : window.BUILT_IN_DEPARTMENTS_SEED;
+      const d = list.find(x => x.id === deptId);
       if (!d) return;
       document.getElementById("deptEditId").value = d.id;
       document.getElementById("deptEditName").value = d.name || "";
@@ -7519,6 +7721,7 @@
       await setDoc(doc(db, "app_version", "custom_departments_registry"), {
         items: sanitizedItems,
         deletedIds: (deletedList || []).slice(-100),
+        seededDefaults: true,
         updatedAtMillis: now,
         updatedAt: serverTimestamp()
       });
@@ -7534,9 +7737,11 @@
         alert("Lütfen departman adını giriniz.");
         return;
       }
-      const dupBuiltIn = window.BUILT_IN_DEPARTMENTS.some(b => b.toLowerCase() === name.toLowerCase());
-      const dupCustom = (window.allCustomDepartments || []).some(c => c.id !== existingId && (c.name || "").trim().toLowerCase() === name.toLowerCase());
-      if (dupBuiltIn || dupCustom) {
+      const baseList = (window._deptsInitialized || (window.allCustomDepartments && window.allCustomDepartments.length > 0))
+        ? (window.allCustomDepartments || [])
+        : window.BUILT_IN_DEPARTMENTS_SEED.map(s => ({ ...s, createdBy: "Sistem", createdAtMillis: Date.now(), updatedAtMillis: Date.now() }));
+      const dupCustom = baseList.some(c => c.id !== existingId && (c.name || "").trim().toLowerCase() === name.toLowerCase());
+      if (dupCustom) {
         alert("Bu isimde bir departman zaten mevcut.");
         return;
       }
@@ -7547,7 +7752,7 @@
         name: name,
         description: desc,
         createdBy: window.currentUser.displayName || window.currentUser.username || "Yönetici",
-        createdAtMillis: existingId ? (Number((window.allCustomDepartments || []).find(x => x.id === existingId)?.createdAtMillis || now)) : now,
+        createdAtMillis: existingId ? (Number(baseList.find(x => x.id === existingId)?.createdAtMillis || now)) : now,
         updatedAtMillis: now
       };
 
@@ -7556,12 +7761,15 @@
       window._deletedDeptTargets.delete(name.toLowerCase());
       window._registryDeptsMap = window._registryDeptsMap || {};
       window._registryDeptsMap[docId.toLowerCase()] = plainPayload;
+      window._deptsInitialized = true;
+      window._deptsCloudSeeded = true;
 
-      const nextList = (window.allCustomDepartments || []).filter(d =>
+      const nextList = baseList.filter(d =>
         String(d.id || "").toLowerCase() !== docId.toLowerCase() &&
         String(d.name || "").trim().toLowerCase() !== name.toLowerCase()
       );
       nextList.push(plainPayload);
+      nextList.sort((a, b) => String(a.name || "").localeCompare(String(b.name || ""), "tr"));
       window.allCustomDepartments = nextList;
 
       let primaryOk = false;
@@ -7597,8 +7805,13 @@
       if (deptName) window._deletedDeptTargets.add(String(deptName).trim().toLowerCase());
       if (window._primaryDeptsMap) delete window._primaryDeptsMap[String(deptId).trim().toLowerCase()];
       if (window._registryDeptsMap) delete window._registryDeptsMap[String(deptId).trim().toLowerCase()];
+      window._deptsInitialized = true;
+      window._deptsCloudSeeded = true;
 
-      const remaining = (window.allCustomDepartments || []).filter(d =>
+      const baseList = (window.allCustomDepartments && window.allCustomDepartments.length > 0)
+        ? window.allCustomDepartments
+        : window.BUILT_IN_DEPARTMENTS_SEED.map(s => ({ ...s, createdBy: "Sistem", createdAtMillis: Date.now(), updatedAtMillis: Date.now() }));
+      const remaining = baseList.filter(d =>
         String(d.id || "").toLowerCase() !== String(deptId).toLowerCase() &&
         String(d.name || "").trim().toLowerCase() !== String(deptName || "").trim().toLowerCase()
       );
@@ -7625,6 +7838,195 @@
         renderTeam();
       } else {
         alert("Departman silinemedi. Lütfen internet bağlantınızı kontrol ediniz.");
+      }
+    };
+
+    // ================= BULUT SENKRONLU VARDİYA YÖNETİMİ (TÜM VARDİYALAR DÜZENLENEBİLİR/SİLİNEBİLİR) =================
+    window.openManageShiftsModal = function() {
+      if (!window.isMasterUser(window.currentUser)) {
+        alert("⛔ Vardiya yönetimi yetkisi yalnızca Ana Sistem Yöneticisine tanımlıdır.");
+        return;
+      }
+      window.resetShiftForm();
+      window.renderManageShiftsModal();
+      document.getElementById("modalManageShifts").classList.remove("hidden");
+      lucide.createIcons();
+    };
+
+    window.renderManageShiftsModal = function() {
+      const listEl = document.getElementById("customShiftsList");
+      if (!listEl) return;
+      const list = (window._shiftsInitialized || (window.allCustomShifts && window.allCustomShifts.length > 0))
+        ? (window.allCustomShifts || [])
+        : window.BUILT_IN_SHIFTS_SEED;
+      if (!list.length) {
+        listEl.innerHTML = `<div class="p-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-400 text-center">Henüz kayıtlı vardiya bulunmuyor.</div>`;
+        return;
+      }
+      listEl.innerHTML = list.map(s => `
+        <div class="p-2.5 bg-white border border-sky-200 rounded-xl flex items-center justify-between gap-2">
+          <div class="min-w-0">
+            <div class="font-bold text-slate-900 truncate">🕒 ${escapeHtml(s.name)}</div>
+            ${s.description ? `<div class="text-[10px] text-slate-500 truncate">${escapeHtml(s.description)}</div>` : ""}
+          </div>
+          <div class="flex items-center gap-1.5 flex-shrink-0">
+            <button type="button" onclick="editCustomShift('${escapeJsSingle(s.id)}')" class="px-2 py-1 bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-300 rounded-lg font-bold text-[10px]">Düzenle</button>
+            <button type="button" onclick="deleteCustomShift('${escapeJsSingle(s.id)}', '${escapeJsSingle(s.name)}')" class="px-2 py-1 bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 rounded-lg font-bold text-[10px]">Sil</button>
+          </div>
+        </div>
+      `).join("");
+    };
+
+    window.editCustomShift = function(shiftId) {
+      const list = (window._shiftsInitialized || (window.allCustomShifts && window.allCustomShifts.length > 0))
+        ? (window.allCustomShifts || [])
+        : window.BUILT_IN_SHIFTS_SEED;
+      const s = list.find(x => x.id === shiftId);
+      if (!s) return;
+      document.getElementById("shiftEditId").value = s.id;
+      document.getElementById("shiftEditName").value = s.name || "";
+      document.getElementById("shiftEditDesc").value = s.description || "";
+      document.getElementById("shiftFormHeading").innerText = `Vardiyayı Düzenle: ${s.name}`;
+      document.getElementById("shiftCancelEditBtn").classList.remove("hidden");
+    };
+
+    window.resetShiftForm = function() {
+      const idEl = document.getElementById("shiftEditId");
+      const nameEl = document.getElementById("shiftEditName");
+      const descEl = document.getElementById("shiftEditDesc");
+      const headEl = document.getElementById("shiftFormHeading");
+      const cancelBtn = document.getElementById("shiftCancelEditBtn");
+      if (idEl) idEl.value = "";
+      if (nameEl) nameEl.value = "";
+      if (descEl) descEl.value = "";
+      if (headEl) headEl.innerText = "+ Yeni Vardiya Ekle";
+      if (cancelBtn) cancelBtn.classList.add("hidden");
+    };
+
+    window.persistCustomShiftsToCloud = async function(shiftsArray, deletedList) {
+      const now = Date.now();
+      const sanitizedItems = (shiftsArray || []).map(s => ({
+        id: String(s.id || ("shift_" + now)),
+        name: String(s.name || "").trim(),
+        description: String(s.description || "").trim(),
+        createdBy: String(s.createdBy || "Yönetici"),
+        createdAtMillis: Number(s.createdAtMillis || now),
+        updatedAtMillis: Number(s.updatedAtMillis || now)
+      })).filter(s => s.name.length > 0);
+      await setDoc(doc(db, "app_version", "custom_shifts_registry"), {
+        items: sanitizedItems,
+        deletedIds: (deletedList || []).slice(-100),
+        seededDefaults: true,
+        updatedAtMillis: now,
+        updatedAt: serverTimestamp()
+      });
+    };
+
+    window.saveCustomShift = async function(e) {
+      e.preventDefault();
+      if (!window.isMasterUser(window.currentUser)) return;
+      const existingId = document.getElementById("shiftEditId").value.trim();
+      const name = document.getElementById("shiftEditName").value.trim();
+      const desc = document.getElementById("shiftEditDesc").value.trim();
+      if (!name) {
+        alert("Lütfen vardiya adını giriniz.");
+        return;
+      }
+      const baseList = (window._shiftsInitialized || (window.allCustomShifts && window.allCustomShifts.length > 0))
+        ? (window.allCustomShifts || [])
+        : window.BUILT_IN_SHIFTS_SEED.map(s => ({ ...s, createdBy: "Sistem", createdAtMillis: Date.now(), updatedAtMillis: Date.now() }));
+      const dupCustom = baseList.some(c => c.id !== existingId && (c.name || "").trim().toLowerCase() === name.toLowerCase());
+      if (dupCustom) {
+        alert("Bu isimde bir vardiya zaten mevcut.");
+        return;
+      }
+      const now = Date.now();
+      const docId = existingId || ("shift_" + now);
+      const plainPayload = {
+        id: docId,
+        name: name,
+        description: desc,
+        createdBy: window.currentUser.displayName || window.currentUser.username || "Yönetici",
+        createdAtMillis: existingId ? (Number(baseList.find(x => x.id === existingId)?.createdAtMillis || now)) : now,
+        updatedAtMillis: now
+      };
+
+      window._deletedShiftTargets = window._deletedShiftTargets || new Set();
+      window._deletedShiftTargets.delete(docId.toLowerCase());
+      window._deletedShiftTargets.delete(name.toLowerCase());
+      window._registryShiftsMap = window._registryShiftsMap || {};
+      window._registryShiftsMap[docId.toLowerCase()] = plainPayload;
+      window._shiftsInitialized = true;
+      window._shiftsCloudSeeded = true;
+
+      const nextList = baseList.filter(s =>
+        String(s.id || "").toLowerCase() !== docId.toLowerCase() &&
+        String(s.name || "").trim().toLowerCase() !== name.toLowerCase()
+      );
+      nextList.push(plainPayload);
+      nextList.sort((a, b) => String(a.name || "").localeCompare(String(b.name || ""), "tr"));
+      window.allCustomShifts = nextList;
+
+      let primaryOk = false;
+      let registryOk = false;
+      try {
+        await setDoc(doc(db, "custom_shifts", docId), { ...plainPayload, updatedAt: serverTimestamp() }, { merge: true });
+        primaryOk = true;
+      } catch (_) {}
+      try {
+        await window.persistCustomShiftsToCloud(nextList, Array.from(window._deletedShiftTargets));
+        registryOk = true;
+      } catch (err) {
+        console.error("custom_shifts_registry write error:", err);
+      }
+
+      if (primaryOk || registryOk) {
+        window.resetShiftForm();
+        window.renderManageShiftsModal();
+        if (typeof populatePackagingFilterSelects === "function") populatePackagingFilterSelects();
+      } else {
+        alert("Vardiya kaydedilemedi. Lütfen internet bağlantınızı kontrol ediniz.");
+      }
+    };
+
+    window.deleteCustomShift = async function(shiftId, shiftName) {
+      if (!window.isMasterUser(window.currentUser) || !shiftId) return;
+      if (!confirm(`'${shiftName}' vardiyasını silmek istiyor musunuz?`)) return;
+      window._deletedShiftTargets = window._deletedShiftTargets || new Set();
+      window._deletedShiftTargets.add(String(shiftId).trim().toLowerCase());
+      if (shiftName) window._deletedShiftTargets.add(String(shiftName).trim().toLowerCase());
+      if (window._primaryShiftsMap) delete window._primaryShiftsMap[String(shiftId).trim().toLowerCase()];
+      if (window._registryShiftsMap) delete window._registryShiftsMap[String(shiftId).trim().toLowerCase()];
+      window._shiftsInitialized = true;
+      window._shiftsCloudSeeded = true;
+
+      const baseList = (window.allCustomShifts && window.allCustomShifts.length > 0)
+        ? window.allCustomShifts
+        : window.BUILT_IN_SHIFTS_SEED.map(s => ({ ...s, createdBy: "Sistem", createdAtMillis: Date.now(), updatedAtMillis: Date.now() }));
+      const remaining = baseList.filter(s =>
+        String(s.id || "").toLowerCase() !== String(shiftId).toLowerCase() &&
+        String(s.name || "").trim().toLowerCase() !== String(shiftName || "").trim().toLowerCase()
+      );
+      window.allCustomShifts = remaining;
+
+      let primaryOk = false;
+      let registryOk = false;
+      try {
+        await deleteDoc(doc(db, "custom_shifts", shiftId));
+        primaryOk = true;
+      } catch (_) {}
+      try {
+        await window.persistCustomShiftsToCloud(remaining, Array.from(window._deletedShiftTargets));
+        registryOk = true;
+      } catch (err) {
+        console.error("deleteCustomShift registry error:", err);
+      }
+
+      if (primaryOk || registryOk) {
+        window.renderManageShiftsModal();
+        if (typeof populatePackagingFilterSelects === "function") populatePackagingFilterSelects();
+      } else {
+        alert("Vardiya silinemedi. Lütfen internet bağlantınızı kontrol ediniz.");
       }
     };
 
@@ -9712,13 +10114,19 @@
       if (lineFilter && lineFilter.options.length <= 1) {
         PACKAGING_LINES.forEach(l => lineFilter.insertAdjacentHTML("beforeend", `<option value="${escapeHtml(l)}">${escapeHtml(l)}</option>`));
       }
+      const dynamicShifts = (typeof window.getAllShifts === "function") ? window.getAllShifts() : PACKAGING_SHIFTS;
       const shiftFilter = document.getElementById("pkgShiftFilter");
-      if (shiftFilter && shiftFilter.options.length <= 1) {
-        PACKAGING_SHIFTS.forEach(s => shiftFilter.insertAdjacentHTML("beforeend", `<option value="${escapeHtml(s)}">${escapeHtml(s)}</option>`));
+      if (shiftFilter) {
+        const prev = shiftFilter.value || "ALL";
+        shiftFilter.innerHTML = '<option value="ALL">Tüm Vardiyalar</option>' +
+          dynamicShifts.map(s => `<option value="${escapeHtml(s)}">${escapeHtml(s)}</option>`).join("");
+        if (prev && (prev === "ALL" || dynamicShifts.includes(prev))) shiftFilter.value = prev;
       }
       const formShift = document.getElementById("pkgFormShift");
-      if (formShift && formShift.options.length === 0) {
-        PACKAGING_SHIFTS.forEach(s => formShift.insertAdjacentHTML("beforeend", `<option value="${escapeHtml(s)}">${escapeHtml(s)}</option>`));
+      if (formShift) {
+        const prevForm = formShift.value;
+        formShift.innerHTML = dynamicShifts.map(s => `<option value="${escapeHtml(s)}">${escapeHtml(s)}</option>`).join("");
+        if (prevForm && dynamicShifts.includes(prevForm)) formShift.value = prevForm;
       }
       const formLine = document.getElementById("pkgFormLine");
       if (formLine && formLine.options.length === 0) {
@@ -9894,7 +10302,15 @@
       document.getElementById("pkgEditId").value = existing ? (existing.id || existing.docId) : "";
       document.getElementById("pkgModalTitle").innerHTML = `<i data-lucide="package" class="w-5 h-5 text-[#1E3A8A]"></i> ${existing ? (canEditLogs ? "Paketleme Kaydını Düzenle" : "KKN Kalite Kontrolünü Güncelle") : "Yeni Paketleme Vardiya Kaydı"}`;
       document.getElementById("pkgFormDate").value = existing?.dateIso || getLocalTodayIso();
-      document.getElementById("pkgFormShift").value = existing?.shift || PACKAGING_SHIFTS[0];
+      const dynamicShifts = (typeof window.getAllShifts === "function") ? window.getAllShifts() : [];
+      const targetShift = existing?.shift || dynamicShifts[0] || "";
+      const formShiftEl = document.getElementById("pkgFormShift");
+      if (formShiftEl) {
+        if (targetShift && !Array.from(formShiftEl.options).some(o => o.value === targetShift)) {
+          formShiftEl.insertAdjacentHTML("beforeend", `<option value="${escapeHtml(targetShift)}">${escapeHtml(targetShift)}</option>`);
+        }
+        formShiftEl.value = targetShift;
+      }
       document.getElementById("pkgFormLine").value = existing?.lineName || PACKAGING_LINES[0];
       document.getElementById("pkgFormProduct").value = existing?.productName || PACKAGING_PRODUCTS[0];
       document.getElementById("pkgFormLot").value = existing?.lotNumber || "";
@@ -9948,7 +10364,7 @@
       const payload = {
         id: docId,
         dateIso,
-        shift: canEditLogs ? document.getElementById("pkgFormShift").value : (existing?.shift || PACKAGING_SHIFTS[0]),
+        shift: canEditLogs ? document.getElementById("pkgFormShift").value : (existing?.shift || ((typeof window.getAllShifts === "function" ? window.getAllShifts()[0] : "") || "")),
         lineName: canEditLogs ? document.getElementById("pkgFormLine").value : (existing?.lineName || PACKAGING_LINES[0]),
         productName: canEditLogs ? document.getElementById("pkgFormProduct").value : (existing?.productName || PACKAGING_PRODUCTS[0]),
         lotNumber: canEditLogs ? (document.getElementById("pkgFormLot").value || "").trim() : (existing?.lotNumber || ""),
@@ -10906,18 +11322,18 @@
 
     function renderAppVersionBadge() {
       const v = window.currentAppVersion || {
-        versionName: "1.4.3",
-        versionCode: 14,
+        versionName: "1.4.4",
+        versionCode: 15,
         releaseDate: "2026-11-15",
-        title: "Tekinak CMMS v1.4.3",
+        title: "Tekinak CMMS v1.4.4",
         changelog: [
-          "Sohbet mesajlarında basılı tutarak çoklu seçim, 'Tümünü Seç' ve toplu silme özelliği eklendi.",
-          "Web sohbet ekranında sistem bildirim mesajlarının yetkili yöneticiler tarafından silinebilmesi düzeltildi.",
-          "Özel departman ve rol bulut senkronizasyonu yetki hatasına karşı çift kanallı dayanıklı yapıya geçirildi."
+          "Roller, departmanlar ve vardiyalarda sabit kilidi kaldırıldı; yönetici tamamını düzenleyip silebiliyor ve bulutta senkronize ediliyor.",
+          "Android uygulamasında 'Üyeler' sekmesi yazı/rozet hizalaması diğer sekmelerle aynı satıra hizalandı.",
+          "Yardımcı Tesisler ve koyu tema altındaki yazı/giriş alanlarında beyaz renk okunurluk sorunu giderildi."
         ]
       };
-      const vName = v.versionName || "1.4.3";
-      const vCode = Number(v.versionCode || 14);
+      const vName = v.versionName || "1.4.4";
+      const vCode = Number(v.versionCode || 15);
       const localApkHref = `app-release.apk?v=${vCode}`;
 
       const badgeText = document.getElementById("topVersionBadgeText");
@@ -10976,7 +11392,7 @@
     };
 
     window.dismissWebUpdateBanner = function() {
-      const vCode = Number((window.currentAppVersion && window.currentAppVersion.versionCode) || 14);
+      const vCode = Number((window.currentAppVersion && window.currentAppVersion.versionCode) || 15);
       localStorage.setItem("tekinak_dismissed_ver_" + vCode, "1");
       const banner = document.getElementById("webAppUpdateBanner");
       if (banner) banner.classList.add("hidden");
@@ -10985,17 +11401,17 @@
     async function seedInitialAppVersionInFirebase() {
       try {
         const initialData = {
-          versionCode: 14,
-          versionName: "1.4.3",
-          releaseTag: "v1.4.3",
+          versionCode: 15,
+          versionName: "1.4.4",
+          releaseTag: "v1.4.4",
           releaseDate: new Date().toISOString().slice(0, 10),
           apkUrl: "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
           fallbackUrl: "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-          title: "Tekinak CMMS v1.4.3",
+          title: "Tekinak CMMS v1.4.4",
           changelog: [
-            "Sohbet mesajlarında basılı tutarak çoklu seçim, 'Tümünü Seç' ve toplu silme özelliği eklendi.",
-            "Web sohbet ekranında sistem bildirim mesajlarının yetkili yöneticiler tarafından silinebilmesi düzeltildi.",
-            "Özel departman ve rol bulut senkronizasyonu yetki hatasına karşı çift kanallı dayanıklı yapıya geçirildi."
+            "Roller, departmanlar ve vardiyalarda sabit kilidi kaldırıldı; yönetici tamamını düzenleyip silebiliyor ve bulutta senkronize ediliyor.",
+            "Android uygulamasında 'Üyeler' sekmesi yazı/rozet hizalaması diğer sekmelerle aynı satıra hizalandı.",
+            "Yardımcı Tesisler ve koyu tema altındaki yazı/giriş alanlarında beyaz renk okunurluk sorunu giderildi."
           ],
           forceUpdate: false,
           updatedAtMillis: Date.now()
@@ -11014,10 +11430,10 @@
         alert("⛔ Yetkisiz İşlem: Mobil sürüm güncelleme yönetimi yalnızca usluozaykagan@gmail.com hesabına tanımlıdır.");
         return;
       }
-      const v = window.currentAppVersion || { versionCode: 14, versionName: "1.4.3", title: "Tekinak CMMS v1.4.3", apkUrl: "", changelog: [] };
-      document.getElementById("verFormCode").value = v.versionCode || 14;
-      document.getElementById("verFormName").value = v.versionName || "1.4.3";
-      document.getElementById("verFormTitle").value = `Yeni Sürüm Yayınlandı (v${v.versionName || "1.4.3"})`;
+      const v = window.currentAppVersion || { versionCode: 15, versionName: "1.4.4", title: "Tekinak CMMS v1.4.4", apkUrl: "", changelog: [] };
+      document.getElementById("verFormCode").value = v.versionCode || 15;
+      document.getElementById("verFormName").value = v.versionName || "1.4.4";
+      document.getElementById("verFormTitle").value = `Yeni Sürüm Yayınlandı (v${v.versionName || "1.4.4"})`;
       document.getElementById("verFormApkUrl").value = v.apkUrl || "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk";
       document.getElementById("verFormChangelog").value = (v.changelog && v.changelog.length) ? v.changelog.join("\n") : "Yeni bakım özellikleri ve performans iyileştirmeleri eklendi.";
       document.getElementById("modalAppVersion").classList.remove("hidden");
@@ -11042,7 +11458,7 @@
         return;
       }
       if (!name) {
-        alert("Lütfen sürüm adı giriniz (örn: 1.4.3).");
+        alert("Lütfen sürüm adı giriniz (örn: 1.4.4).");
         return;
       }
 
@@ -11101,17 +11517,17 @@
       }
       try {
         const payload = {
-          versionCode: 14,
-          versionName: "1.4.3",
-          releaseTag: "v1.4.3",
+          versionCode: 15,
+          versionName: "1.4.4",
+          releaseTag: "v1.4.4",
           releaseDate: new Date().toISOString().slice(0, 10),
           apkUrl: "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
           fallbackUrl: "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-          title: "Tekinak CMMS v1.4.3",
+          title: "Tekinak CMMS v1.4.4",
           changelog: [
-            "Sohbet mesajlarında basılı tutarak çoklu seçim, 'Tümünü Seç' ve toplu silme özelliği eklendi.",
-            "Web sohbet ekranında sistem bildirim mesajlarının yetkili yöneticiler tarafından silinebilmesi düzeltildi.",
-            "Özel departman ve rol bulut senkronizasyonu yetki hatasına karşı çift kanallı dayanıklı yapıya geçirildi."
+            "Roller, departmanlar ve vardiyalarda sabit kilidi kaldırıldı; yönetici tamamını düzenleyip silebiliyor ve bulutta senkronize ediliyor.",
+            "Android uygulamasında 'Üyeler' sekmesi yazı/rozet hizalaması diğer sekmelerle aynı satıra hizalandı.",
+            "Yardımcı Tesisler ve koyu tema altındaki yazı/giriş alanlarında beyaz renk okunurluk sorunu giderildi."
           ],
           forceUpdate: false,
           updatedAtMillis: Date.now()
@@ -11120,7 +11536,7 @@
         window.currentAppVersion = payload;
         renderAppVersionBadge();
         closeModal("modalAppVersion");
-        alert("✅ Başarılı! Firebase sürümü şu an dağıtılan v1.4.3 (Kod: 14) APK ile eşitlendi.\n\nGüncellenen telefonlardaki popup penceresi anında kalktı.");
+        alert("✅ Başarılı! Firebase sürümü şu an dağıtılan v1.4.4 (Kod: 15) APK ile eşitlendi.\n\nGüncellenen telefonlardaki popup penceresi anında kalktı.");
       } catch (err) {
         alert("Eşitleme hatası: " + err.message);
       }
