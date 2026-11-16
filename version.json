@@ -1,15 +1,15 @@
 {
-  "versionCode": 21,
-  "versionName": "1.5.0",
-  "releaseTag": "v1.5.0",
+  "versionCode": 22,
+  "versionName": "1.5.1",
+  "releaseTag": "v1.5.1",
   "releaseDate": "2026-11-16",
   "apkUrl": "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
   "fallbackUrl": "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-  "title": "Yeni Sürüm Mevcut (v1.5.0)",
+  "title": "Yeni Sürüm Mevcut (v1.5.1)",
   "changelog": [
-    "Yeni 'Üretim' ana sekmesi ve altında yetkilendirmeye bağlı 'Üretim Verileri' ile 'Üretim Arızaları' sekmeleri eklendi.",
-    "Üretim Arızaları; Elektrik Bakım arızalarından tamamen bağımsız olarak hat numarası (101 Buhler, 102 Anselmo, 103 Fava, 104 Buhler, 201 Kesme, 202 Kesme) ve arıza gün/saat bilgisiyle kayıt altına alınabilir hale getirildi.",
-    "Arıza çözümünde zorunlu yapılan işlem açıklaması, üyelerden çoklu personel seçimi, isteğe bağlı açılır Değişen Parçalar bölümü ve duruş süresi hesaplamalı Üretim Arıza KPI Raporları eklendi."
+    "Yeni Üretim Arızası Kaydı ekranındaki gereksiz alt açıklama kaldırıldı.",
+    "Hesaplanan duruş süreleri yalnızca Üretim Arıza KPI Raporları sekmesinde görüntülenecek şekilde sadeleştirildi.",
+    "Değişen Parçalar bölümünde yalnızca depodan yedek parça seçimi bırakıldı ve Periyodik Bakım takvimindeki örnek plan yükleme butonu kaldırıldı."
   ],
   "forceUpdate": false
 }

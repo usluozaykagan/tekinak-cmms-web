@@ -175,9 +175,9 @@
         </form>
 
         <div class="pt-3 text-center border-t border-slate-100 flex flex-col items-center justify-center gap-2">
-          <a href="app-release.apk?v=21" id="loginApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold rounded-lg border border-emerald-300 transition shadow-sm">
+          <a href="app-release.apk?v=22" id="loginApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold rounded-lg border border-emerald-300 transition shadow-sm">
             <i data-lucide="smartphone" class="w-3.5 h-3.5 text-emerald-600"></i>
-            <span id="loginApkBtnText">Android APK İndir (v1.5.0)</span>
+            <span id="loginApkBtnText">Android APK İndir (v1.5.1)</span>
           </a>
           <div class="text-[11px] text-slate-400 flex items-center justify-center gap-1.5">
             <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600"></i>
@@ -228,15 +228,15 @@
         </div>
 
         <!-- Android APK İndir Butonu (Tüm Kullanıcılar Görür) -->
-        <a href="app-release.apk?v=21" id="topApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-700/60 hover:bg-blue-600 text-white border border-blue-400/40 transition shadow-sm" title="Android Mobil APK İndir">
+        <a href="app-release.apk?v=22" id="topApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-700/60 hover:bg-blue-600 text-white border border-blue-400/40 transition shadow-sm" title="Android Mobil APK İndir">
           <i data-lucide="download" class="w-3.5 h-3.5 text-amber-300"></i>
-          <span id="topApkBtnText">APK İndir (v1.5.0)</span>
+          <span id="topApkBtnText">APK İndir (v1.5.1)</span>
         </a>
 
         <!-- Mobil Sürüm Yönetimi Butonu (Sadece usluozaykagan@gmail.com için görünür) -->
         <button id="topAppVersionBtn" onclick="openAppVersionModal()" style="display: none;" class="hidden items-center space-x-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-600/70 hover:bg-emerald-600 text-white border border-emerald-400/40 transition shadow-sm" title="Firebase Mobil Sürüm Kontrolü ve Güncelleme">
           <i data-lucide="smartphone" class="w-3.5 h-3.5 text-amber-300"></i>
-          <span id="topVersionBadgeText">Sürüm: v1.5.0</span>
+          <span id="topVersionBadgeText">Sürüm: v1.5.1</span>
         </button>
 
         <!-- Bildirim Sihirbazı Butonu -->
@@ -302,11 +302,11 @@
         </span>
           <div>
             <div class="flex flex-wrap items-center gap-1.5 font-extrabold text-blue-950">
-              <span id="webUpdateBannerTitle">🚀 Yeni Mobil Sürüm Yayında: Tekinak CMMS v1.5.0</span>
-              <span id="webUpdateBannerCodeBadge" class="px-1.5 py-0.5 rounded bg-emerald-600 text-white text-[10px] font-bold">v1.5.0 (Kod: 21)</span>
+              <span id="webUpdateBannerTitle">🚀 Yeni Mobil Sürüm Yayında: Tekinak CMMS v1.5.1</span>
+              <span id="webUpdateBannerCodeBadge" class="px-1.5 py-0.5 rounded bg-emerald-600 text-white text-[10px] font-bold">v1.5.1 (Kod: 22)</span>
             </div>
             <div id="webUpdateBannerSummary" class="text-[11px] text-slate-600 mt-0.5">
-              Yeni Üretim sekmesi eklendi: yetkilendirmeye bağlı Üretim Verileri ve hat bazlı duruş KPI raporlamalı bağımsız Üretim Arızaları modülü yayında.
+              Üretim Arızaları ekranı sadeleştirildi, duruş süreleri KPI raporlarına toplandı ve depo yedek parça seçimi iyileştirildi.
             </div>
           </div>
         </div>
@@ -314,9 +314,9 @@
           <button type="button" onclick="toggleWebUpdateChangelog()" class="px-2.5 py-1.5 bg-white hover:bg-slate-100 text-blue-800 border border-blue-200 rounded-lg font-bold text-[11px] transition">
             Yenilikler
           </button>
-          <a id="webUpdateBannerDownloadBtn" href="app-release.apk?v=21" download="tekinak-bakim.apk" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold text-[11px] shadow-sm flex items-center gap-1.5 transition">
+          <a id="webUpdateBannerDownloadBtn" href="app-release.apk?v=22" download="tekinak-bakim.apk" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold text-[11px] shadow-sm flex items-center gap-1.5 transition">
             <i data-lucide="download" class="w-3.5 h-3.5"></i>
-            <span id="webUpdateBannerDownloadText">APK İndir (v1.5.0)</span>
+            <span id="webUpdateBannerDownloadText">APK İndir (v1.5.1)</span>
           </a>
         <button type="button" onclick="dismissWebUpdateBanner()" class="p-1 text-slate-400 hover:text-slate-700 rounded-lg" title="Bu sürüm için gizle">
           <i data-lucide="x" class="w-4 h-4"></i>
@@ -1518,7 +1518,7 @@
         <div class="p-2.5 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-between text-[11px] text-slate-600">
           <div class="flex items-center gap-1.5 font-semibold text-slate-700">
             <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600"></i>
-            <span id="profSystemVersionText">Sistem Sürümü: v1.5.0</span>
+            <span id="profSystemVersionText">Sistem Sürümü: v1.5.1</span>
           </div>
           <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-300">Güncel ✓</span>
         </div>
@@ -2223,8 +2223,8 @@
         <div>
           <div class="text-[11px] font-bold text-emerald-800 uppercase tracking-wider">Aktif Firebase Sürümü</div>
           <div class="text-sm font-extrabold text-emerald-950 flex items-center gap-2" id="verModalCurrentBadge">
-            <span id="verModalVersionName">v1.5.0</span>
-            <span id="verModalVersionCode" class="text-xs px-2 py-0.5 bg-emerald-200 text-emerald-800 rounded-md font-semibold">Kod: 21</span>
+            <span id="verModalVersionName">v1.5.1</span>
+            <span id="verModalVersionCode" class="text-xs px-2 py-0.5 bg-emerald-200 text-emerald-800 rounded-md font-semibold">Kod: 22</span>
           </div>
         </div>
         <div class="text-right text-[11px] text-emerald-700">
@@ -2237,18 +2237,18 @@
         <div class="grid grid-cols-2 gap-3">
           <div>
             <label class="block font-semibold text-slate-700 mb-1">Yeni Sürüm Kodu (Build Code) *</label>
-            <input type="number" id="verFormCode" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 21" min="1">
+            <input type="number" id="verFormCode" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 22" min="1">
             <span class="text-[10px] text-slate-400">Yeni sürüm için kod mevcut koddan büyük olmalıdır</span>
           </div>
           <div>
             <label class="block font-semibold text-slate-700 mb-1">Yeni Sürüm Adı (Version Name) *</label>
-            <input type="text" id="verFormName" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 1.5.0">
+            <input type="text" id="verFormName" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 1.5.1">
           </div>
         </div>
 
         <div>
           <label class="block font-semibold text-slate-700 mb-1">Güncelleme Bildirim Başlığı *</label>
-          <input type="text" id="verFormTitle" required class="w-full px-3 py-2 border rounded-xl text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: Yeni Sürüm Yayınlandı (v1.5.0)">
+          <input type="text" id="verFormTitle" required class="w-full px-3 py-2 border rounded-xl text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: Yeni Sürüm Yayınlandı (v1.5.1)">
         </div>
 
         <div>
@@ -2267,9 +2267,9 @@
         </div>
 
         <div class="flex items-center justify-between gap-2 pt-2 border-t">
-          <button type="button" onclick="syncWithDeployedApk()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs rounded-xl font-bold border border-slate-300 flex items-center gap-1.5" title="Firebase'i şu an dağıtılan v1.5.0 (Kod: 21) APK ile eşitler ve güncellenen telefonlardaki popup'ı kapatır">
+          <button type="button" onclick="syncWithDeployedApk()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs rounded-xl font-bold border border-slate-300 flex items-center gap-1.5" title="Firebase'i şu an dağıtılan v1.5.1 (Kod: 22) APK ile eşitler ve güncellenen telefonlardaki popup'ı kapatır">
             <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-blue-600"></i>
-            <span>Mevcut APK ile Eşitle (v1.5.0 - Kod: 21)</span>
+            <span>Mevcut APK ile Eşitle (v1.5.1 - Kod: 22)</span>
           </button>
           <div class="flex gap-2">
             <button type="button" onclick="closeModal('modalAppVersion')" class="px-4 py-2 border rounded-xl font-semibold text-slate-600 hover:bg-slate-50">Kapat</button>
@@ -2623,7 +2623,6 @@
           <h3 class="font-bold text-base text-[#1E3A8A] flex items-center gap-2">
             <i data-lucide="factory" class="w-5 h-5 text-orange-600"></i> Yeni Üretim Arızası Kaydı
           </h3>
-          <p class="text-[11px] text-slate-500 mt-0.5">Elektrik Bakım arızalarından tamamen bağımsız olarak üretim hattı arızası oluşturun</p>
         </div>
         <button type="button" onclick="closeModal('modalNewProdFault')" class="text-slate-400 hover:text-slate-600"><i data-lucide="x" class="w-5 h-5"></i></button>
       </div>
@@ -2680,17 +2679,12 @@
         <div class="grid grid-cols-2 gap-3">
           <div>
             <label class="block font-bold text-slate-700 mb-1">Çözüm Günü *</label>
-            <input type="date" id="pfResDate" required oninput="updateProdResolveDowntimePreview()" class="w-full border border-slate-300 rounded-xl px-3 py-2 bg-white font-semibold text-slate-800 focus:ring-2 focus:ring-emerald-600 outline-none">
+            <input type="date" id="pfResDate" required class="w-full border border-slate-300 rounded-xl px-3 py-2 bg-white font-semibold text-slate-800 focus:ring-2 focus:ring-emerald-600 outline-none">
           </div>
           <div>
             <label class="block font-bold text-slate-700 mb-1">Çözüm Saati *</label>
-            <input type="time" id="pfResTime" required oninput="updateProdResolveDowntimePreview()" class="w-full border border-slate-300 rounded-xl px-3 py-2 bg-white font-semibold text-slate-800 focus:ring-2 focus:ring-emerald-600 outline-none">
+            <input type="time" id="pfResTime" required class="w-full border border-slate-300 rounded-xl px-3 py-2 bg-white font-semibold text-slate-800 focus:ring-2 focus:ring-emerald-600 outline-none">
           </div>
-        </div>
-
-        <div id="pfResDurationPreview" class="p-3 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-between">
-          <span class="font-bold text-blue-950">⏱️ Hesaplanan Duruş Süresi:</span>
-          <span id="pfResDurationValue" class="font-black text-sm text-[#1E3A8A]">0 dk</span>
         </div>
 
         <div>
@@ -2727,17 +2721,6 @@
                 <input type="number" id="pfResInventoryQty" value="1" min="1" class="w-full border border-slate-300 rounded-lg px-2 py-1.5 text-xs">
               </div>
               <button type="button" onclick="addProdFaultInventoryPart()" class="px-3 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-bold text-xs">+ Ekle</button>
-            </div>
-            <div class="flex flex-wrap gap-2 items-end pt-2 border-t border-slate-100">
-              <div class="flex-1 min-w-[180px]">
-                <label class="block text-[10px] font-bold text-slate-500 mb-1">Veya Manuel Parça Adı Girin</label>
-                <input type="text" id="pfResCustomPartName" placeholder="Örn: Konveyör Zincir Baklası" class="w-full border border-slate-300 rounded-lg px-2.5 py-1.5 text-xs">
-              </div>
-              <div class="w-20">
-                <label class="block text-[10px] font-bold text-slate-500 mb-1">Adet</label>
-                <input type="number" id="pfResCustomPartQty" value="1" min="1" class="w-full border border-slate-300 rounded-lg px-2 py-1.5 text-xs">
-              </div>
-              <button type="button" onclick="addProdFaultCustomPart()" class="px-3 py-1.5 bg-slate-700 hover:bg-slate-800 text-white rounded-lg font-bold text-xs">+ Manuel Ekle</button>
             </div>
             <div id="pfResSelectedPartsList" class="space-y-1.5"></div>
           </div>
@@ -5291,7 +5274,7 @@
       });
 
       // 6. Mobil Uygulama Sürüm Takibi ve Firebase Yönetimi (app_version/current)
-      let hasAutoSyncedV21 = false;
+      let hasAutoSyncedV22 = false;
       try {
         onSnapshot(doc(db, "app_version", "current"), async (docSnap) => {
           if (docSnap && docSnap.exists()) {
@@ -5299,15 +5282,15 @@
             window.currentAppVersion = data;
             renderAppVersionBadge();
 
-            // Sürüm kodu 21'den küçükse otomatik olarak v1.5.0 (Kod: 21)'a yükselt
+            // Sürüm kodu 22'den küçükse otomatik olarak v1.5.1 (Kod: 22)'ye yükselt
             const verCodeNum = Number(data.versionCode || 0);
-            if (verCodeNum < 21 && !hasAutoSyncedV21) {
-              hasAutoSyncedV21 = true;
-              console.log("Firestore app_version sürüm kodu 21 (v1.5.0) olarak otomatik eşitleniyor...");
+            if (verCodeNum < 22 && !hasAutoSyncedV22) {
+              hasAutoSyncedV22 = true;
+              console.log("Firestore app_version sürüm kodu 22 (v1.5.1) olarak otomatik eşitleniyor...");
               seedInitialAppVersionInFirebase();
             }
-          } else if (!hasAutoSyncedV21) {
-            hasAutoSyncedV21 = true;
+          } else if (!hasAutoSyncedV22) {
+            hasAutoSyncedV22 = true;
             seedInitialAppVersionInFirebase();
           }
         }, (err) => {
@@ -6564,91 +6547,6 @@
     };
 
     // ================= PERİYODİK BAKIM YÖNETİMİ & ÇİZİMİ =================
-    const defaultFactorySchedules = [
-      {
-        id: "sch_vals_01",
-        title: "Bühler MDDK Vals Merdane Boşluk ve Rulman Yağlaması",
-        machineId: "VALS-MDDK-01",
-        machineName: "Bühler Un Vals Değirmeni B1",
-        faultType: "Mekanik",
-        period: "7 Günlük",
-        repeatDays: 7,
-        scheduledDateMillis: Date.now() + (24 * 60 * 60 * 1000),
-        status: "Planlandı",
-        assignedToName: "Ahmet Usta (Mekanik)",
-        description: "Gıda uyumlu sentetik yağlama ve merdane paralellik mikrometrik ölçümü.",
-        checklist: ["Rulman sıcaklığı ve titreşim ölçümü", "Merdane diş aşınma tespiti", "Otomatik besleme fotoseli testi"]
-      },
-      {
-        id: "sch_press_01",
-        title: "Fava Pres Bronz Kalıp & Kesici Bıçak Revizyonu",
-        machineId: "PRES-SPAG-01",
-        machineName: "Spagetti Ekstrüzyon Presi",
-        faultType: "Mekanik",
-        period: "30 Günlük",
-        repeatDays: 30,
-        scheduledDateMillis: Date.now() + (3 * 24 * 60 * 60 * 1000),
-        status: "Planlandı",
-        assignedToName: "Ahmet Usta (Mekanik)",
-        description: "Ultrasonic banyoda bronz kalıp deliklerinin kalsifikasyon temizliği.",
-        checklist: ["Vakum pompası basınç kontrolü", "Kalıp conta seti değişimi", "Bıçak motoru kayış gergi ayarı"]
-      },
-      {
-        id: "sch_elek_01",
-        title: "Kare Elek İpek & Kasnak Gergi Muayenesi",
-        machineId: "ELEK-KARE-01",
-        machineName: "Bühler Kare Elek Grubu A1",
-        faultType: "Mekanik",
-        period: "15 Günlük",
-        repeatDays: 15,
-        scheduledDateMillis: Date.now() - (24 * 60 * 60 * 1000),
-        status: "Tamamlandı",
-        assignedToName: "Ahmet Usta (Mekanik)",
-        completedAtMillis: Date.now() - (12 * 60 * 60 * 1000),
-        completedByName: "Ahmet Usta",
-        description: "Elek ipeklerinin mikron yırtılma testi ve vibrasyon takozlarının kontrolü.",
-        checklist: ["İpek gerginlik kontrolü", "Kasnak balans ölçümü", "Tahliye körükleri kontrolü"]
-      },
-      {
-        id: "sch_filt_01",
-        title: "Değirmen Pnömatik Jet Filtre Torbaları Temizliği",
-        machineId: "FILT-JET-01",
-        machineName: "Pnömatik Siklon & Jet Filtre",
-        faultType: "Elektrik & Otomasyon",
-        period: "30 Günlük",
-        repeatDays: 30,
-        scheduledDateMillis: Date.now() - (2 * 24 * 60 * 60 * 1000),
-        status: "Gecikmiş",
-        assignedToName: "Mehmet Demir (Operatör)",
-        description: "Darbe vanalarının basınç testi ve filtre torbaları geçirgenlik kontrolü.",
-        checklist: ["Patlaç valfleri diyafram kontrolü", "Diferansiyel basınç manometre testi"]
-      }
-    ];
-
-    let isSeedingSchedules = false;
-    window.seedDefaultSchedules = async function() {
-      if (!window.canUserManageSchedules(window.currentUser)) {
-        alert("⚠️ Periyodik bakım planı ekleme/düzenleme yetkiniz bulunmamaktadır.");
-        return;
-      }
-      if (isSeedingSchedules) return;
-      isSeedingSchedules = true;
-      try {
-        for (const s of defaultFactorySchedules) {
-          await setDoc(doc(db, "maintenance_schedules", s.id), {
-            ...s,
-            createdAt: serverTimestamp(),
-            updatedAt: serverTimestamp()
-          });
-        }
-        console.log("Fabrika periyodik bakım planları başarıyla yüklendi.");
-      } catch (err) {
-        console.warn("seedDefaultSchedules notice:", err);
-      } finally {
-        isSeedingSchedules = false;
-      }
-    };
-
     window.currentScheduleFilter = "TÜMÜ";
     window.scheduleCalendarVisible = false;
     window.schedCalendarMonthDate = new Date();
@@ -6760,12 +6658,9 @@
           <div class="col-span-full py-12 text-center text-slate-400 bg-white rounded-2xl border border-slate-200 p-8">
             <i data-lucide="calendar" class="w-12 h-12 text-slate-300 mx-auto mb-3"></i>
             <div class="font-bold text-slate-700 text-sm">Tanımlı periyodik bakım planı bulunmuyor.</div>
-            <p class="text-xs text-slate-500 mt-1">${canEditSched ? 'Fabrika makinelerinin planlı koruyucu bakımlarını ekleyebilir veya örnek fabrika planlarını yükleyebilirsiniz.' : '🔒 Bu sekmede yalnızca görüntüleme (salt okunur) yetkiniz bulunmaktadır.'}</p>
+            <p class="text-xs text-slate-500 mt-1">${canEditSched ? 'Fabrika makinelerinin planlı koruyucu bakımlarını ekleyebilirsiniz.' : '🔒 Bu sekmede yalnızca görüntüleme (salt okunur) yetkiniz bulunmaktadır.'}</p>
             ${canEditSched ? `
             <div class="mt-4 flex justify-center gap-3">
-              <button onclick="seedDefaultSchedules()" class="px-4 py-2 bg-blue-50 text-blue-800 hover:bg-blue-100 font-bold rounded-xl text-xs border border-blue-200 shadow-sm transition">
-                🌾 Örnek Fabrika Planlarını Yükle
-              </button>
               <button onclick="openNewScheduleModal()" class="px-4 py-2 bg-[#1E3A8A] text-white hover:bg-blue-800 font-bold rounded-xl text-xs shadow transition">
                 + Yeni Bakım Planı Ekle
               </button>
@@ -13562,15 +13457,11 @@
           if (filtered.length === 0) {
             container.innerHTML = `<div class="col-span-full py-12 text-center bg-white rounded-2xl border border-slate-200 text-slate-400 text-xs">Bu filtrelere uygun üretim arızası kaydı bulunmuyor.</div>`;
           } else {
-            const nowMs = Date.now();
             container.innerHTML = filtered.map(f => {
               const isResolved = f.status === "Çözüldü";
               const safeId = escapeJsSingle(f.docId || f.id || "");
               const startMs = Number(f.faultOccurredAtMillis || f.createdAtMillis || 0);
               const endMs = Number(f.resolvedAtMillis || 0);
-              const dtMins = isResolved
-                ? (Number(f.downtimeMinutes || 0) > 0 ? Number(f.downtimeMinutes) : (startMs > 0 && endMs > startMs ? Math.round((endMs - startMs) / 60000) : 0))
-                : (startMs > 0 ? Math.max(0, Math.round((nowMs - startMs) / 60000)) : 0);
               const partsArr = Array.isArray(f.usedParts) ? f.usedParts : [];
               const resolversArr = Array.isArray(f.resolvedByNames) ? f.resolvedByNames : [];
 
@@ -13581,7 +13472,6 @@
                       <div class="flex flex-wrap items-center gap-1.5">
                         <span class="px-2.5 py-0.5 rounded-lg bg-[#1E3A8A] text-amber-300 font-extrabold text-[11px]">${escapeHtml(f.lineName || "-")}</span>
                         <span class="px-2 py-0.5 rounded-lg font-bold text-[10px] border ${isResolved ? 'bg-emerald-50 text-emerald-800 border-emerald-200' : 'bg-rose-100 text-rose-800 border-rose-300'}">${isResolved ? '✓ Çözüldü' : '🔴 Açık'}</span>
-                        <span class="px-2 py-0.5 rounded-lg font-bold text-[10px] bg-blue-50 text-blue-900 border border-blue-200">⏱️ ${isResolved ? 'Duruş' : 'Devam Eden'}: ${formatProdDuration(dtMins)}</span>
                       </div>
                       <div class="text-[11px] text-slate-500 mt-1.5">📅 Arıza Zamanı: <strong class="text-slate-800">${escapeHtml(formatProdDateTime(startMs))}</strong> • Bildiren: ${escapeHtml(f.reportedByName || "-")}</div>
                     </div>
@@ -13596,7 +13486,6 @@
                     <div class="bg-emerald-50/70 border border-emerald-200 rounded-xl p-3 space-y-1.5 text-[11px]">
                       <div class="flex flex-wrap items-center justify-between gap-2 text-emerald-900 font-bold">
                         <span>✅ Çözüm Zamanı: ${escapeHtml(formatProdDateTime(endMs))}</span>
-                        <span>Toplam Duruş: ${formatProdDuration(dtMins)}</span>
                       </div>
                       <div class="text-slate-800"><strong>Yapılan İşlem:</strong> ${escapeHtml(f.resolutionNotes || "-")}</div>
                       ${resolversArr.length ? `<div class="text-slate-700"><strong>Yapan Kişiler:</strong> ${resolversArr.map(r => `<span class="inline-block px-2 py-0.5 mr-1 mt-0.5 rounded bg-white border border-emerald-200 font-semibold">${escapeHtml(r)}</span>`).join("")}</div>` : ''}
@@ -13780,27 +13669,6 @@
       }
     };
 
-    window.updateProdResolveDowntimePreview = function() {
-      const startMs = Number(document.getElementById("pfResStartMillis")?.value || 0);
-      const endMs = parseLocalDateTimeMillis(
-        document.getElementById("pfResDate")?.value,
-        document.getElementById("pfResTime")?.value
-      );
-      const valEl = document.getElementById("pfResDurationValue");
-      const wrapEl = document.getElementById("pfResDurationPreview");
-      if (!valEl || !wrapEl) return;
-      if (!endMs || endMs < startMs) {
-        valEl.innerText = "Çözüm zamanı arıza zamanından önce olamaz";
-        valEl.className = "font-bold text-xs text-rose-700";
-        wrapEl.className = "p-3 rounded-xl bg-rose-50 border border-rose-300 flex items-center justify-between";
-      } else {
-        const mins = Math.round((endMs - startMs) / 60000);
-        valEl.innerText = formatProdDuration(mins);
-        valEl.className = "font-black text-sm text-[#1E3A8A]";
-        wrapEl.className = "p-3 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-between";
-      }
-    };
-
     window.toggleProdFaultPartsAccordion = function() {
       window.productionUiState.partsExpanded = !window.productionUiState.partsExpanded;
       const body = document.getElementById("pfResPartsBody");
@@ -13821,7 +13689,7 @@
       listEl.innerHTML = parts.length
         ? parts.map((p, idx) => `
             <div class="flex items-center justify-between px-2.5 py-1.5 rounded-lg bg-indigo-50 border border-indigo-200 text-xs">
-              <span class="font-bold text-indigo-950">🔩 ${escapeHtml(p.partName)} (${p.qty} ${escapeHtml(p.unit || "Adet")})${p.isCustom ? ' • Manuel' : ''}</span>
+              <span class="font-bold text-indigo-950">🔩 ${escapeHtml(p.partName)} (${p.qty} ${escapeHtml(p.unit || "Adet")})</span>
               <button type="button" onclick="removeProdFaultSelectedPart(${idx})" class="text-rose-600 hover:text-rose-800 font-black px-1">✕</button>
             </div>
           `).join("")
@@ -13843,24 +13711,9 @@
         return;
       }
       const curList = window.productionUiState.selectedResolveParts;
-      const existing = curList.find(x => !x.isCustom && x.partId === pid);
+      const existing = curList.find(x => x.partId === pid);
       if (existing) existing.qty += qty;
-      else curList.push({ partId: pid, partName: part.name || pid, unit: part.unit || "Adet", qty, isCustom: false });
-      renderProdFaultSelectedParts();
-    };
-
-    window.addProdFaultCustomPart = function() {
-      const nameInput = document.getElementById("pfResCustomPartName");
-      const qtyInput = document.getElementById("pfResCustomPartQty");
-      const name = (nameInput?.value || "").trim();
-      const qty = Math.max(1, parseInt(qtyInput?.value || "1", 10) || 1);
-      if (!name) {
-        alert("Lütfen manuel parça adını yazınız.");
-        return;
-      }
-      window.productionUiState.selectedResolveParts.push({ partId: "", partName: name, unit: "Adet", qty, isCustom: true });
-      if (nameInput) nameInput.value = "";
-      if (qtyInput) qtyInput.value = "1";
+      else curList.push({ partId: pid, partName: part.name || pid, unit: part.unit || "Adet", qty });
       renderProdFaultSelectedParts();
     };
 
@@ -13921,7 +13774,6 @@
           : `<div class="text-slate-400 italic">Aktif kayıtlı üye bulunamadı.</div>`;
       }
       window.updateProdResMembersCount();
-      window.updateProdResolveDowntimePreview();
       document.getElementById("modalResolveProdFault").classList.remove("hidden");
       lucide.createIcons();
     };
@@ -14138,18 +13990,18 @@
 
     function renderAppVersionBadge() {
       const v = window.currentAppVersion || {
-        versionName: "1.4.9",
-        versionCode: 20,
+        versionName: "1.5.1",
+        versionCode: 22,
         releaseDate: "2026-11-16",
-        title: "Tekinak CMMS v1.4.9",
+        title: "Tekinak CMMS v1.5.1",
         changelog: [
-          "2 Ton Su Arıtma Cihazı (Kazan İçin) tablosundaki 'Kontrol Eden' sütunu kaldırıldı.",
-          "Kazan ve Buhar Dairesi Günlük Kontrol Formu altındaki 'Bakım ve Onarım Şefi' alanı kaldırıldı.",
-          "Yardımcı Tesisler formları ve Membran & Filtre değişimi için görevli personel seçimi, yalnızca departmanı 'Yardımcı Tesisler' olan üyeleri listeleyen açılır menüye dönüştürüldü."
+          "Yeni Üretim Arızası Kaydı ekranındaki gereksiz alt açıklama kaldırıldı.",
+          "Hesaplanan duruş süreleri yalnızca Üretim Arıza KPI Raporları sekmesinde görüntülenecek şekilde sadeleştirildi.",
+          "Değişen Parçalar bölümünde yalnızca depodan yedek parça seçimi bırakıldı ve Periyodik Bakım takvimindeki örnek plan yükleme butonu kaldırıldı."
         ]
       };
-      const vName = v.versionName || "1.4.9";
-      const vCode = Number(v.versionCode || 20);
+      const vName = v.versionName || "1.5.1";
+      const vCode = Number(v.versionCode || 22);
       const localApkHref = `app-release.apk?v=${vCode}`;
 
       const badgeText = document.getElementById("topVersionBadgeText");
@@ -14208,7 +14060,7 @@
     };
 
     window.dismissWebUpdateBanner = function() {
-      const vCode = Number((window.currentAppVersion && window.currentAppVersion.versionCode) || 20);
+      const vCode = Number((window.currentAppVersion && window.currentAppVersion.versionCode) || 22);
       localStorage.setItem("tekinak_dismissed_ver_" + vCode, "1");
       const banner = document.getElementById("webAppUpdateBanner");
       if (banner) banner.classList.add("hidden");
@@ -14217,17 +14069,17 @@
     async function seedInitialAppVersionInFirebase() {
       try {
         const initialData = {
-          versionCode: 20,
-          versionName: "1.4.9",
-          releaseTag: "v1.4.9",
+          versionCode: 22,
+          versionName: "1.5.1",
+          releaseTag: "v1.5.1",
           releaseDate: new Date().toISOString().slice(0, 10),
           apkUrl: "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
           fallbackUrl: "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-          title: "Tekinak CMMS v1.4.9",
+          title: "Tekinak CMMS v1.5.1",
           changelog: [
-            "2 Ton Su Arıtma Cihazı (Kazan İçin) tablosundaki 'Kontrol Eden' sütunu kaldırıldı.",
-            "Kazan ve Buhar Dairesi Günlük Kontrol Formu altındaki 'Bakım ve Onarım Şefi' alanı kaldırıldı.",
-            "Yardımcı Tesisler formları ve Membran & Filtre değişimi için görevli personel seçimi, yalnızca departmanı 'Yardımcı Tesisler' olan üyeleri listeleyen açılır menüye dönüştürüldü."
+            "Yeni Üretim Arızası Kaydı ekranındaki gereksiz alt açıklama kaldırıldı.",
+            "Hesaplanan duruş süreleri yalnızca Üretim Arıza KPI Raporları sekmesinde görüntülenecek şekilde sadeleştirildi.",
+            "Değişen Parçalar bölümünde yalnızca depodan yedek parça seçimi bırakıldı ve Periyodik Bakım takvimindeki örnek plan yükleme butonu kaldırıldı."
           ],
           forceUpdate: false,
           updatedAtMillis: Date.now()
@@ -14246,10 +14098,10 @@
         alert("⛔ Yetkisiz İşlem: Mobil sürüm güncelleme yönetimi yalnızca usluozaykagan@gmail.com hesabına tanımlıdır.");
         return;
       }
-      const v = window.currentAppVersion || { versionCode: 20, versionName: "1.4.9", title: "Tekinak CMMS v1.4.9", apkUrl: "", changelog: [] };
-      document.getElementById("verFormCode").value = v.versionCode || 20;
-      document.getElementById("verFormName").value = v.versionName || "1.4.9";
-      document.getElementById("verFormTitle").value = `Yeni Sürüm Yayınlandı (v${v.versionName || "1.4.9"})`;
+      const v = window.currentAppVersion || { versionCode: 22, versionName: "1.5.1", title: "Tekinak CMMS v1.5.1", apkUrl: "", changelog: [] };
+      document.getElementById("verFormCode").value = v.versionCode || 22;
+      document.getElementById("verFormName").value = v.versionName || "1.5.1";
+      document.getElementById("verFormTitle").value = `Yeni Sürüm Yayınlandı (v${v.versionName || "1.5.1"})`;
       document.getElementById("verFormApkUrl").value = v.apkUrl || "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk";
       document.getElementById("verFormChangelog").value = (v.changelog && v.changelog.length) ? v.changelog.join("\n") : "Yeni bakım özellikleri ve performans iyileştirmeleri eklendi.";
       document.getElementById("modalAppVersion").classList.remove("hidden");
@@ -14274,7 +14126,7 @@
         return;
       }
       if (!name) {
-        alert("Lütfen sürüm adı giriniz (örn: 1.4.9).");
+        alert("Lütfen sürüm adı giriniz (örn: 1.5.1).");
         return;
       }
 
@@ -14333,17 +14185,17 @@
       }
       try {
         const payload = {
-          versionCode: 20,
-          versionName: "1.4.9",
-          releaseTag: "v1.4.9",
+          versionCode: 22,
+          versionName: "1.5.1",
+          releaseTag: "v1.5.1",
           releaseDate: new Date().toISOString().slice(0, 10),
           apkUrl: "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
           fallbackUrl: "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-          title: "Tekinak CMMS v1.4.9",
+          title: "Tekinak CMMS v1.5.1",
           changelog: [
-            "2 Ton Su Arıtma Cihazı (Kazan İçin) tablosundaki 'Kontrol Eden' sütunu kaldırıldı.",
-            "Kazan ve Buhar Dairesi Günlük Kontrol Formu altındaki 'Bakım ve Onarım Şefi' alanı kaldırıldı.",
-            "Yardımcı Tesisler formları ve Membran & Filtre değişimi için görevli personel seçimi, yalnızca departmanı 'Yardımcı Tesisler' olan üyeleri listeleyen açılır menüye dönüştürüldü."
+            "Yeni Üretim Arızası Kaydı ekranındaki gereksiz alt açıklama kaldırıldı.",
+            "Hesaplanan duruş süreleri yalnızca Üretim Arıza KPI Raporları sekmesinde görüntülenecek şekilde sadeleştirildi.",
+            "Değişen Parçalar bölümünde yalnızca depodan yedek parça seçimi bırakıldı ve Periyodik Bakım takvimindeki örnek plan yükleme butonu kaldırıldı."
           ],
           forceUpdate: false,
           updatedAtMillis: Date.now()
@@ -14352,7 +14204,7 @@
         window.currentAppVersion = payload;
         renderAppVersionBadge();
         closeModal("modalAppVersion");
-        alert("✅ Başarılı! Firebase sürümü şu an dağıtılan v1.4.9 (Kod: 20) APK ile eşitlendi.\n\nGüncellenen telefonlardaki popup penceresi anında kalktı.");
+        alert("✅ Başarılı! Firebase sürümü şu an dağıtılan v1.5.1 (Kod: 22) APK ile eşitlendi.\n\nGüncellenen telefonlardaki popup penceresi anında kalktı.");
       } catch (err) {
         alert("Eşitleme hatası: " + err.message);
       }
