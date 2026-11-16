@@ -175,9 +175,9 @@
         </form>
 
         <div class="pt-3 text-center border-t border-slate-100 flex flex-col items-center justify-center gap-2">
-          <a href="app-release.apk?v=16" id="loginApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold rounded-lg border border-emerald-300 transition shadow-sm">
+          <a href="app-release.apk?v=17" id="loginApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold rounded-lg border border-emerald-300 transition shadow-sm">
             <i data-lucide="smartphone" class="w-3.5 h-3.5 text-emerald-600"></i>
-            <span id="loginApkBtnText">Android APK İndir (v1.4.5)</span>
+            <span id="loginApkBtnText">Android APK İndir (v1.4.6)</span>
           </a>
           <div class="text-[11px] text-slate-400 flex items-center justify-center gap-1.5">
             <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600"></i>
@@ -228,15 +228,15 @@
         </div>
 
         <!-- Android APK İndir Butonu (Tüm Kullanıcılar Görür) -->
-        <a href="app-release.apk?v=16" id="topApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-700/60 hover:bg-blue-600 text-white border border-blue-400/40 transition shadow-sm" title="Android Mobil APK İndir">
+        <a href="app-release.apk?v=17" id="topApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-700/60 hover:bg-blue-600 text-white border border-blue-400/40 transition shadow-sm" title="Android Mobil APK İndir">
           <i data-lucide="download" class="w-3.5 h-3.5 text-amber-300"></i>
-          <span id="topApkBtnText">APK İndir (v1.4.5)</span>
+          <span id="topApkBtnText">APK İndir (v1.4.6)</span>
         </a>
 
         <!-- Mobil Sürüm Yönetimi Butonu (Sadece usluozaykagan@gmail.com için görünür) -->
         <button id="topAppVersionBtn" onclick="openAppVersionModal()" style="display: none;" class="hidden items-center space-x-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-600/70 hover:bg-emerald-600 text-white border border-emerald-400/40 transition shadow-sm" title="Firebase Mobil Sürüm Kontrolü ve Güncelleme">
           <i data-lucide="smartphone" class="w-3.5 h-3.5 text-amber-300"></i>
-          <span id="topVersionBadgeText">Sürüm: v1.4.5</span>
+          <span id="topVersionBadgeText">Sürüm: v1.4.6</span>
         </button>
 
         <!-- Bildirim Sihirbazı Butonu -->
@@ -298,11 +298,11 @@
         </span>
           <div>
             <div class="flex flex-wrap items-center gap-1.5 font-extrabold text-blue-950">
-              <span id="webUpdateBannerTitle">🚀 Yeni Mobil Sürüm Yayında: Tekinak CMMS v1.4.5</span>
-              <span id="webUpdateBannerCodeBadge" class="px-1.5 py-0.5 rounded bg-emerald-600 text-white text-[10px] font-bold">v1.4.5 (Kod: 16)</span>
+              <span id="webUpdateBannerTitle">🚀 Yeni Mobil Sürüm Yayında: Tekinak CMMS v1.4.6</span>
+              <span id="webUpdateBannerCodeBadge" class="px-1.5 py-0.5 rounded bg-emerald-600 text-white text-[10px] font-bold">v1.4.6 (Kod: 17)</span>
             </div>
             <div id="webUpdateBannerSummary" class="text-[11px] text-slate-600 mt-0.5">
-              Çift yönlü arıza-iş emri bağlama ve otomatik yedek parça stok düşümü, açık bekleme süresi sayaçları, hızlı filtre &amp; şablonlar, personelden yetki kopyalama ve paketleme duruş analizi eklendi.
+              Paketleme Birimi hat performans kokpiti, 4 KKN sağlık göstergesi, duruş dağılımı, dönem/sıralama filtreleri, karttan vardiya kopyalama ve tek tık arıza açma eklendi.
             </div>
           </div>
         </div>
@@ -310,9 +310,9 @@
           <button type="button" onclick="toggleWebUpdateChangelog()" class="px-2.5 py-1.5 bg-white hover:bg-slate-100 text-blue-800 border border-blue-200 rounded-lg font-bold text-[11px] transition">
             Yenilikler
           </button>
-          <a id="webUpdateBannerDownloadBtn" href="app-release.apk?v=16" download="tekinak-bakim.apk" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold text-[11px] shadow-sm flex items-center gap-1.5 transition">
+          <a id="webUpdateBannerDownloadBtn" href="app-release.apk?v=17" download="tekinak-bakim.apk" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold text-[11px] shadow-sm flex items-center gap-1.5 transition">
             <i data-lucide="download" class="w-3.5 h-3.5"></i>
-            <span id="webUpdateBannerDownloadText">APK İndir (v1.4.5)</span>
+            <span id="webUpdateBannerDownloadText">APK İndir (v1.4.6)</span>
           </a>
         <button type="button" onclick="dismissWebUpdateBanner()" class="p-1 text-slate-400 hover:text-slate-700 rounded-lg" title="Bu sürüm için gizle">
           <i data-lucide="x" class="w-4 h-4"></i>
@@ -787,43 +787,104 @@
       <!-- KPI Özeti -->
       <div id="pkgKpisGrid" class="grid grid-cols-2 lg:grid-cols-4 gap-3">
         <div class="bg-white p-3.5 rounded-xl border border-slate-200 custom-shadow">
-          <div class="text-[11px] font-semibold text-slate-500">Toplam Üretilen Paket</div>
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-semibold text-slate-500">Toplam Üretilen Paket</span>
+            <span id="pkgKpiPeriodTag" class="text-[9px] font-bold px-1.5 py-0.5 rounded bg-blue-50 text-blue-800 border border-blue-200">Tümü</span>
+          </div>
           <div id="pkgKpiProduced" class="text-2xl font-black text-[#1E3A8A] mt-0.5">0</div>
           <div id="pkgKpiTargetSub" class="text-[10px] text-slate-400 mt-0.5">Hedef: 0 paket</div>
+          <div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden mt-2">
+            <div id="pkgKpiProducedBar" class="h-full bg-[#1E3A8A] rounded-full transition-all" style="width: 0%;"></div>
+          </div>
         </div>
         <div class="bg-white p-3.5 rounded-xl border border-emerald-200 bg-emerald-50/30 custom-shadow">
           <div class="text-[11px] font-semibold text-emerald-700">Ortalama Hat Verimliliği</div>
           <div id="pkgKpiEfficiency" class="text-2xl font-black text-emerald-700 mt-0.5">%0</div>
-          <div class="text-[10px] text-emerald-600 mt-0.5">Hedef / Gerçekleşen oranı</div>
+          <div id="pkgKpiEffSub" class="text-[10px] text-emerald-600 mt-0.5">Hedef / Gerçekleşen oranı</div>
         </div>
         <div class="bg-white p-3.5 rounded-xl border border-amber-200 bg-amber-50/30 custom-shadow">
           <div class="text-[11px] font-semibold text-amber-800">Toplam Ambalaj &amp; Ürün Firesi</div>
-          <div id="pkgKpiScrap" class="text-2xl font-black text-amber-700 mt-0.5">0.0 kg</div>
+          <div id="pkgKpiScrap" class="text-2xl font-black text-amber-700 mt-0.5">0,0 kg</div>
           <div id="pkgKpiDowntimeSub" class="text-[10px] text-amber-700 mt-0.5">Toplam Duruş: 0 dk</div>
         </div>
         <div id="pkgKpiCcpCard" class="bg-white p-3.5 rounded-xl border border-rose-200 bg-rose-50/30 custom-shadow">
-          <div class="text-[11px] font-semibold text-rose-700">KKN Kalite Uyarısı</div>
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-semibold text-rose-700">KKN Kalite Uyarısı</span>
+            <span id="pkgKpiCcpRateBadge" class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800">%100 Uygun</span>
+          </div>
           <div id="pkgKpiCcpIssues" class="text-2xl font-black text-rose-700 mt-0.5">0</div>
           <div class="text-[10px] text-rose-600 mt-0.5">Metal, gramaj, çene veya SKT hatası</div>
         </div>
       </div>
 
-      <!-- Filtre Çubuğu -->
-      <div id="pkgFilterBar" class="bg-white p-3.5 rounded-xl border border-slate-200 custom-shadow flex flex-col md:flex-row items-stretch md:items-center gap-2.5 text-xs">
-        <div class="relative flex-1 min-w-[200px]">
-          <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-2.5"></i>
-          <input type="text" id="pkgSearchInput" oninput="renderPackagingUnit()" placeholder="Ürün, parti/lot no, bobin kodu veya operatör ara..." class="w-full pl-9 pr-3 py-2 border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-[#1E3A8A]">
+      <!-- Hat Performansı, 4 KKN Sağlığı & Duruş Dağılımı Kokpiti -->
+      <div id="pkgInsightsRow" class="hidden grid grid-cols-1 lg:grid-cols-12 gap-3">
+        <div class="lg:col-span-7 bg-white p-4 rounded-2xl border border-slate-200 custom-shadow space-y-2.5">
+          <div class="flex items-center justify-between gap-2">
+            <h3 class="text-xs font-extrabold text-slate-800 flex items-center gap-1.5">
+              <i data-lucide="bar-chart-3" class="w-4 h-4 text-[#1E3A8A]"></i>
+              <span>Hat Bazlı Üretim &amp; Hedef Gerçekleşme</span>
+            </h3>
+            <span class="text-[10px] text-slate-400">Hatta tıklayarak filtreleyebilirsiniz</span>
+          </div>
+          <div id="pkgLineBreakdown" class="space-y-2 text-xs"></div>
         </div>
-        <select id="pkgLineFilter" onchange="renderPackagingUnit()" class="border border-slate-300 rounded-lg px-3 py-2 bg-white text-slate-700 font-semibold">
-          <option value="ALL">Tüm Paketleme Hatları</option>
-        </select>
-        <select id="pkgShiftFilter" onchange="renderPackagingUnit()" class="border border-slate-300 rounded-lg px-3 py-2 bg-white text-slate-700 font-semibold">
-          <option value="ALL">Tüm Vardiyalar</option>
-        </select>
-        <label id="pkgOnlyIssuesLabel" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg border border-slate-200 bg-slate-50 font-semibold text-slate-700 cursor-pointer whitespace-nowrap">
-          <input type="checkbox" id="pkgOnlyIssuesFilter" onchange="renderPackagingUnit()" class="w-4 h-4 rounded text-rose-600">
-          <span>⚠️ Sadece KKN Sorunlular</span>
-        </label>
+        <div class="lg:col-span-5 bg-white p-4 rounded-2xl border border-slate-200 custom-shadow space-y-3">
+          <div id="pkgCcpHealthSection" class="space-y-2">
+            <h3 class="text-xs font-extrabold text-slate-800 flex items-center gap-1.5">
+              <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600"></i>
+              <span>4 KKN Kalite Kontrol Sağlığı</span>
+            </h3>
+            <div id="pkgCcpHealthGrid" class="grid grid-cols-2 gap-2 text-[11px]"></div>
+          </div>
+          <div class="pt-2 border-t border-slate-100 space-y-1.5">
+            <h3 class="text-xs font-extrabold text-slate-800 flex items-center gap-1.5">
+              <i data-lucide="timer" class="w-4 h-4 text-amber-600"></i>
+              <span>Başlıca Duruş Nedenleri</span>
+            </h3>
+            <div id="pkgDowntimeBreakdown" class="space-y-1.5 text-[11px]"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gelişmiş Filtre Çubuğu -->
+      <div id="pkgFilterBar" class="bg-white p-3.5 rounded-xl border border-slate-200 custom-shadow space-y-2.5 text-xs">
+        <div class="flex flex-col md:flex-row items-stretch md:items-center gap-2.5">
+          <div class="relative flex-1 min-w-[200px]">
+            <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-2.5"></i>
+            <input type="text" id="pkgSearchInput" oninput="renderPackagingUnit()" placeholder="Ürün, parti/lot no, bobin kodu, duruş nedeni veya operatör ara..." class="w-full pl-9 pr-3 py-2 border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-[#1E3A8A]">
+          </div>
+          <select id="pkgLineFilter" onchange="renderPackagingUnit()" class="border border-slate-300 rounded-lg px-3 py-2 bg-white text-slate-700 font-semibold">
+            <option value="ALL">Tüm Paketleme Hatları</option>
+          </select>
+          <select id="pkgShiftFilter" onchange="renderPackagingUnit()" class="border border-slate-300 rounded-lg px-3 py-2 bg-white text-slate-700 font-semibold">
+            <option value="ALL">Tüm Vardiyalar</option>
+          </select>
+          <select id="pkgSortFilter" onchange="renderPackagingUnit()" class="border border-slate-300 rounded-lg px-3 py-2 bg-white text-slate-700 font-semibold">
+            <option value="NEWEST">Sırala: En Yeni</option>
+            <option value="EFF_DESC">Verim: Yüksek → Düşük</option>
+            <option value="EFF_ASC">Verim: Düşük → Yüksek</option>
+            <option value="DT_DESC">Duruş: Çok → Az</option>
+            <option value="SCRAP_DESC">Fire: Çok → Az</option>
+          </select>
+          <label id="pkgOnlyIssuesLabel" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg border border-slate-200 bg-slate-50 font-semibold text-slate-700 cursor-pointer whitespace-nowrap">
+            <input type="checkbox" id="pkgOnlyIssuesFilter" onchange="renderPackagingUnit()" class="w-4 h-4 rounded text-rose-600">
+            <span>⚠️ Sadece KKN Sorunlular</span>
+          </label>
+        </div>
+        <div class="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-100">
+          <div class="flex flex-wrap items-center gap-1.5">
+            <span class="text-[11px] font-bold text-slate-500 mr-1">Dönem:</span>
+            <button type="button" id="pkgPeriod_ALL" onclick="setPkgPeriodFilter('ALL')" class="px-2.5 py-1 rounded-full font-bold bg-[#1E3A8A] text-amber-300 text-[11px] shadow-sm transition">Tüm Tarihler</button>
+            <button type="button" id="pkgPeriod_TODAY" onclick="setPkgPeriodFilter('TODAY')" class="px-2.5 py-1 rounded-full font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 text-[11px] transition">Bugün</button>
+            <button type="button" id="pkgPeriod_7D" onclick="setPkgPeriodFilter('7D')" class="px-2.5 py-1 rounded-full font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 text-[11px] transition">Son 7 Gün</button>
+            <button type="button" id="pkgPeriod_MONTH" onclick="setPkgPeriodFilter('MONTH')" class="px-2.5 py-1 rounded-full font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 text-[11px] transition">Bu Ay</button>
+          </div>
+          <div class="flex items-center gap-2">
+            <span id="pkgFilteredCountBadge" class="text-[11px] font-semibold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-full">0 / 0 kayıt</span>
+            <button type="button" onclick="resetPkgFilters()" class="text-[11px] font-bold text-blue-700 hover:underline">Filtreyi Sıfırla</button>
+          </div>
+        </div>
       </div>
 
       <!-- Kart Izgarası -->
@@ -1309,7 +1370,7 @@
         <div class="p-2.5 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-between text-[11px] text-slate-600">
           <div class="flex items-center gap-1.5 font-semibold text-slate-700">
             <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600"></i>
-            <span id="profSystemVersionText">Sistem Sürümü: v1.4.5</span>
+            <span id="profSystemVersionText">Sistem Sürümü: v1.4.6</span>
           </div>
           <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-300">Güncel ✓</span>
         </div>
@@ -2011,8 +2072,8 @@
         <div>
           <div class="text-[11px] font-bold text-emerald-800 uppercase tracking-wider">Aktif Firebase Sürümü</div>
           <div class="text-sm font-extrabold text-emerald-950 flex items-center gap-2" id="verModalCurrentBadge">
-            <span id="verModalVersionName">v1.4.5</span>
-            <span id="verModalVersionCode" class="text-xs px-2 py-0.5 bg-emerald-200 text-emerald-800 rounded-md font-semibold">Kod: 16</span>
+            <span id="verModalVersionName">v1.4.6</span>
+            <span id="verModalVersionCode" class="text-xs px-2 py-0.5 bg-emerald-200 text-emerald-800 rounded-md font-semibold">Kod: 17</span>
           </div>
         </div>
         <div class="text-right text-[11px] text-emerald-700">
@@ -2025,18 +2086,18 @@
         <div class="grid grid-cols-2 gap-3">
           <div>
             <label class="block font-semibold text-slate-700 mb-1">Yeni Sürüm Kodu (Build Code) *</label>
-            <input type="number" id="verFormCode" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 16" min="1">
+            <input type="number" id="verFormCode" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 17" min="1">
             <span class="text-[10px] text-slate-400">Yeni sürüm için kod mevcut koddan büyük olmalıdır</span>
           </div>
           <div>
             <label class="block font-semibold text-slate-700 mb-1">Yeni Sürüm Adı (Version Name) *</label>
-            <input type="text" id="verFormName" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 1.4.5">
+            <input type="text" id="verFormName" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 1.4.6">
           </div>
         </div>
 
         <div>
           <label class="block font-semibold text-slate-700 mb-1">Güncelleme Bildirim Başlığı *</label>
-          <input type="text" id="verFormTitle" required class="w-full px-3 py-2 border rounded-xl text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: Yeni Sürüm Yayınlandı (v1.4.5)">
+          <input type="text" id="verFormTitle" required class="w-full px-3 py-2 border rounded-xl text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: Yeni Sürüm Yayınlandı (v1.4.6)">
         </div>
 
         <div>
@@ -2055,9 +2116,9 @@
         </div>
 
         <div class="flex items-center justify-between gap-2 pt-2 border-t">
-          <button type="button" onclick="syncWithDeployedApk()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs rounded-xl font-bold border border-slate-300 flex items-center gap-1.5" title="Firebase'i şu an dağıtılan v1.4.5 (Kod: 16) APK ile eşitler ve güncellenen telefonlardaki popup'ı kapatır">
+          <button type="button" onclick="syncWithDeployedApk()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs rounded-xl font-bold border border-slate-300 flex items-center gap-1.5" title="Firebase'i şu an dağıtılan v1.4.6 (Kod: 17) APK ile eşitler ve güncellenen telefonlardaki popup'ı kapatır">
             <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-blue-600"></i>
-            <span>Mevcut APK ile Eşitle (v1.4.5 - Kod: 16)</span>
+            <span>Mevcut APK ile Eşitle (v1.4.6 - Kod: 17)</span>
           </button>
           <div class="flex gap-2">
             <button type="button" onclick="closeModal('modalAppVersion')" class="px-4 py-2 border rounded-xl font-semibold text-slate-600 hover:bg-slate-50">Kapat</button>
@@ -2137,6 +2198,10 @@
         </div>
       </div>
       <input type="hidden" id="pkgEditId" value="">
+      <div id="pkgModalLivePreview" class="p-2.5 rounded-xl bg-blue-50 border border-blue-200 flex flex-wrap items-center justify-between gap-2 text-[11px]">
+        <div class="font-bold text-[#1E3A8A]">📊 Anlık Verim: <span id="pkgModalPrevEff">%0</span></div>
+        <div id="pkgModalPrevCcp" class="font-bold text-emerald-700">✓ 4/4 KKN Uygun</div>
+      </div>
       <div class="space-y-3 text-xs">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div>
@@ -2168,14 +2233,23 @@
             <input type="text" id="pkgFormFilm" placeholder="Örn: BOPP-500G-124" class="w-full border rounded-lg p-2.5 font-mono">
           </div>
         </div>
+        <div id="pkgModalTargetPresets" class="flex flex-wrap items-center gap-1.5">
+          <span class="text-[10px] font-bold text-slate-500">Hızlı Hedef:</span>
+          <button type="button" onclick="applyPkgTargetPreset(3500)" class="px-2 py-0.5 rounded bg-slate-100 hover:bg-blue-100 text-slate-700 hover:text-blue-900 font-bold text-[10px] border border-slate-200 transition">3.500 (5 kg)</button>
+          <button type="button" onclick="applyPkgTargetPreset(10000)" class="px-2 py-0.5 rounded bg-slate-100 hover:bg-blue-100 text-slate-700 hover:text-blue-900 font-bold text-[10px] border border-slate-200 transition">10.000</button>
+          <button type="button" onclick="applyPkgTargetPreset(15000)" class="px-2 py-0.5 rounded bg-slate-100 hover:bg-blue-100 text-slate-700 hover:text-blue-900 font-bold text-[10px] border border-slate-200 transition">15.000</button>
+          <button type="button" onclick="applyPkgTargetPreset(18000)" class="px-2 py-0.5 rounded bg-slate-100 hover:bg-blue-100 text-slate-700 hover:text-blue-900 font-bold text-[10px] border border-slate-200 transition">18.000</button>
+          <button type="button" onclick="applyPkgTargetPreset(22000)" class="px-2 py-0.5 rounded bg-slate-100 hover:bg-blue-100 text-slate-700 hover:text-blue-900 font-bold text-[10px] border border-slate-200 transition">22.000</button>
+          <button type="button" onclick="applyPkgTargetPreset(25000)" class="px-2 py-0.5 rounded bg-slate-100 hover:bg-blue-100 text-slate-700 hover:text-blue-900 font-bold text-[10px] border border-slate-200 transition">25.000</button>
+        </div>
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
           <div>
             <label class="block font-semibold text-slate-700 mb-1">Hedef (Paket)</label>
-            <input type="number" id="pkgFormTarget" min="0" value="18000" class="w-full border rounded-lg p-2.5 font-bold">
+            <input type="number" id="pkgFormTarget" min="0" value="18000" oninput="updatePkgModalLivePreview()" class="w-full border rounded-lg p-2.5 font-bold">
           </div>
           <div>
             <label class="block font-semibold text-slate-700 mb-1">Üretilen (Paket)</label>
-            <input type="number" id="pkgFormProduced" min="0" value="0" class="w-full border rounded-lg p-2.5 font-bold">
+            <input type="number" id="pkgFormProduced" min="0" value="0" oninput="updatePkgModalLivePreview()" class="w-full border rounded-lg p-2.5 font-bold">
           </div>
           <div>
             <label class="block font-semibold text-slate-700 mb-1">Fire (kg)</label>
@@ -2203,19 +2277,19 @@
           </div>
           <div class="grid grid-cols-2 gap-2">
             <label class="flex items-center gap-2 cursor-pointer text-slate-700 font-semibold">
-              <input type="checkbox" id="pkgCcpMetal" checked class="w-4 h-4 rounded text-emerald-600">
+              <input type="checkbox" id="pkgCcpMetal" checked onchange="updatePkgModalLivePreview()" class="w-4 h-4 rounded text-emerald-600">
               <span>🧲 Metal Dedektör Uygun</span>
             </label>
             <label class="flex items-center gap-2 cursor-pointer text-slate-700 font-semibold">
-              <input type="checkbox" id="pkgCcpWeight" checked class="w-4 h-4 rounded text-emerald-600">
+              <input type="checkbox" id="pkgCcpWeight" checked onchange="updatePkgModalLivePreview()" class="w-4 h-4 rounded text-emerald-600">
               <span>⚖️ Gramaj Kontrolü Uygun</span>
             </label>
             <label class="flex items-center gap-2 cursor-pointer text-slate-700 font-semibold">
-              <input type="checkbox" id="pkgCcpSealing" checked class="w-4 h-4 rounded text-emerald-600">
+              <input type="checkbox" id="pkgCcpSealing" checked onchange="updatePkgModalLivePreview()" class="w-4 h-4 rounded text-emerald-600">
               <span>🔥 Çene Yapıştırma Sızdırmaz</span>
             </label>
             <label class="flex items-center gap-2 cursor-pointer text-slate-700 font-semibold">
-              <input type="checkbox" id="pkgCcpCoding" checked class="w-4 h-4 rounded text-emerald-600">
+              <input type="checkbox" id="pkgCcpCoding" checked onchange="updatePkgModalLivePreview()" class="w-4 h-4 rounded text-emerald-600">
               <span>🖨️ SKT &amp; Lot Baskı Okunur</span>
             </label>
           </div>
@@ -4880,7 +4954,7 @@
       });
 
       // 6. Mobil Uygulama Sürüm Takibi ve Firebase Yönetimi (app_version/current)
-      let hasAutoSyncedV16 = false;
+      let hasAutoSyncedV17 = false;
       try {
         onSnapshot(doc(db, "app_version", "current"), async (docSnap) => {
           if (docSnap && docSnap.exists()) {
@@ -4888,15 +4962,15 @@
             window.currentAppVersion = data;
             renderAppVersionBadge();
 
-            // Sürüm kodu 16'dan küçükse otomatik olarak v1.4.5 (Kod: 16)'ya yükselt
+            // Sürüm kodu 17'den küçükse otomatik olarak v1.4.6 (Kod: 17)'ye yükselt
             const verCodeNum = Number(data.versionCode || 0);
-            if (verCodeNum < 16 && !hasAutoSyncedV16) {
-              hasAutoSyncedV16 = true;
-              console.log("Firestore app_version sürüm kodu 16 (v1.4.5) olarak otomatik eşitleniyor...");
+            if (verCodeNum < 17 && !hasAutoSyncedV17) {
+              hasAutoSyncedV17 = true;
+              console.log("Firestore app_version sürüm kodu 17 (v1.4.6) olarak otomatik eşitleniyor...");
               seedInitialAppVersionInFirebase();
             }
-          } else if (!hasAutoSyncedV16) {
-            hasAutoSyncedV16 = true;
+          } else if (!hasAutoSyncedV17) {
+            hasAutoSyncedV17 = true;
             seedInitialAppVersionInFirebase();
           }
         }, (err) => {
@@ -10905,6 +10979,97 @@
       }
     }
 
+    window.pkgPeriodFilter = "ALL";
+    window.lastFilteredPackagingLogs = [];
+
+    window.setPkgPeriodFilter = function(periodKey) {
+      window.pkgPeriodFilter = periodKey || "ALL";
+      ["ALL", "TODAY", "7D", "MONTH"].forEach(k => {
+        const btn = document.getElementById("pkgPeriod_" + k);
+        if (!btn) return;
+        const active = k === window.pkgPeriodFilter;
+        btn.className = active
+          ? "px-2.5 py-1 rounded-full font-bold bg-[#1E3A8A] text-amber-300 text-[11px] shadow-sm transition"
+          : "px-2.5 py-1 rounded-full font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 text-[11px] transition";
+      });
+      renderPackagingUnit();
+    };
+
+    window.selectPkgLineFromInsights = function(lineName) {
+      const lineSel = document.getElementById("pkgLineFilter");
+      if (!lineSel) return;
+      lineSel.value = (lineSel.value === lineName) ? "ALL" : lineName;
+      renderPackagingUnit();
+    };
+
+    window.resetPkgFilters = function() {
+      const searchEl = document.getElementById("pkgSearchInput");
+      const lineEl = document.getElementById("pkgLineFilter");
+      const shiftEl = document.getElementById("pkgShiftFilter");
+      const sortEl = document.getElementById("pkgSortFilter");
+      const issuesEl = document.getElementById("pkgOnlyIssuesFilter");
+      if (searchEl) searchEl.value = "";
+      if (lineEl) lineEl.value = "ALL";
+      if (shiftEl) shiftEl.value = "ALL";
+      if (sortEl) sortEl.value = "NEWEST";
+      if (issuesEl) issuesEl.checked = false;
+      window.setPkgPeriodFilter("ALL");
+    };
+
+    function getPkgFilteredLogs() {
+      const logs = window.allPackagingLogs || [];
+      const u = window.currentUser;
+      const canViewCcp = window.canUserViewSubPage("pkg_ccp", u);
+      const search = (document.getElementById("pkgSearchInput")?.value || "").toLowerCase().trim();
+      const lineF = document.getElementById("pkgLineFilter")?.value || "ALL";
+      const shiftF = document.getElementById("pkgShiftFilter")?.value || "ALL";
+      const sortF = document.getElementById("pkgSortFilter")?.value || "NEWEST";
+      const onlyIssues = canViewCcp && !!document.getElementById("pkgOnlyIssuesFilter")?.checked;
+      const period = window.pkgPeriodFilter || "ALL";
+
+      const todayIso = getLocalTodayIso();
+      const d7 = new Date();
+      d7.setDate(d7.getDate() - 6);
+      const sevenDaysIso = `${d7.getFullYear()}-${String(d7.getMonth() + 1).padStart(2, "0")}-${String(d7.getDate()).padStart(2, "0")}`;
+      const monthPrefix = todayIso.slice(0, 7);
+
+      const effOf = p => {
+        const tgt = Number(p.targetPacks || 0);
+        const prd = Number(p.producedPacks || 0);
+        if (tgt > 0) return Math.min(200, Math.round((prd / tgt) * 100));
+        return prd > 0 ? 100 : 0;
+      };
+
+      const filtered = logs.filter(p => {
+        const dIso = String(p.dateIso || "");
+        if (period === "TODAY" && dIso !== todayIso) return false;
+        if (period === "7D" && dIso < sevenDaysIso) return false;
+        if (period === "MONTH" && !dIso.startsWith(monthPrefix)) return false;
+
+        const hasIssue = p.metalDetectorOk === false || p.weightCheckOk === false || p.sealingCheckOk === false || p.codingCheckOk === false;
+        if (onlyIssues && !hasIssue) return false;
+        if (lineF !== "ALL" && p.lineName !== lineF) return false;
+        if (shiftF !== "ALL" && p.shift !== shiftF) return false;
+        if (search) {
+          const hay = `${p.productName || ""} ${p.lotNumber || ""} ${p.filmCode || ""} ${p.operatorName || ""} ${p.lineName || ""} ${p.downtimeReason || ""} ${p.notes || ""}`.toLowerCase();
+          if (!hay.includes(search)) return false;
+        }
+        return true;
+      });
+
+      filtered.sort((a, b) => {
+        if (sortF === "EFF_DESC") return effOf(b) - effOf(a);
+        if (sortF === "EFF_ASC") return effOf(a) - effOf(b);
+        if (sortF === "DT_DESC") return Number(b.downtimeMinutes || 0) - Number(a.downtimeMinutes || 0);
+        if (sortF === "SCRAP_DESC") return Number(b.scrapKg || 0) - Number(a.scrapKg || 0);
+        const dc = String(b.dateIso || "").localeCompare(String(a.dateIso || ""));
+        if (dc !== 0) return dc;
+        return Number(b.updatedAtMillis || 0) - Number(a.updatedAtMillis || 0);
+      });
+
+      return filtered;
+    }
+
     window.renderPackagingUnit = function() {
       populatePackagingFilterSelects();
       const container = document.getElementById("packagingContainer");
@@ -10918,9 +11083,11 @@
       const canViewCcp = window.canUserViewSubPage("pkg_ccp", u);
       const canEditCcp = window.canUserEditSubPage("pkg_ccp", u);
       const canOpenEdit = canEditLogs || canEditCcp;
+      const canCreateFault = canEditLogs && window.canUserCreateFault(u);
 
       const kpisGrid = document.getElementById("pkgKpisGrid");
       if (kpisGrid) kpisGrid.classList.toggle("hidden", !canViewKpis);
+      const insightsRow = document.getElementById("pkgInsightsRow");
       const ccpKpiCard = document.getElementById("pkgKpiCcpCard");
       if (ccpKpiCard) ccpKpiCard.classList.toggle("hidden", !(canViewKpis && canViewCcp));
 
@@ -10944,22 +11111,11 @@
       container.classList.toggle("hidden", !canViewLogs);
 
       const logs = window.allPackagingLogs || [];
-      const search = (document.getElementById("pkgSearchInput")?.value || "").toLowerCase().trim();
-      const lineF = document.getElementById("pkgLineFilter")?.value || "ALL";
-      const shiftF = document.getElementById("pkgShiftFilter")?.value || "ALL";
-      const onlyIssues = canViewCcp && !!document.getElementById("pkgOnlyIssuesFilter")?.checked;
+      const filtered = getPkgFilteredLogs();
+      window.lastFilteredPackagingLogs = filtered;
 
-      const filtered = logs.filter(p => {
-        const hasIssue = p.metalDetectorOk === false || p.weightCheckOk === false || p.sealingCheckOk === false || p.codingCheckOk === false;
-        if (onlyIssues && !hasIssue) return false;
-        if (lineF !== "ALL" && p.lineName !== lineF) return false;
-        if (shiftF !== "ALL" && p.shift !== shiftF) return false;
-        if (search) {
-          const hay = `${p.productName || ""} ${p.lotNumber || ""} ${p.filmCode || ""} ${p.operatorName || ""} ${p.lineName || ""} ${p.notes || ""}`.toLowerCase();
-          if (!hay.includes(search)) return false;
-        }
-        return true;
-      });
+      const countBadge = document.getElementById("pkgFilteredCountBadge");
+      if (countBadge) countBadge.innerText = `${filtered.length} / ${logs.length} kayıt`;
 
       const totalProduced = filtered.reduce((s, p) => s + Number(p.producedPacks || 0), 0);
       const totalTarget = filtered.reduce((s, p) => s + Number(p.targetPacks || 0), 0);
@@ -10967,19 +11123,131 @@
       const totalDowntime = filtered.reduce((s, p) => s + Number(p.downtimeMinutes || 0), 0);
       const ccpIssueCount = filtered.filter(p => p.metalDetectorOk === false || p.weightCheckOk === false || p.sealingCheckOk === false || p.codingCheckOk === false).length;
       const avgEff = totalTarget > 0 ? Math.round((totalProduced / totalTarget) * 100) : (totalProduced > 0 ? 100 : 0);
+      const ccpPassRate = filtered.length > 0 ? Math.round(((filtered.length - ccpIssueCount) / filtered.length) * 100) : 100;
 
+      const periodLabels = { ALL: "Tümü", TODAY: "Bugün", "7D": "Son 7 Gün", MONTH: "Bu Ay" };
+      const elPeriodTag = document.getElementById("pkgKpiPeriodTag");
+      if (elPeriodTag) elPeriodTag.innerText = periodLabels[window.pkgPeriodFilter || "ALL"] || "Tümü";
       const elProd = document.getElementById("pkgKpiProduced");
       if (elProd) elProd.innerText = totalProduced.toLocaleString("tr-TR");
       const elTarget = document.getElementById("pkgKpiTargetSub");
       if (elTarget) elTarget.innerText = `Hedef: ${totalTarget.toLocaleString("tr-TR")} paket`;
+      const elProdBar = document.getElementById("pkgKpiProducedBar");
+      if (elProdBar) elProdBar.style.width = `${Math.min(100, Math.max(0, avgEff))}%`;
       const elEff = document.getElementById("pkgKpiEfficiency");
       if (elEff) elEff.innerText = `%${avgEff}`;
+      const elEffSub = document.getElementById("pkgKpiEffSub");
+      if (elEffSub) elEffSub.innerText = `${filtered.length} vardiya • Gerçekleşme oranı`;
       const elScrap = document.getElementById("pkgKpiScrap");
-      if (elScrap) elScrap.innerText = `${totalScrap.toFixed(1)} kg`;
+      if (elScrap) elScrap.innerText = `${totalScrap.toLocaleString("tr-TR", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} kg`;
       const elDt = document.getElementById("pkgKpiDowntimeSub");
-      if (elDt) elDt.innerText = `Toplam Duruş: ${totalDowntime} dk`;
+      if (elDt) elDt.innerText = `Toplam Duruş: ${totalDowntime.toLocaleString("tr-TR")} dk`;
       const elCcp = document.getElementById("pkgKpiCcpIssues");
       if (elCcp) elCcp.innerText = ccpIssueCount;
+      const elCcpRate = document.getElementById("pkgKpiCcpRateBadge");
+      if (elCcpRate) {
+        elCcpRate.innerText = `%${ccpPassRate} Uygun`;
+        elCcpRate.className = ccpIssueCount === 0
+          ? "text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800"
+          : "text-[10px] font-bold px-1.5 py-0.5 rounded bg-rose-100 text-rose-800";
+      }
+
+      // Hat Bazlı Performans, KKN Sağlığı ve Duruş Dağılımı Kokpiti
+      if (insightsRow) {
+        insightsRow.classList.toggle("hidden", !(canViewKpis && filtered.length > 0));
+        if (canViewKpis && filtered.length > 0) {
+          const lineMap = new Map();
+          filtered.forEach(p => {
+            const lname = p.lineName || "Diğer Hat";
+            const cur = lineMap.get(lname) || { produced: 0, target: 0, scrap: 0, downtime: 0, count: 0 };
+            cur.produced += Number(p.producedPacks || 0);
+            cur.target += Number(p.targetPacks || 0);
+            cur.scrap += Number(p.scrapKg || 0);
+            cur.downtime += Number(p.downtimeMinutes || 0);
+            cur.count += 1;
+            lineMap.set(lname, cur);
+          });
+          const activeLineFilter = document.getElementById("pkgLineFilter")?.value || "ALL";
+          const lineEl = document.getElementById("pkgLineBreakdown");
+          if (lineEl) {
+            const lineRows = Array.from(lineMap.entries()).sort((a, b) => b[1].produced - a[1].produced);
+            lineEl.innerHTML = lineRows.map(([lname, st]) => {
+              const lEff = st.target > 0 ? Math.min(200, Math.round((st.produced / st.target) * 100)) : (st.produced > 0 ? 100 : 0);
+              const barCls = lEff >= 95 ? "bg-emerald-500" : (lEff >= 80 ? "bg-amber-500" : "bg-rose-500");
+              const isSelected = activeLineFilter === lname;
+              return `
+                <button type="button" onclick="selectPkgLineFromInsights('${escapeJsSingle(lname)}')"
+                        class="w-full text-left p-2.5 rounded-xl border ${isSelected ? 'bg-blue-50 border-blue-400 ring-1 ring-blue-300' : 'bg-slate-50 border-slate-100 hover:border-blue-300'} transition space-y-1.5">
+                  <div class="flex items-center justify-between gap-2">
+                    <span class="font-bold text-slate-800 truncate">${escapeHtml(lname)}</span>
+                    <span class="font-extrabold whitespace-nowrap ${lEff >= 95 ? 'text-emerald-700' : (lEff >= 80 ? 'text-amber-700' : 'text-rose-700')}">${st.produced.toLocaleString("tr-TR")} / ${st.target.toLocaleString("tr-TR")} (%${lEff})</span>
+                  </div>
+                  <div class="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
+                    <div class="h-full ${barCls} rounded-full transition-all" style="width: ${Math.min(100, Math.max(0, lEff))}%"></div>
+                  </div>
+                  <div class="flex items-center justify-between text-[10px] text-slate-500">
+                    <span>${st.count} vardiya</span>
+                    <span>Fire: ${st.scrap.toLocaleString("tr-TR", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} kg • Duruş: ${st.downtime} dk</span>
+                  </div>
+                </button>
+              `;
+            }).join("");
+          }
+
+          const ccpSec = document.getElementById("pkgCcpHealthSection");
+          const ccpGrid = document.getElementById("pkgCcpHealthGrid");
+          if (ccpSec) ccpSec.classList.toggle("hidden", !canViewCcp);
+          if (canViewCcp && ccpGrid) {
+            const totalN = filtered.length || 1;
+            const ccpStats = [
+              { label: "🧲 Metal Dedektör", ok: filtered.filter(p => p.metalDetectorOk !== false).length },
+              { label: "⚖️ Gramaj", ok: filtered.filter(p => p.weightCheckOk !== false).length },
+              { label: "🔥 Çene Isı", ok: filtered.filter(p => p.sealingCheckOk !== false).length },
+              { label: "🖨️ SKT / Lot", ok: filtered.filter(p => p.codingCheckOk !== false).length }
+            ];
+            ccpGrid.innerHTML = ccpStats.map(st => {
+              const pct = Math.round((st.ok / totalN) * 100);
+              const allOk = st.ok >= totalN;
+              return `
+                <div class="px-2.5 py-2 rounded-xl border ${allOk ? 'bg-emerald-50 border-emerald-200 text-emerald-900' : 'bg-rose-50 border-rose-200 text-rose-900'} flex items-center justify-between">
+                  <span class="font-bold truncate">${st.label}</span>
+                  <span class="font-black ml-1">${allOk ? '✓' : '⚠️'} %${pct}</span>
+                </div>
+              `;
+            }).join("");
+          }
+
+          const dtEl = document.getElementById("pkgDowntimeBreakdown");
+          if (dtEl) {
+            const dtMap = new Map();
+            filtered.forEach(p => {
+              const reason = p.downtimeReason || "Duruş Yok";
+              const mins = Number(p.downtimeMinutes || 0);
+              if (mins > 0 || (reason && reason !== "Duruş Yok")) {
+                dtMap.set(reason, (dtMap.get(reason) || 0) + (mins > 0 ? mins : 1));
+              }
+            });
+            const dtRows = Array.from(dtMap.entries()).sort((a, b) => b[1] - a[1]).slice(0, 4);
+            const dtSum = dtRows.reduce((s, r) => s + r[1], 0) || 1;
+            dtEl.innerHTML = dtRows.length
+              ? dtRows.map(([reason, mins]) => {
+                  const pct = Math.round((mins / dtSum) * 100);
+                  return `
+                    <div class="space-y-1">
+                      <div class="flex items-center justify-between text-slate-700">
+                        <span class="font-semibold truncate">${escapeHtml(reason)}</span>
+                        <span class="font-bold text-amber-800 whitespace-nowrap">${mins} dk (%${pct})</span>
+                      </div>
+                      <div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                        <div class="h-full bg-amber-500 rounded-full" style="width: ${pct}%"></div>
+                      </div>
+                    </div>
+                  `;
+                }).join("")
+              : `<div class="text-slate-400 italic">Bu dönemde kayıtlı duruş bulunmuyor.</div>`;
+          }
+        }
+      }
 
       if (!canViewLogs) {
         container.innerHTML = "";
@@ -10989,43 +11257,53 @@
 
       if (filtered.length === 0) {
         container.innerHTML = `<div class="col-span-full py-12 text-center bg-white rounded-2xl border border-slate-200 text-slate-400 text-xs">Henüz bu filtrelere uygun paketleme vardiya kaydı bulunmuyor.</div>`;
+        lucide.createIcons();
         return;
       }
 
       container.innerHTML = filtered.map(p => {
         const eff = Number(p.targetPacks) > 0 ? Math.min(200, Math.round((Number(p.producedPacks || 0) / Number(p.targetPacks)) * 100)) : (Number(p.producedPacks || 0) > 0 ? 100 : 0);
         const effBadgeCls = eff >= 95 ? "bg-emerald-100 text-emerald-800 border-emerald-200" : (eff >= 80 ? "bg-amber-100 text-amber-800 border-amber-200" : "bg-rose-100 text-rose-800 border-rose-200");
+        const effBarCls = eff >= 95 ? "bg-emerald-500" : (eff >= 80 ? "bg-amber-500" : "bg-rose-500");
         const ccpChecks = [
           { label: "Metal Ded.", ok: p.metalDetectorOk !== false },
           { label: "Gramaj", ok: p.weightCheckOk !== false },
           { label: "Çene Isı", ok: p.sealingCheckOk !== false },
           { label: "SKT/Lot", ok: p.codingCheckOk !== false }
         ];
+        const hasQualityIssue = canViewCcp && ccpChecks.some(c => !c.ok);
+        const hasFaultTrigger = hasQualityIssue || Number(p.downtimeMinutes || 0) > 0 || (p.downtimeReason && p.downtimeReason !== "Duruş Yok");
         const safeId = escapeJsSingle(p.id || p.docId || "");
         return `
-          <div class="bg-white rounded-2xl custom-shadow border border-slate-200 p-4 space-y-3">
+          <div class="bg-white rounded-2xl custom-shadow border ${hasQualityIssue ? 'border-rose-400 ring-1 ring-rose-100' : 'border-slate-200'} p-4 space-y-3">
             <div class="flex items-start justify-between gap-2">
               <div>
                 <div class="flex flex-wrap items-center gap-1.5">
                   <span class="px-2 py-0.5 rounded bg-[#1E3A8A] text-amber-300 font-bold text-[10px]">${escapeHtml(formatDisplayDateTr(p.dateIso) || p.dateIso || "-")}</span>
                   <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 font-semibold text-[10px]">${escapeHtml(p.shift || "")}</span>
                   <span class="px-2 py-0.5 rounded border text-[10px] font-bold ${effBadgeCls}">Verim: %${eff}</span>
+                  ${hasQualityIssue ? `<span class="px-2 py-0.5 rounded bg-rose-600 text-white text-[10px] font-bold">⚠️ KKN Uyarısı</span>` : ""}
                 </div>
                 <h3 class="font-extrabold text-sm text-slate-900 mt-1.5">${escapeHtml(p.productName || "")}</h3>
                 <div class="text-[11px] font-semibold text-blue-800">${escapeHtml(p.lineName || "")}</div>
               </div>
-              ${canOpenEdit ? `
-                <div class="flex items-center gap-1">
-                  <button type="button" onclick="openPackagingLogModal('${safeId}')" class="px-2.5 py-1 bg-blue-50 hover:bg-blue-100 text-blue-800 border border-blue-200 rounded-lg text-[11px] font-bold">${canEditLogs ? 'Düzenle' : 'KKN Güncelle'}</button>
-                  ${canEditLogs ? `<button type="button" onclick="deletePackagingLog('${safeId}')" class="px-2 py-1 bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 rounded-lg text-[11px] font-bold">Sil</button>` : ''}
-                </div>
-              ` : `<span class="text-[10px] text-slate-500 bg-slate-100 px-2 py-0.5 rounded font-semibold">🔒 Salt Okunur</span>`}
+              <div class="flex flex-wrap items-center justify-end gap-1">
+                ${canEditLogs ? `<button type="button" onclick="clonePackagingLog('${safeId}')" title="Sabit bilgilerle yeni vardiya başlat" class="px-2 py-1 bg-indigo-50 hover:bg-indigo-100 text-indigo-800 border border-indigo-200 rounded-lg text-[11px] font-bold">📋 Kopyala</button>` : ''}
+                ${canOpenEdit ? `<button type="button" onclick="openPackagingLogModal('${safeId}')" class="px-2.5 py-1 bg-blue-50 hover:bg-blue-100 text-blue-800 border border-blue-200 rounded-lg text-[11px] font-bold">${canEditLogs ? 'Düzenle' : 'KKN Güncelle'}</button>` : `<span class="text-[10px] text-slate-500 bg-slate-100 px-2 py-0.5 rounded font-semibold">🔒 Salt Okunur</span>`}
+                ${canEditLogs ? `<button type="button" onclick="deletePackagingLog('${safeId}')" class="px-2 py-1 bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 rounded-lg text-[11px] font-bold">Sil</button>` : ''}
+              </div>
+            </div>
+
+            <div class="space-y-1">
+              <div class="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
+                <div class="h-full ${effBarCls} rounded-full transition-all" style="width: ${Math.min(100, Math.max(0, eff))}%"></div>
+              </div>
             </div>
 
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs bg-slate-50 p-2.5 rounded-xl border border-slate-100">
               <div><div class="text-[10px] text-slate-400">Üretilen / Hedef</div><div class="font-black text-[#1E3A8A]">${Number(p.producedPacks || 0).toLocaleString("tr-TR")} / ${Number(p.targetPacks || 0).toLocaleString("tr-TR")}</div></div>
-              <div><div class="text-[10px] text-slate-400">Fire (kg)</div><div class="font-bold text-amber-700">${Number(p.scrapKg || 0).toFixed(1)} kg</div></div>
-              <div><div class="text-[10px] text-slate-400">Duruş</div><div class="font-bold text-slate-800">${Number(p.downtimeMinutes || 0)} dk</div></div>
+              <div><div class="text-[10px] text-slate-400">Fire (kg)</div><div class="font-bold text-amber-700">${Number(p.scrapKg || 0).toLocaleString("tr-TR", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} kg</div></div>
+              <div><div class="text-[10px] text-slate-400">Duruş</div><div class="font-bold ${Number(p.downtimeMinutes || 0) > 30 ? 'text-rose-700' : 'text-slate-800'}">${Number(p.downtimeMinutes || 0)} dk</div></div>
               <div><div class="text-[10px] text-slate-400">Lot / Bobin</div><div class="font-mono font-bold text-slate-700 truncate">${escapeHtml(p.lotNumber || "-")} / ${escapeHtml(p.filmCode || "-")}</div></div>
             </div>
 
@@ -11042,9 +11320,16 @@
 
             ${p.notes ? `<div class="text-[11px] text-slate-600 bg-slate-50 px-2.5 py-1.5 rounded-lg border border-slate-100">📝 ${escapeHtml(p.notes)}</div>` : ""}
 
-            <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400">
+            <div class="pt-2 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-400">
               <span>👷 Operatör: <b class="text-slate-700">${escapeHtml(p.operatorName || p.updatedByName || "-")}</b></span>
-              <span>${formatDate(p.updatedAtMillis)}</span>
+              <div class="flex items-center gap-2">
+                ${(canCreateFault && hasFaultTrigger) ? `
+                  <button type="button" onclick="createFaultFromPackagingLog('${safeId}')" class="px-2 py-0.5 bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-300 rounded-lg text-[10px] font-bold transition">
+                    🚨 Arıza Aç
+                  </button>
+                ` : ''}
+                <span>${formatDate(p.updatedAtMillis)}</span>
+              </div>
             </div>
           </div>
         `;
@@ -11052,7 +11337,80 @@
       lucide.createIcons();
     };
 
-    window.openPackagingLogModal = function(logId = null) {
+    window.applyPkgTargetPreset = function(val) {
+      const el = document.getElementById("pkgFormTarget");
+      if (el && !el.disabled) {
+        el.value = val;
+        window.updatePkgModalLivePreview();
+      }
+    };
+
+    window.updatePkgModalLivePreview = function() {
+      const tgt = Math.max(0, Number(document.getElementById("pkgFormTarget")?.value || 0));
+      const prd = Math.max(0, Number(document.getElementById("pkgFormProduced")?.value || 0));
+      const eff = tgt > 0 ? Math.min(200, Math.round((prd / tgt) * 100)) : (prd > 0 ? 100 : 0);
+      const effEl = document.getElementById("pkgModalPrevEff");
+      if (effEl) effEl.innerText = `%${eff}`;
+
+      const okCount = ["pkgCcpMetal", "pkgCcpWeight", "pkgCcpSealing", "pkgCcpCoding"]
+        .filter(id => document.getElementById(id)?.checked !== false).length;
+      const ccpEl = document.getElementById("pkgModalPrevCcp");
+      const wrap = document.getElementById("pkgModalLivePreview");
+      if (ccpEl) {
+        ccpEl.innerText = okCount === 4 ? "✓ 4/4 KKN Uygun" : `⚠️ ${4 - okCount} KKN Uyarısı Var`;
+        ccpEl.className = okCount === 4 ? "font-bold text-emerald-700" : "font-bold text-rose-700";
+      }
+      if (wrap) {
+        wrap.className = okCount === 4
+          ? "p-2.5 rounded-xl bg-blue-50 border border-blue-200 flex flex-wrap items-center justify-between gap-2 text-[11px]"
+          : "p-2.5 rounded-xl bg-rose-50 border border-rose-300 flex flex-wrap items-center justify-between gap-2 text-[11px]";
+      }
+    };
+
+    window.clonePackagingLog = function(logId) {
+      const src = (window.allPackagingLogs || []).find(p => p.id === logId || p.docId === logId);
+      if (!src) return;
+      window.openPackagingLogModal(null, src);
+    };
+
+    window.createFaultFromPackagingLog = function(logId) {
+      if (!window.canUserCreateFault(window.currentUser)) {
+        alert("⛔ Yeni arıza bildirme yetkiniz bulunmamaktadır.");
+        return;
+      }
+      const p = (window.allPackagingLogs || []).find(x => x.id === logId || x.docId === logId);
+      if (!p) return;
+      const ccpIssues = [];
+      if (p.metalDetectorOk === false) ccpIssues.push("Metal Dedektör");
+      if (p.weightCheckOk === false) ccpIssues.push("Gramaj");
+      if (p.sealingCheckOk === false) ccpIssues.push("Çene Yapıştırma");
+      if (p.codingCheckOk === false) ccpIssues.push("SKT/Lot Kodlama");
+      const parts = [
+        `Paketleme Vardiya (${formatDisplayDateTr(p.dateIso) || p.dateIso} • ${p.shift || ""}) — ${p.productName || ""}`,
+        p.lotNumber ? `Lot: ${p.lotNumber}` : "",
+        ccpIssues.length ? `KKN Hatası: ${ccpIssues.join(", ")}` : "",
+        (Number(p.downtimeMinutes || 0) > 0 || (p.downtimeReason && p.downtimeReason !== "Duruş Yok"))
+          ? `Duruş: ${Number(p.downtimeMinutes || 0)} dk (${p.downtimeReason || "Duruş"})`
+          : "",
+        p.notes ? `Not: ${p.notes}` : ""
+      ].filter(Boolean);
+
+      window.switchToElectricalSubTab("faults");
+      window.openNewFaultModal();
+      const mEl = document.getElementById("fMachine");
+      const dEl = document.getElementById("fDept");
+      const pEl = document.getElementById("fPriority");
+      const descEl = document.getElementById("fDesc");
+      if (mEl) mEl.value = p.lineName || "Paketleme Hattı";
+      if (dEl) {
+        const opt = Array.from(dEl.options).find(o => o.value.toLowerCase().includes("paket") || o.value.toLowerCase().includes("mekanik"));
+        if (opt) dEl.value = opt.value;
+      }
+      if (pEl) pEl.value = (ccpIssues.length > 0 || Number(p.downtimeMinutes || 0) >= 45) ? "Kritik (Hat Duruşu)" : "Yüksek";
+      if (descEl) descEl.value = parts.join(" | ");
+    };
+
+    window.openPackagingLogModal = function(logId = null, cloneFrom = null) {
       const canEditLogs = window.canUserEditSubPage("pkg_logs", window.currentUser);
       const canEditCcp = window.canUserEditSubPage("pkg_ccp", window.currentUser);
       const canViewCcp = window.canUserViewSubPage("pkg_ccp", window.currentUser);
@@ -11062,11 +11420,12 @@
       }
       populatePackagingFilterSelects();
       const existing = logId ? (window.allPackagingLogs || []).find(p => p.id === logId || p.docId === logId) : null;
+      const source = existing || cloneFrom;
       document.getElementById("pkgEditId").value = existing ? (existing.id || existing.docId) : "";
-      document.getElementById("pkgModalTitle").innerHTML = `<i data-lucide="package" class="w-5 h-5 text-[#1E3A8A]"></i> ${existing ? (canEditLogs ? "Paketleme Kaydını Düzenle" : "KKN Kalite Kontrolünü Güncelle") : "Yeni Paketleme Vardiya Kaydı"}`;
+      document.getElementById("pkgModalTitle").innerHTML = `<i data-lucide="package" class="w-5 h-5 text-[#1E3A8A]"></i> ${existing ? (canEditLogs ? "Paketleme Kaydını Düzenle" : "KKN Kalite Kontrolünü Güncelle") : (cloneFrom ? "Kopyalanan Yeni Paketleme Kaydı" : "Yeni Paketleme Vardiya Kaydı")}`;
       document.getElementById("pkgFormDate").value = existing?.dateIso || getLocalTodayIso();
       const dynamicShifts = (typeof window.getAllShifts === "function") ? window.getAllShifts() : [];
-      const targetShift = existing?.shift || dynamicShifts[0] || "";
+      const targetShift = source?.shift || dynamicShifts[0] || "";
       const formShiftEl = document.getElementById("pkgFormShift");
       if (formShiftEl) {
         if (targetShift && !Array.from(formShiftEl.options).some(o => o.value === targetShift)) {
@@ -11074,16 +11433,16 @@
         }
         formShiftEl.value = targetShift;
       }
-      document.getElementById("pkgFormLine").value = existing?.lineName || PACKAGING_LINES[0];
-      document.getElementById("pkgFormProduct").value = existing?.productName || PACKAGING_PRODUCTS[0];
-      document.getElementById("pkgFormLot").value = existing?.lotNumber || "";
-      document.getElementById("pkgFormFilm").value = existing?.filmCode || "";
-      document.getElementById("pkgFormTarget").value = existing?.targetPacks ?? 18000;
-      document.getElementById("pkgFormProduced").value = existing?.producedPacks ?? 0;
-      document.getElementById("pkgFormScrap").value = existing?.scrapKg ?? 0;
-      document.getElementById("pkgFormDowntime").value = existing?.downtimeMinutes ?? 0;
+      document.getElementById("pkgFormLine").value = source?.lineName || PACKAGING_LINES[0];
+      document.getElementById("pkgFormProduct").value = source?.productName || PACKAGING_PRODUCTS[0];
+      document.getElementById("pkgFormLot").value = source?.lotNumber || "";
+      document.getElementById("pkgFormFilm").value = source?.filmCode || "";
+      document.getElementById("pkgFormTarget").value = source?.targetPacks ?? 18000;
+      document.getElementById("pkgFormProduced").value = existing ? (existing.producedPacks ?? 0) : 0;
+      document.getElementById("pkgFormScrap").value = existing ? (existing.scrapKg ?? 0) : 0;
+      document.getElementById("pkgFormDowntime").value = existing ? (existing.downtimeMinutes ?? 0) : 0;
       document.getElementById("pkgFormDowntimeReason").value = existing?.downtimeReason || PACKAGING_DOWNTIME_REASONS[0];
-      document.getElementById("pkgFormOperator").value = existing?.operatorName || (window.currentUser?.displayName || window.currentUser?.username || "");
+      document.getElementById("pkgFormOperator").value = source?.operatorName || (window.currentUser?.displayName || window.currentUser?.username || "");
       document.getElementById("pkgCcpMetal").checked = existing ? (existing.metalDetectorOk !== false) : true;
       document.getElementById("pkgCcpWeight").checked = existing ? (existing.weightCheckOk !== false) : true;
       document.getElementById("pkgCcpSealing").checked = existing ? (existing.sealingCheckOk !== false) : true;
@@ -11094,6 +11453,8 @@
         const el = document.getElementById(id);
         if (el) el.disabled = !canEditLogs;
       });
+      const presetsEl = document.getElementById("pkgModalTargetPresets");
+      if (presetsEl) presetsEl.classList.toggle("hidden", !canEditLogs);
       const ccpBox = document.getElementById("pkgCcpModalBox");
       if (ccpBox) ccpBox.classList.toggle("hidden", !(canViewCcp || canEditCcp));
       const ccpHint = document.getElementById("pkgCcpReadOnlyHint");
@@ -11105,9 +11466,10 @@
 
       const copyLatestBtn = document.getElementById("btnPkgCopyLatest");
       if (copyLatestBtn) {
-        copyLatestBtn.classList.toggle("hidden", !(!existing && canEditLogs && (window.allPackagingLogs || []).length > 0));
+        copyLatestBtn.classList.toggle("hidden", !(!existing && !cloneFrom && canEditLogs && (window.allPackagingLogs || []).length > 0));
       }
 
+      window.updatePkgModalLivePreview();
       document.getElementById("modalPackagingLog").classList.remove("hidden");
       lucide.createIcons();
     };
@@ -11126,6 +11488,7 @@
       setVal("pkgFormFilm", latest.filmCode);
       setVal("pkgFormTarget", latest.targetPacks ?? 18000);
       setVal("pkgFormOperator", latest.operatorName);
+      window.updatePkgModalLivePreview();
     };
 
     window.savePackagingLog = async function() {
@@ -11199,10 +11562,16 @@
         alert("Excel kütüphanesi henüz yüklenemedi. Lütfen sayfayı yenileyiniz.");
         return;
       }
-      const logs = window.allPackagingLogs || [];
+      const logs = (Array.isArray(window.lastFilteredPackagingLogs) && window.lastFilteredPackagingLogs.length > 0)
+        ? window.lastFilteredPackagingLogs
+        : (window.allPackagingLogs || []);
+      const totProd = logs.reduce((s, p) => s + Number(p.producedPacks || 0), 0);
+      const totTgt = logs.reduce((s, p) => s + Number(p.targetPacks || 0), 0);
+      const totScrap = logs.reduce((s, p) => s + Number(p.scrapKg || 0), 0);
+      const totDt = logs.reduce((s, p) => s + Number(p.downtimeMinutes || 0), 0);
       const aoa = [
         ["TEKİNAK GIDA SAN. VE TİC. A.Ş. - PAKETLEME BİRİMİ & KKN TAKİP RAPORU"],
-        [`Rapor Tarihi: ${new Date().toLocaleDateString("tr-TR")} | Toplam: ${logs.length} Vardiya Kaydı`],
+        [`Rapor Tarihi: ${new Date().toLocaleDateString("tr-TR")} | Kayıt Sayısı: ${logs.length} | Üretilen: ${totProd.toLocaleString("tr-TR")} / Hedef: ${totTgt.toLocaleString("tr-TR")} | Toplam Fire: ${totScrap.toFixed(1)} kg | Toplam Duruş: ${totDt} dk`],
         [],
         ["Tarih", "Vardiya", "Hat", "Ürün", "Lot No", "Bobin Kodu", "Hedef Paket", "Üretilen Paket", "Verim (%)", "Fire (kg)", "Duruş (dk)", "Duruş Nedeni", "Metal Dedektör", "Gramaj", "Çene Isısı", "SKT/Lot Baskı", "Operatör", "Notlar"]
       ];
@@ -12192,19 +12561,19 @@
 
     function renderAppVersionBadge() {
       const v = window.currentAppVersion || {
-        versionName: "1.4.5",
-        versionCode: 16,
+        versionName: "1.4.6",
+        versionCode: 17,
         releaseDate: "2026-11-15",
-        title: "Tekinak CMMS v1.4.5",
+        title: "Tekinak CMMS v1.4.6",
         changelog: [
-          "Çift yönlü arıza ↔ iş emri bağlantısı ve iş emri tamamlanınca bağlı arızanın otomatik kapatılması eklendi.",
-          "İş emri kapatılırken kullanılan yedek parçalar seçilerek Firestore stoktan tek seferlik düşüm desteği eklendi.",
-          "Arıza ve iş emri kartlarına canlı bekleme süresi sayaçları, hızlı saha filtreleri ve arıza şablonları eklendi.",
-          "Genel Bakış acil bakım/anomali şeridi, personelden yetki kopyalama ve paketleme duruş nedenleri raporu eklendi."
+          "Paketleme Birimi yenilendi: Hat bazlı üretim/verim kokpiti, 4 KKN sağlık göstergesi ve duruş nedenleri özeti eklendi.",
+          "Paketleme ekranına dönem (Bugün, Son 7 Gün, Bu Ay) ve sıralama (Verim, Duruş, Fire) filtreleri ile görsel hedef ilerleme barları eklendi.",
+          "Paketleme kartlarından tek dokunuşla Vardiya Kopyalama, Arıza Bildirimi Açma ve formda canlı verim önizleme desteği eklendi.",
+          "Türkçe sayı/fire biçimlendirmesi (10.000,0 kg) ve filtrelenmiş Excel dışa aktarma iyileştirildi."
         ]
       };
-      const vName = v.versionName || "1.4.5";
-      const vCode = Number(v.versionCode || 16);
+      const vName = v.versionName || "1.4.6";
+      const vCode = Number(v.versionCode || 17);
       const localApkHref = `app-release.apk?v=${vCode}`;
 
       const badgeText = document.getElementById("topVersionBadgeText");
@@ -12263,7 +12632,7 @@
     };
 
     window.dismissWebUpdateBanner = function() {
-      const vCode = Number((window.currentAppVersion && window.currentAppVersion.versionCode) || 16);
+      const vCode = Number((window.currentAppVersion && window.currentAppVersion.versionCode) || 17);
       localStorage.setItem("tekinak_dismissed_ver_" + vCode, "1");
       const banner = document.getElementById("webAppUpdateBanner");
       if (banner) banner.classList.add("hidden");
@@ -12272,18 +12641,18 @@
     async function seedInitialAppVersionInFirebase() {
       try {
         const initialData = {
-          versionCode: 16,
-          versionName: "1.4.5",
-          releaseTag: "v1.4.5",
+          versionCode: 17,
+          versionName: "1.4.6",
+          releaseTag: "v1.4.6",
           releaseDate: new Date().toISOString().slice(0, 10),
           apkUrl: "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
           fallbackUrl: "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-          title: "Tekinak CMMS v1.4.5",
+          title: "Tekinak CMMS v1.4.6",
           changelog: [
-            "Çift yönlü arıza ↔ iş emri bağlantısı ve iş emri tamamlanınca bağlı arızanın otomatik kapatılması eklendi.",
-            "İş emri kapatılırken kullanılan yedek parçalar seçilerek Firestore stoktan tek seferlik düşüm desteği eklendi.",
-            "Arıza ve iş emri kartlarına canlı bekleme süresi sayaçları, hızlı saha filtreleri ve arıza şablonları eklendi.",
-            "Genel Bakış acil bakım/anomali şeridi, personelden yetki kopyalama ve paketleme duruş nedenleri raporu eklendi."
+            "Paketleme Birimi yenilendi: Hat bazlı üretim/verim kokpiti, 4 KKN sağlık göstergesi ve duruş nedenleri özeti eklendi.",
+            "Paketleme ekranına dönem (Bugün, Son 7 Gün, Bu Ay) ve sıralama (Verim, Duruş, Fire) filtreleri ile görsel hedef ilerleme barları eklendi.",
+            "Paketleme kartlarından tek dokunuşla Vardiya Kopyalama, Arıza Bildirimi Açma ve formda canlı verim önizleme desteği eklendi.",
+            "Türkçe sayı/fire biçimlendirmesi (10.000,0 kg) ve filtrelenmiş Excel dışa aktarma iyileştirildi."
           ],
           forceUpdate: false,
           updatedAtMillis: Date.now()
@@ -12302,10 +12671,10 @@
         alert("⛔ Yetkisiz İşlem: Mobil sürüm güncelleme yönetimi yalnızca usluozaykagan@gmail.com hesabına tanımlıdır.");
         return;
       }
-      const v = window.currentAppVersion || { versionCode: 16, versionName: "1.4.5", title: "Tekinak CMMS v1.4.5", apkUrl: "", changelog: [] };
-      document.getElementById("verFormCode").value = v.versionCode || 16;
-      document.getElementById("verFormName").value = v.versionName || "1.4.5";
-      document.getElementById("verFormTitle").value = `Yeni Sürüm Yayınlandı (v${v.versionName || "1.4.5"})`;
+      const v = window.currentAppVersion || { versionCode: 17, versionName: "1.4.6", title: "Tekinak CMMS v1.4.6", apkUrl: "", changelog: [] };
+      document.getElementById("verFormCode").value = v.versionCode || 17;
+      document.getElementById("verFormName").value = v.versionName || "1.4.6";
+      document.getElementById("verFormTitle").value = `Yeni Sürüm Yayınlandı (v${v.versionName || "1.4.6"})`;
       document.getElementById("verFormApkUrl").value = v.apkUrl || "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk";
       document.getElementById("verFormChangelog").value = (v.changelog && v.changelog.length) ? v.changelog.join("\n") : "Yeni bakım özellikleri ve performans iyileştirmeleri eklendi.";
       document.getElementById("modalAppVersion").classList.remove("hidden");
@@ -12330,7 +12699,7 @@
         return;
       }
       if (!name) {
-        alert("Lütfen sürüm adı giriniz (örn: 1.4.5).");
+        alert("Lütfen sürüm adı giriniz (örn: 1.4.6).");
         return;
       }
 
@@ -12389,18 +12758,18 @@
       }
       try {
         const payload = {
-          versionCode: 16,
-          versionName: "1.4.5",
-          releaseTag: "v1.4.5",
+          versionCode: 17,
+          versionName: "1.4.6",
+          releaseTag: "v1.4.6",
           releaseDate: new Date().toISOString().slice(0, 10),
           apkUrl: "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
           fallbackUrl: "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-          title: "Tekinak CMMS v1.4.5",
+          title: "Tekinak CMMS v1.4.6",
           changelog: [
-            "Çift yönlü arıza ↔ iş emri bağlantısı ve iş emri tamamlanınca bağlı arızanın otomatik kapatılması eklendi.",
-            "İş emri kapatılırken kullanılan yedek parçalar seçilerek Firestore stoktan tek seferlik düşüm desteği eklendi.",
-            "Arıza ve iş emri kartlarına canlı bekleme süresi sayaçları, hızlı saha filtreleri ve arıza şablonları eklendi.",
-            "Genel Bakış acil bakım/anomali şeridi, personelden yetki kopyalama ve paketleme duruş nedenleri raporu eklendi."
+            "Paketleme Birimi yenilendi: Hat bazlı üretim/verim kokpiti, 4 KKN sağlık göstergesi ve duruş nedenleri özeti eklendi.",
+            "Paketleme ekranına dönem (Bugün, Son 7 Gün, Bu Ay) ve sıralama (Verim, Duruş, Fire) filtreleri ile görsel hedef ilerleme barları eklendi.",
+            "Paketleme kartlarından tek dokunuşla Vardiya Kopyalama, Arıza Bildirimi Açma ve formda canlı verim önizleme desteği eklendi.",
+            "Türkçe sayı/fire biçimlendirmesi (10.000,0 kg) ve filtrelenmiş Excel dışa aktarma iyileştirildi."
           ],
           forceUpdate: false,
           updatedAtMillis: Date.now()
@@ -12409,7 +12778,7 @@
         window.currentAppVersion = payload;
         renderAppVersionBadge();
         closeModal("modalAppVersion");
-        alert("✅ Başarılı! Firebase sürümü şu an dağıtılan v1.4.5 (Kod: 16) APK ile eşitlendi.\n\nGüncellenen telefonlardaki popup penceresi anında kalktı.");
+        alert("✅ Başarılı! Firebase sürümü şu an dağıtılan v1.4.6 (Kod: 17) APK ile eşitlendi.\n\nGüncellenen telefonlardaki popup penceresi anında kalktı.");
       } catch (err) {
         alert("Eşitleme hatası: " + err.message);
       }

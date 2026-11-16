@@ -1,16 +1,16 @@
 {
-  "versionCode": 16,
-  "versionName": "1.4.5",
-  "releaseTag": "v1.4.5",
+  "versionCode": 17,
+  "versionName": "1.4.6",
+  "releaseTag": "v1.4.6",
   "releaseDate": "2026-11-15",
   "apkUrl": "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
   "fallbackUrl": "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-  "title": "Yeni Sürüm Mevcut (v1.4.5)",
+  "title": "Yeni Sürüm Mevcut (v1.4.6)",
   "changelog": [
-    "Çift yönlü arıza ↔ iş emri bağlantısı ve iş emri tamamlanınca bağlı arızanın otomatik kapatılması eklendi.",
-    "İş emri kapatılırken kullanılan yedek parçalar seçilerek Firestore stoktan tek seferlik düşüm desteği eklendi.",
-    "Arıza ve iş emri kartlarına canlı açık bekleme süresi sayaçları, hızlı saha filtreleri ve arıza şablonları eklendi.",
-    "Genel Bakış acil bakım/anomali şeridi, personelden yetki kopyalama, Yardımcı Tesisler'den tek dokunuşla arıza açma ve Paketleme duruş nedenleri raporu eklendi."
+    "Paketleme Birimi yenilendi: Hat bazlı üretim/verim kokpiti, 4 KKN sağlık göstergesi ve duruş nedenleri özeti eklendi.",
+    "Paketleme ekranına dönem (Bugün, Son 7 Gün, Bu Ay) ve sıralama (Verim, Duruş, Fire) filtreleri ile görsel hedef ilerleme barları eklendi.",
+    "Paketleme kartlarından tek dokunuşla Vardiya Kopyalama, Arıza Bildirimi Açma ve formda canlı verim önizleme desteği eklendi.",
+    "Türkçe sayı/fire biçimlendirmesi (10.000,0 kg) ve filtrelenmiş Excel dışa aktarma iyileştirildi."
   ],
   "forceUpdate": false
 }
