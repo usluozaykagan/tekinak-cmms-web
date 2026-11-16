@@ -1,15 +1,15 @@
 {
-  "versionCode": 20,
-  "versionName": "1.4.9",
-  "releaseTag": "v1.4.9",
+  "versionCode": 21,
+  "versionName": "1.5.0",
+  "releaseTag": "v1.5.0",
   "releaseDate": "2026-11-16",
   "apkUrl": "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
   "fallbackUrl": "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-  "title": "Yeni Sürüm Mevcut (v1.4.9)",
+  "title": "Yeni Sürüm Mevcut (v1.5.0)",
   "changelog": [
-    "2 Ton Su Arıtma Cihazı (Kazan İçin) tablosundaki 'Kontrol Eden' sütunu kaldırıldı.",
-    "Kazan ve Buhar Dairesi Günlük Kontrol Formu altındaki 'Bakım ve Onarım Şefi' alanı kaldırıldı.",
-    "Yardımcı Tesisler formları ve Membran & Filtre değişimi için görevli personel seçimi, yalnızca departmanı 'Yardımcı Tesisler' olan üyeleri listeleyen açılır menüye dönüştürüldü."
+    "Yeni 'Üretim' ana sekmesi ve altında yetkilendirmeye bağlı 'Üretim Verileri' ile 'Üretim Arızaları' sekmeleri eklendi.",
+    "Üretim Arızaları; Elektrik Bakım arızalarından tamamen bağımsız olarak hat numarası (101 Buhler, 102 Anselmo, 103 Fava, 104 Buhler, 201 Kesme, 202 Kesme) ve arıza gün/saat bilgisiyle kayıt altına alınabilir hale getirildi.",
+    "Arıza çözümünde zorunlu yapılan işlem açıklaması, üyelerden çoklu personel seçimi, isteğe bağlı açılır Değişen Parçalar bölümü ve duruş süresi hesaplamalı Üretim Arıza KPI Raporları eklendi."
   ],
   "forceUpdate": false
 }

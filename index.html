@@ -175,9 +175,9 @@
         </form>
 
         <div class="pt-3 text-center border-t border-slate-100 flex flex-col items-center justify-center gap-2">
-          <a href="app-release.apk?v=20" id="loginApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold rounded-lg border border-emerald-300 transition shadow-sm">
+          <a href="app-release.apk?v=21" id="loginApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold rounded-lg border border-emerald-300 transition shadow-sm">
             <i data-lucide="smartphone" class="w-3.5 h-3.5 text-emerald-600"></i>
-            <span id="loginApkBtnText">Android APK İndir (v1.4.9)</span>
+            <span id="loginApkBtnText">Android APK İndir (v1.5.0)</span>
           </a>
           <div class="text-[11px] text-slate-400 flex items-center justify-center gap-1.5">
             <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600"></i>
@@ -228,15 +228,15 @@
         </div>
 
         <!-- Android APK İndir Butonu (Tüm Kullanıcılar Görür) -->
-        <a href="app-release.apk?v=20" id="topApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-700/60 hover:bg-blue-600 text-white border border-blue-400/40 transition shadow-sm" title="Android Mobil APK İndir">
+        <a href="app-release.apk?v=21" id="topApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-700/60 hover:bg-blue-600 text-white border border-blue-400/40 transition shadow-sm" title="Android Mobil APK İndir">
           <i data-lucide="download" class="w-3.5 h-3.5 text-amber-300"></i>
-          <span id="topApkBtnText">APK İndir (v1.4.9)</span>
+          <span id="topApkBtnText">APK İndir (v1.5.0)</span>
         </a>
 
         <!-- Mobil Sürüm Yönetimi Butonu (Sadece usluozaykagan@gmail.com için görünür) -->
         <button id="topAppVersionBtn" onclick="openAppVersionModal()" style="display: none;" class="hidden items-center space-x-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-600/70 hover:bg-emerald-600 text-white border border-emerald-400/40 transition shadow-sm" title="Firebase Mobil Sürüm Kontrolü ve Güncelleme">
           <i data-lucide="smartphone" class="w-3.5 h-3.5 text-amber-300"></i>
-          <span id="topVersionBadgeText">Sürüm: v1.4.9</span>
+          <span id="topVersionBadgeText">Sürüm: v1.5.0</span>
         </button>
 
         <!-- Bildirim Sihirbazı Butonu -->
@@ -275,6 +275,10 @@
           <i data-lucide="gauge" class="w-4 h-4 text-sky-400"></i> Yardımcı Tesisler
           <span id="tabUtilityAlertBadge" class="bg-rose-600 text-white text-[10px] px-1.5 py-0.2 rounded-full font-bold ml-1 hidden">0</span>
         </button>
+        <button onclick="switchTab('production')" id="nav-production" class="nav-btn px-3.5 py-2.5 text-xs font-semibold border-b-2 border-transparent text-slate-300 hover:text-white flex items-center gap-1.5 whitespace-nowrap">
+          <i data-lucide="factory" class="w-4 h-4 text-orange-400"></i> Üretim
+          <span id="tabProductionBadge" class="bg-rose-600 text-white text-[10px] px-1.5 py-0.2 rounded-full font-bold ml-1 hidden">0</span>
+        </button>
         <button onclick="switchTab('members')" id="nav-members" class="nav-btn px-3.5 py-2.5 text-xs font-semibold border-b-2 border-transparent text-slate-300 hover:text-white flex items-center gap-1.5 whitespace-nowrap">
           <i data-lucide="contact" class="w-4 h-4 text-emerald-400"></i> Üyeler
           <span id="tabMembersBadge" class="bg-blue-600 text-white text-[10px] px-1.5 py-0.2 rounded-full font-bold ml-1">0</span>
@@ -298,11 +302,11 @@
         </span>
           <div>
             <div class="flex flex-wrap items-center gap-1.5 font-extrabold text-blue-950">
-              <span id="webUpdateBannerTitle">🚀 Yeni Mobil Sürüm Yayında: Tekinak CMMS v1.4.9</span>
-              <span id="webUpdateBannerCodeBadge" class="px-1.5 py-0.5 rounded bg-emerald-600 text-white text-[10px] font-bold">v1.4.9 (Kod: 20)</span>
+              <span id="webUpdateBannerTitle">🚀 Yeni Mobil Sürüm Yayında: Tekinak CMMS v1.5.0</span>
+              <span id="webUpdateBannerCodeBadge" class="px-1.5 py-0.5 rounded bg-emerald-600 text-white text-[10px] font-bold">v1.5.0 (Kod: 21)</span>
             </div>
             <div id="webUpdateBannerSummary" class="text-[11px] text-slate-600 mt-0.5">
-              2 Ton Arıtma 'Kontrol Eden' sütunu ve Kazan Formu 'Bakım ve Onarım Şefi' alanı kaldırıldı; Yardımcı Tesisler personel seçimi yalnızca Yardımcı Tesisler departmanı üyelerini listeleyen açılır sekme yapıldı.
+              Yeni Üretim sekmesi eklendi: yetkilendirmeye bağlı Üretim Verileri ve hat bazlı duruş KPI raporlamalı bağımsız Üretim Arızaları modülü yayında.
             </div>
           </div>
         </div>
@@ -310,9 +314,9 @@
           <button type="button" onclick="toggleWebUpdateChangelog()" class="px-2.5 py-1.5 bg-white hover:bg-slate-100 text-blue-800 border border-blue-200 rounded-lg font-bold text-[11px] transition">
             Yenilikler
           </button>
-          <a id="webUpdateBannerDownloadBtn" href="app-release.apk?v=20" download="tekinak-bakim.apk" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold text-[11px] shadow-sm flex items-center gap-1.5 transition">
+          <a id="webUpdateBannerDownloadBtn" href="app-release.apk?v=21" download="tekinak-bakim.apk" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold text-[11px] shadow-sm flex items-center gap-1.5 transition">
             <i data-lucide="download" class="w-3.5 h-3.5"></i>
-            <span id="webUpdateBannerDownloadText">APK İndir (v1.4.9)</span>
+            <span id="webUpdateBannerDownloadText">APK İndir (v1.5.0)</span>
           </a>
         <button type="button" onclick="dismissWebUpdateBanner()" class="p-1 text-slate-400 hover:text-slate-700 rounded-lg" title="Bu sürüm için gizle">
           <i data-lucide="x" class="w-4 h-4"></i>
@@ -1037,6 +1041,120 @@
       </div>
     </section>
 
+    <!-- 5.7 TAB: ÜRETİM (ÜRETİM VERİLERİ & ÜRETİM ARIZALARI) -->
+    <section id="pane-production" class="tab-pane hidden space-y-4">
+      <!-- Üst Dal Sekme Çubuğu -->
+      <div class="bg-white p-2 rounded-2xl border border-slate-200 custom-shadow flex flex-wrap items-center gap-2">
+        <button type="button" id="prodSubBtn_data" onclick="selectProductionBranch('data')" class="px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 flex items-center gap-1.5 transition">
+          <i data-lucide="bar-chart-3" class="w-4 h-4"></i> Üretim Verileri
+        </button>
+        <button type="button" id="prodSubBtn_faults" onclick="selectProductionBranch('faults')" class="px-3.5 py-2 rounded-xl text-xs font-bold bg-[#1E3A8A] text-amber-300 shadow-sm flex items-center gap-1.5 transition">
+          <i data-lucide="alert-triangle" class="w-4 h-4"></i> Üretim Arızaları
+          <span id="prodBranchOpenBadge" class="bg-rose-600 text-white text-[10px] px-1.5 py-0.2 rounded-full font-bold hidden">0</span>
+        </button>
+      </div>
+
+      <!-- Alt Sayfa Yetkisi Yoksa -->
+      <div id="prodNoSubPagesNotice" class="hidden bg-white rounded-2xl border border-amber-200 p-8 text-center space-y-2 custom-shadow">
+        <div class="text-sm font-bold text-amber-900">🔒 Üretim Alt Sayfa Yetkisi Kapalı</div>
+        <div class="text-xs text-slate-500">Üretim Verileri veya Üretim Arızaları alt sayfalarından en az birini görüntüleme yetkiniz bulunmamaktadır.</div>
+      </div>
+
+      <!-- DAL 1: ÜRETİM VERİLERİ (Şimdilik Boş) -->
+      <div id="prodDataPane" class="hidden space-y-4">
+        <div class="bg-white rounded-2xl border border-slate-200 custom-shadow p-10 text-center space-y-3">
+          <div class="w-14 h-14 mx-auto rounded-2xl bg-slate-100 text-[#1E3A8A] flex items-center justify-center">
+            <i data-lucide="bar-chart-3" class="w-7 h-7"></i>
+          </div>
+          <h3 class="text-base font-extrabold text-slate-900">Üretim Verileri</h3>
+          <p class="text-xs text-slate-500 max-w-md mx-auto">Bu alan yetkilendirilmiş kullanıcılar için ayrılmıştır. Üretim veri modülleri daha sonra eklenecektir.</p>
+        </div>
+      </div>
+
+      <!-- DAL 2: ÜRETİM ARIZALARI (Bağımsız Modül + KPI Raporları) -->
+      <div id="prodFaultsPane" class="hidden space-y-4">
+        <div id="prodFaultsReadOnlyBanner" class="hidden bg-amber-50 border border-amber-200 text-amber-900 px-3.5 py-2.5 rounded-xl text-xs font-semibold flex items-center gap-2">
+          <i data-lucide="lock" class="w-4 h-4 text-amber-700 flex-shrink-0"></i>
+          <span>Salt Okunur (Sadece Görüntüleme): Üretim arızası oluşturma, çözme veya silme yetkiniz kapalıdır.</span>
+        </div>
+
+        <!-- Başlık & Aksiyonlar -->
+        <div class="bg-white p-4 rounded-2xl border border-slate-200 custom-shadow flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <div>
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="px-2 py-0.5 bg-orange-100 text-orange-900 border border-orange-300 rounded text-[10px] font-black">⚙️ BAĞIMSIZ ÜRETİM ARIZALARI</span>
+              <h2 class="text-base font-extrabold text-slate-900">Üretim Arızaları &amp; Hat Duruş KPI Takibi</h2>
+            </div>
+            <p class="text-xs text-slate-500 mt-0.5">101 Buhler, 102 Anselmo, 103 Fava, 104 Buhler, 201 Kesme, 202 Kesme hatlarına ait bağımsız arıza ve duruş süresi kayıtları</p>
+          </div>
+          <div class="flex flex-wrap items-center gap-2 w-full sm:w-auto">
+            <button type="button" id="btnProdFaultExcel" onclick="exportProductionFaultsExcel()" class="btn-excel-export px-3 py-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 rounded-xl text-xs font-bold flex items-center gap-1.5 transition">
+              <i data-lucide="file-spreadsheet" class="w-3.5 h-3.5"></i> Excel (.xlsx)
+            </button>
+            <button type="button" id="btnNewProdFault" onclick="openNewProdFaultModal()" class="px-4 py-2 bg-[#1E3A8A] hover:bg-blue-900 text-white rounded-xl text-xs font-bold shadow flex items-center gap-1.5 transition">
+              <i data-lucide="plus" class="w-4 h-4"></i> + Yeni Üretim Arızası
+            </button>
+          </div>
+        </div>
+
+        <!-- İç Görünüm Seçici: Arıza Kayıtları / KPI Raporları -->
+        <div class="flex flex-wrap items-center gap-2">
+          <button type="button" id="prodFaultViewBtn_list" onclick="setProductionFaultViewMode('list')" class="px-3.5 py-2 rounded-xl text-xs font-bold bg-[#1E3A8A] text-white shadow-sm flex items-center gap-1.5 transition">
+            <i data-lucide="list-checks" class="w-3.5 h-3.5"></i> Arıza Kayıtları
+          </button>
+          <button type="button" id="prodFaultViewBtn_kpi" onclick="setProductionFaultViewMode('kpi')" class="px-3.5 py-2 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 flex items-center gap-1.5 transition">
+            <i data-lucide="activity" class="w-3.5 h-3.5"></i> Üretim Arıza KPI Raporları
+          </button>
+        </div>
+
+        <!-- Filtre Şeridi -->
+        <div class="bg-white p-3.5 rounded-2xl border border-slate-200 custom-shadow grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-xs">
+          <div class="relative">
+            <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-2.5"></i>
+            <input type="text" id="prodFaultSearchInput" oninput="renderProductionTab()" placeholder="Hat, arıza açıklaması, işlem veya kişi ara..." class="w-full pl-9 pr-3 py-2 border border-slate-300 rounded-xl outline-none focus:ring-2 focus:ring-[#1E3A8A]">
+          </div>
+          <select id="prodFaultLineFilter" onchange="renderProductionTab()" class="border border-slate-300 rounded-xl px-3 py-2 outline-none focus:ring-2 focus:ring-[#1E3A8A] font-semibold text-slate-700 bg-white">
+            <option value="ALL">Tüm Hatlar</option>
+            <option value="101 Buhler">101 Buhler</option>
+            <option value="102 Anselmo">102 Anselmo</option>
+            <option value="103 Fava">103 Fava</option>
+            <option value="104 Buhler">104 Buhler</option>
+            <option value="201 Kesme">201 Kesme</option>
+            <option value="202 Kesme">202 Kesme</option>
+          </select>
+          <select id="prodFaultStatusFilter" onchange="renderProductionTab()" class="border border-slate-300 rounded-xl px-3 py-2 outline-none focus:ring-2 focus:ring-[#1E3A8A] font-semibold text-slate-700 bg-white">
+            <option value="ALL">Tüm Durumlar</option>
+            <option value="Açık">Açık (Devam Eden)</option>
+            <option value="Çözüldü">Çözüldü</option>
+          </select>
+        </div>
+
+        <!-- GÖRÜNÜM A: ARIZA KAYITLARI LİSTESİ -->
+        <div id="prodFaultsListView" class="space-y-3">
+          <div id="prodFaultsContainer" class="grid grid-cols-1 lg:grid-cols-2 gap-4"></div>
+        </div>
+
+        <!-- GÖRÜNÜM B: ÜRETİM ARIZA KPI RAPORLARI -->
+        <div id="prodFaultsKpiView" class="hidden space-y-4">
+          <div id="prodKpiCards" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3"></div>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            <div class="bg-white p-4 rounded-2xl border border-slate-200 custom-shadow space-y-3">
+              <h4 class="font-bold text-xs text-[#1E3A8A] uppercase tracking-wider flex items-center gap-1.5">
+                <i data-lucide="clock" class="w-4 h-4"></i> Hat Bazlı Toplam Duruş Süreleri
+              </h4>
+              <div id="prodKpiLines" class="space-y-3 text-xs"></div>
+            </div>
+            <div class="bg-white p-4 rounded-2xl border border-slate-200 custom-shadow space-y-3">
+              <h4 class="font-bold text-xs text-emerald-800 uppercase tracking-wider flex items-center gap-1.5">
+                <i data-lucide="users" class="w-4 h-4"></i> Müdahale Eden Personel Özeti
+              </h4>
+              <div id="prodKpiPersonnel" class="space-y-2.5 text-xs"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- 6. TAB: FABRİKA ÜYELERİ (MEMBERS - Android MembersScreen ile Birebir) -->
     <section id="pane-members" class="tab-pane hidden space-y-4">
       <!-- Üst Başlık & Yönetici Rozeti -->
@@ -1400,7 +1518,7 @@
         <div class="p-2.5 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-between text-[11px] text-slate-600">
           <div class="flex items-center gap-1.5 font-semibold text-slate-700">
             <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600"></i>
-            <span id="profSystemVersionText">Sistem Sürümü: v1.4.9</span>
+            <span id="profSystemVersionText">Sistem Sürümü: v1.5.0</span>
           </div>
           <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-300">Güncel ✓</span>
         </div>
@@ -1705,7 +1823,7 @@
             <div>
               <div class="flex items-center gap-2">
                 <label class="block font-bold text-indigo-950 text-[11px]">Sekme &amp; Alt Sayfa Yetki Matrisi</label>
-                <span id="adminNewMatrixSummary" class="text-[10px] font-bold px-2 py-0.5 rounded-lg bg-white text-blue-900 border border-indigo-200">0/5 Sekme • 0/17 Alt Gör</span>
+                <span id="adminNewMatrixSummary" class="text-[10px] font-bold px-2 py-0.5 rounded-lg bg-white text-blue-900 border border-indigo-200">0/6 Sekme • 0/19 Alt Gör</span>
               </div>
               <div class="text-[10px] text-indigo-700 mt-0.5">Sekme satırına tıklayarak alt sayfaların Gör / Düzenle detaylarını açabilirsiniz. Yeni üyelerde tüm yetkiler kapalıdır.</div>
             </div>
@@ -1714,6 +1832,7 @@
               <button type="button" onclick="applyTabMatrixPreset('adminNew', 'ELECTRICAL_ONLY')" class="px-2 py-1 bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-300 rounded-lg text-[10px] font-bold transition">Elektrik Bakım</button>
               <button type="button" onclick="applyTabMatrixPreset('adminNew', 'PACKAGING_ONLY')" class="px-2 py-1 bg-purple-50 hover:bg-purple-100 text-purple-800 border border-purple-300 rounded-lg text-[10px] font-bold transition">Paketleme</button>
               <button type="button" onclick="applyTabMatrixPreset('adminNew', 'UTILITY_ONLY')" class="px-2 py-1 bg-sky-50 hover:bg-sky-100 text-sky-800 border border-sky-300 rounded-lg text-[10px] font-bold transition">Yardımcı Tesisler</button>
+              <button type="button" onclick="applyTabMatrixPreset('adminNew', 'PRODUCTION_ONLY')" class="px-2 py-1 bg-orange-50 hover:bg-orange-100 text-orange-800 border border-orange-300 rounded-lg text-[10px] font-bold transition">Üretim</button>
               <button type="button" onclick="applyTabMatrixPreset('adminNew', 'NONE')" class="px-2 py-1 bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 rounded-lg text-[10px] font-bold transition">Tümünü Kapat</button>
               <button type="button" onclick="applyTabMatrixPreset('adminNew', 'ALL')" class="px-2 py-1 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 rounded-lg text-[10px] font-bold transition">Tümünü Aç</button>
             </div>
@@ -1849,6 +1968,7 @@
               <button type="button" onclick="applyTabMatrixPreset('editPerm', 'ELECTRICAL_ONLY')" class="px-2 py-1 bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-300 rounded-lg text-[10px] font-bold transition">Elektrik Bakım</button>
               <button type="button" onclick="applyTabMatrixPreset('editPerm', 'PACKAGING_ONLY')" class="px-2 py-1 bg-purple-50 hover:bg-purple-100 text-purple-800 border border-purple-300 rounded-lg text-[10px] font-bold transition">Paketleme</button>
               <button type="button" onclick="applyTabMatrixPreset('editPerm', 'UTILITY_ONLY')" class="px-2 py-1 bg-sky-50 hover:bg-sky-100 text-sky-800 border border-sky-300 rounded-lg text-[10px] font-bold transition">Yardımcı Tesisler</button>
+              <button type="button" onclick="applyTabMatrixPreset('editPerm', 'PRODUCTION_ONLY')" class="px-2 py-1 bg-orange-50 hover:bg-orange-100 text-orange-800 border border-orange-300 rounded-lg text-[10px] font-bold transition">Üretim</button>
               <button type="button" onclick="applyTabMatrixPreset('editPerm', 'NONE')" class="px-2 py-1 bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 rounded-lg text-[10px] font-bold transition">Tümünü Kapat</button>
               <button type="button" onclick="applyTabMatrixPreset('editPerm', 'ALL')" class="px-2 py-1 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 rounded-lg text-[10px] font-bold transition">Tümünü Aç</button>
             </div>
@@ -1959,10 +2079,11 @@
           <div class="flex flex-wrap items-center justify-between gap-2">
             <div class="flex items-center gap-2">
               <span class="font-bold text-indigo-950 text-[11px]">Varsayılan Sekme &amp; Alt Sayfa Yetki Matrisi</span>
-              <span id="roleEditMatrixSummary" class="text-[10px] font-bold px-2 py-0.5 rounded-lg bg-white text-blue-900 border border-indigo-200">0/5 Sekme</span>
+              <span id="roleEditMatrixSummary" class="text-[10px] font-bold px-2 py-0.5 rounded-lg bg-white text-blue-900 border border-indigo-200">0/6 Sekme</span>
             </div>
             <div class="flex flex-wrap gap-1">
               <button type="button" onclick="applyTabMatrixPreset('roleEdit', 'DASHBOARD_ONLY')" class="px-2 py-1 bg-white hover:bg-indigo-100 text-indigo-900 border border-indigo-300 rounded-lg text-[10px] font-bold">Genel Bakış</button>
+              <button type="button" onclick="applyTabMatrixPreset('roleEdit', 'PRODUCTION_ONLY')" class="px-2 py-1 bg-orange-50 hover:bg-orange-100 text-orange-800 border border-orange-300 rounded-lg text-[10px] font-bold">Üretim</button>
               <button type="button" onclick="applyTabMatrixPreset('roleEdit', 'NONE')" class="px-2 py-1 bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 rounded-lg text-[10px] font-bold">Tümünü Kapat</button>
               <button type="button" onclick="applyTabMatrixPreset('roleEdit', 'ALL')" class="px-2 py-1 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 rounded-lg text-[10px] font-bold">Tümünü Aç</button>
             </div>
@@ -2102,8 +2223,8 @@
         <div>
           <div class="text-[11px] font-bold text-emerald-800 uppercase tracking-wider">Aktif Firebase Sürümü</div>
           <div class="text-sm font-extrabold text-emerald-950 flex items-center gap-2" id="verModalCurrentBadge">
-            <span id="verModalVersionName">v1.4.9</span>
-            <span id="verModalVersionCode" class="text-xs px-2 py-0.5 bg-emerald-200 text-emerald-800 rounded-md font-semibold">Kod: 20</span>
+            <span id="verModalVersionName">v1.5.0</span>
+            <span id="verModalVersionCode" class="text-xs px-2 py-0.5 bg-emerald-200 text-emerald-800 rounded-md font-semibold">Kod: 21</span>
           </div>
         </div>
         <div class="text-right text-[11px] text-emerald-700">
@@ -2116,18 +2237,18 @@
         <div class="grid grid-cols-2 gap-3">
           <div>
             <label class="block font-semibold text-slate-700 mb-1">Yeni Sürüm Kodu (Build Code) *</label>
-            <input type="number" id="verFormCode" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 20" min="1">
+            <input type="number" id="verFormCode" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 21" min="1">
             <span class="text-[10px] text-slate-400">Yeni sürüm için kod mevcut koddan büyük olmalıdır</span>
           </div>
           <div>
             <label class="block font-semibold text-slate-700 mb-1">Yeni Sürüm Adı (Version Name) *</label>
-            <input type="text" id="verFormName" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 1.4.9">
+            <input type="text" id="verFormName" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 1.5.0">
           </div>
         </div>
 
         <div>
           <label class="block font-semibold text-slate-700 mb-1">Güncelleme Bildirim Başlığı *</label>
-          <input type="text" id="verFormTitle" required class="w-full px-3 py-2 border rounded-xl text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: Yeni Sürüm Yayınlandı (v1.4.9)">
+          <input type="text" id="verFormTitle" required class="w-full px-3 py-2 border rounded-xl text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: Yeni Sürüm Yayınlandı (v1.5.0)">
         </div>
 
         <div>
@@ -2146,9 +2267,9 @@
         </div>
 
         <div class="flex items-center justify-between gap-2 pt-2 border-t">
-          <button type="button" onclick="syncWithDeployedApk()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs rounded-xl font-bold border border-slate-300 flex items-center gap-1.5" title="Firebase'i şu an dağıtılan v1.4.9 (Kod: 20) APK ile eşitler ve güncellenen telefonlardaki popup'ı kapatır">
+          <button type="button" onclick="syncWithDeployedApk()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs rounded-xl font-bold border border-slate-300 flex items-center gap-1.5" title="Firebase'i şu an dağıtılan v1.5.0 (Kod: 21) APK ile eşitler ve güncellenen telefonlardaki popup'ı kapatır">
             <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-blue-600"></i>
-            <span>Mevcut APK ile Eşitle (v1.4.9 - Kod: 20)</span>
+            <span>Mevcut APK ile Eşitle (v1.5.0 - Kod: 21)</span>
           </button>
           <div class="flex gap-2">
             <button type="button" onclick="closeModal('modalAppVersion')" class="px-4 py-2 border rounded-xl font-semibold text-slate-600 hover:bg-slate-50">Kapat</button>
@@ -2494,6 +2615,142 @@
     </div>
   </div>
 
+  <!-- MODAL: YENİ ÜRETİM ARIZASI OLUŞTUR -->
+  <div id="modalNewProdFault" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl space-y-4 max-h-[92vh] overflow-y-auto">
+      <div class="flex items-center justify-between border-b pb-3">
+        <div>
+          <h3 class="font-bold text-base text-[#1E3A8A] flex items-center gap-2">
+            <i data-lucide="factory" class="w-5 h-5 text-orange-600"></i> Yeni Üretim Arızası Kaydı
+          </h3>
+          <p class="text-[11px] text-slate-500 mt-0.5">Elektrik Bakım arızalarından tamamen bağımsız olarak üretim hattı arızası oluşturun</p>
+        </div>
+        <button type="button" onclick="closeModal('modalNewProdFault')" class="text-slate-400 hover:text-slate-600"><i data-lucide="x" class="w-5 h-5"></i></button>
+      </div>
+      <form onsubmit="submitNewProdFault(event)" class="space-y-3 text-xs">
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Hat Numarası *</label>
+          <select id="pfFormLine" required class="w-full border border-slate-300 rounded-xl px-3 py-2.5 bg-white font-bold text-slate-800 focus:ring-2 focus:ring-[#1E3A8A] outline-none">
+            <option value="101 Buhler">101 Buhler</option>
+            <option value="102 Anselmo">102 Anselmo</option>
+            <option value="103 Fava">103 Fava</option>
+            <option value="104 Buhler">104 Buhler</option>
+            <option value="201 Kesme">201 Kesme</option>
+            <option value="202 Kesme">202 Kesme</option>
+          </select>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Arıza Günü *</label>
+            <input type="date" id="pfFormDate" required class="w-full border border-slate-300 rounded-xl px-3 py-2 bg-white font-semibold text-slate-800 focus:ring-2 focus:ring-[#1E3A8A] outline-none">
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Arıza Saati *</label>
+            <input type="time" id="pfFormTime" required class="w-full border border-slate-300 rounded-xl px-3 py-2 bg-white font-semibold text-slate-800 focus:ring-2 focus:ring-[#1E3A8A] outline-none">
+          </div>
+        </div>
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Arıza Açıklaması *</label>
+          <textarea id="pfFormDesc" required rows="3" placeholder="Arızanın detayını ve gözlemlenen durumu yazınız..." class="w-full border border-slate-300 rounded-xl px-3 py-2 outline-none focus:ring-2 focus:ring-[#1E3A8A]"></textarea>
+        </div>
+        <div class="flex justify-end gap-2 pt-2 border-t">
+          <button type="button" onclick="closeModal('modalNewProdFault')" class="px-4 py-2 border rounded-xl font-semibold text-slate-600 hover:bg-slate-50">İptal</button>
+          <button type="submit" id="btnSubmitNewProdFault" class="px-5 py-2 bg-[#1E3A8A] hover:bg-blue-900 text-white rounded-xl font-bold shadow">Arızayı Kaydet</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: ÜRETİM ARIZASINI ÇÖZ (SÜRE FARKI, YAPILAN İŞLEM ZORUNLU, ÜYELERDEN YAPAN KİŞİLER, İSTEĞE BAĞLI DEĞİŞEN PARÇALAR) -->
+  <div id="modalResolveProdFault" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-xl w-full p-6 shadow-2xl space-y-4 max-h-[92vh] overflow-y-auto">
+      <div class="flex items-center justify-between border-b pb-3">
+        <div>
+          <h3 class="font-bold text-base text-emerald-800 flex items-center gap-2">
+            <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-600"></i> Üretim Arızasını Çöz
+          </h3>
+          <p id="pfResHeaderMeta" class="text-[11px] text-slate-500 mt-0.5"></p>
+        </div>
+        <button type="button" onclick="closeModal('modalResolveProdFault')" class="text-slate-400 hover:text-slate-600"><i data-lucide="x" class="w-5 h-5"></i></button>
+      </div>
+      <form onsubmit="submitResolveProdFault(event)" class="space-y-3 text-xs">
+        <input type="hidden" id="pfResFaultId" value="">
+        <input type="hidden" id="pfResStartMillis" value="0">
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Çözüm Günü *</label>
+            <input type="date" id="pfResDate" required oninput="updateProdResolveDowntimePreview()" class="w-full border border-slate-300 rounded-xl px-3 py-2 bg-white font-semibold text-slate-800 focus:ring-2 focus:ring-emerald-600 outline-none">
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Çözüm Saati *</label>
+            <input type="time" id="pfResTime" required oninput="updateProdResolveDowntimePreview()" class="w-full border border-slate-300 rounded-xl px-3 py-2 bg-white font-semibold text-slate-800 focus:ring-2 focus:ring-emerald-600 outline-none">
+          </div>
+        </div>
+
+        <div id="pfResDurationPreview" class="p-3 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-between">
+          <span class="font-bold text-blue-950">⏱️ Hesaplanan Duruş Süresi:</span>
+          <span id="pfResDurationValue" class="font-black text-sm text-[#1E3A8A]">0 dk</span>
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Yapılan İşlem Açıklaması <span class="text-rose-600">* (Zorunlu)</span></label>
+          <textarea id="pfResNotes" required rows="3" placeholder="Arızayı gidermek için yapılan işlemi detaylı açıklayınız..." class="w-full border border-slate-300 rounded-xl px-3 py-2 outline-none focus:ring-2 focus:ring-emerald-600"></textarea>
+        </div>
+
+        <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 space-y-2">
+          <div class="flex items-center justify-between">
+            <label class="font-bold text-slate-800">👥 Yapan Kişiler (Üyelerden Seçiniz) <span class="text-rose-600">*</span></label>
+            <span id="pfResMembersCount" class="text-[10px] font-bold px-2 py-0.5 rounded bg-blue-100 text-blue-900">0 Seçili</span>
+          </div>
+          <div id="pfResMembersList" class="grid grid-cols-1 sm:grid-cols-2 gap-1.5 max-h-40 overflow-y-auto p-1"></div>
+        </div>
+
+        <!-- İsteğe Bağlı Açılır Değişen Parçalar Bölümü -->
+        <div class="border border-slate-200 rounded-xl overflow-hidden">
+          <button type="button" onclick="toggleProdFaultPartsAccordion()" class="w-full px-3.5 py-2.5 bg-slate-50 hover:bg-slate-100 flex items-center justify-between text-left transition">
+            <div class="flex items-center gap-2">
+              <span class="font-bold text-slate-800">🔩 Değişen Parçalar</span>
+              <span class="text-[10px] text-slate-500 font-semibold">(İsteğe bağlı — zorunlu değildir)</span>
+              <span id="pfResPartsCountBadge" class="hidden px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-800 text-[10px] font-bold">0 Parça</span>
+            </div>
+            <span id="pfResPartsChevron" class="text-slate-500 font-bold text-xs">▼ Aç</span>
+          </button>
+          <div id="pfResPartsBody" class="hidden p-3 bg-white space-y-2.5 border-t border-slate-200">
+            <div class="flex flex-wrap gap-2 items-end">
+              <div class="flex-1 min-w-[180px]">
+                <label class="block text-[10px] font-bold text-slate-500 mb-1">Depodan Yedek Parça Seç</label>
+                <select id="pfResInventorySelect" class="w-full border border-slate-300 rounded-lg px-2.5 py-1.5 bg-white text-xs"></select>
+              </div>
+              <div class="w-20">
+                <label class="block text-[10px] font-bold text-slate-500 mb-1">Adet</label>
+                <input type="number" id="pfResInventoryQty" value="1" min="1" class="w-full border border-slate-300 rounded-lg px-2 py-1.5 text-xs">
+              </div>
+              <button type="button" onclick="addProdFaultInventoryPart()" class="px-3 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-bold text-xs">+ Ekle</button>
+            </div>
+            <div class="flex flex-wrap gap-2 items-end pt-2 border-t border-slate-100">
+              <div class="flex-1 min-w-[180px]">
+                <label class="block text-[10px] font-bold text-slate-500 mb-1">Veya Manuel Parça Adı Girin</label>
+                <input type="text" id="pfResCustomPartName" placeholder="Örn: Konveyör Zincir Baklası" class="w-full border border-slate-300 rounded-lg px-2.5 py-1.5 text-xs">
+              </div>
+              <div class="w-20">
+                <label class="block text-[10px] font-bold text-slate-500 mb-1">Adet</label>
+                <input type="number" id="pfResCustomPartQty" value="1" min="1" class="w-full border border-slate-300 rounded-lg px-2 py-1.5 text-xs">
+              </div>
+              <button type="button" onclick="addProdFaultCustomPart()" class="px-3 py-1.5 bg-slate-700 hover:bg-slate-800 text-white rounded-lg font-bold text-xs">+ Manuel Ekle</button>
+            </div>
+            <div id="pfResSelectedPartsList" class="space-y-1.5"></div>
+          </div>
+        </div>
+
+        <div class="flex justify-end gap-2 pt-2 border-t">
+          <button type="button" onclick="closeModal('modalResolveProdFault')" class="px-4 py-2 border rounded-xl font-semibold text-slate-600 hover:bg-slate-50">İptal</button>
+          <button type="submit" id="btnSubmitResolveProdFault" class="px-5 py-2 bg-emerald-700 hover:bg-emerald-600 text-white rounded-xl font-bold shadow">Çözüldü Olarak Kaydet</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <!-- MODAL: SOHBET FOTOĞRAF ÖNİZLEME (LIGHTBOX) -->
   <div id="modalImagePreview" class="fixed inset-0 bg-black/85 z-[60] hidden flex items-center justify-center p-4" onclick="closeModal('modalImagePreview')">
     <div class="relative max-w-3xl max-h-[90vh]" onclick="event.stopPropagation()">
@@ -2554,8 +2811,8 @@
 
     // ================= MERKEZİ YETKİ & GÖRME/DÜZENLEME MOTORU =================
     window.LEGACY_ELECTRICAL_TABS = ["fault_reports", "work_orders", "schedule", "analytics"];
-    window.MASTER_ALL_TABS = ["dashboard", "electrical_maintenance", "packaging_unit", "utility_controls", "members", "team"];
-    window.ALL_CONFIGURABLE_TABS = ["dashboard", "electrical_maintenance", "packaging_unit", "utility_controls", "members"];
+    window.MASTER_ALL_TABS = ["dashboard", "electrical_maintenance", "packaging_unit", "utility_controls", "production", "members", "team"];
+    window.ALL_CONFIGURABLE_TABS = ["dashboard", "electrical_maintenance", "packaging_unit", "utility_controls", "production", "members"];
 
     window.TAB_ID_MAP = {
       dashboard: "dashboard",
@@ -2572,6 +2829,7 @@
       packaging_unit: "packaging_unit",
       utilityControls: "utility_controls",
       utility_controls: "utility_controls",
+      production: "production",
       members: "members",
       team: "team"
     };
@@ -2584,6 +2842,7 @@
       analytics: "electricalMaintenance",
       packaging_unit: "packagingUnit",
       utility_controls: "utilityControls",
+      production: "production",
       members: "members",
       team: "team"
     };
@@ -2592,6 +2851,7 @@
       { suffix: "Electrical", id: "electrical_maintenance", icon: "⚡", title: "Elektrik Bakım", hint: "Arıza, İş Emirleri, Periyodik Bakım ve Analiz" },
       { suffix: "Packaging", id: "packaging_unit", icon: "📦", title: "Paketleme Birimi", hint: "Makarna hatları vardiya, gramaj ve KKN kontrolleri" },
       { suffix: "Utility", id: "utility_controls", icon: "🏭", title: "Yardımcı Tesisler", hint: "FR-38, FR-129, FR-37, FR-41 ve Referans Limitleri" },
+      { suffix: "Production", id: "production", icon: "⚙️", title: "Üretim", hint: "Üretim Verileri ve Bağımsız Üretim Arızaları" },
       { suffix: "Members", id: "members", icon: "👥", title: "Üyeler", hint: "Personel rehberi ve üye gizlilik / silme yönetimi" }
     ];
 
@@ -2843,7 +3103,7 @@
       }
     };
 
-    // 17 Kanonik Alt Sayfa Tanımı (Android AppSubPage ile Birebir)
+    // 19 Kanonik Alt Sayfa Tanımı (Android AppSubPage ile Birebir)
     window.SUB_PAGE_SCHEMA = [
       { id: "dash_kpis", parentTab: "dashboard", title: "Departman KPI & Özet Kartları", hint: "Gör: Özet metrik kartları • Düzenle: Departman önizleme seçicisi" },
       { id: "dash_quick_actions", parentTab: "dashboard", title: "Hızlı İşlemler", hint: "Gör: Hızlı işlem şeridi • Düzenle: Arıza / İş Emri kısayol butonları" },
@@ -2863,6 +3123,9 @@
       { id: "util_boiler", parentTab: "utility_controls", title: "Kazan & Buhar Dairesi (FR-37)", hint: "Gör: FR-37 kazan/buhar tablosu • Düzenle: Veri girişi ve buluta kayıt" },
       { id: "util_water", parentTab: "utility_controls", title: "Su Arıtma Tesisi (FR-41)", hint: "Gör: FR-41 su arıtma tablosu • Düzenle: Veri girişi ve buluta kayıt" },
       { id: "util_references", parentTab: "utility_controls", title: "Referans Alt/Üst Limit Kuralları", hint: "Gör: Referans aralık ve uyarı bandı • Düzenle: Limit kurallarını düzenleme" },
+
+      { id: "prod_data", parentTab: "production", title: "Üretim Verileri", hint: "Gör: Üretim verileri sekmesi • Düzenle: Üretim verisi ekleme ve düzenleme" },
+      { id: "prod_faults", parentTab: "production", title: "Üretim Arızaları", hint: "Gör: Üretim arızaları ve duruş KPI raporları • Düzenle: Kayıt, çözüm ve silme" },
 
       { id: "members_directory", parentTab: "members", title: "Personel Rehberi & İletişim", hint: "Gör: Telefon, e-posta ve iletişim • Düzenle: Rehber iletişim aksiyonları" },
       { id: "members_management", parentTab: "members", title: "Üye Görünürlük & Silme Yönetimi", hint: "Gör: Gizlilik durum rozetleri • Düzenle: Üye gizleme ve silme" }
@@ -3483,6 +3746,7 @@
       const pkgSubs = window.getSubPagesForTab("packaging_unit").map(s => s.id);
       const utilViewSubs = window.getSubPagesForTab("utility_controls").map(s => s.id);
       const utilEditSubs = utilViewSubs.filter(id => id !== "util_references");
+      const prodSubs = window.getSubPagesForTab("production").map(s => s.id);
 
       let aTabs = [], eTabs = [], aSubs = [], eSubs = [];
       if (preset === "DASHBOARD_ONLY") {
@@ -3503,6 +3767,11 @@
         eTabs = ["utility_controls"];
         aSubs = [...dashSubs, ...utilViewSubs];
         eSubs = [...utilEditSubs];
+      } else if (preset === "PRODUCTION_ONLY") {
+        aTabs = ["dashboard", "production"];
+        eTabs = ["production"];
+        aSubs = [...dashSubs, ...prodSubs];
+        eSubs = [...prodSubs];
       } else if (preset === "ALL") {
         aTabs = [...window.ALL_CONFIGURABLE_TABS];
         eTabs = [...window.ALL_CONFIGURABLE_TABS];
@@ -3847,7 +4116,7 @@
     };
 
     window.getFirstAllowedNavTabId = function(u = window.currentUser) {
-      const order = ["dashboard", "electricalMaintenance", "packagingUnit", "utilityControls", "members", "team"];
+      const order = ["dashboard", "electricalMaintenance", "packagingUnit", "utilityControls", "production", "members", "team"];
       for (const navTab of order) {
         if (window.canUserViewTab(navTab, u)) return navTab;
       }
@@ -3920,6 +4189,7 @@
       setTabVisibility("nav-electricalMaintenance", window.canUserViewTab("electrical_maintenance", u));
       setTabVisibility("nav-packagingUnit", window.canUserViewTab("packaging_unit", u));
       setTabVisibility("nav-utilityControls", window.canUserViewTab("utility_controls", u));
+      setTabVisibility("nav-production", window.canUserViewTab("production", u));
       setTabVisibility("nav-members", window.canUserViewTab("members", u));
       setTabVisibility("nav-team", window.isMasterUser(u));
 
@@ -3981,6 +4251,15 @@
       if (btnUtilBottom) btnUtilBottom.classList.toggle("hidden", !canUtilFormView || !canUtilFormEdit);
       const btnUtilRefs = document.getElementById("btnUtilityReferenceEditor");
       if (btnUtilRefs) btnUtilRefs.classList.toggle("hidden", !canUtilRefEdit);
+
+      // Üretim alt sayfaları
+      const hasProdView = window.canUserViewTab("production", u);
+      const canProdFaultsView = window.canUserViewSubPage("prod_faults", u);
+      const canProdFaultsEdit = window.canUserEditSubPage("prod_faults", u);
+      const prodBanner = document.getElementById("prodFaultsReadOnlyBanner");
+      if (prodBanner) prodBanner.classList.toggle("hidden", !hasProdView || !canProdFaultsView || canProdFaultsEdit);
+      const btnNewProd = document.getElementById("btnNewProdFault");
+      if (btnNewProd) btnNewProd.classList.toggle("hidden", !(hasProdView && canProdFaultsView && canProdFaultsEdit));
 
       const canMembersEdit = window.canUserEditSubPage("members_management", u) || window.canUserEditSubPage("members_directory", u);
       const membersBadge = document.getElementById("membersModeBadge");
@@ -4667,6 +4946,7 @@
     window.allUtilityReferences = {};
     window.allUtilityAlerts = [];
     window.allPackagingLogs = [];
+    window.allProductionFaults = [];
     window.allSpareParts = [];
     window.allUsers = [];
     window.firestoreDb = db;
@@ -4871,6 +5151,29 @@
         if (!window.allSpareParts.length) window.allSpareParts = [...DEFAULT_SPARE_PARTS];
       }
 
+      // 3.10 Bağımsız Üretim Arızaları (production_faults)
+      try {
+        onSnapshot(collection(db, "production_faults"), (snapshot) => {
+          const list = [];
+          snapshot.forEach(docSnap => {
+            list.push({ ...docSnap.data(), docId: docSnap.id, id: docSnap.id });
+          });
+          list.sort((a, b) => (b.faultOccurredAtMillis || b.createdAtMillis || 0) - (a.faultOccurredAtMillis || a.createdAtMillis || 0));
+          window.allProductionFaults = list;
+          if (typeof window.updateProductionBadges === "function") {
+            window.updateProductionBadges();
+          }
+          const pane = document.getElementById("pane-production");
+          if (pane && !pane.classList.contains("hidden") && typeof window.renderProductionTab === "function") {
+            window.renderProductionTab();
+          }
+        }, (err) => {
+          console.warn("production_faults listener error:", err);
+        });
+      } catch (e) {
+        console.warn("Failed to listen to production_faults:", e);
+      }
+
       // 4. Saha Chat Mesajları (chat_messages)
       onSnapshot(collection(db, "chat_messages"), (snapshot) => {
         window.allChatMessages = [];
@@ -4968,6 +5271,7 @@
               }
               if (currentTabId === "packagingUnit" && typeof window.renderPackagingUnit === "function") window.renderPackagingUnit();
               if (currentTabId === "utilityControls" && typeof window.renderUtilityControls === "function") window.renderUtilityControls();
+              if (currentTabId === "production" && typeof window.renderProductionTab === "function") window.renderProductionTab();
               if (currentTabId === "members") renderMembers();
               if (currentTabId === "team") renderTeam();
             }
@@ -4987,7 +5291,7 @@
       });
 
       // 6. Mobil Uygulama Sürüm Takibi ve Firebase Yönetimi (app_version/current)
-      let hasAutoSyncedV20 = false;
+      let hasAutoSyncedV21 = false;
       try {
         onSnapshot(doc(db, "app_version", "current"), async (docSnap) => {
           if (docSnap && docSnap.exists()) {
@@ -4995,15 +5299,15 @@
             window.currentAppVersion = data;
             renderAppVersionBadge();
 
-            // Sürüm kodu 20'den küçükse otomatik olarak v1.4.9 (Kod: 20)'a yükselt
+            // Sürüm kodu 21'den küçükse otomatik olarak v1.5.0 (Kod: 21)'a yükselt
             const verCodeNum = Number(data.versionCode || 0);
-            if (verCodeNum < 20 && !hasAutoSyncedV20) {
-              hasAutoSyncedV20 = true;
-              console.log("Firestore app_version sürüm kodu 20 (v1.4.9) olarak otomatik eşitleniyor...");
+            if (verCodeNum < 21 && !hasAutoSyncedV21) {
+              hasAutoSyncedV21 = true;
+              console.log("Firestore app_version sürüm kodu 21 (v1.5.0) olarak otomatik eşitleniyor...");
               seedInitialAppVersionInFirebase();
             }
-          } else if (!hasAutoSyncedV20) {
-            hasAutoSyncedV20 = true;
+          } else if (!hasAutoSyncedV21) {
+            hasAutoSyncedV21 = true;
             seedInitialAppVersionInFirebase();
           }
         }, (err) => {
@@ -7506,6 +7810,7 @@
         { id: "electrical_maintenance", title: "Elektrik Bakım", icon: "⚡" },
         { id: "packaging_unit", title: "Paketleme Birimi", icon: "📦" },
         { id: "utility_controls", title: "Yardımcı Tesisler", icon: "🏭" },
+        { id: "production", title: "Üretim", icon: "⚙️" },
         { id: "members", title: "Üyeler", icon: "👥" },
         { id: "team", title: "Personel & Yetki", icon: "🛡️" }
       ];
@@ -13081,9 +13386,708 @@
       if (resolvedTab === 'electricalMaintenance') window.selectElectricalSubTab(resolvedSub || window.selectedElectricalSubTab || 'faults');
       if (resolvedTab === 'packagingUnit') window.renderPackagingUnit();
       if (resolvedTab === 'utilityControls') window.renderUtilityControls();
+      if (resolvedTab === 'production' && typeof window.renderProductionTab === "function") window.renderProductionTab();
       if (resolvedTab === 'members') renderMembers();
       if (resolvedTab === 'team') renderTeam();
       lucide.createIcons();
+    };
+
+    // ================= BAĞIMSIZ ÜRETİM SEKMESİ (ÜRETİM VERİLERİ & ÜRETİM ARIZALARI) =================
+    const PRODUCTION_LINES_ORDERED = ["101 Buhler", "102 Anselmo", "103 Fava", "104 Buhler", "201 Kesme", "202 Kesme"];
+    window.productionUiState = {
+      branch: "faults",
+      faultViewMode: "list",
+      selectedResolveParts: [],
+      partsExpanded: false
+    };
+
+    function formatProdDuration(minutes) {
+      const m = Math.max(0, Math.round(Number(minutes || 0)));
+      if (m < 60) return `${m} dk`;
+      const days = Math.floor(m / 1440);
+      const remAfterDays = m % 1440;
+      const hrs = Math.floor(remAfterDays / 60);
+      const mins = remAfterDays % 60;
+      if (days > 0) return `${days} gün ${hrs} sa ${mins} dk`;
+      return mins > 0 ? `${hrs} sa ${mins} dk` : `${hrs} sa`;
+    }
+
+    function formatProdDateTime(ms) {
+      if (!ms || Number(ms) <= 0) return "-";
+      const d = new Date(Number(ms));
+      return d.toLocaleDateString("tr-TR", { day: "2-digit", month: "2-digit", year: "numeric" }) + " " +
+             d.toLocaleTimeString("tr-TR", { hour: "2-digit", minute: "2-digit" });
+    }
+
+    function toLocalDateStr(ms) {
+      const d = new Date(ms || Date.now());
+      const y = d.getFullYear();
+      const m = String(d.getMonth() + 1).padStart(2, "0");
+      const day = String(d.getDate()).padStart(2, "0");
+      return `${y}-${m}-${day}`;
+    }
+
+    function toLocalTimeStr(ms) {
+      const d = new Date(ms || Date.now());
+      return `${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}`;
+    }
+
+    function parseLocalDateTimeMillis(dateStr, timeStr) {
+      if (!dateStr || !timeStr) return 0;
+      const dt = new Date(`${dateStr}T${timeStr}:00`);
+      return isNaN(dt.getTime()) ? 0 : dt.getTime();
+    }
+
+    window.updateProductionBadges = function() {
+      const openCount = (window.allProductionFaults || []).filter(f => f.status !== "Çözüldü").length;
+      const tabBadge = document.getElementById("tabProductionBadge");
+      const subBadge = document.getElementById("prodBranchOpenBadge");
+      [tabBadge, subBadge].forEach(el => {
+        if (!el) return;
+        el.innerText = openCount > 99 ? "99+" : String(openCount);
+        el.classList.toggle("hidden", openCount <= 0);
+      });
+    };
+
+    window.selectProductionBranch = function(branch) {
+      window.productionUiState.branch = branch === "data" ? "data" : "faults";
+      window.renderProductionTab();
+    };
+
+    window.setProductionFaultViewMode = function(mode) {
+      window.productionUiState.faultViewMode = mode === "kpi" ? "kpi" : "list";
+      window.renderProductionTab();
+    };
+
+    window.renderProductionTab = function() {
+      const u = window.currentUser;
+      const canData = window.canUserViewSubPage("prod_data", u);
+      const canFaults = window.canUserViewSubPage("prod_faults", u);
+      const canEditFaults = window.canUserEditSubPage("prod_faults", u);
+      const canExport = window.canUserExportExcel(u);
+
+      const btnData = document.getElementById("prodSubBtn_data");
+      const btnFaults = document.getElementById("prodSubBtn_faults");
+      const noNotice = document.getElementById("prodNoSubPagesNotice");
+      const dataPane = document.getElementById("prodDataPane");
+      const faultsPane = document.getElementById("prodFaultsPane");
+
+      if (btnData) btnData.classList.toggle("hidden", !canData);
+      if (btnFaults) btnFaults.classList.toggle("hidden", !canFaults);
+
+      if (!canData && !canFaults) {
+        if (noNotice) noNotice.classList.remove("hidden");
+        if (dataPane) dataPane.classList.add("hidden");
+        if (faultsPane) faultsPane.classList.add("hidden");
+        return;
+      }
+      if (noNotice) noNotice.classList.add("hidden");
+
+      let branch = window.productionUiState.branch;
+      if (branch === "data" && !canData) branch = "faults";
+      if (branch === "faults" && !canFaults) branch = "data";
+      window.productionUiState.branch = branch;
+
+      if (btnData) {
+        btnData.className = branch === "data"
+          ? "px-3.5 py-2 rounded-xl text-xs font-bold bg-[#1E3A8A] text-amber-300 shadow-sm flex items-center gap-1.5 transition"
+          : "px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 flex items-center gap-1.5 transition";
+        if (!canData) btnData.classList.add("hidden");
+      }
+      if (btnFaults) {
+        btnFaults.className = branch === "faults"
+          ? "px-3.5 py-2 rounded-xl text-xs font-bold bg-[#1E3A8A] text-amber-300 shadow-sm flex items-center gap-1.5 transition"
+          : "px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 flex items-center gap-1.5 transition";
+        if (!canFaults) btnFaults.classList.add("hidden");
+      }
+
+      if (dataPane) dataPane.classList.toggle("hidden", branch !== "data");
+      if (faultsPane) faultsPane.classList.toggle("hidden", branch !== "faults");
+      if (branch !== "faults") {
+        lucide.createIcons();
+        return;
+      }
+
+      const roBanner = document.getElementById("prodFaultsReadOnlyBanner");
+      if (roBanner) roBanner.classList.toggle("hidden", canEditFaults);
+      const btnNew = document.getElementById("btnNewProdFault");
+      if (btnNew) btnNew.classList.toggle("hidden", !canEditFaults);
+      const btnExcel = document.getElementById("btnProdFaultExcel");
+      if (btnExcel) btnExcel.classList.toggle("hidden", !canExport);
+
+      const mode = window.productionUiState.faultViewMode;
+      const btnList = document.getElementById("prodFaultViewBtn_list");
+      const btnKpi = document.getElementById("prodFaultViewBtn_kpi");
+      const listView = document.getElementById("prodFaultsListView");
+      const kpiView = document.getElementById("prodFaultsKpiView");
+      if (btnList) {
+        btnList.className = mode === "list"
+          ? "px-3.5 py-2 rounded-xl text-xs font-bold bg-[#1E3A8A] text-white shadow-sm flex items-center gap-1.5 transition"
+          : "px-3.5 py-2 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 flex items-center gap-1.5 transition";
+      }
+      if (btnKpi) {
+        btnKpi.className = mode === "kpi"
+          ? "px-3.5 py-2 rounded-xl text-xs font-bold bg-[#1E3A8A] text-white shadow-sm flex items-center gap-1.5 transition"
+          : "px-3.5 py-2 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 flex items-center gap-1.5 transition";
+      }
+      if (listView) listView.classList.toggle("hidden", mode !== "list");
+      if (kpiView) kpiView.classList.toggle("hidden", mode !== "kpi");
+
+      const q = (document.getElementById("prodFaultSearchInput")?.value || "").trim().toLowerCase();
+      const lineFilter = document.getElementById("prodFaultLineFilter")?.value || "ALL";
+      const statusFilter = document.getElementById("prodFaultStatusFilter")?.value || "ALL";
+
+      const allFaults = window.allProductionFaults || [];
+      const filtered = allFaults.filter(f => {
+        if (lineFilter !== "ALL" && f.lineName !== lineFilter) return false;
+        if (statusFilter !== "ALL") {
+          const st = f.status === "Çözüldü" ? "Çözüldü" : "Açık";
+          if (st !== statusFilter) return false;
+        }
+        if (q) {
+          const hay = [
+            f.lineName, f.description, f.resolutionNotes, f.reportedByName,
+            ...(Array.isArray(f.resolvedByNames) ? f.resolvedByNames : []),
+            ...(Array.isArray(f.usedParts) ? f.usedParts : [])
+          ].join(" ").toLowerCase();
+          if (!hay.includes(q)) return false;
+        }
+        return true;
+      });
+      window.lastFilteredProductionFaults = filtered;
+
+      if (mode === "list") {
+        const container = document.getElementById("prodFaultsContainer");
+        if (container) {
+          if (filtered.length === 0) {
+            container.innerHTML = `<div class="col-span-full py-12 text-center bg-white rounded-2xl border border-slate-200 text-slate-400 text-xs">Bu filtrelere uygun üretim arızası kaydı bulunmuyor.</div>`;
+          } else {
+            const nowMs = Date.now();
+            container.innerHTML = filtered.map(f => {
+              const isResolved = f.status === "Çözüldü";
+              const safeId = escapeJsSingle(f.docId || f.id || "");
+              const startMs = Number(f.faultOccurredAtMillis || f.createdAtMillis || 0);
+              const endMs = Number(f.resolvedAtMillis || 0);
+              const dtMins = isResolved
+                ? (Number(f.downtimeMinutes || 0) > 0 ? Number(f.downtimeMinutes) : (startMs > 0 && endMs > startMs ? Math.round((endMs - startMs) / 60000) : 0))
+                : (startMs > 0 ? Math.max(0, Math.round((nowMs - startMs) / 60000)) : 0);
+              const partsArr = Array.isArray(f.usedParts) ? f.usedParts : [];
+              const resolversArr = Array.isArray(f.resolvedByNames) ? f.resolvedByNames : [];
+
+              return `
+                <div class="bg-white rounded-2xl custom-shadow border ${isResolved ? 'border-emerald-200' : 'border-rose-300 ring-1 ring-rose-100'} p-4 space-y-3">
+                  <div class="flex items-start justify-between gap-2">
+                    <div>
+                      <div class="flex flex-wrap items-center gap-1.5">
+                        <span class="px-2.5 py-0.5 rounded-lg bg-[#1E3A8A] text-amber-300 font-extrabold text-[11px]">${escapeHtml(f.lineName || "-")}</span>
+                        <span class="px-2 py-0.5 rounded-lg font-bold text-[10px] border ${isResolved ? 'bg-emerald-50 text-emerald-800 border-emerald-200' : 'bg-rose-100 text-rose-800 border-rose-300'}">${isResolved ? '✓ Çözüldü' : '🔴 Açık'}</span>
+                        <span class="px-2 py-0.5 rounded-lg font-bold text-[10px] bg-blue-50 text-blue-900 border border-blue-200">⏱️ ${isResolved ? 'Duruş' : 'Devam Eden'}: ${formatProdDuration(dtMins)}</span>
+                      </div>
+                      <div class="text-[11px] text-slate-500 mt-1.5">📅 Arıza Zamanı: <strong class="text-slate-800">${escapeHtml(formatProdDateTime(startMs))}</strong> • Bildiren: ${escapeHtml(f.reportedByName || "-")}</div>
+                    </div>
+                    <div class="flex items-center gap-1 flex-shrink-0">
+                      ${canEditFaults && !isResolved ? `<button type="button" onclick="openResolveProdFaultModal('${safeId}')" class="px-3 py-1.5 bg-emerald-700 hover:bg-emerald-600 text-white rounded-lg text-[11px] font-bold shadow-sm">Çöz</button>` : ''}
+                      ${canEditFaults && isResolved && window.canUserReopenTickets(u) ? `<button type="button" onclick="reopenProdFault('${safeId}')" class="px-2.5 py-1 bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300 rounded-lg text-[11px] font-bold">Tekrar Aç</button>` : ''}
+                      ${canEditFaults ? `<button type="button" onclick="deleteProdFault('${safeId}')" class="px-2.5 py-1 bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 rounded-lg text-[11px] font-bold">Sil</button>` : ''}
+                    </div>
+                  </div>
+                  <div class="text-xs text-slate-800 bg-slate-50 p-2.5 rounded-xl border border-slate-100 font-medium">${escapeHtml(f.description || "-")}</div>
+                  ${isResolved ? `
+                    <div class="bg-emerald-50/70 border border-emerald-200 rounded-xl p-3 space-y-1.5 text-[11px]">
+                      <div class="flex flex-wrap items-center justify-between gap-2 text-emerald-900 font-bold">
+                        <span>✅ Çözüm Zamanı: ${escapeHtml(formatProdDateTime(endMs))}</span>
+                        <span>Toplam Duruş: ${formatProdDuration(dtMins)}</span>
+                      </div>
+                      <div class="text-slate-800"><strong>Yapılan İşlem:</strong> ${escapeHtml(f.resolutionNotes || "-")}</div>
+                      ${resolversArr.length ? `<div class="text-slate-700"><strong>Yapan Kişiler:</strong> ${resolversArr.map(r => `<span class="inline-block px-2 py-0.5 mr-1 mt-0.5 rounded bg-white border border-emerald-200 font-semibold">${escapeHtml(r)}</span>`).join("")}</div>` : ''}
+                      ${partsArr.length ? `<div class="text-slate-700"><strong>Değişen Parçalar:</strong> ${partsArr.map(p => `<span class="inline-block px-2 py-0.5 mr-1 mt-0.5 rounded bg-indigo-50 text-indigo-900 border border-indigo-200 font-semibold">🔩 ${escapeHtml(p)}</span>`).join("")}</div>` : ''}
+                    </div>
+                  ` : ''}
+                </div>
+              `;
+            }).join("");
+          }
+        }
+      } else {
+        renderProductionKpi(filtered);
+      }
+      lucide.createIcons();
+    };
+
+    function renderProductionKpi(faults) {
+      const nowMs = Date.now();
+      let resolvedCount = 0, openCount = 0, resolvedMins = 0, ongoingMins = 0;
+      const lineStats = {};
+      PRODUCTION_LINES_ORDERED.forEach(l => {
+        lineStats[l] = { lineName: l, count: 0, openCount: 0, resolvedCount: 0, resolvedMins: 0, ongoingMins: 0 };
+      });
+      const personStats = {};
+
+      faults.forEach(f => {
+        const line = lineStats[f.lineName] ? f.lineName : (f.lineName || "Diğer");
+        if (!lineStats[line]) lineStats[line] = { lineName: line, count: 0, openCount: 0, resolvedCount: 0, resolvedMins: 0, ongoingMins: 0 };
+        lineStats[line].count += 1;
+
+        const startMs = Number(f.faultOccurredAtMillis || f.createdAtMillis || 0);
+        const endMs = Number(f.resolvedAtMillis || 0);
+        if (f.status === "Çözüldü") {
+          resolvedCount += 1;
+          lineStats[line].resolvedCount += 1;
+          const dt = Number(f.downtimeMinutes || 0) > 0 ? Number(f.downtimeMinutes) : (startMs > 0 && endMs > startMs ? Math.round((endMs - startMs) / 60000) : 0);
+          resolvedMins += dt;
+          lineStats[line].resolvedMins += dt;
+
+          const resolvers = Array.isArray(f.resolvedByNames) ? f.resolvedByNames : [];
+          resolvers.forEach(name => {
+            const clean = (name || "").trim();
+            if (!clean) return;
+            if (!personStats[clean]) personStats[clean] = { name: clean, count: 0, mins: 0 };
+            personStats[clean].count += 1;
+            personStats[clean].mins += dt;
+          });
+        } else {
+          openCount += 1;
+          lineStats[line].openCount += 1;
+          const dt = startMs > 0 ? Math.max(0, Math.round((nowMs - startMs) / 60000)) : 0;
+          ongoingMins += dt;
+          lineStats[line].ongoingMins += dt;
+        }
+      });
+
+      const totalCombined = resolvedMins + ongoingMins;
+      const mttr = resolvedCount > 0 ? Math.round(resolvedMins / resolvedCount) : 0;
+
+      const cardsEl = document.getElementById("prodKpiCards");
+      if (cardsEl) {
+        const cards = [
+          { title: "Toplam Üretim Arızası", val: String(faults.length), sub: `${openCount} Açık • ${resolvedCount} Çözüldü`, cls: "border-slate-200 text-[#1E3A8A]" },
+          { title: "Açık (Devam Eden)", val: String(openCount), sub: `Devam eden: ${formatProdDuration(ongoingMins)}`, cls: "border-rose-200 text-rose-700" },
+          { title: "Çözülen Toplam Duruş", val: formatProdDuration(resolvedMins), sub: `${resolvedCount} çözülen arıza toplamı`, cls: "border-emerald-200 text-emerald-700" },
+          { title: "Genel Toplam Duruş", val: formatProdDuration(totalCombined), sub: "Çözülen + açık hat duruşları", cls: "border-amber-200 text-amber-800" },
+          { title: "Ortalama Müdahale (MTTR)", val: formatProdDuration(mttr), sub: "Çözülen arıza başı ortalama", cls: "border-indigo-200 text-indigo-800" }
+        ];
+        cardsEl.innerHTML = cards.map(c => `
+          <div class="bg-white p-3.5 rounded-2xl border ${c.cls} custom-shadow">
+            <div class="text-[11px] font-bold text-slate-500">${c.title}</div>
+            <div class="text-xl font-black mt-1">${escapeHtml(c.val)}</div>
+            <div class="text-[10px] text-slate-400 mt-1">${escapeHtml(c.sub)}</div>
+          </div>
+        `).join("");
+      }
+
+      const linesEl = document.getElementById("prodKpiLines");
+      if (linesEl) {
+        const rows = Object.values(lineStats);
+        const maxMins = Math.max(1, ...rows.map(r => r.resolvedMins + r.ongoingMins));
+        linesEl.innerHTML = rows.map(r => {
+          const sumMins = r.resolvedMins + r.ongoingMins;
+          const pct = Math.min(100, Math.round((sumMins / maxMins) * 100));
+          const avg = r.resolvedCount > 0 ? Math.round(r.resolvedMins / r.resolvedCount) : 0;
+          return `
+            <div class="space-y-1 p-2.5 rounded-xl bg-slate-50 border border-slate-100">
+              <div class="flex items-center justify-between gap-2">
+                <span class="font-extrabold text-[#1E3A8A]">${escapeHtml(r.lineName)}</span>
+                <span class="font-bold text-slate-800">${formatProdDuration(sumMins)} <span class="text-[10px] text-slate-500">(${r.count} arıza • Ort: ${formatProdDuration(avg)})</span></span>
+              </div>
+              <div class="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
+                <div class="h-full bg-[#1E3A8A] rounded-full" style="width:${sumMins > 0 ? Math.max(4, pct) : 0}%"></div>
+              </div>
+              <div class="flex items-center justify-between text-[10px] text-slate-500">
+                <span>Çözülen: ${r.resolvedCount} (${formatProdDuration(r.resolvedMins)})</span>
+                <span class="${r.openCount > 0 ? 'text-rose-700 font-bold' : ''}">Açık: ${r.openCount} (${formatProdDuration(r.ongoingMins)})</span>
+              </div>
+            </div>
+          `;
+        }).join("");
+      }
+
+      const persEl = document.getElementById("prodKpiPersonnel");
+      if (persEl) {
+        const list = Object.values(personStats).sort((a, b) => b.count - a.count || b.mins - a.mins);
+        persEl.innerHTML = list.length
+          ? list.map(p => `
+              <div class="flex items-center justify-between p-2.5 rounded-xl bg-emerald-50/60 border border-emerald-200">
+                <div>
+                  <div class="font-bold text-slate-800">👤 ${escapeHtml(p.name)}</div>
+                  <div class="text-[10px] text-slate-500">${p.count} üretim arızasına müdahale etti</div>
+                </div>
+                <span class="px-2.5 py-1 rounded-lg bg-white border border-emerald-200 font-extrabold text-emerald-800">${formatProdDuration(p.mins)}</span>
+              </div>
+            `).join("")
+          : `<div class="text-slate-400 italic py-4 text-center">Henüz çözülmüş üretim arızası kaydı bulunmuyor.</div>`;
+      }
+    }
+
+    window.openNewProdFaultModal = function() {
+      if (!window.canUserEditSubPage("prod_faults", window.currentUser)) {
+        alert("⛔ Üretim arızası oluşturma yetkiniz bulunmamaktadır.");
+        return;
+      }
+      const now = Date.now();
+      document.getElementById("pfFormLine").value = PRODUCTION_LINES_ORDERED[0];
+      document.getElementById("pfFormDate").value = toLocalDateStr(now);
+      document.getElementById("pfFormTime").value = toLocalTimeStr(now);
+      document.getElementById("pfFormDesc").value = "";
+      document.getElementById("modalNewProdFault").classList.remove("hidden");
+      lucide.createIcons();
+    };
+
+    window.submitNewProdFault = async function(e) {
+      e.preventDefault();
+      if (!window.canUserEditSubPage("prod_faults", window.currentUser)) return;
+      const lineName = document.getElementById("pfFormLine").value;
+      const dateStr = document.getElementById("pfFormDate").value;
+      const timeStr = document.getElementById("pfFormTime").value;
+      const description = (document.getElementById("pfFormDesc").value || "").trim();
+      const occurredMs = parseLocalDateTimeMillis(dateStr, timeStr);
+
+      if (!lineName || !occurredMs || !description) {
+        alert("Lütfen hat numarası, arıza gün/saat ve arıza açıklamasını eksiksiz giriniz.");
+        return;
+      }
+
+      const btn = document.getElementById("btnSubmitNewProdFault");
+      if (btn) btn.disabled = true;
+      try {
+        const now = Date.now();
+        const u = window.currentUser || {};
+        const docId = "pf_" + now + "_" + Math.floor(Math.random() * 1000);
+        await setDoc(doc(db, "production_faults", docId), {
+          id: docId,
+          lineName,
+          description,
+          status: "Açık",
+          faultOccurredAtMillis: occurredMs,
+          reportedByUid: u.userId || u.id || "",
+          reportedByName: u.displayName || u.username || "Kullanıcı",
+          createdAtMillis: now,
+          updatedAtMillis: now,
+          resolvedAtMillis: 0,
+          downtimeMinutes: 0,
+          resolutionNotes: "",
+          usedParts: [],
+          resolvedByUids: [],
+          resolvedByNames: [],
+          partsStockDeducted: false,
+          createdAt: serverTimestamp(),
+          updatedAt: serverTimestamp()
+        });
+        closeModal("modalNewProdFault");
+      } catch (err) {
+        alert("❌ Üretim arızası kaydedilemedi: " + err.message);
+      } finally {
+        if (btn) btn.disabled = false;
+      }
+    };
+
+    window.updateProdResolveDowntimePreview = function() {
+      const startMs = Number(document.getElementById("pfResStartMillis")?.value || 0);
+      const endMs = parseLocalDateTimeMillis(
+        document.getElementById("pfResDate")?.value,
+        document.getElementById("pfResTime")?.value
+      );
+      const valEl = document.getElementById("pfResDurationValue");
+      const wrapEl = document.getElementById("pfResDurationPreview");
+      if (!valEl || !wrapEl) return;
+      if (!endMs || endMs < startMs) {
+        valEl.innerText = "Çözüm zamanı arıza zamanından önce olamaz";
+        valEl.className = "font-bold text-xs text-rose-700";
+        wrapEl.className = "p-3 rounded-xl bg-rose-50 border border-rose-300 flex items-center justify-between";
+      } else {
+        const mins = Math.round((endMs - startMs) / 60000);
+        valEl.innerText = formatProdDuration(mins);
+        valEl.className = "font-black text-sm text-[#1E3A8A]";
+        wrapEl.className = "p-3 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-between";
+      }
+    };
+
+    window.toggleProdFaultPartsAccordion = function() {
+      window.productionUiState.partsExpanded = !window.productionUiState.partsExpanded;
+      const body = document.getElementById("pfResPartsBody");
+      const chev = document.getElementById("pfResPartsChevron");
+      if (body) body.classList.toggle("hidden", !window.productionUiState.partsExpanded);
+      if (chev) chev.innerText = window.productionUiState.partsExpanded ? "▲ Gizle" : "▼ Aç";
+    };
+
+    function renderProdFaultSelectedParts() {
+      const parts = window.productionUiState.selectedResolveParts || [];
+      const badge = document.getElementById("pfResPartsCountBadge");
+      if (badge) {
+        badge.innerText = `${parts.length} Parça`;
+        badge.classList.toggle("hidden", parts.length === 0);
+      }
+      const listEl = document.getElementById("pfResSelectedPartsList");
+      if (!listEl) return;
+      listEl.innerHTML = parts.length
+        ? parts.map((p, idx) => `
+            <div class="flex items-center justify-between px-2.5 py-1.5 rounded-lg bg-indigo-50 border border-indigo-200 text-xs">
+              <span class="font-bold text-indigo-950">🔩 ${escapeHtml(p.partName)} (${p.qty} ${escapeHtml(p.unit || "Adet")})${p.isCustom ? ' • Manuel' : ''}</span>
+              <button type="button" onclick="removeProdFaultSelectedPart(${idx})" class="text-rose-600 hover:text-rose-800 font-black px-1">✕</button>
+            </div>
+          `).join("")
+        : `<div class="text-[11px] text-slate-400 italic">Parça seçilmedi (isteğe bağlı).</div>`;
+    }
+
+    window.removeProdFaultSelectedPart = function(idx) {
+      window.productionUiState.selectedResolveParts.splice(idx, 1);
+      renderProdFaultSelectedParts();
+    };
+
+    window.addProdFaultInventoryPart = function() {
+      const sel = document.getElementById("pfResInventorySelect");
+      const qty = Math.max(1, parseInt(document.getElementById("pfResInventoryQty")?.value || "1", 10) || 1);
+      const pid = sel?.value || "";
+      const part = (window.allSpareParts || []).find(s => (s.docId || s.id) === pid);
+      if (!part) {
+        alert("Lütfen depodan geçerli bir yedek parça seçiniz.");
+        return;
+      }
+      const curList = window.productionUiState.selectedResolveParts;
+      const existing = curList.find(x => !x.isCustom && x.partId === pid);
+      if (existing) existing.qty += qty;
+      else curList.push({ partId: pid, partName: part.name || pid, unit: part.unit || "Adet", qty, isCustom: false });
+      renderProdFaultSelectedParts();
+    };
+
+    window.addProdFaultCustomPart = function() {
+      const nameInput = document.getElementById("pfResCustomPartName");
+      const qtyInput = document.getElementById("pfResCustomPartQty");
+      const name = (nameInput?.value || "").trim();
+      const qty = Math.max(1, parseInt(qtyInput?.value || "1", 10) || 1);
+      if (!name) {
+        alert("Lütfen manuel parça adını yazınız.");
+        return;
+      }
+      window.productionUiState.selectedResolveParts.push({ partId: "", partName: name, unit: "Adet", qty, isCustom: true });
+      if (nameInput) nameInput.value = "";
+      if (qtyInput) qtyInput.value = "1";
+      renderProdFaultSelectedParts();
+    };
+
+    window.updateProdResMembersCount = function() {
+      const checked = document.querySelectorAll(".pf-res-member-cb:checked").length;
+      const el = document.getElementById("pfResMembersCount");
+      if (el) el.innerText = `${checked} Seçili`;
+    };
+
+    window.openResolveProdFaultModal = function(faultId) {
+      if (!window.canUserEditSubPage("prod_faults", window.currentUser)) return;
+      const f = (window.allProductionFaults || []).find(x => (x.docId || x.id) === faultId);
+      if (!f) return;
+
+      const startMs = Number(f.faultOccurredAtMillis || f.createdAtMillis || Date.now());
+      const nowMs = Math.max(startMs, Date.now());
+
+      document.getElementById("pfResFaultId").value = f.docId || f.id;
+      document.getElementById("pfResStartMillis").value = String(startMs);
+      document.getElementById("pfResHeaderMeta").innerText = `${f.lineName || "-"} • Arıza Başlangıcı: ${formatProdDateTime(startMs)}`;
+      document.getElementById("pfResDate").value = toLocalDateStr(nowMs);
+      document.getElementById("pfResTime").value = toLocalTimeStr(nowMs);
+      document.getElementById("pfResNotes").value = f.resolutionNotes || "";
+
+      window.productionUiState.selectedResolveParts = [];
+      window.productionUiState.partsExpanded = false;
+      const body = document.getElementById("pfResPartsBody");
+      const chev = document.getElementById("pfResPartsChevron");
+      if (body) body.classList.add("hidden");
+      if (chev) chev.innerText = "▼ Aç";
+
+      const spSel = document.getElementById("pfResInventorySelect");
+      if (spSel) {
+        const parts = window.allSpareParts || [];
+        spSel.innerHTML = parts.length
+          ? parts.map(p => `<option value="${escapeHtml(p.docId || p.id)}">${escapeHtml(p.name)} (Stok: ${Number(p.currentStock || 0)} ${escapeHtml(p.unit || "Adet")})</option>`).join("")
+          : `<option value="">Envanterde parça yok</option>`;
+      }
+      renderProdFaultSelectedParts();
+
+      const membersEl = document.getElementById("pfResMembersList");
+      if (membersEl) {
+        const activeUsers = (window.allUsers || [])
+          .filter(u => !u.isDeleted && !u.isBlocked)
+          .sort((a, b) => (a.displayName || a.username || "").localeCompare((b.displayName || b.username || ""), "tr"));
+        membersEl.innerHTML = activeUsers.length
+          ? activeUsers.map(u => {
+              const uid = u.userId || u.id || "";
+              const dName = (u.displayName || u.username || u.email || "Üye").trim();
+              const dept = (u.department || "").trim();
+              return `
+                <label class="flex items-center gap-2 p-1.5 rounded-lg bg-white border border-slate-200 cursor-pointer hover:bg-blue-50">
+                  <input type="checkbox" class="pf-res-member-cb w-4 h-4 rounded text-[#1E3A8A]" value="${escapeHtml(uid)}" data-name="${escapeHtml(dName)}" onchange="updateProdResMembersCount()">
+                  <span class="truncate font-semibold text-slate-800">${escapeHtml(dName)} <span class="text-[10px] text-slate-400">${dept ? `(${escapeHtml(dept)})` : ''}</span></span>
+                </label>
+              `;
+            }).join("")
+          : `<div class="text-slate-400 italic">Aktif kayıtlı üye bulunamadı.</div>`;
+      }
+      window.updateProdResMembersCount();
+      window.updateProdResolveDowntimePreview();
+      document.getElementById("modalResolveProdFault").classList.remove("hidden");
+      lucide.createIcons();
+    };
+
+    window.submitResolveProdFault = async function(e) {
+      e.preventDefault();
+      if (!window.canUserEditSubPage("prod_faults", window.currentUser)) return;
+      const faultId = document.getElementById("pfResFaultId").value;
+      const startMs = Number(document.getElementById("pfResStartMillis").value || 0);
+      const endMs = parseLocalDateTimeMillis(
+        document.getElementById("pfResDate").value,
+        document.getElementById("pfResTime").value
+      );
+      const notes = (document.getElementById("pfResNotes").value || "").trim();
+      if (!endMs || endMs < startMs) {
+        alert("⚠️ Çözüm tarihi ve saati arıza başlangıç zamanından önce olamaz.");
+        return;
+      }
+      if (!notes) {
+        alert("⚠️ Yapılan işlem açıklaması zorunludur.");
+        return;
+      }
+
+      const checkedBoxes = Array.from(document.querySelectorAll(".pf-res-member-cb:checked"));
+      if (checkedBoxes.length === 0) {
+        alert("⚠️ Lütfen işlemi yapan kişilerden en az bir üye seçiniz.");
+        return;
+      }
+
+      const resolvedByUids = checkedBoxes.map(cb => cb.value).filter(Boolean);
+      const resolvedByNames = checkedBoxes.map(cb => cb.dataset.name).filter(Boolean);
+      const downtimeMinutes = Math.max(0, Math.round((endMs - startMs) / 60000));
+      const selectedParts = window.productionUiState.selectedResolveParts || [];
+      const usedPartsStrings = selectedParts.map(p => `${p.partName} (${p.qty} ${p.unit || "Adet"})`);
+      const existing = (window.allProductionFaults || []).find(x => (x.docId || x.id) === faultId);
+      const shouldDeduct = existing ? existing.partsStockDeducted !== true : true;
+
+      const btn = document.getElementById("btnSubmitResolveProdFault");
+      if (btn) btn.disabled = true;
+      try {
+        await setDoc(doc(db, "production_faults", faultId), {
+          status: "Çözüldü",
+          resolvedAtMillis: endMs,
+          downtimeMinutes,
+          resolutionNotes: notes,
+          usedParts: usedPartsStrings,
+          resolvedByUids,
+          resolvedByNames,
+          partsStockDeducted: shouldDeduct ? selectedParts.some(p => !p.isCustom) : existing?.partsStockDeducted === true,
+          updatedAtMillis: Date.now(),
+          updatedAt: serverTimestamp()
+        }, { merge: true });
+
+        if (shouldDeduct) {
+          for (const entry of selectedParts) {
+            if (entry.isCustom || !entry.partId || entry.qty <= 0) continue;
+            try {
+              const spRef = doc(db, "spare_parts", entry.partId);
+              const spSnap = await getDoc(spRef);
+              const localPart = (window.allSpareParts || []).find(s => (s.docId || s.id) === entry.partId);
+              const curStock = spSnap.exists()
+                ? Number(spSnap.data()?.currentStock ?? localPart?.currentStock ?? 0)
+                : Number(localPart?.currentStock ?? 0);
+              const nextStock = Math.max(0, curStock - entry.qty);
+              await setDoc(spRef, { currentStock: nextStock, updatedAt: serverTimestamp() }, { merge: true });
+            } catch (spErr) {
+              console.warn("Prod fault stock deduction notice:", spErr);
+            }
+          }
+        }
+        closeModal("modalResolveProdFault");
+      } catch (err) {
+        alert("❌ Arıza çözüldü olarak kaydedilemedi: " + err.message);
+      } finally {
+        if (btn) btn.disabled = false;
+      }
+    };
+
+    window.reopenProdFault = async function(faultId) {
+      if (!window.canUserEditSubPage("prod_faults", window.currentUser) || !window.canUserReopenTickets(window.currentUser)) return;
+      if (!confirm("Bu üretim arızasını tekrar 'Açık' durumuna almak istiyor musunuz?")) return;
+      try {
+        await setDoc(doc(db, "production_faults", faultId), {
+          status: "Açık",
+          resolvedAtMillis: 0,
+          downtimeMinutes: 0,
+          updatedAtMillis: Date.now(),
+          updatedAt: serverTimestamp()
+        }, { merge: true });
+      } catch (err) {
+        alert("❌ Hata: " + err.message);
+      }
+    };
+
+    window.deleteProdFault = async function(faultId) {
+      if (!window.canUserEditSubPage("prod_faults", window.currentUser)) return;
+      if (!confirm("Bu üretim arızası kaydını kalıcı olarak silmek istediğinizden emin misiniz?")) return;
+      try {
+        await deleteDoc(doc(db, "production_faults", faultId));
+      } catch (err) {
+        alert("❌ Silme hatası: " + err.message);
+      }
+    };
+
+    window.exportProductionFaultsExcel = function() {
+      if (!window.canUserExportExcel(window.currentUser)) {
+        alert("⚠️ Excel rapor çıktısı alma yetkiniz bulunmamaktadır.");
+        return;
+      }
+      if (typeof XLSX === "undefined") {
+        alert("Excel kütüphanesi henüz yüklenemedi. Lütfen sayfayı yenileyiniz.");
+        return;
+      }
+      const list = (Array.isArray(window.lastFilteredProductionFaults) && window.lastFilteredProductionFaults.length > 0)
+        ? window.lastFilteredProductionFaults
+        : (window.allProductionFaults || []);
+      const nowMs = Date.now();
+      const aoa = [
+        ["TEKİNAK GIDA SAN. VE TİC. A.Ş. - BAĞIMSIZ ÜRETİM ARIZALARI RAPORU"],
+        [`Rapor Tarihi: ${new Date().toLocaleDateString("tr-TR")} | Kayıt Sayısı: ${list.length}`],
+        [],
+        ["Hat Numarası", "Durum", "Arıza Başlangıcı", "Çözüm Zamanı", "Duruş (dk)", "Duruş Süresi", "Arıza Açıklaması", "Yapılan İşlem", "Yapan Kişiler", "Değişen Parçalar", "Bildiren"]
+      ];
+      list.forEach(f => {
+        const startMs = Number(f.faultOccurredAtMillis || f.createdAtMillis || 0);
+        const endMs = Number(f.resolvedAtMillis || 0);
+        const dt = f.status === "Çözüldü"
+          ? (Number(f.downtimeMinutes || 0) > 0 ? Number(f.downtimeMinutes) : (startMs > 0 && endMs > startMs ? Math.round((endMs - startMs) / 60000) : 0))
+          : (startMs > 0 ? Math.max(0, Math.round((nowMs - startMs) / 60000)) : 0);
+        aoa.push([
+          f.lineName || "-",
+          f.status || "Açık",
+          formatProdDateTime(startMs),
+          f.status === "Çözüldü" ? formatProdDateTime(endMs) : "-",
+          dt,
+          formatProdDuration(dt),
+          f.description || "",
+          f.resolutionNotes || "",
+          Array.isArray(f.resolvedByNames) ? f.resolvedByNames.join(", ") : "",
+          Array.isArray(f.usedParts) ? f.usedParts.join(", ") : "",
+          f.reportedByName || ""
+        ]);
+      });
+
+      const kpiAoa = [
+        ["ÜRETİM ARIZA HAT DURUŞ KPI ÖZETİ"],
+        [],
+        ["Hat Numarası", "Toplam Arıza", "Açık", "Çözülen", "Çözülen Duruş (dk)", "Devam Eden Duruş (dk)", "Genel Toplam Duruş"]
+      ];
+      PRODUCTION_LINES_ORDERED.forEach(line => {
+        const sub = list.filter(x => x.lineName === line);
+        const openArr = sub.filter(x => x.status !== "Çözüldü");
+        const resArr = sub.filter(x => x.status === "Çözüldü");
+        const resMins = resArr.reduce((s, x) => s + Number(x.downtimeMinutes || 0), 0);
+        const openMins = openArr.reduce((s, x) => s + Math.max(0, Math.round((nowMs - Number(x.faultOccurredAtMillis || x.createdAtMillis || nowMs)) / 60000)), 0);
+        kpiAoa.push([line, sub.length, openArr.length, resArr.length, resMins, openMins, formatProdDuration(resMins + openMins)]);
+      });
+
+      const wb = XLSX.utils.book_new();
+      const ws1 = XLSX.utils.aoa_to_sheet(aoa);
+      ws1["!cols"] = [{wch:16},{wch:12},{wch:18},{wch:18},{wch:12},{wch:16},{wch:32},{wch:32},{wch:24},{wch:26},{wch:18}];
+      const ws2 = XLSX.utils.aoa_to_sheet(kpiAoa);
+      ws2["!cols"] = [{wch:18},{wch:14},{wch:10},{wch:10},{wch:20},{wch:22},{wch:20}];
+      XLSX.utils.book_append_sheet(wb, ws1, "Üretim Arızaları");
+      XLSX.utils.book_append_sheet(wb, ws2, "Hat Duruş KPI");
+      XLSX.writeFile(wb, `Tekinak_Uretim_Arizalari_${getLocalTodayIso()}.xlsx`);
     };
 
     // Modal Fonksiyonları
