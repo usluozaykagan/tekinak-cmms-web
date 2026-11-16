@@ -1,15 +1,15 @@
 {
-  "versionCode": 19,
-  "versionName": "1.4.8",
-  "releaseTag": "v1.4.8",
+  "versionCode": 20,
+  "versionName": "1.4.9",
+  "releaseTag": "v1.4.9",
   "releaseDate": "2026-11-16",
   "apkUrl": "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
   "fallbackUrl": "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-  "title": "Yeni Sürüm Mevcut (v1.4.8)",
+  "title": "Yeni Sürüm Mevcut (v1.4.9)",
   "changelog": [
-    "Membran & Filtre Değişikliği bölümü Su Arıtma (FR-41) sekmesinin içine taşındı (Günlük Kontrol Tablosu ve Membran & Filtre alt görünümü).",
-    "Su Arıtma sekmesi ve günlük değişim uyarı şeritleri tek dokunuşla Membran & Filtre bölümüne doğrudan geçiş sağlayacak şekilde güncellendi.",
-    "Arıtma Tesisi Torba Filtre, Kartuş Filtre ve Membran adet seçimi, günlük değişim uyarısı ve Ay Sonu Kompresör Çalışma Saatleri iyileştirildi."
+    "2 Ton Su Arıtma Cihazı (Kazan İçin) tablosundaki 'Kontrol Eden' sütunu kaldırıldı.",
+    "Kazan ve Buhar Dairesi Günlük Kontrol Formu altındaki 'Bakım ve Onarım Şefi' alanı kaldırıldı.",
+    "Yardımcı Tesisler formları ve Membran & Filtre değişimi için görevli personel seçimi, yalnızca departmanı 'Yardımcı Tesisler' olan üyeleri listeleyen açılır menüye dönüştürüldü."
   ],
   "forceUpdate": false
 }
