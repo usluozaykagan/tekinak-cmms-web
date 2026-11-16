@@ -1,15 +1,16 @@
 {
-  "versionCode": 15,
-  "versionName": "1.4.4",
-  "releaseTag": "v1.4.4",
+  "versionCode": 16,
+  "versionName": "1.4.5",
+  "releaseTag": "v1.4.5",
   "releaseDate": "2026-11-15",
   "apkUrl": "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
   "fallbackUrl": "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-  "title": "Yeni Sürüm Mevcut (v1.4.4)",
+  "title": "Yeni Sürüm Mevcut (v1.4.5)",
   "changelog": [
-    "Roller, departmanlar ve vardiyalarda sabit kilidi kaldırıldı; yönetici tamamını düzenleyip silebiliyor ve bulutta senkronize ediliyor.",
-    "Üyeler sekmesi hizalaması diğer sekmelerle aynı satıra eşitlendi.",
-    "Yardımcı Tesisler ve koyu tema altındaki giriş alanlarında beyaz yazı okunurluk sorunu düzeltildi."
+    "Çift yönlü arıza ↔ iş emri bağlantısı ve iş emri tamamlanınca bağlı arızanın otomatik kapatılması eklendi.",
+    "İş emri kapatılırken kullanılan yedek parçalar seçilerek Firestore stoktan tek seferlik düşüm desteği eklendi.",
+    "Arıza ve iş emri kartlarına canlı açık bekleme süresi sayaçları, hızlı saha filtreleri ve arıza şablonları eklendi.",
+    "Genel Bakış acil bakım/anomali şeridi, personelden yetki kopyalama, Yardımcı Tesisler'den tek dokunuşla arıza açma ve Paketleme duruş nedenleri raporu eklendi."
   ],
   "forceUpdate": false
 }

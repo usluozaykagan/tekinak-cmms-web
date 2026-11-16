@@ -175,9 +175,9 @@
         </form>
 
         <div class="pt-3 text-center border-t border-slate-100 flex flex-col items-center justify-center gap-2">
-          <a href="app-release.apk?v=15" id="loginApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold rounded-lg border border-emerald-300 transition shadow-sm">
+          <a href="app-release.apk?v=16" id="loginApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold rounded-lg border border-emerald-300 transition shadow-sm">
             <i data-lucide="smartphone" class="w-3.5 h-3.5 text-emerald-600"></i>
-            <span id="loginApkBtnText">Android APK İndir (v1.4.4)</span>
+            <span id="loginApkBtnText">Android APK İndir (v1.4.5)</span>
           </a>
           <div class="text-[11px] text-slate-400 flex items-center justify-center gap-1.5">
             <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600"></i>
@@ -228,15 +228,15 @@
         </div>
 
         <!-- Android APK İndir Butonu (Tüm Kullanıcılar Görür) -->
-        <a href="app-release.apk?v=15" id="topApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-700/60 hover:bg-blue-600 text-white border border-blue-400/40 transition shadow-sm" title="Android Mobil APK İndir">
+        <a href="app-release.apk?v=16" id="topApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-700/60 hover:bg-blue-600 text-white border border-blue-400/40 transition shadow-sm" title="Android Mobil APK İndir">
           <i data-lucide="download" class="w-3.5 h-3.5 text-amber-300"></i>
-          <span id="topApkBtnText">APK İndir (v1.4.4)</span>
+          <span id="topApkBtnText">APK İndir (v1.4.5)</span>
         </a>
 
         <!-- Mobil Sürüm Yönetimi Butonu (Sadece usluozaykagan@gmail.com için görünür) -->
         <button id="topAppVersionBtn" onclick="openAppVersionModal()" style="display: none;" class="hidden items-center space-x-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-600/70 hover:bg-emerald-600 text-white border border-emerald-400/40 transition shadow-sm" title="Firebase Mobil Sürüm Kontrolü ve Güncelleme">
           <i data-lucide="smartphone" class="w-3.5 h-3.5 text-amber-300"></i>
-          <span id="topVersionBadgeText">Sürüm: v1.4.4</span>
+          <span id="topVersionBadgeText">Sürüm: v1.4.5</span>
         </button>
 
         <!-- Bildirim Sihirbazı Butonu -->
@@ -298,11 +298,11 @@
         </span>
           <div>
             <div class="flex flex-wrap items-center gap-1.5 font-extrabold text-blue-950">
-              <span id="webUpdateBannerTitle">🚀 Yeni Mobil Sürüm Yayında: Tekinak CMMS v1.4.4</span>
-              <span id="webUpdateBannerCodeBadge" class="px-1.5 py-0.5 rounded bg-emerald-600 text-white text-[10px] font-bold">v1.4.4 (Kod: 15)</span>
+              <span id="webUpdateBannerTitle">🚀 Yeni Mobil Sürüm Yayında: Tekinak CMMS v1.4.5</span>
+              <span id="webUpdateBannerCodeBadge" class="px-1.5 py-0.5 rounded bg-emerald-600 text-white text-[10px] font-bold">v1.4.5 (Kod: 16)</span>
             </div>
             <div id="webUpdateBannerSummary" class="text-[11px] text-slate-600 mt-0.5">
-              Tüm rol, departman ve vardiyalar tam düzenlenebilir/silinebilir bulut yapısına geçirildi; Android sekme hizası ve Yardımcı Tesisler koyu tema okunurluğu düzeltildi.
+              Çift yönlü arıza-iş emri bağlama ve otomatik yedek parça stok düşümü, açık bekleme süresi sayaçları, hızlı filtre &amp; şablonlar, personelden yetki kopyalama ve paketleme duruş analizi eklendi.
             </div>
           </div>
         </div>
@@ -310,9 +310,9 @@
           <button type="button" onclick="toggleWebUpdateChangelog()" class="px-2.5 py-1.5 bg-white hover:bg-slate-100 text-blue-800 border border-blue-200 rounded-lg font-bold text-[11px] transition">
             Yenilikler
           </button>
-          <a id="webUpdateBannerDownloadBtn" href="app-release.apk?v=15" download="tekinak-bakim.apk" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold text-[11px] shadow-sm flex items-center gap-1.5 transition">
+          <a id="webUpdateBannerDownloadBtn" href="app-release.apk?v=16" download="tekinak-bakim.apk" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold text-[11px] shadow-sm flex items-center gap-1.5 transition">
             <i data-lucide="download" class="w-3.5 h-3.5"></i>
-            <span id="webUpdateBannerDownloadText">APK İndir (v1.4.4)</span>
+            <span id="webUpdateBannerDownloadText">APK İndir (v1.4.5)</span>
           </a>
         <button type="button" onclick="dismissWebUpdateBanner()" class="p-1 text-slate-400 hover:text-slate-700 rounded-lg" title="Bu sürüm için gizle">
           <i data-lucide="x" class="w-4 h-4"></i>
@@ -408,6 +408,9 @@
               <button id="dashChatBtn" onclick="toggleChatDrawer()" class="px-3.5 py-2 bg-blue-700/60 hover:bg-blue-700 text-white font-semibold rounded-xl text-xs flex items-center gap-1.5 transition">
                 <i data-lucide="message-square" class="w-4 h-4"></i> Saha Chat
               </button>
+              <span id="dashQuickReadOnlyNotice" class="hidden inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/10 border border-white/20 text-[11px] font-semibold text-blue-100">
+                <i data-lucide="lock" class="w-3.5 h-3.5 text-amber-300"></i> Hızlı İşlemler Salt Okunur
+              </span>
             </div>
           </div>
         </div>
@@ -550,32 +553,41 @@
           <i data-lucide="eye" class="w-4 h-4 text-amber-700 flex-shrink-0"></i>
           <span>Salt Okunur (Sadece Görüntüleme): Bu sekmede arıza ekleme veya değişiklik yapma yetkiniz kapalıdır.</span>
         </div>
-        <div class="bg-white p-4 rounded-xl border border-slate-200 custom-shadow flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
-          <div class="flex-1 flex flex-wrap items-center gap-2">
-            <div class="relative flex-1 min-w-[200px]">
-              <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-2.5"></i>
-              <input type="text" id="faultSearchInput" oninput="renderFaults()" placeholder="Makine, arıza veya personel ara..." class="w-full pl-9 pr-3 py-2 text-xs border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+        <div class="bg-white p-4 rounded-xl border border-slate-200 custom-shadow space-y-2.5">
+          <div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
+            <div class="flex-1 flex flex-wrap items-center gap-2">
+              <div class="relative flex-1 min-w-[200px]">
+                <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-2.5"></i>
+                <input type="text" id="faultSearchInput" oninput="renderFaults()" placeholder="Makine, arıza veya personel ara..." class="w-full pl-9 pr-3 py-2 text-xs border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+              </div>
+              <select id="faultDeptFilter" onchange="renderFaults()" class="text-xs border border-slate-300 rounded-lg px-3 py-2 bg-white text-slate-700">
+                <option value="ALL">Tüm Departmanlar</option>
+                <option>Mekanik Bakım</option>
+                <option>Elektrik & Otomasyon</option>
+                <option>Yardımcı Tesisler Teknisyeni</option>
+                <option>Üretim & Operasyon</option>
+                <option>Kalite & İSG</option>
+                <option>Fabrika Yönetimi</option>
+              </select>
+              <select id="faultStatusFilter" onchange="renderFaults()" class="text-xs border border-slate-300 rounded-lg px-3 py-2 bg-white text-slate-700">
+                <option value="ALL">Tüm Durumlar</option>
+                <option value="Açık">Açık</option>
+                <option value="İnceleniyor">İnceleniyor</option>
+                <option value="İş Emrinde">İş Emrinde</option>
+                <option value="Çözüldü">Çözüldü</option>
+              </select>
             </div>
-            <select id="faultDeptFilter" onchange="renderFaults()" class="text-xs border border-slate-300 rounded-lg px-3 py-2 bg-white text-slate-700">
-              <option value="ALL">Tüm Departmanlar</option>
-              <option>Mekanik Bakım</option>
-              <option>Elektrik & Otomasyon</option>
-              <option>Yardımcı Tesisler Teknisyeni</option>
-              <option>Üretim & Operasyon</option>
-              <option>Kalite & İSG</option>
-              <option>Fabrika Yönetimi</option>
-            </select>
-            <select id="faultStatusFilter" onchange="renderFaults()" class="text-xs border border-slate-300 rounded-lg px-3 py-2 bg-white text-slate-700">
-              <option value="ALL">Tüm Durumlar</option>
-              <option value="Açık">Açık</option>
-              <option value="İnceleniyor">İnceleniyor</option>
-              <option value="İş Emrinde">İş Emrinde</option>
-              <option value="Çözüldü">Çözüldü</option>
-            </select>
+            <button onclick="openNewFaultModal()" class="btn-create-fault px-4 py-2 bg-[#1E3A8A] hover:bg-blue-800 text-white font-bold rounded-lg text-xs flex items-center justify-center gap-1.5 shadow transition">
+              <i data-lucide="plus" class="w-4 h-4"></i> Yeni Arıza Bildir
+            </button>
           </div>
-          <button onclick="openNewFaultModal()" class="btn-create-fault px-4 py-2 bg-[#1E3A8A] hover:bg-blue-800 text-white font-bold rounded-lg text-xs flex items-center justify-center gap-1.5 shadow transition">
-            <i data-lucide="plus" class="w-4 h-4"></i> Yeni Arıza Bildir
-          </button>
+          <div id="faultQuickFiltersBar" class="flex flex-wrap items-center gap-1.5 pt-2 border-t border-slate-100 text-[11px]">
+            <span class="text-slate-400 font-bold mr-1">Hızlı Filtre:</span>
+            <button type="button" onclick="setFaultQuickFilter('ALL')" id="faultQf_ALL" class="px-2.5 py-1 rounded-full font-bold bg-[#1E3A8A] text-amber-300 transition">Tümü</button>
+            <button type="button" onclick="setFaultQuickFilter('MY_DEPT')" id="faultQf_MY_DEPT" class="px-2.5 py-1 rounded-full font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Departmanım</button>
+            <button type="button" onclick="setFaultQuickFilter('MY_REPORTED')" id="faultQf_MY_REPORTED" class="px-2.5 py-1 rounded-full font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Bildirdiklerim</button>
+            <button type="button" onclick="setFaultQuickFilter('CRITICAL')" id="faultQf_CRITICAL" class="px-2.5 py-1 rounded-full font-bold bg-rose-50 text-rose-700 border border-rose-200 hover:bg-rose-100 transition">🚨 Kritik</button>
+          </div>
         </div>
 
         <div id="faultsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
@@ -587,32 +599,41 @@
           <i data-lucide="eye" class="w-4 h-4 text-amber-700 flex-shrink-0"></i>
           <span>Salt Okunur (Sadece Görüntüleme): Bu sekmede iş emri ekleme, personel atama veya durum güncelleme yetkiniz kapalıdır.</span>
         </div>
-        <div class="bg-white p-4 rounded-xl border border-slate-200 custom-shadow flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
-          <div class="flex-1 flex flex-wrap items-center gap-2">
-            <div class="relative flex-1 min-w-[200px]">
-              <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-2.5"></i>
-              <input type="text" id="woSearchInput" oninput="renderWorkOrders()" placeholder="İş emri, makine veya teknisyen ara..." class="w-full pl-9 pr-3 py-2 text-xs border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+        <div class="bg-white p-4 rounded-xl border border-slate-200 custom-shadow space-y-2.5">
+          <div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
+            <div class="flex-1 flex flex-wrap items-center gap-2">
+              <div class="relative flex-1 min-w-[200px]">
+                <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-2.5"></i>
+                <input type="text" id="woSearchInput" oninput="renderWorkOrders()" placeholder="İş emri, makine veya teknisyen ara..." class="w-full pl-9 pr-3 py-2 text-xs border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+              </div>
+              <select id="woDeptFilter" onchange="renderWorkOrders()" class="text-xs border border-slate-300 rounded-lg px-3 py-2 bg-white text-slate-700">
+                <option value="ALL">Tüm Departmanlar</option>
+                <option>Mekanik Bakım</option>
+                <option>Elektrik &amp; Otomasyon</option>
+                <option>Yardımcı Tesisler Teknisyeni</option>
+                <option>Üretim &amp; Operasyon</option>
+                <option>Kalite &amp; İSG</option>
+                <option>Fabrika Yönetimi</option>
+              </select>
+              <select id="woStatusFilter" onchange="renderWorkOrders()" class="text-xs border border-slate-300 rounded-lg px-3 py-2 bg-white text-slate-700">
+                <option value="ALL">Tüm Durumlar</option>
+                <option value="Beklemede">Beklemede</option>
+                <option value="Yapılıyor">Yapılıyor</option>
+                <option value="Parça Bekleniyor">Parça Bekleniyor</option>
+                <option value="Tamamlandı">Tamamlandı</option>
+              </select>
             </div>
-            <select id="woDeptFilter" onchange="renderWorkOrders()" class="text-xs border border-slate-300 rounded-lg px-3 py-2 bg-white text-slate-700">
-              <option value="ALL">Tüm Departmanlar</option>
-              <option>Mekanik Bakım</option>
-              <option>Elektrik &amp; Otomasyon</option>
-              <option>Yardımcı Tesisler Teknisyeni</option>
-              <option>Üretim &amp; Operasyon</option>
-              <option>Kalite &amp; İSG</option>
-              <option>Fabrika Yönetimi</option>
-            </select>
-            <select id="woStatusFilter" onchange="renderWorkOrders()" class="text-xs border border-slate-300 rounded-lg px-3 py-2 bg-white text-slate-700">
-              <option value="ALL">Tüm Durumlar</option>
-              <option value="Beklemede">Beklemede</option>
-              <option value="Yapılıyor">Yapılıyor</option>
-              <option value="Parça Bekleniyor">Parça Bekleniyor</option>
-              <option value="Tamamlandı">Tamamlandı</option>
-            </select>
+            <button onclick="openNewWoModal()" class="btn-create-wo px-4 py-2 bg-amber-600 hover:bg-amber-500 text-white font-bold rounded-lg text-xs flex items-center justify-center gap-1.5 shadow transition">
+              <i data-lucide="plus" class="w-4 h-4"></i> Yeni İş Emri Aç
+            </button>
           </div>
-          <button onclick="openNewWoModal()" class="btn-create-wo px-4 py-2 bg-amber-600 hover:bg-amber-500 text-white font-bold rounded-lg text-xs flex items-center justify-center gap-1.5 shadow transition">
-            <i data-lucide="plus" class="w-4 h-4"></i> Yeni İş Emri Aç
-          </button>
+          <div id="woQuickFiltersBar" class="flex flex-wrap items-center gap-1.5 pt-2 border-t border-slate-100 text-[11px]">
+            <span class="text-slate-400 font-bold mr-1">Hızlı Filtre:</span>
+            <button type="button" onclick="setWoQuickFilter('ALL')" id="woQf_ALL" class="px-2.5 py-1 rounded-full font-bold bg-[#1E3A8A] text-amber-300 transition">Tümü</button>
+            <button type="button" onclick="setWoQuickFilter('MY_ASSIGNED')" id="woQf_MY_ASSIGNED" class="px-2.5 py-1 rounded-full font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Bana Atananlar</button>
+            <button type="button" onclick="setWoQuickFilter('MY_DEPT')" id="woQf_MY_DEPT" class="px-2.5 py-1 rounded-full font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Departmanım</button>
+            <button type="button" onclick="setWoQuickFilter('CRITICAL')" id="woQf_CRITICAL" class="px-2.5 py-1 rounded-full font-bold bg-rose-50 text-rose-700 border border-rose-200 hover:bg-rose-100 transition">🚨 Kritik</button>
+          </div>
         </div>
 
         <div id="workOrdersContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
@@ -725,6 +746,13 @@
               </h4>
               <div id="analyticsBottlenecks" class="space-y-2 text-xs"></div>
             </div>
+          </div>
+
+          <div class="bg-amber-50/60 p-4 rounded-xl border border-amber-200 space-y-3">
+            <h4 class="font-bold text-xs text-amber-900 uppercase tracking-wider flex items-center gap-1.5">
+              <i data-lucide="package-x" class="w-4 h-4 text-amber-700"></i> Paketleme Duruş Nedenleri (Top 5)
+            </h4>
+            <div id="analyticsPkgDowntime" class="space-y-2 text-xs"></div>
           </div>
         </div>
       </div>
@@ -904,8 +932,13 @@
           <label class="block font-bold text-slate-700 mb-1">Ek Not / Açıklama</label>
           <textarea id="utilityNotesInput" rows="2" oninput="markUtilityDirty()" placeholder="Varsa anormallik, blöf, filtre değişimi veya bakım notları..." class="w-full border border-slate-300 rounded-xl px-3 py-2 outline-none focus:ring-2 focus:ring-[#1E3A8A]"></textarea>
         </div>
-        <div class="flex items-center justify-between pt-2 border-t border-slate-100">
-          <span id="utilityDirtyBadge" class="text-[11px] font-semibold text-slate-500">Değişiklikler anında buluta kaydedilmeye hazır</span>
+        <div class="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-100">
+          <div class="flex flex-wrap items-center gap-2">
+            <span id="utilityDirtyBadge" class="text-[11px] font-semibold text-slate-500">Değişiklikler anında buluta kaydedilmeye hazır</span>
+            <button type="button" id="btnUtilCopyPrevMeta" onclick="copyPrevUtilityMeta()" class="px-2.5 py-1.5 bg-indigo-50 hover:bg-indigo-100 text-indigo-800 border border-indigo-200 rounded-lg text-[11px] font-bold transition">
+              📋 Önceki Kayıttan Operatör/Sorumlu Getir
+            </button>
+          </div>
           <button type="button" id="btnUtilitySaveBottom" onclick="saveUtilityControlForm()" class="px-5 py-2.5 bg-emerald-700 hover:bg-emerald-600 text-white rounded-xl text-xs font-bold shadow flex items-center gap-1.5 transition">
             <i data-lucide="cloud-upload" class="w-4 h-4"></i> Kaydet &amp; Buluta Gönder
           </button>
@@ -1111,6 +1144,17 @@
         <button onclick="closeModal('modalNewFault')" class="text-slate-400 hover:text-slate-600"><i data-lucide="x" class="w-5 h-5"></i></button>
       </div>
       <div class="space-y-3 text-xs">
+        <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-2.5 space-y-1.5">
+          <div class="font-bold text-[#1E3A8A] text-[11px]">⚡ Hızlı Arıza Şablonları</div>
+          <div class="flex flex-wrap gap-1.5">
+            <button type="button" onclick="applyFaultTemplate('Rulman Sesi & Aşırı Isınma', 'Yüksek')" class="px-2 py-1 bg-white hover:bg-blue-100 text-blue-900 border border-blue-200 rounded-lg text-[10px] font-bold">Rulman Sesi / Isınma</button>
+            <button type="button" onclick="applyFaultTemplate('Fotosel / Sensör Algılama Hatası', 'Orta')" class="px-2 py-1 bg-white hover:bg-blue-100 text-blue-900 border border-blue-200 rounded-lg text-[10px] font-bold">Sensör / Fotosel</button>
+            <button type="button" onclick="applyFaultTemplate('Motor Termik Attı / Aşırı Akım', 'Yüksek')" class="px-2 py-1 bg-white hover:bg-blue-100 text-blue-900 border border-blue-200 rounded-lg text-[10px] font-bold">Motor Termik</button>
+            <button type="button" onclick="applyFaultTemplate('Konveyör Bant Kayması / Kayış Kopması', 'Kritik (Hat Duruşu)')" class="px-2 py-1 bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-200 rounded-lg text-[10px] font-bold">Kayış / Bant</button>
+            <button type="button" onclick="applyFaultTemplate('Pnömatik Hava Kaçağı / Basınç Düşümü', 'Orta')" class="px-2 py-1 bg-white hover:bg-blue-100 text-blue-900 border border-blue-200 rounded-lg text-[10px] font-bold">Hava Kaçağı</button>
+            <button type="button" onclick="applyFaultTemplate('Çene Isısı / Bıçak Kesim Hatası', 'Kritik (Hat Duruşu)')" class="px-2 py-1 bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-200 rounded-lg text-[10px] font-bold">Çene / Kesim</button>
+          </div>
+        </div>
         <div>
           <label class="block font-semibold text-slate-700 mb-1">Makine / Ekipman *</label>
           <input type="text" id="fMachine" placeholder="Örn: Bühler Vals No: 3, Un Eleği, Paketleme 1..." class="w-full border rounded-lg p-2.5">
@@ -1265,7 +1309,7 @@
         <div class="p-2.5 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-between text-[11px] text-slate-600">
           <div class="flex items-center gap-1.5 font-semibold text-slate-700">
             <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600"></i>
-            <span id="profSystemVersionText">Sistem Sürümü: v1.4.4</span>
+            <span id="profSystemVersionText">Sistem Sürümü: v1.4.5</span>
           </div>
           <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-300">Güncel ✓</span>
         </div>
@@ -1557,6 +1601,13 @@
           <input type="tel" id="adminNewPhone" placeholder="05XX XXX XX XX" class="w-full border rounded-lg p-2.5 outline-none focus:ring-2 focus:ring-[#1E3A8A]">
         </div>
 
+        <div class="bg-blue-50/70 p-3 rounded-xl border border-blue-200 space-y-1.5">
+          <label class="block font-bold text-[#1E3A8A] text-[11px]">📋 Başka Personelden Yetki Kopyala (İsteğe Bağlı)</label>
+          <select id="adminNewCopyFromUser" onchange="if(this.value){ copyPermissionsFromUser('adminNew', this.value); }" class="w-full border border-blue-300 rounded-lg p-2 bg-white font-semibold text-slate-800">
+            <option value="">-- Yetki şablonunu kopyalamak için personel seçin --</option>
+          </select>
+        </div>
+
         <!-- Sekme & Alt Sayfa Bazlı Detaylı Görme & Düzenleme Matrisi -->
         <div class="bg-indigo-50/70 p-3 rounded-xl border border-indigo-200 space-y-2.5">
           <div class="flex flex-wrap items-center justify-between gap-2">
@@ -1686,6 +1737,13 @@
             <input type="text" id="editPermPassword" class="w-full border rounded-lg p-2.5 font-mono text-xs pr-10 outline-none focus:ring-2 focus:ring-[#1E3A8A]">
             <span class="absolute right-2.5 top-2.5 text-[10px] text-slate-400">🔑</span>
           </div>
+        </div>
+
+        <div class="bg-blue-50/70 p-3 rounded-xl border border-blue-200 space-y-1.5">
+          <label class="block font-bold text-[#1E3A8A] text-[11px]">📋 Başka Personelden Yetki Kopyala (Sadece Yetkileri Aktarır)</label>
+          <select id="editPermCopyFromUser" onchange="if(this.value){ copyPermissionsFromUser('editPerm', this.value); }" class="w-full border border-blue-300 rounded-lg p-2 bg-white font-semibold text-slate-800">
+            <option value="">-- Yetki kopyalamak için personel seçin --</option>
+          </select>
         </div>
 
         <!-- Sekme & Alt Sayfa Bazlı Detaylı Görme & Düzenleme Matrisi (Android EditAccountDialog Birebir) -->
@@ -1837,6 +1895,11 @@
           <div id="roleEditDashDeptsContainer" class="flex flex-wrap gap-1.5"></div>
         </div>
 
+        <label class="flex items-center gap-2 p-2.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-950 cursor-pointer">
+          <input type="checkbox" id="roleEditSyncAssignedUsers" checked class="w-4 h-4 rounded text-amber-600">
+          <span class="text-[11px] font-bold">🔄 Bu role sahip mevcut personellerin Genel Bakış ve sekme yetkilerini de güncelle</span>
+        </label>
+
         <div class="flex justify-end gap-2 pt-1">
           <button type="button" onclick="cancelEditOrCreateRole()" class="px-3.5 py-2 border rounded-xl text-xs font-semibold text-slate-600 bg-white">İptal</button>
           <button type="button" onclick="saveRoleDefinition()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow">Buluta Kaydet</button>
@@ -1948,8 +2011,8 @@
         <div>
           <div class="text-[11px] font-bold text-emerald-800 uppercase tracking-wider">Aktif Firebase Sürümü</div>
           <div class="text-sm font-extrabold text-emerald-950 flex items-center gap-2" id="verModalCurrentBadge">
-            <span id="verModalVersionName">v1.4.4</span>
-            <span id="verModalVersionCode" class="text-xs px-2 py-0.5 bg-emerald-200 text-emerald-800 rounded-md font-semibold">Kod: 15</span>
+            <span id="verModalVersionName">v1.4.5</span>
+            <span id="verModalVersionCode" class="text-xs px-2 py-0.5 bg-emerald-200 text-emerald-800 rounded-md font-semibold">Kod: 16</span>
           </div>
         </div>
         <div class="text-right text-[11px] text-emerald-700">
@@ -1962,18 +2025,18 @@
         <div class="grid grid-cols-2 gap-3">
           <div>
             <label class="block font-semibold text-slate-700 mb-1">Yeni Sürüm Kodu (Build Code) *</label>
-            <input type="number" id="verFormCode" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 15" min="1">
+            <input type="number" id="verFormCode" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 16" min="1">
             <span class="text-[10px] text-slate-400">Yeni sürüm için kod mevcut koddan büyük olmalıdır</span>
           </div>
           <div>
             <label class="block font-semibold text-slate-700 mb-1">Yeni Sürüm Adı (Version Name) *</label>
-            <input type="text" id="verFormName" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 1.4.4">
+            <input type="text" id="verFormName" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 1.4.5">
           </div>
         </div>
 
         <div>
           <label class="block font-semibold text-slate-700 mb-1">Güncelleme Bildirim Başlığı *</label>
-          <input type="text" id="verFormTitle" required class="w-full px-3 py-2 border rounded-xl text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: Yeni Sürüm Yayınlandı (v1.4.4)">
+          <input type="text" id="verFormTitle" required class="w-full px-3 py-2 border rounded-xl text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: Yeni Sürüm Yayınlandı (v1.4.5)">
         </div>
 
         <div>
@@ -1992,9 +2055,9 @@
         </div>
 
         <div class="flex items-center justify-between gap-2 pt-2 border-t">
-          <button type="button" onclick="syncWithDeployedApk()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs rounded-xl font-bold border border-slate-300 flex items-center gap-1.5" title="Firebase'i şu an dağıtılan v1.4.4 (Kod: 15) APK ile eşitler ve güncellenen telefonlardaki popup'ı kapatır">
+          <button type="button" onclick="syncWithDeployedApk()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs rounded-xl font-bold border border-slate-300 flex items-center gap-1.5" title="Firebase'i şu an dağıtılan v1.4.5 (Kod: 16) APK ile eşitler ve güncellenen telefonlardaki popup'ı kapatır">
             <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-blue-600"></i>
-            <span>Mevcut APK ile Eşitle (v1.4.4 - Kod: 15)</span>
+            <span>Mevcut APK ile Eşitle (v1.4.5 - Kod: 16)</span>
           </button>
           <div class="flex gap-2">
             <button type="button" onclick="closeModal('modalAppVersion')" class="px-4 py-2 border rounded-xl font-semibold text-slate-600 hover:bg-slate-50">Kapat</button>
@@ -2041,6 +2104,14 @@
           <textarea id="ticketActionNote" rows="3" class="w-full px-3 py-2 border border-slate-300 rounded-xl text-slate-800 focus:ring-2 focus:ring-blue-500 outline-none" placeholder="Yapılan işlem veya gerekçeyi yazınız..."></textarea>
         </div>
 
+        <div id="ticketActionUsedPartsBox" class="hidden bg-indigo-50/70 border border-indigo-200 rounded-xl p-3 space-y-2">
+          <div class="flex items-center justify-between gap-2">
+            <span class="font-bold text-[#1E3A8A] text-[11px]">📦 Kullanılan Yedek Parçalar (Tamamlanınca Stok Düşer)</span>
+            <span id="ticketActionPartsDeductedBadge" class="hidden text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 border border-emerald-200">✓ Stok düşüldü</span>
+          </div>
+          <div id="ticketActionUsedPartsList" class="max-h-40 overflow-y-auto space-y-1.5 pr-0.5"></div>
+        </div>
+
         <div class="flex justify-end gap-2 pt-2 border-t">
           <button type="button" onclick="closeModal('modalTicketAction')" class="px-4 py-2 border rounded-xl font-semibold text-slate-600 hover:bg-slate-50">İptal</button>
           <button type="submit" id="ticketActionSubmitBtn" class="px-5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold shadow flex items-center gap-1.5">
@@ -2058,7 +2129,12 @@
         <h3 id="pkgModalTitle" class="font-bold text-base text-slate-800 flex items-center gap-2">
           <i data-lucide="package" class="w-5 h-5 text-[#1E3A8A]"></i> Paketleme Vardiya & Hat Kaydı
         </h3>
-        <button type="button" onclick="closeModal('modalPackagingLog')" class="text-slate-400 hover:text-slate-600"><i data-lucide="x" class="w-5 h-5"></i></button>
+        <div class="flex items-center gap-2">
+          <button type="button" id="btnPkgCopyLatest" onclick="copyLatestPackagingStaticFields()" class="hidden px-2.5 py-1 bg-indigo-50 hover:bg-indigo-100 text-indigo-800 border border-indigo-200 rounded-lg text-[11px] font-bold transition">
+            📋 Son Kayıttan Sabit Bilgileri Getir
+          </button>
+          <button type="button" onclick="closeModal('modalPackagingLog')" class="text-slate-400 hover:text-slate-600"><i data-lucide="x" class="w-5 h-5"></i></button>
+        </div>
       </div>
       <input type="hidden" id="pkgEditId" value="">
       <div class="space-y-3 text-xs">
@@ -2608,7 +2684,12 @@
         return [window.ALL_FACTORY_LABEL, ...allDepts];
       }
       const ownDept = (u.department || "Üretim & Operasyon").trim();
-      const granted = Array.isArray(u.allowedDashboardDepartments) ? u.allowedDashboardDepartments : [];
+      const roleDef = (u.hasExplicitPermissions !== true && (!Array.isArray(u.allowedDashboardDepartments) || u.allowedDashboardDepartments.length === 0))
+        ? window.findRoleDefinition(u.role)
+        : null;
+      const granted = Array.isArray(u.allowedDashboardDepartments) && u.allowedDashboardDepartments.length > 0
+        ? u.allowedDashboardDepartments
+        : (roleDef && Array.isArray(roleDef.allowedDashboardDepartments) ? roleDef.allowedDashboardDepartments : []);
       const out = [];
       const seen = new Set();
       const add = (d) => {
@@ -2736,7 +2817,12 @@
       if (window.isMasterUser(u)) {
         return [...window.MASTER_ALL_TABS];
       }
-      return window.normalizeTabList(u.allowedTabs, false);
+      const explicit = window.normalizeTabList(u.allowedTabs, false);
+      if (explicit.length > 0 || u.hasExplicitPermissions === true) {
+        return explicit;
+      }
+      const roleDef = window.findRoleDefinition(u.role);
+      return roleDef ? window.normalizeTabList(roleDef.allowedTabs, false) : [];
     };
 
     window.getUserAllowedSubPages = function(u) {
@@ -2750,6 +2836,15 @@
           const def = window.SUB_PAGE_MAP[subId];
           return def && allowedTabs.includes(def.parentTab);
         });
+      }
+      if (u.hasExplicitPermissions !== true) {
+        const roleDef = window.findRoleDefinition(u.role);
+        if (roleDef && Array.isArray(roleDef.allowedSubPages) && roleDef.allowedSubPages.length > 0) {
+          return window.normalizeSubPageList(roleDef.allowedSubPages).filter(subId => {
+            const def = window.SUB_PAGE_MAP[subId];
+            return def && allowedTabs.includes(def.parentTab);
+          });
+        }
       }
       return window.SUB_PAGE_SCHEMA.filter(s => allowedTabs.includes(s.parentTab)).map(s => s.id);
     };
@@ -2768,7 +2863,14 @@
         });
       }
       const normalized = window.normalizeTabList(u.editableTabs, false);
-      return normalized.filter(t => allowed.includes(t));
+      if (normalized.length > 0 || u.hasExplicitPermissions === true) {
+        return normalized.filter(t => allowed.includes(t));
+      }
+      const roleDef = window.findRoleDefinition(u.role);
+      if (roleDef) {
+        return window.normalizeTabList(roleDef.editableTabs, false).filter(t => allowed.includes(t));
+      }
+      return [];
     };
 
     window.getUserEditableSubPages = function(u) {
@@ -2783,6 +2885,16 @@
           out.push("util_references");
         }
         return out;
+      }
+      if (u.hasExplicitPermissions !== true) {
+        const roleDef = window.findRoleDefinition(u.role);
+        if (roleDef && (roleDef.hasSubPagePermissions === true || (Array.isArray(roleDef.editableSubPages) && roleDef.editableSubPages.length > 0))) {
+          const out = window.normalizeSubPageList(roleDef.editableSubPages).filter(id => allowedSubSet.has(id));
+          if (roleDef.canEditUtilityReferences === true && allowedSubSet.has("util_references") && !out.includes("util_references")) {
+            out.push("util_references");
+          }
+          return out;
+        }
       }
       return window.SUB_PAGE_SCHEMA.filter(s => {
         if (!allowedSubSet.has(s.id)) return false;
@@ -2819,6 +2931,18 @@
         }
         return editable.includes(tabId);
       }
+      const roleDef = window.findRoleDefinition(u.role);
+      if (roleDef) {
+        if (roleDef.hasSubPagePermissions === true || (Array.isArray(roleDef.editableSubPages) && roleDef.editableSubPages.length > 0)) {
+          const editSubSet = new Set(window.getUserEditableSubPages(u));
+          return window.getSubPagesForTab(tabId).some(s => editSubSet.has(s.id));
+        }
+        const roleEditable = window.normalizeTabList(roleDef.editableTabs, false).filter(t => window.getUserAllowedTabs(u).includes(t));
+        if (tabId === "electrical_maintenance") {
+          return roleEditable.includes("electrical_maintenance") || roleDef.canManageSchedules === true;
+        }
+        return roleEditable.includes(tabId);
+      }
       if (tabId === "electrical_maintenance" && u.canManageSchedules === true) return true;
       return u.role !== "OBSERVER" && window.getUserAllowedTabs(u).includes(tabId);
     };
@@ -2832,6 +2956,12 @@
       if (u.hasSubPagePermissions === true) {
         return window.getUserAllowedSubPages(u).includes(subId);
       }
+      if (u.hasExplicitPermissions !== true) {
+        const roleDef = window.findRoleDefinition(u.role);
+        if (roleDef && Array.isArray(roleDef.allowedSubPages) && roleDef.allowedSubPages.length > 0) {
+          return window.getUserAllowedSubPages(u).includes(subId);
+        }
+      }
       return true;
     };
 
@@ -2843,6 +2973,12 @@
       if (!def) return false;
       if (u.hasSubPagePermissions === true) {
         return window.getUserEditableSubPages(u).includes(subId);
+      }
+      if (u.hasExplicitPermissions !== true) {
+        const roleDef = window.findRoleDefinition(u.role);
+        if (roleDef && (roleDef.hasSubPagePermissions === true || (Array.isArray(roleDef.editableSubPages) && roleDef.editableSubPages.length > 0))) {
+          return window.getUserEditableSubPages(u).includes(subId);
+        }
       }
       if (subId === "util_references") return u.canEditUtilityReferences === true;
       if (subId === "elec_schedules") return window.canUserEditTab("electrical_maintenance", u) || u.canManageSchedules === true;
@@ -3767,7 +3903,12 @@
       const topChatBtn = document.getElementById("topChatBtn");
       if (topChatBtn) topChatBtn.classList.toggle("hidden", !canChatView);
       const dashChatBtn = document.getElementById("dashChatBtn");
-      if (dashChatBtn) dashChatBtn.classList.toggle("hidden", !(canChatView && canDashQuickView));
+      if (dashChatBtn) dashChatBtn.classList.toggle("hidden", !(canChatView && canDashQuickView && canDashQuickEdit));
+      const dashQuickNotice = document.getElementById("dashQuickReadOnlyNotice");
+      if (dashQuickNotice) {
+        const hasAnyQuickBtn = canDashQuickEdit && (canFault || canWo || canChatView);
+        dashQuickNotice.classList.toggle("hidden", !(canDashQuickView && !hasAnyQuickBtn));
+      }
       const chatInputBar = document.getElementById("chatInputBar");
       if (chatInputBar) chatInputBar.classList.toggle("hidden", !canChatSend);
       const chatReadOnlyBar = document.getElementById("chatReadOnlyBar");
@@ -4422,10 +4563,23 @@
     window.allUtilityReferences = {};
     window.allUtilityAlerts = [];
     window.allPackagingLogs = [];
+    window.allSpareParts = [];
     window.allUsers = [];
     window.firestoreDb = db;
     let utilityAlertsInitialLoaded = false;
     const seenUtilityAlertIds = new Set();
+    window.faultQuickFilter = "ALL";
+    window.woQuickFilter = "ALL";
+    window.pendingSourceFaultId = null;
+
+    const DEFAULT_SPARE_PARTS = [
+      { id: "sp_rul_01", name: "SKF Rulman 6205-2Z", partCode: "RLM-6205", category: "Rulman & Mekanik", currentStock: 18, minStock: 6, unit: "Adet", warehouseLocation: "Raf A-1" },
+      { id: "sp_kay_02", name: "V-Kayışı SPB 2240", partCode: "KYS-2240", category: "Aktarım & Kayış", currentStock: 9, minStock: 4, unit: "Adet", warehouseLocation: "Raf B-3" },
+      { id: "sp_fot_03", name: "Omron Fotosel Sensör E3Z", partCode: "ELK-E3Z", category: "Elektrik & Otomasyon", currentStock: 5, minStock: 3, unit: "Adet", warehouseLocation: "Pano Dolabı 2" },
+      { id: "sp_kon_04", name: "Schneider Kontaktör 25A", partCode: "ELK-LC1D25", category: "Elektrik & Otomasyon", currentStock: 7, minStock: 2, unit: "Adet", warehouseLocation: "Pano Dolabı 1" },
+      { id: "sp_pno_05", name: "Pnömatik Valf Contası DN25", partCode: "PNM-DN25", category: "Pnömatik", currentStock: 14, minStock: 5, unit: "Takım", warehouseLocation: "Raf C-2" },
+      { id: "sp_yag_06", name: "Gıda Onaylı Gres Yağı (H1)", partCode: "YAG-H1-400", category: "Yağlama", currentStock: 11, minStock: 4, unit: "Kartuş", warehouseLocation: "Yağ Deposu" }
+    ];
 
     // GERÇEK ZAMANLI LİSTENER'LAR (Android Snapshot Listener İle Birebir)
     function startRealtimeSync() {
@@ -4583,6 +4737,36 @@
         console.warn("Failed to listen to packaging_logs:", e);
       }
 
+      // 3.9 Yedek Parça Envanteri (spare_parts)
+      let seededSparePartsOnce = false;
+      try {
+        onSnapshot(collection(db, "spare_parts"), async (snapshot) => {
+          const list = [];
+          snapshot.forEach(docSnap => {
+            list.push({ ...docSnap.data(), docId: docSnap.id, id: docSnap.id });
+          });
+          if (list.length === 0 && !seededSparePartsOnce) {
+            seededSparePartsOnce = true;
+            try {
+              await Promise.all(DEFAULT_SPARE_PARTS.map(p => setDoc(doc(db, "spare_parts", p.id), {
+                ...p,
+                updatedAtMillis: Date.now(),
+                updatedAt: serverTimestamp()
+              }, { merge: true })));
+            } catch (_) {}
+            window.allSpareParts = [...DEFAULT_SPARE_PARTS];
+          } else {
+            list.sort((a, b) => (a.name || "").localeCompare((b.name || ""), "tr"));
+            window.allSpareParts = list;
+          }
+        }, (err) => {
+          console.warn("spare_parts listener error:", err);
+          if (!window.allSpareParts.length) window.allSpareParts = [...DEFAULT_SPARE_PARTS];
+        });
+      } catch (e) {
+        if (!window.allSpareParts.length) window.allSpareParts = [...DEFAULT_SPARE_PARTS];
+      }
+
       // 4. Saha Chat Mesajları (chat_messages)
       onSnapshot(collection(db, "chat_messages"), (snapshot) => {
         window.allChatMessages = [];
@@ -4647,6 +4831,9 @@
             window.currentUser.editableTabs = isMeMaster ? [...window.MASTER_ALL_TABS] : window.normalizeTabList(updatedMe.editableTabs, false);
             window.currentUser.allowedSubPages = isMeMaster ? [...window.ALL_SUB_PAGE_IDS] : window.normalizeSubPageList(updatedMe.allowedSubPages);
             window.currentUser.editableSubPages = isMeMaster ? [...window.ALL_SUB_PAGE_IDS] : window.normalizeSubPageList(updatedMe.editableSubPages);
+            window.currentUser.allowedDashboardDepartments = isMeMaster
+              ? [window.ALL_FACTORY_LABEL]
+              : (Array.isArray(updatedMe.allowedDashboardDepartments) ? [...updatedMe.allowedDashboardDepartments] : []);
             window.currentUser.hasExplicitPermissions = isMeMaster || updatedMe.hasExplicitPermissions === true;
             window.currentUser.hasSubPagePermissions = isMeMaster || updatedMe.hasSubPagePermissions === true;
             window.currentUser.permissionsUpdatedAtMillis = Number(updatedMe.permissionsUpdatedAtMillis || 0);
@@ -4693,7 +4880,7 @@
       });
 
       // 6. Mobil Uygulama Sürüm Takibi ve Firebase Yönetimi (app_version/current)
-      let hasAutoSyncedV15 = false;
+      let hasAutoSyncedV16 = false;
       try {
         onSnapshot(doc(db, "app_version", "current"), async (docSnap) => {
           if (docSnap && docSnap.exists()) {
@@ -4701,15 +4888,15 @@
             window.currentAppVersion = data;
             renderAppVersionBadge();
 
-            // Sürüm kodu 15'ten küçükse otomatik olarak v1.4.4 (Kod: 15)'e yükselt
+            // Sürüm kodu 16'dan küçükse otomatik olarak v1.4.5 (Kod: 16)'ya yükselt
             const verCodeNum = Number(data.versionCode || 0);
-            if (verCodeNum < 15 && !hasAutoSyncedV15) {
-              hasAutoSyncedV15 = true;
-              console.log("Firestore app_version sürüm kodu 15 (v1.4.4) olarak otomatik eşitleniyor...");
+            if (verCodeNum < 16 && !hasAutoSyncedV16) {
+              hasAutoSyncedV16 = true;
+              console.log("Firestore app_version sürüm kodu 16 (v1.4.5) olarak otomatik eşitleniyor...");
               seedInitialAppVersionInFirebase();
             }
-          } else if (!hasAutoSyncedV15) {
-            hasAutoSyncedV15 = true;
+          } else if (!hasAutoSyncedV16) {
+            hasAutoSyncedV16 = true;
             seedInitialAppVersionInFirebase();
           }
         }, (err) => {
@@ -5036,7 +5223,11 @@
         const matched = dashOpts.find(d => d.toLowerCase() === String(window.dashDeptPreviewOverride).toLowerCase());
         if (matched) return matched;
       }
-      return (u && u.department) ? u.department : "Fabrika Yönetimi";
+      if (window.isMasterUser(u)) return window.ALL_FACTORY_LABEL;
+      if (u && u.department && dashOpts.some(d => d.toLowerCase() === String(u.department).trim().toLowerCase())) {
+        return u.department.trim();
+      }
+      return dashOpts[0] || ((u && u.department) ? u.department : "Fabrika Yönetimi");
     }
 
     function buildDeptKpiCardHtml(label, value, subtext, colorClass, iconName, bgBadgeClass, onClickAttr = "") {
@@ -5110,13 +5301,24 @@
       const previewSelect = document.getElementById("dashDeptPreviewSelect");
       if (previewSelect && u) {
         const ownDeptLabel = (u.department || "Fabrika Yönetimi").trim();
-        const optsHtml = `<option value="AUTO">Kendi Departmanım (${escapeHtml(ownDeptLabel)})</option>` +
-          dashOpts.map(d => `<option value="${escapeHtml(d)}">${d === window.ALL_FACTORY_LABEL ? "🏭 Tüm Fabrika (Konsolide Özet)" : escapeHtml(d)}</option>`).join("");
+        const optsHtml = dashOpts.map(d => {
+          const isAll = d === window.ALL_FACTORY_LABEL;
+          const isOwn = ownDeptLabel && d.toLowerCase() === ownDeptLabel.toLowerCase();
+          const label = isAll
+            ? "🏭 Tüm Fabrika (Konsolide Özet)"
+            : (isOwn ? `${escapeHtml(d)} (Kendi Departmanım)` : escapeHtml(d));
+          return `<option value="${escapeHtml(d)}">${label}</option>`;
+        }).join("");
         if (previewSelect.innerHTML !== optsHtml) previewSelect.innerHTML = optsHtml;
         if (window.dashDeptPreviewOverride !== "AUTO" && !dashOpts.some(d => d.toLowerCase() === String(window.dashDeptPreviewOverride).toLowerCase())) {
           window.dashDeptPreviewOverride = "AUTO";
         }
-        previewSelect.value = window.dashDeptPreviewOverride || "AUTO";
+        const activeSelectVal = (window.dashDeptPreviewOverride && window.dashDeptPreviewOverride !== "AUTO")
+          ? (dashOpts.find(d => d.toLowerCase() === String(window.dashDeptPreviewOverride).toLowerCase()) || dashOpts[0] || "")
+          : getEffectiveDashboardDept(u);
+        if (activeSelectVal && dashOpts.some(d => d === activeSelectVal)) {
+          previewSelect.value = activeSelectVal;
+        }
       }
       if (previewWrap) previewWrap.classList.toggle("hidden", !canPreview);
 
@@ -5143,15 +5345,34 @@
       const canViewUtilRefs = canViewUtil && window.canUserViewSubPage("util_references", u);
       const canViewMembers = window.canUserViewTab("members", u);
 
-      const clickElec = (sub) => {
+      const canQuickFaultBtn = canDashQuickView && canDashQuickEdit && window.canUserEditSubPage("elec_faults", u) && window.canUserCreateFault(u);
+      const canQuickWoBtn = canDashQuickView && canDashQuickEdit && window.canUserEditSubPage("elec_work_orders", u) && window.canUserCreateWorkOrder(u);
+      const canQuickChatBtn = canDashQuickView && canDashQuickEdit && window.canUserViewChat(u);
+      const btnDashFault = document.getElementById("dashBtnNewFault");
+      if (btnDashFault) btnDashFault.classList.toggle("hidden", !canQuickFaultBtn);
+      const btnDashWo = document.getElementById("dashBtnNewWo");
+      if (btnDashWo) btnDashWo.classList.toggle("hidden", !canQuickWoBtn);
+      const btnDashChat = document.getElementById("dashChatBtn");
+      if (btnDashChat) btnDashChat.classList.toggle("hidden", !canQuickChatBtn);
+      const quickReadOnlyNotice = document.getElementById("dashQuickReadOnlyNotice");
+      if (quickReadOnlyNotice) {
+        quickReadOnlyNotice.classList.toggle("hidden", !(canDashQuickView && !(canQuickFaultBtn || canQuickWoBtn || canQuickChatBtn)));
+      }
+
+      const dashSeeFaults = document.getElementById("dashSeeAllFaultsBtn");
+      if (dashSeeFaults) dashSeeFaults.classList.toggle("hidden", !(canDashRecentEdit && canViewFaultsSub));
+      const dashSeeWo = document.getElementById("dashSeeAllWoBtn");
+      if (dashSeeWo) dashSeeWo.classList.toggle("hidden", !(canDashRecentEdit && canViewWoSub));
+
+      const kpiClickElec = (sub) => {
         const subKeyMap = { faults: "elec_faults", workOrders: "elec_work_orders", schedules: "elec_schedules", analytics: "elec_analytics" };
-        return (canDashRecentEdit && canViewElec && window.canUserViewSubPage(subKeyMap[sub] || "elec_faults", u))
+        return (canDashKpisEdit && canViewElec && window.canUserViewSubPage(subKeyMap[sub] || "elec_faults", u))
           ? `onclick="switchToElectricalSubTab('${sub}')"`
           : "";
       };
-      const clickPkg = (canDashRecentEdit && canViewPkg) ? `onclick="switchTab('packagingUnit')"` : "";
-      const clickUtil = (canDashRecentEdit && canViewUtil) ? `onclick="switchTab('utilityControls')"` : "";
-      const clickMembers = (canDashRecentEdit && canViewMembers) ? `onclick="switchTab('members')"` : "";
+      const kpiClickPkg = (canDashKpisEdit && canViewPkg) ? `onclick="switchTab('packagingUnit')"` : "";
+      const kpiClickUtil = (canDashKpisEdit && canViewUtil) ? `onclick="switchTab('utilityControls')"` : "";
+      const kpiClickMembers = (canDashKpisEdit && canViewMembers) ? `onclick="switchTab('members')"` : "";
 
       let deptPillText = `🏢 ${effDept}`;
       let bannerTitle = "Endüstriyel Bakım Yönetim Portalı";
@@ -5269,12 +5490,12 @@
         deptPillText = "🏭 Yardımcı Tesisler Teknisyeni";
         bannerTitle = "Yardımcı Tesisler Kontrol & Enerji Özeti";
         bannerDesc = "Kompresör (FR-38), Chiller (FR-129), Kazan & Buhar (FR-37) ve Su Arıtma (FR-41) günlük kayıtları ile referans dışı dikkat uyarıları öncelikli olarak gösterilmektedir.";
-        const utilOpenFaults = openFaults.filter(f => (f.department || "").includes("Yardımcı"));
+        const utilOpenFaults = openFaults.filter(f => (f.department || f.faultType || f.location || "").includes("Yardımcı"));
         kpiHtml = [
-          buildDeptKpiCardHtml("Bugün Doldurulan Form", `${todayUtilityLogs.length} / 4`, "FR-38, FR-129, FR-37, FR-41", "text-[#1E3A8A]", "clipboard-check", "bg-blue-50 text-blue-700", clickUtil),
-          buildDeptKpiCardHtml("Referans Dışı Uyarı", todayUtilityAlerts.length, `Toplam ${allUtilityAlerts.length} aktif sistem uyarısı`, todayUtilityAlerts.length > 0 ? "text-rose-600" : "text-emerald-600", "alert-octagon", "bg-rose-50 text-rose-600", clickUtil),
-          buildDeptKpiCardHtml("Yan Tesis Arızaları", utilOpenFaults.length, "Departmana bağlı açık arızalar", "text-amber-600", "alert-triangle", "bg-amber-50 text-amber-600", clickElec("faults")),
-          buildDeptKpiCardHtml("Aktif İş Emirleri", pendingWo.length, "Sahadaki açık teknik iş emirleri", "text-slate-800", "wrench", "bg-slate-100 text-slate-700", clickElec("workOrders"))
+          buildDeptKpiCardHtml("Bugün Doldurulan Form", `${todayUtilityLogs.length} / 4`, "FR-38, FR-129, FR-37, FR-41", "text-[#1E3A8A]", "clipboard-check", "bg-blue-50 text-blue-700", kpiClickUtil),
+          buildDeptKpiCardHtml("Referans Dışı Uyarı", todayUtilityAlerts.length, `Toplam ${allUtilityAlerts.length} aktif sistem uyarısı`, todayUtilityAlerts.length > 0 ? "text-rose-600" : "text-emerald-600", "alert-octagon", "bg-rose-50 text-rose-600", kpiClickUtil),
+          buildDeptKpiCardHtml("Yan Tesis Arızaları", utilOpenFaults.length, "Departmana bağlı açık arızalar", "text-amber-600", "alert-triangle", "bg-amber-50 text-amber-600", kpiClickElec("faults")),
+          buildDeptKpiCardHtml("Aktif İş Emirleri", pendingWo.length, "Sahadaki açık teknik iş emirleri", "text-slate-800", "wrench", "bg-slate-100 text-slate-700", kpiClickElec("workOrders"))
         ].join("");
         focusHtml = renderQuickUtilFormsCard() + (canDashRecentView ? renderUtilityAlertsCard() : "");
       } else if (effDept === "Üretim & Operasyon") {
@@ -5282,10 +5503,10 @@
         bannerTitle = "Makarna Üretim & Paketleme Birimi Özeti";
         bannerDesc = "Dikey dolum ve kartonlama hatlarındaki günlük üretim, hedef verimlilik, ambalaj firesi ve KKN kalite kontrolleri tek ekranda.";
         kpiHtml = [
-          buildDeptKpiCardHtml("Üretilen Paket", pkgProduced.toLocaleString("tr-TR"), `Hedef: ${pkgTarget.toLocaleString("tr-TR")} paket`, "text-[#1E3A8A]", "package", "bg-blue-50 text-blue-700", clickPkg),
-          buildDeptKpiCardHtml("Hat Verimliliği", `%${pkgEff}`, `${pkgBase.length} vardiya/hat kaydı`, pkgEff >= 90 ? "text-emerald-600" : "text-amber-600", "trending-up", "bg-emerald-50 text-emerald-600", clickPkg),
-          buildDeptKpiCardHtml("Fire & Duruş", `${pkgScrap.toFixed(1)} kg`, `Toplam ${pkgDowntime} dk hat duruşu`, "text-amber-600", "clock", "bg-amber-50 text-amber-600", clickPkg),
-          buildDeptKpiCardHtml("KKN / Hat Arızası", pkgCcpIssues.length, `${openFaults.length} açık saha arızası`, pkgCcpIssues.length > 0 ? "text-rose-600" : "text-emerald-600", "shield-alert", "bg-rose-50 text-rose-600", clickPkg)
+          buildDeptKpiCardHtml("Üretilen Paket", pkgProduced.toLocaleString("tr-TR"), `Hedef: ${pkgTarget.toLocaleString("tr-TR")} paket`, "text-[#1E3A8A]", "package", "bg-blue-50 text-blue-700", kpiClickPkg),
+          buildDeptKpiCardHtml("Hat Verimliliği", `%${pkgEff}`, `${pkgBase.length} vardiya/hat kaydı`, pkgEff >= 90 ? "text-emerald-600" : "text-amber-600", "trending-up", "bg-emerald-50 text-emerald-600", kpiClickPkg),
+          buildDeptKpiCardHtml("Fire & Duruş", `${pkgScrap.toFixed(1)} kg`, `Toplam ${pkgDowntime} dk hat duruşu`, "text-amber-600", "clock", "bg-amber-50 text-amber-600", kpiClickPkg),
+          buildDeptKpiCardHtml("KKN / Hat Arızası", pkgCcpIssues.length, `${openFaults.length} açık saha arızası`, pkgCcpIssues.length > 0 ? "text-rose-600" : "text-emerald-600", "shield-alert", "bg-rose-50 text-rose-600", kpiClickPkg)
         ].join("");
         focusHtml = canDashRecentView ? renderPackagingFocusCard() : "";
       } else if (effDept === "Elektrik & Otomasyon" || effDept === "Mekanik Bakım") {
@@ -5293,13 +5514,20 @@
         deptPillText = isElecDept ? "⚡ Elektrik & Otomasyon" : "🔧 Mekanik Bakım";
         bannerTitle = isElecDept ? "Elektrik & Otomasyon Bakım Merkezi" : "Mekanik Bakım & Revizyon Merkezi";
         bannerDesc = `${effDept} ekibine ait açık arızalar, atanan iş emirleri ve yaklaşan/gecikmiş periyodik bakım planları.`;
-        const deptFaults = openFaults.filter(f => (f.department || "") === effDept);
-        const deptWo = pendingWo.filter(w => (w.department || "") === effDept);
+        const matchKeyword = isElecDept ? "elektrik" : "mekanik";
+        const deptFaults = openFaults.filter(f => {
+          const hay = `${f.department || ""} ${f.faultType || ""} ${f.location || ""}`.toLowerCase();
+          return hay.includes(matchKeyword) || (f.department || "").toLowerCase() === effDept.toLowerCase();
+        });
+        const deptWo = pendingWo.filter(w => {
+          const hay = `${w.department || ""} ${w.machineName || ""}`.toLowerCase();
+          return hay.includes(matchKeyword) || (w.department || "").toLowerCase() === effDept.toLowerCase();
+        });
         kpiHtml = [
-          buildDeptKpiCardHtml("Departman Arızaları", deptFaults.length, `Fabrika geneli toplam ${openFaults.length} açık`, "text-rose-600", "alert-circle", "bg-rose-50 text-rose-600", clickElec("faults")),
-          buildDeptKpiCardHtml("Departman İş Emirleri", deptWo.length, `Genel toplam ${pendingWo.length} aktif iş emri`, "text-amber-600", "wrench", "bg-amber-50 text-amber-600", clickElec("workOrders")),
-          buildDeptKpiCardHtml("Gecikmiş Bakımlar", overdueSchedules.length, `Toplam ${(window.allSchedules || []).length} planlı bakım`, overdueSchedules.length > 0 ? "text-rose-600" : "text-emerald-600", "calendar-clock", "bg-indigo-50 text-indigo-700", clickElec("schedules")),
-          buildDeptKpiCardHtml("Tamamlanan İşler", resolved, "Kapatılan arıza + iş emri", "text-emerald-600", "check-circle-2", "bg-emerald-50 text-emerald-600", clickElec("analytics"))
+          buildDeptKpiCardHtml("Departman Arızaları", deptFaults.length, `Fabrika geneli toplam ${openFaults.length} açık`, "text-rose-600", "alert-circle", "bg-rose-50 text-rose-600", kpiClickElec("faults")),
+          buildDeptKpiCardHtml("Departman İş Emirleri", deptWo.length, `Genel toplam ${pendingWo.length} aktif iş emri`, "text-amber-600", "wrench", "bg-amber-50 text-amber-600", kpiClickElec("workOrders")),
+          buildDeptKpiCardHtml("Gecikmiş Bakımlar", overdueSchedules.length, `Toplam ${(window.allSchedules || []).length} planlı bakım`, overdueSchedules.length > 0 ? "text-rose-600" : "text-emerald-600", "calendar-clock", "bg-indigo-50 text-indigo-700", kpiClickElec("schedules")),
+          buildDeptKpiCardHtml("Tamamlanan İşler", resolved, "Kapatılan arıza + iş emri", "text-emerald-600", "check-circle-2", "bg-emerald-50 text-emerald-600", kpiClickElec("analytics"))
         ].join("");
         focusHtml = (canDashRecentView && allUtilityAlerts.length > 0) ? renderUtilityAlertsCard() : "";
       } else if (effDept === "Kalite & İSG") {
@@ -5307,10 +5535,10 @@
         bannerTitle = "Gıda Güvenliği (KKN) & Saha İSG Özeti";
         bannerDesc = "Paketleme hattı metal dedektör/gramaj/çene kontrolleri, yardımcı tesis referans dışı uyarıları ve kritik hat arızaları.";
         kpiHtml = [
-          buildDeptKpiCardHtml("KKN Kalite Uyarısı", pkgCcpIssues.length, "Metal, gramaj, çene veya SKT sapması", pkgCcpIssues.length > 0 ? "text-rose-600" : "text-emerald-600", "shield-alert", "bg-rose-50 text-rose-600", clickPkg),
-          buildDeptKpiCardHtml("Yan Tesis Sapmaları", allUtilityAlerts.length, `Bugün ${todayUtilityAlerts.length} referans dışı değer`, allUtilityAlerts.length > 0 ? "text-rose-600" : "text-emerald-600", "alert-octagon", "bg-amber-50 text-amber-600", clickUtil),
-          buildDeptKpiCardHtml("Kritik Arızalar", criticalFaults.length, `Toplam ${openFaults.length} açık arıza`, "text-amber-700", "alert-triangle", "bg-rose-50 text-rose-600", clickElec("faults")),
-          buildDeptKpiCardHtml("Gecikmiş Bakım", overdueSchedules.length, "İSG / periyodik kontrol takibi", "text-[#1E3A8A]", "calendar-check", "bg-blue-50 text-blue-700", clickElec("schedules"))
+          buildDeptKpiCardHtml("KKN Kalite Uyarısı", pkgCcpIssues.length, "Metal, gramaj, çene veya SKT sapması", pkgCcpIssues.length > 0 ? "text-rose-600" : "text-emerald-600", "shield-alert", "bg-rose-50 text-rose-600", kpiClickPkg),
+          buildDeptKpiCardHtml("Yan Tesis Sapmaları", allUtilityAlerts.length, `Bugün ${todayUtilityAlerts.length} referans dışı değer`, allUtilityAlerts.length > 0 ? "text-rose-600" : "text-emerald-600", "alert-octagon", "bg-amber-50 text-amber-600", kpiClickUtil),
+          buildDeptKpiCardHtml("Kritik Arızalar", criticalFaults.length, `Toplam ${openFaults.length} açık arıza`, "text-amber-700", "alert-triangle", "bg-rose-50 text-rose-600", kpiClickElec("faults")),
+          buildDeptKpiCardHtml("Gecikmiş Bakım", overdueSchedules.length, "İSG / periyodik kontrol takibi", "text-[#1E3A8A]", "calendar-check", "bg-blue-50 text-blue-700", kpiClickElec("schedules"))
         ].join("");
         focusHtml = canDashRecentView ? (renderUtilityAlertsCard() + renderPackagingFocusCard()) : "";
       } else if (effDept === window.ALL_FACTORY_LABEL || effDept === "Fabrika Yönetimi") {
@@ -5318,24 +5546,25 @@
         bannerTitle = "Tekinak Gıda — Tüm Fabrika Genel Bakış";
         bannerDesc = "Elektrik bakım, makarna paketleme birimi, yardımcı tesisler ve saha ekibi verilerinin gerçek zamanlı özeti.";
         kpiHtml = [
-          buildDeptKpiCardHtml("Açık Arızalar", openFaults.length, `<span class="text-rose-600 font-bold">${criticalFaults.length} kritik</span> müdahale bekliyor`, "text-rose-600", "alert-circle", "bg-rose-50 text-rose-600", clickElec("faults")),
-          buildDeptKpiCardHtml("Aktif İş Emirleri", pendingWo.length, `${resolved} tamamlanan bakım kaydı`, "text-amber-600", "wrench", "bg-amber-50 text-amber-600", clickElec("workOrders")),
-          buildDeptKpiCardHtml("Paketleme Üretimi", pkgProduced.toLocaleString("tr-TR"), `Verimlilik: %${pkgEff} • ${pkgCcpIssues.length} KKN uyarısı`, "text-[#1E3A8A]", "package", "bg-indigo-50 text-indigo-700", clickPkg),
-          buildDeptKpiCardHtml("Yan Tesis & Ekip", allUtilityAlerts.length, `${todayUtilityLogs.length}/4 bugünkü form • ${(window.allUsers || []).length} üye`, allUtilityAlerts.length > 0 ? "text-rose-600" : "text-emerald-600", "gauge", "bg-emerald-50 text-emerald-600", allUtilityAlerts.length > 0 ? clickUtil : clickMembers)
+          buildDeptKpiCardHtml("Açık Arızalar", openFaults.length, `<span class="text-rose-600 font-bold">${criticalFaults.length} kritik</span> müdahale bekliyor`, "text-rose-600", "alert-circle", "bg-rose-50 text-rose-600", kpiClickElec("faults")),
+          buildDeptKpiCardHtml("Aktif İş Emirleri", pendingWo.length, `${resolved} tamamlanan bakım kaydı`, "text-amber-600", "wrench", "bg-amber-50 text-amber-600", kpiClickElec("workOrders")),
+          buildDeptKpiCardHtml("Paketleme Üretimi", pkgProduced.toLocaleString("tr-TR"), `Verimlilik: %${pkgEff} • ${pkgCcpIssues.length} KKN uyarısı`, "text-[#1E3A8A]", "package", "bg-indigo-50 text-indigo-700", kpiClickPkg),
+          buildDeptKpiCardHtml("Yan Tesis & Ekip", allUtilityAlerts.length, `${todayUtilityLogs.length}/4 bugünkü form • ${(window.allUsers || []).length} üye`, allUtilityAlerts.length > 0 ? "text-rose-600" : "text-emerald-600", "gauge", "bg-emerald-50 text-emerald-600", allUtilityAlerts.length > 0 ? kpiClickUtil : kpiClickMembers)
         ].join("");
         focusHtml = canDashRecentView ? ((allUtilityAlerts.length > 0 ? renderUtilityAlertsCard() : "") + (pkgLogs.length > 0 ? renderPackagingFocusCard() : "")) : "";
       } else {
-        const customDeptFaults = openFaults.filter(f => (f.department || "").toLowerCase() === effDept.toLowerCase());
-        const customDeptWo = pendingWo.filter(w => (w.department || "").toLowerCase() === effDept.toLowerCase());
-        const customDeptMembers = (window.allUsers || []).filter(m => !m.isHidden && (m.department || "").toLowerCase() === effDept.toLowerCase());
+        const effLow = effDept.toLowerCase();
+        const customDeptFaults = openFaults.filter(f => `${f.department || ""} ${f.faultType || ""} ${f.location || ""} ${f.machineName || ""}`.toLowerCase().includes(effLow));
+        const customDeptWo = pendingWo.filter(w => `${w.department || ""} ${w.machineName || ""}`.toLowerCase().includes(effLow));
+        const customDeptMembers = (window.allUsers || []).filter(m => !m.isHidden && (m.department || "").toLowerCase() === effLow);
         deptPillText = `🏭 ${effDept}`;
         bannerTitle = `${effDept} — Departman Özeti`;
         bannerDesc = `${effDept} departmanına ait açık arızalar, aktif iş emirleri ve ekip durumu canlı izlenmektedir.`;
         kpiHtml = [
-          buildDeptKpiCardHtml("Departman Arızaları", customDeptFaults.length, `Fabrika geneli toplam ${openFaults.length} açık`, "text-rose-600", "alert-circle", "bg-rose-50 text-rose-600", clickElec("faults")),
-          buildDeptKpiCardHtml("Departman İş Emirleri", customDeptWo.length, `Genel toplam ${pendingWo.length} aktif iş emri`, "text-amber-600", "wrench", "bg-amber-50 text-amber-600", clickElec("workOrders")),
-          buildDeptKpiCardHtml("Departman Ekibi", customDeptMembers.length, "Kayıtlı aktif personel", "text-[#1E3A8A]", "users", "bg-blue-50 text-blue-700", clickMembers),
-          buildDeptKpiCardHtml("Tamamlanan İşler", resolved, `${overdueSchedules.length} gecikmiş bakım planı`, "text-emerald-600", "check-circle-2", "bg-emerald-50 text-emerald-600", clickElec("analytics"))
+          buildDeptKpiCardHtml("Departman Arızaları", customDeptFaults.length, `Fabrika geneli toplam ${openFaults.length} açık`, "text-rose-600", "alert-circle", "bg-rose-50 text-rose-600", kpiClickElec("faults")),
+          buildDeptKpiCardHtml("Departman İş Emirleri", customDeptWo.length, `Genel toplam ${pendingWo.length} aktif iş emri`, "text-amber-600", "wrench", "bg-amber-50 text-amber-600", kpiClickElec("workOrders")),
+          buildDeptKpiCardHtml("Departman Ekibi", customDeptMembers.length, "Kayıtlı aktif personel", "text-[#1E3A8A]", "users", "bg-blue-50 text-blue-700", kpiClickMembers),
+          buildDeptKpiCardHtml("Tamamlanan İşler", resolved, `${overdueSchedules.length} gecikmiş bakım planı`, "text-emerald-600", "check-circle-2", "bg-emerald-50 text-emerald-600", kpiClickElec("analytics"))
         ].join("");
         focusHtml = (canDashRecentView && allUtilityAlerts.length > 0) ? renderUtilityAlertsCard() : "";
       }
@@ -5347,6 +5576,59 @@
         kpisEl.classList.toggle("hidden", !canDashKpisView);
         kpisEl.innerHTML = canDashKpisView ? kpiHtml : "";
       }
+
+      // Acil Periyodik Bakım & Bugünkü Anomali Uyarı Şeridi
+      const urgentStrip = document.getElementById("dashUrgentAlertsStrip");
+      if (urgentStrip) {
+        const nowMs = Date.now();
+        const horizonMs = nowMs + 48 * 3600 * 1000;
+        const isGlobalEff = effDept === window.ALL_FACTORY_LABEL || effDept === "Fabrika Yönetimi";
+        const effLowStrip = String(effDept || "").toLowerCase();
+        const urgentSchedules = (window.allSchedules || []).filter(s => {
+          if (s.status === "Tamamlandı") return false;
+          const dt = Number(s.scheduledDateMillis || 0);
+          if (dt <= 0 || dt > horizonMs) return false;
+          if (isGlobalEff) return true;
+          const hay = `${s.department || ""} ${s.machineName || ""} ${s.title || ""}`.toLowerCase();
+          return hay.includes(effLowStrip) || !s.department;
+        });
+        const showSchedStrip = canDashKpisView && canViewSchedSub && urgentSchedules.length > 0;
+        const showUtilStrip = canDashKpisView && canViewUtilRefs && todayUtilityAlerts.length > 0;
+        if (!showSchedStrip && !showUtilStrip) {
+          urgentStrip.classList.add("hidden");
+          urgentStrip.innerHTML = "";
+        } else {
+          urgentStrip.classList.remove("hidden");
+          const overdueCnt = urgentSchedules.filter(s => Number(s.scheduledDateMillis || 0) < nowMs).length;
+          urgentStrip.innerHTML = `
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+              ${showSchedStrip ? `
+                <button type="button" onclick="switchToElectricalSubTab('schedules')" class="text-left p-3.5 rounded-xl border ${overdueCnt > 0 ? 'bg-rose-50 border-rose-300 text-rose-950' : 'bg-amber-50 border-amber-300 text-amber-950'} hover:shadow-md transition flex items-center justify-between gap-3">
+                  <div>
+                    <div class="text-xs font-extrabold flex items-center gap-1.5">
+                      <span>${overdueCnt > 0 ? '🚨' : '📅'} Acil Periyodik Bakım (${urgentSchedules.length})</span>
+                    </div>
+                    <div class="text-[11px] opacity-80 mt-0.5">${overdueCnt > 0 ? `${overdueCnt} bakım gecikmiş, ` : ''}${urgentSchedules.length} bakım önümüzdeki 48 saat içinde</div>
+                  </div>
+                  <span class="px-2.5 py-1 rounded-lg bg-white/80 text-[10px] font-black border border-current whitespace-nowrap">Takvime Git →</span>
+                </button>
+              ` : ""}
+              ${showUtilStrip ? `
+                <button type="button" onclick="switchTab('utilityControls')" class="text-left p-3.5 rounded-xl border bg-rose-50 border-rose-300 text-rose-950 hover:shadow-md transition flex items-center justify-between gap-3">
+                  <div>
+                    <div class="text-xs font-extrabold flex items-center gap-1.5">
+                      <span>⚠️ Bugün ${todayUtilityAlerts.length} Yan Tesis Sapması</span>
+                    </div>
+                    <div class="text-[11px] opacity-80 mt-0.5 truncate max-w-md">${escapeHtml(todayUtilityAlerts[0]?.sectionTitle || "")} • ${escapeHtml(todayUtilityAlerts[0]?.columnTitle || "")}: ${escapeHtml(todayUtilityAlerts[0]?.enteredValue || "")}</div>
+                  </div>
+                  <span class="px-2.5 py-1 rounded-lg bg-rose-600 text-white text-[10px] font-black whitespace-nowrap">İncele →</span>
+                </button>
+              ` : ""}
+            </div>
+          `;
+        }
+      }
+
       if (focusEl) {
         focusEl.classList.toggle("hidden", !focusHtml);
         focusEl.innerHTML = focusHtml;
@@ -5359,9 +5641,30 @@
       const woCardBox = document.getElementById("dashWoTbody")?.closest(".bg-white");
       if (woCardBox) woCardBox.classList.toggle("hidden", !(canDashRecentView && canViewWoSub));
 
+      const isGlobalDeptView = effDept === window.ALL_FACTORY_LABEL || effDept === "Fabrika Yönetimi";
+      const effDeptLow = String(effDept || "").toLowerCase();
+      const faultScore = (f) => {
+        const baseTs = Number(f.createdAtMillis || 0);
+        if (isGlobalDeptView) return baseTs;
+        const hay = `${f.department || ""} ${f.faultType || ""} ${f.location || ""} ${f.machineName || ""}`.toLowerCase();
+        const match = effDept === "Elektrik & Otomasyon"
+          ? (hay.includes("elektrik") || hay.includes("otomasyon"))
+          : (effDept === "Mekanik Bakım" ? hay.includes("mekanik") : hay.includes(effDeptLow));
+        return (match ? 1_000_000_000_000 : 0) + baseTs;
+      };
+      const woScore = (w) => {
+        const baseTs = Number(w.createdAtMillis || 0);
+        if (isGlobalDeptView) return baseTs;
+        const hay = `${w.department || ""} ${w.machineName || ""}`.toLowerCase();
+        const match = effDept === "Elektrik & Otomasyon"
+          ? (hay.includes("elektrik") || hay.includes("otomasyon"))
+          : (effDept === "Mekanik Bakım" ? hay.includes("mekanik") : hay.includes(effDeptLow));
+        return (match ? 1_000_000_000_000 : 0) + baseTs;
+      };
+
       // Dashboard mini tabloları
       const fTbody = document.getElementById("dashFaultsTbody");
-      const recentF = window.allFaults.slice(0, 5);
+      const recentF = [...window.allFaults].sort((a, b) => faultScore(b) - faultScore(a)).slice(0, 5);
       if (fTbody && canDashRecentView && canViewFaultsSub) {
         const canJumpFaults = canDashRecentEdit && canViewFaultsSub;
         if (recentF.length === 0) {
@@ -5379,7 +5682,7 @@
       }
 
       const woTbody = document.getElementById("dashWoTbody");
-      const recentWo = window.allWorkOrders.slice(0, 5);
+      const recentWo = [...window.allWorkOrders].sort((a, b) => woScore(b) - woScore(a)).slice(0, 5);
       if (woTbody && canDashRecentView && canViewWoSub) {
         const canJumpWo = canDashRecentEdit && canViewWoSub;
         if (recentWo.length === 0) {
@@ -5407,19 +5710,97 @@
       return h > 0 ? `${h} sa ${m} dk` : `${m} dk`;
     }
 
+    function formatOpenAgeInfo(startMs) {
+      if (!startMs || Number(startMs) <= 0) return { text: "", isOverdue: false };
+      const diff = Date.now() - Number(startMs);
+      if (diff < 60000) return { text: "Az önce açıldı", isOverdue: false };
+      const totalMins = Math.floor(diff / 60000);
+      const h = Math.floor(totalMins / 60);
+      const m = totalMins % 60;
+      return {
+        text: h > 0 ? `${h} sa ${m} dk açık` : `${m} dk açık`,
+        isOverdue: h >= 4
+      };
+    }
+
+    function formatUsedPartLabel(entry) {
+      if (!entry) return "";
+      if (typeof entry === "string") return entry;
+      const pName = entry.partName || entry.name || entry.partNumber || "Yedek Parça";
+      const pQty = Number(entry.quantity || entry.qty || 1);
+      const pUnit = entry.unit || "Adet";
+      return `${pName} — ${pQty} ${pUnit}`;
+    }
+
+    window.setFaultQuickFilter = function(key) {
+      window.faultQuickFilter = key || "ALL";
+      ["ALL", "MY_DEPT", "MY_REPORTED", "CRITICAL"].forEach(k => {
+        const btn = document.getElementById("faultQf_" + k);
+        if (!btn) return;
+        const active = k === window.faultQuickFilter;
+        if (k === "CRITICAL") {
+          btn.className = active
+            ? "px-2.5 py-1 rounded-full font-bold bg-rose-600 text-white shadow-sm transition"
+            : "px-2.5 py-1 rounded-full font-bold bg-rose-50 text-rose-700 border border-rose-200 hover:bg-rose-100 transition";
+        } else {
+          btn.className = active
+            ? "px-2.5 py-1 rounded-full font-bold bg-[#1E3A8A] text-amber-300 shadow-sm transition"
+            : "px-2.5 py-1 rounded-full font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition";
+        }
+      });
+      renderFaults();
+    };
+
+    window.setWoQuickFilter = function(key) {
+      window.woQuickFilter = key || "ALL";
+      ["ALL", "MY_ASSIGNED", "MY_DEPT", "CRITICAL"].forEach(k => {
+        const btn = document.getElementById("woQf_" + k);
+        if (!btn) return;
+        const active = k === window.woQuickFilter;
+        if (k === "CRITICAL") {
+          btn.className = active
+            ? "px-2.5 py-1 rounded-full font-bold bg-rose-600 text-white shadow-sm transition"
+            : "px-2.5 py-1 rounded-full font-bold bg-rose-50 text-rose-700 border border-rose-200 hover:bg-rose-100 transition";
+        } else {
+          btn.className = active
+            ? "px-2.5 py-1 rounded-full font-bold bg-[#1E3A8A] text-amber-300 shadow-sm transition"
+            : "px-2.5 py-1 rounded-full font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition";
+        }
+      });
+      renderWorkOrders();
+    };
+
     // ARIZA KARTLARI ÇİZİMİ
     window.renderFaults = function() {
       const search = (document.getElementById("faultSearchInput")?.value || "").toLowerCase();
       const dept = document.getElementById("faultDeptFilter")?.value || "ALL";
       const status = document.getElementById("faultStatusFilter")?.value || "ALL";
+      const qf = window.faultQuickFilter || "ALL";
       const container = document.getElementById("faultsContainer");
       if (!container) return;
+
+      const u = window.currentUser || {};
+      const myDept = (u.department || "").trim().toLowerCase();
+      const myName = (u.displayName || "").trim().toLowerCase();
+      const myUname = (u.username || "").trim().toLowerCase();
+      const myUid = (u.userId || "").trim().toLowerCase();
 
       const filtered = window.allFaults.filter(f => {
         const matchesSearch = !search || (f.machineName||'').toLowerCase().includes(search) || (f.description||'').toLowerCase().includes(search) || (f.reportedByName||'').toLowerCase().includes(search) || (f.location||'').toLowerCase().includes(search);
         const matchesDept = dept === "ALL" || f.department === dept || f.location === dept;
         const matchesStatus = status === "ALL" || f.status === status;
-        return matchesSearch && matchesDept && matchesStatus;
+        let matchesQuick = true;
+        if (qf === "MY_DEPT") {
+          matchesQuick = !myDept || `${f.department || ""} ${f.location || ""}`.toLowerCase().includes(myDept);
+        } else if (qf === "MY_REPORTED") {
+          const rUid = (f.reportedByUid || "").toLowerCase();
+          const rName = (f.reportedByName || "").toLowerCase();
+          matchesQuick = (myUid && rUid === myUid) || (myUname && rUid === myUname) || (myName && rName === myName);
+        } else if (qf === "CRITICAL") {
+          const sev = (f.severity || f.priority || "").toLowerCase();
+          matchesQuick = sev.includes("kritik") && f.status !== "Çözüldü";
+        }
+        return matchesSearch && matchesDept && matchesStatus && matchesQuick;
       });
 
       if (filtered.length === 0) {
@@ -5438,16 +5819,20 @@
         const deptName = escapeHtml(f.department || "Mekanik Bakım");
         const descText = escapeHtml(f.description || "Açıklama girilmedi.");
         const durationBadge = isResolved ? formatDurationTr(f.createdAtMillis, f.resolvedAtMillis) : "";
+        const openAge = !isResolved ? formatOpenAgeInfo(f.createdAtMillis) : { text: "", isOverdue: false };
+        const isCrit = (f.severity || f.priority || "").toLowerCase().includes("kritik");
         const resNote = f.resolutionNotes ? `<div class="mt-2 text-[11px] text-emerald-700 bg-emerald-50 px-2.5 py-1.5 rounded-lg border border-emerald-100">✅ <b>Çözüm Notu:</b> ${escapeHtml(f.resolutionNotes)}</div>` : "";
         const reopenNote = (!isResolved && f.reopenReason) ? `<div class="mt-2 text-[11px] text-amber-800 bg-amber-50 px-2.5 py-1.5 rounded-lg border border-amber-200">🔄 <b>Tekrar Açma Gerekçesi:</b> ${escapeHtml(f.reopenReason)}</div>` : "";
         return `
-          <div class="bg-white rounded-xl p-4 custom-shadow border border-slate-200 flex flex-col justify-between hover:border-blue-400 transition">
+          <div class="bg-white rounded-xl p-4 custom-shadow border ${!isResolved && (openAge.isOverdue || isCrit) ? 'border-rose-300' : 'border-slate-200'} flex flex-col justify-between hover:border-blue-400 transition">
             <div>
               <div class="flex items-center justify-between gap-2 mb-2">
-                <div class="flex items-center gap-1.5">
+                <div class="flex items-center gap-1.5 flex-wrap">
                   <span class="text-[10px] font-bold px-2 py-0.5 rounded ${getPriorityClass(f.severity || f.priority)}">${escapeHtml(f.severity || f.priority || "Orta")}</span>
                   <span class="text-[10px] font-bold px-2 py-0.5 rounded ${getStatusClass(f.status)}">${escapeHtml(f.status || "Açık")}</span>
                   ${durationBadge ? `<span class="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200">⏱️ ${durationBadge}</span>` : ""}
+                  ${openAge.text ? `<span class="text-[10px] font-bold px-2 py-0.5 rounded ${(openAge.isOverdue || isCrit) ? 'bg-rose-50 text-rose-700 border border-rose-200' : 'bg-amber-50 text-amber-800 border border-amber-200'}">⏱ ${escapeHtml(openAge.text)}</span>` : ""}
+                  ${f.workOrderId ? `<span class="text-[10px] font-bold px-2 py-0.5 rounded bg-indigo-50 text-indigo-800 border border-indigo-200">🔗 İş Emrine Bağlı</span>` : ""}
                 </div>
                 <div class="flex items-center gap-1">
                   <button type="button" onclick="openTicketDetailModal('fault_reports', '${safeId}')" title="Detay / Müdahale Ekibi" class="p-1 text-slate-500 hover:text-blue-700 hover:bg-blue-50 rounded transition">
@@ -5513,14 +5898,32 @@
       const search = (document.getElementById("woSearchInput")?.value || "").toLowerCase();
       const dept = document.getElementById("woDeptFilter")?.value || "ALL";
       const status = document.getElementById("woStatusFilter")?.value || "ALL";
+      const qf = window.woQuickFilter || "ALL";
       const container = document.getElementById("workOrdersContainer");
       if (!container) return;
+
+      const u = window.currentUser || {};
+      const myDept = (u.department || "").trim().toLowerCase();
+      const myName = (u.displayName || "").trim().toLowerCase();
+      const myUname = (u.username || "").trim().toLowerCase();
+      const myUid = (u.userId || "").trim().toLowerCase();
 
       const filtered = window.allWorkOrders.filter(w => {
         const matchesSearch = !search || (w.title||'').toLowerCase().includes(search) || (w.machineName||'').toLowerCase().includes(search) || (w.assignedToName||'').toLowerCase().includes(search) || (w.description||'').toLowerCase().includes(search);
         const matchesDept = dept === "ALL" || w.department === dept;
         const matchesStatus = status === "ALL" || w.status === status;
-        return matchesSearch && matchesDept && matchesStatus;
+        let matchesQuick = true;
+        if (qf === "MY_ASSIGNED") {
+          const aUid = (w.assignedToUid || "").toLowerCase();
+          const aName = (w.assignedToName || "").toLowerCase();
+          matchesQuick = (myUid && aUid === myUid) || (myUname && aUid === myUname) || (myName && aName.includes(myName));
+        } else if (qf === "MY_DEPT") {
+          matchesQuick = !myDept || (w.department || "").toLowerCase().includes(myDept);
+        } else if (qf === "CRITICAL") {
+          const pr = (w.priority || "").toLowerCase();
+          matchesQuick = pr.includes("kritik") && w.status !== "Tamamlandı";
+        }
+        return matchesSearch && matchesDept && matchesStatus && matchesQuick;
       });
 
       if (filtered.length === 0) {
@@ -5537,17 +5940,23 @@
         const cleanTitle = escapeJsSingle(w.title || 'İş Emri');
         const cleanMachine = escapeJsSingle(w.machineName || 'Genel');
         const doneDuration = isDone ? formatDurationTr(w.createdAtMillis, w.completedAtMillis) : "";
+        const openAge = !isDone ? formatOpenAgeInfo(w.createdAtMillis) : { text: "", isOverdue: false };
+        const isCrit = (w.priority || "").toLowerCase().includes("kritik");
+        const partsArr = Array.isArray(w.usedParts) ? w.usedParts.filter(Boolean) : [];
         const reopenBanner = (!isDone && w.reopenReason) ? `<div class="mt-2 text-[11px] text-amber-800 bg-amber-50 px-2.5 py-1.5 rounded-lg border border-amber-200">⚠️ <b>Tekrar Açıldı (${escapeHtml(w.reopenedByName || 'Yetkili')}):</b> ${escapeHtml(w.reopenReason)}</div>` : "";
         const solNote = w.solutionNotes ? `<div class="mt-2 text-[11px] text-emerald-700 bg-emerald-50 px-2.5 py-1.5 rounded-lg border border-emerald-100">✅ <b>Çözüm Notu:</b> ${escapeHtml(w.solutionNotes)}</div>` : "";
 
         return `
-          <div class="bg-white rounded-xl p-4 custom-shadow border border-slate-200 flex flex-col justify-between hover:border-amber-400 transition">
+          <div class="bg-white rounded-xl p-4 custom-shadow border ${!isDone && (openAge.isOverdue || isCrit) ? 'border-rose-300' : 'border-slate-200'} flex flex-col justify-between hover:border-amber-400 transition">
             <div>
               <div class="flex items-center justify-between gap-2 mb-2">
                 <div class="flex items-center gap-1.5 flex-wrap">
                   <span class="text-[10px] font-bold px-2 py-0.5 rounded ${getPriorityClass(w.priority)}">${escapeHtml(w.priority || "Orta")}</span>
                   <span class="text-[10px] font-bold px-2 py-0.5 rounded ${getStatusClass(w.status)}">${escapeHtml(w.status || "Beklemede")}</span>
                   ${doneDuration ? `<span class="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200">⏱️ ${doneDuration}</span>` : ""}
+                  ${openAge.text ? `<span class="text-[10px] font-bold px-2 py-0.5 rounded ${(openAge.isOverdue || isCrit) ? 'bg-rose-50 text-rose-700 border border-rose-200' : 'bg-amber-50 text-amber-800 border border-amber-200'}">⏱ ${escapeHtml(openAge.text)}</span>` : ""}
+                  ${w.sourceFaultId ? `<span class="text-[10px] font-bold px-2 py-0.5 rounded bg-indigo-50 text-indigo-800 border border-indigo-200">🔗 Arızadan</span>` : ""}
+                  ${partsArr.length > 0 ? `<span class="text-[10px] font-bold px-2 py-0.5 rounded bg-sky-50 text-sky-800 border border-sky-200">📦 ${partsArr.length} Parça</span>` : ""}
                 </div>
                 <div class="flex items-center gap-1">
                   <button type="button" onclick="openTicketDetailModal('work_orders', '${safeWoId}')" title="Detay / Müdahale Ekibi" class="p-1 text-slate-500 hover:text-blue-700 hover:bg-blue-50 rounded transition">
@@ -5642,10 +6051,14 @@
 
       const summary = document.getElementById("tdSummaryBox");
       if (summary) {
+        const usedPartsList = Array.isArray(item.usedParts) ? item.usedParts.filter(Boolean) : [];
         summary.innerHTML = `
           <div class="font-bold text-sm text-slate-900">${escapeHtml(item.machineName || item.title || "Kayıt")}</div>
           <div class="text-slate-600">${escapeHtml(item.department || item.location || "")} • Durum: <b>${escapeHtml(item.status || "")}</b></div>
           <div class="text-slate-700 pt-1">${escapeHtml(item.description || "")}</div>
+          ${item.workOrderId ? `<div class="mt-1.5 text-indigo-800 bg-indigo-50 px-2 py-1 rounded border border-indigo-200 font-semibold">🔗 İş Emrine Bağlı: ${escapeHtml(item.workOrderId)}</div>` : ""}
+          ${item.sourceFaultId ? `<div class="mt-1.5 text-indigo-800 bg-indigo-50 px-2 py-1 rounded border border-indigo-200 font-semibold">🔗 Arızadan Dönüştürüldü: ${escapeHtml(item.sourceFaultId)}</div>` : ""}
+          ${usedPartsList.length ? `<div class="mt-1.5 text-sky-900 bg-sky-50 p-2 rounded border border-sky-200">📦 <b>Kullanılan Yedek Parçalar:</b> ${escapeHtml(usedPartsList.map(formatUsedPartLabel).filter(Boolean).join(", "))}</div>` : ""}
           ${item.resolutionNotes || item.solutionNotes ? `<div class="mt-1.5 text-emerald-800 bg-emerald-50 p-2 rounded border border-emerald-200">✅ Çözüm: ${escapeHtml(item.resolutionNotes || item.solutionNotes)}</div>` : ""}
           ${item.reopenReason ? `<div class="mt-1.5 text-amber-900 bg-amber-50 p-2 rounded border border-amber-200">🔄 Tekrar Açma: ${escapeHtml(item.reopenReason)}</div>` : ""}
         `;
@@ -6413,6 +6826,39 @@
                 <span class="px-2 py-0.5 rounded bg-rose-50 text-rose-700 font-black border border-rose-200">${cnt} Arıza</span>
               </div>
             `).join("");
+      }
+
+      // Paketleme Duruş Nedenleri (Top 5)
+      const pkgDtEl = document.getElementById("analyticsPkgDowntime");
+      if (pkgDtEl) {
+        const pkgLogs = window.allPackagingLogs || [];
+        const dtTotals = {};
+        let totalDtMins = 0;
+        pkgLogs.forEach(p => {
+          const mins = Number(p.downtimeMinutes || 0);
+          if (mins > 0) {
+            const reason = (p.downtimeReason || "Diğer / Belirtilmemiş").trim();
+            dtTotals[reason] = (dtTotals[reason] || 0) + mins;
+            totalDtMins += mins;
+          }
+        });
+        const top5Dt = Object.entries(dtTotals).sort((a, b) => b[1] - a[1]).slice(0, 5);
+        pkgDtEl.innerHTML = top5Dt.length === 0
+          ? `<div class="text-slate-500 italic">Henüz duruş kaydedilmiş paketleme vardiya verisi yok.</div>`
+          : top5Dt.map(([reason, mins]) => {
+              const pct = totalDtMins > 0 ? Math.round((mins / totalDtMins) * 100) : 0;
+              return `
+                <div>
+                  <div class="flex justify-between font-semibold text-slate-800 mb-1">
+                    <span>${escapeHtml(reason)}</span>
+                    <span>${mins} dk (%${pct})</span>
+                  </div>
+                  <div class="w-full h-2.5 bg-amber-100 rounded-full overflow-hidden">
+                    <div class="h-full bg-amber-600 rounded-full" style="width:${pct}%"></div>
+                  </div>
+                </div>
+              `;
+            }).join("");
       }
       lucide.createIcons();
     };
@@ -7384,6 +7830,73 @@
       if (el) el.classList.toggle("hidden");
     };
 
+    window.populateCopyPermissionsDropdown = function(selectId, excludeUserId = "") {
+      const sel = document.getElementById(selectId);
+      if (!sel) return;
+      const candidates = (window.allUsers || []).filter(u => {
+        if (!u || u.isDeleted || u.isBlocked) return false;
+        if (window.isMasterUser(u)) return false;
+        const uid = u.id || u.userId || "";
+        return !excludeUserId || uid !== excludeUserId;
+      });
+      sel.innerHTML = `<option value="">-- Yetki kopyalamak için personel seçin --</option>` +
+        candidates.map(u => {
+          const uid = u.id || u.userId;
+          const uName = u.displayName || u.username || "Personel";
+          return `<option value="${escapeHtml(uid)}">👤 ${escapeHtml(uName)} (${escapeHtml(u.department || "Genel")} • ${escapeHtml(window.getRoleDisplayLabel(u.role))})</option>`;
+        }).join("");
+      sel.value = "";
+    };
+
+    window.copyPermissionsFromUser = function(prefix, sourceUserId) {
+      if (!sourceUserId) return;
+      const src = (window.allUsers || []).find(u => u.id === sourceUserId || u.userId === sourceUserId);
+      if (!src) return;
+
+      const roleSel = document.getElementById(prefix === "adminNew" ? "adminNewRole" : "editPermRole");
+      const srcRole = src.role || "OBSERVER";
+      if (roleSel) {
+        if (!Array.from(roleSel.options).some(o => o.value === srcRole)) {
+          const opt = document.createElement("option");
+          opt.value = srcRole;
+          opt.text = window.getRoleDisplayLabel(srcRole);
+          roleSel.appendChild(opt);
+        }
+        roleSel.value = srcRole;
+      }
+
+      const aTabs = window.getUserAllowedTabs(src);
+      const eTabs = window.getUserEditableTabs(src);
+      const aSubs = window.getUserAllowedSubPages(src);
+      const eSubs = window.getUserEditableSubPages(src);
+      window.setPermMatrixStateFromLists(prefix, aTabs, eTabs, aSubs, eSubs);
+
+      const setChk = (id, v) => { const el = document.getElementById(id); if (el) el.checked = !!v; };
+      if (prefix === "adminNew") {
+        setChk("adminPermUtilRefs", window.canUserEditUtilityReferences(src));
+        setChk("adminPermExcel", window.canUserExportExcel(src));
+        setChk("adminPermSchedules", window.canUserManageSchedules(src));
+        setChk("adminPermChatView", window.canUserViewChat(src));
+        setChk("adminPermChatSend", window.canUserSendChat(src));
+        setChk("adminPermReopen", window.canUserReopenTickets(src));
+        setChk("adminPermDeleteMsg", window.canUserDeleteAnyMessage(src));
+        setChk("adminPermEditProfile", window.canUserEditProfile(src));
+      } else {
+        setChk("editPermCanUtilRefs", window.canUserEditUtilityReferences(src));
+        setChk("editPermCanExcel", window.canUserExportExcel(src));
+        setChk("editPermCanSchedules", window.canUserManageSchedules(src));
+        setChk("editPermCanViewChat", window.canUserViewChat(src));
+        setChk("editPermCanSendChat", window.canUserSendChat(src));
+        setChk("editPermCanReopen", window.canUserReopenTickets(src));
+        setChk("editPermCanDeleteMsg", window.canUserDeleteAnyMessage(src));
+        setChk("editPermCanEditProfile", window.canUserEditProfile(src));
+      }
+
+      const targetDept = document.getElementById(prefix === "adminNew" ? "adminNewDept" : "editPermDept")?.value || "";
+      window.renderDashDeptVisibilitySelector(prefix, src.allowedDashboardDepartments || [], targetDept, false);
+      window.updatePermMatrixSummary(prefix);
+    };
+
     // Yönetici Yeni Üye Ekleme (İlk Kurulumda Hiçbir Yetki Açık Değildir)
     window.openAddUserAdminModal = function() {
       window.refreshDepartmentAndRoleDropdowns();
@@ -7408,6 +7921,7 @@
       setChk("adminPermDeleteMsg", false);
       setChk("adminPermEditProfile", false);
       window.renderDashDeptVisibilitySelector("adminNew", [], deptVal, false);
+      window.populateCopyPermissionsDropdown("adminNewCopyFromUser");
       document.getElementById("modalAddUserAdmin").classList.remove("hidden");
       lucide.createIcons();
     };
@@ -7468,6 +7982,8 @@
       document.getElementById("roleEditIsBuiltIn").value = (roleObj && roleObj.isBuiltIn) ? "1" : "0";
       document.getElementById("roleEditName").value = roleObj ? (roleObj.name || "") : "";
       document.getElementById("roleEditDesc").value = roleObj ? (roleObj.description || "") : "";
+      panel.dataset.prevRoleName = roleObj ? (roleObj.name || "") : "";
+      panel.dataset.prevRoleCode = roleObj ? (roleObj.roleCode || "") : "";
       document.getElementById("roleEditorHeading").innerText = roleObj ? `Rolü Düzenle: ${roleObj.name}` : "Yeni Özel Rol Oluştur";
 
       const st = window.permMatrixState.roleEdit;
@@ -7495,6 +8011,7 @@
       setChk("roleEditPermReopen", roleObj?.canReopenTickets);
       setChk("roleEditPermDeleteMsg", roleObj?.canDeleteAnyMessage);
       setChk("roleEditPermEditProfile", roleObj?.canEditProfile);
+      setChk("roleEditSyncAssignedUsers", true);
 
       window.renderDashDeptVisibilitySelector("roleEdit", roleObj?.allowedDashboardDepartments || [], "", false);
       panel.classList.remove("hidden");
@@ -7505,11 +8022,81 @@
       if (panel) panel.classList.add("hidden");
     };
 
+    window.propagateRolePermissionsToAssignedUsers = async function(rolePayload, prevName = "", prevCode = "") {
+      const keys = new Set(
+        [rolePayload.name, rolePayload.roleCode, prevName, prevCode, window.getRoleDisplayLabel(rolePayload.roleCode || "")]
+          .map(x => String(x || "").trim().toLowerCase())
+          .filter(Boolean)
+      );
+      if (keys.size === 0) return 0;
+
+      const now = Date.now();
+      const userPermPatch = {
+        role: rolePayload.name,
+        hasExplicitPermissions: true,
+        hasSubPagePermissions: true,
+        allowedTabs: rolePayload.allowedTabs || [],
+        editableTabs: rolePayload.editableTabs || [],
+        allowedSubPages: rolePayload.allowedSubPages || [],
+        editableSubPages: rolePayload.editableSubPages || [],
+        allowedDashboardDepartments: rolePayload.allowedDashboardDepartments || [],
+        canCreateFault: !!rolePayload.canCreateFault,
+        canCreateWorkOrder: !!rolePayload.canCreateWorkOrder,
+        canEditUtilityReferences: !!rolePayload.canEditUtilityReferences,
+        canExportExcel: !!rolePayload.canExportExcel,
+        canManageSchedules: !!rolePayload.canManageSchedules,
+        canViewChat: !!rolePayload.canViewChat,
+        canSendChat: !!rolePayload.canSendChat,
+        canReopenTickets: !!rolePayload.canReopenTickets,
+        canDeleteAnyMessage: !!rolePayload.canDeleteAnyMessage,
+        canEditProfile: !!rolePayload.canEditProfile,
+        permissionsUpdatedAtMillis: now,
+        updatedAtMillis: now,
+        updatedAt: serverTimestamp()
+      };
+
+      let updatedCount = 0;
+      try {
+        const snap = await getDocsFromServer(collection(db, "users"));
+        const promises = [];
+        snap.forEach(d => {
+          const dData = d.data() || {};
+          const dEmail = (dData.email || "").trim().toLowerCase();
+          const dUname = (dData.username || "").trim().toLowerCase();
+          if (dEmail === "usluozaykagan@gmail.com" || dUname === "usluozaykagan") return;
+          const uRoleRaw = (dData.role || "").trim().toLowerCase();
+          const uRoleLabel = window.getRoleDisplayLabel(dData.role || "").trim().toLowerCase();
+          if (keys.has(uRoleRaw) || (uRoleLabel && keys.has(uRoleLabel))) {
+            promises.push(setDoc(doc(db, "users", d.id), userPermPatch, { merge: true }));
+            updatedCount++;
+          }
+        });
+        if (promises.length > 0) await Promise.all(promises);
+        if (Array.isArray(window.allUsers) && updatedCount > 0) {
+          window.allUsers = window.allUsers.map(u => {
+            if (!u || window.isMasterUser(u)) return u;
+            const uRoleRaw = (u.role || "").trim().toLowerCase();
+            const uRoleLabel = window.getRoleDisplayLabel(u.role || "").trim().toLowerCase();
+            if (keys.has(uRoleRaw) || (uRoleLabel && keys.has(uRoleLabel))) {
+              return { ...u, ...userPermPatch };
+            }
+            return u;
+          });
+        }
+      } catch (err) {
+        console.warn("propagateRolePermissionsToAssignedUsers notice:", err);
+      }
+      return updatedCount;
+    };
+
     window.saveRoleDefinition = async function() {
       if (!window.isMasterUser(window.currentUser)) {
         alert("⛔ Yalnızca Ana Sistem Yöneticisi rol kaydedebilir.");
         return;
       }
+      const panel = document.getElementById("roleEditorPanel");
+      const prevName = panel?.dataset?.prevRoleName || "";
+      const prevCode = panel?.dataset?.prevRoleCode || "";
       const existingId = document.getElementById("roleEditId").value.trim();
       const existingCode = document.getElementById("roleEditCode").value.trim();
       const name = document.getElementById("roleEditName").value.trim();
@@ -7564,15 +8151,21 @@
       nextList.push(plainPayload);
       window.allCustomRoles = nextList;
 
+      const shouldSyncUsers = !!document.getElementById("roleEditSyncAssignedUsers")?.checked;
       const ok = await window.persistCustomRoleChange(docId, plainPayload, nextList, Array.from(window._deletedRoleTargets));
       if (ok) {
+        let syncedCount = 0;
+        if (shouldSyncUsers) {
+          syncedCount = await window.propagateRolePermissionsToAssignedUsers(plainPayload, prevName, prevCode);
+        }
         window.refreshDepartmentAndRoleDropdowns();
         if (window.currentUser) updateTopBarUser(window.currentUser);
+        refreshDashboard();
         renderTeam();
         renderMembers();
         if (typeof window.renderManageRolesModal === "function") window.renderManageRolesModal();
         window.cancelEditOrCreateRole();
-        alert(`✅ '${name}' rolü buluta kaydedildi ve Android/Web arasında eşitlendi.`);
+        alert(`✅ '${name}' rolü buluta kaydedildi ve Android/Web arasında eşitlendi.${syncedCount > 0 ? ` (${syncedCount} personelin yetkileri güncellendi)` : ""}`);
       } else {
         alert("Rol kaydedilirken bulut bağlantı hatası oluştu.");
       }
@@ -8220,6 +8813,7 @@
       const forceBtn = document.getElementById("adminForceLogoutUserBtn");
       if (forceBtn) forceBtn.classList.toggle("hidden", isMaster);
 
+      window.populateCopyPermissionsDropdown("editPermCopyFromUser", user.id || user.userId || "");
       window.updatePermMatrixSummary("editPerm");
       document.getElementById("modalEditPermissions").classList.remove("hidden");
       lucide.createIcons();
@@ -8726,9 +9320,10 @@
 
       const now = Date.now();
       const newDocId = "wo_" + now;
+      const linkedFaultId = (window.pendingSourceFaultId || "").trim();
 
       try {
-        await setDoc(doc(db, "work_orders", newDocId), {
+        const woPayload = {
           id: newDocId,
           title: title,
           machineName: machine,
@@ -8739,13 +9334,36 @@
           priority: priority,
           description: desc,
           status: "Beklemede",
+          partsDeducted: false,
+          usedParts: [],
           reportedByName: window.currentUser.displayName || window.currentUser.username || "Personel",
           reportedByUid: window.currentUser.username || window.currentUser.userId || "user",
           intervenedByNames: [assignedName],
           createdAtMillis: now,
           createdAt: serverTimestamp(),
           updatedAt: serverTimestamp()
-        });
+        };
+        if (linkedFaultId) {
+          woPayload.sourceFaultId = linkedFaultId;
+        }
+        await setDoc(doc(db, "work_orders", newDocId), woPayload);
+
+        if (linkedFaultId) {
+          try {
+            await setDoc(doc(db, "fault_reports", linkedFaultId), {
+              workOrderId: newDocId,
+              updatedAt: serverTimestamp()
+            }, { merge: true });
+            window.allFaults = (window.allFaults || []).map(f =>
+              (f.docId === linkedFaultId || f.id === linkedFaultId)
+                ? { ...f, workOrderId: newDocId }
+                : f
+            );
+          } catch (linkErr) {
+            console.warn("Fault link update notice:", linkErr);
+          }
+          window.pendingSourceFaultId = null;
+        }
 
         // Eğer bir personele atandıysa telefona bildirim gitmesi için chat_messages'a bildirim bırak
         if (assignedUid || (assignedName && assignedName !== "Teknik Ekip")) {
@@ -8911,6 +9529,59 @@
         submitBtnEl.innerHTML = `<span>Tekrar Aç</span>`;
       }
 
+      const partsBox = document.getElementById("ticketActionUsedPartsBox");
+      const partsListEl = document.getElementById("ticketActionUsedPartsList");
+      const deductedBadge = document.getElementById("ticketActionPartsDeductedBadge");
+      if (partsBox && partsListEl) {
+        if (collName === "work_orders" && mode === "resolve") {
+          partsBox.classList.remove("hidden");
+          const alreadyDeducted = item?.partsDeducted === true;
+          if (deductedBadge) deductedBadge.classList.toggle("hidden", !alreadyDeducted);
+          const existingPartsMap = new Map();
+          if (Array.isArray(item?.usedParts)) {
+            item.usedParts.forEach(p => {
+              if (p && typeof p === "object") {
+                const pid = String(p.partId || p.id || "").trim();
+                if (pid) existingPartsMap.set(pid, Number(p.quantity || p.qty || 1));
+              }
+            });
+          }
+          const catalog = Array.isArray(window.allSpareParts) && window.allSpareParts.length
+            ? window.allSpareParts
+            : DEFAULT_SPARE_PARTS;
+          partsListEl.innerHTML = catalog.map(sp => {
+            const spId = sp.docId || sp.id;
+            const stock = Number(sp.currentStock ?? 0);
+            const minStock = Number(sp.minimumStock ?? 0);
+            const isChecked = existingPartsMap.has(spId);
+            const qtyVal = existingPartsMap.get(spId) || 1;
+            const disabledAttr = (alreadyDeducted || (!isChecked && stock <= 0)) ? "disabled" : "";
+            return `
+              <div class="flex items-center justify-between gap-2 bg-white px-2.5 py-1.5 rounded-lg border ${stock <= minStock ? 'border-amber-300' : 'border-slate-200'}">
+                <label class="flex items-center gap-2 flex-1 min-w-0 cursor-pointer">
+                  <input type="checkbox" class="ticket-used-part-chk w-3.5 h-3.5 rounded text-[#1E3A8A]"
+                         data-part-id="${escapeHtml(spId)}"
+                         data-part-number="${escapeHtml(sp.partNumber || '')}"
+                         data-part-name="${escapeHtml(sp.name || 'Parça')}"
+                         data-part-unit="${escapeHtml(sp.unit || 'Adet')}"
+                         data-part-stock="${stock}"
+                         ${isChecked ? "checked" : ""} ${disabledAttr}>
+                  <span class="truncate text-[11px] font-semibold text-slate-800">${escapeHtml(sp.name || 'Parça')}</span>
+                  <span class="text-[10px] ${stock <= minStock ? 'text-rose-600 font-bold' : 'text-slate-500'} whitespace-nowrap">(Stok: ${stock} ${escapeHtml(sp.unit || 'Adet')})</span>
+                </label>
+                <input type="number" min="1" max="${Math.max(1, stock)}" value="${qtyVal}"
+                       class="ticket-used-part-qty w-14 px-1.5 py-0.5 text-[11px] font-bold text-center border border-slate-300 rounded"
+                       data-part-id="${escapeHtml(spId)}" ${disabledAttr}>
+              </div>
+            `;
+          }).join("");
+        } else {
+          partsBox.classList.add("hidden");
+          if (deductedBadge) deductedBadge.classList.add("hidden");
+          partsListEl.innerHTML = "";
+        }
+      }
+
       document.getElementById("modalTicketAction").classList.remove("hidden");
       lucide.createIcons();
     };
@@ -8960,20 +9631,54 @@
         const now = Date.now();
         if (mode === "resolve") {
           const newStatus = collName === "fault_reports" ? "Çözüldü" : "Tamamlandı";
+          const existingOrder = collName === "work_orders"
+            ? (window.allWorkOrders || []).find(w => w.docId === actualDocId || w.id === actualDocId)
+            : null;
           const updateData = {
             status: newStatus,
             intervenedByNames: actorNames,
             updatedAt: serverTimestamp()
           };
+          let selectedPartsForDeduction = [];
+          let shouldDeductParts = false;
           if (collName === "fault_reports") {
             updateData.resolvedAtMillis = now;
             updateData.resolvedAt = serverTimestamp();
             updateData.resolvedByName = actorNames.join(", ");
             if (noteRaw) updateData.resolutionNotes = noteRaw;
           } else {
-            updateData.completedAtMillis = now;
+            updateData.completedAtMillis = existingOrder?.completedAtMillis || now;
             updateData.completedAt = serverTimestamp();
             if (noteRaw) updateData.solutionNotes = noteRaw;
+
+            if (existingOrder?.partsDeducted === true) {
+              updateData.partsDeducted = true;
+              if (Array.isArray(existingOrder.usedParts)) updateData.usedParts = existingOrder.usedParts;
+            } else {
+              const checkedParts = Array.from(document.querySelectorAll(".ticket-used-part-chk:checked")).map(chk => {
+                const pid = chk.getAttribute("data-part-id") || "";
+                const qtyEl = Array.from(document.querySelectorAll(".ticket-used-part-qty"))
+                  .find(q => q.getAttribute("data-part-id") === pid);
+                const stockMax = Number(chk.getAttribute("data-part-stock") || 0);
+                const rawQty = Math.max(1, Number(qtyEl?.value || 1) || 1);
+                const qty = stockMax > 0 ? Math.min(rawQty, stockMax) : rawQty;
+                return {
+                  partId: pid,
+                  partNumber: chk.getAttribute("data-part-number") || "",
+                  partName: chk.getAttribute("data-part-name") || "Yedek Parça",
+                  quantity: qty,
+                  unit: chk.getAttribute("data-part-unit") || "Adet"
+                };
+              }).filter(p => p.partId && p.quantity > 0);
+
+              const finalUsedParts = checkedParts.length > 0
+                ? checkedParts
+                : (Array.isArray(existingOrder?.usedParts) ? existingOrder.usedParts : []);
+              shouldDeductParts = existingOrder?.partsDeducted !== true && finalUsedParts.length > 0;
+              updateData.usedParts = finalUsedParts;
+              updateData.partsDeducted = shouldDeductParts;
+              selectedPartsForDeduction = finalUsedParts;
+            }
           }
 
           await setDoc(doc(db, collName, actualDocId), updateData, { merge: true });
@@ -8991,6 +9696,63 @@
                 ? { ...w, ...updateData, status: newStatus }
                 : w
             );
+
+            // Seçilen yedek parçaları Firestore spare_parts stokundan tek seferlik düş
+            if (shouldDeductParts && selectedPartsForDeduction.length > 0) {
+              for (const entry of selectedPartsForDeduction) {
+                const pid = (entry?.partId || entry?.id || "").trim();
+                const qty = Number(entry?.quantity || entry?.qty || 0);
+                if (!pid || qty <= 0) continue;
+                try {
+                  const spRef = doc(db, "spare_parts", pid);
+                  const spSnap = await getDoc(spRef);
+                  const localPart = (window.allSpareParts || []).find(s => s.docId === pid || s.id === pid);
+                  const curStock = spSnap.exists()
+                    ? Number(spSnap.data()?.currentStock ?? localPart?.currentStock ?? 0)
+                    : Number(localPart?.currentStock ?? 0);
+                  const nextStock = Math.max(0, curStock - qty);
+                  if (spSnap.exists()) {
+                    await setDoc(spRef, { currentStock: nextStock, updatedAt: serverTimestamp() }, { merge: true });
+                  } else if (localPart) {
+                    await setDoc(spRef, { ...localPart, id: pid, currentStock: nextStock, updatedAt: serverTimestamp() }, { merge: true });
+                  }
+                  window.allSpareParts = (window.allSpareParts || []).map(s =>
+                    (s.docId === pid || s.id === pid) ? { ...s, currentStock: nextStock } : s
+                  );
+                } catch (spErr) {
+                  console.warn("Spare part deduction notice:", spErr);
+                }
+              }
+            }
+
+            // Çift yönlü bağlı Arıza kaydını otomatik Çözüldü yap
+            const linkedFault = (window.allFaults || []).find(f =>
+              (existingOrder?.sourceFaultId && (f.docId === existingOrder.sourceFaultId || f.id === existingOrder.sourceFaultId)) ||
+              f.workOrderId === actualDocId
+            );
+            const linkedFaultId = existingOrder?.sourceFaultId || linkedFault?.docId || linkedFault?.id || "";
+            if (linkedFaultId && linkedFault?.status !== "Çözüldü") {
+              const autoNote = `Bağlı İş Emri (${actualDocId}) tamamlandı` + (noteRaw ? `: ${noteRaw}` : "");
+              const faultPatch = {
+                status: "Çözüldü",
+                resolvedAtMillis: now,
+                resolvedAt: serverTimestamp(),
+                resolvedByName: actorNames.join(", "),
+                resolutionNotes: autoNote,
+                workOrderId: actualDocId,
+                updatedAt: serverTimestamp()
+              };
+              try {
+                await setDoc(doc(db, "fault_reports", linkedFaultId), faultPatch, { merge: true });
+                window.allFaults = (window.allFaults || []).map(f =>
+                  (f.docId === linkedFaultId || f.id === linkedFaultId)
+                    ? { ...f, ...faultPatch }
+                    : f
+                );
+              } catch (lfErr) {
+                console.warn("Auto-resolve linked fault notice:", lfErr);
+              }
+            }
           }
 
           // Sohbete otomatik çözüm bildirimi
@@ -9078,13 +9840,14 @@
         alert("⚠️ Arızayı iş emrine dönüştürme (yeni iş emri başlatma) yetkiniz bulunmamaktadır.");
         return;
       }
-      const f = window.allFaults.find(item => item.id === faultId);
+      const f = (window.allFaults || []).find(item => item.docId === faultId || item.id === faultId);
       if (!f) return;
+      window.pendingSourceFaultId = f.docId || f.id || faultId;
       document.getElementById("woTitle").value = "Onarım: " + (f.machineName || "Ekipman");
       document.getElementById("woMachine").value = f.machineName || "";
       document.getElementById("woDept").value = f.department || "Mekanik Bakım";
       document.getElementById("woDesc").value = f.description || "";
-      openNewWoModal();
+      openNewWoModal(true);
     };
 
     // 6. Üye Gizleme / Açma (Yalnızca Yetkili Yönetici Yapabilir)
@@ -10340,8 +11103,29 @@
         if (el) el.disabled = !canEditCcp;
       });
 
+      const copyLatestBtn = document.getElementById("btnPkgCopyLatest");
+      if (copyLatestBtn) {
+        copyLatestBtn.classList.toggle("hidden", !(!existing && canEditLogs && (window.allPackagingLogs || []).length > 0));
+      }
+
       document.getElementById("modalPackagingLog").classList.remove("hidden");
       lucide.createIcons();
+    };
+
+    window.copyLatestPackagingStaticFields = function() {
+      const latest = (window.allPackagingLogs || [])[0];
+      if (!latest) return;
+      const setVal = (id, v) => {
+        const el = document.getElementById(id);
+        if (el && v !== undefined && v !== null && String(v).trim() !== "") el.value = v;
+      };
+      setVal("pkgFormShift", latest.shift);
+      setVal("pkgFormLine", latest.lineName);
+      setVal("pkgFormProduct", latest.productName);
+      setVal("pkgFormLot", latest.lotNumber);
+      setVal("pkgFormFilm", latest.filmCode);
+      setVal("pkgFormTarget", latest.targetPacks ?? 18000);
+      setVal("pkgFormOperator", latest.operatorName);
     };
 
     window.savePackagingLog = async function() {
@@ -10610,21 +11394,82 @@
       return anomalies;
     }
 
+    window.openFaultFromUtilityAnomaly = function(encodedAnomaly) {
+      if (!window.canUserCreateFault(window.currentUser)) {
+        alert("⛔ Yeni arıza bildirme yetkiniz bulunmamaktadır.");
+        return;
+      }
+      try {
+        const a = JSON.parse(decodeURIComponent(encodedAnomaly));
+        closeModal("modalUtilityAttention");
+        window.switchToElectricalSubTab("faults");
+        window.openNewFaultModal();
+        const machineEl = document.getElementById("fMachine");
+        const deptEl = document.getElementById("fDept");
+        const prioEl = document.getElementById("fPriority");
+        const descEl = document.getElementById("fDesc");
+        if (machineEl) machineEl.value = a.sectionTitle || a.formTitle || "Yardımcı Tesisler Ekipmanı";
+        if (deptEl) {
+          const targetOpt = Array.from(deptEl.options).find(o => o.value.toLowerCase().includes("yardımcı") || o.value.toLowerCase().includes("mekanik"));
+          if (targetOpt) deptEl.value = targetOpt.value;
+        }
+        if (prioEl) prioEl.value = (String(a.reason || "").toLowerCase().includes("arızalı")) ? "Kritik (Hat Duruşu)" : "Yüksek";
+        if (descEl) {
+          descEl.value = `${a.sectionTitle || a.formTitle || ""} (${a.timeSlot || ""}) — ${a.columnTitle || ""}: Girilen değer '${a.enteredValue || ""}' (${a.reason || "Referans dışı"}).${a.expectedRange ? ` Beklenen Referans: ${a.expectedRange}.` : ""}`;
+        }
+      } catch (err) {
+        console.warn("openFaultFromUtilityAnomaly parse error:", err);
+      }
+    };
+
+    window.copyPrevUtilityMeta = function() {
+      const formType = window.utilityUiState.formType;
+      const activeSub = window.utilityFormToSubPage(formType);
+      if (!window.canUserEditSubPage(activeSub, window.currentUser)) return;
+      const currentDateIso = window.utilityUiState.dateIso || getLocalTodayIso();
+      const prev = (window.allUtilityLogs || []).find(l => l.formType === formType && (l.operatorName || l.supervisorName) && l.dateIso !== currentDateIso)
+        || (window.allUtilityLogs || []).find(l => l.operatorName || l.supervisorName);
+      if (!prev) {
+        alert("Önceki kayıtlı operatör veya şef bilgisi bulunamadı.");
+        return;
+      }
+      const opEl = document.getElementById("utilityOperatorInput");
+      const supEl = document.getElementById("utilitySupervisorInput");
+      if (opEl && prev.operatorName) opEl.value = prev.operatorName;
+      if (supEl && prev.supervisorName) supEl.value = prev.supervisorName;
+      window.markUtilityDirty();
+    };
+
     window.openUtilityAttentionModal = function(anomalies, subtitleText) {
       const listEl = document.getElementById("utilAttentionList");
       const subEl = document.getElementById("utilAttentionSubtitle");
+      const canCreateF = window.canUserCreateFault(window.currentUser) && window.canUserEditSubPage("elec_faults", window.currentUser);
       if (subEl && subtitleText) subEl.innerText = subtitleText;
       if (listEl) {
-        listEl.innerHTML = (anomalies || []).map(a => `
-          <div class="p-3 bg-rose-50 border border-rose-200 rounded-xl space-y-1">
-            <div class="flex items-center justify-between gap-2">
-              <span class="font-extrabold text-rose-900">${escapeHtml(a.sectionTitle || a.formTitle || "")} (${escapeHtml(a.timeSlot || "")})</span>
-              <span class="px-2 py-0.5 rounded bg-rose-600 text-white font-black text-[10px]">Girilen: ${escapeHtml(a.enteredValue || "")}</span>
+        listEl.innerHTML = (anomalies || []).map(a => {
+          const payloadStr = encodeURIComponent(JSON.stringify({
+            sectionTitle: a.sectionTitle || a.formTitle || "",
+            formTitle: a.formTitle || "",
+            timeSlot: a.timeSlot || "",
+            columnTitle: a.columnTitle || "",
+            enteredValue: a.enteredValue || "",
+            reason: a.reason || "",
+            expectedRange: a.expectedRange || ""
+          }));
+          return `
+            <div class="p-3 bg-rose-50 border border-rose-200 rounded-xl space-y-1.5">
+              <div class="flex items-center justify-between gap-2">
+                <span class="font-extrabold text-rose-900">${escapeHtml(a.sectionTitle || a.formTitle || "")} (${escapeHtml(a.timeSlot || "")})</span>
+                <span class="px-2 py-0.5 rounded bg-rose-600 text-white font-black text-[10px]">Girilen: ${escapeHtml(a.enteredValue || "")}</span>
+              </div>
+              <div class="font-bold text-rose-800">${escapeHtml(a.columnTitle || "")} — ${escapeHtml(a.reason || "")}</div>
+              <div class="flex items-center justify-between gap-2">
+                ${a.expectedRange ? `<span class="text-[11px] text-slate-600">Beklenen Referans: <b>${escapeHtml(a.expectedRange)}</b></span>` : `<span></span>`}
+                ${canCreateF ? `<button type="button" onclick="openFaultFromUtilityAnomaly('${payloadStr}')" class="px-2.5 py-1 bg-rose-600 hover:bg-rose-700 text-white rounded-lg text-[10px] font-bold shadow-sm transition">🚨 Arıza Aç</button>` : ""}
+              </div>
             </div>
-            <div class="font-bold text-rose-800">${escapeHtml(a.columnTitle || "")} — ${escapeHtml(a.reason || "")}</div>
-            ${a.expectedRange ? `<div class="text-[11px] text-slate-600">Beklenen Referans: <b>${escapeHtml(a.expectedRange)}</b></div>` : ""}
-          </div>
-        `).join("");
+          `;
+        }).join("");
       }
       document.getElementById("modalUtilityAttention").classList.remove("hidden");
       lucide.createIcons();
@@ -10666,6 +11511,7 @@
 
     function updateUtilityAnomalyBanner(def) {
       const canViewRefs = window.canUserViewSubPage("util_references", window.currentUser);
+      const canCreateF = window.canUserCreateFault(window.currentUser) && window.canUserEditSubPage("elec_faults", window.currentUser);
       const rules = mergeUtilityReferenceRules();
       const anomalies = evaluateUtilityForm(def, window.utilityUiState.draftCells || {}, rules);
       const banner = document.getElementById("utilityAnomalyBanner");
@@ -10677,15 +11523,29 @@
         } else {
           banner.classList.remove("hidden");
           countBadge.innerText = `${anomalies.length} Uyarı`;
-          listEl.innerHTML = anomalies.map(a => `
-            <div class="p-2 bg-white border border-rose-200 rounded-xl flex items-center justify-between gap-2">
-              <div>
-                <div class="font-bold text-rose-900">${escapeHtml(a.sectionTitle)} (${escapeHtml(a.timeSlot)}) • ${escapeHtml(a.columnTitle)}</div>
-                <div class="text-[10px] text-rose-700">${escapeHtml(a.reason)} ${a.expectedRange ? `(Ref: ${escapeHtml(a.expectedRange)})` : ""}</div>
+          listEl.innerHTML = anomalies.map(a => {
+            const payloadStr = encodeURIComponent(JSON.stringify({
+              sectionTitle: a.sectionTitle || "",
+              formTitle: def.documentTitle || "",
+              timeSlot: a.timeSlot || "",
+              columnTitle: a.columnTitle || "",
+              enteredValue: a.enteredValue || "",
+              reason: a.reason || "",
+              expectedRange: a.expectedRange || ""
+            }));
+            return `
+              <div class="p-2 bg-white border border-rose-200 rounded-xl flex items-center justify-between gap-2">
+                <div class="min-w-0">
+                  <div class="font-bold text-rose-900 truncate">${escapeHtml(a.sectionTitle)} (${escapeHtml(a.timeSlot)}) • ${escapeHtml(a.columnTitle)}</div>
+                  <div class="text-[10px] text-rose-700">${escapeHtml(a.reason)} ${a.expectedRange ? `(Ref: ${escapeHtml(a.expectedRange)})` : ""}</div>
+                </div>
+                <div class="flex items-center gap-1.5 flex-shrink-0">
+                  <span class="px-2 py-0.5 rounded bg-rose-600 text-white font-black text-[10px]">${escapeHtml(a.enteredValue)}</span>
+                  ${canCreateF ? `<button type="button" onclick="openFaultFromUtilityAnomaly('${payloadStr}')" class="px-2 py-0.5 bg-rose-100 hover:bg-rose-200 text-rose-800 border border-rose-300 rounded text-[10px] font-bold transition">🚨 Arıza Aç</button>` : ""}
+                </div>
               </div>
-              <span class="px-2 py-0.5 rounded bg-rose-600 text-white font-black text-[10px]">${escapeHtml(a.enteredValue)}</span>
-            </div>
-          `).join("");
+            `;
+          }).join("");
         }
       }
       return anomalies;
@@ -11020,6 +11880,8 @@
       if (btnTop) btnTop.classList.toggle("hidden", !canEdit);
       const btnBot = document.getElementById("btnUtilitySaveBottom");
       if (btnBot) btnBot.classList.toggle("hidden", !canEdit);
+      const btnCopyMeta = document.getElementById("btnUtilCopyPrevMeta");
+      if (btnCopyMeta) btnCopyMeta.classList.toggle("hidden", !canEdit);
       const btnRef = document.getElementById("btnUtilityReferenceEditor");
       if (btnRef) btnRef.classList.toggle("hidden", !canEditRefs);
       const btnExcel = document.getElementById("btnUtilityExcel");
@@ -11283,6 +12145,13 @@
     };
 
     // Modal Fonksiyonları
+    window.applyFaultTemplate = function(descText, prioVal) {
+      const descEl = document.getElementById("fDesc");
+      const prioEl = document.getElementById("fPriority");
+      if (descEl) descEl.value = descText;
+      if (prioEl && prioVal) prioEl.value = prioVal;
+    };
+
     window.openNewFaultModal = () => {
       if (!window.canUserCreateFault(window.currentUser)) {
         alert("⚠️ Arıza bildirme yetkiniz bulunmamaktadır. Lütfen sistem yöneticisi ile iletişime geçiniz.");
@@ -11293,11 +12162,12 @@
       document.getElementById("modalNewFault").classList.remove("hidden");
     };
 
-    window.openNewWoModal = function() {
+    window.openNewWoModal = function(preserveSource = false) {
       if (!window.canUserCreateWorkOrder(window.currentUser)) {
         alert("⚠️ İş emri başlatma yetkiniz bulunmamaktadır. Lütfen sistem yöneticisi ile iletişime geçiniz.");
         return;
       }
+      if (!preserveSource) window.pendingSourceFaultId = null;
       window.refreshDepartmentAndRoleDropdowns();
       const select = document.getElementById("woAssigned");
       if (select && window.allUsers) {
@@ -11322,18 +12192,19 @@
 
     function renderAppVersionBadge() {
       const v = window.currentAppVersion || {
-        versionName: "1.4.4",
-        versionCode: 15,
+        versionName: "1.4.5",
+        versionCode: 16,
         releaseDate: "2026-11-15",
-        title: "Tekinak CMMS v1.4.4",
+        title: "Tekinak CMMS v1.4.5",
         changelog: [
-          "Roller, departmanlar ve vardiyalarda sabit kilidi kaldırıldı; yönetici tamamını düzenleyip silebiliyor ve bulutta senkronize ediliyor.",
-          "Android uygulamasında 'Üyeler' sekmesi yazı/rozet hizalaması diğer sekmelerle aynı satıra hizalandı.",
-          "Yardımcı Tesisler ve koyu tema altındaki yazı/giriş alanlarında beyaz renk okunurluk sorunu giderildi."
+          "Çift yönlü arıza ↔ iş emri bağlantısı ve iş emri tamamlanınca bağlı arızanın otomatik kapatılması eklendi.",
+          "İş emri kapatılırken kullanılan yedek parçalar seçilerek Firestore stoktan tek seferlik düşüm desteği eklendi.",
+          "Arıza ve iş emri kartlarına canlı bekleme süresi sayaçları, hızlı saha filtreleri ve arıza şablonları eklendi.",
+          "Genel Bakış acil bakım/anomali şeridi, personelden yetki kopyalama ve paketleme duruş nedenleri raporu eklendi."
         ]
       };
-      const vName = v.versionName || "1.4.4";
-      const vCode = Number(v.versionCode || 15);
+      const vName = v.versionName || "1.4.5";
+      const vCode = Number(v.versionCode || 16);
       const localApkHref = `app-release.apk?v=${vCode}`;
 
       const badgeText = document.getElementById("topVersionBadgeText");
@@ -11392,7 +12263,7 @@
     };
 
     window.dismissWebUpdateBanner = function() {
-      const vCode = Number((window.currentAppVersion && window.currentAppVersion.versionCode) || 15);
+      const vCode = Number((window.currentAppVersion && window.currentAppVersion.versionCode) || 16);
       localStorage.setItem("tekinak_dismissed_ver_" + vCode, "1");
       const banner = document.getElementById("webAppUpdateBanner");
       if (banner) banner.classList.add("hidden");
@@ -11401,17 +12272,18 @@
     async function seedInitialAppVersionInFirebase() {
       try {
         const initialData = {
-          versionCode: 15,
-          versionName: "1.4.4",
-          releaseTag: "v1.4.4",
+          versionCode: 16,
+          versionName: "1.4.5",
+          releaseTag: "v1.4.5",
           releaseDate: new Date().toISOString().slice(0, 10),
           apkUrl: "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
           fallbackUrl: "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-          title: "Tekinak CMMS v1.4.4",
+          title: "Tekinak CMMS v1.4.5",
           changelog: [
-            "Roller, departmanlar ve vardiyalarda sabit kilidi kaldırıldı; yönetici tamamını düzenleyip silebiliyor ve bulutta senkronize ediliyor.",
-            "Android uygulamasında 'Üyeler' sekmesi yazı/rozet hizalaması diğer sekmelerle aynı satıra hizalandı.",
-            "Yardımcı Tesisler ve koyu tema altındaki yazı/giriş alanlarında beyaz renk okunurluk sorunu giderildi."
+            "Çift yönlü arıza ↔ iş emri bağlantısı ve iş emri tamamlanınca bağlı arızanın otomatik kapatılması eklendi.",
+            "İş emri kapatılırken kullanılan yedek parçalar seçilerek Firestore stoktan tek seferlik düşüm desteği eklendi.",
+            "Arıza ve iş emri kartlarına canlı bekleme süresi sayaçları, hızlı saha filtreleri ve arıza şablonları eklendi.",
+            "Genel Bakış acil bakım/anomali şeridi, personelden yetki kopyalama ve paketleme duruş nedenleri raporu eklendi."
           ],
           forceUpdate: false,
           updatedAtMillis: Date.now()
@@ -11430,10 +12302,10 @@
         alert("⛔ Yetkisiz İşlem: Mobil sürüm güncelleme yönetimi yalnızca usluozaykagan@gmail.com hesabına tanımlıdır.");
         return;
       }
-      const v = window.currentAppVersion || { versionCode: 15, versionName: "1.4.4", title: "Tekinak CMMS v1.4.4", apkUrl: "", changelog: [] };
-      document.getElementById("verFormCode").value = v.versionCode || 15;
-      document.getElementById("verFormName").value = v.versionName || "1.4.4";
-      document.getElementById("verFormTitle").value = `Yeni Sürüm Yayınlandı (v${v.versionName || "1.4.4"})`;
+      const v = window.currentAppVersion || { versionCode: 16, versionName: "1.4.5", title: "Tekinak CMMS v1.4.5", apkUrl: "", changelog: [] };
+      document.getElementById("verFormCode").value = v.versionCode || 16;
+      document.getElementById("verFormName").value = v.versionName || "1.4.5";
+      document.getElementById("verFormTitle").value = `Yeni Sürüm Yayınlandı (v${v.versionName || "1.4.5"})`;
       document.getElementById("verFormApkUrl").value = v.apkUrl || "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk";
       document.getElementById("verFormChangelog").value = (v.changelog && v.changelog.length) ? v.changelog.join("\n") : "Yeni bakım özellikleri ve performans iyileştirmeleri eklendi.";
       document.getElementById("modalAppVersion").classList.remove("hidden");
@@ -11458,7 +12330,7 @@
         return;
       }
       if (!name) {
-        alert("Lütfen sürüm adı giriniz (örn: 1.4.4).");
+        alert("Lütfen sürüm adı giriniz (örn: 1.4.5).");
         return;
       }
 
@@ -11517,17 +12389,18 @@
       }
       try {
         const payload = {
-          versionCode: 15,
-          versionName: "1.4.4",
-          releaseTag: "v1.4.4",
+          versionCode: 16,
+          versionName: "1.4.5",
+          releaseTag: "v1.4.5",
           releaseDate: new Date().toISOString().slice(0, 10),
           apkUrl: "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
           fallbackUrl: "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-          title: "Tekinak CMMS v1.4.4",
+          title: "Tekinak CMMS v1.4.5",
           changelog: [
-            "Roller, departmanlar ve vardiyalarda sabit kilidi kaldırıldı; yönetici tamamını düzenleyip silebiliyor ve bulutta senkronize ediliyor.",
-            "Android uygulamasında 'Üyeler' sekmesi yazı/rozet hizalaması diğer sekmelerle aynı satıra hizalandı.",
-            "Yardımcı Tesisler ve koyu tema altındaki yazı/giriş alanlarında beyaz renk okunurluk sorunu giderildi."
+            "Çift yönlü arıza ↔ iş emri bağlantısı ve iş emri tamamlanınca bağlı arızanın otomatik kapatılması eklendi.",
+            "İş emri kapatılırken kullanılan yedek parçalar seçilerek Firestore stoktan tek seferlik düşüm desteği eklendi.",
+            "Arıza ve iş emri kartlarına canlı bekleme süresi sayaçları, hızlı saha filtreleri ve arıza şablonları eklendi.",
+            "Genel Bakış acil bakım/anomali şeridi, personelden yetki kopyalama ve paketleme duruş nedenleri raporu eklendi."
           ],
           forceUpdate: false,
           updatedAtMillis: Date.now()
@@ -11536,7 +12409,7 @@
         window.currentAppVersion = payload;
         renderAppVersionBadge();
         closeModal("modalAppVersion");
-        alert("✅ Başarılı! Firebase sürümü şu an dağıtılan v1.4.4 (Kod: 15) APK ile eşitlendi.\n\nGüncellenen telefonlardaki popup penceresi anında kalktı.");
+        alert("✅ Başarılı! Firebase sürümü şu an dağıtılan v1.4.5 (Kod: 16) APK ile eşitlendi.\n\nGüncellenen telefonlardaki popup penceresi anında kalktı.");
       } catch (err) {
         alert("Eşitleme hatası: " + err.message);
       }
