@@ -1,15 +1,15 @@
 {
-  "versionCode": 22,
-  "versionName": "1.5.1",
-  "releaseTag": "v1.5.1",
+  "versionCode": 23,
+  "versionName": "1.5.2",
+  "releaseTag": "v1.5.2",
   "releaseDate": "2026-11-16",
   "apkUrl": "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
   "fallbackUrl": "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-  "title": "Yeni Sürüm Mevcut (v1.5.1)",
+  "title": "Yeni Sürüm Mevcut (v1.5.2)",
   "changelog": [
-    "Yeni Üretim Arızası Kaydı ekranındaki gereksiz alt açıklama kaldırıldı.",
-    "Hesaplanan duruş süreleri yalnızca Üretim Arıza KPI Raporları sekmesinde görüntülenecek şekilde sadeleştirildi.",
-    "Değişen Parçalar bölümünde yalnızca depodan yedek parça seçimi bırakıldı ve Periyodik Bakım takvimindeki örnek plan yükleme butonu kaldırıldı."
+    "Sadece yönetici erişimine özel ⚡ Enerji Yönetimi (ISO 50001) modülü eklendi.",
+    "Reaktif Güç & Kompanzasyon ceza önleme uyarıları, SEC (kWh/Ton Makarna) trend ve hat kıyaslamaları devreye alındı.",
+    "SEU yardımcı tesis verimliliği, Trafo/Termal bakım kayıtlarından tek tıkla iş emri aktarımı ve VFD ROI hesaplayıcı eklendi."
   ],
   "forceUpdate": false
 }

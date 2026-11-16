@@ -175,9 +175,9 @@
         </form>
 
         <div class="pt-3 text-center border-t border-slate-100 flex flex-col items-center justify-center gap-2">
-          <a href="app-release.apk?v=22" id="loginApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold rounded-lg border border-emerald-300 transition shadow-sm">
+          <a href="app-release.apk?v=23" id="loginApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold rounded-lg border border-emerald-300 transition shadow-sm">
             <i data-lucide="smartphone" class="w-3.5 h-3.5 text-emerald-600"></i>
-            <span id="loginApkBtnText">Android APK İndir (v1.5.1)</span>
+            <span id="loginApkBtnText">Android APK İndir (v1.5.2)</span>
           </a>
           <div class="text-[11px] text-slate-400 flex items-center justify-center gap-1.5">
             <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600"></i>
@@ -228,15 +228,15 @@
         </div>
 
         <!-- Android APK İndir Butonu (Tüm Kullanıcılar Görür) -->
-        <a href="app-release.apk?v=22" id="topApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-700/60 hover:bg-blue-600 text-white border border-blue-400/40 transition shadow-sm" title="Android Mobil APK İndir">
+        <a href="app-release.apk?v=23" id="topApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-700/60 hover:bg-blue-600 text-white border border-blue-400/40 transition shadow-sm" title="Android Mobil APK İndir">
           <i data-lucide="download" class="w-3.5 h-3.5 text-amber-300"></i>
-          <span id="topApkBtnText">APK İndir (v1.5.1)</span>
+          <span id="topApkBtnText">APK İndir (v1.5.2)</span>
         </a>
 
         <!-- Mobil Sürüm Yönetimi Butonu (Sadece usluozaykagan@gmail.com için görünür) -->
         <button id="topAppVersionBtn" onclick="openAppVersionModal()" style="display: none;" class="hidden items-center space-x-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-600/70 hover:bg-emerald-600 text-white border border-emerald-400/40 transition shadow-sm" title="Firebase Mobil Sürüm Kontrolü ve Güncelleme">
           <i data-lucide="smartphone" class="w-3.5 h-3.5 text-amber-300"></i>
-          <span id="topVersionBadgeText">Sürüm: v1.5.1</span>
+          <span id="topVersionBadgeText">Sürüm: v1.5.2</span>
         </button>
 
         <!-- Bildirim Sihirbazı Butonu -->
@@ -283,6 +283,10 @@
           <i data-lucide="contact" class="w-4 h-4 text-emerald-400"></i> Üyeler
           <span id="tabMembersBadge" class="bg-blue-600 text-white text-[10px] px-1.5 py-0.2 rounded-full font-bold ml-1">0</span>
         </button>
+        <button onclick="switchTab('energyManagement')" id="nav-energyManagement" class="hidden nav-btn px-3.5 py-2.5 text-xs font-semibold border-b-2 border-transparent text-slate-300 hover:text-white flex items-center gap-1.5 whitespace-nowrap">
+          <i data-lucide="zap" class="w-4 h-4 text-yellow-300"></i> ⚡ Enerji Yönetimi (ISO 50001)
+          <span id="tabEnergyBadge" class="hidden bg-rose-600 text-white text-[10px] px-1.5 py-0.2 rounded-full font-bold ml-1">!</span>
+        </button>
         <button onclick="switchTab('team')" id="nav-team" class="nav-btn px-3.5 py-2.5 text-xs font-semibold border-b-2 border-transparent text-slate-300 hover:text-white flex items-center gap-1.5 whitespace-nowrap">
           <i data-lucide="shield-check" class="w-4 h-4 text-amber-400"></i> Personel & Yetki
         </button>
@@ -302,11 +306,11 @@
         </span>
           <div>
             <div class="flex flex-wrap items-center gap-1.5 font-extrabold text-blue-950">
-              <span id="webUpdateBannerTitle">🚀 Yeni Mobil Sürüm Yayında: Tekinak CMMS v1.5.1</span>
-              <span id="webUpdateBannerCodeBadge" class="px-1.5 py-0.5 rounded bg-emerald-600 text-white text-[10px] font-bold">v1.5.1 (Kod: 22)</span>
+              <span id="webUpdateBannerTitle">🚀 Yeni Mobil Sürüm Yayında: Tekinak CMMS v1.5.2</span>
+              <span id="webUpdateBannerCodeBadge" class="px-1.5 py-0.5 rounded bg-emerald-600 text-white text-[10px] font-bold">v1.5.2 (Kod: 23)</span>
             </div>
             <div id="webUpdateBannerSummary" class="text-[11px] text-slate-600 mt-0.5">
-              Üretim Arızaları ekranı sadeleştirildi, duruş süreleri KPI raporlarına toplandı ve depo yedek parça seçimi iyileştirildi.
+              ⚡ Enerji Yönetimi (ISO 50001) modülü, Reaktif ceza önleme, SEC trendi, SEU verimliliği ve VFD ROI hesaplayıcı yayınlandı.
             </div>
           </div>
         </div>
@@ -314,9 +318,9 @@
           <button type="button" onclick="toggleWebUpdateChangelog()" class="px-2.5 py-1.5 bg-white hover:bg-slate-100 text-blue-800 border border-blue-200 rounded-lg font-bold text-[11px] transition">
             Yenilikler
           </button>
-          <a id="webUpdateBannerDownloadBtn" href="app-release.apk?v=22" download="tekinak-bakim.apk" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold text-[11px] shadow-sm flex items-center gap-1.5 transition">
+          <a id="webUpdateBannerDownloadBtn" href="app-release.apk?v=23" download="tekinak-bakim.apk" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold text-[11px] shadow-sm flex items-center gap-1.5 transition">
             <i data-lucide="download" class="w-3.5 h-3.5"></i>
-            <span id="webUpdateBannerDownloadText">APK İndir (v1.5.1)</span>
+            <span id="webUpdateBannerDownloadText">APK İndir (v1.5.2)</span>
           </a>
         <button type="button" onclick="dismissWebUpdateBanner()" class="p-1 text-slate-400 hover:text-slate-700 rounded-lg" title="Bu sürüm için gizle">
           <i data-lucide="x" class="w-4 h-4"></i>
@@ -1155,6 +1159,35 @@
       </div>
     </section>
 
+    <!-- 5.5 TAB: ENERJİ YÖNETİMİ (ISO 50001 - SADECE ANA YÖNETİCİ) -->
+    <section id="pane-energyManagement" class="tab-pane hidden space-y-4">
+      <div class="bg-gradient-to-r from-slate-900 via-[#0f172a] to-[#1e3a8a] text-white p-4 sm:p-5 rounded-2xl border border-slate-700 shadow-lg space-y-3">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div class="flex items-center gap-3">
+            <div class="w-11 h-11 rounded-xl bg-amber-400/20 border border-amber-400/40 flex items-center justify-center text-amber-300 text-xl font-black flex-shrink-0">⚡</div>
+            <div>
+              <div class="flex flex-wrap items-center gap-2">
+                <h2 class="text-base sm:text-lg font-extrabold tracking-tight">Enerji Yönetimi (ISO 50001)</h2>
+                <span class="px-2 py-0.5 rounded-full bg-amber-400/20 border border-amber-300/40 text-amber-200 text-[10px] font-bold">Sadece Enerji Yöneticisi</span>
+              </div>
+              <p class="text-xs text-slate-300 mt-0.5">Reaktif Ceza Önleme • SEC (kWh/Ton) • SEU & Yardımcı Tesisler • Trafo/Termal Bakım • VFD ROI</p>
+            </div>
+          </div>
+          <div id="energyTopStatusPill" class="px-3 py-1.5 rounded-xl bg-emerald-600 text-white text-xs font-extrabold whitespace-nowrap self-start sm:self-center">
+            ISO 50001 İzleme Aktif
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-2 pt-1">
+          <button type="button" id="energySubBtn_reactive" onclick="selectEnergySubTab('reactive')" class="px-3 py-2 rounded-xl text-xs font-extrabold bg-amber-400 text-slate-900 shadow transition">⚡ Reaktif & Kompanzasyon</button>
+          <button type="button" id="energySubBtn_sec" onclick="selectEnergySubTab('sec')" class="px-3 py-2 rounded-xl text-xs font-bold bg-slate-800 text-slate-200 hover:bg-slate-700 transition">📈 SEC (kWh / Ton)</button>
+          <button type="button" id="energySubBtn_seu" onclick="selectEnergySubTab('seu')" class="px-3 py-2 rounded-xl text-xs font-bold bg-slate-800 text-slate-200 hover:bg-slate-700 transition">💨 SEU & Yardımcı Tesisler</button>
+          <button type="button" id="energySubBtn_electrical" onclick="selectEnergySubTab('electrical')" class="px-3 py-2 rounded-xl text-xs font-bold bg-slate-800 text-slate-200 hover:bg-slate-700 transition">🔌 Trafo, OG & Termal</button>
+          <button type="button" id="energySubBtn_projects" onclick="selectEnergySubTab('projects')" class="px-3 py-2 rounded-xl text-xs font-bold bg-slate-800 text-slate-200 hover:bg-slate-700 transition">💰 Verimlilik & ROI</button>
+        </div>
+      </div>
+      <div id="energyModuleBody" class="space-y-4"></div>
+    </section>
+
     <!-- 6. TAB: FABRİKA ÜYELERİ (MEMBERS - Android MembersScreen ile Birebir) -->
     <section id="pane-members" class="tab-pane hidden space-y-4">
       <!-- Üst Başlık & Yönetici Rozeti -->
@@ -1518,7 +1551,7 @@
         <div class="p-2.5 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-between text-[11px] text-slate-600">
           <div class="flex items-center gap-1.5 font-semibold text-slate-700">
             <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600"></i>
-            <span id="profSystemVersionText">Sistem Sürümü: v1.5.1</span>
+            <span id="profSystemVersionText">Sistem Sürümü: v1.5.2</span>
           </div>
           <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-300">Güncel ✓</span>
         </div>
@@ -2223,8 +2256,8 @@
         <div>
           <div class="text-[11px] font-bold text-emerald-800 uppercase tracking-wider">Aktif Firebase Sürümü</div>
           <div class="text-sm font-extrabold text-emerald-950 flex items-center gap-2" id="verModalCurrentBadge">
-            <span id="verModalVersionName">v1.5.1</span>
-            <span id="verModalVersionCode" class="text-xs px-2 py-0.5 bg-emerald-200 text-emerald-800 rounded-md font-semibold">Kod: 22</span>
+            <span id="verModalVersionName">v1.5.2</span>
+            <span id="verModalVersionCode" class="text-xs px-2 py-0.5 bg-emerald-200 text-emerald-800 rounded-md font-semibold">Kod: 23</span>
           </div>
         </div>
         <div class="text-right text-[11px] text-emerald-700">
@@ -2237,18 +2270,18 @@
         <div class="grid grid-cols-2 gap-3">
           <div>
             <label class="block font-semibold text-slate-700 mb-1">Yeni Sürüm Kodu (Build Code) *</label>
-            <input type="number" id="verFormCode" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 22" min="1">
+            <input type="number" id="verFormCode" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 23" min="1">
             <span class="text-[10px] text-slate-400">Yeni sürüm için kod mevcut koddan büyük olmalıdır</span>
           </div>
           <div>
             <label class="block font-semibold text-slate-700 mb-1">Yeni Sürüm Adı (Version Name) *</label>
-            <input type="text" id="verFormName" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 1.5.1">
+            <input type="text" id="verFormName" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 1.5.2">
           </div>
         </div>
 
         <div>
           <label class="block font-semibold text-slate-700 mb-1">Güncelleme Bildirim Başlığı *</label>
-          <input type="text" id="verFormTitle" required class="w-full px-3 py-2 border rounded-xl text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: Yeni Sürüm Yayınlandı (v1.5.1)">
+          <input type="text" id="verFormTitle" required class="w-full px-3 py-2 border rounded-xl text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: Yeni Sürüm Yayınlandı (v1.5.2)">
         </div>
 
         <div>
@@ -2267,9 +2300,9 @@
         </div>
 
         <div class="flex items-center justify-between gap-2 pt-2 border-t">
-          <button type="button" onclick="syncWithDeployedApk()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs rounded-xl font-bold border border-slate-300 flex items-center gap-1.5" title="Firebase'i şu an dağıtılan v1.5.1 (Kod: 22) APK ile eşitler ve güncellenen telefonlardaki popup'ı kapatır">
+          <button type="button" onclick="syncWithDeployedApk()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs rounded-xl font-bold border border-slate-300 flex items-center gap-1.5" title="Firebase'i şu an dağıtılan v1.5.2 (Kod: 23) APK ile eşitler ve güncellenen telefonlardaki popup'ı kapatır">
             <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-blue-600"></i>
-            <span>Mevcut APK ile Eşitle (v1.5.1 - Kod: 22)</span>
+            <span>Mevcut APK ile Eşitle (v1.5.2 - Kod: 23)</span>
           </button>
           <div class="flex gap-2">
             <button type="button" onclick="closeModal('modalAppVersion')" class="px-4 py-2 border rounded-xl font-semibold text-slate-600 hover:bg-slate-50">Kapat</button>
@@ -2734,6 +2767,17 @@
     </div>
   </div>
 
+  <!-- MODAL: ISO 50001 ENERJİ YÖNETİMİ DİNAMİK FORMU -->
+  <div id="modalEnergyEditor" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4" onclick="closeModal('modalEnergyEditor')">
+    <div class="bg-white rounded-2xl max-w-xl w-full shadow-2xl overflow-hidden max-h-[90vh] flex flex-col" onclick="event.stopPropagation()">
+      <div class="bg-slate-900 text-white px-5 py-3.5 flex items-center justify-between">
+        <h3 id="modalEnergyEditorTitle" class="font-bold text-sm">⚡ Enerji Kaydı</h3>
+        <button type="button" onclick="closeModal('modalEnergyEditor')" class="text-slate-300 hover:text-white font-bold">✕</button>
+      </div>
+      <div id="modalEnergyEditorBody" class="p-5 overflow-y-auto space-y-3 text-xs"></div>
+    </div>
+  </div>
+
   <!-- MODAL: SOHBET FOTOĞRAF ÖNİZLEME (LIGHTBOX) -->
   <div id="modalImagePreview" class="fixed inset-0 bg-black/85 z-[60] hidden flex items-center justify-center p-4" onclick="closeModal('modalImagePreview')">
     <div class="relative max-w-3xl max-h-[90vh]" onclick="event.stopPropagation()">
@@ -2794,7 +2838,7 @@
 
     // ================= MERKEZİ YETKİ & GÖRME/DÜZENLEME MOTORU =================
     window.LEGACY_ELECTRICAL_TABS = ["fault_reports", "work_orders", "schedule", "analytics"];
-    window.MASTER_ALL_TABS = ["dashboard", "electrical_maintenance", "packaging_unit", "utility_controls", "production", "members", "team"];
+    window.MASTER_ALL_TABS = ["dashboard", "electrical_maintenance", "packaging_unit", "utility_controls", "production", "members", "energy_management", "team"];
     window.ALL_CONFIGURABLE_TABS = ["dashboard", "electrical_maintenance", "packaging_unit", "utility_controls", "production", "members"];
 
     window.TAB_ID_MAP = {
@@ -2814,6 +2858,8 @@
       utility_controls: "utility_controls",
       production: "production",
       members: "members",
+      energyManagement: "energy_management",
+      energy_management: "energy_management",
       team: "team"
     };
     window.REVERSE_TAB_ID_MAP = {
@@ -2827,6 +2873,7 @@
       utility_controls: "utilityControls",
       production: "production",
       members: "members",
+      energy_management: "energyManagement",
       team: "team"
     };
     window.TAB_MATRIX_KEYS = [
@@ -3149,6 +3196,7 @@
           mapped = "electrical_maintenance";
         }
         if (mapped === "team" && !includeTeam) return;
+        if (mapped === "energy_management" && !includeTeam) return;
         if (!validIds.has(mapped)) return;
         if (!out.includes(mapped)) out.push(mapped);
       });
@@ -3257,7 +3305,7 @@
     window.canUserViewTab = function(tabKeyOrId, u = window.currentUser) {
       if (!u) return false;
       const tabId = window.TAB_ID_MAP[tabKeyOrId] || tabKeyOrId;
-      if (tabId === "team") return window.isMasterUser(u);
+      if (tabId === "team" || tabId === "energy_management") return window.isMasterUser(u);
       if (window.isMasterUser(u)) return true;
       return window.getUserAllowedTabs(u).includes(tabId);
     };
@@ -3265,7 +3313,7 @@
     window.canUserEditTab = function(tabKeyOrId, u = window.currentUser) {
       if (!u) return false;
       const tabId = window.TAB_ID_MAP[tabKeyOrId] || tabKeyOrId;
-      if (tabId === "team") return window.isMasterUser(u);
+      if (tabId === "team" || tabId === "energy_management") return window.isMasterUser(u);
       if (window.isMasterUser(u)) return true;
       if (!window.canUserViewTab(tabId, u)) return false;
 
@@ -4174,6 +4222,7 @@
       setTabVisibility("nav-utilityControls", window.canUserViewTab("utility_controls", u));
       setTabVisibility("nav-production", window.canUserViewTab("production", u));
       setTabVisibility("nav-members", window.canUserViewTab("members", u));
+      setTabVisibility("nav-energyManagement", window.isMasterUser(u));
       setTabVisibility("nav-team", window.isMasterUser(u));
 
       // Alt Sayfa Bazlı Görme & Düzenleme Yetkileri
@@ -4930,6 +4979,12 @@
     window.allUtilityAlerts = [];
     window.allPackagingLogs = [];
     window.allProductionFaults = [];
+    window.allEnergyMeters = [];
+    window.allEnergySecLogs = [];
+    window.allEnergySeuLogs = [];
+    window.allTransformerChecks = [];
+    window.allThermalRecords = [];
+    window.allEnergyProjects = [];
     window.allSpareParts = [];
     window.allUsers = [];
     window.firestoreDb = db;
@@ -5157,6 +5212,32 @@
         console.warn("Failed to listen to production_faults:", e);
       }
 
+      // 3.11 ISO 50001 Enerji Yönetimi Listeners
+      const attachEnergyCol = (colName, targetKey, sortFn) => {
+        try {
+          onSnapshot(collection(db, colName), (snapshot) => {
+            const list = [];
+            snapshot.forEach(docSnap => list.push({ ...docSnap.data(), docId: docSnap.id, id: docSnap.id }));
+            if (sortFn) list.sort(sortFn);
+            window[targetKey] = list;
+            if (typeof window.updateEnergyNavBadge === "function") window.updateEnergyNavBadge();
+            const pane = document.getElementById("pane-energyManagement");
+            if (pane && !pane.classList.contains("hidden") && typeof window.renderEnergyManagementTab === "function") {
+              window.renderEnergyManagementTab();
+            }
+          }, (err) => console.warn(colName + " listener error:", err));
+        } catch (e) {
+          console.warn("Failed to listen to " + colName, e);
+        }
+      };
+      const cmpDateDesc = (a, b) => ((b.dateIso || "").localeCompare(a.dateIso || "")) || ((b.updatedAtMillis || 0) - (a.updatedAtMillis || 0));
+      attachEnergyCol("energy_meters", "allEnergyMeters", cmpDateDesc);
+      attachEnergyCol("energy_sec_logs", "allEnergySecLogs", cmpDateDesc);
+      attachEnergyCol("energy_seu_logs", "allEnergySeuLogs", cmpDateDesc);
+      attachEnergyCol("energy_transformer_checks", "allTransformerChecks", cmpDateDesc);
+      attachEnergyCol("energy_thermal_logs", "allThermalRecords", cmpDateDesc);
+      attachEnergyCol("energy_efficiency_projects", "allEnergyProjects", (a, b) => (b.updatedAtMillis || 0) - (a.updatedAtMillis || 0));
+
       // 4. Saha Chat Mesajları (chat_messages)
       onSnapshot(collection(db, "chat_messages"), (snapshot) => {
         window.allChatMessages = [];
@@ -5274,7 +5355,7 @@
       });
 
       // 6. Mobil Uygulama Sürüm Takibi ve Firebase Yönetimi (app_version/current)
-      let hasAutoSyncedV22 = false;
+      let hasAutoSyncedV23 = false;
       try {
         onSnapshot(doc(db, "app_version", "current"), async (docSnap) => {
           if (docSnap && docSnap.exists()) {
@@ -5282,15 +5363,15 @@
             window.currentAppVersion = data;
             renderAppVersionBadge();
 
-            // Sürüm kodu 22'den küçükse otomatik olarak v1.5.1 (Kod: 22)'ye yükselt
+            // Sürüm kodu 23'ten küçükse otomatik olarak v1.5.2 (Kod: 23)'e yükselt
             const verCodeNum = Number(data.versionCode || 0);
-            if (verCodeNum < 22 && !hasAutoSyncedV22) {
-              hasAutoSyncedV22 = true;
-              console.log("Firestore app_version sürüm kodu 22 (v1.5.1) olarak otomatik eşitleniyor...");
+            if (verCodeNum < 23 && !hasAutoSyncedV23) {
+              hasAutoSyncedV23 = true;
+              console.log("Firestore app_version sürüm kodu 23 (v1.5.2) olarak otomatik eşitleniyor...");
               seedInitialAppVersionInFirebase();
             }
-          } else if (!hasAutoSyncedV22) {
-            hasAutoSyncedV22 = true;
+          } else if (!hasAutoSyncedV23) {
+            hasAutoSyncedV23 = true;
             seedInitialAppVersionInFirebase();
           }
         }, (err) => {
@@ -13282,6 +13363,7 @@
       if (resolvedTab === 'packagingUnit') window.renderPackagingUnit();
       if (resolvedTab === 'utilityControls') window.renderUtilityControls();
       if (resolvedTab === 'production' && typeof window.renderProductionTab === "function") window.renderProductionTab();
+      if (resolvedTab === 'energyManagement' && typeof window.renderEnergyManagementTab === "function") window.renderEnergyManagementTab();
       if (resolvedTab === 'members') renderMembers();
       if (resolvedTab === 'team') renderTeam();
       lucide.createIcons();
@@ -13990,18 +14072,18 @@
 
     function renderAppVersionBadge() {
       const v = window.currentAppVersion || {
-        versionName: "1.5.1",
-        versionCode: 22,
+        versionName: "1.5.2",
+        versionCode: 23,
         releaseDate: "2026-11-16",
-        title: "Tekinak CMMS v1.5.1",
+        title: "Tekinak CMMS v1.5.2",
         changelog: [
-          "Yeni Üretim Arızası Kaydı ekranındaki gereksiz alt açıklama kaldırıldı.",
-          "Hesaplanan duruş süreleri yalnızca Üretim Arıza KPI Raporları sekmesinde görüntülenecek şekilde sadeleştirildi.",
-          "Değişen Parçalar bölümünde yalnızca depodan yedek parça seçimi bırakıldı ve Periyodik Bakım takvimindeki örnek plan yükleme butonu kaldırıldı."
+          "Sadece yönetici erişimine özel ⚡ Enerji Yönetimi (ISO 50001) modülü eklendi.",
+          "Reaktif Güç & Kompanzasyon ceza önleme uyarıları, SEC (kWh/Ton Makarna) trend ve hat kıyaslamaları devreye alındı.",
+          "SEU yardımcı tesis verimliliği, Trafo/Termal bakım kayıtlarından tek tıkla iş emri aktarımı ve VFD ROI hesaplayıcı eklendi."
         ]
       };
-      const vName = v.versionName || "1.5.1";
-      const vCode = Number(v.versionCode || 22);
+      const vName = v.versionName || "1.5.2";
+      const vCode = Number(v.versionCode || 23);
       const localApkHref = `app-release.apk?v=${vCode}`;
 
       const badgeText = document.getElementById("topVersionBadgeText");
@@ -14060,7 +14142,7 @@
     };
 
     window.dismissWebUpdateBanner = function() {
-      const vCode = Number((window.currentAppVersion && window.currentAppVersion.versionCode) || 22);
+      const vCode = Number((window.currentAppVersion && window.currentAppVersion.versionCode) || 23);
       localStorage.setItem("tekinak_dismissed_ver_" + vCode, "1");
       const banner = document.getElementById("webAppUpdateBanner");
       if (banner) banner.classList.add("hidden");
@@ -14069,17 +14151,17 @@
     async function seedInitialAppVersionInFirebase() {
       try {
         const initialData = {
-          versionCode: 22,
-          versionName: "1.5.1",
-          releaseTag: "v1.5.1",
+          versionCode: 23,
+          versionName: "1.5.2",
+          releaseTag: "v1.5.2",
           releaseDate: new Date().toISOString().slice(0, 10),
           apkUrl: "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
           fallbackUrl: "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-          title: "Tekinak CMMS v1.5.1",
+          title: "Tekinak CMMS v1.5.2",
           changelog: [
-            "Yeni Üretim Arızası Kaydı ekranındaki gereksiz alt açıklama kaldırıldı.",
-            "Hesaplanan duruş süreleri yalnızca Üretim Arıza KPI Raporları sekmesinde görüntülenecek şekilde sadeleştirildi.",
-            "Değişen Parçalar bölümünde yalnızca depodan yedek parça seçimi bırakıldı ve Periyodik Bakım takvimindeki örnek plan yükleme butonu kaldırıldı."
+            "Sadece yönetici erişimine özel ⚡ Enerji Yönetimi (ISO 50001) modülü eklendi.",
+            "Reaktif Güç & Kompanzasyon ceza önleme uyarıları, SEC (kWh/Ton Makarna) trend ve hat kıyaslamaları devreye alındı.",
+            "SEU yardımcı tesis verimliliği, Trafo/Termal bakım kayıtlarından tek tıkla iş emri aktarımı ve VFD ROI hesaplayıcı eklendi."
           ],
           forceUpdate: false,
           updatedAtMillis: Date.now()
@@ -14098,10 +14180,10 @@
         alert("⛔ Yetkisiz İşlem: Mobil sürüm güncelleme yönetimi yalnızca usluozaykagan@gmail.com hesabına tanımlıdır.");
         return;
       }
-      const v = window.currentAppVersion || { versionCode: 22, versionName: "1.5.1", title: "Tekinak CMMS v1.5.1", apkUrl: "", changelog: [] };
-      document.getElementById("verFormCode").value = v.versionCode || 22;
-      document.getElementById("verFormName").value = v.versionName || "1.5.1";
-      document.getElementById("verFormTitle").value = `Yeni Sürüm Yayınlandı (v${v.versionName || "1.5.1"})`;
+      const v = window.currentAppVersion || { versionCode: 23, versionName: "1.5.2", title: "Tekinak CMMS v1.5.2", apkUrl: "", changelog: [] };
+      document.getElementById("verFormCode").value = v.versionCode || 23;
+      document.getElementById("verFormName").value = v.versionName || "1.5.2";
+      document.getElementById("verFormTitle").value = `Yeni Sürüm Yayınlandı (v${v.versionName || "1.5.2"})`;
       document.getElementById("verFormApkUrl").value = v.apkUrl || "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk";
       document.getElementById("verFormChangelog").value = (v.changelog && v.changelog.length) ? v.changelog.join("\n") : "Yeni bakım özellikleri ve performans iyileştirmeleri eklendi.";
       document.getElementById("modalAppVersion").classList.remove("hidden");
@@ -14126,7 +14208,7 @@
         return;
       }
       if (!name) {
-        alert("Lütfen sürüm adı giriniz (örn: 1.5.1).");
+        alert("Lütfen sürüm adı giriniz (örn: 1.5.2).");
         return;
       }
 
@@ -14185,17 +14267,17 @@
       }
       try {
         const payload = {
-          versionCode: 22,
-          versionName: "1.5.1",
-          releaseTag: "v1.5.1",
+          versionCode: 23,
+          versionName: "1.5.2",
+          releaseTag: "v1.5.2",
           releaseDate: new Date().toISOString().slice(0, 10),
           apkUrl: "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
           fallbackUrl: "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-          title: "Tekinak CMMS v1.5.1",
+          title: "Tekinak CMMS v1.5.2",
           changelog: [
-            "Yeni Üretim Arızası Kaydı ekranındaki gereksiz alt açıklama kaldırıldı.",
-            "Hesaplanan duruş süreleri yalnızca Üretim Arıza KPI Raporları sekmesinde görüntülenecek şekilde sadeleştirildi.",
-            "Değişen Parçalar bölümünde yalnızca depodan yedek parça seçimi bırakıldı ve Periyodik Bakım takvimindeki örnek plan yükleme butonu kaldırıldı."
+            "Sadece yönetici erişimine özel ⚡ Enerji Yönetimi (ISO 50001) modülü eklendi.",
+            "Reaktif Güç & Kompanzasyon ceza önleme uyarıları, SEC (kWh/Ton Makarna) trend ve hat kıyaslamaları devreye alındı.",
+            "SEU yardımcı tesis verimliliği, Trafo/Termal bakım kayıtlarından tek tıkla iş emri aktarımı ve VFD ROI hesaplayıcı eklendi."
           ],
           forceUpdate: false,
           updatedAtMillis: Date.now()
@@ -14204,7 +14286,7 @@
         window.currentAppVersion = payload;
         renderAppVersionBadge();
         closeModal("modalAppVersion");
-        alert("✅ Başarılı! Firebase sürümü şu an dağıtılan v1.5.1 (Kod: 22) APK ile eşitlendi.\n\nGüncellenen telefonlardaki popup penceresi anında kalktı.");
+        alert("✅ Başarılı! Firebase sürümü şu an dağıtılan v1.5.2 (Kod: 23) APK ile eşitlendi.\n\nGüncellenen telefonlardaki popup penceresi anında kalktı.");
       } catch (err) {
         alert("Eşitleme hatası: " + err.message);
       }
@@ -14615,6 +14697,808 @@
       }
       lucide.createIcons();
     }
+
+    // ================= ⚡ ENERJİ YÖNETİMİ (ISO 50001 - SADECE ANA YÖNETİCİ) =================
+    window.energyUiState = {
+      subTab: "reactive",
+      meterFilter: "Tümü",
+      electricalInner: "transformer"
+    };
+
+    const ENERGY_SEC_LINES = ["Tesis Geneli", "101 Buhler", "102 Anselmo", "103 Fava", "104 Buhler", "201 Kesme", "202 Kesme"];
+    const ENERGY_METERS = ["Ana Trafo / OG Sayaç", "Trafo-1 AG Sayaç", "Trafo-2 AG Sayaç", "Yardımcı Tesisler Süzme"];
+    const ENERGY_TRAFO_ASSETS = ["Ana Trafo TR-1 (1600 kVA)", "Ana Trafo TR-2 (1600 kVA)", "OG Giriş & Çıkış Hücreleri"];
+    const ENERGY_PANELS = ["ADP Ana Dağıtım Panosu", "Kompanzasyon Panosu", "MCC-1 (101/104 Buhler)", "MCC-2 (102 Anselmo / 103 Fava)", "MCC-3 (Kesme & Paketleme)", "Yardımcı Tesisler Panosu"];
+    const ENERGY_PROJ_CATS = ["VFD / İnvertör", "IE3/IE4 Yüksek Verimli Motor", "Buhar Vana & İzolasyon", "Kompresör / Hava Kaçak", "Aydınlatma & Kompanzasyon", "Diğer"];
+
+    function fmtNumTr(v, dec = 1) {
+      const n = Number(v || 0);
+      return n.toLocaleString("tr-TR", { minimumFractionDigits: dec, maximumFractionDigits: dec });
+    }
+
+    function computeWebReactiveSummary(readings, meterFilter = "Tümü") {
+      const filtered = (readings || []).filter(r => meterFilter === "Tümü" || (r.meterName || "") === meterFilter);
+      const byMeter = {};
+      filtered.forEach(r => {
+        const m = r.meterName || "Ana Trafo / OG Sayaç";
+        if (!byMeter[m]) byMeter[m] = [];
+        byMeter[m].push(r);
+      });
+      const periods = [];
+      const evalInd = (p) => p >= 20 ? "ALARM" : (p >= 15 ? "WARNING" : "NORMAL");
+      const evalCap = (p) => p >= 15 ? "ALARM" : (p >= 10 ? "WARNING" : "NORMAL");
+      const worst = (a, b) => (a === "ALARM" || b === "ALARM") ? "ALARM" : ((a === "WARNING" || b === "WARNING") ? "WARNING" : "NORMAL");
+
+      Object.values(byMeter).forEach(arr => {
+        arr.sort((a, b) => ((a.dateIso || "").localeCompare(b.dateIso || "")) || ((a.updatedAtMillis || 0) - (b.updatedAtMillis || 0)));
+        arr.forEach((curr, idx) => {
+          const prev = idx > 0 ? arr[idx - 1] : null;
+          const mult = Number(curr.multiplier) > 0 ? Number(curr.multiplier) : 1;
+          const dAct = prev ? Math.max(0, (Number(curr.activeKwh || 0) - Number(prev.activeKwh || 0)) * mult) : 0;
+          const dInd = prev ? Math.max(0, (Number(curr.inductiveKvarh || 0) - Number(prev.inductiveKvarh || 0)) * mult) : 0;
+          const dCap = prev ? Math.max(0, (Number(curr.capacitiveKvarh || 0) - Number(prev.capacitiveKvarh || 0)) * mult) : 0;
+          const indPct = dAct > 0 ? (dInd / dAct) * 100 : 0;
+          const capPct = dAct > 0 ? (dCap / dAct) * 100 : 0;
+          const indSev = (prev && dAct > 0) ? evalInd(indPct) : "NORMAL";
+          const capSev = (prev && dAct > 0) ? evalCap(capPct) : "NORMAL";
+          periods.push({
+            reading: curr,
+            hasPrev: !!prev,
+            dAct, dInd, dCap, indPct, capPct,
+            indSev, capSev, overall: worst(indSev, capSev)
+          });
+        });
+      });
+      periods.sort((a, b) => ((b.reading.dateIso || "").localeCompare(a.reading.dateIso || "")) || ((b.reading.updatedAtMillis || 0) - (a.reading.updatedAtMillis || 0)));
+      const latestMonth = (periods[0]?.reading?.dateIso || "").slice(0, 7);
+      const mPeriods = periods.filter(p => p.hasPrev && (!latestMonth || (p.reading.dateIso || "").startsWith(latestMonth)));
+      const mAct = mPeriods.reduce((s, p) => s + p.dAct, 0);
+      const mInd = mPeriods.reduce((s, p) => s + p.dInd, 0);
+      const mCap = mPeriods.reduce((s, p) => s + p.dCap, 0);
+      const mIndPct = mAct > 0 ? (mInd / mAct) * 100 : 0;
+      const mCapPct = mAct > 0 ? (mCap / mAct) * 100 : 0;
+      const mSev = mAct > 0 ? worst(evalInd(mIndPct), evalCap(mCapPct)) : "NORMAL";
+      return { periods, mAct, mInd, mCap, mIndPct, mCapPct, mSev };
+    }
+
+    function estimateWebPackagingTons(datePrefix = "") {
+      const logs = (window.allPackagingLogs || []).filter(l => !datePrefix || (l.dateIso || "").startsWith(datePrefix));
+      const totalKg = logs.reduce((s, l) => {
+        const p = (l.productName || "").toLowerCase();
+        const kg = (p.includes("5 kg") || p.includes("5kg")) ? 5 : ((p.includes("1 kg") || p.includes("1kg")) ? 1 : 0.5);
+        return s + (Math.max(0, Number(l.producedPacks || 0)) * kg);
+      }, 0);
+      return totalKg / 1000;
+    }
+
+    window.updateEnergyNavBadge = function() {
+      const sum = computeWebReactiveSummary(window.allEnergyMeters || []);
+      const badge = document.getElementById("tabEnergyBadge");
+      const pill = document.getElementById("energyTopStatusPill");
+      if (badge) {
+        badge.classList.toggle("hidden", sum.mSev === "NORMAL");
+        badge.className = (sum.mSev === "ALARM"
+          ? "bg-rose-600 text-white text-[10px] px-1.5 py-0.2 rounded-full font-bold ml-1"
+          : "bg-amber-500 text-slate-900 text-[10px] px-1.5 py-0.2 rounded-full font-bold ml-1") + (sum.mSev === "NORMAL" ? " hidden" : "");
+      }
+      if (pill) {
+        if (sum.mSev === "ALARM") {
+          pill.className = "px-3 py-1.5 rounded-xl bg-rose-600 text-white text-xs font-extrabold whitespace-nowrap";
+          pill.textContent = "🚨 REAKTİF CEZA ALARMI";
+        } else if (sum.mSev === "WARNING") {
+          pill.className = "px-3 py-1.5 rounded-xl bg-amber-500 text-slate-900 text-xs font-extrabold whitespace-nowrap";
+          pill.textContent = "⚠️ SINIRA YAKLAŞILDI";
+        } else {
+          pill.className = "px-3 py-1.5 rounded-xl bg-emerald-600 text-white text-xs font-extrabold whitespace-nowrap";
+          pill.textContent = "✅ ISO 50001 Normal";
+        }
+      }
+    };
+
+    window.selectEnergySubTab = function(sub) {
+      window.energyUiState.subTab = sub;
+      ["reactive", "sec", "seu", "electrical", "projects"].forEach(k => {
+        const btn = document.getElementById("energySubBtn_" + k);
+        if (!btn) return;
+        btn.className = (k === sub)
+          ? "px-3 py-2 rounded-xl text-xs font-extrabold bg-amber-400 text-slate-900 shadow transition"
+          : "px-3 py-2 rounded-xl text-xs font-bold bg-slate-800 text-slate-200 hover:bg-slate-700 transition";
+      });
+      window.renderEnergyManagementTab();
+    };
+
+    window.renderEnergyManagementTab = function() {
+      const container = document.getElementById("energyModuleBody");
+      if (!container) return;
+      if (!window.isMasterUser(window.currentUser)) {
+        container.innerHTML = `<div class="bg-rose-50 border border-rose-300 text-rose-900 p-6 rounded-2xl font-bold text-sm">🔒 Bu modül sadece Ana Yöneticiye (Enerji Yöneticisi) açıktır.</div>`;
+        return;
+      }
+      window.updateEnergyNavBadge();
+      const sub = window.energyUiState.subTab;
+      if (sub === "reactive") renderEnergyReactivePane(container);
+      else if (sub === "sec") renderEnergySecPane(container);
+      else if (sub === "seu") renderEnergySeuPane(container);
+      else if (sub === "electrical") renderEnergyElectricalPane(container);
+      else if (sub === "projects") renderEnergyProjectsPane(container);
+      lucide.createIcons();
+    };
+
+    function renderEnergyReactivePane(container) {
+      const sum = computeWebReactiveSummary(window.allEnergyMeters || [], window.energyUiState.meterFilter);
+      const sevStyle = sum.mSev === "ALARM"
+        ? { bg: "bg-rose-50 border-rose-400 text-rose-950", badge: "bg-rose-600 text-white", label: "🚨 ALARM — Ceza Sınırı Aşıldı!" }
+        : (sum.mSev === "WARNING"
+          ? { bg: "bg-amber-50 border-amber-400 text-amber-950", badge: "bg-amber-500 text-slate-900", label: "⚠️ DİKKAT — Ceza Sınırına Yaklaşıldı" }
+          : { bg: "bg-emerald-50 border-emerald-400 text-emerald-950", badge: "bg-emerald-600 text-white", label: "✅ Normal Sınırda" });
+      const indBarColor = sum.mIndPct >= 20 ? "bg-rose-600" : (sum.mIndPct >= 15 ? "bg-amber-500" : "bg-emerald-600");
+      const capBarColor = sum.mCapPct >= 15 ? "bg-rose-600" : (sum.mCapPct >= 10 ? "bg-amber-500" : "bg-emerald-600");
+
+      container.innerHTML = `
+        <div class="${sevStyle.bg} border-2 rounded-2xl p-4 sm:p-5 space-y-3 custom-shadow">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div>
+              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-extrabold ${sevStyle.badge}">${sevStyle.label}</span>
+              <h3 class="text-sm sm:text-base font-extrabold mt-1.5">Reaktif Güç &amp; Kompanzasyon Takip Modülü</h3>
+              <p class="text-xs opacity-80">Aylık Kümülatif Δ Aktif: ${fmtNumTr(sum.mAct, 0)} kWh • Δ Endüktif: ${fmtNumTr(sum.mInd, 0)} kVArh • Δ Kapasitif: ${fmtNumTr(sum.mCap, 0)} kVArh</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <select onchange="window.energyUiState.meterFilter=this.value; window.renderEnergyManagementTab();" class="bg-white border border-slate-300 rounded-xl px-3 py-2 text-xs font-bold text-slate-800">
+                <option value="Tümü" ${window.energyUiState.meterFilter === "Tümü" ? "selected" : ""}>Tüm Sayaçlar</option>
+                ${ENERGY_METERS.map(m => `<option value="${m}" ${window.energyUiState.meterFilter === m ? "selected" : ""}>${m}</option>`).join("")}
+              </select>
+              <button type="button" onclick="openEnergyMeterModal()" class="px-4 py-2 bg-[#1E3A8A] hover:bg-blue-900 text-white rounded-xl text-xs font-extrabold shadow">+ Endeks Gir</button>
+            </div>
+          </div>
+          ${sum.mSev !== "NORMAL" ? `<div class="bg-white/90 border border-current/30 rounded-xl p-3 text-xs font-extrabold">⚠️ Kompanzasyon panosunu / kondansatör kademelerini ve harmonik filtreleri kontrol et!</div>` : ""}
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1">
+            <div class="bg-white/90 p-3 rounded-xl border border-slate-200 space-y-1.5">
+              <div class="flex justify-between text-xs font-bold text-slate-800"><span>Endüktif / Aktif (5.8.0) • Sınır %20 (Uyarı %15)</span><span>%${fmtNumTr(sum.mIndPct, 1)}</span></div>
+              <div class="w-full h-2.5 bg-slate-200 rounded-full overflow-hidden"><div class="h-full ${indBarColor}" style="width:${Math.min(100, (sum.mIndPct / 25) * 100)}%"></div></div>
+            </div>
+            <div class="bg-white/90 p-3 rounded-xl border border-slate-200 space-y-1.5">
+              <div class="flex justify-between text-xs font-bold text-slate-800"><span>Kapasitif / Aktif (8.8.0) • Sınır %15 (Uyarı %10)</span><span>%${fmtNumTr(sum.mCapPct, 1)}</span></div>
+              <div class="w-full h-2.5 bg-slate-200 rounded-full overflow-hidden"><div class="h-full ${capBarColor}" style="width:${Math.min(100, (sum.mCapPct / 20) * 100)}%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-slate-200 custom-shadow overflow-x-auto">
+          <table class="w-full text-xs text-left">
+            <thead class="bg-slate-50 text-slate-600 uppercase text-[11px] border-b">
+              <tr>
+                <th class="p-3">Tarih / Sayaç</th>
+                <th class="p-3">1.8.0 Aktif</th>
+                <th class="p-3">5.8.0 Endüktif</th>
+                <th class="p-3">8.8.0 Kapasitif</th>
+                <th class="p-3">Dönem Δ Aktif</th>
+                <th class="p-3">Endüktif %</th>
+                <th class="p-3">Kapasitif %</th>
+                <th class="p-3 text-right">İşlem</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y">
+              ${sum.periods.length === 0 ? `<tr><td colspan="8" class="p-8 text-center text-slate-400">Henüz sayaç endeksi girilmedi. Sağ üstten "+ Endeks Gir" ile başlayın.</td></tr>` :
+                sum.periods.map(p => {
+                  const r = p.reading;
+                  const indBadge = p.indSev === "ALARM" ? "bg-rose-100 text-rose-800" : (p.indSev === "WARNING" ? "bg-amber-100 text-amber-800" : "bg-emerald-100 text-emerald-800");
+                  const capBadge = p.capSev === "ALARM" ? "bg-rose-100 text-rose-800" : (p.capSev === "WARNING" ? "bg-amber-100 text-amber-800" : "bg-emerald-100 text-emerald-800");
+                  return `
+                    <tr class="hover:bg-slate-50">
+                      <td class="p-3"><div class="font-bold text-slate-900">${escapeHtml(r.dateIso)}</div><div class="text-[11px] text-slate-500">${escapeHtml(r.meterName)} (x${fmtNumTr(r.multiplier || 1, 0)})</div></td>
+                      <td class="p-3 font-mono">${fmtNumTr(r.activeKwh, 1)}</td>
+                      <td class="p-3 font-mono">${fmtNumTr(r.inductiveKvarh, 1)}</td>
+                      <td class="p-3 font-mono">${fmtNumTr(r.capacitiveKvarh, 1)}</td>
+                      <td class="p-3 font-bold">${p.hasPrev ? fmtNumTr(p.dAct, 0) + " kWh" : "Baz"}</td>
+                      <td class="p-3">${p.hasPrev ? `<span class="px-2 py-0.5 rounded-full font-extrabold ${indBadge}">%${fmtNumTr(p.indPct, 1)}</span>` : "-"}</td>
+                      <td class="p-3">${p.hasPrev ? `<span class="px-2 py-0.5 rounded-full font-extrabold ${capBadge}">%${fmtNumTr(p.capPct, 1)}</span>` : "-"}</td>
+                      <td class="p-3 text-right space-x-1 whitespace-nowrap">
+                        <button type="button" onclick="openEnergyMeterModal('${r.id}')" class="px-2 py-1 bg-slate-100 hover:bg-slate-200 rounded text-slate-700 font-bold">Düzenle</button>
+                        <button type="button" onclick="deleteEnergyDoc('energy_meters', '${r.id}')" class="px-2 py-1 bg-rose-50 hover:bg-rose-100 rounded text-rose-700 font-bold">Sil</button>
+                      </td>
+                    </tr>`;
+                }).join("")}
+            </tbody>
+          </table>
+        </div>`;
+    }
+
+    function renderEnergySecPane(container) {
+      const logs = window.allEnergySecLogs || [];
+      const facility = logs.filter(l => (l.lineName || "") === "Tesis Geneli");
+      const eff = facility.length ? facility : logs;
+      const totKwh = eff.reduce((s, l) => s + Number(l.electricityKwh || 0), 0);
+      const totGas = eff.reduce((s, l) => s + Number(l.naturalGasM3 || 0), 0);
+      const totTon = eff.reduce((s, l) => s + Number(l.pastaTon || 0), 0);
+      const totCost = eff.reduce((s, l) => s + Number(l.electricityKwh || 0) * Number(l.electricityPriceTl || 4.2) + Number(l.naturalGasM3 || 0) * Number(l.gasPriceTl || 14.5), 0);
+      const avgSec = totTon > 0 ? totKwh / totTon : 0;
+      const avgGas = totTon > 0 ? totGas / totTon : 0;
+      const avgCost = totTon > 0 ? totCost / totTon : 0;
+
+      // Trend points
+      const byDate = {};
+      eff.forEach(l => {
+        if (!l.dateIso || Number(l.pastaTon) <= 0) return;
+        if (!byDate[l.dateIso]) byDate[l.dateIso] = { kwh: 0, ton: 0 };
+        byDate[l.dateIso].kwh += Number(l.electricityKwh || 0);
+        byDate[l.dateIso].ton += Number(l.pastaTon || 0);
+      });
+      const trendPts = Object.keys(byDate).sort().slice(-14).map(d => ({ date: d, sec: byDate[d].ton > 0 ? byDate[d].kwh / byDate[d].ton : 0 }));
+      let svgChart = `<div class="text-xs text-slate-400 py-8 text-center">Grafik için en az 1 SEC kaydı giriniz</div>`;
+      if (trendPts.length > 0) {
+        const w = 520, h = 140, pad = 16;
+        const maxV = Math.max(10, ...trendPts.map(p => p.sec));
+        const minV = Math.min(...trendPts.map(p => p.sec));
+        const rng = Math.max(10, maxV - minV);
+        const coords = trendPts.map((p, i) => {
+          const x = trendPts.length === 1 ? w / 2 : pad + (i / (trendPts.length - 1)) * (w - pad * 2);
+          const y = h - pad - ((p.sec - minV) / rng) * (h - pad * 2);
+          return { x, y, p };
+        });
+        const poly = coords.map(c => `${c.x.toFixed(1)},${c.y.toFixed(1)}`).join(" ");
+        svgChart = `
+          <svg viewBox="0 0 ${w} ${h}" class="w-full h-36 bg-slate-50 rounded-xl border border-slate-100">
+            <polyline fill="none" stroke="#1E3A8A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" points="${poly}" />
+            ${coords.map(c => `<circle cx="${c.x.toFixed(1)}" cy="${c.y.toFixed(1)}" r="4.5" fill="#F59E0B" stroke="#FFFFFF" stroke-width="1.5"><title>${c.p.date}: ${fmtNumTr(c.p.sec, 1)} kWh/ton</title></circle>`).join("")}
+          </svg>
+          <div class="flex justify-between text-[11px] text-slate-500 mt-1"><span>${trendPts[0].date}</span><span>Min: ${fmtNumTr(minV, 1)} • Maks: ${fmtNumTr(maxV, 1)} kWh/ton</span><span>${trendPts[trendPts.length - 1].date}</span></div>`;
+      }
+
+      // Hat bazlı kıyaslama
+      const byLine = {};
+      logs.filter(l => l.lineName && l.lineName !== "Tesis Geneli").forEach(l => {
+        if (!byLine[l.lineName]) byLine[l.lineName] = { kwh: 0, ton: 0 };
+        byLine[l.lineName].kwh += Number(l.electricityKwh || 0);
+        byLine[l.lineName].ton += Number(l.pastaTon || 0);
+      });
+      const lineStats = Object.entries(byLine).map(([name, v]) => ({
+        name, ton: v.ton, sec: v.ton > 0 ? v.kwh / v.ton : 0
+      })).filter(x => x.ton > 0).sort((a, b) => a.sec - b.sec);
+      const maxLineSec = Math.max(1, ...lineStats.map(x => x.sec));
+
+      container.innerHTML = `
+        <div class="bg-white p-4 rounded-2xl border border-slate-200 custom-shadow space-y-3">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div>
+              <h3 class="text-sm sm:text-base font-extrabold text-slate-900">Spesifik Enerji Tüketimi (SEC — kWh / Ton Makarna)</h3>
+              <p class="text-xs text-slate-500">Paketleme Birimi bugünkü tahmini üretim: <b>${fmtNumTr(estimateWebPackagingTons(toLocalDateStr(Date.now())), 2)} ton</b></p>
+            </div>
+            <button type="button" onclick="openEnergySecModal()" class="px-4 py-2 bg-[#1E3A8A] hover:bg-blue-900 text-white rounded-xl text-xs font-extrabold shadow">+ SEC Kaydı Ekle</button>
+          </div>
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
+            <div class="p-3 rounded-xl bg-blue-50 border border-blue-200"><div class="text-[11px] text-slate-600">Ortalama SEC</div><div class="text-base font-black text-[#1E3A8A]">${fmtNumTr(avgSec, 1)} kWh/ton</div></div>
+            <div class="p-3 rounded-xl bg-amber-50 border border-amber-200"><div class="text-[11px] text-slate-600">Doğalgaz / Ton</div><div class="text-base font-black text-amber-700">${fmtNumTr(avgGas, 1)} m³/ton</div></div>
+            <div class="p-3 rounded-xl bg-emerald-50 border border-emerald-200"><div class="text-[11px] text-slate-600">Birim Enerji Maliyeti</div><div class="text-base font-black text-emerald-700">${fmtNumTr(avgCost, 0)} TL/ton</div></div>
+            <div class="p-3 rounded-xl bg-indigo-50 border border-indigo-200"><div class="text-[11px] text-slate-600">Toplam Makarna</div><div class="text-base font-black text-indigo-700">${fmtNumTr(totTon, 1)} ton</div></div>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <div class="bg-white p-4 rounded-2xl border border-slate-200 custom-shadow space-y-2">
+            <h4 class="text-xs font-extrabold text-[#1E3A8A] uppercase">📈 Günlük SEC Trend Grafiği (kWh/Ton)</h4>
+            ${svgChart}
+          </div>
+          <div class="bg-white p-4 rounded-2xl border border-slate-200 custom-shadow space-y-3">
+            <h4 class="text-xs font-extrabold text-emerald-800 uppercase">🏭 Hat Bazlı Verimlilik Kıyaslaması</h4>
+            ${lineStats.length === 0 ? `<div class="text-xs text-slate-400 py-8 text-center">Hat bazlı kıyaslama için 101 Buhler / 103 Fava gibi hat seçili SEC kaydı ekleyin.</div>` :
+              lineStats.map((l, idx) => `
+                <div class="space-y-1">
+                  <div class="flex justify-between text-xs font-bold">
+                    <span class="${idx === 0 ? "text-emerald-700" : "text-slate-700"}">${idx === 0 ? "🏆 " : (idx + 1) + ". "}${escapeHtml(l.name)} (${fmtNumTr(l.ton, 1)} ton)</span>
+                    <span class="text-[#1E3A8A]">${fmtNumTr(l.sec, 1)} kWh/ton</span>
+                  </div>
+                  <div class="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden"><div class="h-full ${idx === 0 ? "bg-emerald-600" : "bg-blue-500"}" style="width:${Math.max(8, (l.sec / maxLineSec) * 100)}%"></div></div>
+                </div>`).join("")}
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl border border-slate-200 custom-shadow overflow-x-auto">
+          <table class="w-full text-xs text-left">
+            <thead class="bg-slate-50 text-slate-600 uppercase text-[11px] border-b">
+              <tr><th class="p-3">Tarih / Hat</th><th class="p-3">Tonaj</th><th class="p-3">Elektrik</th><th class="p-3">Doğalgaz</th><th class="p-3">SEC (kWh/Ton)</th><th class="p-3 text-right">İşlem</th></tr>
+            </thead>
+            <tbody class="divide-y">
+              ${logs.map(l => {
+                const sec = Number(l.pastaTon) > 0 ? Number(l.electricityKwh) / Number(l.pastaTon) : 0;
+                return `<tr class="hover:bg-slate-50"><td class="p-3"><b>${escapeHtml(l.dateIso)}</b> • ${escapeHtml(l.lineName)}</td><td class="p-3">${fmtNumTr(l.pastaTon, 2)} t</td><td class="p-3">${fmtNumTr(l.electricityKwh, 0)} kWh</td><td class="p-3">${fmtNumTr(l.naturalGasM3, 0)} m³</td><td class="p-3 font-black text-emerald-700">${fmtNumTr(sec, 1)} kWh/t</td><td class="p-3 text-right space-x-1"><button type="button" onclick="openEnergySecModal('${l.id}')" class="px-2 py-1 bg-slate-100 rounded font-bold">Düzenle</button><button type="button" onclick="deleteEnergyDoc('energy_sec_logs','${l.id}')" class="px-2 py-1 bg-rose-50 text-rose-700 rounded font-bold">Sil</button></td></tr>`;
+              }).join("") || `<tr><td colspan="6" class="p-6 text-center text-slate-400">SEC kaydı bulunmuyor</td></tr>`}
+            </tbody>
+          </table>
+        </div>`;
+    }
+
+    function renderEnergySeuPane(container) {
+      const util = window.allUtilityLogs || [];
+      const parseNum = (v) => { const n = parseFloat(String(v || "").replace(",", ".")); return isNaN(n) ? null : n; };
+      const compLog = [...util].filter(l => l.formType === "COMPRESSOR").sort((a, b) => (b.dateIso || "").localeCompare(a.dateIso || ""))[0];
+      const chillerLog = [...util].filter(l => l.formType === "CHILLER").sort((a, b) => (b.dateIso || "").localeCompare(a.dateIso || ""))[0];
+      const khellEom = compLog?.cells?.["ay_sonu_calisma_saati__khell_132"] || "-";
+      const chIn = chillerLog?.cells ? Object.entries(chillerLog.cells).filter(([k]) => k.includes("giris_su_sicakligi")).map(([, v]) => parseNum(v)).filter(v => v !== null) : [];
+      const chOut = chillerLog?.cells ? Object.entries(chillerLog.cells).filter(([k]) => k.includes("cikis_su_sicakligi")).map(([, v]) => parseNum(v)).filter(v => v !== null) : [];
+      const deltaT = (chIn.length && chOut.length) ? ((chIn.reduce((a, b) => a + b, 0) / chIn.length) - (chOut.reduce((a, b) => a + b, 0) / chOut.length)) : null;
+
+      const logs = window.allEnergySeuLogs || [];
+      container.innerHTML = `
+        <div class="bg-blue-50 border border-blue-200 rounded-2xl p-4 space-y-3 custom-shadow">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div>
+              <h3 class="text-sm font-extrabold text-[#1E3A8A]">🔗 Canlı Yardımcı Tesisler (SEU) Bağlantısı</h3>
+              <p class="text-xs text-blue-700">FR-38 KHELL 132 kW, FR-129 Chiller ΔT & FR-37 Kazan verileri otomatik çekilir</p>
+            </div>
+            <button type="button" onclick="openEnergySeuModal()" class="px-4 py-2 bg-[#1E3A8A] text-white rounded-xl text-xs font-extrabold shadow">+ SEU Ölçümü Ekle</button>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div class="bg-white p-3 rounded-xl border border-blue-100"><div class="text-[11px] text-slate-500">KHELL 2024 132 kW (Ay Sonu)</div><div class="text-sm font-black text-[#1E3A8A]">${escapeHtml(khellEom)} sa</div></div>
+            <div class="bg-white p-3 rounded-xl border border-blue-100"><div class="text-[11px] text-slate-500">Chiller Güncel ΔT (Giriş-Çıkış)</div><div class="text-sm font-black text-sky-700">${deltaT !== null ? fmtNumTr(deltaT, 1) + " °C" : "Veri Yok"}</div></div>
+            <div class="bg-white p-3 rounded-xl border border-blue-100"><div class="text-[11px] text-slate-500">Toplam SEU Kaydı</div><div class="text-sm font-black text-amber-700">${logs.length} Gün</div></div>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          ${logs.map(l => {
+            const load = Number(l.khellLoadHours || 0), idle = Number(l.khellIdleHours || 0);
+            const totH = load + idle;
+            const loadRatio = totH > 0 ? (load / totH) * 100 : 0;
+            const stopH = Number(l.stopDurationHours || 0), starts = Number(l.khellStartsDuringStop || 0);
+            const leakPct = (stopH > 0 && starts > 0) ? Math.min(65, ((starts / stopH) * 4 / 60) * 100) : Math.min(65, starts * 2.5);
+            const gasPerSteam = Number(l.boilerSteamTon) > 0 ? Number(l.boilerGasM3) / Number(l.boilerSteamTon) : 0;
+            const cop = Number(l.chillerElecKwh) > 0 ? Number(l.chillerCoolingKwh) / Number(l.chillerElecKwh) : 0;
+            return `
+              <div class="bg-white p-4 rounded-2xl border border-slate-200 custom-shadow space-y-2.5 text-xs">
+                <div class="flex justify-between items-center">
+                  <b class="text-sm text-[#1E3A8A]">📅 ${escapeHtml(l.dateIso)} • SEU Verimlilik</b>
+                  <div class="space-x-1"><button type="button" onclick="openEnergySeuModal('${l.id}')" class="px-2 py-1 bg-slate-100 rounded font-bold">Düzenle</button><button type="button" onclick="deleteEnergyDoc('energy_seu_logs','${l.id}')" class="px-2 py-1 bg-rose-50 text-rose-700 rounded font-bold">Sil</button></div>
+                </div>
+                <div class="p-2.5 rounded-xl bg-slate-50 border">
+                  <b>💨 KHELL 132 kW:</b> Yükte ${fmtNumTr(load,1)} sa / Boşta ${fmtNumTr(idle,1)} sa (%${fmtNumTr(loadRatio,1)} yük) • Duruşta ${starts} devre (${fmtNumTr(stopH,1)} sa) ➔ <b class="${leakPct >= 20 ? "text-rose-700" : (leakPct >= 10 ? "text-amber-700" : "text-emerald-700")}">Hava Kaçağı ~%${fmtNumTr(leakPct,1)}</b>
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                  <div class="p-2.5 rounded-xl bg-amber-50 border border-amber-200"><b>🔥 Kazan:</b> ${fmtNumTr(gasPerSteam, 1)} m³/ton buhar • Kondens: <b>${fmtNumTr(l.condensateReturnTempC, 0)}°C</b></div>
+                  <div class="p-2.5 rounded-xl bg-sky-50 border border-sky-200"><b>❄️ Chiller COP:</b> <span class="text-sm font-black">${cop > 0 ? fmtNumTr(cop, 2) : "-"}</span></div>
+                </div>
+              </div>`;
+          }).join("") || `<div class="col-span-2 bg-white p-8 rounded-2xl border text-center text-xs text-slate-400">SEU verimlilik kaydı eklemek için yukarıdaki "+ SEU Ölçümü Ekle" butonunu kullanın.</div>`}
+        </div>`;
+    }
+
+    function renderEnergyElectricalPane(container) {
+      const mode = window.energyUiState.electricalInner;
+      const trafos = window.allTransformerChecks || [];
+      const thermals = window.allThermalRecords || [];
+      container.innerHTML = `
+        <div class="flex flex-wrap items-center justify-between gap-2 bg-white p-3 rounded-2xl border border-slate-200 custom-shadow">
+          <div class="flex gap-2">
+            <button type="button" onclick="window.energyUiState.electricalInner='transformer'; window.renderEnergyManagementTab()" class="px-3 py-1.5 rounded-xl text-xs font-bold ${mode === 'transformer' ? 'bg-[#1E3A8A] text-white' : 'bg-slate-100 text-slate-700'}">🔌 Trafo & OG Hücre (${trafos.length})</button>
+            <button type="button" onclick="window.energyUiState.electricalInner='thermal'; window.renderEnergyManagementTab()" class="px-3 py-1.5 rounded-xl text-xs font-bold ${mode === 'thermal' ? 'bg-[#1E3A8A] text-white' : 'bg-slate-100 text-slate-700'}">🌡️ Termal Kamera & Harmonik (${thermals.length})</button>
+          </div>
+          <button type="button" onclick="${mode === 'transformer' ? 'openEnergyTransformerModal()' : 'openEnergyThermalModal()'}" class="px-4 py-2 bg-[#1E3A8A] text-white rounded-xl text-xs font-extrabold shadow">+ ${mode === 'transformer' ? 'Trafo Gözlemi' : 'Termal / Harmonik Kaydı'}</button>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          ${mode === 'transformer'
+            ? (trafos.map(t => {
+                const isCrit = (t.buchholzStatus || "").includes("Açma") || Number(t.oilTempC) >= 80 || Number(t.windingTempC) >= 95 || (Number(t.sf6PressureBar) > 0 && Number(t.sf6PressureBar) < 0.4);
+                const badge = isCrit ? "bg-rose-600 text-white" : "bg-emerald-600 text-white";
+                return `<div class="bg-white p-4 rounded-2xl border border-slate-200 custom-shadow text-xs space-y-2">
+                  <div class="flex justify-between"><div><b class="text-sm text-[#1E3A8A]">${escapeHtml(t.assetName)}</b><div class="text-slate-500">${escapeHtml(t.dateIso)} ${escapeHtml(t.timeStr)}</div></div><span class="px-2 py-0.5 rounded-full text-[10px] font-bold h-fit ${badge}">${isCrit ? "Kritik" : "Normal"}</span></div>
+                  <div>Yağ: <b>${fmtNumTr(t.oilTempC,1)}°C</b> • Sargı: <b>${fmtNumTr(t.windingTempC,1)}°C</b> • SF6: <b>${fmtNumTr(t.sf6PressureBar,2)} Bar</b> • Yük: <b>%${fmtNumTr(t.loadPercent,0)}</b></div>
+                  <div>Buchholz: ${escapeHtml(t.buchholzStatus)} • Silikajel: ${escapeHtml(t.silicaGelColor)}</div>
+                  <div class="flex justify-end gap-1"><button type="button" onclick="openEnergyTransformerModal('${t.id}')" class="px-2 py-1 bg-slate-100 rounded font-bold">Düzenle</button><button type="button" onclick="deleteEnergyDoc('energy_transformer_checks','${t.id}')" class="px-2 py-1 bg-rose-50 text-rose-700 rounded font-bold">Sil</button></div>
+                </div>`;
+              }).join("") || `<div class="col-span-2 bg-white p-8 rounded-2xl border text-center text-xs text-slate-400">Trafo / OG hücre gözlemi bulunmuyor</div>`)
+            : (thermals.map(r => {
+                const delta = Math.max(0, Number(r.measuredTempC || 0) - Number(r.ambientTempC || 25));
+                return `<div class="bg-white p-4 rounded-2xl border border-slate-200 custom-shadow text-xs space-y-2">
+                  <div class="flex justify-between"><div><b class="text-sm text-[#1E3A8A]">${escapeHtml(r.panelName)} — ${escapeHtml(r.componentPoint)}</b><div class="text-slate-500">${escapeHtml(r.dateIso)} ${escapeHtml(r.timeStr)}</div></div><span class="px-2 py-0.5 rounded-full text-[10px] font-bold h-fit ${r.severity?.includes('Kritik') ? 'bg-rose-600 text-white' : (r.severity?.includes('Uyarı') ? 'bg-amber-500 text-slate-900' : 'bg-emerald-600 text-white')}">${escapeHtml(r.severity || 'Normal')}</span></div>
+                  <div>🌡️ <b>${fmtNumTr(r.measuredTempC,1)}°C</b> (ΔT +${fmtNumTr(delta,1)}°C) • THD-V: <b>%${fmtNumTr(r.thdVoltagePct,1)}</b> • THD-I: <b>%${fmtNumTr(r.thdCurrentPct,1)}</b></div>
+                  ${r.photoBase64 ? `<img src="data:image/jpeg;base64,${r.photoBase64.replace(/^data:image\/[^;]+;base64,/, '')}" onclick="openThermalPhotoZoom(this.src)" class="w-full h-40 object-cover rounded-xl cursor-pointer border" />` : ""}
+                  <div class="flex flex-wrap justify-between items-center gap-2 pt-1">
+                    ${r.linkedWorkOrderId
+                      ? `<button type="button" onclick="switchTab('electricalMaintenance', 'workOrders')" class="px-3 py-1.5 bg-emerald-50 border border-emerald-300 text-emerald-800 rounded-xl font-bold">✅ İş Emri Aktarıldı (${escapeHtml(r.linkedWorkOrderId)})</button>`
+                      : `<button type="button" onclick="transferThermalToWorkOrder('${r.id}')" class="px-3 py-1.5 bg-amber-600 hover:bg-amber-700 text-white rounded-xl font-bold">⚡ Elektrik Bakım'a İş Emri Aktar</button>`}
+                    <div class="space-x-1"><button type="button" onclick="openEnergyThermalModal('${r.id}')" class="px-2 py-1 bg-slate-100 rounded font-bold">Düzenle</button><button type="button" onclick="deleteEnergyDoc('energy_thermal_logs','${r.id}')" class="px-2 py-1 bg-rose-50 text-rose-700 rounded font-bold">Sil</button></div>
+                  </div>
+                </div>`;
+              }).join("") || `<div class="col-span-2 bg-white p-8 rounded-2xl border text-center text-xs text-slate-400">Termal / harmonik kaydı bulunmuyor</div>`)}
+        </div>`;
+    }
+
+    function renderEnergyProjectsPane(container) {
+      const projs = window.allEnergyProjects || [];
+      let totSavedKwh = 0, totAnnualTl = 0, totInv = 0;
+      const enriched = projs.map(p => {
+        const saved = Math.max(0, Number(p.baselineKwhYear || 0) - Number(p.postKwhYear || 0));
+        const pct = Number(p.baselineKwhYear) > 0 ? (saved / Number(p.baselineKwhYear)) * 100 : 0;
+        const annualTl = saved * Number(p.electricityPriceTl || 4.2) + Number(p.extraAnnualSavingsTl || 0);
+        const payback = (annualTl > 0 && Number(p.investmentCostTl) > 0) ? Number(p.investmentCostTl) / (annualTl / 12) : 0;
+        totSavedKwh += saved; totAnnualTl += annualTl; totInv += Number(p.investmentCostTl || 0);
+        return { p, saved, pct, annualTl, payback };
+      });
+      const avgPayback = (totAnnualTl > 0 && totInv > 0) ? totInv / (totAnnualTl / 12) : 0;
+
+      container.innerHTML = `
+        <div class="bg-emerald-900 text-white p-4 sm:p-5 rounded-2xl space-y-3 custom-shadow">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div><h3 class="text-sm sm:text-base font-extrabold">💰 Enerji Verimliliği & VFD / İnvertör ROI Hesaplayıcı</h3><p class="text-xs text-emerald-200">Üst yönetime sunulabilir yıllık tasarruf ve amortisman portföyü</p></div>
+            <button type="button" onclick="openEnergyProjectModal()" class="px-4 py-2 bg-amber-400 hover:bg-amber-300 text-slate-900 rounded-xl text-xs font-extrabold shadow">+ Verimlilik Projesi Ekle</button>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+            <div class="bg-white/10 p-3 rounded-xl"><div class="text-emerald-200">Yıllık Tasarruf (TL)</div><div class="text-base font-black">${fmtNumTr(totAnnualTl, 0)} TL</div></div>
+            <div class="bg-white/10 p-3 rounded-xl"><div class="text-emerald-200">Tasarruf (kWh)</div><div class="text-base font-black">${fmtNumTr(totSavedKwh, 0)} kWh</div></div>
+            <div class="bg-white/10 p-3 rounded-xl"><div class="text-emerald-200">Toplam Yatırım</div><div class="text-base font-black">${fmtNumTr(totInv, 0)} TL</div></div>
+            <div class="bg-white/10 p-3 rounded-xl"><div class="text-emerald-200">Ort. Amortisman</div><div class="text-base font-black text-amber-300">${fmtNumTr(avgPayback, 1)} Ay</div></div>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          ${enriched.map(({ p, saved, pct, annualTl, payback }) => `
+            <div class="bg-white p-4 rounded-2xl border border-slate-200 custom-shadow text-xs space-y-2">
+              <div class="flex justify-between"><div><b class="text-sm text-[#1E3A8A]">${escapeHtml(p.title)}</b><div class="text-slate-500">${escapeHtml(p.category)} • ${escapeHtml(p.equipmentName || "-")}</div></div><span class="px-2 py-0.5 rounded-full font-bold h-fit ${p.status === 'Devreye Alındı' ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'}">${escapeHtml(p.status)}</span></div>
+              <div>Önce: ${fmtNumTr(p.baselineKwhYear,0)} kWh ➔ Sonra: ${fmtNumTr(p.postKwhYear,0)} kWh (<b>%${fmtNumTr(pct,1)} • ${fmtNumTr(saved,0)} kWh/yıl</b>)</div>
+              <div class="grid grid-cols-3 gap-2">
+                <div class="p-2 rounded-lg bg-emerald-50"><b>${fmtNumTr(annualTl,0)} TL/yıl</b><div class="text-[10px] text-slate-500">Kazanç</div></div>
+                <div class="p-2 rounded-lg bg-blue-50"><b>${fmtNumTr(p.investmentCostTl,0)} TL</b><div class="text-[10px] text-slate-500">Yatırım</div></div>
+                <div class="p-2 rounded-lg bg-amber-50"><b class="text-amber-800">${fmtNumTr(payback,1)} Ay</b><div class="text-[10px] text-slate-500">Amortisman</div></div>
+              </div>
+              <div class="flex justify-end gap-1"><button type="button" onclick="openEnergyProjectModal('${p.id}')" class="px-2 py-1 bg-slate-100 rounded font-bold">Düzenle</button><button type="button" onclick="deleteEnergyDoc('energy_efficiency_projects','${p.id}')" class="px-2 py-1 bg-rose-50 text-rose-700 rounded font-bold">Sil</button></div>
+            </div>`).join("") || `<div class="col-span-2 bg-white p-8 rounded-2xl border text-center text-xs text-slate-400">Henüz verimlilik / VFD ROI projesi eklenmedi</div>`}
+        </div>`;
+    }
+
+    window.deleteEnergyDoc = async function(colName, id) {
+      if (!window.isMasterUser(window.currentUser)) return;
+      if (!confirm("Bu kaydı silmek istiyor musunuz?")) return;
+      await deleteDoc(doc(db, colName, id));
+    };
+
+    window.openThermalPhotoZoom = function(src) {
+      const img = document.getElementById("modalImagePreviewSrc");
+      if (img) img.src = src;
+      openModal("modalImagePreview");
+    };
+
+    window.transferThermalToWorkOrder = async function(recId) {
+      if (!window.isMasterUser(window.currentUser)) return;
+      const rec = (window.allThermalRecords || []).find(x => x.id === recId);
+      if (!rec) return;
+      const priority = (rec.severity || "").includes("Kritik") || Number(rec.measuredTempC) >= 75 ? "Kritik" : ((rec.severity || "").includes("Uyarı") || Number(rec.measuredTempC) >= 55 ? "Yüksek" : "Orta");
+      const woId = "wo_" + Date.now().toString(36) + "_" + Math.random().toString(36).slice(2, 6);
+      const me = window.currentUser || {};
+      const delta = Math.max(0, Number(rec.measuredTempC || 0) - Number(rec.ambientTempC || 25));
+      await setDoc(doc(db, "work_orders", woId), {
+        id: woId,
+        title: `Termal Bakım: ${rec.panelName} — ${rec.componentPoint}`,
+        description: `ISO 50001 Termal Kamera / Harmonik Kontrolünden aktarıldı.\n• Pano/Nokta: ${rec.panelName} / ${rec.componentPoint}\n• Sıcaklık: ${rec.measuredTempC}°C (Ortam: ${rec.ambientTempC}°C, ΔT: ${fmtNumTr(delta,1)}°C)\n• Harmonik: THD-V %${rec.thdVoltagePct} • THD-I %${rec.thdCurrentPct}\n${rec.notes ? "• Not: " + rec.notes : ""}`,
+        machineId: "pano_" + (rec.panelName || "adp").toLowerCase().replace(/\s+/g, "_"),
+        machineName: rec.panelName || "Elektrik Panosu",
+        department: "Elektrik & Otomasyon",
+        priority,
+        status: "Beklemede",
+        reportedByUid: me.userId || me.id || "master",
+        reportedByName: me.displayName || me.username || "Enerji Yöneticisi",
+        createdAtMillis: Date.now(),
+        createdAt: serverTimestamp(),
+        updatedAt: serverTimestamp()
+      }, { merge: true });
+      await setDoc(doc(db, "energy_thermal_logs", recId), { linkedWorkOrderId: woId, updatedAt: serverTimestamp() }, { merge: true });
+      alert(`✅ Elektrik Bakım İş Emri (${woId}) oluşturuldu!`);
+    };
+
+    function openEnergyEditorHtml(title, bodyHtml) {
+      document.getElementById("modalEnergyEditorTitle").innerText = title;
+      document.getElementById("modalEnergyEditorBody").innerHTML = bodyHtml;
+      openModal("modalEnergyEditor");
+    }
+
+    window.openEnergyMeterModal = function(editId = "") {
+      const r = (window.allEnergyMeters || []).find(x => x.id === editId) || {};
+      const today = toLocalDateStr(Date.now());
+      openEnergyEditorHtml(editId ? "Sayaç Endeksini Düzenle" : "⚡ Yeni Sayaç Endeksi (OG / Trafo)", `
+        <form onsubmit="submitEnergyMeter(event, '${editId}')" class="space-y-3">
+          <div class="grid grid-cols-2 gap-2">
+            <div><label class="font-bold">Tarih *</label><input id="emDate" type="date" value="${r.dateIso || today}" required class="w-full border rounded-xl p-2 mt-1"></div>
+            <div><label class="font-bold">Sayaç</label><select id="emMeter" class="w-full border rounded-xl p-2 mt-1">${ENERGY_METERS.map(m => `<option ${r.meterName===m?'selected':''}>${m}</option>`).join("")}</select></div>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <div><label class="font-bold">Aktif (1.8.0) kWh *</label><input id="emAct" type="number" step="0.1" value="${r.activeKwh ?? ''}" required class="w-full border rounded-xl p-2 mt-1"></div>
+            <div><label class="font-bold">Çarpan</label><input id="emMult" type="number" step="0.1" value="${r.multiplier ?? 1}" class="w-full border rounded-xl p-2 mt-1"></div>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <div><label class="font-bold">Endüktif (5.8.0) *</label><input id="emInd" type="number" step="0.1" value="${r.inductiveKvarh ?? ''}" required class="w-full border rounded-xl p-2 mt-1"></div>
+            <div><label class="font-bold">Kapasitif (8.8.0) *</label><input id="emCap" type="number" step="0.1" value="${r.capacitiveKvarh ?? ''}" required class="w-full border rounded-xl p-2 mt-1"></div>
+          </div>
+          <div><label class="font-bold">Not</label><input id="emNotes" type="text" value="${escapeHtml(r.notes || '')}" class="w-full border rounded-xl p-2 mt-1"></div>
+          <div class="flex justify-end gap-2 pt-2"><button type="button" onclick="closeModal('modalEnergyEditor')" class="px-4 py-2 border rounded-xl">İptal</button><button type="submit" class="px-4 py-2 bg-[#1E3A8A] text-white rounded-xl font-bold">Kaydet</button></div>
+        </form>`);
+    };
+
+    window.submitEnergyMeter = async function(e, editId) {
+      e.preventDefault();
+      const id = editId || ("em_" + Date.now());
+      const me = window.currentUser || {};
+      await setDoc(doc(db, "energy_meters", id), {
+        id,
+        dateIso: document.getElementById("emDate").value,
+        meterName: document.getElementById("emMeter").value,
+        activeKwh: Number(document.getElementById("emAct").value || 0),
+        multiplier: Number(document.getElementById("emMult").value || 1) || 1,
+        inductiveKvarh: Number(document.getElementById("emInd").value || 0),
+        capacitiveKvarh: Number(document.getElementById("emCap").value || 0),
+        notes: document.getElementById("emNotes").value.trim(),
+        updatedByUid: me.userId || "master",
+        updatedByName: me.displayName || me.username || "Enerji Yöneticisi",
+        updatedAtMillis: Date.now(),
+        updatedAt: serverTimestamp()
+      }, { merge: true });
+      closeModal("modalEnergyEditor");
+    };
+
+    window.openEnergySecModal = function(editId = "") {
+      const r = (window.allEnergySecLogs || []).find(x => x.id === editId) || {};
+      const today = toLocalDateStr(Date.now());
+      const estTon = estimateWebPackagingTons(r.dateIso || today);
+      openEnergyEditorHtml(editId ? "SEC Kaydını Düzenle" : "📈 Yeni SEC (kWh / Ton) Kaydı", `
+        <form onsubmit="submitEnergySec(event, '${editId}')" class="space-y-3">
+          <div class="grid grid-cols-2 gap-2">
+            <div><label class="font-bold">Tarih *</label><input id="secDate" type="date" value="${r.dateIso || today}" required class="w-full border rounded-xl p-2 mt-1"></div>
+            <div><label class="font-bold">Hat / Kapsam</label><select id="secLine" class="w-full border rounded-xl p-2 mt-1">${ENERGY_SEC_LINES.map(m => `<option ${r.lineName===m?'selected':''}>${m}</option>`).join("")}</select></div>
+          </div>
+          <div>
+            <div class="flex justify-between"><label class="font-bold">Makarna Tonajı (Ton) *</label>${estTon > 0 ? `<button type="button" onclick="document.getElementById('secTon').value='${estTon.toFixed(2)}'" class="text-blue-700 font-bold hover:underline">📦 Paketlemeden Doldur (${fmtNumTr(estTon,2)} t)</button>` : ""}</div>
+            <input id="secTon" type="number" step="0.01" value="${r.pastaTon ?? ''}" required class="w-full border rounded-xl p-2 mt-1">
+          </div>
+          <div class="grid grid-cols-3 gap-2">
+            <div><label class="font-bold">Elektrik (kWh) *</label><input id="secElec" type="number" step="1" value="${r.electricityKwh ?? ''}" required class="w-full border rounded-xl p-2 mt-1"></div>
+            <div><label class="font-bold">Doğalgaz (m³)</label><input id="secGas" type="number" step="1" value="${r.naturalGasM3 ?? 0}" class="w-full border rounded-xl p-2 mt-1"></div>
+            <div><label class="font-bold">Buhar (Ton)</label><input id="secSteam" type="number" step="0.1" value="${r.steamTon ?? 0}" class="w-full border rounded-xl p-2 mt-1"></div>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <div><label class="font-bold">Elektrik (TL/kWh)</label><input id="secEp" type="number" step="0.01" value="${r.electricityPriceTl ?? 4.20}" class="w-full border rounded-xl p-2 mt-1"></div>
+            <div><label class="font-bold">Gaz (TL/m³)</label><input id="secGp" type="number" step="0.01" value="${r.gasPriceTl ?? 14.50}" class="w-full border rounded-xl p-2 mt-1"></div>
+          </div>
+          <div class="flex justify-end gap-2 pt-2"><button type="button" onclick="closeModal('modalEnergyEditor')" class="px-4 py-2 border rounded-xl">İptal</button><button type="submit" class="px-4 py-2 bg-[#1E3A8A] text-white rounded-xl font-bold">Kaydet</button></div>
+        </form>`);
+    };
+
+    window.submitEnergySec = async function(e, editId) {
+      e.preventDefault();
+      const id = editId || ("sec_" + Date.now());
+      const me = window.currentUser || {};
+      await setDoc(doc(db, "energy_sec_logs", id), {
+        id,
+        dateIso: document.getElementById("secDate").value,
+        lineName: document.getElementById("secLine").value,
+        pastaTon: Number(document.getElementById("secTon").value || 0),
+        electricityKwh: Number(document.getElementById("secElec").value || 0),
+        naturalGasM3: Number(document.getElementById("secGas").value || 0),
+        steamTon: Number(document.getElementById("secSteam").value || 0),
+        electricityPriceTl: Number(document.getElementById("secEp").value || 4.2),
+        gasPriceTl: Number(document.getElementById("secGp").value || 14.5),
+        updatedByUid: me.userId || "master",
+        updatedByName: me.displayName || me.username || "Enerji Yöneticisi",
+        updatedAtMillis: Date.now(),
+        updatedAt: serverTimestamp()
+      }, { merge: true });
+      closeModal("modalEnergyEditor");
+    };
+
+    window.openEnergySeuModal = function(editId = "") {
+      const r = (window.allEnergySeuLogs || []).find(x => x.id === editId) || {};
+      const today = toLocalDateStr(Date.now());
+      openEnergyEditorHtml(editId ? "SEU Ölçümünü Düzenle" : "💨 Yeni SEU & Yardımcı Tesis Ölçümü", `
+        <form onsubmit="submitEnergySeu(event, '${editId}')" class="space-y-3">
+          <div><label class="font-bold">Tarih</label><input id="seuDate" type="date" value="${r.dateIso || today}" required class="w-full border rounded-xl p-2 mt-1"></div>
+          <div class="grid grid-cols-2 gap-2">
+            <div><label class="font-bold">KHELL Yükte (sa)</label><input id="seuKL" type="number" step="0.1" value="${r.khellLoadHours ?? 18}" class="w-full border rounded-xl p-2 mt-1"></div>
+            <div><label class="font-bold">KHELL Boşta (sa)</label><input id="seuKI" type="number" step="0.1" value="${r.khellIdleHours ?? 4}" class="w-full border rounded-xl p-2 mt-1"></div>
+            <div><label class="font-bold">Duruşta Devre (adet)</label><input id="seuSt" type="number" step="1" value="${r.khellStartsDuringStop ?? 0}" class="w-full border rounded-xl p-2 mt-1"></div>
+            <div><label class="font-bold">Duruş Süresi (sa)</label><input id="seuStop" type="number" step="0.1" value="${r.stopDurationHours ?? 2}" class="w-full border rounded-xl p-2 mt-1"></div>
+            <div><label class="font-bold">Kazan Gaz (m³)</label><input id="seuGas" type="number" step="1" value="${r.boilerGasM3 ?? 0}" class="w-full border rounded-xl p-2 mt-1"></div>
+            <div><label class="font-bold">Kazan Buhar (ton)</label><input id="seuStm" type="number" step="0.1" value="${r.boilerSteamTon ?? 0}" class="w-full border rounded-xl p-2 mt-1"></div>
+            <div><label class="font-bold">Kondens Sıcaklık (°C)</label><input id="seuCond" type="number" step="0.1" value="${r.condensateReturnTempC ?? 82}" class="w-full border rounded-xl p-2 mt-1"></div>
+            <div><label class="font-bold">Chiller Soğutma (kWh)</label><input id="seuCool" type="number" step="1" value="${r.chillerCoolingKwh ?? 0}" class="w-full border rounded-xl p-2 mt-1"></div>
+          </div>
+          <div><label class="font-bold">Chiller Elektrik (kWh)</label><input id="seuChEl" type="number" step="1" value="${r.chillerElecKwh ?? 0}" class="w-full border rounded-xl p-2 mt-1"></div>
+          <div class="flex justify-end gap-2 pt-2"><button type="button" onclick="closeModal('modalEnergyEditor')" class="px-4 py-2 border rounded-xl">İptal</button><button type="submit" class="px-4 py-2 bg-[#1E3A8A] text-white rounded-xl font-bold">Kaydet</button></div>
+        </form>`);
+    };
+
+    window.submitEnergySeu = async function(e, editId) {
+      e.preventDefault();
+      const id = editId || ("seu_" + Date.now());
+      const me = window.currentUser || {};
+      await setDoc(doc(db, "energy_seu_logs", id), {
+        id,
+        dateIso: document.getElementById("seuDate").value,
+        khellLoadHours: Number(document.getElementById("seuKL").value || 0),
+        khellIdleHours: Number(document.getElementById("seuKI").value || 0),
+        khellStartsDuringStop: Number(document.getElementById("seuSt").value || 0),
+        stopDurationHours: Number(document.getElementById("seuStop").value || 0),
+        boilerGasM3: Number(document.getElementById("seuGas").value || 0),
+        boilerSteamTon: Number(document.getElementById("seuStm").value || 0),
+        condensateReturnTempC: Number(document.getElementById("seuCond").value || 0),
+        chillerCoolingKwh: Number(document.getElementById("seuCool").value || 0),
+        chillerElecKwh: Number(document.getElementById("seuChEl").value || 0),
+        updatedByUid: me.userId || "master",
+        updatedByName: me.displayName || me.username || "Enerji Yöneticisi",
+        updatedAtMillis: Date.now(),
+        updatedAt: serverTimestamp()
+      }, { merge: true });
+      closeModal("modalEnergyEditor");
+    };
+
+    window.openEnergyTransformerModal = function(editId = "") {
+      const r = (window.allTransformerChecks || []).find(x => x.id === editId) || {};
+      const today = toLocalDateStr(Date.now());
+      openEnergyEditorHtml(editId ? "Trafo Gözlemini Düzenle" : "🔌 Yeni Trafo & OG Hücre Gözlemi", `
+        <form onsubmit="submitEnergyTransformer(event, '${editId}')" class="space-y-3">
+          <div class="grid grid-cols-2 gap-2">
+            <div><label class="font-bold">Tarih</label><input id="trDate" type="date" value="${r.dateIso || today}" required class="w-full border rounded-xl p-2 mt-1"></div>
+            <div><label class="font-bold">Saat</label><input id="trTime" type="time" value="${r.timeStr || '09:00'}" class="w-full border rounded-xl p-2 mt-1"></div>
+          </div>
+          <div><label class="font-bold">Trafo / Hücre</label><select id="trAsset" class="w-full border rounded-xl p-2 mt-1">${ENERGY_TRAFO_ASSETS.map(a => `<option ${r.assetName===a?'selected':''}>${a}</option>`).join("")}</select></div>
+          <div class="grid grid-cols-2 gap-2">
+            <div><label class="font-bold">Yağ Sıcaklığı (°C)</label><input id="trOil" type="number" step="0.1" value="${r.oilTempC ?? 48}" class="w-full border rounded-xl p-2 mt-1"></div>
+            <div><label class="font-bold">Sargı Sıcaklığı (°C)</label><input id="trWind" type="number" step="0.1" value="${r.windingTempC ?? 56}" class="w-full border rounded-xl p-2 mt-1"></div>
+            <div><label class="font-bold">OG SF6 Basınç (Bar)</label><input id="trSf6" type="number" step="0.01" value="${r.sf6PressureBar ?? 0.55}" class="w-full border rounded-xl p-2 mt-1"></div>
+            <div><label class="font-bold">Yük (%)</label><input id="trLoad" type="number" step="1" value="${r.loadPercent ?? 65}" class="w-full border rounded-xl p-2 mt-1"></div>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <div><label class="font-bold">Buchholz Rölesi</label><select id="trBuch" class="w-full border rounded-xl p-2 mt-1">${["Normal","Gaz Birikimi (Uyarı)","Açma (Alarm)"].map(o=>`<option ${r.buchholzStatus===o?'selected':''}>${o}</option>`).join("")}</select></div>
+            <div><label class="font-bold">Silikajel Rengi</label><select id="trSil" class="w-full border rounded-xl p-2 mt-1">${["Turuncu / Mavi (Kuru)","Açık Sarı (Takip)","Pembe / Beyaz (Nemli - Değiştir)"].map(o=>`<option ${r.silicaGelColor===o?'selected':''}>${o}</option>`).join("")}</select></div>
+          </div>
+          <div class="flex justify-end gap-2 pt-2"><button type="button" onclick="closeModal('modalEnergyEditor')" class="px-4 py-2 border rounded-xl">İptal</button><button type="submit" class="px-4 py-2 bg-[#1E3A8A] text-white rounded-xl font-bold">Kaydet</button></div>
+        </form>`);
+    };
+
+    window.submitEnergyTransformer = async function(e, editId) {
+      e.preventDefault();
+      const id = editId || ("tr_" + Date.now());
+      const me = window.currentUser || {};
+      await setDoc(doc(db, "energy_transformer_checks", id), {
+        id,
+        dateIso: document.getElementById("trDate").value,
+        timeStr: document.getElementById("trTime").value,
+        assetName: document.getElementById("trAsset").value,
+        oilTempC: Number(document.getElementById("trOil").value || 0),
+        windingTempC: Number(document.getElementById("trWind").value || 0),
+        sf6PressureBar: Number(document.getElementById("trSf6").value || 0),
+        loadPercent: Number(document.getElementById("trLoad").value || 0),
+        buchholzStatus: document.getElementById("trBuch").value,
+        silicaGelColor: document.getElementById("trSil").value,
+        inspectorName: me.displayName || me.username || "Enerji Yöneticisi",
+        updatedAtMillis: Date.now(),
+        updatedAt: serverTimestamp()
+      }, { merge: true });
+      closeModal("modalEnergyEditor");
+    };
+
+    window._pendingThermalPhotoB64 = null;
+    window.onThermalPhotoFileChange = function(input) {
+      const f = input?.files?.[0];
+      if (!f) return;
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        const img = new Image();
+        img.onload = () => {
+          const maxD = 800;
+          const sc = Math.min(1, maxD / Math.max(img.width, img.height));
+          const c = document.createElement("canvas");
+          c.width = Math.round(img.width * sc);
+          c.height = Math.round(img.height * sc);
+          c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
+          const dataUrl = c.toDataURL("image/jpeg", 0.72);
+          window._pendingThermalPhotoB64 = dataUrl.split("base64,")[1] || "";
+          const st = document.getElementById("thPhotoStatus");
+          if (st) st.textContent = "✅ Termal fotoğraf hazır (" + Math.round(window._pendingThermalPhotoB64.length / 1024) + " KB)";
+        };
+        img.src = ev.target.result;
+      };
+      reader.readAsDataURL(f);
+    };
+
+    window.openEnergyThermalModal = function(editId = "") {
+      const r = (window.allThermalRecords || []).find(x => x.id === editId) || {};
+      window._pendingThermalPhotoB64 = r.photoBase64 || null;
+      const today = toLocalDateStr(Date.now());
+      openEnergyEditorHtml(editId ? "Termal Kaydını Düzenle" : "🌡️ Yeni Termal Kamera & Harmonik Kaydı", `
+        <form onsubmit="submitEnergyThermal(event, '${editId}')" class="space-y-3">
+          <div class="grid grid-cols-2 gap-2">
+            <div><label class="font-bold">Tarih</label><input id="thDate" type="date" value="${r.dateIso || today}" required class="w-full border rounded-xl p-2 mt-1"></div>
+            <div><label class="font-bold">Saat</label><input id="thTime" type="time" value="${r.timeStr || '10:00'}" class="w-full border rounded-xl p-2 mt-1"></div>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <div><label class="font-bold">Pano (MCC/ADP)</label><select id="thPanel" class="w-full border rounded-xl p-2 mt-1">${ENERGY_PANELS.map(p=>`<option ${r.panelName===p?'selected':''}>${p}</option>`).join("")}</select></div>
+            <div><label class="font-bold">Şalter / Klemens Noktası *</label><input id="thPoint" type="text" value="${escapeHtml(r.componentPoint || '')}" required class="w-full border rounded-xl p-2 mt-1"></div>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+            <div><label class="font-bold">Ölçülen °C *</label><input id="thTemp" type="number" step="0.1" value="${r.measuredTempC ?? ''}" required class="w-full border rounded-xl p-2 mt-1"></div>
+            <div><label class="font-bold">Ortam °C</label><input id="thAmb" type="number" step="0.1" value="${r.ambientTempC ?? 25}" class="w-full border rounded-xl p-2 mt-1"></div>
+            <div><label class="font-bold">THD-V (%)</label><input id="thThdV" type="number" step="0.1" value="${r.thdVoltagePct ?? 2.5}" class="w-full border rounded-xl p-2 mt-1"></div>
+            <div><label class="font-bold">THD-I (%)</label><input id="thThdI" type="number" step="0.1" value="${r.thdCurrentPct ?? 6.0}" class="w-full border rounded-xl p-2 mt-1"></div>
+          </div>
+          <div><label class="font-bold">Önem</label><select id="thSev" class="w-full border rounded-xl p-2 mt-1">${["Normal","Uyarı (Isınma)","Kritik (Acil)"].map(s=>`<option ${r.severity===s?'selected':''}>${s}</option>`).join("")}</select></div>
+          <div><label class="font-bold">Termal Fotoğraf (İsteğe Bağlı)</label><input type="file" accept="image/*" onchange="onThermalPhotoFileChange(this)" class="w-full border rounded-xl p-2 mt-1"><div id="thPhotoStatus" class="text-[11px] text-emerald-700 font-bold mt-1">${r.photoBase64 ? "Mevcut fotoğraf kayıtlı" : ""}</div></div>
+          <div><label class="font-bold">Not</label><input id="thNotes" type="text" value="${escapeHtml(r.notes || '')}" class="w-full border rounded-xl p-2 mt-1"></div>
+          <div class="flex justify-end gap-2 pt-2"><button type="button" onclick="closeModal('modalEnergyEditor')" class="px-4 py-2 border rounded-xl">İptal</button><button type="submit" class="px-4 py-2 bg-[#1E3A8A] text-white rounded-xl font-bold">Kaydet</button></div>
+        </form>`);
+    };
+
+    window.submitEnergyThermal = async function(e, editId) {
+      e.preventDefault();
+      const id = editId || ("th_" + Date.now());
+      const me = window.currentUser || {};
+      const payload = {
+        id,
+        dateIso: document.getElementById("thDate").value,
+        timeStr: document.getElementById("thTime").value,
+        panelName: document.getElementById("thPanel").value,
+        componentPoint: document.getElementById("thPoint").value.trim(),
+        measuredTempC: Number(document.getElementById("thTemp").value || 0),
+        ambientTempC: Number(document.getElementById("thAmb").value || 25),
+        thdVoltagePct: Number(document.getElementById("thThdV").value || 0),
+        thdCurrentPct: Number(document.getElementById("thThdI").value || 0),
+        severity: document.getElementById("thSev").value,
+        notes: document.getElementById("thNotes").value.trim(),
+        inspectorName: me.displayName || me.username || "Enerji Yöneticisi",
+        updatedAtMillis: Date.now(),
+        updatedAt: serverTimestamp()
+      };
+      if (window._pendingThermalPhotoB64) payload.photoBase64 = window._pendingThermalPhotoB64;
+      await setDoc(doc(db, "energy_thermal_logs", id), payload, { merge: true });
+      closeModal("modalEnergyEditor");
+    };
+
+    window.updateProjectRoiPreview = function() {
+      const b = Number(document.getElementById("epBase")?.value || 0);
+      const p = Number(document.getElementById("epPost")?.value || 0);
+      const pr = Number(document.getElementById("epPrice")?.value || 0);
+      const inv = Number(document.getElementById("epInv")?.value || 0);
+      const saved = Math.max(0, b - p);
+      const annualTl = saved * pr;
+      const payback = (annualTl > 0 && inv > 0) ? inv / (annualTl / 12) : 0;
+      const box = document.getElementById("epRoiPreview");
+      if (box) box.innerHTML = `📈 Tasarruf: <b>${fmtNumTr(saved,0)} kWh/yıl</b> (${fmtNumTr(annualTl,0)} TL/yıl) • ⏱️ Amortisman: <b class="text-amber-800">${fmtNumTr(payback,1)} Ay</b>`;
+    };
+
+    window.openEnergyProjectModal = function(editId = "") {
+      const r = (window.allEnergyProjects || []).find(x => x.id === editId) || {};
+      openEnergyEditorHtml(editId ? "Verimlilik Projesini Düzenle" : "💰 Yeni Verimlilik & VFD ROI Projesi", `
+        <form onsubmit="submitEnergyProject(event, '${editId}')" class="space-y-3">
+          <div><label class="font-bold">Proje Adı *</label><input id="epTitle" type="text" value="${escapeHtml(r.title || '')}" required class="w-full border rounded-xl p-2 mt-1"></div>
+          <div class="grid grid-cols-2 gap-2">
+            <div><label class="font-bold">Kategori</label><select id="epCat" class="w-full border rounded-xl p-2 mt-1">${ENERGY_PROJ_CATS.map(c=>`<option ${r.category===c?'selected':''}>${c}</option>`).join("")}</select></div>
+            <div><label class="font-bold">Durum</label><select id="epStatus" class="w-full border rounded-xl p-2 mt-1">${["Planlanıyor","Devam Ediyor","Devreye Alındı"].map(s=>`<option ${r.status===s?'selected':''}>${s}</option>`).join("")}</select></div>
+          </div>
+          <div><label class="font-bold">Ekipman / Hat</label><input id="epEquip" type="text" value="${escapeHtml(r.equipmentName || '')}" class="w-full border rounded-xl p-2 mt-1"></div>
+          <div class="grid grid-cols-2 gap-2">
+            <div><label class="font-bold">Önceki Tüketim (kWh/yıl)</label><input id="epBase" oninput="updateProjectRoiPreview()" type="number" step="100" value="${r.baselineKwhYear ?? 120000}" class="w-full border rounded-xl p-2 mt-1"></div>
+            <div><label class="font-bold">Sonraki Tüketim (kWh/yıl)</label><input id="epPost" oninput="updateProjectRoiPreview()" type="number" step="100" value="${r.postKwhYear ?? 78000}" class="w-full border rounded-xl p-2 mt-1"></div>
+            <div><label class="font-bold">Birim Fiyat (TL/kWh)</label><input id="epPrice" oninput="updateProjectRoiPreview()" type="number" step="0.01" value="${r.electricityPriceTl ?? 4.20}" class="w-full border rounded-xl p-2 mt-1"></div>
+            <div><label class="font-bold">Yatırım Maliyeti (TL)</label><input id="epInv" oninput="updateProjectRoiPreview()" type="number" step="100" value="${r.investmentCostTl ?? 180000}" class="w-full border rounded-xl p-2 mt-1"></div>
+          </div>
+          <div id="epRoiPreview" class="p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-xs"></div>
+          <div class="flex justify-end gap-2 pt-2"><button type="button" onclick="closeModal('modalEnergyEditor')" class="px-4 py-2 border rounded-xl">İptal</button><button type="submit" class="px-4 py-2 bg-[#1E3A8A] text-white rounded-xl font-bold">Kaydet</button></div>
+        </form>`);
+      window.updateProjectRoiPreview();
+    };
+
+    window.submitEnergyProject = async function(e, editId) {
+      e.preventDefault();
+      const id = editId || ("eproj_" + Date.now());
+      const me = window.currentUser || {};
+      await setDoc(doc(db, "energy_efficiency_projects", id), {
+        id,
+        title: document.getElementById("epTitle").value.trim(),
+        category: document.getElementById("epCat").value,
+        status: document.getElementById("epStatus").value,
+        equipmentName: document.getElementById("epEquip").value.trim(),
+        baselineKwhYear: Number(document.getElementById("epBase").value || 0),
+        postKwhYear: Number(document.getElementById("epPost").value || 0),
+        electricityPriceTl: Number(document.getElementById("epPrice").value || 4.2),
+        investmentCostTl: Number(document.getElementById("epInv").value || 0),
+        updatedByUid: me.userId || "master",
+        updatedByName: me.displayName || me.username || "Enerji Yöneticisi",
+        updatedAtMillis: Date.now(),
+        updatedAt: serverTimestamp()
+      }, { merge: true });
+      closeModal("modalEnergyEditor");
+    };
 
     // Uygulamayı Başlat
     initAuthSession();
