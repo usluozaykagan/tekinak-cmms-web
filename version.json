@@ -1,16 +1,15 @@
 {
-  "versionCode": 18,
-  "versionName": "1.4.7",
-  "releaseTag": "v1.4.7",
+  "versionCode": 19,
+  "versionName": "1.4.8",
+  "releaseTag": "v1.4.8",
   "releaseDate": "2026-11-16",
   "apkUrl": "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
   "fallbackUrl": "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-  "title": "Yeni Sürüm Mevcut (v1.4.7)",
+  "title": "Yeni Sürüm Mevcut (v1.4.8)",
   "changelog": [
-    "Yardımcı Tesisler Arıtma Tesisi için Membran & Filtre Değişikliği sekmesi (Torba Filtre, Kartuş Filtre, Membran adet seçimi ve aynı gün değişim uyarı bandı) eklendi.",
-    "Temiz Su kontrol sütunu pH yerine 'Sertlik (İletkenlik) Oranı' olarak güncellendi ve 2 Tonluk Arıtma başlığına '(Kazan İçin)' ibaresi eklendi.",
-    "2. Kızgın Su Kazanı kapasitesi 2.150.000 kcal/h olarak güncellendi.",
-    "Kompresör (FR-38) formuna yalnızca ayın son günlerinde otomatik açılan 'Ay Sonu Kompresör Çalışma Saatleri' giriş alanı eklendi."
+    "Membran & Filtre Değişikliği bölümü Su Arıtma (FR-41) sekmesinin içine taşındı (Günlük Kontrol Tablosu ve Membran & Filtre alt görünümü).",
+    "Su Arıtma sekmesi ve günlük değişim uyarı şeritleri tek dokunuşla Membran & Filtre bölümüne doğrudan geçiş sağlayacak şekilde güncellendi.",
+    "Arıtma Tesisi Torba Filtre, Kartuş Filtre ve Membran adet seçimi, günlük değişim uyarısı ve Ay Sonu Kompresör Çalışma Saatleri iyileştirildi."
   ],
   "forceUpdate": false
 }
