@@ -1,14 +1,14 @@
 {
-  "versionCode": 24,
-  "versionName": "1.5.3",
-  "releaseTag": "v1.5.3",
+  "versionCode": 25,
+  "versionName": "1.5.4",
+  "releaseTag": "v1.5.4",
   "releaseDate": "2026-11-17",
   "apkUrl": "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
   "fallbackUrl": "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-  "title": "Yeni Sürüm Mevcut (v1.5.3)",
+  "title": "Yeni Sürüm Mevcut (v1.5.4)",
   "changelog": [
-    "Yardımcı Tesisler formunda değerler düzeltildiğinde veya temizlendiğinde bulut uyarılarının otomatik kaldırılması sağlandı.",
-    "Referans alt/üst limitleri değiştiğinde artık limit içine giren eski uyarıların kalıcı olması önlendi.",
+    "Tekinak CMMS v1.5.4 (Kod: 25) sürümüne yükseltildi.",
+    "Yardımcı Tesisler formunda değerler düzeltildiğinde veya temizlendiğinde ve referans limitleri değiştiğinde bulut uyarılarının otomatik temizlenmesi sağlandı.",
     "Genel Bakış, sekme rozeti ve bildirim listeleri anlık form verileri ve güncel referans limitleriyle senkronize edildi."
   ],
   "forceUpdate": false
