@@ -175,9 +175,9 @@
         </form>
 
         <div class="pt-3 text-center border-t border-slate-100 flex flex-col items-center justify-center gap-2">
-          <a href="app-release.apk?v=23" id="loginApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold rounded-lg border border-emerald-300 transition shadow-sm">
+          <a href="app-release.apk?v=24" id="loginApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold rounded-lg border border-emerald-300 transition shadow-sm">
             <i data-lucide="smartphone" class="w-3.5 h-3.5 text-emerald-600"></i>
-            <span id="loginApkBtnText">Android APK İndir (v1.5.2)</span>
+            <span id="loginApkBtnText">Android APK İndir (v1.5.3)</span>
           </a>
           <div class="text-[11px] text-slate-400 flex items-center justify-center gap-1.5">
             <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600"></i>
@@ -228,15 +228,15 @@
         </div>
 
         <!-- Android APK İndir Butonu (Tüm Kullanıcılar Görür) -->
-        <a href="app-release.apk?v=23" id="topApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-700/60 hover:bg-blue-600 text-white border border-blue-400/40 transition shadow-sm" title="Android Mobil APK İndir">
+        <a href="app-release.apk?v=24" id="topApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-700/60 hover:bg-blue-600 text-white border border-blue-400/40 transition shadow-sm" title="Android Mobil APK İndir">
           <i data-lucide="download" class="w-3.5 h-3.5 text-amber-300"></i>
-          <span id="topApkBtnText">APK İndir (v1.5.2)</span>
+          <span id="topApkBtnText">APK İndir (v1.5.3)</span>
         </a>
 
         <!-- Mobil Sürüm Yönetimi Butonu (Sadece usluozaykagan@gmail.com için görünür) -->
         <button id="topAppVersionBtn" onclick="openAppVersionModal()" style="display: none;" class="hidden items-center space-x-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-600/70 hover:bg-emerald-600 text-white border border-emerald-400/40 transition shadow-sm" title="Firebase Mobil Sürüm Kontrolü ve Güncelleme">
           <i data-lucide="smartphone" class="w-3.5 h-3.5 text-amber-300"></i>
-          <span id="topVersionBadgeText">Sürüm: v1.5.2</span>
+          <span id="topVersionBadgeText">Sürüm: v1.5.3</span>
         </button>
 
         <!-- Bildirim Sihirbazı Butonu -->
@@ -306,11 +306,11 @@
         </span>
           <div>
             <div class="flex flex-wrap items-center gap-1.5 font-extrabold text-blue-950">
-              <span id="webUpdateBannerTitle">🚀 Yeni Mobil Sürüm Yayında: Tekinak CMMS v1.5.2</span>
-              <span id="webUpdateBannerCodeBadge" class="px-1.5 py-0.5 rounded bg-emerald-600 text-white text-[10px] font-bold">v1.5.2 (Kod: 23)</span>
+              <span id="webUpdateBannerTitle">🚀 Yeni Mobil Sürüm Yayında: Tekinak CMMS v1.5.3</span>
+              <span id="webUpdateBannerCodeBadge" class="px-1.5 py-0.5 rounded bg-emerald-600 text-white text-[10px] font-bold">v1.5.3 (Kod: 24)</span>
             </div>
             <div id="webUpdateBannerSummary" class="text-[11px] text-slate-600 mt-0.5">
-              ⚡ Enerji Yönetimi (ISO 50001) modülü, Reaktif ceza önleme, SEC trendi, SEU verimliliği ve VFD ROI hesaplayıcı yayınlandı.
+              Yardımcı Tesisler uyarıları düzeltilen değerlerde ve değişen referans limitlerinde artık otomatik temizleniyor.
             </div>
           </div>
         </div>
@@ -318,9 +318,9 @@
           <button type="button" onclick="toggleWebUpdateChangelog()" class="px-2.5 py-1.5 bg-white hover:bg-slate-100 text-blue-800 border border-blue-200 rounded-lg font-bold text-[11px] transition">
             Yenilikler
           </button>
-          <a id="webUpdateBannerDownloadBtn" href="app-release.apk?v=23" download="tekinak-bakim.apk" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold text-[11px] shadow-sm flex items-center gap-1.5 transition">
+          <a id="webUpdateBannerDownloadBtn" href="app-release.apk?v=24" download="tekinak-bakim.apk" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold text-[11px] shadow-sm flex items-center gap-1.5 transition">
             <i data-lucide="download" class="w-3.5 h-3.5"></i>
-            <span id="webUpdateBannerDownloadText">APK İndir (v1.5.2)</span>
+            <span id="webUpdateBannerDownloadText">APK İndir (v1.5.3)</span>
           </a>
         <button type="button" onclick="dismissWebUpdateBanner()" class="p-1 text-slate-400 hover:text-slate-700 rounded-lg" title="Bu sürüm için gizle">
           <i data-lucide="x" class="w-4 h-4"></i>
@@ -1551,7 +1551,7 @@
         <div class="p-2.5 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-between text-[11px] text-slate-600">
           <div class="flex items-center gap-1.5 font-semibold text-slate-700">
             <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600"></i>
-            <span id="profSystemVersionText">Sistem Sürümü: v1.5.2</span>
+            <span id="profSystemVersionText">Sistem Sürümü: v1.5.3</span>
           </div>
           <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-300">Güncel ✓</span>
         </div>
@@ -2256,12 +2256,12 @@
         <div>
           <div class="text-[11px] font-bold text-emerald-800 uppercase tracking-wider">Aktif Firebase Sürümü</div>
           <div class="text-sm font-extrabold text-emerald-950 flex items-center gap-2" id="verModalCurrentBadge">
-            <span id="verModalVersionName">v1.5.2</span>
-            <span id="verModalVersionCode" class="text-xs px-2 py-0.5 bg-emerald-200 text-emerald-800 rounded-md font-semibold">Kod: 23</span>
+            <span id="verModalVersionName">v1.5.3</span>
+            <span id="verModalVersionCode" class="text-xs px-2 py-0.5 bg-emerald-200 text-emerald-800 rounded-md font-semibold">Kod: 24</span>
           </div>
         </div>
         <div class="text-right text-[11px] text-emerald-700">
-          <div>Son Yayın: <span id="verModalReleaseDate" class="font-semibold">2026-11-16</span></div>
+          <div>Son Yayın: <span id="verModalReleaseDate" class="font-semibold">2026-11-17</span></div>
           <div class="text-emerald-600 font-medium flex items-center justify-end gap-1"><span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Anlık Dinlemede</div>
         </div>
       </div>
@@ -2270,18 +2270,18 @@
         <div class="grid grid-cols-2 gap-3">
           <div>
             <label class="block font-semibold text-slate-700 mb-1">Yeni Sürüm Kodu (Build Code) *</label>
-            <input type="number" id="verFormCode" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 23" min="1">
+            <input type="number" id="verFormCode" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 24" min="1">
             <span class="text-[10px] text-slate-400">Yeni sürüm için kod mevcut koddan büyük olmalıdır</span>
           </div>
           <div>
             <label class="block font-semibold text-slate-700 mb-1">Yeni Sürüm Adı (Version Name) *</label>
-            <input type="text" id="verFormName" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 1.5.2">
+            <input type="text" id="verFormName" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 1.5.3">
           </div>
         </div>
 
         <div>
           <label class="block font-semibold text-slate-700 mb-1">Güncelleme Bildirim Başlığı *</label>
-          <input type="text" id="verFormTitle" required class="w-full px-3 py-2 border rounded-xl text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: Yeni Sürüm Yayınlandı (v1.5.2)">
+          <input type="text" id="verFormTitle" required class="w-full px-3 py-2 border rounded-xl text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: Yeni Sürüm Yayınlandı (v1.5.3)">
         </div>
 
         <div>
@@ -2300,9 +2300,9 @@
         </div>
 
         <div class="flex items-center justify-between gap-2 pt-2 border-t">
-          <button type="button" onclick="syncWithDeployedApk()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs rounded-xl font-bold border border-slate-300 flex items-center gap-1.5" title="Firebase'i şu an dağıtılan v1.5.2 (Kod: 23) APK ile eşitler ve güncellenen telefonlardaki popup'ı kapatır">
+          <button type="button" onclick="syncWithDeployedApk()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs rounded-xl font-bold border border-slate-300 flex items-center gap-1.5" title="Firebase'i şu an dağıtılan v1.5.3 (Kod: 24) APK ile eşitler ve güncellenen telefonlardaki popup'ı kapatır">
             <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-blue-600"></i>
-            <span>Mevcut APK ile Eşitle (v1.5.2 - Kod: 23)</span>
+            <span>Mevcut APK ile Eşitle (v1.5.3 - Kod: 24)</span>
           </button>
           <div class="flex gap-2">
             <button type="button" onclick="closeModal('modalAppVersion')" class="px-4 py-2 border rounded-xl font-semibold text-slate-600 hover:bg-slate-50">Kapat</button>
@@ -2802,6 +2802,8 @@
     import { 
       getFirestore, 
       collection, 
+      query,
+      where,
       getDocs,
       getDocsFromServer,
       getDoc,
@@ -5075,6 +5077,7 @@
             nextMap[k] = { ...data, key: k };
           });
           window.allUtilityReferences = nextMap;
+          refreshDashboard();
           const pane = document.getElementById("pane-utilityControls");
           if (pane && !pane.classList.contains("hidden") && typeof window.renderUtilityControls === "function") {
             window.renderUtilityControls();
@@ -5110,9 +5113,11 @@
           if (pane && !pane.classList.contains("hidden") && typeof window.renderUtilityControls === "function") {
             window.renderUtilityControls();
           }
-          if (freshArrivals.length > 0 && window.currentUser && window.canUserViewSubPage("util_references", window.currentUser) && (window.canUserViewTab("utility_controls", window.currentUser) || window.canUserViewSubPage("dash_recent_lists", window.currentUser))) {
+          const activeIds = new Set((typeof window.getActiveUtilityAlerts === "function" ? window.getActiveUtilityAlerts() : list).map(x => x.id));
+          const validFresh = freshArrivals.filter(a => activeIds.has(a.id));
+          if (validFresh.length > 0 && window.currentUser && window.canUserViewSubPage("util_references", window.currentUser) && (window.canUserViewTab("utility_controls", window.currentUser) || window.canUserViewSubPage("dash_recent_lists", window.currentUser))) {
             const myName = (window.currentUser.displayName || window.currentUser.username || "").trim().toLowerCase();
-            const fromOtherOrNew = freshArrivals.filter(a => (a.reportedByName || "").trim().toLowerCase() !== myName);
+            const fromOtherOrNew = validFresh.filter(a => (a.reportedByName || "").trim().toLowerCase() !== myName);
             if (fromOtherOrNew.length > 0 && typeof window.openUtilityAttentionModal === "function") {
               window.openUtilityAttentionModal(
                 fromOtherOrNew,
@@ -5355,7 +5360,7 @@
       });
 
       // 6. Mobil Uygulama Sürüm Takibi ve Firebase Yönetimi (app_version/current)
-      let hasAutoSyncedV23 = false;
+      let hasAutoSyncedV24 = false;
       try {
         onSnapshot(doc(db, "app_version", "current"), async (docSnap) => {
           if (docSnap && docSnap.exists()) {
@@ -5363,15 +5368,15 @@
             window.currentAppVersion = data;
             renderAppVersionBadge();
 
-            // Sürüm kodu 23'ten küçükse otomatik olarak v1.5.2 (Kod: 23)'e yükselt
+            // Sürüm kodu 24'ten küçükse otomatik olarak v1.5.3 (Kod: 24)'e yükselt
             const verCodeNum = Number(data.versionCode || 0);
-            if (verCodeNum < 23 && !hasAutoSyncedV23) {
-              hasAutoSyncedV23 = true;
-              console.log("Firestore app_version sürüm kodu 23 (v1.5.2) olarak otomatik eşitleniyor...");
+            if (verCodeNum < 24 && !hasAutoSyncedV24) {
+              hasAutoSyncedV24 = true;
+              console.log("Firestore app_version sürüm kodu 24 (v1.5.3) olarak otomatik eşitleniyor...");
               seedInitialAppVersionInFirebase();
             }
-          } else if (!hasAutoSyncedV23) {
-            hasAutoSyncedV23 = true;
+          } else if (!hasAutoSyncedV24) {
+            hasAutoSyncedV24 = true;
             seedInitialAppVersionInFirebase();
           }
         }, (err) => {
@@ -5736,8 +5741,10 @@
         l.formType === "WATER_FILTER" &&
         (Number(l.cells?.torba_filtre || 0) > 0 || Number(l.cells?.kartus_filtre || 0) > 0 || Number(l.cells?.membran || 0) > 0)
       );
-      const todayUtilityAlerts = (window.allUtilityAlerts || []).filter(a => a.dateIso === todayIso);
-      const allUtilityAlerts = window.allUtilityAlerts || [];
+      const allUtilityAlerts = typeof window.getActiveUtilityAlerts === "function"
+        ? window.getActiveUtilityAlerts()
+        : (window.allUtilityAlerts || []);
+      const todayUtilityAlerts = allUtilityAlerts.filter(a => a.dateIso === todayIso);
 
       const pkgLogs = window.allPackagingLogs || [];
       const todayPkgLogs = pkgLogs.filter(p => p.dateIso === todayIso);
@@ -5763,7 +5770,7 @@
       }
       const utilBadge = document.getElementById("tabUtilityAlertBadge");
       if (utilBadge) {
-        const alertCount = todayUtilityAlerts.length > 0 ? todayUtilityAlerts.length : allUtilityAlerts.length;
+        const alertCount = todayUtilityAlerts.length;
         utilBadge.innerText = alertCount;
         utilBadge.classList.toggle("hidden", alertCount === 0);
       }
@@ -12303,16 +12310,124 @@
       lucide.createIcons();
     };
 
-    async function publishUtilityAnomalyAlerts(def, dateIso, anomalies) {
-      if (!anomalies || anomalies.length === 0) return;
+    window.getActiveUtilityAlerts = function(overrideRules = null) {
+      const rawAlerts = window.allUtilityAlerts || [];
+      const logs = window.allUtilityLogs || [];
+      const rules = overrideRules || mergeUtilityReferenceRules();
+      const logByKey = {};
+      logs.forEach(l => {
+        if (!l || !l.formType || !l.dateIso) return;
+        const k = `${l.formType}__${l.dateIso}`;
+        if (!logByKey[k] || Number(l.updatedAtMillis || 0) > Number(logByKey[k].updatedAtMillis || 0)) {
+          logByKey[k] = l;
+        }
+      });
+
+      const active = [];
+      const seenIds = new Set();
+      rawAlerts.forEach(a => {
+        const def = Object.values(UTILITY_FORM_DEFS).find(d => d.id === a.formType) || UTILITY_FORM_DEFS[a.formType];
+        if (!def) return;
+        const sec = def.sections.find(s => s.id === a.sectionId);
+        const col = sec?.columns.find(c => c.id === a.columnId);
+        if (!sec || !col) return;
+
+        const matchingLog = logByKey[`${def.id}__${a.dateIso}`];
+        if (!matchingLog) {
+          if (logs.length > 0) return;
+          const ruleEval = evaluateUtilityCell(sec, a.timeSlot || "", col, a.enteredValue || "", rules);
+          if (!ruleEval) return;
+          seenIds.add(a.id);
+          active.push({
+            ...a,
+            enteredValue: ruleEval.enteredValue,
+            reason: ruleEval.reason,
+            expectedRange: ruleEval.expectedRange || ""
+          });
+        } else {
+          const cKey = `${sec.id}__${a.timeSlot}__${col.id}`;
+          const curVal = matchingLog.cells?.[cKey] || "";
+          const liveEval = evaluateUtilityCell(sec, a.timeSlot || "", col, curVal, rules);
+          if (!liveEval) return;
+          seenIds.add(a.id);
+          active.push({
+            ...a,
+            enteredValue: liveEval.enteredValue,
+            reason: liveEval.reason,
+            expectedRange: liveEval.expectedRange || ""
+          });
+        }
+      });
+
+      // Bugünkü kayıtlı formlarda referans sıkılaştırmasıyla yeni doğan sapmaları da dahil et
+      const todayIso = getLocalTodayIso();
+      Object.values(UTILITY_FORM_DEFS).forEach(def => {
+        const todayLog = logByKey[`${def.id}__${todayIso}`];
+        if (!todayLog) return;
+        const liveAnoms = evaluateUtilityForm(def, todayLog.cells || {}, rules);
+        liveAnoms.forEach(anom => {
+          const id = `ua_${todayIso}_${anom.cellKey}`.replace(/[:\s]/g, "_");
+          if (seenIds.has(id)) return;
+          seenIds.add(id);
+          active.push({
+            id,
+            formType: def.id,
+            formTitle: `${def.shortBadge} • ${def.documentTitle}`,
+            dateIso: todayIso,
+            sectionId: anom.sectionId,
+            sectionTitle: anom.sectionTitle,
+            timeSlot: anom.timeSlot,
+            columnId: anom.columnId,
+            columnTitle: anom.columnTitle,
+            enteredValue: anom.enteredValue,
+            reason: anom.reason,
+            expectedRange: anom.expectedRange || "",
+            reportedByName: todayLog.operatorName || todayLog.updatedByName || "Teknisyen",
+            createdAtMillis: todayLog.updatedAtMillis || Date.now()
+          });
+        });
+      });
+
+      return active.sort((a, b) => Number(b.createdAtMillis || 0) - Number(a.createdAtMillis || 0));
+    };
+
+    async function syncUtilityAlertsForFormDate(def, dateIso, anomalies, opts = {}) {
+      const showModal = opts.showModal === true;
+      const listAnoms = Array.isArray(anomalies) ? anomalies : [];
       const u = window.currentUser || {};
       const now = Date.now();
       const reporterUid = u.userId || u.id || "";
       const reporterName = u.displayName || u.username || "Teknisyen";
+      const desiredIds = new Set(listAnoms.map(a => `ua_${dateIso}_${a.cellKey}`.replace(/[:\s]/g, "_")));
 
-      for (const a of anomalies) {
+      // 1. Bu form & tarih için artık referans aralığında olan veya temizlenen eski uyarıları Firestore'dan sil
+      const staleIds = new Set();
+      (window.allUtilityAlerts || []).forEach(a => {
+        if (a.formType === def.id && a.dateIso === dateIso && !desiredIds.has(a.id)) {
+          staleIds.add(a.id);
+        }
+      });
+      try {
+        const remoteSnap = await getDocs(query(collection(db, "utility_alerts"), where("dateIso", "==", dateIso)));
+        remoteSnap.forEach(dSnap => {
+          const data = dSnap.data() || {};
+          if (data.formType === def.id && !desiredIds.has(dSnap.id)) {
+            staleIds.add(dSnap.id);
+          }
+        });
+      } catch (qErr) {
+        console.warn("syncUtilityAlertsForFormDate query fallback:", qErr);
+      }
+
+      await Promise.all(
+        Array.from(staleIds).map(id => deleteDoc(doc(db, "utility_alerts", id)).catch(() => {}))
+      );
+
+      // 2. Güncel referans dışı uyarıları kaydet/güncelle
+      const nextRecords = [];
+      for (const a of listAnoms) {
         const alertId = `ua_${dateIso}_${a.cellKey}`.replace(/[:\s]/g, "_");
-        await setDoc(doc(db, "utility_alerts", alertId), {
+        const record = {
           id: alertId,
           formType: def.id,
           formTitle: def.shortBadge + " • " + def.documentTitle,
@@ -12327,14 +12442,106 @@
           expectedRange: a.expectedRange || "",
           reportedByUid: reporterUid,
           reportedByName: reporterName,
-          createdAtMillis: now,
+          createdAtMillis: now
+        };
+        await setDoc(doc(db, "utility_alerts", alertId), {
+          ...record,
           updatedAt: serverTimestamp()
         }, { merge: true }).catch(() => {});
+        nextRecords.push({ ...record, docId: alertId });
       }
-      window.openUtilityAttentionModal(
-        anomalies,
-        `${def.documentTitle} (${formatDisplayDateTr(dateIso)}) formunda referans aralığı dışında veya anormal ${anomalies.length} değer kaydedildi ve tüm yetkili cihazlara dikkat bildirimi gönderildi:`
-      );
+
+      // 3. Yerel önbelleği anında güncelle (eski uyarılar anında kaybolur)
+      const remaining = (window.allUtilityAlerts || []).filter(a => !(a.formType === def.id && a.dateIso === dateIso));
+      window.allUtilityAlerts = [...nextRecords, ...remaining].sort((a, b) => Number(b.createdAtMillis || 0) - Number(a.createdAtMillis || 0));
+      refreshDashboard();
+
+      if (showModal && listAnoms.length > 0) {
+        window.openUtilityAttentionModal(
+          listAnoms,
+          `${def.documentTitle} (${formatDisplayDateTr(dateIso)}) formunda referans aralığı dışında veya anormal ${listAnoms.length} değer kaydedildi ve tüm yetkili cihazlara dikkat bildirimi gönderildi:`
+        );
+      }
+    }
+
+    async function reconcileUtilityAlertsAfterReferenceChange(formTypesSet, mergedRules) {
+      try {
+        const formIds = Array.from(formTypesSet || []);
+        const logs = window.allUtilityLogs || [];
+        const logMap = {};
+        logs.forEach(l => {
+          if (l && l.formType && l.dateIso) {
+            logMap[`${l.formType}__${l.dateIso}`] = l;
+          }
+        });
+
+        const alertsMap = new Map();
+        (window.allUtilityAlerts || []).forEach(a => {
+          if (!formIds.length || formIds.includes(a.formType)) alertsMap.set(a.id, a);
+        });
+        for (const ft of (formIds.length ? formIds : Object.values(UTILITY_FORM_DEFS).map(d => d.id))) {
+          try {
+            const snap = await getDocs(query(collection(db, "utility_alerts"), where("formType", "==", ft)));
+            snap.forEach(dSnap => alertsMap.set(dSnap.id, { ...dSnap.data(), id: dSnap.id, docId: dSnap.id }));
+          } catch (_) {}
+        }
+
+        const deletedIds = new Set();
+        const patchedById = {};
+        for (const [docId, a] of alertsMap.entries()) {
+          const def = Object.values(UTILITY_FORM_DEFS).find(d => d.id === a.formType) || UTILITY_FORM_DEFS[a.formType];
+          const sec = def?.sections.find(s => s.id === a.sectionId);
+          const col = sec?.columns.find(c => c.id === a.columnId);
+          const matchingLog = logMap[`${a.formType}__${a.dateIso}`];
+          let liveEval = null;
+          if (sec && col && matchingLog) {
+            const val = matchingLog.cells?.[`${sec.id}__${a.timeSlot}__${col.id}`] || "";
+            liveEval = evaluateUtilityCell(sec, a.timeSlot || "", col, val, mergedRules);
+          } else if (sec && col && logs.length === 0) {
+            liveEval = evaluateUtilityCell(sec, a.timeSlot || "", col, a.enteredValue || "", mergedRules);
+          }
+
+          if (!liveEval) {
+            await deleteDoc(doc(db, "utility_alerts", docId)).catch(() => {});
+            deletedIds.add(docId);
+          } else if (
+            liveEval.reason !== a.reason ||
+            (liveEval.expectedRange || "") !== (a.expectedRange || "") ||
+            liveEval.enteredValue !== a.enteredValue
+          ) {
+            await setDoc(doc(db, "utility_alerts", docId), {
+              enteredValue: liveEval.enteredValue,
+              reason: liveEval.reason,
+              expectedRange: liveEval.expectedRange || "",
+              updatedAt: serverTimestamp()
+            }, { merge: true }).catch(() => {});
+            patchedById[docId] = {
+              ...a,
+              enteredValue: liveEval.enteredValue,
+              reason: liveEval.reason,
+              expectedRange: liveEval.expectedRange || ""
+            };
+          }
+        }
+
+        window.allUtilityAlerts = (window.allUtilityAlerts || [])
+          .filter(a => !deletedIds.has(a.id))
+          .map(a => patchedById[a.id] || a);
+
+        // Bugünkü kayıtlı formları da yeni referans limitleriyle senkronla
+        const todayIso = getLocalTodayIso();
+        for (const ft of (formIds.length ? formIds : Object.values(UTILITY_FORM_DEFS).map(d => d.id))) {
+          const def = Object.values(UTILITY_FORM_DEFS).find(d => d.id === ft) || UTILITY_FORM_DEFS[ft];
+          const todayLog = logMap[`${ft}__${todayIso}`];
+          if (def && todayLog) {
+            const todayAnoms = evaluateUtilityForm(def, todayLog.cells || {}, mergedRules);
+            await syncUtilityAlertsForFormDate(def, todayIso, todayAnoms, { showModal: false });
+          }
+        }
+        refreshDashboard();
+      } catch (err) {
+        console.warn("reconcileUtilityAlertsAfterReferenceChange notice:", err);
+      }
     }
 
     function updateUtilityAnomalyBanner(def) {
@@ -12439,10 +12646,13 @@
 
       try {
         const writes = [];
+        const updatedRulesLocal = {};
+        const affectedForms = new Set();
         rows.forEach(row => {
           const key = row.dataset.refKey;
           const base = allMerged[key];
           if (!key || !base) return;
+          affectedForms.add(base.formType);
           const minStr = (row.querySelector(".util-ref-min")?.value || "").trim().replace(",", ".");
           const maxStr = (row.querySelector(".util-ref-max")?.value || "").trim().replace(",", ".");
           const abStr = (row.querySelector(".util-ref-abn")?.value || "").trim();
@@ -12451,6 +12661,14 @@
           const minVal = minStr && !Number.isNaN(Number(minStr)) ? Number(minStr) : null;
           const maxVal = maxStr && !Number.isNaN(Number(maxStr)) ? Number(maxStr) : null;
           const abList = abStr ? abStr.split(",").map(s => s.trim()).filter(Boolean) : [];
+
+          updatedRulesLocal[key] = {
+            ...base,
+            minValue: minVal,
+            maxValue: maxVal,
+            abnormalValues: abList,
+            enabled
+          };
 
           const payload = {
             key,
@@ -12471,6 +12689,9 @@
           writes.push(setDoc(doc(db, "utility_references", key), payload, { merge: true }));
         });
         await Promise.all(writes);
+        window.allUtilityReferences = { ...(window.allUtilityReferences || {}), ...updatedRulesLocal };
+        const mergedAfterSave = mergeUtilityReferenceRules();
+        await reconcileUtilityAlertsAfterReferenceChange(affectedForms, mergedAfterSave);
         closeModal("modalUtilityReferences");
         window.renderUtilityControls();
         alert("✅ Referans limitleri bulutta tüm cihazlar için güncellendi.");
@@ -12497,6 +12718,10 @@
           minValue: r.minValue !== null ? r.minValue : deleteField(),
           maxValue: r.maxValue !== null ? r.maxValue : deleteField()
         }, { merge: true })));
+        const nextRefs = { ...(window.allUtilityReferences || {}) };
+        defaults.forEach(r => { nextRefs[r.key] = { ...r }; });
+        window.allUtilityReferences = nextRefs;
+        await reconcileUtilityAlertsAfterReferenceChange(new Set([formType]), mergeUtilityReferenceRules());
         closeModal("modalUtilityReferences");
         window.renderUtilityControls();
       } catch (err) {
@@ -12589,6 +12814,10 @@
       if (btnBot) btnBot.disabled = true;
       try {
         await setDoc(doc(db, "utility_control_logs", docId), payload, { merge: true });
+        window.allUtilityLogs = [
+          { ...payload, docId },
+          ...(window.allUtilityLogs || []).filter(l => l.id !== docId && !(l.formType === def.id && l.dateIso === dateIso))
+        ];
         window.utilityUiState.dirty = false;
         const badge = document.getElementById("utilityDirtyBadge");
         if (badge) {
@@ -12596,9 +12825,8 @@
           badge.innerText = `✅ Buluta kaydedildi (${new Date(now).toLocaleTimeString("tr-TR", { hour: "2-digit", minute: "2-digit" })})`;
         }
         const anomalies = evaluateUtilityForm(def, cleanedCells, mergeUtilityReferenceRules());
-        if (anomalies.length > 0) {
-          await publishUtilityAnomalyAlerts(def, dateIso, anomalies);
-        }
+        await syncUtilityAlertsForFormDate(def, dateIso, anomalies, { showModal: anomalies.length > 0 });
+        window.renderUtilityControls();
       } catch (err) {
         console.error("Yardımcı tesis formu kaydetme hatası:", err);
         alert("❌ Form buluta kaydedilemedi: " + err.message);
@@ -13095,10 +13323,13 @@
       const notesEl = document.getElementById("utilityNotesInput");
       if (notesEl) notesEl.disabled = !canEdit;
 
-      // Son bulut uyarıları şeridi (util_references görme yetkisine bağlı)
+      // Son bulut uyarıları şeridi (util_references görme yetkisine bağlı — güncel hücre ve referansla doğrulanmış)
       const recentAlertsBar = document.getElementById("utilityRecentAlertsBar");
       if (recentAlertsBar) {
-        const formAlerts = (window.allUtilityAlerts || []).filter(a => (!hasFormAccess || a.formType === formType) && a.dateIso === dateIso);
+        const activeCloudAlerts = typeof window.getActiveUtilityAlerts === "function"
+          ? window.getActiveUtilityAlerts()
+          : (window.allUtilityAlerts || []);
+        const formAlerts = activeCloudAlerts.filter(a => (!hasFormAccess || a.formType === formType) && a.dateIso === dateIso);
         if (canViewRefs && formAlerts.length > 0) {
           recentAlertsBar.classList.remove("hidden");
           recentAlertsBar.innerHTML = `<div class="font-bold text-amber-950 flex items-center gap-1.5"><span>⚠️ Bu tarih için kayıtlı ${formAlerts.length} referans dışı uyarı:</span></div>` +
@@ -14072,18 +14303,18 @@
 
     function renderAppVersionBadge() {
       const v = window.currentAppVersion || {
-        versionName: "1.5.2",
-        versionCode: 23,
-        releaseDate: "2026-11-16",
-        title: "Tekinak CMMS v1.5.2",
+        versionName: "1.5.3",
+        versionCode: 24,
+        releaseDate: "2026-11-17",
+        title: "Tekinak CMMS v1.5.3",
         changelog: [
-          "Sadece yönetici erişimine özel ⚡ Enerji Yönetimi (ISO 50001) modülü eklendi.",
-          "Reaktif Güç & Kompanzasyon ceza önleme uyarıları, SEC (kWh/Ton Makarna) trend ve hat kıyaslamaları devreye alındı.",
-          "SEU yardımcı tesis verimliliği, Trafo/Termal bakım kayıtlarından tek tıkla iş emri aktarımı ve VFD ROI hesaplayıcı eklendi."
+          "Yardımcı Tesisler formunda değerler düzeltildiğinde veya temizlendiğinde bulut uyarılarının otomatik kaldırılması sağlandı.",
+          "Referans alt/üst limitleri değiştiğinde artık limit içine giren eski uyarıların kalıcı olması önlendi.",
+          "Genel Bakış, sekme rozeti ve bildirim listeleri anlık form verileri ve güncel referans limitleriyle senkronize edildi."
         ]
       };
-      const vName = v.versionName || "1.5.2";
-      const vCode = Number(v.versionCode || 23);
+      const vName = v.versionName || "1.5.3";
+      const vCode = Number(v.versionCode || 24);
       const localApkHref = `app-release.apk?v=${vCode}`;
 
       const badgeText = document.getElementById("topVersionBadgeText");
@@ -14142,7 +14373,7 @@
     };
 
     window.dismissWebUpdateBanner = function() {
-      const vCode = Number((window.currentAppVersion && window.currentAppVersion.versionCode) || 23);
+      const vCode = Number((window.currentAppVersion && window.currentAppVersion.versionCode) || 24);
       localStorage.setItem("tekinak_dismissed_ver_" + vCode, "1");
       const banner = document.getElementById("webAppUpdateBanner");
       if (banner) banner.classList.add("hidden");
@@ -14151,17 +14382,17 @@
     async function seedInitialAppVersionInFirebase() {
       try {
         const initialData = {
-          versionCode: 23,
-          versionName: "1.5.2",
-          releaseTag: "v1.5.2",
+          versionCode: 24,
+          versionName: "1.5.3",
+          releaseTag: "v1.5.3",
           releaseDate: new Date().toISOString().slice(0, 10),
           apkUrl: "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
           fallbackUrl: "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-          title: "Tekinak CMMS v1.5.2",
+          title: "Tekinak CMMS v1.5.3",
           changelog: [
-            "Sadece yönetici erişimine özel ⚡ Enerji Yönetimi (ISO 50001) modülü eklendi.",
-            "Reaktif Güç & Kompanzasyon ceza önleme uyarıları, SEC (kWh/Ton Makarna) trend ve hat kıyaslamaları devreye alındı.",
-            "SEU yardımcı tesis verimliliği, Trafo/Termal bakım kayıtlarından tek tıkla iş emri aktarımı ve VFD ROI hesaplayıcı eklendi."
+            "Yardımcı Tesisler formunda değerler düzeltildiğinde veya temizlendiğinde bulut uyarılarının otomatik kaldırılması sağlandı.",
+            "Referans alt/üst limitleri değiştiğinde artık limit içine giren eski uyarıların kalıcı olması önlendi.",
+            "Genel Bakış, sekme rozeti ve bildirim listeleri anlık form verileri ve güncel referans limitleriyle senkronize edildi."
           ],
           forceUpdate: false,
           updatedAtMillis: Date.now()
@@ -14180,10 +14411,10 @@
         alert("⛔ Yetkisiz İşlem: Mobil sürüm güncelleme yönetimi yalnızca usluozaykagan@gmail.com hesabına tanımlıdır.");
         return;
       }
-      const v = window.currentAppVersion || { versionCode: 23, versionName: "1.5.2", title: "Tekinak CMMS v1.5.2", apkUrl: "", changelog: [] };
-      document.getElementById("verFormCode").value = v.versionCode || 23;
-      document.getElementById("verFormName").value = v.versionName || "1.5.2";
-      document.getElementById("verFormTitle").value = `Yeni Sürüm Yayınlandı (v${v.versionName || "1.5.2"})`;
+      const v = window.currentAppVersion || { versionCode: 24, versionName: "1.5.3", title: "Tekinak CMMS v1.5.3", apkUrl: "", changelog: [] };
+      document.getElementById("verFormCode").value = v.versionCode || 24;
+      document.getElementById("verFormName").value = v.versionName || "1.5.3";
+      document.getElementById("verFormTitle").value = `Yeni Sürüm Yayınlandı (v${v.versionName || "1.5.3"})`;
       document.getElementById("verFormApkUrl").value = v.apkUrl || "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk";
       document.getElementById("verFormChangelog").value = (v.changelog && v.changelog.length) ? v.changelog.join("\n") : "Yeni bakım özellikleri ve performans iyileştirmeleri eklendi.";
       document.getElementById("modalAppVersion").classList.remove("hidden");
@@ -14208,7 +14439,7 @@
         return;
       }
       if (!name) {
-        alert("Lütfen sürüm adı giriniz (örn: 1.5.2).");
+        alert("Lütfen sürüm adı giriniz (örn: 1.5.3).");
         return;
       }
 
@@ -14267,17 +14498,17 @@
       }
       try {
         const payload = {
-          versionCode: 23,
-          versionName: "1.5.2",
-          releaseTag: "v1.5.2",
+          versionCode: 24,
+          versionName: "1.5.3",
+          releaseTag: "v1.5.3",
           releaseDate: new Date().toISOString().slice(0, 10),
           apkUrl: "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
           fallbackUrl: "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-          title: "Tekinak CMMS v1.5.2",
+          title: "Tekinak CMMS v1.5.3",
           changelog: [
-            "Sadece yönetici erişimine özel ⚡ Enerji Yönetimi (ISO 50001) modülü eklendi.",
-            "Reaktif Güç & Kompanzasyon ceza önleme uyarıları, SEC (kWh/Ton Makarna) trend ve hat kıyaslamaları devreye alındı.",
-            "SEU yardımcı tesis verimliliği, Trafo/Termal bakım kayıtlarından tek tıkla iş emri aktarımı ve VFD ROI hesaplayıcı eklendi."
+            "Yardımcı Tesisler formunda değerler düzeltildiğinde veya temizlendiğinde bulut uyarılarının otomatik kaldırılması sağlandı.",
+            "Referans alt/üst limitleri değiştiğinde artık limit içine giren eski uyarıların kalıcı olması önlendi.",
+            "Genel Bakış, sekme rozeti ve bildirim listeleri anlık form verileri ve güncel referans limitleriyle senkronize edildi."
           ],
           forceUpdate: false,
           updatedAtMillis: Date.now()
@@ -14286,7 +14517,7 @@
         window.currentAppVersion = payload;
         renderAppVersionBadge();
         closeModal("modalAppVersion");
-        alert("✅ Başarılı! Firebase sürümü şu an dağıtılan v1.5.2 (Kod: 23) APK ile eşitlendi.\n\nGüncellenen telefonlardaki popup penceresi anında kalktı.");
+        alert("✅ Başarılı! Firebase sürümü şu an dağıtılan v1.5.3 (Kod: 24) APK ile eşitlendi.\n\nGüncellenen telefonlardaki popup penceresi anında kalktı.");
       } catch (err) {
         alert("Eşitleme hatası: " + err.message);
       }

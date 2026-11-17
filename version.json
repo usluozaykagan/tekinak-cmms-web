@@ -1,15 +1,15 @@
 {
-  "versionCode": 23,
-  "versionName": "1.5.2",
-  "releaseTag": "v1.5.2",
-  "releaseDate": "2026-11-16",
+  "versionCode": 24,
+  "versionName": "1.5.3",
+  "releaseTag": "v1.5.3",
+  "releaseDate": "2026-11-17",
   "apkUrl": "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
   "fallbackUrl": "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-  "title": "Yeni Sürüm Mevcut (v1.5.2)",
+  "title": "Yeni Sürüm Mevcut (v1.5.3)",
   "changelog": [
-    "Sadece yönetici erişimine özel ⚡ Enerji Yönetimi (ISO 50001) modülü eklendi.",
-    "Reaktif Güç & Kompanzasyon ceza önleme uyarıları, SEC (kWh/Ton Makarna) trend ve hat kıyaslamaları devreye alındı.",
-    "SEU yardımcı tesis verimliliği, Trafo/Termal bakım kayıtlarından tek tıkla iş emri aktarımı ve VFD ROI hesaplayıcı eklendi."
+    "Yardımcı Tesisler formunda değerler düzeltildiğinde veya temizlendiğinde bulut uyarılarının otomatik kaldırılması sağlandı.",
+    "Referans alt/üst limitleri değiştiğinde artık limit içine giren eski uyarıların kalıcı olması önlendi.",
+    "Genel Bakış, sekme rozeti ve bildirim listeleri anlık form verileri ve güncel referans limitleriyle senkronize edildi."
   ],
   "forceUpdate": false
 }
