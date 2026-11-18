@@ -1,15 +1,15 @@
 {
-  "versionCode": 26,
-  "versionName": "1.5.5",
-  "releaseTag": "v1.5.5",
+  "versionCode": 27,
+  "versionName": "1.5.6",
+  "releaseTag": "v1.5.6",
   "releaseDate": "2026-11-18",
   "apkUrl": "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
   "fallbackUrl": "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-  "title": "Yeni Sürüm Mevcut (v1.5.5)",
+  "title": "Yeni Sürüm Mevcut (v1.5.6)",
   "changelog": [
-    "Yardımcı Tesisler sayısal veri giriş alanlarında doğrudan numpad (sayısal tuş takımı) açılması sağlandı.",
-    "Yardımcı Tesisler referans limiti alt/üst alanları ve ay sonu sayaç girişleri hızlı sayısal giriş için optimize edildi.",
-    "Tekinak CMMS v1.5.5 (Kod: 26) kararlılık iyileştirmeleri tamamlandı."
+    "Giriş sonrası beklenmedik oturum kapatma / arayüzden atma sorunu hem Android hem Web'de giderildi.",
+    "Mobil Chrome yatay taşma ve yarım ekran görünüm sorunu düzeltildi.",
+    "Tekinak CMMS v1.5.6 (Kod: 27) kararlılık ve arka plan servis iyileştirmeleri tamamlandı."
   ],
   "forceUpdate": false
 }
