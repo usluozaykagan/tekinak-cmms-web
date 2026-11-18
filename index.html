@@ -23,6 +23,11 @@
     .overflow-x-clip-safe { overflow-x: hidden; overflow-x: clip; }
     .hide-scrollbar::-webkit-scrollbar { display: none; }
     .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .thin-dark-scrollbar { scrollbar-width: thin; scrollbar-color: rgba(251, 191, 36, 0.7) rgba(15, 23, 42, 0.35); }
+    .thin-dark-scrollbar::-webkit-scrollbar { height: 5px; }
+    .thin-dark-scrollbar::-webkit-scrollbar-track { background: rgba(15, 23, 42, 0.35); border-radius: 999px; }
+    .thin-dark-scrollbar::-webkit-scrollbar-thumb { background: rgba(251, 191, 36, 0.7); border-radius: 999px; }
+    .thin-dark-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(251, 191, 36, 0.95); }
     .custom-shadow { box-shadow: 0 4px 20px -2px rgba(30, 58, 138, 0.08), 0 2px 6px -1px rgba(0, 0, 0, 0.04); }
   </style>
 </head>
@@ -1316,7 +1321,12 @@
     </div>
 
     <!-- Birim Chat Kanalı Seçici -->
-    <div id="chatChannelsBar" class="bg-[#172554] px-3 py-2 flex items-center gap-1.5 overflow-x-auto hide-scrollbar border-b border-blue-900/40 flex-shrink-0"></div>
+    <div id="chatChannelsWrapper" class="bg-[#172554] px-2 py-1.5 flex items-center gap-1 border-b border-blue-900/40 flex-shrink-0">
+      <button type="button" id="btnChatChanLeft" onclick="scrollChatChannels(-190)" title="Sola Kaydır" class="hidden w-6 h-7 flex-shrink-0 rounded-md bg-blue-900/80 hover:bg-blue-800 text-amber-300 border border-blue-700/70 flex items-center justify-center text-sm font-black transition select-none">‹</button>
+      <div id="chatChannelsBar" onscroll="updateChatChannelsScrollControls()" onwheel="if (!window.isChatChannelsExpanded && this.scrollWidth > this.clientWidth && Math.abs(event.deltaY) >= Math.abs(event.deltaX)) { this.scrollLeft += event.deltaY; event.preventDefault(); }" class="flex-1 min-w-0 flex items-center gap-1.5 overflow-x-auto thin-dark-scrollbar pb-1"></div>
+      <button type="button" id="btnChatChanRight" onclick="scrollChatChannels(190)" title="Sağa Kaydır" class="hidden w-6 h-7 flex-shrink-0 rounded-md bg-blue-900/80 hover:bg-blue-800 text-amber-300 border border-blue-700/70 flex items-center justify-center text-sm font-black transition select-none">›</button>
+      <button type="button" id="btnChatChanExpand" onclick="toggleChatChannelsExpanded()" title="Tüm Birimleri Göster / Daralt" class="hidden px-2 h-7 flex-shrink-0 rounded-md bg-blue-900/80 hover:bg-blue-800 text-blue-100 border border-blue-700/70 text-[10px] font-bold transition whitespace-nowrap">Tümü ▾</button>
+    </div>
 
     <!-- Çoklu Mesaj Seçim & Toplu Silme Çubuğu -->
     <div id="chatSelectionBar" class="hidden bg-slate-900 text-white px-3 py-2 flex items-center justify-between gap-2 border-b border-slate-700 text-xs shadow-sm">
@@ -3230,10 +3240,49 @@
       return window.getChatDepartmentOptionsForUser(u).some(c => c.toLowerCase() === clean.toLowerCase());
     };
 
+    window.isChatChannelsExpanded = false;
+
+    window.scrollChatChannels = function(delta) {
+      const bar = document.getElementById("chatChannelsBar");
+      if (!bar) return;
+      bar.scrollBy({ left: delta, behavior: "smooth" });
+      setTimeout(() => window.updateChatChannelsScrollControls(), 260);
+    };
+
+    window.toggleChatChannelsExpanded = function() {
+      window.isChatChannelsExpanded = !window.isChatChannelsExpanded;
+      if (typeof window.renderChat === "function") window.renderChat();
+    };
+
+    window.updateChatChannelsScrollControls = function() {
+      const bar = document.getElementById("chatChannelsBar");
+      const leftBtn = document.getElementById("btnChatChanLeft");
+      const rightBtn = document.getElementById("btnChatChanRight");
+      const expandBtn = document.getElementById("btnChatChanExpand");
+      if (!bar) return;
+      const expanded = !!window.isChatChannelsExpanded;
+      const hasOverflow = !expanded && (bar.scrollWidth - bar.clientWidth > 6);
+      if (leftBtn) {
+        leftBtn.classList.toggle("hidden", !hasOverflow);
+        leftBtn.classList.toggle("opacity-35", bar.scrollLeft <= 2);
+      }
+      if (rightBtn) {
+        rightBtn.classList.toggle("hidden", !hasOverflow);
+        rightBtn.classList.toggle("opacity-35", bar.scrollLeft + bar.clientWidth >= bar.scrollWidth - 2);
+      }
+      if (expandBtn) {
+        const count = bar.children.length;
+        const showExpand = expanded || hasOverflow || count > 2;
+        expandBtn.classList.toggle("hidden", !showExpand);
+        expandBtn.innerText = expanded ? "Daralt ▴" : `Tümü (${count}) ▾`;
+      }
+    };
+
     window.selectChatChannel = function(dept) {
       const clean = String(dept || "").trim();
       if (!clean) return;
       window.selectedChatChannel = clean;
+      window._scrollActiveChatChanIntoView = true;
       if (window.isChatSelectionMode && typeof window.exitChatSelectionMode === "function") {
         window.exitChatSelectionMode();
       } else if (typeof window.renderChat === "function") {
@@ -9863,12 +9912,34 @@
       const activeChannel = window.selectedChatChannel;
 
       const channelsBar = document.getElementById("chatChannelsBar");
+      const channelsWrapper = document.getElementById("chatChannelsWrapper");
       if (channelsBar) {
+        const prevScrollLeft = channelsBar.scrollLeft;
+        const expanded = !!window.isChatChannelsExpanded;
+        if (expanded) {
+          channelsBar.className = "flex-1 min-w-0 flex flex-wrap items-center gap-1.5 max-h-36 overflow-y-auto thin-dark-scrollbar py-0.5";
+          if (channelsWrapper) channelsWrapper.className = "bg-[#172554] px-2 py-1.5 flex items-start gap-1 border-b border-blue-900/40 flex-shrink-0";
+        } else {
+          channelsBar.className = "flex-1 min-w-0 flex items-center gap-1.5 overflow-x-auto thin-dark-scrollbar pb-1";
+          if (channelsWrapper) channelsWrapper.className = "bg-[#172554] px-2 py-1.5 flex items-center gap-1 border-b border-blue-900/40 flex-shrink-0";
+        }
         channelsBar.innerHTML = authorizedChannels.map(ch => {
           const isSelected = ch.toLowerCase() === activeChannel.toLowerCase();
           const chCount = allMsgs.filter(m => !window.isChatSystemBroadcast(m) && window.getChatMessageChannel(m).toLowerCase() === ch.toLowerCase()).length;
-          return `<button type="button" onclick="selectChatChannel('${escapeJsSingle(ch)}')" class="whitespace-nowrap px-2.5 py-1 rounded-lg text-[10px] font-bold border transition flex items-center gap-1 ${isSelected ? 'bg-amber-400 text-slate-950 border-amber-300 shadow-sm' : 'bg-blue-900/60 text-blue-100 border-blue-700/60 hover:bg-blue-800'}"><span>💬 ${escapeHtml(ch)}</span><span class="px-1.5 py-0.2 rounded-full text-[9px] ${isSelected ? 'bg-slate-950/15 text-slate-950' : 'bg-blue-950/70 text-amber-300'}">${chCount}</span></button>`;
+          return `<button type="button" data-chat-chan="${escapeHtml(ch)}" onclick="selectChatChannel('${escapeJsSingle(ch)}')" class="whitespace-nowrap px-2.5 py-1 rounded-lg text-[10px] font-bold border transition flex items-center gap-1 flex-shrink-0 ${isSelected ? 'bg-amber-400 text-slate-950 border-amber-300 shadow-sm' : 'bg-blue-900/60 text-blue-100 border-blue-700/60 hover:bg-blue-800'}"><span>💬 ${escapeHtml(ch)}</span><span class="px-1.5 py-0.2 rounded-full text-[9px] ${isSelected ? 'bg-slate-950/15 text-slate-950' : 'bg-blue-950/70 text-amber-300'}">${chCount}</span></button>`;
         }).join("");
+        if (!expanded) {
+          channelsBar.scrollLeft = prevScrollLeft;
+        }
+        if (window._scrollActiveChatChanIntoView) {
+          window._scrollActiveChatChanIntoView = false;
+          const activeBtn = Array.from(channelsBar.querySelectorAll("button[data-chat-chan]"))
+            .find(btn => (btn.getAttribute("data-chat-chan") || "").toLowerCase() === activeChannel.toLowerCase());
+          if (activeBtn && typeof activeBtn.scrollIntoView === "function") {
+            activeBtn.scrollIntoView({ behavior: "smooth", inline: "nearest", block: "nearest" });
+          }
+        }
+        requestAnimationFrame(() => window.updateChatChannelsScrollControls());
       }
 
       const subtitleEl = document.getElementById("chatActiveChannelSubtitle");
