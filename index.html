@@ -175,9 +175,9 @@
         </form>
 
         <div class="pt-3 text-center border-t border-slate-100 flex flex-col items-center justify-center gap-2">
-          <a href="app-release.apk?v=25" id="loginApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold rounded-lg border border-emerald-300 transition shadow-sm">
+          <a href="app-release.apk?v=26" id="loginApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold rounded-lg border border-emerald-300 transition shadow-sm">
             <i data-lucide="smartphone" class="w-3.5 h-3.5 text-emerald-600"></i>
-            <span id="loginApkBtnText">Android APK İndir (v1.5.4)</span>
+            <span id="loginApkBtnText">Android APK İndir (v1.5.5)</span>
           </a>
           <div class="text-[11px] text-slate-400 flex items-center justify-center gap-1.5">
             <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600"></i>
@@ -228,15 +228,15 @@
         </div>
 
         <!-- Android APK İndir Butonu (Tüm Kullanıcılar Görür) -->
-        <a href="app-release.apk?v=25" id="topApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-700/60 hover:bg-blue-600 text-white border border-blue-400/40 transition shadow-sm" title="Android Mobil APK İndir">
+        <a href="app-release.apk?v=26" id="topApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-700/60 hover:bg-blue-600 text-white border border-blue-400/40 transition shadow-sm" title="Android Mobil APK İndir">
           <i data-lucide="download" class="w-3.5 h-3.5 text-amber-300"></i>
-          <span id="topApkBtnText">APK İndir (v1.5.4)</span>
+          <span id="topApkBtnText">APK İndir (v1.5.5)</span>
         </a>
 
         <!-- Mobil Sürüm Yönetimi Butonu (Sadece usluozaykagan@gmail.com için görünür) -->
         <button id="topAppVersionBtn" onclick="openAppVersionModal()" style="display: none;" class="hidden items-center space-x-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-600/70 hover:bg-emerald-600 text-white border border-emerald-400/40 transition shadow-sm" title="Firebase Mobil Sürüm Kontrolü ve Güncelleme">
           <i data-lucide="smartphone" class="w-3.5 h-3.5 text-amber-300"></i>
-          <span id="topVersionBadgeText">Sürüm: v1.5.4</span>
+          <span id="topVersionBadgeText">Sürüm: v1.5.5</span>
         </button>
 
         <!-- Bildirim Sihirbazı Butonu -->
@@ -306,11 +306,11 @@
         </span>
           <div>
             <div class="flex flex-wrap items-center gap-1.5 font-extrabold text-blue-950">
-              <span id="webUpdateBannerTitle">🚀 Yeni Mobil Sürüm Yayında: Tekinak CMMS v1.5.4</span>
-              <span id="webUpdateBannerCodeBadge" class="px-1.5 py-0.5 rounded bg-emerald-600 text-white text-[10px] font-bold">v1.5.4 (Kod: 25)</span>
+              <span id="webUpdateBannerTitle">🚀 Yeni Mobil Sürüm Yayında: Tekinak CMMS v1.5.5</span>
+              <span id="webUpdateBannerCodeBadge" class="px-1.5 py-0.5 rounded bg-emerald-600 text-white text-[10px] font-bold">v1.5.5 (Kod: 26)</span>
             </div>
             <div id="webUpdateBannerSummary" class="text-[11px] text-slate-600 mt-0.5">
-              Tekinak CMMS v1.5.4 sürümüne güncellendi; Yardımcı Tesisler uyarı senkronizasyonu ve kararlılık iyileştirmeleri aktif.
+              Yardımcı Tesisler sayısal alanlarında doğrudan numpad (sayısal tuş takımı) açılması sağlandı ve kararlılık artırıldı.
             </div>
           </div>
         </div>
@@ -318,9 +318,9 @@
           <button type="button" onclick="toggleWebUpdateChangelog()" class="px-2.5 py-1.5 bg-white hover:bg-slate-100 text-blue-800 border border-blue-200 rounded-lg font-bold text-[11px] transition">
             Yenilikler
           </button>
-          <a id="webUpdateBannerDownloadBtn" href="app-release.apk?v=25" download="tekinak-bakim.apk" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold text-[11px] shadow-sm flex items-center gap-1.5 transition">
+          <a id="webUpdateBannerDownloadBtn" href="app-release.apk?v=26" download="tekinak-bakim.apk" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold text-[11px] shadow-sm flex items-center gap-1.5 transition">
             <i data-lucide="download" class="w-3.5 h-3.5"></i>
-            <span id="webUpdateBannerDownloadText">APK İndir (v1.5.4)</span>
+            <span id="webUpdateBannerDownloadText">APK İndir (v1.5.5)</span>
           </a>
         <button type="button" onclick="dismissWebUpdateBanner()" class="p-1 text-slate-400 hover:text-slate-700 rounded-lg" title="Bu sürüm için gizle">
           <i data-lucide="x" class="w-4 h-4"></i>
@@ -1551,7 +1551,7 @@
         <div class="p-2.5 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-between text-[11px] text-slate-600">
           <div class="flex items-center gap-1.5 font-semibold text-slate-700">
             <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600"></i>
-            <span id="profSystemVersionText">Sistem Sürümü: v1.5.4</span>
+            <span id="profSystemVersionText">Sistem Sürümü: v1.5.5</span>
           </div>
           <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-300">Güncel ✓</span>
         </div>
@@ -2256,12 +2256,12 @@
         <div>
           <div class="text-[11px] font-bold text-emerald-800 uppercase tracking-wider">Aktif Firebase Sürümü</div>
           <div class="text-sm font-extrabold text-emerald-950 flex items-center gap-2" id="verModalCurrentBadge">
-            <span id="verModalVersionName">v1.5.4</span>
-            <span id="verModalVersionCode" class="text-xs px-2 py-0.5 bg-emerald-200 text-emerald-800 rounded-md font-semibold">Kod: 25</span>
+            <span id="verModalVersionName">v1.5.5</span>
+            <span id="verModalVersionCode" class="text-xs px-2 py-0.5 bg-emerald-200 text-emerald-800 rounded-md font-semibold">Kod: 26</span>
           </div>
         </div>
         <div class="text-right text-[11px] text-emerald-700">
-          <div>Son Yayın: <span id="verModalReleaseDate" class="font-semibold">2026-11-17</span></div>
+          <div>Son Yayın: <span id="verModalReleaseDate" class="font-semibold">2026-11-18</span></div>
           <div class="text-emerald-600 font-medium flex items-center justify-end gap-1"><span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Anlık Dinlemede</div>
         </div>
       </div>
@@ -2270,18 +2270,18 @@
         <div class="grid grid-cols-2 gap-3">
           <div>
             <label class="block font-semibold text-slate-700 mb-1">Yeni Sürüm Kodu (Build Code) *</label>
-            <input type="number" id="verFormCode" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 25" min="1">
+            <input type="number" id="verFormCode" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 26" min="1">
             <span class="text-[10px] text-slate-400">Yeni sürüm için kod mevcut koddan büyük olmalıdır</span>
           </div>
           <div>
             <label class="block font-semibold text-slate-700 mb-1">Yeni Sürüm Adı (Version Name) *</label>
-            <input type="text" id="verFormName" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 1.5.4">
+            <input type="text" id="verFormName" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 1.5.5">
           </div>
         </div>
 
         <div>
           <label class="block font-semibold text-slate-700 mb-1">Güncelleme Bildirim Başlığı *</label>
-          <input type="text" id="verFormTitle" required class="w-full px-3 py-2 border rounded-xl text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: Yeni Sürüm Yayınlandı (v1.5.4)">
+          <input type="text" id="verFormTitle" required class="w-full px-3 py-2 border rounded-xl text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: Yeni Sürüm Yayınlandı (v1.5.5)">
         </div>
 
         <div>
@@ -2300,9 +2300,9 @@
         </div>
 
         <div class="flex items-center justify-between gap-2 pt-2 border-t">
-          <button type="button" onclick="syncWithDeployedApk()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs rounded-xl font-bold border border-slate-300 flex items-center gap-1.5" title="Firebase'i şu an dağıtılan v1.5.4 (Kod: 25) APK ile eşitler ve güncellenen telefonlardaki popup'ı kapatır">
+          <button type="button" onclick="syncWithDeployedApk()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs rounded-xl font-bold border border-slate-300 flex items-center gap-1.5" title="Firebase'i şu an dağıtılan v1.5.5 (Kod: 26) APK ile eşitler ve güncellenen telefonlardaki popup'ı kapatır">
             <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-blue-600"></i>
-            <span>Mevcut APK ile Eşitle (v1.5.4 - Kod: 25)</span>
+            <span>Mevcut APK ile Eşitle (v1.5.5 - Kod: 26)</span>
           </button>
           <div class="flex gap-2">
             <button type="button" onclick="closeModal('modalAppVersion')" class="px-4 py-2 border rounded-xl font-semibold text-slate-600 hover:bg-slate-50">Kapat</button>
@@ -5360,7 +5360,7 @@
       });
 
       // 6. Mobil Uygulama Sürüm Takibi ve Firebase Yönetimi (app_version/current)
-      let hasAutoSyncedV25 = false;
+      let hasAutoSyncedV26 = false;
       try {
         onSnapshot(doc(db, "app_version", "current"), async (docSnap) => {
           if (docSnap && docSnap.exists()) {
@@ -5368,15 +5368,15 @@
             window.currentAppVersion = data;
             renderAppVersionBadge();
 
-            // Sürüm kodu 25'ten küçükse otomatik olarak v1.5.4 (Kod: 25)'e yükselt
+            // Sürüm kodu 26'dan küçükse otomatik olarak v1.5.5 (Kod: 26)'ya yükselt
             const verCodeNum = Number(data.versionCode || 0);
-            if (verCodeNum < 25 && !hasAutoSyncedV25) {
-              hasAutoSyncedV25 = true;
-              console.log("Firestore app_version sürüm kodu 25 (v1.5.4) olarak otomatik eşitleniyor...");
+            if (verCodeNum < 26 && !hasAutoSyncedV26) {
+              hasAutoSyncedV26 = true;
+              console.log("Firestore app_version sürüm kodu 26 (v1.5.5) olarak otomatik eşitleniyor...");
               seedInitialAppVersionInFirebase();
             }
-          } else if (!hasAutoSyncedV25) {
-            hasAutoSyncedV25 = true;
+          } else if (!hasAutoSyncedV26) {
+            hasAutoSyncedV26 = true;
             seedInitialAppVersionInFirebase();
           }
         }, (err) => {
@@ -11051,16 +11051,16 @@
     const UTILITY_COMP_STD_HOURS = ["08:00", "11:00", "14:00", "17:00", "20:00", "00:00", "02:00", "05:00"];
     const UTILITY_COMP_SARMAR37_HOURS = ["08:00", "11:00", "14:00", "17:00", "20:00", "23:00", "02:00", "05:00"];
     const UTILITY_COMP_COLS = [
-      { id: "basinc", title: "BASINÇ", hint: "7.5", options: ["—"] },
+      { id: "basinc", title: "BASINÇ", hint: "7.5", inputType: "number", options: ["—"] },
       { id: "genel_temizlik", title: "GENEL TEMİZLİK", hint: "✓", options: ["✓", "✗", "—"] },
       { id: "bakimi", title: "BAKIMI", hint: "✓", options: ["✓", "✗", "—"] },
       { id: "kurutma_tank_blof", title: "KURUTMA TANK BLÖF", hint: "Nor", options: ["Nor", "✓", "Arızalı", "—"] }
     ];
     const UTILITY_HOT_BOILER_COLS = [
-      { id: "pano_sicakligi", title: "KAZAN PANO SICAKLIĞI", hint: "136", options: ["—"] },
-      { id: "baca_sicakligi", title: "KAZAN BACA SICAKLIĞI", hint: "187", options: ["—"] },
-      { id: "manometre_sicakligi", title: "MANOMETRE SICAKLIĞI", hint: "137", options: ["—"] },
-      { id: "bar_basinci", title: "KAZAN BAR BASINCI", hint: "5.0", options: ["—"] }
+      { id: "pano_sicakligi", title: "KAZAN PANO SICAKLIĞI", hint: "136", inputType: "number", options: ["—"] },
+      { id: "baca_sicakligi", title: "KAZAN BACA SICAKLIĞI", hint: "187", inputType: "number", options: ["—"] },
+      { id: "manometre_sicakligi", title: "MANOMETRE SICAKLIĞI", hint: "137", inputType: "number", options: ["—"] },
+      { id: "bar_basinci", title: "KAZAN BAR BASINCI", hint: "5.0", inputType: "number", options: ["—"] }
     ];
     const UTILITY_LEVEL_OPTIONS = ["YÜKSEK", "ORTA", "DÜŞÜK"];
     const UTILITY_PUMP_OPTIONS = ["ÇALIŞIYOR", "BASINCI", "ARIZALI"];
@@ -11095,10 +11095,10 @@
             title: "CHILLER SOĞUTMA SİSTEMİ",
             hours: ["08:00", "12:00", "17:00", "20:00", "00:00", "05:00"],
             columns: [
-              { id: "giris_su_sicakligi", title: "GİRİŞ SU SICAKLIĞI", hint: "°C", options: ["—"] },
-              { id: "cikis_su_sicakligi", title: "ÇIKIŞ SU SICAKLIĞI", hint: "°C", options: ["—"] },
-              { id: "giris_su_basinci", title: "GİRİŞ SU BASINCI", hint: "Bar", options: ["—"] },
-              { id: "cikis_su_basinci", title: "ÇIKIŞ SU BASINCI", hint: "Bar", options: ["—"] },
+              { id: "giris_su_sicakligi", title: "GİRİŞ SU SICAKLIĞI", hint: "°C", inputType: "number", options: ["—"] },
+              { id: "cikis_su_sicakligi", title: "ÇIKIŞ SU SICAKLIĞI", hint: "°C", inputType: "number", options: ["—"] },
+              { id: "giris_su_basinci", title: "GİRİŞ SU BASINCI", hint: "Bar", inputType: "number", options: ["—"] },
+              { id: "cikis_su_basinci", title: "ÇIKIŞ SU BASINCI", hint: "Bar", inputType: "number", options: ["—"] },
               { id: "radyator_petek_kontrolu", title: "RADYATÖR PETEK KONTROLÜ", hint: "Temiz", options: ["Temiz", "Kirli", "Yıkandı", "—"] }
             ]
           }
@@ -11121,11 +11121,11 @@
             title: "4- 400 KW BUHAR KAZANI KONTROL",
             hours: UTILITY_BOILER_HOURS,
             columns: [
-              { id: "baca_sicakligi", title: "KAZAN BACA SICAKLIĞI", hint: "135", options: ["—"] },
-              { id: "manometre_sicakligi", title: "MANOMETRE SICAKLIĞI", hint: "80", options: ["—"] },
-              { id: "bar_basinci", title: "KAZAN BAR BASINCI", hint: "1.6", options: ["—"] },
+              { id: "baca_sicakligi", title: "KAZAN BACA SICAKLIĞI", hint: "135", inputType: "number", options: ["—"] },
+              { id: "manometre_sicakligi", title: "MANOMETRE SICAKLIĞI", hint: "80", inputType: "number", options: ["—"] },
+              { id: "bar_basinci", title: "KAZAN BAR BASINCI", hint: "1.6", inputType: "number", options: ["—"] },
               { id: "su_seviyesi", title: "KAZAN SU SEVİYESİ", hint: "Nor", options: ["Nor", "Yüksek", "Düşük", "—"] },
-              { id: "hat_motor_bar", title: "HAT MOTOR BAR", hint: "7.0", options: ["—"] },
+              { id: "hat_motor_bar", title: "HAT MOTOR BAR", hint: "7.0", inputType: "number", options: ["—"] },
               { id: "kontrol_eden", title: "KONTROL EDEN", hint: "Ad/Başharf", options: [] }
             ]
           }
@@ -11153,7 +11153,7 @@
               { id: "kuyu_su_pompasi", title: "KUYU SU POMPASI", hint: "", tristate: UTILITY_PUMP_OPTIONS },
               { id: "ozmoz_besi_pompasi", title: "OZMOZ BESİ POMPASI", hint: "", tristate: UTILITY_PUMP_OPTIONS },
               { id: "ozmoz_basinc_pompasi", title: "OZMOZ BASINÇ POMPASI", hint: "", tristate: UTILITY_PUMP_OPTIONS },
-              { id: "temiz_su_ph", title: "TEMİZ SU SERTLİK (İLETKENLİK) ORANI", hint: "177", options: [] }
+              { id: "temiz_su_ph", title: "TEMİZ SU SERTLİK (İLETKENLİK) ORANI", hint: "177", inputType: "number", options: [] }
             ]
           },
           {
@@ -11163,7 +11163,7 @@
             columns: [
               { id: "temiz_su_tanki", title: "TEMİZ SU TANKI ORANI", hint: "", tristate: UTILITY_LEVEL_OPTIONS },
               { id: "ham_su_tanki", title: "HAM SU TANKI ORANI", hint: "", tristate: UTILITY_LEVEL_OPTIONS },
-              { id: "temiz_su_ph", title: "TEMİZ SU SERTLİK (İLETKENLİK) ORANI", hint: "18.0", options: [] }
+              { id: "temiz_su_ph", title: "TEMİZ SU SERTLİK (İLETKENLİK) ORANI", hint: "18.0", inputType: "number", options: [] }
             ]
           }
         ]
@@ -12613,11 +12613,11 @@
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
             <div>
               <label class="block text-[10px] font-bold text-slate-600 mb-0.5">Alt Limit (Min)</label>
-              <input type="text" class="util-ref-min w-full border rounded-lg px-2.5 py-1.5 bg-white font-bold" value="${r.minValue !== null && r.minValue !== undefined ? escapeHtml(String(r.minValue)) : ""}" placeholder="Örn: 6.0">
+              <input type="text" inputmode="decimal" autocomplete="off" class="util-ref-min w-full border rounded-lg px-2.5 py-1.5 bg-white font-bold" value="${r.minValue !== null && r.minValue !== undefined ? escapeHtml(String(r.minValue)) : ""}" placeholder="Örn: 6.0">
             </div>
             <div>
               <label class="block text-[10px] font-bold text-slate-600 mb-0.5">Üst Limit (Max)</label>
-              <input type="text" class="util-ref-max w-full border rounded-lg px-2.5 py-1.5 bg-white font-bold" value="${r.maxValue !== null && r.maxValue !== undefined ? escapeHtml(String(r.maxValue)) : ""}" placeholder="Örn: 8.5">
+              <input type="text" inputmode="decimal" autocomplete="off" class="util-ref-max w-full border rounded-lg px-2.5 py-1.5 bg-white font-bold" value="${r.maxValue !== null && r.maxValue !== undefined ? escapeHtml(String(r.maxValue)) : ""}" placeholder="Örn: 8.5">
             </div>
             <div>
               <label class="block text-[10px] font-bold text-slate-600 mb-0.5">Anormal Değerler (virgülle)</label>
@@ -13058,7 +13058,7 @@
             </div>
             <div class="flex items-center gap-1.5">
               <button type="button" onclick="stepWaterFilterCount('${fieldKey}', -1)" class="w-9 h-9 rounded-lg bg-white hover:bg-slate-100 border border-slate-300 font-black text-base text-[#1E3A8A]">−</button>
-              <input type="number" min="0" value="${val}" onchange="setWaterFilterCount('${fieldKey}', this.value)" class="w-16 h-9 text-center font-black text-sm border border-slate-300 rounded-lg bg-white text-[#1E3A8A]">
+              <input type="number" inputmode="numeric" min="0" value="${val}" onchange="setWaterFilterCount('${fieldKey}', this.value)" class="w-16 h-9 text-center font-black text-sm border border-slate-300 rounded-lg bg-white text-[#1E3A8A]">
               <button type="button" onclick="stepWaterFilterCount('${fieldKey}', 1)" class="w-9 h-9 rounded-lg bg-white hover:bg-slate-100 border border-slate-300 font-black text-base text-[#1E3A8A]">+</button>
             </div>
           </div>
@@ -13412,6 +13412,7 @@
             return `
               <td class="p-1.5 border ${anom ? 'border-rose-400 bg-rose-50/60' : 'border-slate-200'} align-top">
                 <input type="text"
+                  ${col.inputType === "number" ? 'inputmode="decimal" autocomplete="off"' : ''}
                   value="${escapeHtml(curVal)}"
                   placeholder="${escapeHtml(col.hint || '')}"
                   ${canEdit ? `oninput="onUtilityCellChange('${escapeJsSingle(cKey)}', this.value, this)"` : "readonly disabled"}
@@ -13474,7 +13475,7 @@
                     <div class="bg-white p-3 rounded-xl border border-yellow-300 space-y-1">
                       <label class="block text-[11px] font-extrabold text-[#1E3A8A]">${escapeHtml(sec.title)}</label>
                       <div class="flex items-center gap-1.5">
-                        <input type="text" value="${escapeHtml(val)}" placeholder="Örn: 12450" ${canEdit ? `oninput="onUtilityCompEomChange('${escapeJsSingle(sec.id)}', this.value)"` : "readonly disabled"} class="w-full border border-slate-300 rounded-lg px-2.5 py-1.5 font-bold text-slate-900 outline-none focus:ring-2 focus:ring-yellow-500">
+                        <input type="text" inputmode="decimal" autocomplete="off" value="${escapeHtml(val)}" placeholder="Örn: 12450" ${canEdit ? `oninput="onUtilityCompEomChange('${escapeJsSingle(sec.id)}', this.value)"` : "readonly disabled"} class="w-full border border-slate-300 rounded-lg px-2.5 py-1.5 font-bold text-slate-900 outline-none focus:ring-2 focus:ring-yellow-500">
                         <span class="text-[11px] font-bold text-slate-500">Saat</span>
                       </div>
                     </div>
@@ -14303,18 +14304,18 @@
 
     function renderAppVersionBadge() {
       const v = window.currentAppVersion || {
-        versionName: "1.5.4",
-        versionCode: 25,
-        releaseDate: "2026-11-17",
-        title: "Tekinak CMMS v1.5.4",
+        versionName: "1.5.5",
+        versionCode: 26,
+        releaseDate: "2026-11-18",
+        title: "Tekinak CMMS v1.5.5",
         changelog: [
-          "Tekinak CMMS v1.5.4 (Kod: 25) sürümüne yükseltildi.",
-          "Yardımcı Tesisler formunda değerler düzeltildiğinde veya temizlendiğinde ve referans limitleri değiştiğinde bulut uyarılarının otomatik temizlenmesi sağlandı.",
-          "Genel Bakış, sekme rozeti ve bildirim listeleri anlık form verileri ve güncel referans limitleriyle senkronize edildi."
+          "Yardımcı Tesisler sayısal veri giriş alanlarında doğrudan numpad (sayısal tuş takımı) açılması sağlandı.",
+          "Yardımcı Tesisler referans limiti alt/üst alanları ve ay sonu sayaç girişleri hızlı sayısal giriş için optimize edildi.",
+          "Tekinak CMMS v1.5.5 (Kod: 26) kararlılık iyileştirmeleri tamamlandı."
         ]
       };
-      const vName = v.versionName || "1.5.4";
-      const vCode = Number(v.versionCode || 25);
+      const vName = v.versionName || "1.5.5";
+      const vCode = Number(v.versionCode || 26);
       const localApkHref = `app-release.apk?v=${vCode}`;
 
       const badgeText = document.getElementById("topVersionBadgeText");
@@ -14373,7 +14374,7 @@
     };
 
     window.dismissWebUpdateBanner = function() {
-      const vCode = Number((window.currentAppVersion && window.currentAppVersion.versionCode) || 25);
+      const vCode = Number((window.currentAppVersion && window.currentAppVersion.versionCode) || 26);
       localStorage.setItem("tekinak_dismissed_ver_" + vCode, "1");
       const banner = document.getElementById("webAppUpdateBanner");
       if (banner) banner.classList.add("hidden");
@@ -14382,17 +14383,17 @@
     async function seedInitialAppVersionInFirebase() {
       try {
         const initialData = {
-          versionCode: 25,
-          versionName: "1.5.4",
-          releaseTag: "v1.5.4",
+          versionCode: 26,
+          versionName: "1.5.5",
+          releaseTag: "v1.5.5",
           releaseDate: new Date().toISOString().slice(0, 10),
           apkUrl: "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
           fallbackUrl: "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-          title: "Tekinak CMMS v1.5.4",
+          title: "Tekinak CMMS v1.5.5",
           changelog: [
-            "Tekinak CMMS v1.5.4 (Kod: 25) sürümüne yükseltildi.",
-            "Yardımcı Tesisler formunda değerler düzeltildiğinde veya temizlendiğinde ve referans limitleri değiştiğinde bulut uyarılarının otomatik temizlenmesi sağlandı.",
-            "Genel Bakış, sekme rozeti ve bildirim listeleri anlık form verileri ve güncel referans limitleriyle senkronize edildi."
+            "Yardımcı Tesisler sayısal veri giriş alanlarında doğrudan numpad (sayısal tuş takımı) açılması sağlandı.",
+            "Yardımcı Tesisler referans limiti alt/üst alanları ve ay sonu sayaç girişleri hızlı sayısal giriş için optimize edildi.",
+            "Tekinak CMMS v1.5.5 (Kod: 26) kararlılık iyileştirmeleri tamamlandı."
           ],
           forceUpdate: false,
           updatedAtMillis: Date.now()
@@ -14411,10 +14412,10 @@
         alert("⛔ Yetkisiz İşlem: Mobil sürüm güncelleme yönetimi yalnızca usluozaykagan@gmail.com hesabına tanımlıdır.");
         return;
       }
-      const v = window.currentAppVersion || { versionCode: 25, versionName: "1.5.4", title: "Tekinak CMMS v1.5.4", apkUrl: "", changelog: [] };
-      document.getElementById("verFormCode").value = v.versionCode || 25;
-      document.getElementById("verFormName").value = v.versionName || "1.5.4";
-      document.getElementById("verFormTitle").value = `Yeni Sürüm Yayınlandı (v${v.versionName || "1.5.4"})`;
+      const v = window.currentAppVersion || { versionCode: 26, versionName: "1.5.5", title: "Tekinak CMMS v1.5.5", apkUrl: "", changelog: [] };
+      document.getElementById("verFormCode").value = v.versionCode || 26;
+      document.getElementById("verFormName").value = v.versionName || "1.5.5";
+      document.getElementById("verFormTitle").value = `Yeni Sürüm Yayınlandı (v${v.versionName || "1.5.5"})`;
       document.getElementById("verFormApkUrl").value = v.apkUrl || "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk";
       document.getElementById("verFormChangelog").value = (v.changelog && v.changelog.length) ? v.changelog.join("\n") : "Yeni bakım özellikleri ve performans iyileştirmeleri eklendi.";
       document.getElementById("modalAppVersion").classList.remove("hidden");
@@ -14439,7 +14440,7 @@
         return;
       }
       if (!name) {
-        alert("Lütfen sürüm adı giriniz (örn: 1.5.4).");
+        alert("Lütfen sürüm adı giriniz (örn: 1.5.5).");
         return;
       }
 
@@ -14498,17 +14499,17 @@
       }
       try {
         const payload = {
-          versionCode: 25,
-          versionName: "1.5.4",
-          releaseTag: "v1.5.4",
+          versionCode: 26,
+          versionName: "1.5.5",
+          releaseTag: "v1.5.5",
           releaseDate: new Date().toISOString().slice(0, 10),
           apkUrl: "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
           fallbackUrl: "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-          title: "Tekinak CMMS v1.5.4",
+          title: "Tekinak CMMS v1.5.5",
           changelog: [
-            "Tekinak CMMS v1.5.4 (Kod: 25) sürümüne yükseltildi.",
-            "Yardımcı Tesisler formunda değerler düzeltildiğinde veya temizlendiğinde ve referans limitleri değiştiğinde bulut uyarılarının otomatik temizlenmesi sağlandı.",
-            "Genel Bakış, sekme rozeti ve bildirim listeleri anlık form verileri ve güncel referans limitleriyle senkronize edildi."
+            "Yardımcı Tesisler sayısal veri giriş alanlarında doğrudan numpad (sayısal tuş takımı) açılması sağlandı.",
+            "Yardımcı Tesisler referans limiti alt/üst alanları ve ay sonu sayaç girişleri hızlı sayısal giriş için optimize edildi.",
+            "Tekinak CMMS v1.5.5 (Kod: 26) kararlılık iyileştirmeleri tamamlandı."
           ],
           forceUpdate: false,
           updatedAtMillis: Date.now()
@@ -14517,7 +14518,7 @@
         window.currentAppVersion = payload;
         renderAppVersionBadge();
         closeModal("modalAppVersion");
-        alert("✅ Başarılı! Firebase sürümü şu an dağıtılan v1.5.4 (Kod: 25) APK ile eşitlendi.\n\nGüncellenen telefonlardaki popup penceresi anında kalktı.");
+        alert("✅ Başarılı! Firebase sürümü şu an dağıtılan v1.5.5 (Kod: 26) APK ile eşitlendi.\n\nGüncellenen telefonlardaki popup penceresi anında kalktı.");
       } catch (err) {
         alert("Eşitleme hatası: " + err.message);
       }
