@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Tekinak Gıda CMMS - Endüstriyel Bakım Yönetim Portalı</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -19,16 +19,17 @@
   <!-- SheetJS for authentic Microsoft Excel (.xlsx) Generation -->
   <script src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
   <style>
-    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
+    html, body { width: 100%; max-width: 100%; overflow-x: hidden; overflow-x: clip; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
+    .overflow-x-clip-safe { overflow-x: hidden; overflow-x: clip; }
     .hide-scrollbar::-webkit-scrollbar { display: none; }
     .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     .custom-shadow { box-shadow: 0 4px 20px -2px rgba(30, 58, 138, 0.08), 0 2px 6px -1px rgba(0, 0, 0, 0.04); }
   </style>
 </head>
-<body class="bg-slate-100 text-slate-800 antialiased min-h-screen flex flex-col selection:bg-amber-400 selection:text-blue-950">
+<body class="bg-slate-100 text-slate-800 antialiased min-h-screen w-full max-w-full overflow-x-clip-safe flex flex-col selection:bg-amber-400 selection:text-blue-950">
 
   <!-- ================= AUTH SCREEN (GİRİŞ & YENİ PERSONEL KAYDI) ================= -->
-  <div id="authContainer" class="min-h-screen bg-gradient-to-b from-[#1E3A8A] via-[#172554] to-slate-950 flex flex-col items-center justify-center p-4 relative overflow-hidden">
+  <div id="authContainer" class="min-h-screen w-full max-w-full bg-gradient-to-b from-[#1E3A8A] via-[#172554] to-slate-950 flex flex-col items-center justify-center p-4 relative overflow-hidden">
     
     <!-- Arka Plan Dekoratif Efektler -->
     <div class="absolute -top-24 -left-24 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl pointer-events-none"></div>
@@ -195,71 +196,71 @@
   </div>
 
   <!-- ================= MAIN APP WRAPPER (OTURUM AÇILDIĞINDA GÖSTERİLİR) ================= -->
-  <div id="mainApp" class="hidden flex-1 flex flex-col">
+  <div id="mainApp" class="hidden flex-1 flex flex-col w-full max-w-full min-w-0 overflow-x-clip-safe">
 
   <!-- ================= TOP APP BAR (ANDROID İLE BİREBİR) ================= -->
-  <header class="bg-[#1E3A8A] text-white shadow-md sticky top-0 z-40 border-b border-blue-800/80">
-    <div class="max-w-7xl mx-auto px-4 py-2.5 flex items-center justify-between">
+  <header class="bg-[#1E3A8A] text-white shadow-md sticky top-0 z-40 border-b border-blue-800/80 w-full max-w-full overflow-x-hidden">
+    <div class="max-w-7xl mx-auto px-3 sm:px-4 py-2.5 flex flex-wrap items-center justify-between gap-2">
       
       <!-- Profil Başlığı (Sol Taraf) -->
-      <div onclick="openEditProfileModal()" class="flex items-center space-x-3 cursor-pointer group select-none">
-        <div id="topAvatar" class="w-10 h-10 rounded-full bg-[#172554] border-2 border-amber-400/80 flex items-center justify-center font-bold text-white text-sm shadow group-hover:scale-105 transition">
+      <div onclick="openEditProfileModal()" class="flex items-center space-x-2.5 sm:space-x-3 cursor-pointer group select-none min-w-0 flex-1 sm:flex-initial">
+        <div id="topAvatar" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#172554] border-2 border-amber-400/80 flex items-center justify-center font-bold text-white text-xs sm:text-sm shadow flex-shrink-0 group-hover:scale-105 transition">
           ÖK
         </div>
-        <div>
-          <div class="flex items-center gap-1.5">
-            <span id="topDisplayName" class="font-bold text-sm text-white group-hover:text-amber-300 transition">Özay Kağan USLU</span>
-            <span id="topRoleBadge" class="text-[10px] bg-amber-500/20 text-amber-300 px-1.5 py-0.2 rounded font-semibold border border-amber-500/30">Yönetici</span>
+        <div class="min-w-0">
+          <div class="flex items-center gap-1.5 min-w-0">
+            <span id="topDisplayName" class="font-bold text-xs sm:text-sm text-white group-hover:text-amber-300 transition truncate">Özay Kağan USLU</span>
+            <span id="topRoleBadge" class="text-[10px] bg-amber-500/20 text-amber-300 px-1.5 py-0.2 rounded font-semibold border border-amber-500/30 whitespace-nowrap flex-shrink-0">Yönetici</span>
           </div>
-          <div class="text-[11px] text-blue-200 flex items-center gap-1">
-            <span id="topDept">Fabrika Yönetimi</span>
-            <span>•</span>
-            <span class="text-amber-400 font-semibold" id="topRole">Sistem Yöneticisi</span>
+          <div class="text-[10px] sm:text-[11px] text-blue-200 flex items-center gap-1 min-w-0">
+            <span id="topDept" class="truncate">Fabrika Yönetimi</span>
+            <span class="flex-shrink-0">•</span>
+            <span class="text-amber-400 font-semibold truncate" id="topRole">Sistem Yöneticisi</span>
           </div>
         </div>
       </div>
 
       <!-- Aksiyon Butonları (Sağ Taraf) -->
-      <div class="flex items-center space-x-2">
+      <div class="flex items-center flex-wrap justify-end gap-1.5 sm:gap-2 max-w-full">
         <!-- Bulut Senkron Rozeti -->
-        <div class="hidden sm:flex items-center space-x-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+        <div class="hidden sm:flex items-center space-x-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 whitespace-nowrap">
           <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
           <span>Canlı Bulut</span>
         </div>
 
         <!-- Android APK İndir Butonu (Tüm Kullanıcılar Görür) -->
-        <a href="app-release.apk?v=26" id="topApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-700/60 hover:bg-blue-600 text-white border border-blue-400/40 transition shadow-sm" title="Android Mobil APK İndir">
-          <i data-lucide="download" class="w-3.5 h-3.5 text-amber-300"></i>
+        <a href="app-release.apk?v=26" id="topApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center space-x-1 px-2.5 py-1 rounded-full text-[11px] sm:text-xs font-semibold bg-blue-700/60 hover:bg-blue-600 text-white border border-blue-400/40 transition shadow-sm whitespace-nowrap flex-shrink-0" title="Android Mobil APK İndir">
+          <i data-lucide="download" class="w-3.5 h-3.5 text-amber-300 flex-shrink-0"></i>
           <span id="topApkBtnText">APK İndir (v1.5.5)</span>
         </a>
 
         <!-- Mobil Sürüm Yönetimi Butonu (Sadece usluozaykagan@gmail.com için görünür) -->
-        <button id="topAppVersionBtn" onclick="openAppVersionModal()" style="display: none;" class="hidden items-center space-x-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-600/70 hover:bg-emerald-600 text-white border border-emerald-400/40 transition shadow-sm" title="Firebase Mobil Sürüm Kontrolü ve Güncelleme">
-          <i data-lucide="smartphone" class="w-3.5 h-3.5 text-amber-300"></i>
+        <button id="topAppVersionBtn" onclick="openAppVersionModal()" style="display: none;" class="hidden items-center space-x-1 px-2.5 py-1 rounded-full text-[11px] sm:text-xs font-semibold bg-emerald-600/70 hover:bg-emerald-600 text-white border border-emerald-400/40 transition shadow-sm whitespace-nowrap flex-shrink-0" title="Firebase Mobil Sürüm Kontrolü ve Güncelleme">
+          <i data-lucide="smartphone" class="w-3.5 h-3.5 text-amber-300 flex-shrink-0"></i>
           <span id="topVersionBadgeText">Sürüm: v1.5.5</span>
         </button>
 
         <!-- Bildirim Sihirbazı Butonu -->
-        <button id="topNotifBtn" onclick="openNotificationWizard()" class="p-2 hover:bg-blue-800 text-amber-300 rounded-xl transition relative" title="Yüksek Öncelikli Bildirim Ayarı">
+        <button id="topNotifBtn" onclick="openNotificationWizard()" class="p-1.5 sm:p-2 hover:bg-blue-800 text-amber-300 rounded-xl transition relative flex-shrink-0" title="Yüksek Öncelikli Bildirim Ayarı">
           <i data-lucide="bell-ring" class="w-5 h-5"></i>
         </button>
 
         <!-- Saha Chatbox Butonu (Badged) -->
-        <button id="topChatBtn" onclick="toggleChatDrawer()" class="p-2 hover:bg-blue-800 text-white rounded-xl transition relative" title="Saha Chatbox">
+        <button id="topChatBtn" onclick="toggleChatDrawer()" class="p-1.5 sm:p-2 hover:bg-blue-800 text-white rounded-xl transition relative flex-shrink-0" title="Saha Chatbox">
           <i data-lucide="message-square" class="w-5 h-5"></i>
           <span id="chatBadge" class="absolute top-1 right-1 bg-rose-500 text-white text-[9px] font-black w-4 h-4 rounded-full flex items-center justify-center shadow hidden">0</span>
         </button>
 
         <!-- Çıkış Butonu -->
-        <button onclick="handleLogout()" class="p-2 hover:bg-blue-800 text-rose-300 hover:text-white rounded-xl transition" title="Oturumu Kapat">
+        <button onclick="handleLogout()" class="p-1.5 sm:p-2 hover:bg-blue-800 text-rose-300 hover:text-white rounded-xl transition flex-shrink-0" title="Oturumu Kapat">
           <i data-lucide="log-out" class="w-5 h-5"></i>
         </button>
       </div>
     </div>
 
     <!-- TAB NAVİGASYON ÇUBUĞU (Android AppTab İle Birebir) -->
-    <nav id="mainNavBar" class="bg-[#172554] border-t border-blue-900/80 overflow-x-auto hide-scrollbar">
-      <div class="max-w-7xl mx-auto px-4 flex space-x-1">
+    <nav id="mainNavBar" class="w-full max-w-full bg-[#172554] border-t border-blue-900/80 overflow-x-auto hide-scrollbar">
+      <div class="max-w-7xl mx-auto px-3 sm:px-4 flex items-center space-x-1 min-w-max">
         <button onclick="switchTab('dashboard')" id="nav-dashboard" class="nav-btn px-3.5 py-2.5 text-xs font-bold border-b-2 border-amber-400 text-amber-400 flex items-center gap-1.5 whitespace-nowrap">
           <i data-lucide="layout-dashboard" class="w-4 h-4"></i> Genel Bakış
         </button>
@@ -298,27 +299,27 @@
   </header>
 
   <!-- ================= OTOMATİK SÜRÜM GÜNCELLEME ŞERİDİ (TÜM KULLANICILAR) ================= -->
-  <div id="webAppUpdateBanner" class="bg-gradient-to-r from-blue-50 via-indigo-50 to-emerald-50 border-b border-blue-200 px-4 py-2.5 text-xs text-slate-800 max-w-7xl mx-auto w-full">
-    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
-      <div class="flex items-start sm:items-center gap-2.5">
+  <div id="webAppUpdateBanner" class="bg-gradient-to-r from-blue-50 via-indigo-50 to-emerald-50 border-b border-blue-200 px-3 sm:px-4 py-2.5 text-xs text-slate-800 max-w-7xl mx-auto w-full min-w-0 overflow-hidden">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 min-w-0">
+      <div class="flex items-start sm:items-center gap-2.5 min-w-0 flex-1">
         <span class="p-1.5 bg-blue-600 text-white rounded-lg shadow-sm flex-shrink-0">
           <i data-lucide="sparkles" class="w-4 h-4"></i>
         </span>
-          <div>
+          <div class="min-w-0 flex-1">
             <div class="flex flex-wrap items-center gap-1.5 font-extrabold text-blue-950">
-              <span id="webUpdateBannerTitle">🚀 Yeni Mobil Sürüm Yayında: Tekinak CMMS v1.5.5</span>
-              <span id="webUpdateBannerCodeBadge" class="px-1.5 py-0.5 rounded bg-emerald-600 text-white text-[10px] font-bold">v1.5.5 (Kod: 26)</span>
+              <span id="webUpdateBannerTitle" class="break-words">🚀 Yeni Mobil Sürüm Yayında: Tekinak CMMS v1.5.5</span>
+              <span id="webUpdateBannerCodeBadge" class="px-1.5 py-0.5 rounded bg-emerald-600 text-white text-[10px] font-bold whitespace-nowrap">v1.5.5 (Kod: 26)</span>
             </div>
-            <div id="webUpdateBannerSummary" class="text-[11px] text-slate-600 mt-0.5">
+            <div id="webUpdateBannerSummary" class="text-[11px] text-slate-600 mt-0.5 break-words">
               Yardımcı Tesisler sayısal alanlarında doğrudan numpad (sayısal tuş takımı) açılması sağlandı ve kararlılık artırıldı.
             </div>
           </div>
         </div>
-        <div class="flex items-center gap-2 flex-shrink-0">
+        <div class="flex flex-wrap items-center gap-2 flex-shrink-0">
           <button type="button" onclick="toggleWebUpdateChangelog()" class="px-2.5 py-1.5 bg-white hover:bg-slate-100 text-blue-800 border border-blue-200 rounded-lg font-bold text-[11px] transition">
             Yenilikler
           </button>
-          <a id="webUpdateBannerDownloadBtn" href="app-release.apk?v=26" download="tekinak-bakim.apk" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold text-[11px] shadow-sm flex items-center gap-1.5 transition">
+          <a id="webUpdateBannerDownloadBtn" href="app-release.apk?v=26" download="tekinak-bakim.apk" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold text-[11px] shadow-sm flex items-center gap-1.5 transition whitespace-nowrap">
             <i data-lucide="download" class="w-3.5 h-3.5"></i>
             <span id="webUpdateBannerDownloadText">APK İndir (v1.5.5)</span>
           </a>
@@ -327,35 +328,35 @@
         </button>
       </div>
     </div>
-    <ul id="webUpdateChangelogList" class="hidden mt-2 pt-2 border-t border-blue-200/70 text-[11px] text-slate-700 space-y-1 pl-9 list-disc"></ul>
+    <ul id="webUpdateChangelogList" class="hidden mt-2 pt-2 border-t border-blue-200/70 text-[11px] text-slate-700 space-y-1 pl-5 sm:pl-9 list-disc break-words"></ul>
   </div>
 
   <!-- ================= BİLDİRİM UYARI ŞERİDİ ================= -->
-  <div id="notificationAlertBanner" class="bg-amber-50 border-b border-amber-200 px-4 py-2 flex items-center justify-between text-xs text-amber-900 max-w-7xl mx-auto w-full">
-    <div class="flex items-center space-x-2">
-      <i data-lucide="bell" class="w-4 h-4 text-amber-600 flex-shrink-0"></i>
-      <span><strong>Xiaomi / Android Bildirim Uyarısı:</strong> Telefon kapalıyken anlık ses ve ekran bildirimlerini almak için Otomatik Başlatma ve Pil Kısıtlamasını ayarlayınız.</span>
+  <div id="notificationAlertBanner" class="bg-amber-50 border-b border-amber-200 px-3 sm:px-4 py-2 flex flex-wrap sm:flex-nowrap items-center justify-between gap-2 text-xs text-amber-900 max-w-7xl mx-auto w-full min-w-0 overflow-hidden">
+    <div class="flex items-start sm:items-center space-x-2 min-w-0 flex-1">
+      <i data-lucide="bell" class="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5 sm:mt-0"></i>
+      <span class="break-words"><strong>Xiaomi / Android Bildirim Uyarısı:</strong> Telefon kapalıyken anlık ses ve ekran bildirimlerini almak için Otomatik Başlatma ve Pil Kısıtlamasını ayarlayınız.</span>
     </div>
-    <div class="flex items-center space-x-2 ml-4">
+    <div class="flex items-center space-x-2 flex-shrink-0 ml-auto">
       <button onclick="openNotificationWizard()" class="px-2.5 py-1 bg-amber-600 hover:bg-amber-700 text-white rounded-md font-bold text-[11px] whitespace-nowrap">Ayarla</button>
       <button onclick="document.getElementById('notificationAlertBanner').remove()" class="text-amber-600 hover:text-amber-800"><i data-lucide="x" class="w-4 h-4"></i></button>
     </div>
   </div>
 
   <!-- ================= FIREBASE AUTH DURUM BİLGİLENDİRMESİ ================= -->
-  <div id="authFallbackNotice" class="hidden bg-blue-50 border-b border-blue-200 px-4 py-2 flex items-center justify-between text-xs text-blue-900 max-w-7xl mx-auto w-full">
-    <div class="flex items-center space-x-2">
+  <div id="authFallbackNotice" class="hidden bg-blue-50 border-b border-blue-200 px-3 sm:px-4 py-2 flex items-center justify-between gap-2 text-xs text-blue-900 max-w-7xl mx-auto w-full min-w-0 overflow-hidden">
+    <div class="flex items-center space-x-2 min-w-0 flex-1">
       <i data-lucide="info" class="w-4 h-4 text-blue-600 flex-shrink-0"></i>
-      <span><strong>Bilgi:</strong> Oturumunuz Firestore veritabanı ile açıldı. Firebase Authentication tam entegrasyonu için Firebase Console &gt; Authentication &gt; Sign-in method sekmesinden <em>"E-posta/Şifre"</em> sağlayıcısını etkinleştirebilirsiniz.</span>
+      <span class="break-words"><strong>Bilgi:</strong> Oturumunuz Firestore veritabanı ile açıldı. Firebase Authentication tam entegrasyonu için Firebase Console &gt; Authentication &gt; Sign-in method sekmesinden <em>"E-posta/Şifre"</em> sağlayıcısını etkinleştirebilirsiniz.</span>
     </div>
-    <button onclick="document.getElementById('authFallbackNotice').remove()" class="text-blue-600 hover:text-blue-800 ml-4"><i data-lucide="x" class="w-4 h-4"></i></button>
+    <button onclick="document.getElementById('authFallbackNotice').remove()" class="text-blue-600 hover:text-blue-800 flex-shrink-0"><i data-lucide="x" class="w-4 h-4"></i></button>
   </div>
 
   <!-- ================= ANA İÇERİK ALANI ================= -->
-  <main class="max-w-7xl mx-auto w-full px-4 py-5 flex-1 space-y-6">
+  <main class="max-w-7xl mx-auto w-full min-w-0 px-3 sm:px-4 py-4 sm:py-5 flex-1 space-y-5 sm:space-y-6">
 
     <!-- BOŞ DURUM: HİÇBİR SEKME YETKİSİ YOKSA -->
-    <section id="pane-no-permissions" class="tab-pane hidden">
+    <section id="pane-no-permissions" class="tab-pane hidden w-full min-w-0">
       <div class="bg-white rounded-2xl border border-slate-200 custom-shadow p-8 max-w-lg mx-auto my-8 text-center space-y-4">
         <div class="w-14 h-14 mx-auto rounded-2xl bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-600">
           <i data-lucide="shield-off" class="w-7 h-7"></i>
@@ -373,7 +374,7 @@
     </section>
 
     <!-- 1. TAB: GENEL BAKIŞ (DEPARTMANA GÖRE DİNAMİK DASHBOARD) -->
-    <section id="pane-dashboard" class="tab-pane block space-y-5">
+    <section id="pane-dashboard" class="tab-pane block w-full min-w-0 space-y-5">
       
       <!-- Departmana Göre Değişen Fabrika Başlık Kartı -->
       <div class="bg-gradient-to-r from-[#1E3A8A] via-[#1E40AF] to-indigo-900 text-white rounded-2xl p-5 shadow-md border border-blue-800 relative overflow-hidden">
@@ -523,7 +524,7 @@
     </section>
 
     <!-- 2. TAB: ELEKTRİK BAKIM (BİRLEŞİK: ARIZA BİLDİR + İŞ EMİRLERİ + PERİYODİK BAKIM + ANALİZ & RAPOR) -->
-    <section id="pane-electricalMaintenance" class="tab-pane hidden space-y-4">
+    <section id="pane-electricalMaintenance" class="tab-pane hidden w-full min-w-0 space-y-4">
       <!-- Birleşik Üst Alt-Sekme Çubuğu -->
       <div class="bg-white p-3.5 rounded-2xl border border-slate-200 custom-shadow flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
@@ -767,7 +768,7 @@
     </section>
 
     <!-- 3. TAB: PAKETLEME BİRİMİ (MAKARNA ÜRETİM & KKN KALİTE TAKİBİ) -->
-    <section id="pane-packagingUnit" class="tab-pane hidden space-y-4">
+    <section id="pane-packagingUnit" class="tab-pane hidden w-full min-w-0 space-y-4">
       <div id="packagingReadOnlyBanner" class="hidden bg-amber-50 border border-amber-200 text-amber-900 px-3.5 py-2.5 rounded-xl text-xs font-semibold flex items-center gap-2">
         <i data-lucide="lock" class="w-4 h-4 text-amber-700 flex-shrink-0"></i>
         <span>Salt Okunur (Sadece Görüntüleme): Paketleme birimi vardiya ve KKN kaydı ekleme/düzenleme yetkiniz kapalıdır.</span>
@@ -905,7 +906,7 @@
     </section>
 
     <!-- 5.5 TAB: YARDIMCI TESİSLER KONTROL FORMLARI (FR-38, FR-129, FR-37, FR-41) -->
-    <section id="pane-utilityControls" class="tab-pane hidden space-y-4">
+    <section id="pane-utilityControls" class="tab-pane hidden w-full min-w-0 space-y-4">
       <div id="utilityReadOnlyBanner" class="hidden bg-amber-50 border border-amber-200 text-amber-900 px-3.5 py-2.5 rounded-xl text-xs font-semibold flex items-center gap-2">
         <i data-lucide="lock" class="w-4 h-4 text-amber-700 flex-shrink-0"></i>
         <span>Salt Okunur (Sadece Görüntüleme): Bu sekmede kontrol formlarını doldurma veya düzenleme yetkiniz kapalıdır.</span>
@@ -939,21 +940,21 @@
       <div id="utilityRecentAlertsBar" class="hidden bg-amber-50/80 border border-amber-300 p-3 rounded-2xl text-xs space-y-1.5"></div>
 
       <!-- Üst Form Seçim & Tarih Çubuğu -->
-      <div class="bg-white p-4 rounded-2xl border border-slate-200 custom-shadow space-y-3">
-        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3">
-          <div>
-            <div class="flex items-center gap-2">
-              <span class="px-2 py-0.5 bg-[#1E3A8A] text-amber-300 rounded text-[10px] font-black tracking-wide" id="utilityFormCodeBadge">FR-38</span>
-              <h2 class="text-base font-extrabold text-slate-900" id="utilityFormMainTitle">KOMPRESÖR KONTROL FORMU</h2>
+      <div class="bg-white p-3.5 sm:p-4 rounded-2xl border border-slate-200 custom-shadow space-y-3 w-full min-w-0">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3 min-w-0">
+          <div class="min-w-0">
+            <div class="flex flex-wrap items-center gap-2 min-w-0">
+              <span class="px-2 py-0.5 bg-[#1E3A8A] text-amber-300 rounded text-[10px] font-black tracking-wide flex-shrink-0" id="utilityFormCodeBadge">FR-38</span>
+              <h2 class="text-sm sm:text-base font-extrabold text-slate-900 break-words" id="utilityFormMainTitle">KOMPRESÖR KONTROL FORMU</h2>
             </div>
-            <p class="text-[11px] text-slate-500 mt-0.5" id="utilityFormMetaText">TEKİNAK GIDA SAN. VE TİC. A.Ş. • Canlı Bulut Senkronizasyonu</p>
+            <p class="text-[11px] text-slate-500 mt-0.5 break-words" id="utilityFormMetaText">TEKİNAK GIDA SAN. VE TİC. A.Ş. • Canlı Bulut Senkronizasyonu</p>
           </div>
 
           <!-- Tarih Seçimi, Referans Limiti Ayarı & Kaydet -->
-          <div class="flex flex-wrap items-center gap-2">
-            <div class="flex items-center bg-slate-50 border border-slate-300 rounded-xl overflow-hidden">
+          <div class="flex flex-wrap items-center gap-2 min-w-0">
+            <div class="flex items-center bg-slate-50 border border-slate-300 rounded-xl overflow-hidden max-w-full">
               <button type="button" onclick="changeUtilityDate(-1)" class="px-2.5 py-2 hover:bg-slate-200 text-slate-700 text-xs font-bold" title="Önceki Gün">◀</button>
-              <input type="date" id="utilityDateInput" onchange="setUtilityDate(this.value)" class="bg-transparent px-2 py-1.5 text-xs font-extrabold text-[#1E3A8A] outline-none">
+              <input type="date" id="utilityDateInput" onchange="setUtilityDate(this.value)" class="bg-transparent px-2 py-1.5 text-xs font-extrabold text-[#1E3A8A] outline-none min-w-0">
               <button type="button" onclick="changeUtilityDate(1)" class="px-2.5 py-2 hover:bg-slate-200 text-slate-700 text-xs font-bold" title="Sonraki Gün">▶</button>
             </div>
             <button type="button" onclick="setUtilityDateToday()" class="px-3 py-2 bg-sky-50 hover:bg-sky-100 text-sky-800 border border-sky-200 rounded-xl text-xs font-bold transition">Bugün</button>
@@ -971,16 +972,16 @@
 
         <!-- Resmi Form Alt Sekmeleri -->
         <div class="flex flex-wrap gap-2 pt-2 border-t border-slate-100">
-          <button type="button" onclick="selectUtilityForm('COMPRESSOR')" id="utilSubTab_COMPRESSOR" class="util-sub-btn px-3.5 py-2 rounded-xl text-xs font-bold bg-[#1E3A8A] text-amber-300 shadow-sm transition">
+          <button type="button" onclick="selectUtilityForm('COMPRESSOR')" id="utilSubTab_COMPRESSOR" class="util-sub-btn px-3 py-2 rounded-xl text-xs font-bold bg-[#1E3A8A] text-amber-300 shadow-sm transition">
             💨 Kompresör (FR-38)
           </button>
-          <button type="button" onclick="selectUtilityForm('CHILLER')" id="utilSubTab_CHILLER" class="util-sub-btn px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
+          <button type="button" onclick="selectUtilityForm('CHILLER')" id="utilSubTab_CHILLER" class="util-sub-btn px-3 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
             ❄️ Chiller Soğutma (FR-129)
           </button>
-          <button type="button" onclick="selectUtilityForm('BOILER')" id="utilSubTab_BOILER" class="util-sub-btn px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
+          <button type="button" onclick="selectUtilityForm('BOILER')" id="utilSubTab_BOILER" class="util-sub-btn px-3 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
             🔥 Kazan &amp; Buhar Dairesi (FR-37)
           </button>
-          <button type="button" onclick="selectUtilityForm('WATER_TREATMENT')" id="utilSubTab_WATER_TREATMENT" class="util-sub-btn px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
+          <button type="button" onclick="selectUtilityForm('WATER_TREATMENT')" id="utilSubTab_WATER_TREATMENT" class="util-sub-btn px-3 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
             💧 Su Arıtma (FR-41)
           </button>
         </div>
@@ -990,11 +991,11 @@
       </div>
 
       <!-- Su Arıtma İç Bölümleri (Günlük Kontrol Tablosu vs Membran & Filtre Değişikliği) -->
-      <div id="utilityWaterInnerTabs" class="hidden bg-white p-2 rounded-2xl border border-slate-200 custom-shadow flex flex-wrap gap-2">
-        <button type="button" onclick="setWaterInnerMode('daily')" id="waterInnerTab_daily" class="flex-1 min-w-[180px] px-4 py-2.5 rounded-xl text-xs font-bold bg-[#1E3A8A] text-amber-300 shadow-sm transition">
+      <div id="utilityWaterInnerTabs" class="hidden bg-white p-2 rounded-2xl border border-slate-200 custom-shadow flex flex-wrap gap-2 w-full min-w-0">
+        <button type="button" onclick="setWaterInnerMode('daily')" id="waterInnerTab_daily" class="flex-1 min-w-[140px] px-3 py-2.5 rounded-xl text-xs font-bold bg-[#1E3A8A] text-amber-300 shadow-sm transition">
           💧 Günlük Su Arıtma Kontrol Tablosu (FR-41)
         </button>
-        <button type="button" onclick="setWaterInnerMode('filter')" id="waterInnerTab_filter" class="flex-1 min-w-[180px] px-4 py-2.5 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
+        <button type="button" onclick="setWaterInnerMode('filter')" id="waterInnerTab_filter" class="flex-1 min-w-[140px] px-3 py-2.5 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
           🧪 Membran &amp; Filtre Değişikliği
         </button>
       </div>
@@ -1005,7 +1006,7 @@
       </div>
 
       <!-- Dinamik Tablo Alanı -->
-      <div id="utilityFormTablesContainer" class="space-y-4"></div>
+      <div id="utilityFormTablesContainer" class="space-y-4 w-full min-w-0"></div>
 
       <!-- Ayın Son Gününe Özel Kompresör Çalışma Saatleri (Yalnızca ayın son gününde görünür) -->
       <div id="utilityCompressorEomCard" class="hidden"></div>
@@ -1046,7 +1047,7 @@
     </section>
 
     <!-- 5.7 TAB: ÜRETİM (ÜRETİM VERİLERİ & ÜRETİM ARIZALARI) -->
-    <section id="pane-production" class="tab-pane hidden space-y-4">
+    <section id="pane-production" class="tab-pane hidden w-full min-w-0 space-y-4">
       <!-- Üst Dal Sekme Çubuğu -->
       <div class="bg-white p-2 rounded-2xl border border-slate-200 custom-shadow flex flex-wrap items-center gap-2">
         <button type="button" id="prodSubBtn_data" onclick="selectProductionBranch('data')" class="px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 flex items-center gap-1.5 transition">
@@ -1160,7 +1161,7 @@
     </section>
 
     <!-- 5.5 TAB: ENERJİ YÖNETİMİ (ISO 50001 - SADECE ANA YÖNETİCİ) -->
-    <section id="pane-energyManagement" class="tab-pane hidden space-y-4">
+    <section id="pane-energyManagement" class="tab-pane hidden w-full min-w-0 space-y-4">
       <div class="bg-gradient-to-r from-slate-900 via-[#0f172a] to-[#1e3a8a] text-white p-4 sm:p-5 rounded-2xl border border-slate-700 shadow-lg space-y-3">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div class="flex items-center gap-3">
@@ -1189,7 +1190,7 @@
     </section>
 
     <!-- 6. TAB: FABRİKA ÜYELERİ (MEMBERS - Android MembersScreen ile Birebir) -->
-    <section id="pane-members" class="tab-pane hidden space-y-4">
+    <section id="pane-members" class="tab-pane hidden w-full min-w-0 space-y-4">
       <!-- Üst Başlık & Yönetici Rozeti -->
       <div class="bg-white p-4 rounded-xl border border-slate-200 custom-shadow flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
         <div>
@@ -1230,7 +1231,7 @@
     </section>
 
     <!-- 7. TAB: PERSONEL, ŞİFRE & ROL YÖNETİMİ (TEAM - Android TeamScreen ile Birebir) -->
-    <section id="pane-team" class="tab-pane hidden space-y-4">
+    <section id="pane-team" class="tab-pane hidden w-full min-w-0 space-y-4">
       <!-- Android TeamScreen Yönetici Sarı Kartı -->
       <div class="bg-gradient-to-r from-amber-50 to-amber-100/70 border-2 border-amber-400 p-5 rounded-2xl shadow-sm">
         <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
@@ -13250,14 +13251,14 @@
           const filterBtn = document.getElementById("waterInnerTab_filter");
           if (dailyBtn) {
             dailyBtn.className = !isWaterFilter
-              ? "flex-1 min-w-[180px] px-4 py-2.5 rounded-xl text-xs font-bold bg-[#1E3A8A] text-amber-300 shadow-sm transition"
-              : "flex-1 min-w-[180px] px-4 py-2.5 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition";
+              ? "flex-1 min-w-[140px] px-3 py-2.5 rounded-xl text-xs font-bold bg-[#1E3A8A] text-amber-300 shadow-sm transition"
+              : "flex-1 min-w-[140px] px-3 py-2.5 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition";
           }
           if (filterBtn) {
             filterBtn.innerText = dayFilterCount > 0 ? `🧪 Membran & Filtre Değişikliği (${dayFilterCount})` : "🧪 Membran & Filtre Değişikliği";
             filterBtn.className = isWaterFilter
-              ? "flex-1 min-w-[180px] px-4 py-2.5 rounded-xl text-xs font-bold bg-[#1E3A8A] text-amber-300 shadow-sm transition"
-              : "flex-1 min-w-[180px] px-4 py-2.5 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition";
+              ? "flex-1 min-w-[140px] px-3 py-2.5 rounded-xl text-xs font-bold bg-[#1E3A8A] text-amber-300 shadow-sm transition"
+              : "flex-1 min-w-[140px] px-3 py-2.5 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition";
           }
         }
       }
@@ -13432,12 +13433,12 @@
         }).join("");
 
         return `
-          <div class="bg-white rounded-2xl border border-slate-200 custom-shadow overflow-hidden">
-            <div class="px-4 py-2.5 bg-[#1E3A8A] text-white flex items-center justify-between gap-2">
+          <div class="bg-white rounded-2xl border border-slate-200 custom-shadow overflow-hidden w-full max-w-full min-w-0">
+            <div class="px-3.5 sm:px-4 py-2.5 bg-[#1E3A8A] text-white flex flex-wrap items-center justify-between gap-2">
               <span class="text-xs font-extrabold tracking-wide">${escapeHtml(sec.title)}</span>
-              <span class="text-[10px] font-semibold text-amber-300">${sec.hours.length} Kontrol Saati • ${escapeHtml(formatDisplayDateTr(dateIso))}</span>
+              <span class="text-[10px] font-semibold text-amber-300 whitespace-nowrap">${sec.hours.length} Kontrol Saati • ${escapeHtml(formatDisplayDateTr(dateIso))}</span>
             </div>
-            <div class="overflow-x-auto">
+            <div class="overflow-x-auto w-full max-w-full">
               <table class="w-full border-collapse text-xs">
                 <thead>
                   <tr>
@@ -15095,7 +15096,7 @@
           </div>
         </div>
 
-        <div class="bg-white rounded-2xl border border-slate-200 custom-shadow overflow-x-auto">
+        <div class="bg-white rounded-2xl border border-slate-200 custom-shadow overflow-x-auto w-full max-w-full min-w-0">
           <table class="w-full text-xs text-left">
             <thead class="bg-slate-50 text-slate-600 uppercase text-[11px] border-b">
               <tr>
@@ -15222,7 +15223,7 @@
                 </div>`).join("")}
           </div>
         </div>
-        <div class="bg-white rounded-2xl border border-slate-200 custom-shadow overflow-x-auto">
+        <div class="bg-white rounded-2xl border border-slate-200 custom-shadow overflow-x-auto w-full max-w-full min-w-0">
           <table class="w-full text-xs text-left">
             <thead class="bg-slate-50 text-slate-600 uppercase text-[11px] border-b">
               <tr><th class="p-3">Tarih / Hat</th><th class="p-3">Tonaj</th><th class="p-3">Elektrik</th><th class="p-3">Doğalgaz</th><th class="p-3">SEC (kWh/Ton)</th><th class="p-3 text-right">İşlem</th></tr>
