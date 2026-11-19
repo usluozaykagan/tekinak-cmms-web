@@ -15978,6 +15978,9 @@
     };
 
     const LIVE_ENERGY_MONITOR_URL = "https://www.enerjitakibi.com/control_v2.php?id=366740";
+    window._energyLivePopupWindow = null;
+    window._energyProxySupport = null; // null | true | false
+    window._energyForceDirectIframe = false;
 
     window.selectEnergySubTab = function(sub) {
       window.energyUiState.subTab = sub;
@@ -15991,10 +15994,65 @@
       window.renderEnergyManagementTab();
     };
 
+    window.openEnergyLiveAppWindow = function() {
+      try {
+        if (window._energyLivePopupWindow && !window._energyLivePopupWindow.closed) {
+          window._energyLivePopupWindow.focus();
+          window.updateEnergyPopupStatusBadge();
+          return;
+        }
+        const w = Math.min(1360, Math.max(980, Math.round((window.screen?.availWidth || 1366) * 0.88)));
+        const h = Math.min(880, Math.max(660, Math.round((window.screen?.availHeight || 768) * 0.86)));
+        const left = Math.max(0, Math.round(((window.screen?.availWidth || 1366) - w) / 2));
+        const top = Math.max(0, Math.round(((window.screen?.availHeight || 768) - h) / 2));
+        const features = `width=${w},height=${h},left=${left},top=${top},menubar=no,toolbar=no,location=yes,status=no,resizable=yes,scrollbars=yes`;
+        const win = window.open(LIVE_ENERGY_MONITOR_URL, "tekinak_live_energy_monitor", features);
+        if (win) {
+          window._energyLivePopupWindow = win;
+          win.focus();
+        } else {
+          window.open(LIVE_ENERGY_MONITOR_URL, "_blank", "noopener,noreferrer");
+        }
+      } catch (_) {
+        window.open(LIVE_ENERGY_MONITOR_URL, "_blank", "noopener,noreferrer");
+      }
+      window.updateEnergyPopupStatusBadge();
+    };
+
+    window.updateEnergyPopupStatusBadge = function() {
+      const btn = document.getElementById("energyLivePopupLaunchBtn");
+      const statusPill = document.getElementById("energyLivePopupStatusPill");
+      const isOpen = !!(window._energyLivePopupWindow && !window._energyLivePopupWindow.closed);
+      if (btn) {
+        btn.innerHTML = isOpen
+          ? `<span>🟢 Canlı Enerji Penceresini Öne Getir</span>`
+          : `<span>⚡ Canlı Enerji Panelini Uygulama Penceresinde Aç</span>`;
+      }
+      if (statusPill) {
+        statusPill.className = isOpen
+          ? "inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-300"
+          : "inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-slate-100 text-slate-600 border border-slate-200";
+        statusPill.innerHTML = isOpen
+          ? `<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Özel Pencere Açık`
+          : `<span class="w-2 h-2 rounded-full bg-slate-400"></span> Açılmaya Hazır`;
+      }
+    };
+
     window.reloadEnergyLiveMonitor = function() {
       const frame = document.getElementById("energyLiveMonitorIframe");
-      if (!frame) return;
-      frame.src = LIVE_ENERGY_MONITOR_URL;
+      if (frame) {
+        const src = frame.getAttribute("data-target-src") || frame.src || LIVE_ENERGY_MONITOR_URL;
+        frame.src = src;
+        return;
+      }
+      if (window._energyLivePopupWindow && !window._energyLivePopupWindow.closed) {
+        try {
+          window._energyLivePopupWindow.location.href = LIVE_ENERGY_MONITOR_URL;
+          window._energyLivePopupWindow.focus();
+          return;
+        } catch (_) {}
+      }
+      window.openEnergyLiveAppWindow();
     };
 
     window.toggleEnergyLiveMonitorFullscreen = function() {
@@ -16007,7 +16065,46 @@
       }
     };
 
+    window.toggleEnergyDirectIframeTry = function(enable) {
+      window._energyForceDirectIframe = !!enable;
+      const container = document.getElementById("energyModuleBody");
+      if (container && window.energyUiState.subTab === "live_monitor") {
+        renderEnergyLiveMonitorPane(container);
+      }
+    };
+
+    async function detectEnergyProxySupport() {
+      if (window._energyProxySupport !== null) return window._energyProxySupport;
+      // GitHub Pages veya file:// üzerinde Node proxy bulunmaz
+      const host = (window.location.hostname || "").toLowerCase();
+      if (window.location.protocol === "file:" || host.endsWith(".github.io")) {
+        window._energyProxySupport = false;
+        return false;
+      }
+      try {
+        const ctrl = typeof AbortController !== "undefined" ? new AbortController() : null;
+        const t = ctrl ? setTimeout(() => ctrl.abort(), 1800) : null;
+        const r = await fetch("/api/energy-proxy?ping=1", { cache: "no-store", signal: ctrl ? ctrl.signal : undefined });
+        if (t) clearTimeout(t);
+        if (r.ok) {
+          const data = await r.json().catch(() => null);
+          if (data && data.ok === true) {
+            window._energyProxySupport = true;
+            return true;
+          }
+        }
+      } catch (_) {}
+      window._energyProxySupport = false;
+      return false;
+    }
+
     function renderEnergyLiveMonitorPane(container) {
+      const useProxy = window._energyProxySupport === true;
+      const showIframe = useProxy || window._energyForceDirectIframe === true;
+      const iframeSrc = useProxy
+        ? `/api/energy-proxy?url=${encodeURIComponent(LIVE_ENERGY_MONITOR_URL)}`
+        : LIVE_ENERGY_MONITOR_URL;
+
       container.innerHTML = `
         <div id="energyLiveMonitorCard" class="bg-white rounded-2xl border border-slate-200 custom-shadow overflow-hidden flex flex-col">
           <div class="bg-slate-900 text-white px-4 py-2.5 flex flex-wrap items-center justify-between gap-2 border-b border-slate-700">
@@ -16018,25 +16115,84 @@
                 <div class="text-[10px] text-slate-300 font-mono truncate">${LIVE_ENERGY_MONITOR_URL}</div>
               </div>
             </div>
-            <div class="flex items-center gap-1.5 flex-shrink-0">
-              <button type="button" onclick="reloadEnergyLiveMonitor()" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-100 text-xs font-bold border border-slate-600 transition">🔄 Yenile</button>
-              <button type="button" onclick="toggleEnergyLiveMonitorFullscreen()" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-amber-300 text-xs font-bold border border-slate-600 transition">⛶ Tam Ekran</button>
+            <div class="flex flex-wrap items-center gap-1.5 flex-shrink-0">
+              <button type="button" onclick="openEnergyLiveAppWindow()" class="px-2.5 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-extrabold transition shadow-sm">🪟 Uygulama Penceresinde Aç</button>
+              ${showIframe ? `<button type="button" onclick="reloadEnergyLiveMonitor()" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-100 text-xs font-bold border border-slate-600 transition">🔄 Yenile</button>
+              <button type="button" onclick="toggleEnergyLiveMonitorFullscreen()" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-amber-300 text-xs font-bold border border-slate-600 transition">⛶ Tam Ekran</button>` : ""}
               <a href="${LIVE_ENERGY_MONITOR_URL}" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1.5 rounded-lg bg-amber-400 hover:bg-amber-300 text-slate-950 text-xs font-extrabold transition">↗ Yeni Sekmede Aç</a>
             </div>
           </div>
-          <div class="bg-amber-50 border-b border-amber-200 px-4 py-1.5 text-[11px] text-amber-900 flex items-center justify-between gap-2">
-            <span>ℹ️ Tarayıcı güvenlik kısıtlaması nedeniyle panel gömülü çerçevede açılmazsa sağ üstteki <strong>"Yeni Sekmede Aç"</strong> butonunu kullanabilirsiniz (Android uygulamasında doğrudan yerleşik olarak tam ekran açılır).</span>
-          </div>
-          <iframe
-            id="energyLiveMonitorIframe"
-            src="${LIVE_ENERGY_MONITOR_URL}"
-            title="Canlı Enerji Takibi"
-            class="w-full h-[76vh] min-h-[620px] border-0 bg-white"
-            allow="fullscreen"
-            referrerpolicy="no-referrer-when-downgrade"
-          ></iframe>
+
+          ${showIframe ? `
+            ${!useProxy ? `
+              <div class="bg-amber-50 border-b border-amber-200 px-4 py-1.5 text-[11px] text-amber-900 flex flex-wrap items-center justify-between gap-2">
+                <span>⚠️ <strong>enerjitakibi.com</strong> güvenlik başlığı (X-Frame-Options) nedeniyle tarayıcı gömülü çerçeveyi engelleyebilir.</span>
+                <button type="button" onclick="toggleEnergyDirectIframeTry(false)" class="px-2 py-0.5 rounded bg-white border border-amber-300 text-amber-900 font-bold hover:bg-amber-100">Kontrol Kartına Dön</button>
+              </div>
+            ` : ""}
+            <iframe
+              id="energyLiveMonitorIframe"
+              src="${iframeSrc}"
+              data-target-src="${iframeSrc}"
+              title="Canlı Enerji Takibi"
+              class="w-full h-[76vh] min-h-[620px] border-0 bg-white"
+              allow="fullscreen"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          ` : `
+            <div class="p-6 sm:p-10 bg-gradient-to-br from-slate-50 via-blue-50/40 to-emerald-50/40 flex flex-col items-center justify-center text-center min-h-[460px]">
+              <div class="max-w-xl w-full bg-white rounded-2xl border border-slate-200 shadow-lg p-6 sm:p-8 space-y-5">
+                <div class="flex items-center justify-between gap-2 border-b border-slate-100 pb-3">
+                  <div class="flex items-center gap-2 text-left">
+                    <div class="w-10 h-10 rounded-xl bg-[#1E3A8A] text-amber-300 flex items-center justify-center text-lg font-black shadow">⚡</div>
+                    <div>
+                      <div class="text-sm sm:text-base font-extrabold text-[#1E3A8A]">Canlı Enerji Takibi Portalı</div>
+                      <div class="text-[11px] text-slate-500 font-mono">enerjitakibi.com • Tesis ID: 366740</div>
+                    </div>
+                  </div>
+                  <span id="energyLivePopupStatusPill" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-slate-100 text-slate-600 border border-slate-200">
+                    <span class="w-2 h-2 rounded-full bg-slate-400"></span> Açılmaya Hazır
+                  </span>
+                </div>
+
+                <div class="bg-blue-50/80 border border-blue-200 rounded-xl p-3.5 text-left text-xs text-blue-950 space-y-1.5">
+                  <div class="font-extrabold flex items-center gap-1.5">🔒 Neden Web'de Gömülü Çerçeve Yerine Özel Pencere Kullanılıyor?</div>
+                  <p class="text-[11px] leading-relaxed text-blue-900">
+                    <strong>enerjitakibi.com</strong> sunucusu güvenlik politikası (<em>X-Frame-Options / frame-ancestors</em>) gereği tarayıcılarda başka sitelerin içindeki gömülü çerçevelere (iframe) izin vermemektedir.
+                    <strong>Android mobil uygulamasında</strong> bu kısıtlama olmadığı için panel doğrudan uygulama ekranının içinde tam gömülü olarak açılır.
+                  </p>
+                </div>
+
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-2.5 pt-1">
+                  <button type="button" id="energyLivePopupLaunchBtn" onclick="openEnergyLiveAppWindow()" class="flex-1 px-4 py-3 rounded-xl bg-[#1E3A8A] hover:bg-blue-800 text-white text-xs sm:text-sm font-extrabold shadow-md transition flex items-center justify-center gap-2">
+                    <span>⚡ Canlı Enerji Panelini Uygulama Penceresinde Aç</span>
+                  </button>
+                  <a href="${LIVE_ENERGY_MONITOR_URL}" target="_blank" rel="noopener noreferrer" class="px-4 py-3 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 text-xs sm:text-sm font-extrabold shadow-sm transition flex items-center justify-center gap-1.5">
+                    <span>↗ Yeni Sekmede Aç</span>
+                  </a>
+                </div>
+
+                <div class="pt-2 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-500">
+                  <span>✅ Yalnızca Ana Yönetici (usluozaykagan@gmail.com) erişebilir</span>
+                  <button type="button" onclick="toggleEnergyDirectIframeTry(true)" class="text-blue-700 hover:underline font-semibold">Gömülü çerçeveyi yine de dene</button>
+                </div>
+              </div>
+            </div>
+          `}
         </div>
       `;
+
+      window.updateEnergyPopupStatusBadge();
+
+      // Eğer proxy desteği henüz kontrol edilmediyse arka planda test et; destekleniyorsa otomatik gömülü moda geç
+      if (window._energyProxySupport === null) {
+        detectEnergyProxySupport().then(supported => {
+          if (supported && window.energyUiState.subTab === "live_monitor") {
+            const c = document.getElementById("energyModuleBody");
+            if (c) renderEnergyLiveMonitorPane(c);
+          }
+        });
+      }
     }
 
     window.renderEnergyManagementTab = function() {
