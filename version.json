@@ -1,15 +1,16 @@
 {
-  "versionCode": 27,
-  "versionName": "1.5.6",
-  "releaseTag": "v1.5.6",
-  "releaseDate": "2026-11-18",
+  "versionCode": 28,
+  "versionName": "1.5.7",
+  "releaseTag": "v1.5.7",
+  "releaseDate": "2026-11-19",
   "apkUrl": "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
   "fallbackUrl": "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-  "title": "Yeni Sürüm Mevcut (v1.5.6)",
+  "title": "Yeni Sürüm Mevcut (v1.5.7)",
   "changelog": [
-    "Giriş sonrası beklenmedik oturum kapatma / arayüzden atma sorunu hem Android hem Web'de giderildi.",
-    "Mobil Chrome yatay taşma ve yarım ekran görünüm sorunu düzeltildi.",
-    "Tekinak CMMS v1.5.6 (Kod: 27) kararlılık ve arka plan servis iyileştirmeleri tamamlandı."
+    "Web ve Android bulut giriş bağlantısı güçlendirildi (otomatik yeniden deneme ve HTTPS REST yedeği).",
+    "Web portalına Google ile Giriş Yap eklendi ve Google kayıtlarının Üyeler sekmesine eşzamanlı düşmesi sağlandı.",
+    "Enerji Yönetimi altına yalnızca Ana Yönetici için Canlı Enerji Takibi sekmesi eklendi.",
+    "Chiller (2020/2012 Trane), KHELL 2026 75 KW Kompresör, 09:00 kazan saati ve birim bazlı Chat güncellemeleri v1.5.7 (Kod: 28) sürümüne dahil edildi."
   ],
   "forceUpdate": false
 }
