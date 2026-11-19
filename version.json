@@ -1,15 +1,15 @@
 {
-  "versionCode": 30,
-  "versionName": "1.6.1",
-  "releaseTag": "v1.6.1",
+  "versionCode": 31,
+  "versionName": "1.6.2",
+  "releaseTag": "v1.6.2",
   "releaseDate": "2026-11-19",
   "apkUrl": "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
   "fallbackUrl": "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-  "title": "Yeni Sürüm Mevcut (v1.6.1)",
+  "title": "Yeni Sürüm Mevcut (v1.6.2)",
   "changelog": [
     "Profil → Ayarlar sekmesine kişiye özel Erişilebilirlik (Büyük Yazı & Ekran Optimizasyonu) seçenek kutusu eklendi.",
-    "İşaretlendiğinde yazılar büyütülürken kart ve şablon yoğunluğu ekrana göre senkronize edilir; cihazın kendi yazı büyütme ayarındaki görüş alanı daralması engellenir.",
-    "3 kademeli büyütme seviyesi (Rahat +%12, Optimize +%18, Çok Büyük +%26) ve kompakt üst karşılama kartı seçeneği eklendi (v1.6.1 - Kod: 30)."
+    "Yardımcı Tesisler kontrol tabloları (Kompresör, Chiller, Buhar Kazanı, Su Arıtma) ve veri giriş pencereleri erişilebilirlik modunda ek olarak büyütüldü.",
+    "3 kademeli büyütme seviyesi (Rahat +%12, Optimize +%18, Çok Büyük +%26) ve senkronize ekran yoğunluğu eklendi (v1.6.2 - Kod: 31)."
   ],
   "forceUpdate": false
 }
