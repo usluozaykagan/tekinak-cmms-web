@@ -180,6 +180,24 @@
           </button>
         </form>
 
+        <!-- VEYA Ayırıcı + Google ile Giriş Yap (Android Uygulama İle Birebir) -->
+        <div class="pt-1 space-y-3">
+          <div class="flex items-center gap-2">
+            <div class="flex-1 h-px bg-slate-200"></div>
+            <span class="text-[11px] font-bold text-slate-400 tracking-wide">VEYA</span>
+            <div class="flex-1 h-px bg-slate-200"></div>
+          </div>
+          <button type="button" id="authGoogleSignInBtn" onclick="handleGoogleSignIn()" class="w-full py-2.5 px-4 bg-slate-50 hover:bg-blue-50/70 text-[#1E3A8A] border-[1.5px] border-[#1E3A8A] font-bold rounded-xl text-xs flex items-center justify-center gap-2.5 shadow-sm transition active:scale-[0.99] disabled:opacity-60 disabled:cursor-not-allowed">
+            <svg id="authGoogleIcon" class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="#4285F4" d="M23.49 12.27c0-.79-.07-1.54-.2-2.27H12v4.3h6.45c-.28 1.48-1.12 2.74-2.38 3.58v2.98h3.85c2.25-2.07 3.57-5.12 3.57-8.59z"/>
+              <path fill="#34A853" d="M12 24c3.24 0 5.95-1.07 7.93-2.91l-3.85-2.98c-1.07.72-2.44 1.15-4.08 1.15-3.14 0-5.8-2.12-6.75-4.97H1.28v3.08C3.25 21.29 7.31 24 12 24z"/>
+              <path fill="#FBBC05" d="M5.25 14.29A7.18 7.18 0 0 1 4.87 12c0-.8.14-1.57.38-2.29V6.63H1.28A11.98 11.98 0 0 0 0 12c0 1.94.46 3.77 1.28 5.37l3.97-3.08z"/>
+              <path fill="#EA4335" d="M12 4.75c1.76 0 3.34.61 4.59 1.79l3.44-3.44C17.95 1.19 15.24 0 12 0 7.31 0 3.25 2.71 1.28 6.63l3.97 3.08C6.2 6.87 8.86 4.75 12 4.75z"/>
+            </svg>
+            <span id="authGoogleBtnText">Google ile Giriş Yap</span>
+          </button>
+        </div>
+
         <div class="pt-3 text-center border-t border-slate-100 flex flex-col items-center justify-center gap-2">
           <a href="app-release.apk?v=27" id="loginApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold rounded-lg border border-emerald-300 transition shadow-sm">
             <i data-lucide="smartphone" class="w-3.5 h-3.5 text-emerald-600"></i>
@@ -2830,6 +2848,10 @@
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
     import { 
       getAuth, 
+      GoogleAuthProvider,
+      signInWithPopup,
+      signInWithRedirect,
+      getRedirectResult,
       signInWithEmailAndPassword, 
       createUserWithEmailAndPassword, 
       updatePassword,
@@ -2857,8 +2879,10 @@
     // Firebase konfigürasyonu (Android app ile birebir aynı veritabanı)
     const firebaseConfig = {
       apiKey: "AIzaSyDCnQ_uGoG7cgaXzVdpm01Ztm5e7jEX_Jo",
+      authDomain: "gen-lang-client-0696693457.firebaseapp.com",
       projectId: "gen-lang-client-0696693457",
       storageBucket: "gen-lang-client-0696693457.firebasestorage.app",
+      messagingSenderId: "438004554053",
       appId: "1:438004554053:web:tekinak-cmms-web"
     };
 
@@ -4738,6 +4762,7 @@
       startRealtimeSync();
       refreshDashboard();
       renderTeam();
+      if (typeof window.renderMembers === "function") window.renderMembers();
       renderFaults();
       renderWorkOrders();
       renderSchedules();
@@ -5026,6 +5051,241 @@
         if (btnText) btnText.innerText = "Giriş Yap";
       }
     }
+
+    // ================= GOOGLE İLE GİRİŞ YAP / KAYDOL (ANDROID UYGULAMA İLE BİREBİR) =================
+    async function completeGoogleAuthUser(firebaseUser) {
+      if (!firebaseUser) return false;
+      const providerEmail = (firebaseUser.providerData || []).find(p => p && p.email)?.email || "";
+      const emailLower = (firebaseUser.email || providerEmail || "").trim().toLowerCase();
+      if (!emailLower) {
+        try { await signOut(auth); } catch (_) {}
+        showAuthError("Google hesabından e-posta bilgisi alınamadı. Lütfen farklı bir hesap deneyiniz.");
+        return false;
+      }
+
+      const isMaster = emailLower === "usluozaykagan@gmail.com";
+      const fbUid = (firebaseUser.uid || ("google_" + emailLower.replace(/[^a-z0-9]/g, "_"))).trim();
+      const rawGoogleName = (firebaseUser.displayName || "").trim();
+      const now = Date.now();
+
+      // 1. Sunucudan canlı kullanıcı & engelli listelerini çek
+      let freshRawList = [];
+      try {
+        const snap = await getDocsFromServer(collection(db, "users"));
+        snap.forEach(d => freshRawList.push({ id: d.id, ...d.data() }));
+      } catch (serverErr) {
+        console.error("Google giriş bulut bağlantı hatası:", serverErr);
+        showAuthError("Bulut sunucusuna bağlanılamadı. İnternet bağlantınızı kontrol edip tekrar deneyiniz.");
+        return false;
+      }
+
+      let blockedRawList = [];
+      try {
+        const bSnap = await getDocsFromServer(collection(db, "blocked_accounts"));
+        bSnap.forEach(d => blockedRawList.push({ id: d.id, ...d.data() }));
+      } catch (_) {}
+
+      const allDeduped = deduplicateUsers(freshRawList);
+      window.allUsers = allDeduped;
+
+      const emailPrefix = emailLower.split("@")[0].replace(/[^a-z0-9._-]/g, "_").replace(/^_+|_+$/g, "") || ("google_" + fbUid.slice(0, 6).toLowerCase());
+
+      if (!isMaster) {
+        const isBlockedInCol = blockedRawList.some(b => {
+          const bId = (b.id || "").trim().toLowerCase();
+          const bEmail = (b.email || "").trim().toLowerCase();
+          const bUser = (b.username || "").trim().toLowerCase();
+          const bUid = (b.userId || "").trim().toLowerCase();
+          return bEmail === emailLower || bEmail === emailLower.replace(/\./g, "_") ||
+                 bId === emailLower || bId === emailLower.replace(/\./g, "_") ||
+                 bId === fbUid.toLowerCase() || bUid === fbUid.toLowerCase() ||
+                 (emailPrefix && (bUser === emailPrefix || bId === emailPrefix));
+        });
+
+        const matchingRawDocs = freshRawList.filter(u => {
+          const uEmail = (u.email || "").trim().toLowerCase();
+          const uId = (u.userId || u.id || "").trim();
+          return (uEmail && uEmail === emailLower) || (uId && uId === fbUid);
+        });
+        const isBlockedOrDeletedDoc = matchingRawDocs.some(u => u.isBlocked === true || u.isDeleted === true);
+
+        if (isBlockedInCol || isBlockedOrDeletedDoc) {
+          try { await signOut(auth); } catch (_) {}
+          localStorage.removeItem("tekinak_session");
+          sessionStorage.removeItem("tekinak_session");
+          showAuthError(
+            (isBlockedInCol || matchingRawDocs.some(u => u.isBlocked === true))
+              ? "Bu kullanıcı hesabı yönetici tarafından engellenmiştir. Giriş yapılamaz."
+              : "Bu kullanıcı hesabı yönetici tarafından silinmiştir. Giriş yetkiniz bulunmamaktadır."
+          );
+          return false;
+        }
+      }
+
+      // 2. Mevcut aktif profili bul (email veya uid ile)
+      const existing = allDeduped.find(u =>
+        !u.isDeleted && !u.isBlocked && (
+          ((u.email || "").trim().toLowerCase() === emailLower) ||
+          ((u.userId || u.id || "").trim() === fbUid)
+        )
+      );
+
+      let profileToLogin = null;
+      let isNewRegistration = false;
+
+      if (existing) {
+        const targetDocId = (existing.userId || existing.id || fbUid).trim();
+        const resolvedUsername = isMaster
+          ? "usluozaykagan"
+          : ((existing.username && existing.username !== "personel") ? existing.username.trim().toLowerCase() : emailPrefix);
+        const resolvedName = isMaster
+          ? "Özay Kağan Uslu"
+          : ((existing.displayName && existing.displayName !== "Personel" && existing.displayName !== "Fabrika Personeli")
+              ? existing.displayName.trim()
+              : (rawGoogleName || emailPrefix));
+        const existingForceAfter = Number(existing.forceLogoutAfterMillis || 0);
+        const loginAt = Math.max(now, existingForceAfter + 1);
+
+        try {
+          await setDoc(doc(db, "users", targetDocId), {
+            userId: targetDocId,
+            email: emailLower,
+            username: resolvedUsername,
+            displayName: resolvedName,
+            isOnline: true,
+            lastActiveMillis: now,
+            isDeleted: false,
+            isBlocked: false,
+            updatedAt: serverTimestamp()
+          }, { merge: true });
+        } catch (err) {
+          console.warn("Google mevcut kullanıcı güncelleme uyarısı:", err);
+        }
+
+        profileToLogin = {
+          ...existing,
+          id: targetDocId,
+          userId: targetDocId,
+          email: emailLower,
+          username: resolvedUsername,
+          displayName: resolvedName,
+          isOnline: true,
+          lastActiveMillis: now,
+          loginAtMillis: loginAt,
+          initialForceLogoutAt: existingForceAfter
+        };
+      } else {
+        isNewRegistration = true;
+        const takenUsernames = new Set(
+          allDeduped
+            .filter(u => !u.isDeleted && (u.email || "").trim().toLowerCase() !== emailLower)
+            .map(u => (u.username || "").trim().toLowerCase())
+            .filter(Boolean)
+        );
+        const finalUsername = isMaster
+          ? "usluozaykagan"
+          : (!takenUsernames.has(emailPrefix) ? emailPrefix : `${emailPrefix}_${fbUid.slice(0, 4).toLowerCase()}`);
+        const finalDisplayName = isMaster
+          ? "Özay Kağan Uslu"
+          : (rawGoogleName || emailPrefix);
+
+        const newUserDoc = {
+          userId: fbUid,
+          username: finalUsername,
+          displayName: finalDisplayName,
+          email: emailLower,
+          department: isMaster ? "Fabrika Yönetimi" : "Üretim & Operasyon",
+          phoneNumber: "",
+          authProvider: "google",
+          role: isMaster ? "ADMIN" : "OBSERVER",
+          allowedTabs: isMaster ? [...window.MASTER_ALL_TABS] : [],
+          editableTabs: isMaster ? [...window.MASTER_ALL_TABS] : [],
+          allowedSubPages: isMaster ? [...window.ALL_SUB_PAGE_IDS] : [],
+          editableSubPages: isMaster ? [...window.ALL_SUB_PAGE_IDS] : [],
+          allowedDashboardDepartments: isMaster ? [window.ALL_FACTORY_LABEL] : [],
+          allowedChatDepartments: isMaster ? [window.ALL_FACTORY_LABEL] : [],
+          hasExplicitPermissions: true,
+          hasSubPagePermissions: true,
+          permissionsUpdatedAtMillis: now,
+          forceLogoutAfterMillis: 0,
+          canCreateFault: isMaster,
+          canCreateWorkOrder: isMaster,
+          canExportExcel: isMaster,
+          canManageSchedules: isMaster,
+          canEditUtilityReferences: isMaster,
+          canViewChat: isMaster,
+          canSendChat: isMaster,
+          canReopenTickets: isMaster,
+          canDeleteAnyMessage: isMaster,
+          canEditProfile: isMaster,
+          isBlocked: false,
+          isDeleted: false,
+          isHidden: false,
+          isOnline: true,
+          lastActiveMillis: now,
+          createdAt: serverTimestamp(),
+          updatedAt: serverTimestamp(),
+          updatedAtMillis: now
+        };
+
+        await setDoc(doc(db, "users", fbUid), newUserDoc, { merge: true });
+        profileToLogin = {
+          ...newUserDoc,
+          id: fbUid,
+          loginAtMillis: now,
+          initialForceLogoutAt: 0
+        };
+        window.allUsers = deduplicateUsers([...freshRawList, profileToLogin]);
+      }
+
+      const rememberChecked = document.getElementById("authRememberMe") ? document.getElementById("authRememberMe").checked : true;
+      showAuthSuccess(
+        isNewRegistration && !isMaster
+          ? "Google hesabınızla kaydınız oluşturuldu! Yönetici yetkilendirmesi bekleniyor..."
+          : "Google ile giriş başarılı! Portal açılıyor..."
+      );
+      completeSuccessfulLogin(window.buildSessionPayload(profileToLogin), rememberChecked, emailLower, false);
+      return true;
+    }
+
+    window.handleGoogleSignIn = async function() {
+      const btn = document.getElementById("authGoogleSignInBtn");
+      const btnText = document.getElementById("authGoogleBtnText");
+      if (btn) btn.disabled = true;
+      if (btnText) btnText.innerText = "Google ile bağlanılıyor...";
+      const errBanner = document.getElementById("authErrorBanner");
+      if (errBanner) errBanner.classList.add("hidden");
+
+      try {
+        const provider = new GoogleAuthProvider();
+        provider.setCustomParameters({ prompt: "select_account" });
+        const result = await signInWithPopup(auth, provider);
+        await completeGoogleAuthUser(result.user);
+      } catch (err) {
+        const code = (err && err.code) || "";
+        console.warn("Google Sign-In error:", code, err);
+        if (code === "auth/popup-blocked" || code === "auth/operation-not-supported-in-this-environment") {
+          try {
+            const provider = new GoogleAuthProvider();
+            provider.setCustomParameters({ prompt: "select_account" });
+            await signInWithRedirect(auth, provider);
+            return;
+          } catch (redirErr) {
+            showAuthError("Google ile yönlendirme başlatılamadı: " + (redirErr?.message || code));
+          }
+        } else if (code === "auth/popup-closed-by-user" || code === "auth/cancelled-popup-request") {
+          // Kullanıcı pencereyi kapattı; hata mesajı göstermeden sıfırla
+        } else if (code === "auth/unauthorized-domain") {
+          const host = window.location.hostname || "bu alan adı";
+          showAuthError(`Google ile giriş için '${host}' alan adının Firebase Console → Authentication → Settings → Authorized domains listesine eklenmesi gerekiyor.`);
+        } else {
+          showAuthError("Google ile giriş yapılamadı: " + (err?.message || code || "Bilinmeyen hata"));
+        }
+      } finally {
+        if (btn) btn.disabled = false;
+        if (btnText) btnText.innerText = "Google ile Giriş Yap";
+      }
+    };
 
     // Yeni Personel Kaydı Gönderimi (Firebase Authentication)
     window.handleRegisterSubmit = async function(e) {
@@ -15196,6 +15456,7 @@
     // Oturumu Kapat (Tüm oturum izlerini temizler ve Giriş Ekranına döner)
     window.handleLogout = function() {
       if (confirm("Oturumu kapatmak istediğinizden emin misiniz?")) {
+        try { signOut(auth).catch(() => {}); } catch (_) {}
         localStorage.removeItem("tekinak_session");
         sessionStorage.removeItem("tekinak_session");
         window.currentUser = null;
@@ -15303,6 +15564,7 @@
         return;
       }
       console.warn("Zorunlu çıkış yapılıyor:", reason, message);
+      try { signOut(auth).catch(() => {}); } catch (_) {}
       localStorage.removeItem("tekinak_session");
       sessionStorage.removeItem("tekinak_session");
       window.currentUser = null;
@@ -15352,6 +15614,17 @@
 
       // Arka planda veritabanı listener'larını başlat (kullanıcı havuzu anında hazır olsun)
       startRealtimeSync();
+
+      // Mobil / popup engelli tarayıcılardan dönen Google Redirect girişini tamamla
+      try {
+        const redirResult = await getRedirectResult(auth);
+        if (redirResult && redirResult.user) {
+          const handled = await completeGoogleAuthUser(redirResult.user);
+          if (handled) return;
+        }
+      } catch (redirErr) {
+        console.warn("Google redirect kontrol uyarısı:", redirErr);
+      }
 
       // Oturum hafızasını kontrol et (şifresiz oturum bilgisi)
       const savedSession = sessionStorage.getItem("tekinak_session") || localStorage.getItem("tekinak_session");
