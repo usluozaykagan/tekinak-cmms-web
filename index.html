@@ -29,6 +29,34 @@
     .thin-dark-scrollbar::-webkit-scrollbar-thumb { background: rgba(251, 191, 36, 0.7); border-radius: 999px; }
     .thin-dark-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(251, 191, 36, 0.95); }
     .custom-shadow { box-shadow: 0 4px 20px -2px rgba(30, 58, 138, 0.08), 0 2px 6px -1px rgba(0, 0, 0, 0.04); }
+
+    /* ================= ERİŞİLEBİLİRLİK: BÜYÜK YAZI & SENKRONİZE EKRAN OPTİMİZASYONU (v1.6.1) ================= */
+    html.a11y-opt-active[data-a11y-level="1"] { font-size: 17.5px; }
+    html.a11y-opt-active[data-a11y-level="2"] { font-size: 18.5px; }
+    html.a11y-opt-active[data-a11y-level="3"] { font-size: 20px; }
+
+    /* Yazı büyürken şablon çerçevelerini ve kenar boşluklarını senkronize ederek geniş görüş alanı korur */
+    html.a11y-opt-active .max-w-7xl { max-width: min(96vw, 1520px) !important; }
+    html.a11y-opt-active main { padding-left: 0.65rem !important; padding-right: 0.65rem !important; padding-top: 0.85rem !important; }
+    html.a11y-opt-active .p-6 { padding: 1rem !important; }
+    html.a11y-opt-active .p-5 { padding: 0.85rem !important; }
+    html.a11y-opt-active .p-4 { padding: 0.72rem !important; }
+    html.a11y-opt-active .gap-6 { gap: 0.9rem !important; }
+    html.a11y-opt-active .gap-5 { gap: 0.75rem !important; }
+    html.a11y-opt-active .space-y-6 > :not([hidden]) ~ :not([hidden]) { margin-top: 1rem !important; }
+    html.a11y-opt-active .space-y-5 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.85rem !important; }
+
+    /* Sabit piksel tanımlı mikro etiketleri de okunaklı ölçeğe senkronize et */
+    html.a11y-opt-active[data-a11y-level="1"] .text-\[10px\] { font-size: 11.5px !important; line-height: 1.35 !important; }
+    html.a11y-opt-active[data-a11y-level="1"] .text-\[11px\] { font-size: 12.5px !important; line-height: 1.4 !important; }
+    html.a11y-opt-active[data-a11y-level="2"] .text-\[10px\] { font-size: 12.5px !important; line-height: 1.35 !important; }
+    html.a11y-opt-active[data-a11y-level="2"] .text-\[11px\] { font-size: 13.5px !important; line-height: 1.4 !important; }
+    html.a11y-opt-active[data-a11y-level="3"] .text-\[10px\] { font-size: 13.5px !important; line-height: 1.4 !important; }
+    html.a11y-opt-active[data-a11y-level="3"] .text-\[11px\] { font-size: 14.5px !important; line-height: 1.45 !important; }
+
+    /* Kompakt üst başlık seçeneği aktifse üst barı daha ferah tut */
+    html.a11y-opt-active.a11y-compact-header header > div:first-child { padding-top: 0.35rem !important; padding-bottom: 0.35rem !important; }
+    html.a11y-opt-active.a11y-compact-header #mainNavBar .nav-btn { padding-top: 0.45rem !important; padding-bottom: 0.45rem !important; }
   </style>
 </head>
 <body class="bg-slate-100 text-slate-800 antialiased min-h-screen w-full max-w-full overflow-x-clip-safe flex flex-col selection:bg-amber-400 selection:text-blue-950">
@@ -199,9 +227,9 @@
         </div>
 
         <div class="pt-3 text-center border-t border-slate-100 flex flex-col items-center justify-center gap-2">
-          <a href="app-release.apk?v=29" id="loginApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold rounded-lg border border-emerald-300 transition shadow-sm">
+          <a href="app-release.apk?v=30" id="loginApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold rounded-lg border border-emerald-300 transition shadow-sm">
             <i data-lucide="smartphone" class="w-3.5 h-3.5 text-emerald-600"></i>
-            <span id="loginApkBtnText">Android APK İndir (v1.6.0)</span>
+            <span id="loginApkBtnText">Android APK İndir (v1.6.1)</span>
           </a>
           <div class="text-[11px] text-slate-400 flex items-center justify-center gap-1.5">
             <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600"></i>
@@ -252,15 +280,15 @@
         </div>
 
         <!-- Android APK İndir Butonu (Tüm Kullanıcılar Görür) -->
-        <a href="app-release.apk?v=29" id="topApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center space-x-1 px-2.5 py-1 rounded-full text-[11px] sm:text-xs font-semibold bg-blue-700/60 hover:bg-blue-600 text-white border border-blue-400/40 transition shadow-sm whitespace-nowrap flex-shrink-0" title="Android Mobil APK İndir">
+        <a href="app-release.apk?v=30" id="topApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center space-x-1 px-2.5 py-1 rounded-full text-[11px] sm:text-xs font-semibold bg-blue-700/60 hover:bg-blue-600 text-white border border-blue-400/40 transition shadow-sm whitespace-nowrap flex-shrink-0" title="Android Mobil APK İndir">
           <i data-lucide="download" class="w-3.5 h-3.5 text-amber-300 flex-shrink-0"></i>
-          <span id="topApkBtnText">APK İndir (v1.6.0)</span>
+          <span id="topApkBtnText">APK İndir (v1.6.1)</span>
         </a>
 
         <!-- Mobil Sürüm Yönetimi Butonu (Sadece usluozaykagan@gmail.com için görünür) -->
         <button id="topAppVersionBtn" onclick="openAppVersionModal()" style="display: none;" class="hidden items-center space-x-1 px-2.5 py-1 rounded-full text-[11px] sm:text-xs font-semibold bg-emerald-600/70 hover:bg-emerald-600 text-white border border-emerald-400/40 transition shadow-sm whitespace-nowrap flex-shrink-0" title="Firebase Mobil Sürüm Kontrolü ve Güncelleme">
           <i data-lucide="smartphone" class="w-3.5 h-3.5 text-amber-300 flex-shrink-0"></i>
-          <span id="topVersionBadgeText">Sürüm: v1.6.0</span>
+          <span id="topVersionBadgeText">Sürüm: v1.6.1</span>
         </button>
 
         <!-- Bildirim Sihirbazı Butonu -->
@@ -330,11 +358,11 @@
         </span>
           <div class="min-w-0 flex-1">
             <div class="flex flex-wrap items-center gap-1.5 font-extrabold text-blue-950">
-              <span id="webUpdateBannerTitle" class="break-words">🚀 Yeni Mobil Sürüm Yayında: Tekinak CMMS v1.6.0</span>
-              <span id="webUpdateBannerCodeBadge" class="px-1.5 py-0.5 rounded bg-emerald-600 text-white text-[10px] font-bold whitespace-nowrap">v1.6.0 (Kod: 29)</span>
+              <span id="webUpdateBannerTitle" class="break-words">🚀 Yeni Mobil Sürüm Yayında: Tekinak CMMS v1.6.1</span>
+              <span id="webUpdateBannerCodeBadge" class="px-1.5 py-0.5 rounded bg-emerald-600 text-white text-[10px] font-bold whitespace-nowrap">v1.6.1 (Kod: 30)</span>
             </div>
             <div id="webUpdateBannerSummary" class="text-[11px] text-slate-600 mt-0.5 break-words">
-              Enerji Yönetimi (ISO 50001) baştan sona yenilendi: SmartPower tek tık veri çekme, 3-faz güç kalitesi, fatura/tarife simülatörü ve CO₂ karbon ayak izi!
+              Profil → Ayarlar sekmesine isteğe bağlı Erişilebilirlik (Büyük Yazı & Ekran Optimizasyonu) seçenek kutusu eklendi!
             </div>
           </div>
         </div>
@@ -342,9 +370,9 @@
           <button type="button" onclick="toggleWebUpdateChangelog()" class="px-2.5 py-1.5 bg-white hover:bg-slate-100 text-blue-800 border border-blue-200 rounded-lg font-bold text-[11px] transition">
             Yenilikler
           </button>
-          <a id="webUpdateBannerDownloadBtn" href="app-release.apk?v=29" download="tekinak-bakim.apk" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold text-[11px] shadow-sm flex items-center gap-1.5 transition whitespace-nowrap">
+          <a id="webUpdateBannerDownloadBtn" href="app-release.apk?v=30" download="tekinak-bakim.apk" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold text-[11px] shadow-sm flex items-center gap-1.5 transition whitespace-nowrap">
             <i data-lucide="download" class="w-3.5 h-3.5"></i>
-            <span id="webUpdateBannerDownloadText">APK İndir (v1.6.0)</span>
+            <span id="webUpdateBannerDownloadText">APK İndir (v1.6.1)</span>
           </a>
         <button type="button" onclick="dismissWebUpdateBanner()" class="p-1 text-slate-400 hover:text-slate-700 rounded-lg" title="Bu sürüm için gizle">
           <i data-lucide="x" class="w-4 h-4"></i>
@@ -1538,70 +1566,145 @@
     </div>
   </div>
 
-  <!-- MODAL: KULLANICI BİLGİLERİNİ DÜZENLE (EditProfileDialog ile Birebir) -->
+  <!-- MODAL: PROFİL & AYARLAR (Android EditProfileDialog ile Birebir) -->
   <div id="modalEditProfile" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
     <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4 max-h-[92vh] overflow-y-auto">
       <div class="flex items-center justify-between border-b pb-3">
-        <h3 class="font-bold text-base text-[#1E3A8A] flex items-center gap-2">
-          <i data-lucide="user" class="w-5 h-5 text-amber-500"></i> Kullanıcı Bilgilerini Düzenle
+        <h3 id="profModalTitle" class="font-bold text-base text-[#1E3A8A] flex items-center gap-2">
+          <i data-lucide="user" class="w-5 h-5 text-amber-500"></i> Profil & Hesap
         </h3>
         <button onclick="closeModal('modalEditProfile')" class="text-slate-400 hover:text-slate-600"><i data-lucide="x" class="w-5 h-5"></i></button>
       </div>
-      <div id="profReadOnlyNotice" class="hidden p-2.5 bg-amber-50 border border-amber-200 rounded-xl text-[11px] font-semibold text-amber-900 flex items-center gap-2">
-        <i data-lucide="lock" class="w-4 h-4 text-amber-700 flex-shrink-0"></i>
-        <span>Profil bilgilerini düzenleme yetkiniz yönetici tarafından kısıtlanmıştır. Bilgilerinizi sadece görüntüleyebilirsiniz.</span>
+
+      <!-- Profil / Ayarlar Sekme Çubuğu -->
+      <div class="grid grid-cols-2 gap-1 p-1 bg-slate-100 rounded-xl text-xs font-bold">
+        <button type="button" id="profTabBtnProfile" onclick="switchProfileModalTab('profile')" class="py-2 rounded-lg bg-[#1E3A8A] text-white shadow transition flex items-center justify-center gap-1.5">
+          <i data-lucide="user" class="w-4 h-4"></i> Profil
+        </button>
+        <button type="button" id="profTabBtnSettings" onclick="switchProfileModalTab('settings')" class="py-2 rounded-lg text-slate-600 hover:text-slate-900 transition flex items-center justify-center gap-1.5">
+          <i data-lucide="settings" class="w-4 h-4"></i> Ayarlar
+          <span id="profTabSettingsDot" class="hidden w-2 h-2 rounded-full bg-emerald-500"></span>
+        </button>
       </div>
-      <div class="space-y-3 text-xs">
-        <div>
-          <label class="block font-semibold text-slate-700 mb-1">Hesap E-postası</label>
-          <input type="text" id="profEmail" readonly class="w-full border bg-slate-100 rounded-lg p-2 text-slate-500">
+
+      <!-- SEKME 1: PROFİL BİLGİLERİ -->
+      <div id="profPanelProfile" class="space-y-3">
+        <div id="profReadOnlyNotice" class="hidden p-2.5 bg-amber-50 border border-amber-200 rounded-xl text-[11px] font-semibold text-amber-900 flex items-center gap-2">
+          <i data-lucide="lock" class="w-4 h-4 text-amber-700 flex-shrink-0"></i>
+          <span>Profil bilgilerini düzenleme yetkiniz kapalıdır. Ayarlar sekmesinden kişisel erişilebilirlik tercihlerinizi değiştirebilir ve tüm aygıtlardan çıkış yapabilirsiniz.</span>
         </div>
-        <div>
-          <label class="block font-semibold text-slate-700 mb-1">Kullanıcı Adı (Giriş için) *</label>
-          <input type="text" id="profUsername" class="w-full border rounded-lg p-2.5 font-semibold">
+        <div class="space-y-3 text-xs">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Hesap E-postası</label>
+            <input type="text" id="profEmail" readonly class="w-full border bg-slate-100 rounded-lg p-2 text-slate-500">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Kullanıcı Adı (Giriş için) *</label>
+            <input type="text" id="profUsername" class="w-full border rounded-lg p-2.5 font-semibold">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Ad Soyad *</label>
+            <input type="text" id="profDisplayName" class="w-full border rounded-lg p-2.5 font-semibold">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Departman *</label>
+            <select id="profDept" class="w-full border rounded-lg p-2.5 bg-white">
+              <option>Fabrika Yönetimi</option>
+              <option>Mekanik Bakım</option>
+              <option>Elektrik & Otomasyon</option>
+              <option>Yardımcı Tesisler Teknisyeni</option>
+              <option>Üretim & Operasyon</option>
+              <option>Kalite & İSG</option>
+              <option>Değirmen Mekanik</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Telefon Numarası</label>
+            <input type="text" id="profPhone" placeholder="05XX XXX XX XX" class="w-full border rounded-lg p-2.5">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Yeni Şifre (İsteğe Bağlı)</label>
+            <input type="password" id="profPassword" placeholder="Değiştirmek istemiyorsanız boş bırakın" class="w-full border rounded-lg p-2.5">
+          </div>
         </div>
-        <div>
-          <label class="block font-semibold text-slate-700 mb-1">Ad Soyad *</label>
-          <input type="text" id="profDisplayName" class="w-full border rounded-lg p-2.5 font-semibold">
+        <div class="flex justify-end gap-2 pt-2">
+          <button onclick="closeModal('modalEditProfile')" class="px-4 py-2 border rounded-xl text-xs font-semibold text-slate-600">İptal</button>
+          <button id="saveProfileBtn" onclick="saveProfileChanges()" class="px-5 py-2 bg-[#1E3A8A] hover:bg-blue-800 text-white rounded-xl text-xs font-bold shadow">Güncelle</button>
         </div>
-        <div>
-          <label class="block font-semibold text-slate-700 mb-1">Departman *</label>
-          <select id="profDept" class="w-full border rounded-lg p-2.5 bg-white">
-            <option>Fabrika Yönetimi</option>
-            <option>Mekanik Bakım</option>
-            <option>Elektrik & Otomasyon</option>
-            <option>Yardımcı Tesisler Teknisyeni</option>
-            <option>Üretim & Operasyon</option>
-            <option>Kalite & İSG</option>
-            <option>Değirmen Mekanik</option>
-          </select>
+        <div class="pt-3 border-t border-slate-200 space-y-1.5">
+          <button type="button" id="selfForceLogoutAllBtn" onclick="selfForceLogoutAllDevices()" class="w-full py-2.5 bg-rose-600 hover:bg-rose-700 text-white rounded-xl text-xs font-bold shadow flex items-center justify-center gap-2 transition">
+            <i data-lucide="log-out" class="w-4 h-4"></i>
+            <span>Tüm Aygıtlardan Çıkış Yap</span>
+          </button>
+          <p class="text-[10px] text-slate-400 text-center">Açık olan bu tarayıcı ve diğer tüm telefon/web oturumlarınızı anında kapatır.</p>
         </div>
-        <div>
-          <label class="block font-semibold text-slate-700 mb-1">Telefon Numarası</label>
-          <input type="text" id="profPhone" placeholder="05XX XXX XX XX" class="w-full border rounded-lg p-2.5">
+      </div>
+
+      <!-- SEKME 2: AYARLAR & ERİŞİLEBİLİRLİK (Herkes kendi isteğine göre kullanabilir) -->
+      <div id="profPanelSettings" class="hidden space-y-3 text-xs">
+        <div id="profA11yCard" class="p-3.5 bg-slate-50 border border-slate-200 rounded-xl space-y-3 transition">
+          <div class="flex items-center justify-between gap-2">
+            <div class="flex items-center gap-1.5 font-bold text-[#1E3A8A] text-sm">
+              <i data-lucide="accessibility" class="w-4 h-4 text-[#1E3A8A]"></i>
+              <span>Erişilebilirlik</span>
+            </div>
+            <span id="profA11yStatusBadge" class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-200 text-slate-600">Standart</span>
+          </div>
+
+          <label class="flex items-start gap-2.5 p-2.5 bg-white border border-slate-200 rounded-xl cursor-pointer hover:border-blue-400 transition">
+            <input type="checkbox" id="profA11yEnabled" onchange="onProfileA11yToggle(this.checked)" class="w-4 h-4 mt-0.5 rounded text-[#1E3A8A] focus:ring-[#1E3A8A] flex-shrink-0 cursor-pointer">
+            <div class="space-y-0.5">
+              <div class="font-bold text-slate-900">Büyük Yazı & Ekran Optimizasyonu</div>
+              <div class="text-[11px] text-slate-500 leading-snug">Yazıları büyütürken kartları ve boşlukları ekrana senkronize eder; görüş alanının daralmasını önler.</div>
+            </div>
+          </label>
+
+          <div id="profA11yOptionsBox" class="hidden space-y-3 pt-1">
+            <div>
+              <div class="text-[11px] font-bold text-[#1E3A8A] mb-1.5">Büyütme & Ekran Dengeleme Seviyesi</div>
+              <div class="grid grid-cols-3 gap-1.5">
+                <button type="button" id="profA11yPreset1" onclick="onProfileA11yPresetChange(1)" class="py-2 px-1.5 rounded-lg border text-center font-bold transition">
+                  <div>Rahat</div>
+                  <div class="text-[10px] opacity-80">+%12</div>
+                </button>
+                <button type="button" id="profA11yPreset2" onclick="onProfileA11yPresetChange(2)" class="py-2 px-1.5 rounded-lg border text-center font-bold transition">
+                  <div>Optimize</div>
+                  <div class="text-[10px] opacity-80">+%18</div>
+                </button>
+                <button type="button" id="profA11yPreset3" onclick="onProfileA11yPresetChange(3)" class="py-2 px-1.5 rounded-lg border text-center font-bold transition">
+                  <div>Çok Büyük</div>
+                  <div class="text-[10px] opacity-80">+%26</div>
+                </button>
+              </div>
+            </div>
+
+            <label class="flex items-start gap-2 p-2 bg-white border border-slate-200 rounded-lg cursor-pointer">
+              <input type="checkbox" id="profA11yCompactHeader" onchange="onProfileA11yCompactToggle(this.checked)" class="w-4 h-4 mt-0.5 rounded text-[#1E3A8A] flex-shrink-0 cursor-pointer">
+              <div>
+                <div class="font-semibold text-slate-800">Kompakt Üst Başlık</div>
+                <div class="text-[10px] text-slate-500">Üst çubuğu daraltarak içerik için daha geniş görüş alanı açar.</div>
+              </div>
+            </label>
+
+            <div class="p-2.5 bg-emerald-50 border border-emerald-200 rounded-xl space-y-1">
+              <div id="profA11yPreviewSummary" class="text-[11px] font-bold text-emerald-800">✓ Yazı +%18 • Şablon Senkronizasyonu Aktif</div>
+              <div class="font-semibold text-slate-900">Örnek: Hat-3 Paketleme Motoru — Periyodik Bakım Tamamlandı</div>
+              <div class="text-[10px] text-emerald-700">Tercihiniz hesabınıza özel kaydedilir ve anında uygulanır.</div>
+            </div>
+          </div>
         </div>
-        <div>
-          <label class="block font-semibold text-slate-700 mb-1">Yeni Şifre (İsteğe Bağlı)</label>
-          <input type="password" id="profPassword" placeholder="Değiştirmek istemiyorsanız boş bırakın" class="w-full border rounded-lg p-2.5">
-        </div>
+
         <div class="p-2.5 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-between text-[11px] text-slate-600">
           <div class="flex items-center gap-1.5 font-semibold text-slate-700">
             <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600"></i>
-            <span id="profSystemVersionText">Sistem Sürümü: v1.6.0</span>
+            <span id="profSystemVersionText">Sistem Sürümü: v1.6.1</span>
           </div>
           <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-300">Güncel ✓</span>
         </div>
-      </div>
-      <div class="flex justify-end gap-2 pt-2">
-        <button onclick="closeModal('modalEditProfile')" class="px-4 py-2 border rounded-xl text-xs font-semibold text-slate-600">İptal</button>
-        <button id="saveProfileBtn" onclick="saveProfileChanges()" class="px-5 py-2 bg-[#1E3A8A] hover:bg-blue-800 text-white rounded-xl text-xs font-bold shadow">Güncelle</button>
-      </div>
-      <div class="pt-3 border-t border-slate-200 space-y-1.5">
-        <button type="button" id="selfForceLogoutAllBtn" onclick="selfForceLogoutAllDevices()" class="w-full py-2.5 bg-rose-600 hover:bg-rose-700 text-white rounded-xl text-xs font-bold shadow flex items-center justify-center gap-2 transition">
-          <i data-lucide="log-out" class="w-4 h-4"></i>
-          <span>Tüm Aygıtlardan Çıkış Yap</span>
-        </button>
-        <p class="text-[10px] text-slate-400 text-center">Açık olan bu tarayıcı ve diğer tüm telefon/web oturumlarınızı anında kapatır.</p>
+
+        <div class="flex justify-end pt-1">
+          <button onclick="closeModal('modalEditProfile')" class="px-5 py-2 bg-[#1E3A8A] hover:bg-blue-800 text-white rounded-xl text-xs font-bold shadow">Tamam</button>
+        </div>
       </div>
     </div>
   </div>
@@ -2315,8 +2418,8 @@
         <div>
           <div class="text-[11px] font-bold text-emerald-800 uppercase tracking-wider">Aktif Firebase Sürümü</div>
           <div class="text-sm font-extrabold text-emerald-950 flex items-center gap-2" id="verModalCurrentBadge">
-            <span id="verModalVersionName">v1.6.0</span>
-            <span id="verModalVersionCode" class="text-xs px-2 py-0.5 bg-emerald-200 text-emerald-800 rounded-md font-semibold">Kod: 29</span>
+            <span id="verModalVersionName">v1.6.1</span>
+            <span id="verModalVersionCode" class="text-xs px-2 py-0.5 bg-emerald-200 text-emerald-800 rounded-md font-semibold">Kod: 30</span>
           </div>
         </div>
         <div class="text-right text-[11px] text-emerald-700">
@@ -2329,18 +2432,18 @@
         <div class="grid grid-cols-2 gap-3">
           <div>
             <label class="block font-semibold text-slate-700 mb-1">Yeni Sürüm Kodu (Build Code) *</label>
-            <input type="number" id="verFormCode" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 29" min="1">
+            <input type="number" id="verFormCode" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 30" min="1">
             <span class="text-[10px] text-slate-400">Yeni sürüm için kod mevcut koddan büyük olmalıdır</span>
           </div>
           <div>
             <label class="block font-semibold text-slate-700 mb-1">Yeni Sürüm Adı (Version Name) *</label>
-            <input type="text" id="verFormName" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 1.6.0">
+            <input type="text" id="verFormName" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 1.6.1">
           </div>
         </div>
 
         <div>
           <label class="block font-semibold text-slate-700 mb-1">Güncelleme Bildirim Başlığı *</label>
-          <input type="text" id="verFormTitle" required class="w-full px-3 py-2 border rounded-xl text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: Yeni Sürüm Yayınlandı (v1.6.0)">
+          <input type="text" id="verFormTitle" required class="w-full px-3 py-2 border rounded-xl text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: Yeni Sürüm Yayınlandı (v1.6.1)">
         </div>
 
         <div>
@@ -2359,9 +2462,9 @@
         </div>
 
         <div class="flex items-center justify-between gap-2 pt-2 border-t">
-          <button type="button" onclick="syncWithDeployedApk()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs rounded-xl font-bold border border-slate-300 flex items-center gap-1.5" title="Firebase'i şu an dağıtılan v1.6.0 (Kod: 29) APK ile eşitler ve güncellenen telefonlardaki popup'ı kapatır">
+          <button type="button" onclick="syncWithDeployedApk()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs rounded-xl font-bold border border-slate-300 flex items-center gap-1.5" title="Firebase'i şu an dağıtılan v1.6.1 (Kod: 30) APK ile eşitler ve güncellenen telefonlardaki popup'ı kapatır">
             <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-blue-600"></i>
-            <span>Mevcut APK ile Eşitle (v1.6.0 - Kod: 29)</span>
+            <span>Mevcut APK ile Eşitle (v1.6.1 - Kod: 30)</span>
           </button>
           <div class="flex gap-2">
             <button type="button" onclick="closeModal('modalAppVersion')" class="px-4 py-2 border rounded-xl font-semibold text-slate-600 hover:bg-slate-50">Kapat</button>
@@ -4924,6 +5027,9 @@
       }
       window.currentUser = safeUser;
       updateTopBarUser(safeUser);
+      if (typeof window.applyUserAccessibilitySettings === "function") {
+        window.applyUserAccessibilitySettings(safeUser);
+      }
 
       window.saveSafeSession(safeUser, !!rememberMe);
       if (rememberMe && identifier) {
@@ -6107,7 +6213,7 @@
       });
 
       // 6. Mobil Uygulama Sürüm Takibi ve Firebase Yönetimi (app_version/current)
-      let hasAutoSyncedV29 = false;
+      let hasAutoSyncedV30 = false;
       try {
         onSnapshot(doc(db, "app_version", "current"), async (docSnap) => {
           if (docSnap && docSnap.exists()) {
@@ -6115,15 +6221,15 @@
             window.currentAppVersion = data;
             renderAppVersionBadge();
 
-            // Sürüm kodu 29'dan küçükse otomatik olarak v1.6.0 (Kod: 29)'a yükselt
+            // Sürüm kodu 30'dan küçükse otomatik olarak v1.6.1 (Kod: 30)'a yükselt
             const verCodeNum = Number(data.versionCode || 0);
-            if (verCodeNum < 29 && !hasAutoSyncedV29) {
-              hasAutoSyncedV29 = true;
-              console.log("Firestore app_version sürüm kodu 29 (v1.6.0) olarak otomatik eşitleniyor...");
+            if (verCodeNum < 30 && !hasAutoSyncedV30) {
+              hasAutoSyncedV30 = true;
+              console.log("Firestore app_version sürüm kodu 30 (v1.6.1) olarak otomatik eşitleniyor...");
               seedInitialAppVersionInFirebase();
             }
-          } else if (!hasAutoSyncedV29) {
-            hasAutoSyncedV29 = true;
+          } else if (!hasAutoSyncedV30) {
+            hasAutoSyncedV30 = true;
             seedInitialAppVersionInFirebase();
           }
         }, (err) => {
@@ -15227,19 +15333,18 @@
 
     function renderAppVersionBadge() {
       const v = window.currentAppVersion || {
-        versionName: "1.6.0",
-        versionCode: 29,
+        versionName: "1.6.1",
+        versionCode: 30,
         releaseDate: "2026-11-19",
-        title: "Tekinak CMMS v1.6.0",
+        title: "Tekinak CMMS v1.6.1",
         changelog: [
-          "Enerji Yönetimi (ISO 50001) modülü baştan sona yenilendi: Yönetici Kokpiti, 3-Faz Güç Kalitesi & Harmonik (IEEE 519), Fatura/Tarife Simülatörü ve CO₂ Karbon Ayak İzi.",
-          "Android Canlı Takip ekranına tek tıkla SmartPower (enerjitakibi.com) verisi çekme ve buluta senkronize etme motoru eklendi.",
-          "Web portalına SmartPower HTML rapor içe aktarma, ay sonu tüketim/fatura projeksiyonu ve otomatik mühendislik alarm teşhisi eklendi.",
-          "NEMA faz gerilim/akım dengesizliği, trafo yüklenme analizi, sözleşme gücü aşım alarmı ve T1/T2/T3 vs Tek Zamanlı tarife karşılaştırması devreye alındı."
+          "Profil → Ayarlar sekmesine kişiye özel Erişilebilirlik (Büyük Yazı & Ekran Optimizasyonu) seçenek kutusu eklendi.",
+          "İşaretlendiğinde yazılar büyütülürken kart ve şablon yoğunluğu ekrana göre senkronize edilir; görüş alanının daralması önlenir.",
+          "3 kademeli büyütme seviyesi (Rahat +%12, Optimize +%18, Çok Büyük +%26) ve kompakt üst başlık seçeneği eklendi."
         ]
       };
-      const vName = v.versionName || "1.6.0";
-      const vCode = Number(v.versionCode || 29);
+      const vName = v.versionName || "1.6.1";
+      const vCode = Number(v.versionCode || 30);
       const localApkHref = `app-release.apk?v=${vCode}`;
 
       const badgeText = document.getElementById("topVersionBadgeText");
@@ -15298,7 +15403,7 @@
     };
 
     window.dismissWebUpdateBanner = function() {
-      const vCode = Number((window.currentAppVersion && window.currentAppVersion.versionCode) || 29);
+      const vCode = Number((window.currentAppVersion && window.currentAppVersion.versionCode) || 30);
       localStorage.setItem("tekinak_dismissed_ver_" + vCode, "1");
       const banner = document.getElementById("webAppUpdateBanner");
       if (banner) banner.classList.add("hidden");
@@ -15307,18 +15412,17 @@
     async function seedInitialAppVersionInFirebase() {
       try {
         const initialData = {
-          versionCode: 29,
-          versionName: "1.6.0",
-          releaseTag: "v1.6.0",
+          versionCode: 30,
+          versionName: "1.6.1",
+          releaseTag: "v1.6.1",
           releaseDate: new Date().toISOString().slice(0, 10),
           apkUrl: "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
           fallbackUrl: "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-          title: "Tekinak CMMS v1.6.0",
+          title: "Tekinak CMMS v1.6.1",
           changelog: [
-            "Enerji Yönetimi (ISO 50001) modülü baştan sona yenilendi: Yönetici Kokpiti, 3-Faz Güç Kalitesi & Harmonik (IEEE 519), Fatura/Tarife Simülatörü ve CO₂ Karbon Ayak İzi.",
-            "Android Canlı Takip ekranına tek tıkla SmartPower (enerjitakibi.com) verisi çekme ve buluta senkronize etme motoru eklendi.",
-            "Web portalına SmartPower HTML rapor içe aktarma, ay sonu tüketim/fatura projeksiyonu ve otomatik mühendislik alarm teşhisi eklendi.",
-            "NEMA faz gerilim/akım dengesizliği, trafo yüklenme analizi, sözleşme gücü aşım alarmı ve T1/T2/T3 vs Tek Zamanlı tarife karşılaştırması devreye alındı."
+            "Profil → Ayarlar sekmesine kişiye özel Erişilebilirlik (Büyük Yazı & Ekran Optimizasyonu) seçenek kutusu eklendi.",
+            "İşaretlendiğinde yazılar büyütülürken kart ve şablon yoğunluğu ekrana göre senkronize edilir; görüş alanının daralması önlenir.",
+            "3 kademeli büyütme seviyesi (Rahat +%12, Optimize +%18, Çok Büyük +%26) ve kompakt üst başlık seçeneği eklendi."
           ],
           forceUpdate: false,
           updatedAtMillis: Date.now()
@@ -15337,10 +15441,10 @@
         alert("⛔ Yetkisiz İşlem: Mobil sürüm güncelleme yönetimi yalnızca usluozaykagan@gmail.com hesabına tanımlıdır.");
         return;
       }
-      const v = window.currentAppVersion || { versionCode: 29, versionName: "1.6.0", title: "Tekinak CMMS v1.6.0", apkUrl: "", changelog: [] };
-      document.getElementById("verFormCode").value = v.versionCode || 29;
-      document.getElementById("verFormName").value = v.versionName || "1.6.0";
-      document.getElementById("verFormTitle").value = `Yeni Sürüm Yayınlandı (v${v.versionName || "1.6.0"})`;
+      const v = window.currentAppVersion || { versionCode: 30, versionName: "1.6.1", title: "Tekinak CMMS v1.6.1", apkUrl: "", changelog: [] };
+      document.getElementById("verFormCode").value = v.versionCode || 30;
+      document.getElementById("verFormName").value = v.versionName || "1.6.1";
+      document.getElementById("verFormTitle").value = `Yeni Sürüm Yayınlandı (v${v.versionName || "1.6.1"})`;
       document.getElementById("verFormApkUrl").value = v.apkUrl || "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk";
       document.getElementById("verFormChangelog").value = (v.changelog && v.changelog.length) ? v.changelog.join("\n") : "Yeni bakım özellikleri ve performans iyileştirmeleri eklendi.";
       document.getElementById("modalAppVersion").classList.remove("hidden");
@@ -15365,7 +15469,7 @@
         return;
       }
       if (!name) {
-        alert("Lütfen sürüm adı giriniz (örn: 1.6.0).");
+        alert("Lütfen sürüm adı giriniz (örn: 1.6.1).");
         return;
       }
 
@@ -15425,18 +15529,17 @@
       }
       try {
         const payload = {
-          versionCode: 29,
-          versionName: "1.6.0",
-          releaseTag: "v1.6.0",
+          versionCode: 30,
+          versionName: "1.6.1",
+          releaseTag: "v1.6.1",
           releaseDate: new Date().toISOString().slice(0, 10),
           apkUrl: "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
           fallbackUrl: "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-          title: "Tekinak CMMS v1.6.0",
+          title: "Tekinak CMMS v1.6.1",
           changelog: [
-            "Enerji Yönetimi (ISO 50001) modülü baştan sona yenilendi: Yönetici Kokpiti, 3-Faz Güç Kalitesi & Harmonik (IEEE 519), Fatura/Tarife Simülatörü ve CO₂ Karbon Ayak İzi.",
-            "Android Canlı Takip ekranına tek tıkla SmartPower (enerjitakibi.com) verisi çekme ve buluta senkronize etme motoru eklendi.",
-            "Web portalına SmartPower HTML rapor içe aktarma, ay sonu tüketim/fatura projeksiyonu ve otomatik mühendislik alarm teşhisi eklendi.",
-            "NEMA faz gerilim/akım dengesizliği, trafo yüklenme analizi, sözleşme gücü aşım alarmı ve T1/T2/T3 vs Tek Zamanlı tarife karşılaştırması devreye alındı."
+            "Profil → Ayarlar sekmesine kişiye özel Erişilebilirlik (Büyük Yazı & Ekran Optimizasyonu) seçenek kutusu eklendi.",
+            "İşaretlendiğinde yazılar büyütülürken kart ve şablon yoğunluğu ekrana göre senkronize edilir; görüş alanının daralması önlenir.",
+            "3 kademeli büyütme seviyesi (Rahat +%12, Optimize +%18, Çok Büyük +%26) ve kompakt üst başlık seçeneği eklendi."
           ],
           forceUpdate: false,
           updatedAtMillis: Date.now()
@@ -15445,13 +15548,148 @@
         window.currentAppVersion = payload;
         renderAppVersionBadge();
         closeModal("modalAppVersion");
-        alert("✅ Başarılı! Firebase sürümü şu an dağıtılan v1.6.0 (Kod: 29) APK ile eşitlendi.\n\nGüncellenen telefonlardaki popup penceresi anında kalktı.");
+        alert("✅ Başarılı! Firebase sürümü şu an dağıtılan v1.6.1 (Kod: 30) APK ile eşitlendi.\n\nGüncellenen telefonlardaki popup penceresi anında kalktı.");
       } catch (err) {
         alert("Eşitleme hatası: " + err.message);
       }
     };
 
-    window.openEditProfileModal = function() {
+    // ================= ERİŞİLEBİLİRLİK (KİŞİYE ÖZEL BÜYÜK YAZI & SENKRONİZE EKRAN OPTİMİZASYONU) =================
+    function getA11yStorageKey(userObj) {
+      const u = userObj || window.currentUser || {};
+      const raw = (u.email || u.username || u.userId || "default").toString().trim().toLowerCase().replace(/[^a-z0-9_@.-]/g, "_");
+      return "tekinak_a11y_v1_" + (raw || "default");
+    }
+
+    window.getWebAccessibilitySettings = function(userObj) {
+      try {
+        const raw = localStorage.getItem(getA11yStorageKey(userObj));
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          return {
+            enabled: parsed.enabled === true,
+            preset: [1, 2, 3].includes(Number(parsed.preset)) ? Number(parsed.preset) : 2,
+            compactHeader: parsed.compactHeader !== false
+          };
+        }
+      } catch (_) {}
+      return { enabled: false, preset: 2, compactHeader: true };
+    };
+
+    window.saveWebAccessibilitySettings = function(settings, userObj) {
+      try {
+        localStorage.setItem(getA11yStorageKey(userObj), JSON.stringify(settings));
+      } catch (_) {}
+      window.applyUserAccessibilitySettings(userObj, settings);
+      syncProfileA11yUI(settings);
+    };
+
+    window.applyUserAccessibilitySettings = function(userObj, explicitSettings) {
+      const cfg = explicitSettings || window.getWebAccessibilitySettings(userObj);
+      const htmlEl = document.documentElement;
+      if (cfg.enabled) {
+        htmlEl.classList.add("a11y-opt-active");
+        htmlEl.setAttribute("data-a11y-level", String(cfg.preset || 2));
+        htmlEl.classList.toggle("a11y-compact-header", cfg.compactHeader !== false);
+      } else {
+        htmlEl.classList.remove("a11y-opt-active", "a11y-compact-header");
+        htmlEl.removeAttribute("data-a11y-level");
+      }
+    };
+
+    function syncProfileA11yUI(cfg) {
+      const s = cfg || window.getWebAccessibilitySettings();
+      const chk = document.getElementById("profA11yEnabled");
+      if (chk) chk.checked = !!s.enabled;
+      const cmp = document.getElementById("profA11yCompactHeader");
+      if (cmp) cmp.checked = s.compactHeader !== false;
+
+      const optBox = document.getElementById("profA11yOptionsBox");
+      if (optBox) optBox.classList.toggle("hidden", !s.enabled);
+
+      const card = document.getElementById("profA11yCard");
+      if (card) {
+        card.classList.toggle("bg-blue-50/70", !!s.enabled);
+        card.classList.toggle("border-blue-400", !!s.enabled);
+        card.classList.toggle("bg-slate-50", !s.enabled);
+        card.classList.toggle("border-slate-200", !s.enabled);
+      }
+
+      const badge = document.getElementById("profA11yStatusBadge");
+      if (badge) {
+        badge.innerText = s.enabled ? "Optimize Aktif" : "Standart";
+        badge.className = s.enabled
+          ? "px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800"
+          : "px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-200 text-slate-600";
+      }
+
+      const dot = document.getElementById("profTabSettingsDot");
+      if (dot) dot.classList.toggle("hidden", !s.enabled);
+
+      const presetLabels = {
+        1: "✓ Yazı +%12 • Şablon %94 — Ferah Görüş Alanı",
+        2: "✓ Yazı +%18 • Şablon %90 — Optimize Geniş Görüş Alanı",
+        3: "✓ Yazı +%26 • Şablon %86 — Maksimum Okunaklılık"
+      };
+      const prev = document.getElementById("profA11yPreviewSummary");
+      if (prev) prev.innerText = presetLabels[s.preset] || presetLabels[2];
+
+      [1, 2, 3].forEach(lvl => {
+        const btn = document.getElementById("profA11yPreset" + lvl);
+        if (!btn) return;
+        const active = Number(s.preset) === lvl;
+        btn.className = active
+          ? "py-2 px-1.5 rounded-lg border border-[#1E3A8A] bg-[#1E3A8A] text-white text-center font-bold shadow-sm transition"
+          : "py-2 px-1.5 rounded-lg border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 text-center font-bold transition";
+      });
+    }
+
+    window.switchProfileModalTab = function(tab) {
+      const isSettings = tab === "settings";
+      const pProfile = document.getElementById("profPanelProfile");
+      const pSettings = document.getElementById("profPanelSettings");
+      const bProfile = document.getElementById("profTabBtnProfile");
+      const bSettings = document.getElementById("profTabBtnSettings");
+      const titleEl = document.getElementById("profModalTitle");
+
+      if (pProfile) pProfile.classList.toggle("hidden", isSettings);
+      if (pSettings) pSettings.classList.toggle("hidden", !isSettings);
+
+      if (bProfile) {
+        bProfile.className = !isSettings
+          ? "py-2 rounded-lg bg-[#1E3A8A] text-white shadow transition flex items-center justify-center gap-1.5"
+          : "py-2 rounded-lg text-slate-600 hover:text-slate-900 transition flex items-center justify-center gap-1.5";
+      }
+      if (bSettings) {
+        bSettings.className = isSettings
+          ? "py-2 rounded-lg bg-[#1E3A8A] text-white shadow transition flex items-center justify-center gap-1.5"
+          : "py-2 rounded-lg text-slate-600 hover:text-slate-900 transition flex items-center justify-center gap-1.5";
+      }
+      if (titleEl) {
+        titleEl.innerHTML = isSettings
+          ? `<i data-lucide="settings" class="w-5 h-5 text-amber-500"></i> Ayarlar & Erişilebilirlik`
+          : `<i data-lucide="user" class="w-5 h-5 text-amber-500"></i> Profil & Hesap`;
+      }
+      if (isSettings) syncProfileA11yUI();
+      lucide.createIcons();
+    };
+
+    window.onProfileA11yToggle = function(checked) {
+      const cur = window.getWebAccessibilitySettings();
+      window.saveWebAccessibilitySettings({ ...cur, enabled: !!checked });
+    };
+
+    window.onProfileA11yPresetChange = function(level) {
+      const cur = window.getWebAccessibilitySettings();
+      window.saveWebAccessibilitySettings({ ...cur, enabled: true, preset: Number(level) || 2 });
+    };
+
+    window.onProfileA11yCompactToggle = function(checked) {
+      const cur = window.getWebAccessibilitySettings();
+      window.saveWebAccessibilitySettings({ ...cur, compactHeader: !!checked });
+    };
+
+    window.openEditProfileModal = function(initialTab) {
       if (!window.currentUser) return;
       const canEdit = window.canUserEditProfile(window.currentUser);
       window.refreshDepartmentAndRoleDropdowns();
@@ -15484,6 +15722,8 @@
         forceBtn.classList.remove("hidden");
       }
 
+      syncProfileA11yUI();
+      window.switchProfileModalTab(initialTab === "settings" ? "settings" : "profile");
       document.getElementById("modalEditProfile").classList.remove("hidden");
       lucide.createIcons();
     };
@@ -15648,6 +15888,9 @@
         localStorage.removeItem("tekinak_session");
         sessionStorage.removeItem("tekinak_session");
         window.currentUser = null;
+        if (typeof window.applyUserAccessibilitySettings === "function") {
+          window.applyUserAccessibilitySettings(null, { enabled: false, preset: 2, compactHeader: true });
+        }
         const topVerBtn = document.getElementById("topAppVersionBtn");
         if (topVerBtn) {
           topVerBtn.classList.add("hidden");
@@ -15859,6 +16102,9 @@
             window.saveSafeSession(user);
             startRealtimeSync();
             updateTopBarUser(user);
+            if (typeof window.applyUserAccessibilitySettings === "function") {
+              window.applyUserAccessibilitySettings(user);
+            }
             document.getElementById("authContainer").classList.add("hidden");
             document.getElementById("mainApp").classList.remove("hidden");
             window.switchToFirstAllowedTab();
