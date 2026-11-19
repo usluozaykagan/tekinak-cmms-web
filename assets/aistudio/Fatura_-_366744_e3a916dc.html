@@ -1,0 +1,2022 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0047)https://www.enerjitakibi.com/bill.php?id=366744 -->
+<html lang="tr"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+      <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+        <!--Add to homescreen for Chrome on Android-->
+    <meta name="theme-color" content="#0093dd">
+    <link rel="manifest" href="https://www.enerjitakibi.com/PWApp/manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="csrf-token" content="353ec246fd97af71f23c95bd113d38c3">
+  <link href="./Fatura - 366744_files/fonts.googleapis.opensans.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="./Fatura - 366744_files/fonts.googleapis.local.min.css">
+  <link rel="stylesheet" type="text/css" href="./Fatura - 366744_files/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="./Fatura - 366744_files/simple-line-icons.min.css">
+  <link rel="stylesheet" type="text/css" href="./Fatura - 366744_files/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="./Fatura - 366744_files/uniform.default.min.css">
+  <link rel="stylesheet" type="text/css" href="./Fatura - 366744_files/bootstrap-switch.min.css">
+  <link rel="stylesheet" type="text/css" href="./Fatura - 366744_files/jquery.gritter.min.css">
+  <link rel="stylesheet" type="text/css" href="./Fatura - 366744_files/daterangepicker-bs3.min.css">
+  <link rel="stylesheet" type="text/css" href="./Fatura - 366744_files/fullcalendar.min.css">
+  <link rel="stylesheet" type="text/css" href="./Fatura - 366744_files/jqvmap.min.css">
+  <link rel="stylesheet" type="text/css" href="./Fatura - 366744_files/tasks.min.css">
+  <link rel="stylesheet" type="text/css" href="./Fatura - 366744_files/components.min.css">
+  <link rel="stylesheet" type="text/css" href="./Fatura - 366744_files/plugins.min.css">
+  <link rel="stylesheet" type="text/css" href="./Fatura - 366744_files/layout.min.css">
+  <link rel="stylesheet" type="text/css" href="./Fatura - 366744_files/darkblue.css" id="style_color">
+  <link rel="stylesheet" type="text/css" href="./Fatura - 366744_files/tabs.min.css">
+  <link rel="stylesheet" type="text/css" href="./Fatura - 366744_files/style.css">
+  <link rel="stylesheet" type="text/css" href="./Fatura - 366744_files/cookie_alert.css">
+  <script type="text/javascript" src="./Fatura - 366744_files/jquery-1.11.0.min.js.indir"></script>
+  <script type="text/javascript" src="./Fatura - 366744_files/jquery-ui-1.10.3.custom.min.js.indir"></script>
+  <script type="text/javascript" src="./Fatura - 366744_files/jquery.ui.datepicker-tr.js.indir"></script>
+  <meta name="keywords" content="enerjitakibi, enerji takibi, enerji izleme, sayaç izleme, uzaktan sayaç okuma, uzaktan izleme, kompanzasyon takibi, gruparge, grup arge, makel, köhler, kohler, kombi sayaç, elektrik sayacı, electricity meter, energy monitoring, remote monitoring, OSOS, otomatik sayaç izleme sistemi, uzaktan erişim, SmartGrid, SmartPower">
+  <link rel="SHORTCUT ICON" href="https://www.enerjitakibi.com/favicon.ico">
+  <link rel="stylesheet" href="./Fatura - 366744_files/jquery-ui.min.css">
+  <link rel="stylesheet" type="text/css" href="./Fatura - 366744_files/oldStyle.min.css">
+  <script>
+    const sp_lang = 'tr';
+    const sp_lang_filetime = '1744611426';
+    let sp_lang_data;
+    async function loadLanguageData() {
+      try {
+        const response = await fetch(`/language/${sp_lang}.json?v=${sp_lang_filetime}`);
+        if (!response.ok) {
+          throw new Error('Ağ isteği başarısız oldu');
+        }
+        const data = await response.json();
+        localStorage.setItem('languageData', JSON.stringify(data));
+        localStorage.setItem('language', sp_lang);
+      } catch (error) {
+        console.error('JSON dosyası yüklenemedi:', error);
+      }
+    }
+    loadLanguageData();
+
+    async function getLanguageData() {
+      if (sp_lang != localStorage.getItem('language')) {
+        console.log('dil değişti');
+        // window.location.reload();
+      }
+      sp_lang_data = await JSON.parse(localStorage.getItem('languageData'));
+    }
+    getLanguageData();
+  </script>
+    <script type="text/javascript" src="./Fatura - 366744_files/jquery-1.11.0.min.js.indir"></script>
+  <script type="text/javascript" src="./Fatura - 366744_files/jquery-ui-1.10.3.custom.min.js.indir"></script>
+  <script type="text/javascript" src="./Fatura - 366744_files/jquery.ui.datepicker-tr.js.indir"></script>
+  <style>
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Open Sans', sans-serif !important;  }
+
+  #logo_img {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+  }
+
+  #logo_img:hover {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+
+  .menu-icon {
+    width: 20px;
+    height: 14px;
+    margin-right: 3px !important;
+    margin-left: 2px !important;
+  }
+
+  .building-item {
+    color: #000000;
+  }
+
+  .comsumption-item {
+    color: #C12C2C;
+  }
+
+  .compensation-item {
+    color: #BE578A;
+  }
+
+  .io-item {
+    color: #4DB3A2;
+  }
+
+  .temperature-item {
+    color: #F7CA18;
+  }
+
+  .gas-item {
+    color: #4C87B9;
+  }
+
+  .water-item {
+    color: #00D8FD;
+  }
+
+  .page-breadcrumb.breadcrumb {
+    margin-top: 0px;
+  }
+
+  @media (min-width: 768px) {
+    .pull-right-sm {
+      float: right;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .pull-right-md {
+      float: right;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .pull-right-lg {
+      float: right;
+    }
+  }
+
+  .daterangepicker {
+    background: #cce5ff !important;
+  }
+
+  #dashboard-report-range.active {
+    color: white;
+  }
+
+  .pointer {
+    cursor: pointer;
+  }
+
+  .emails-header {
+    color: whitesmoke;
+    margin: 0;
+    margin-top: -1px;
+    font-size: 13px;
+    font-weight: 400;
+    display: inline-block;
+    max-height: 46px;
+  }
+
+  @media (max-width: 700px) {
+    .emails-header {
+      color: whitesmoke;
+      margin: 0;
+      margin-top: 0px;
+      font-size: 11px;
+      font-weight: 200;
+      display: inline-block;
+      max-height: 46px;
+    }
+  }
+
+  .emails-header>p {
+    margin: 3px 0 !important;
+  }
+</style><title>Fatura  - 366744</title></head>
+
+
+<body class="page-header-fixed page-quick-sidebar-over-content" style="">
+    <div class="page-header navbar navbar-fixed-top">
+    <div class="page-header-inner">
+      <!--      <div class="page-logo" id="logo_div">
+                        <a href="/index.php"> <img id="logo_img" src= "/assets/admin/layout/img/iss.png"  style="margin-top: 5px;" class="logo-default"></a>
+                        <span style="display:block;margin-left:40px;margin-top: -18px;font-size:12px;color:white;"><b><i>Technical Services</i></b></span>
+                        <div class="menu-toggler sidebar-toggler hide"></div>
+                      </div>-->
+      <div class="page-logo" id="logo_div">
+        <a href="https://www.enerjitakibi.com/index.php">
+          <img id="logo_img" src="./Fatura - 366744_files/logo_color.png" style="width: 170px; margin-top: 10px;  margin-bottom: 10px;  margin-right: 10px;  margin-left: 0px;" class="logo-default"></a>
+        <div class="menu-toggler sidebar-toggler hide"></div>
+      </div>
+      <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse"> </a>
+              <div class="emails-header">
+          <p><u>Destek:</u> destek@enerjitakibi.com</p>
+          <p><u>Ödeme:</u> enerjitakibi@gruparge.com</p>
+        </div>
+            <div class="top-menu">
+        <ul class="nav navbar-nav pull-right">
+          <style>
+  .handPointer {
+    cursor: pointer;
+  }
+</style>
+<li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">
+  <a href="https://www.enerjitakibi.com/bill.php?id=366744#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+    <i class="icon-bell"></i>
+    <span class="badge badge-default">
+      0 </span>
+  </a>
+  <ul class="dropdown-menu">
+    <li>
+      <p>
+        Toplam 0 Bildirim      </p>
+    </li>
+    <li>
+      <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 250px;"><ul class="dropdown-menu-list scroller" style="overflow: hidden; width: auto; height: 250px;" data-initialized="1">
+              </ul><div class="slimScrollBar" style="background: rgb(187, 187, 187); width: 7px; position: absolute; top: 0px; opacity: 0.4; border-radius: 7px; z-index: 99; right: 1px; display: block;"></div><div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(234, 234, 234); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
+    </li>
+    <li class="external">
+      <a href="https://www.enerjitakibi.com/notification.php">
+        Tümünü Gör <i class="m-icon-swapright"></i>
+      </a>
+    </li>
+  </ul>
+</li>
+
+<script>
+  $(document).ready(function() {
+      });
+
+  function requestConfirm(id, decleration, isBuilding) {
+    if (decleration) {
+      document.location.href = '/notification.php?id=' + id + '&p=invite';
+    } else {
+      if (isBuilding == 0) {
+        $('#modalDiv').load('/ems/emsRequestConfirm.php', {
+          requestId: id
+        }, function() {
+          $('#modalDiv').modal();
+        });
+      } else {
+        $('#modalDiv').load('/ems/emsRequestConfirmBuilding.php', {
+          requestId: id
+        }, function() {
+          $('#modalDiv').modal();
+        });
+      }
+    }
+  }
+
+  function showPopup() {
+    $('#modalDiv').load('/ems/notificationPopup.php', function() {
+      $('#modalDiv').modal();
+    });
+  }
+</script>            <li class="dropdown dropdown-extended">
+              <a href="http://www.enerjitakibi.com/blog/" target="_blank" class="dropdown-toggle" data-hover="dropdown" data-close-others="true">
+                <i class="fa fa-rss" style="color: #02A6E4;"></i>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="http://www.enerjitakibi.com/blog/" target="_blank"><i class="fa fa-rss" style="color: #02A6E4;"></i> SmartPower Blog
+                  </a>
+                </li>
+              </ul>
+            </li>
+          
+<li class="dropdown dropdown-extended dropdown-inbox" id="header_inbox_bar">
+  <a href="https://www.enerjitakibi.com/support/supportUserRequestList.php" class="dropdown-toggle" data-hover="dropdown" data-close-others="true">
+    <i class="icon-envelope-open"></i>
+      </a>
+  <ul class="dropdown-menu">
+    <li>
+      <p>
+        Destek Talebi      </p>
+    </li>
+    <li>
+      <div class="slimScrollDiv" style="position: relative; width: auto; height: 123px;">
+        <ul class="dropdown-menu-list scroller" style="height: 250px; overflow: hidden; width: auto;" data-initialized="1">
+                    <li>
+            <a href="https://www.enerjitakibi.com/support/supportRequest.php">
+              <span class="message">
+                <i class="fa fa-plus"></i>
+                Destek Talebi Oluştur              </span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.enerjitakibi.com/support/supportUserRequestList.php">
+              <span class="message">
+                <i class="fa fa-list"></i>
+                Destek Taleplerim              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</li>            <li class="dropdown dropdown-extended">
+              <a href="https://new.enerjitakibi.com/auth/session/sign-in?session_id=fbcac0e11cb730a94930b139774ec426" target="_blank" class="dropdown-toggle" data-hover="dropdown" data-close-others="true">
+                <i class="fa fa-external-link"></i>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="https://new.enerjitakibi.com/auth/session/sign-in?session_id=fbcac0e11cb730a94930b139774ec426" target="_blank"><i class="fa fa-external-link"></i> Yeni Arayüzü Dene</a>
+                  <p style="background: #fff;">
+                    İstediğiniz zaman bu arayüze geri dönebilirsiniz.
+                  </p>
+                </li>
+              </ul>
+            </li>
+          
+          <li class="dropdown dropdown-user">
+            <a href="https://www.enerjitakibi.com/bill.php?id=366744#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+              <img alt="" class="img-circle" src="./Fatura - 366744_files/user_icon_grey.png">
+              <span class="username"> h.basriadiyaman@gmail.com              </span>
+              <i class="fa fa-angle-down"></i>
+            </a>
+
+            <ul class="dropdown-menu">
+              <li>
+                <a href="https://www.enerjitakibi.com/userProfile/userSettings.php"> <i class="icon-user"></i>
+                  Profil                </a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a href="https://www.enerjitakibi.com/tx_logout.php"> <i class="icon-key"></i>
+                  Çıkış                </a>
+              </li>
+            </ul>
+          </li>
+
+          <!-- <li class="dropdown dropdown-user">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+              <i class="fa fa-th" style="color: #02A6E4;"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a onclick="Gapps()"><i class="fa fa-rss"></i> Tüm Uygulamalar</a>
+              </li>
+              <script>
+                function Gapps(merchant_oid, amount) {
+                  $('#modalDiv').load(`/inc/modal_order_detail.php?merchant_oid=${merchant_oid}`, function() {
+                    $('#modalDiv').modal('show');
+                  });
+                }
+              </script>
+            </ul>
+          </li> -->
+
+          <li class="dropdown">
+            <a href="https://www.enerjitakibi.com/bill.php?id=366744#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+              <span>
+                <img style="margin-top:-5px;width:20px;" src="./Fatura - 366744_files/tr.svg">
+              </span>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a onclick="setLanguage('en')"><img style="width:25px;" src="./Fatura - 366744_files/en.svg">
+                  English </a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a onclick="setLanguage('tr')"><img style="width:25px;" src="./Fatura - 366744_files/tr.svg">
+                  Türkçe</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <!--<a class="btn btn-default btn-sm yellow" style='margin-top:10px'  href="javascript:addFavorites()"> Sık Kullanılanlar</a>-->
+      </div>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+  <div class="page-container">
+    <div class="page-sidebar-wrapper">
+      <div class="page-sidebar navbar-collapse collapse">
+        <ul class="page-sidebar-menu" data-auto-scroll="true" data-slide-speed="200">
+          <li class="sidebar-toggler-wrapper">
+            <div class="sidebar-toggler hidden-phone"></div>
+          </li>
+          <li class="sidebar-search-wrapper">
+            <form class="sidebar-search" action="https://www.enerjitakibi.com/search.php" method="GET">
+              <a href="javascript:;" class="remove"> <i class="icon-close"></i>
+              </a>
+              <div class="input-group">
+                <input type="text" class="form-control" id="query" name="query" autocomplete="on" placeholder="  Arama ...">
+                <span class="input-group-btn">
+                  <a href="javascript:;" class="btn submit"><i class="icon-magnifier"></i></a>
+                </span>
+              </div>
+            </form>
+          </li>
+                      <li class="" id="sidebarLi21">
+              <a href="https://www.enerjitakibi.com/index.php">
+                <i class="fa fa-home"></i>
+                <span class="title">Anasayfa</span>
+                                              </a>
+                        </li>
+                    <li class="" id="sidebarLi53">
+              <a href="https://www.enerjitakibi.com/alarm/alarm.php">
+                <i class="fa fa-bell-o"></i>
+                <span class="title">Alarmlar</span>
+                                              </a>
+                        </li>
+                    <li class="" id="sidebarLi56">
+              <a href="javascript:;">
+                <i class="fa fa-users"></i>
+                <span class="title">Yönetim</span>
+                <span class="arrow"></span>                              </a>
+              <ul class="sub-menu">            <li class="" id="submenuLi20">
+              <a href="https://www.enerjitakibi.com/userProfile/userSettings.php">
+                <i class="icon-user"></i>
+                <span class="title">
+                  Profil                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi21">
+              <a href="https://www.enerjitakibi.com/listUser.php">
+                <i class="fa fa-user"></i>
+                <span class="title">
+                  Kullanıcı                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi22">
+              <a href="https://www.enerjitakibi.com/listTariffs.php">
+                <i class="fa fa-file-text-o"></i>
+                <span class="title">
+                  Tarifeler                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi23">
+              <a href="https://www.enerjitakibi.com/listSeasons.php">
+                <i class="fa fa-file-text-o"></i>
+                <span class="title">
+                  Tarife Grupları                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi24">
+              <a href="https://www.enerjitakibi.com/listSession.php">
+                <i class="fa fa-list"></i>
+                <span class="title">
+                  Aktif Oturumlar                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi25">
+              <a href="https://www.enerjitakibi.com/notification.php">
+                <i class="fa fa-info"></i>
+                <span class="title">
+                  Duyurular                </span>
+              </a>
+            </li>
+
+          </ul>          </li>
+                    <li class="" id="sidebarLi27">
+              <a href="https://www.enerjitakibi.com/listCommDevices.php">
+                <i class="fa fa-signal"></i>
+                <span class="title">Modem</span>
+                                              </a>
+                        </li>
+                    <li class="" id="sidebarLi90">
+              <a href="javascript:;">
+                <i class="fa fa-database"></i>
+                <span class="title">Cihazlarım</span>
+                <span class="arrow"></span>                              </a>
+              <ul class="sub-menu">            <li class="" id="submenuLi40">
+              <a href="https://www.enerjitakibi.com/debug.php">
+                <i class="fa fa-database"></i>
+                <span class="title">
+                  Tüm Cihazlar                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi41">
+              <a href="https://www.enerjitakibi.com/listMeters.php">
+                <i class="fa fa-tachometer"></i>
+                <span class="title">
+                  Sayaç                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi42">
+              <a href="https://www.enerjitakibi.com/virtualMeasurePoint.php">
+                <i class="fa fa-podcast"></i>
+                <span class="title">
+                  Sanal Ölçü Noktası                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi43">
+              <a href="https://www.enerjitakibi.com/listRelays.php">
+                <i class="menu-icon icon icon2-dashboard"></i>
+                <span class="title">
+                  Röle                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi44">
+              <a href="https://www.enerjitakibi.com/listAnalyzers.php">
+                <i class="fa fa-bolt"></i>
+                <span class="title">
+                  Analizör                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi45">
+              <a href="https://www.enerjitakibi.com/sensor/sensorList.php">
+                <i class="icon sp-thermometer2"></i>
+                <span class="title">
+                  Sıcaklık Sensörü                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi46">
+              <a href="https://www.enerjitakibi.com/generator/listGenerator.php">
+                <i class="fa fa-ioxhost"></i>
+                <span class="title">
+                  Jeneratör                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi47">
+              <a href="https://www.enerjitakibi.com/sensor/analog/analogSensorList.php">
+                <i class="icon sp-feed"></i>
+                <span class="title">
+                  Analog Giriş                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi48">
+              <a href="https://www.enerjitakibi.com/pulseCounter/pulseCounterList.php">
+                <i class="fa fa-list-ol"></i>
+                <span class="title">
+                  Sayıcı                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi49">
+              <a href="https://www.enerjitakibi.com/pulseCounter/channels/view/listChannels.php?dataTableName=gas_meter_data">
+                <i class="menu-icon icon icon2-fire"></i>
+                <span class="title">
+                  Doğalgaz                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi410">
+              <a href="https://www.enerjitakibi.com/pulseCounter/channels/view/listChannels.php?dataTableName=water_meter_data">
+                <i class="fa fa-tint"></i>
+                <span class="title">
+                  Su                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi411">
+              <a href="https://www.enerjitakibi.com/groupSystem/listGroupDevices.php">
+                <i class="fa fa-database"></i>
+                <span class="title">
+                  Gruplanan Cihazlar                </span>
+              </a>
+            </li>
+
+          </ul>          </li>
+                    <li class="" id="sidebarLi67">
+              <a href="javascript:;">
+                <i class="fa fa-building"></i>
+                <span class="title">İşletme</span>
+                <span class="arrow"></span>                              </a>
+              <ul class="sub-menu">            <li class="" id="submenuLi50">
+              <a href="https://www.enerjitakibi.com/ems/emsBuildingList.php">
+                <i class="fa fa-area-chart"></i>
+                <span class="title">
+                  Analiz                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi51">
+              <a href="https://www.enerjitakibi.com/ems/emsBuildingComparisonGraph.php">
+                <i class="fa fa-line-chart"></i>
+                <span class="title">
+                  İşletme Karşılaştırma                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi52">
+              <a href="https://www.enerjitakibi.com/ems/emsBuildingGroupSettings.php">
+                <i class="fa fa-cogs"></i>
+                <span class="title">
+                  İşletme Ayarı                </span>
+              </a>
+            </li>
+
+          </ul>          </li>
+                    <li class="" id="sidebarLi28">
+              <a href="javascript:;">
+                <i class="fa fa-toggle-on"></i>
+                <span class="title">Input/Output</span>
+                <span class="arrow"></span>                              </a>
+              <ul class="sub-menu">            <li class="" id="submenuLi60">
+              <a href="https://www.enerjitakibi.com/io.php">
+                <i class="fa fa-power-off"></i>
+                <span class="title">
+                  Kontrol                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi61">
+              <a href="https://www.enerjitakibi.com/io/History/Graph.php">
+                <i class="fa fa-area-chart"></i>
+                <span class="title">
+                  Geçmiş Değerler                </span>
+              </a>
+            </li>
+
+          </ul>          </li>
+                    <li class="" id="sidebarLi73">
+              <a href="https://www.enerjitakibi.com/comparisonGraph.php">
+                <i class="fa fa-line-chart"></i>
+                <span class="title">Karşılaştırma</span>
+                                              </a>
+                        </li>
+                    <li class="" id="sidebarLi29">
+              <a href="javascript:;">
+                <i class="fa fa-shopping-cart"></i>
+                <span class="title">Ödeme</span>
+                <span class="arrow"></span>                              </a>
+              <ul class="sub-menu">            <li class="" id="submenuLi80">
+              <a href="https://www.enerjitakibi.com/managePayments.php">
+                <i class="fa fa-sitemap"></i>
+                <span class="title">
+                  Yönetim Paneli                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi81">
+              <a href="https://www.enerjitakibi.com/accountTransac.php">
+                <i class="fa fa-file-text"></i>
+                <span class="title">
+                  Hesap Özeti                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi82">
+              <a href="https://www.enerjitakibi.com/payment/index.php">
+                <i class="fa fa-turkish-lira"></i>
+                <span class="title">
+                  Paket Satın Al                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi83">
+              <a href="https://www.enerjitakibi.com/payment/orders.php">
+                <i class="fa fa-credit-card-alt"></i>
+                <span class="title">
+                  Siparişlerim                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi84">
+              <a href="https://www.enerjitakibi.com/simCard/sim_card_list.php">
+                <i class="fa fa-microchip"></i>
+                <span class="title">
+                  SIM Kartlarım                </span>
+              </a>
+            </li>
+
+          </ul>          </li>
+                    <li class="" id="sidebarLi33">
+              <a href="javascript:;">
+                <i class="fa fa-map-marker"></i>
+                <span class="title">Harita</span>
+                <span class="arrow"></span>                              </a>
+              <ul class="sub-menu">            <li class="" id="submenuLi90">
+              <a href="https://www.enerjitakibi.com/maps/compensationMap.php">
+                <i class="fa fa-map-marker"></i>
+                <span class="title">
+                  Kompanzasyon                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi91">
+              <a href="https://www.enerjitakibi.com/maps/consumptionMap.php">
+                <i class="fa fa-map-marker"></i>
+                <span class="title">
+                  Tüketim                </span>
+              </a>
+            </li>
+
+          </ul>          </li>
+                    <li class="" id="sidebarLi34">
+              <a href="javascript:;">
+                <i class="fa fa-question-circle"></i>
+                <span class="title">Destek</span>
+                <span class="arrow"></span>                              </a>
+              <ul class="sub-menu">            <li class="" id="submenuLi100">
+              <a href="https://www.enerjitakibi.com/helpText/helpList.php">
+                <i class="fa fa-list"></i>
+                <span class="title">
+                  Yardım                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi101">
+              <a href="https://www.enerjitakibi.com/support/supportRequest.php">
+                <i class="icon-envelope-open"></i>
+                <span class="title">
+                  Destek Talebi                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi102">
+              <a href="https://www.enerjitakibi.com/remoteSupport.php">
+                <i class="fa fa-support"></i>
+                <span class="title">
+                  Uzaktan Destek                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi103">
+              <a href="https://www.enerjitakibi.com/help.php">
+                <i class="fa fa-video-camera"></i>
+                <span class="title">
+                  Yardım Videoları                </span>
+              </a>
+            </li>
+
+          </ul>          </li>
+                    <li class="" id="sidebarLi35">
+              <a href="https://www.enerjitakibi.com/contact.php">
+                <i class="fa fa-globe"></i>
+                <span class="title">İletişim</span>
+                                              </a>
+                        </li>
+                          <li><a href="http://www.gruparge.com/" id="menuGrupArgeLink" target="_blank" align="center"> <br>
+              <img id="menuGrupArgeLogo" src="./Fatura - 366744_files/gruparge_logo_b2.png" height="57" width="106" style="height: 57px; width: 106px;"> <br><br>
+              <span class="title">
+                <p class="title text-center">
+                  <small>Grup Arge <br> Enerji ve Kontrol Sistemleri <br>
+                                          <b>Destek:</b> destek@enerjitakibi.com <br>
+                      <b>Ödeme:</b> enerjitakibi@gruparge.com
+                                      </small>
+                </p>
+              </span>
+              <span class="selected"></span>
+            </a>
+          </li>
+                        </ul>
+      </div>
+    </div>
+    <div class="page-content-wrapper">
+      <div class="page-content" style="min-height:832px">
+        <script src="./Fatura - 366744_files/platform.min.js.indir"></script>
+<style>
+  .modal-ku {
+    width: 750px;
+    margin: auto;
+  }
+
+  .modal-s {
+    overflow: auto !important;
+    width: 900px;
+
+  }
+
+  .modal-body {
+    /*height: 250px;*/
+    max-height: calc(100vh - 210px);
+
+    overflow-y: auto;
+
+  }
+</style>
+<!--  <div class="row">
+    <div class="col-md-12">
+      <div class="alert alert-info alert-dismissable text-center" style="background-color: #FF8600; color: white; margin-bottom: 0px;">
+        <strong><i class="fa fa-check-circle"></i></strong>  <strong><span onclick="javascript: changeView();" style="cursor: pointer;">  Geçiş Yap <i class="fa fa-exchange"></i></span></strong>
+        <div class="fa fa-edit fa-2x pull-right tooltipOld" title="Geri Bildirim" style="cursor: pointer;" onclick="javascript: writeFeedback();">
+        </div>
+      </div>
+    </div>
+  </div>-->
+<div class="row">
+  <div class="col-md-12">
+    <a href="https://www.enerjitakibi.com/supportedBrowser.php">
+      <div class="alert alert-info alert-dismissable" style="display: none;" id="browserCheck">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+        <strong><i class="fa fa-warning"></i></strong>Internet Explorer'ın eski bir sürümünü kullanıyorsunuz. Sistemin tüm özelliklerini kullanabilmeniz için lütfen tarayıcınızı son sürüme <strong>buradan güncelleyin</strong>.      </div>
+    </a>
+  </div>
+</div>
+<script>
+  var platformName = platform.name;
+  var platformVersion = platform.version;
+  var osVersion = platform.os.architecture;
+  var osName = platform.os.family;
+
+  if (platformName === 'IE' && (platformVersion === '9.0' || platformVersion === '8.0' || platformVersion === '7.0' || platformVersion === '6.0')) {
+    $('#browserCheck').show();
+  }
+
+  function writeFeedback() {
+    $('#modalDiv').load('/feedback/tx_writeFeedback.php', {}, function() {
+      $('#modalDiv').modal();
+    });
+  }
+</script>
+
+              <div class="row">
+                    <script>
+            var datatablePaginateEnable = true;
+            var config_title = "SmartPower Enerji İzleme Sistemi";
+
+            function setLanguage(language) {
+              $.cookie("language", language);
+              location.reload();
+            }
+          </script>
+          <script>
+            console.log('bill');
+          </script></div>
+<link href="./Fatura - 366744_files/bill.css" type="text/css" rel="stylesheet">
+<link href="./Fatura - 366744_files/jquery.gritter.css" type="text/css" rel="stylesheet">
+<link href="./Fatura - 366744_files/daterangepicker-bs3.css" rel="stylesheet" type="text/css">
+<link href="./Fatura - 366744_files/toastr.min.css" rel="stylesheet" type="text/css">
+<link href="./Fatura - 366744_files/components.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="./Fatura - 366744_files/bootstrap-select.min.css">
+<link rel="stylesheet" type="text/css" href="./Fatura - 366744_files/select2.css">
+<link rel="stylesheet" type="text/css" href="./Fatura - 366744_files/multi-select.css">
+<link rel="stylesheet" type="text/css" href="./Fatura - 366744_files/tooltipster.css">
+<link rel="stylesheet" type="text/css" href="./Fatura - 366744_files/dataTables.css">
+<link rel="stylesheet" href="./Fatura - 366744_files/DT_bootstrap.css">
+<script src="./Fatura - 366744_files/jquery.gritter.js.indir" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" type="text/css" href="./Fatura - 366744_files/components-rounded.css">
+<style>
+  .glyphicon-chevron-left:before,
+  .glyphicon-chevron-right:before {
+    color: white;
+  }
+
+  .table-advance thead tr th {
+    background-color: #4B8DF8;
+    color: white;
+  }
+</style>
+<link href="./Fatura - 366744_files/tabdrop.css" rel="stylesheet" type="text/css">
+<style>
+  .nav-tabs>li>a {
+    margin-right: 0px;
+    padding: 5px 15px;
+  }
+</style>
+<div class="row margin-bottom-5">
+  <div class="col-md-12">
+    <ul class="page-breadcrumb breadcrumb" style="margin-top: -10px; margin-bottom: 0px;">
+      <li>
+        <i class="fa fa-database"></i>
+        <a href="https://www.enerjitakibi.com/debug.php">
+          Cihazlarım          <i class="fa fa-angle-right"></i>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.enerjitakibi.com/bill.php?id=366744">
+                  </a>
+      </li>
+      <li class="pull-right">
+        <a href="https://www.enerjitakibi.com/bill.php?id=366744#" onclick="window.history.back()">
+          Önceki Sayfa          <i class="fa fa fa-undo"></i>
+        </a>
+              </li>
+    </ul>
+  </div>
+</div>
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style=" height:auto ;max-height:100%">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Bilgi Ekranı</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body" style=" height:auto ;max-height:100%">
+              </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">KAPAT</button>
+        <!--<button type="button" class="btn btn-primary">Kaydet</button>-->
+      </div>
+    </div>
+  </div>
+</div>
+<div class="portlet box blue">
+  <div class="portlet-title">
+    <div class="caption">
+      <b>Konum: </b> |
+      <b>Cihaz No </b>366744 |
+      <b>Modem: </b><a id="modemLink" style="color: white;" class="tooltipOld tooltipstered" href="https://www.enerjitakibi.com/updateCommDeviceSettings.php?id=38304">GRP35988</a>
+              | <b>Cihaz Tipi: </b><span>GRP_SVC12C3L_STANDART_V2</span>
+          </div>
+  </div>
+  <div class="portlet-body">
+    <div class="tabbable tabbable-tabdrop">
+      <ul class="nav nav-tabs nav-just"><li class="dropdown pull-right tabdrop hide"><a class="dropdown-toggle" data-toggle="dropdown" href="https://www.enerjitakibi.com/bill.php?id=366744#"><i class="fa fa-ellipsis-v"></i> <b class="caret"></b></a><ul class="dropdown-menu"></ul></li>
+                  <li class="">
+            <a href="https://www.enerjitakibi.com/data.php?id=366744">
+              Enerji </a>
+          </li>
+                  <li class="">
+            <a href="https://www.enerjitakibi.com/instantValues.php?id=366744">
+              Akım/Gerilim </a>
+          </li>
+                  <li class="">
+            <a href="https://www.enerjitakibi.com/graph.php?id=366744">
+              Grafik </a>
+          </li>
+                  <li class="">
+            <a href="https://www.enerjitakibi.com/report.php?id=366744">
+              Rapor </a>
+          </li>
+                  <li class="active">
+            <a href="https://www.enerjitakibi.com/bill.php?id=366744">
+              Fatura </a>
+          </li>
+                  <li class="">
+            <a href="https://www.enerjitakibi.com/control_v2.php?id=366744">
+              Kontrol </a>
+          </li>
+                  <li class="">
+            <a href="https://www.enerjitakibi.com/alarm/deviceAlarm.php?id=366744">
+              Alarm </a>
+          </li>
+                  <li class="">
+            <a href="https://www.enerjitakibi.com/userDeviceAuthSettings.php?id=366744">
+              Yetkiler </a>
+          </li>
+                  <li class="">
+            <a href="https://www.enerjitakibi.com/deviceSettings.php?id=366744">
+              Ayarlar </a>
+          </li>
+              </ul>
+      <script src="./Fatura - 366744_files/bootstrap-tabdrop.js.indir" type="text/javascript"></script>
+      <script>
+        $(document).ready(function() {
+          $.fn.tooltipster('setDefaults', {
+            arrow: false,
+            contentAsHTML: true,
+            delay: 50,
+            offsetX: -30,
+            offsetY: -10,
+            position: 'bottom-left',
+            theme: 'tooltipster-punk'
+          });
+          $('.tooltipOld').tooltipster();
+        });
+        $('.nav-pills, .nav-tabs').tabdrop();
+      </script>
+      <link href="./Fatura - 366744_files/tooltipster.css" rel="stylesheet" type="text/css">
+      <!--<script src="../js/tooltipster_func.js"></script>-->
+      <script src="./Fatura - 366744_files/jquery.tooltipster.min.js.indir" type="text/javascript"></script><div class="tab-content">
+  <form action="https://www.enerjitakibi.com/bill.php?id=366744" name="frm1" method="post">
+    <div class="row">
+      <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 margin-bottom-10" style="overflow-x: auto;">
+        <table class="table table-bordered table-hover">
+          <tbody><tr>
+            <td class=""> İlk Veri Zamanı </td>
+            <td class="info text-center" colspan="2"> 09/09/2026 </td>
+          </tr>
+          <tr>
+            <td class=""> Son Veri Zamanı </td>
+            <td class="info text-center" colspan="2"> 19/11/2026 </td>
+          </tr>
+        </tbody></table>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 margin-bottom-10 text-center">
+      </div>
+      <div class="col-lg-5  col-md-4 col-sm-12 col-xs-12">
+        <input type="hidden" name="date_startPrm" id="date_startPrm" value="2026-11-01">
+        <input type="hidden" name="date_endPrm" id="date_endPrm" value="2026-12-01 00:00:00">
+        <div class="clearfix text-center pull-right-lg">
+          <div class="btn-group " data-toggle="buttons">
+            <a class="btn blue-madison tooltip-left tooltipstered" onclick="javascript:previousMonth();"><span class="glyphicon glyphicon-chevron-left"></span></a>
+            <a class="btn blue-madison tooltip-right margin-bottom-10 margin-right-10 tooltipstered" onclick="javascript:nextMonth();"><span class="glyphicon glyphicon-chevron-right"></span></a>
+            <a class="btn blue-madison active page-breadcrumb breadcrumb">
+              <div id="dashboard-report-range" class="tooltips" data-placement="left" data-original-title="Tarih aralığını seçiniz">
+                <i class="icon-calendar"></i>
+                <span>01/11/2026 - 01/12/2026</span>
+                <i class="fa fa-angle-down"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12 note note-warning pull-right font-red">
+      <p><b>Uyarı: </b>Bu fatura bilgi amaçlıdır. Fatura hesaplamada kullanılan yöntemler abone tiplerine ve enerji alınan şirketlere göre farklılık gösterebilir. Gözüken fatura tutarının bağlayıcılığı yoktur. Faturadaki birim fiyatlarını güncellemek için <a href="https://www.enerjitakibi.com/deviceSettings/deviceBillSettings.php?id=366744">Lütfen tıklayınız</a></p>
+    </div>
+  <input type="hidden" name="csrf-token" value="353ec246fd97af71f23c95bd113d38c3"></form>
+
+  <table border="0" cellspacing="3" cellpadding="3">
+  <tbody><tr align="left">
+    <td>
+      <table class="billTable" border="1" cellspacing="0" cellpadding="0">
+        <tbody><tr>
+          <td colspan="8">Elektrik Faturası</td>
+        </tr>
+        <tr>
+          <td nowrap="" align="left">
+            <font color="blue"><b>Konum:</b></font>
+          </td>
+          <td nowrap="" align="left" colspan="3"></td>
+          <td nowrap="" align="left" colspan="2">
+            <font color="blue"><b>Cihaz No:</b></font>
+          </td>
+          <td nowrap="" align="left" colspan="2">366744</td>
+        </tr>
+        <tr>
+          <td nowrap="" align="left">
+            <font color="blue"><b>Sözleşme Gücü:</b></font>
+          </td>
+          <td nowrap="" align="left" colspan="3">60&nbsp;kW</td>
+          <td nowrap="" align="left" colspan="2">
+            <font color="blue"><b>Abone No:</b></font>
+          </td>
+          <td nowrap="" align="left" colspan="2"></td>
+        </tr>
+        <tr>
+          <td nowrap="" align="left">
+            <font color="blue"><b>Endüktif Limit:</b></font>
+          </td>
+          <td nowrap="" align="left" colspan="3">% 20</td>
+          <td nowrap="" align="left" colspan="2">
+            <font color="blue"><b>Tarife Türü:</b></font>
+          </td>
+          <td nowrap="" align="left" colspan="2">Tek Zamanlı Tarife</td>
+        </tr>
+        <tr>
+          <td nowrap="" align="left">
+            <font color="blue"><b>Kapasitif Limit:</b></font>
+          </td>
+          <td nowrap="" align="left" colspan="3">% 15</td>
+          <td nowrap="" align="left" colspan="2">
+            <font color="blue"><b>Fatura Günü:</b></font>
+          </td>
+          <td nowrap="" align="left" colspan="2">1</td>
+        </tr>
+        <tr>
+          <td class="sp_column_header headerColumn"></td>
+          <td width="120px" class="sp_column_header headerColumn" nowrap="" align="center">Tarih</td>
+          <td width="103px" class="sp_column_header headerColumn" nowrap="" align="center" colspan="2">Aktif</td>
+          <td class="sp_column_header headerColumn" nowrap="" align="center" colspan="2">Endüktif</td>
+          <td class="sp_column_header headerColumn" nowrap="" align="center" colspan="2">Kapasitif</td>
+        </tr>
+        <tr>
+          <td class="sp_column_header" nowrap="" align="left">
+            <font color="blue"><b>İlk Endeks </b></font>
+          </td>
+          <td nowrap="" class="sp_table_cell_number" align="center">01.11.2026 (00:35)</td>
+          <td width="63px" nowrap="" class="sp_table_cell_number removeRightBorder" align="right">1.432.383,994</td>
+          <td width="50px" class="removeLeftBorder"></td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder" align="right">61.978,738</td>
+          <td class="removeLeftBorder"></td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder" align="right">887,951</td>
+          <td class="removeLeftBorder"></td>
+        </tr>
+        <tr>
+          <td class="sp_column_header" nowrap="" align="left">
+            <font color="blue"><b>Son Endeks</b></font>
+          </td>
+          <td nowrap="" class="sp_table_cell_number" align="center">19.11.2026 (12:53)</td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder" align="right">1.864.964,891</td>
+          <td class="removeLeftBorder"></td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder" align="right">77.860,680</td>
+          <td class="removeLeftBorder"></td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder" align="right">1.094,336</td>
+          <td class="removeLeftBorder"></td>
+        </tr>
+                <tr>
+          <td class="sp_column_header" nowrap="" align="left">
+            <font color="blue"><b>Tüketim</b></font>
+          </td>
+          <td></td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder" align="right">432.580,897</td>
+          <td class="removeLeftBorder">kW·h</td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder" align="right">15.881,942</td>
+          <td class="removeLeftBorder">kVAr·h</td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder" align="right">206,385</td>
+          <td class="removeLeftBorder">kVAr·h</td>
+        </tr>
+                <tr>
+          <td class="sp_column_header" nowrap="" align="left">
+            <font color="blue"><b>Reaktif Oran</b></font>
+          </td>
+          <td></td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder" align="right"></td>
+          <td class="removeLeftBorder"></td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder" align="right">
+            <font color="">% 3,7</font>
+          </td>
+          <td class="removeLeftBorder"></td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder" align="right">
+            <font color="">% 0,0</font>
+          </td>
+          <td class="removeLeftBorder"></td>
+        </tr>
+        <tr>
+          <td class="sp_column_header" nowrap="" align="left">
+            <font color="blue"><b>Birim Fiyat</b></font>
+          </td>
+          <td nowrap="" class="sp_table_cell_number" align="center"></td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder" align="right">
+            0,524391          </td>
+          <td nowrap="" class="sp_table_cell_number" align="left">
+            TL / kW·h          </td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder" align="right">
+                      </td>
+          <td nowrap="" class="sp_table_cell_number" align="left">
+                      </td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder" align="right">
+                      </td>
+          <td nowrap="" class="sp_table_cell_number" align="left">
+                      </td>
+        </tr>
+        <tr>
+          <td class="sp_column_header" nowrap="" align="left">
+            <font color="blue"><b>Tüketim Tutarı</b></font>
+          </td>
+          <td nowrap="" class="sp_table_cell_number" align="center"></td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder" align="right">
+            226.841,53          </td>
+          <td nowrap="" class="sp_table_cell_number" align="left">
+            TL          </td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder" align="right">
+                      </td>
+          <td nowrap="" class="sp_table_cell_number" align="left">
+                      </td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder" align="right">
+                      </td>
+          <td nowrap="" class="sp_table_cell_number" align="left">
+                      </td>
+        </tr>
+        <tr>
+          <td class="sp_column_header" nowrap="" align="left"></td>
+          <td class="sp_column_header" nowrap="" align="left"></td>
+          <td class="sp_column_header" nowrap="" align="center" colspan="2">
+            <font color="blue"><b>Gündüz (06:00 - 17:00)</b></font>
+          </td>
+          <td class="sp_column_header" nowrap="" align="center" colspan="2">
+            <font color="blue"><b>Puant (17:00 - 22:00)</b></font>
+          </td>
+          <td class="sp_column_header" nowrap="" align="center" colspan="2">
+            <font color="blue"><b>Gece (22:00 - 06:00)</b></font>
+          </td>
+        </tr>
+        <tr>
+          <td class="sp_column_header" nowrap="" align="left">
+            <font color="blue"><b>İlk Endeks</b></font>
+          </td>
+          <td nowrap="" class="sp_table_cell_number" align="center">01.11.2026 (00:00)</td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder " title="" align="right">---</td>
+          <td class="removeLeftBorder"></td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder " title="" align="right">---</td>
+          <td class="removeLeftBorder"></td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder " title="" align="right">---</td>
+          <td class="removeLeftBorder"></td>
+        </tr>
+        <tr>
+          <td class="sp_column_header" nowrap="" align="left">
+            <font color="blue"><b>Son Endeks</b></font>
+          </td>
+          <td nowrap="" class="sp_table_cell_number" align="center">01.12.2026 (00:00)</td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder " title="" align="right">---</td>
+          <td class="removeLeftBorder"></td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder " title="" align="right">---</td>
+          <td class="removeLeftBorder"></td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder " title="" align="right">---</td>
+          <td class="removeLeftBorder"></td>
+        </tr>
+        <tr>
+          <td class="sp_column_header" nowrap="" align="left">
+            <font color="blue"><b>Fark</b></font>
+          </td>
+          <td nowrap="" class="sp_table_cell_number" align="center"></td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder " title="" align="right">---</td>
+          <td class="removeLeftBorder"></td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder " title="" align="right">---</td>
+          <td class="removeLeftBorder"></td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder " title="" align="right">---</td>
+          <td class="removeLeftBorder"></td>
+        </tr>
+        <tr>
+          <td class="sp_column_header" nowrap="" align="left">
+            <font color="blue"><b>Çarpan</b></font>
+          </td>
+          <td nowrap="" class="sp_table_cell_number" align="center"></td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder" align="right">1</td>
+          <td class="removeLeftBorder"></td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder" align="right">1</td>
+          <td class="removeLeftBorder"></td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder" align="right">1</td>
+          <td class="removeLeftBorder"></td>
+        </tr>
+        <tr>
+          <td class="sp_column_header" nowrap="" align="left">
+            <font color="blue"><b>Tüketim</b></font>
+          </td>
+          <td nowrap="" class="sp_table_cell_number" align="center"></td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder" align="right">0,000</td>
+          <td class="removeLeftBorder">kW·h</td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder" align="right">0,000</td>
+          <td class="removeLeftBorder">kW·h</td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder" align="right">0,000</td>
+          <td class="removeLeftBorder">kW·h</td>
+        </tr>
+        <tr>
+          <td class="sp_column_header" nowrap="" align="left">
+            <font color="blue"><b>Birim Fiyat</b></font>
+          </td>
+          <td nowrap="" class="sp_table_cell_number" align="center"></td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder" align="right">
+                      </td>
+          <td nowrap="" class="sp_table_cell_number removeLeftBorder" align="left">
+                      </td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder" align="right">
+                      </td>
+          <td nowrap="" class="sp_table_cell_number removeLeftBorder" align="left">
+                      </td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder" align="right">
+                      </td>
+          <td nowrap="" class="sp_table_cell_number removeLeftBorder" align="left">
+                      </td>
+        </tr>
+        <tr>
+          <td class="sp_column_header" nowrap="" align="left">
+            <font color="blue"><b>Tüketim Tutarı</b></font>
+          </td>
+          <td nowrap="" class="sp_table_cell_number" align="center"></td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder" align="right">
+                      </td>
+          <td nowrap="" class="sp_table_cell_number removeLeftBorder" align="left">
+                      </td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder" align="right">
+                      </td>
+          <td nowrap="" class="sp_table_cell_number removeLeftBorder" align="left">
+                      </td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder" align="right">
+                      </td>
+          <td nowrap="" class="sp_table_cell_number removeLeftBorder" align="left">
+                      </td>
+        </tr>
+        <tr>
+          <td class="sp_column_header" nowrap="" align="left"></td>
+          <td nowrap="" class="sp_table_cell_number" align="center">
+            <font color="blue"><b>Dağıtım Bedeli</b></font>
+          </td>
+          <td nowrap="" class="sp_table_cell_number" align="center" colspan="2">
+            <font color="blue"><b>İletim Bedeli (Tüketim Payı)</b></font>
+          </td>
+          <td nowrap="" class="sp_table_cell_number" align="center" colspan="2">
+            <font color="blue"><b>İletim Bedeli (Güç Payı)</b></font>
+          </td>
+          <td nowrap="" class="sp_table_cell_number" align="center" colspan="2">
+            <font color="blue"><b>Yekdem Fark</b></font>
+          </td>
+        </tr>
+        <tr>
+          <td class="sp_column_header" nowrap="" align="left">
+            <font color="blue"><b>Birim Fiyat</b></font>
+          </td>
+          <td nowrap="" class="sp_table_cell_number" align="right">0,193810 TL </td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder" align="right">0,000000</td>
+          <td nowrap="" class="sp_table_cell_number removeLeftBorder" align="left">TL</td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder" align="right">0,000000</td>
+          <td nowrap="" class="sp_table_cell_number removeLeftBorder" align="left">TL</td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder" align="right">0,000000 TL</td>
+          <td nowrap="" class="sp_table_cell_number removeLeftBorder" align="left"></td>
+        </tr>
+        <tr>
+          <td class="sp_column_header" nowrap="" align="left">
+            <font color="blue"><b>Tutar</b></font>
+          </td>
+          <td nowrap="" class="sp_table_cell_number" align="right">83.838,50 TL </td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder" align="right">0,00</td>
+          <td nowrap="" class="sp_table_cell_number removeLeftBorder" align="left">TL</td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder" align="right">0,00</td>
+          <td nowrap="" class="sp_table_cell_number removeLeftBorder" align="left">TL</td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder" align="right">0,00 TL</td>
+          <td nowrap="" class="sp_table_cell_number removeLeftBorder" align="left"></td>
+        </tr>
+        <tr>
+          <td class="sp_column_header" nowrap="" align="left"></td>
+          <td nowrap="" class="sp_table_cell_number" align="center">
+            <font color="blue"><b>Trafo Kaybı</b></font>
+          </td>
+          <td nowrap="" class="sp_table_cell_number" align="center" colspan="2">
+            <font color="blue"><b>Enerji Fonu (% 1.00)</b></font>
+          </td>
+          <td nowrap="" class="sp_table_cell_number" align="center" colspan="2">
+            <font color="blue"><b>TRT Payı (% 2.00)</b></font>
+          </td>
+          <td nowrap="" class="sp_table_cell_number" align="center" colspan="2">
+            <font color="blue"><b>Elek. Tük. Vergisi (% 5.00)</b></font>
+          </td>
+        </tr>
+        <tr>
+          <td class="sp_column_header" nowrap="" align="left">
+            <font color="blue"><b>Tutar</b></font>
+          </td>
+          <td nowrap="" class="sp_table_cell_number" align="right">0,00 TL </td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder" align="right">2.268,42</td>
+          <td nowrap="" class="sp_table_cell_number removeLeftBorder" align="left">TL</td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder" align="right">4.536,83</td>
+          <td nowrap="" class="sp_table_cell_number removeLeftBorder" align="left">TL</td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder" align="right">11.342,08</td>
+          <td nowrap="" class="sp_table_cell_number removeLeftBorder" align="left">TL</td>
+        </tr>
+        <tr>
+          <td class="sp_column_header" nowrap="" align="left"></td>
+          <td nowrap="" class="sp_table_cell_number" align="center">
+            <font color="blue"><b>Güç Tutarı</b></font>
+          </td>
+          <td nowrap="" class="sp_table_cell_number" align="center" colspan="2">
+            <font color="blue"><b>Güç Aşım Bedeli Tutarı</b></font>
+          </td>
+          <td nowrap="" class="sp_table_cell_number" align="center" colspan="2">
+            <font color="blue"></font>
+          </td>
+          <td nowrap="" class="sp_table_cell_number" align="center" colspan="2">
+            <font color="blue"><b></b></font>
+          </td>
+        </tr>
+        <tr>
+          <td class="sp_column_header" nowrap="" align="left">
+            <font color="blue"><b>Birim Fiyat</b></font>
+          </td>
+          <td nowrap="" class="sp_table_cell_number" align="right">0,000000 TL</td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder" align="right">0,000000</td>
+          <td nowrap="" class="sp_table_cell_number removeLeftBorder" align="left">TL</td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder" align="right"></td>
+          <td nowrap="" class="sp_table_cell_number removeLeftBorder" align="left"></td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder" align="right"></td>
+          <td nowrap="" class="sp_table_cell_number removeLeftBorder" align="left"></td>
+        </tr>
+        <tr>
+          <td class="sp_column_header" nowrap="" align="left">
+            <font color="blue"><b>Tutar</b></font>
+          </td>
+          <td nowrap="" class="sp_table_cell_number" align="right">0,00 TL </td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder" align="right">0,00</td>
+          <td nowrap="" class="sp_table_cell_number removeLeftBorder" align="left">TL</td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder" align="right"></td>
+          <td nowrap="" class="sp_table_cell_number removeLeftBorder" align="left"></td>
+          <td nowrap="" class="sp_table_cell_number removeRightBorder" align="right"></td>
+          <td nowrap="" class="sp_table_cell_number removeLeftBorder" align="left"></td>
+        </tr>
+        <tr>
+          <td align="left">
+            <font size="2"><b>KDV (%20.0)</b></font>
+          </td>
+          <td colspan="6" class="removeRightBorder" align="right">
+            <font size="2">65.765,47</font>
+          </td>
+          <td nowrap="" class="sp_table_cell_number removeLeftBorder" align="left">
+            <font size="2">TL</font>
+          </td>
+        </tr>
+        <tr>
+          <td align="left">
+            <font size="3"><b>Toplam Tutar</b></font>
+          </td>
+          <td colspan="6" class="removeRightBorder" align="right">
+            <font size="3">394.592,83</font>
+          </td>
+          <td nowrap="" class="sp_table_cell_number removeLeftBorder" align="left">
+            <font size="3">TL</font>
+          </td>
+        </tr>
+                <tr>
+          <td colspan="9" align="center">
+            <form action="https://www.enerjitakibi.com/create_pdf.php" method="POST" target="_blank" id="frmpdf">
+              <input type="hidden" name="hid" value="&lt;style&gt;
+  td
+  {
+    vertical-align:middle;
+    font-size:0.8em;
+    border:0.3px solid #000102;
+    padding:6px 4px;
+    font-family:Arial;
+    color:#000102;
+  }
+
+  tr.alt td
+  {
+    color:#000000;
+    background-color:#EAF2D3;
+  }
+
+  tr.head td
+  {
+    color:#5d69ef;
+    background-color:#c3dcf4 ;
+  }
+
+  td.removeLeftBorder
+  {
+    border-left:1px dashed #ffffff
+  }
+
+  td.removeRightBorder
+  {
+    border-right:1px dashed #ffffff
+  }
+&lt;/style&gt;
+
+&lt;br/&gt;
+&lt;table cellpadding=&quot;4&quot; border=&quot;1&quot;&gt;
+  &lt;tr class=&quot;head&quot;&gt;
+    &lt;td width=&quot;576&quot; colspan=&quot;8&quot; align=&quot;center&quot;&gt;Elektrik Faturası&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td width=&quot;111px&quot; class=&quot;sp_column_header&quot; nowrap align=&quot;left&quot;&gt;&lt;font color=&quot;blue&quot; &gt;Konum:&lt;/font&gt;&lt;/td&gt;
+    &lt;td width=&quot;223px&quot; class=&quot;sp_column_header&quot; nowrap align=&quot;left&quot; colspan =&quot;3&quot;&gt;&lt;/td&gt;
+    &lt;td width=&quot;124px&quot; class=&quot;sp_column_header&quot; nowrap align=&quot;left&quot; colspan=&quot;2&quot;&gt;&lt;font color=&quot;blue&quot; &gt;Cihaz No&lt;/font&gt;&lt;/td&gt;
+    &lt;td width=&quot;118px&quot; class=&quot;sp_column_header&quot; nowrap align=&quot;left&quot; colspan=&quot;2&quot;&gt;366744&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td nowrap align=&quot;left&quot;&gt;&lt;font color=&quot;blue&quot;&gt;Sözleşme Gücü:&lt;/font&gt;&lt;/td&gt;
+    &lt;td nowrap align=&quot;left&quot; colspan =&quot;3&quot;&gt;60 kVA&lt;/td&gt;
+    &lt;td nowrap align=&quot;left&quot; colspan=&quot;2&quot;&gt;&lt;font color=&quot;blue&quot; &gt;Abone No:&lt;/font&gt;&lt;/td&gt;
+    &lt;td nowrap align=&quot;left&quot; colspan=&quot;2&quot;&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td nowrap align=&quot;left&quot;&gt;&lt;font color=&quot;blue&quot; &gt;Endüktif Limit:&lt;/font&gt;&lt;/td&gt;
+    &lt;td nowrap align=&quot;left&quot; colspan=&quot;3&quot;&gt;% 20&lt;/td&gt;
+	  &lt;td nowrap align=&quot;left&quot; colspan =&quot;2&quot;&gt;&lt;font color=&quot;blue&quot; &gt;Tarife Türü:&lt;/font&gt;&lt;/td&gt;
+    &lt;td nowrap align=&quot;left&quot; colspan=&quot;2&quot;&gt;Tek Zamanlı Tarife&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td nowrap align=&quot;left&quot;&gt;&lt;font color=&quot;blue&quot; &gt;Kapasitif Limit:&lt;/font&gt;&lt;/td&gt;
+    &lt;td nowrap align=&quot;left&quot; colspan=&quot;3&quot;&gt;% 15&lt;/td&gt;
+    &lt;td nowrap align=&quot;left&quot; colspan=&quot;2&quot;&gt;&lt;font color=&quot;blue&quot; &gt;Fatura Günü:&lt;/font&gt;&lt;/td&gt;
+    &lt;td nowrap align=&quot;left&quot; colspan=&quot;2&quot;&gt;1&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr class=&quot;head&quot;&gt;
+    &lt;td&gt;&lt;/td&gt;
+    &lt;td width=&quot;108px&quot; nowrap class=&quot;sp_column_header&quot; nowrap align=&quot;center&quot;&gt;&lt;font color=&quot;#5d69ef&quot;&gt;Tarih&lt;/font&gt;&lt;/td&gt;
+    &lt;td width=&quot;115px&quot; nowrap class=&quot;sp_column_header&quot; nowrap align=&quot;center&quot;  colspan=&quot;2&quot;&gt;&lt;font color=&quot;#5d69ef&quot; &gt;Aktif&lt;/font&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;sp_column_header&quot; nowrap align=&quot;center&quot;  colspan=&quot;2&quot;&gt;&lt;font color=&quot;#5d69ef&quot; &gt;Endüktif&lt;/font&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;sp_column_header&quot; nowrap align=&quot;center&quot;  colspan=&quot;2&quot;&gt;&lt;font color=&quot;#5d69ef&quot; &gt;Kapasitif&lt;/font&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td nowrap class=&quot;sp_column_header&quot; align=&quot;left&quot; &gt;&lt;font color=&quot;blue&quot; &gt;İlk Endeks&lt;/font&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;sp_table_cell_number&quot; align=&quot;center&quot;&gt;01.11.2026 (00:35)&lt;/td&gt;
+    &lt;td width=&quot;65px&quot;nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;1.432.383,994&lt;/td&gt;
+    &lt;td width=&quot;50px&quot;nowrap class=&quot;removeLeftBorder&quot;&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;61.978,738&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeLeftBorder&quot;&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;887,951&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeLeftBorder&quot;&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;sp_column_header&quot; nowrap align=&quot;left&quot; &gt;&lt;font color=&quot;blue&quot; &gt;Son Endeks&lt;/font&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;sp_table_cell_number&quot; align=&quot;center&quot;&gt;19.11.2026 (12:53)&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;1.864.964,891&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeLeftBorder&quot;&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;77.860,680&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeLeftBorder&quot;&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;1.094,336&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeLeftBorder&quot;&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;sp_column_header&quot; nowrap align=&quot;left&quot; &gt;&lt;font color=&quot;blue&quot; &gt;Fark&lt;/font&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;432.580,897&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeLeftBorder&quot;&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;15.881,942&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeLeftBorder&quot;&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;206,385&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeLeftBorder&quot;&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;sp_column_header&quot; nowrap align=&quot;left&quot;&gt;&lt;font color=&quot;blue&quot; &gt;Çarpan&lt;/font&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;1&lt;/td&gt;
+    &lt;td class=&quot;removeLeftBorder&quot;&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;1&lt;/td&gt;
+    &lt;td class=&quot;removeLeftBorder&quot;&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;1&lt;/td&gt;
+    &lt;td class=&quot;removeLeftBorder&quot;&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;sp_column_header&quot; nowrap align=&quot;left&quot;&gt;&lt;font color=&quot;blue&quot;&gt;Tüketim&lt;/font&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;432.580,897&lt;/td&gt;
+    &lt;td class=&quot;removeLeftBorder&quot; align=&quot;left&quot;&gt;kW·h&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;15.881,942&lt;/td&gt;
+    &lt;td class=&quot;removeLeftBorder&quot; align=&quot;left&quot;&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;206,385&lt;/td&gt;
+    &lt;td class=&quot;removeLeftBorder&quot; align=&quot;left&quot;&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;sp_column_header&quot; nowrap align=&quot;left&quot;&gt;&lt;font color=&quot;blue&quot; &gt;Reaktif Oran&lt;/font&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;/td&gt;
+    &lt;td colspan=&quot;2&quot;&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;&lt;font color=&quot;&quot;&gt;%3,7&lt;/font&gt;&lt;/td&gt;
+    &lt;td class=&quot;removeLeftBorder&quot;&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;&lt;font color=&quot;&quot;&gt;%0,0&lt;/font&gt;&lt;/td&gt;
+    &lt;td class=&quot;removeLeftBorder&quot;&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;sp_column_header&quot; nowrap align=&quot;left&quot;&gt;&lt;font color=&quot;blue&quot; &gt;Birim Fiyat&lt;/font&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;0,524391&lt;/td&gt;
+    &lt;td class=&quot;removeLeftBorder&quot; align=&quot;left&quot;&gt;TL / kW·h&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;0&lt;/td&gt;
+    &lt;td class=&quot;removeLeftBorder&quot; align=&quot;left&quot;&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;0&lt;/td&gt;
+    &lt;td class=&quot;removeLeftBorder&quot; align=&quot;left&quot;&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;sp_column_header&quot; nowrap align=&quot;left&quot;&gt;&lt;font color=&quot;blue&quot; &gt;Tüketim Tutarı&lt;/font&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;226.841,53&lt;/td&gt;
+    &lt;td class=&quot;removeLeftBorder&quot; align=&quot;left&quot;&gt;TL&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;---&lt;/td&gt;
+    &lt;td class=&quot;removeLeftBorder&quot; align=&quot;left&quot;&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;---&lt;/td&gt;
+    &lt;td class=&quot;removeLeftBorder&quot; align=&quot;left&quot;&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;sp_column_header&quot; nowrap align=&quot;center&quot; colspan=&quot;2&quot;&gt;&lt;font color=&quot;blue&quot; &gt;Gündüz (06:00 - 17:00)&lt;/font&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;sp_column_header&quot; nowrap align=&quot;center&quot; colspan=&quot;2&quot;&gt;&lt;font color=&quot;blue&quot; &gt;Puant (17:00 - 22:00)&lt;/font&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;sp_column_header&quot; nowrap align=&quot;center&quot; colspan=&quot;2&quot;&gt;&lt;font color=&quot;blue&quot; &gt;Gece (22:00 - 06:00)&lt;/font&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;sp_column_header&quot; nowrap align=&quot;left&quot; &gt;&lt;font color=&quot;blue&quot; &gt;İlk Endeks&lt;/font&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;sp_table_cell_number&quot; align=&quot;center&quot;&gt;01.11.2026 (00:35)&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;0,000&lt;/td&gt;
+    &lt;td class=&quot;removeLeftBorder&quot; align=&quot;left&quot;&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;0,000&lt;/td&gt;
+    &lt;td class=&quot;removeLeftBorder&quot; align=&quot;left&quot;&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;0,000&lt;/td&gt;
+    &lt;td class=&quot;removeLeftBorder&quot; align=&quot;left&quot;&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;sp_column_header&quot; nowrap align=&quot;left&quot; &gt;&lt;font color=&quot;blue&quot; &gt;Son Endeks&lt;/font&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;sp_table_cell_number&quot; align=&quot;center&quot;&gt;19.11.2026 (12:53)&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;0,000&lt;/td&gt;
+    &lt;td class=&quot;removeLeftBorder&quot; align=&quot;left&quot;&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;0,000&lt;/td&gt;
+    &lt;td class=&quot;removeLeftBorder&quot; align=&quot;left&quot;&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;0,000&lt;/td&gt;
+    &lt;td class=&quot;removeLeftBorder&quot; align=&quot;left&quot;&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td nowrap align=&quot;left&quot; &gt;&lt;font color=&quot;blue&quot; &gt;Fark&lt;/font&gt; &lt;/td&gt;
+    &lt;td&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;0,000&lt;/td&gt;
+    &lt;td class=&quot;removeLeftBorder&quot; align=&quot;left&quot;&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;0,000&lt;/td&gt;
+    &lt;td class=&quot;removeLeftBorder&quot; align=&quot;left&quot;&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;0,000&lt;/td&gt;
+    &lt;td class=&quot;removeLeftBorder&quot; align=&quot;left&quot;&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td nowrap align=&quot;left&quot; &gt;&lt;font color=&quot;blue&quot; &gt;Çarpan&lt;/font&gt; &lt;/td&gt;
+    &lt;td&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;1&lt;/td&gt;
+    &lt;td class=&quot;removeLeftBorder&quot; align=&quot;left&quot;&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;1&lt;/td&gt;
+    &lt;td class=&quot;removeLeftBorder&quot; align=&quot;left&quot;&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;1&lt;/td&gt;
+    &lt;td class=&quot;removeLeftBorder&quot; align=&quot;left&quot;&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td nowrap align=&quot;left&quot; &gt;&lt;font color=&quot;blue&quot; &gt;Tüketim&lt;/font&gt; &lt;/td&gt;
+    &lt;td&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;0,000&lt;/td&gt;
+    &lt;td class=&quot;removeLeftBorder&quot; align=&quot;left&quot;&gt;kW·h&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;0,000&lt;/td&gt;
+    &lt;td class=&quot;removeLeftBorder&quot; align=&quot;left&quot;&gt;kW·h&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;0,000&lt;/td&gt;
+    &lt;td class=&quot;removeLeftBorder&quot; align=&quot;left&quot;&gt;kW·h&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td nowrap align=&quot;left&quot;&gt;&lt;font color=&quot;blue&quot; &gt;Birim Fiyat&lt;/font&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;&lt;/td&gt;
+    &lt;td class=&quot;removeLeftBorder&quot; align=&quot;left&quot;&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt; &lt;/td&gt;
+    &lt;td class=&quot;removeLeftBorder&quot; align=&quot;left&quot;&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;&lt;/td&gt;
+    &lt;td class=&quot;removeLeftBorder&quot; align=&quot;left&quot;&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;sp_column_header&quot; nowrap align=&quot;left&quot; &gt;&lt;font color=&quot;blue&quot; &gt;Tüketim Tutarı&lt;/font&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;sp_table_cell_number&quot; align=&quot;center&quot;&gt;&nbsp;&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;0,000&lt;/td&gt;
+    &lt;td class=&quot;removeLeftBorder&quot; align=&quot;left&quot;&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;0,000&lt;/td&gt;
+    &lt;td class=&quot;removeLeftBorder&quot; align=&quot;left&quot;&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;0,000&lt;/td&gt;
+    &lt;td class=&quot;removeLeftBorder&quot; align=&quot;left&quot;&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;sp_column_header&quot; nowrap align=&quot;left&quot; &gt;&lt;/td&gt;
+
+          &lt;td nowrap class=&quot;sp_table_cell_number&quot; align=&quot;center&quot;&gt;&lt;font color=&quot;blue&quot;&gt;&lt;b&gt;Dağıtım Bedeli&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+          &lt;td nowrap class=&quot;sp_table_cell_number&quot; align=&quot;center&quot; colspan=&quot;2&quot;&gt;&lt;font color=&quot;blue&quot;&gt;&lt;b&gt;İletim Bedeli (Tüketim Payı)&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+          &lt;td nowrap class=&quot;sp_table_cell_number&quot; align=&quot;center&quot; colspan=&quot;2&quot;&gt;&lt;font color=&quot;blue&quot; &gt;&lt;b&gt;İletim Bedeli (Güç Payı)&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+          &lt;td nowrap class=&quot;sp_table_cell_number&quot; align=&quot;center&quot; colspan=&quot;2&quot;&gt;&lt;font color=&quot;blue&quot; &gt;&lt;b&gt;Yekdem Fark&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;
+ &lt;tr&gt;
+    &lt;td class=&quot;sp_column_header&quot; nowrap align=&quot;left&quot; &gt;&lt;font color=&quot;blue&quot;&gt;Birim Fiyat&lt;/font&gt;&lt;/td&gt;
+    &lt;td nowrap align=&quot;center&quot;  align=&quot;right&quot;&gt;0,193810 TL&lt;/td&gt; 
+    &lt;td nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;0,000000&lt;/td&gt;
+    &lt;td class=&quot;removeLeftBorder&quot; align=&quot;left&quot;&gt;TL&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;0,000000&lt;/td&gt;
+    &lt;td class=&quot;removeLeftBorder&quot; align=&quot;left&quot;&gt;TL&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;0,000000&lt;/td&gt;
+    &lt;td class=&quot;removeLeftBorder&quot; align=&quot;left&quot;&gt;TL&lt;/td&gt;
+  &lt;/tr&gt;
+ &lt;tr&gt;
+    &lt;td class=&quot;sp_column_header&quot; nowrap align=&quot;left&quot; &gt;&lt;font color=&quot;blue&quot;&gt;Tutar&lt;/font&gt;&lt;/td&gt;
+    &lt;td nowrap align=&quot;center&quot;  align=&quot;right&quot;&gt;83.838,50 TL&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;0,00&lt;/td&gt;
+    &lt;td class=&quot;removeLeftBorder&quot; align=&quot;left&quot;&gt;TL&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;0,00&lt;/td&gt;
+    &lt;td class=&quot;removeLeftBorder&quot; align=&quot;left&quot;&gt;TL&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;0,00&lt;/td&gt;
+    &lt;td class=&quot;removeLeftBorder&quot; align=&quot;left&quot;&gt;TL&lt;/td&gt;
+  &lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td class=&quot;sp_column_header&quot; nowrap align=&quot;left&quot; &gt;&lt;/td&gt;
+		&lt;td nowrap class=&quot;sp_table_cell_number&quot; align=&quot;center&quot;&gt;&lt;font color=&quot;blue&quot; &gt;&lt;b&gt;Trafo Kaybı&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+		&lt;td nowrap class=&quot;sp_table_cell_number&quot; align=&quot;center&quot; colspan=&quot;2&quot;&gt;&lt;font color=&quot;blue&quot; &gt;&lt;b&gt;Enerji Fonu (%1.00)&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+		&lt;td nowrap class=&quot;sp_table_cell_number&quot; align=&quot;center&quot; colspan=&quot;2&quot;&gt;&lt;font color=&quot;blue&quot; &gt;&lt;b&gt;TRT Payı (%2.00)&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+		&lt;td nowrap class=&quot;sp_table_cell_number&quot; align=&quot;center&quot; colspan=&quot;2&quot;&gt;&lt;font color=&quot;blue&quot; &gt;&lt;b&gt;Elek. Tük. Vergisi (%5.00)&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td class=&quot;sp_column_header&quot; nowrap align=&quot;left&quot; &gt;&lt;font color=&quot;blue&quot;&gt;&lt;b&gt;Tutar&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+		&lt;td nowrap class=&quot;sp_table_cell_number&quot; align=&quot;right&quot;&gt;0,00 TL&lt;/td&gt;
+		&lt;td nowrap class=&quot;sp_table_cell_number removeRightBorder&quot; align=&quot;right&quot;&gt;2.268,42&lt;/td&gt;
+		&lt;td nowrap class=&quot;sp_table_cell_number removeLeftBorder&quot; align=&quot;left&quot;&gt;TL&lt;/td&gt;
+		&lt;td nowrap class=&quot;sp_table_cell_number removeRightBorder&quot; align=&quot;right&quot;&gt;4.536,83&lt;/td&gt;
+		&lt;td nowrap class=&quot;sp_table_cell_number removeLeftBorder&quot; align=&quot;left&quot;&gt;TL&lt;/td&gt;
+		&lt;td nowrap class=&quot;sp_table_cell_number removeRightBorder&quot; align=&quot;right&quot;&gt;11.342,08&lt;/td&gt;
+		&lt;td nowrap class=&quot;sp_table_cell_number removeLeftBorder&quot; align=&quot;left&quot;&gt;TL&lt;/td&gt;
+	&lt;/tr&gt;
+  &lt;tr&gt;
+		&lt;td class=&quot;sp_column_header&quot; nowrap align=&quot;left&quot; &gt;&lt;/td&gt;
+		&lt;td nowrap class=&quot;sp_table_cell_number&quot; align=&quot;center&quot;&gt;&lt;font color=&quot;blue&quot; &gt;&lt;b&gt;Güç Tutarı&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+		&lt;td nowrap class=&quot;sp_table_cell_number&quot; align=&quot;center&quot; colspan=&quot;2&quot;&gt;&lt;font color=&quot;blue&quot; &gt;Güç Aşım Bedeli Tutarı&lt;/font&gt;&lt;/td&gt;
+		&lt;td nowrap class=&quot;sp_table_cell_number&quot; align=&quot;center&quot; colspan=&quot;2&quot;&gt;&lt;font color=&quot;blue&quot; &gt;&lt;/font&gt;&lt;/td&gt;
+		&lt;td nowrap class=&quot;sp_table_cell_number&quot; align=&quot;center&quot; colspan=&quot;2&quot;&gt;&lt;font color=&quot;blue&quot; &gt;&lt;/font&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;sp_column_header&quot; nowrap align=&quot;left&quot; &gt;&lt;font color=&quot;blue&quot;&gt;&lt;b&gt;Birim Fiyat&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;sp_table_cell_number&quot; align=&quot;right&quot;&gt;0,000000 TL&lt;/td&gt;
+    &lt;td nowrap class=&quot;sp_table_cell_number removeRightBorder&quot; align=&quot;right&quot;&gt;0,000000&lt;/td&gt;
+    &lt;td nowrap class=&quot;sp_table_cell_number removeLeftBorder&quot; align=&quot;left&quot;&gt;TL&lt;/td&gt;
+    &lt;td nowrap class=&quot;sp_table_cell_number removeRightBorder&quot; align=&quot;right&quot;&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;sp_table_cell_number removeLeftBorder&quot; align=&quot;left&quot;&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;sp_table_cell_number removeRightBorder&quot; align=&quot;right&quot;&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;sp_table_cell_number removeLeftBorder&quot; align=&quot;left&quot;&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td class=&quot;sp_column_header&quot; nowrap align=&quot;left&quot; &gt;&lt;font color=&quot;blue&quot;&gt;&lt;b&gt;Tutar&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+		&lt;td nowrap class=&quot;sp_table_cell_number&quot; align=&quot;right&quot;&gt;0,00 TL&lt;/td&gt;
+		&lt;td nowrap class=&quot;sp_table_cell_number removeRightBorder&quot; align=&quot;right&quot;&gt;0,00&lt;/td&gt;
+		&lt;td nowrap class=&quot;sp_table_cell_number removeLeftBorder&quot; align=&quot;left&quot;&gt;TL&lt;/td&gt;
+		&lt;td nowrap class=&quot;sp_table_cell_number removeRightBorder&quot; align=&quot;right&quot;&gt;&lt;/td&gt;
+		&lt;td nowrap class=&quot;sp_table_cell_number removeLeftBorder&quot; align=&quot;left&quot;&gt;&lt;/td&gt;
+		&lt;td nowrap class=&quot;sp_table_cell_number removeRightBorder&quot; align=&quot;right&quot;&gt;&lt;/td&gt;
+		&lt;td nowrap class=&quot;sp_table_cell_number removeLeftBorder&quot; align=&quot;left&quot;&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td nowrap align=&quot;left&quot;&gt;&lt;font size=&quot;8&quot;&gt;KDV (% 20.0)&lt;/font&gt;&lt;/td&gt;
+    &lt;td colspan=&quot;6&quot; class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;&lt;font size=&quot;8&quot;&gt;65.765,47&lt;/font&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeLeftBorder&quot; align=&quot;left&quot;&gt;TL&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td nowrap align=&quot;left&quot; size=&quot;3&quot;&gt;&lt;b&gt;&lt;font size=&quot;8&quot;&gt;Toplam Tutar&lt;/font&gt;&lt;/b&gt;&lt;/td&gt;
+    &lt;td colspan=&quot;6&quot; class=&quot;removeRightBorder&quot; align=&quot;right&quot;&gt;&lt;font size=&quot;8&quot;&gt;394.592,83&lt;/font&gt;&lt;/td&gt;
+    &lt;td nowrap class=&quot;removeLeftBorder&quot; align=&quot;left&quot;&gt;TL&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;
+  &lt;b&gt;Fatura Oluşturulma Zamanı :&lt;/b&gt; 19.11.2026 14:23:01
+&lt;/p&gt;
+&lt;p&gt;
+  &lt;b&gt;Uyarı :&lt;/b&gt; Bu fatura bilgi amaçlıdır. Fatura hesaplamada kullanılan yöntemler abone tiplerine ve dağıtım şirketlerine göre farklılık göstermektedir.
+&lt;/p&gt;">
+              <input type="hidden" name="idPrm" value="366744">
+                              <input type="image" width="80" onclick="pdf()" src="./Fatura - 366744_files/print.png" style="border-radius: 6px;">
+                          <input type="hidden" name="csrf-token" value="353ec246fd97af71f23c95bd113d38c3"></form>
+          </td>
+        </tr>
+      </tbody></table>
+    </td>
+  </tr>
+</tbody></table>    <div class="row margin-top-20">
+      <!--      <div class="col-md-6">
+              <div class="portlet light bordered">
+                <div class="portlet-title tabbable-line">
+                  <div class="caption">
+                    <i class="fa fa-history font-dark"></i>
+                    <span class="caption-subject font-dark bold uppercase">Fatura Geçmişi</span>
+                  </div>
+                </div>
+                <div class="portlet-body">
+                  <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 275px;"><div class="scroller" style="height: 339px; overflow: hidden; width: auto;" data-always-visible="1" data-rail-visible="0" data-initialized="1">
+            <div class="alert alert-warning text-center">
+        <strong>Geçmiş fatura bulunamadı.</strong>
+      </div>
+                            </div>
+                  </div>
+                </div>
+              </div>
+            </div>-->
+      <div class="col-md-6 col-sm-12">
+        <div class="portlet-body">
+          <div class="note note-warning">
+            <p>Cihazınız için tanımlanmış tarifeler dışında özel bir tarife kullanmaktasınız.</p>
+														<p>Özel tarife ayarlarını değiştirmek veya tanımlanmış bir tarifeye geçmek için <a href="https://www.enerjitakibi.com/deviceSettings.php?id=1154945191" target="_blank">Fatura Ayarları</a> sayfasını inceleyebilirsiniz</p>
+														<p>Tanımladığınız tarifeleri görmek veya yeni bir tarife eklemek için <a href="https://www.enerjitakibi.com/listTariffs.php" target="_blank">'Tarifeler'</a>sayfasını inceleyebilirsiniz </p>          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+  var deviceDataCount = $.parseJSON('[{"date_record":"2026-11-01 00:35:16","toplam_aktif_endeks":"1432383.994","toplam_enduktif_endeks":"61978.738","toplam_kapasitif_endeks":"887.951","T1_aktif_endeks":"0","T2_aktif_endeks":"0","T3_aktif_endeks":"0"}]'),
+    shortCutFunction = 'error',
+    msg = 'Bu fatura dönemine ait endeks bilgisi bulunamadı!',
+    title = 'Uyarı',
+    showDuration = 1000,
+    hideDuration = 1000,
+    timeOut = 5000,
+    extendedTimeOut = 1000,
+    showEasing = 'swing',
+    hideEasing = 'linear',
+    showMethod = 'fadeIn',
+    hideMethod = 'fadeOut';
+
+  function billHistory(path, date) {
+    $('#modalDiv').load('/billHistory.php', {
+      path: path,
+      date: date
+    }, function() {
+      $('#modalDiv').modal();
+    });
+  }
+
+  var id_auth = "366744";
+  config_title = 'Fatura  - ' + id_auth;
+  $(document).ready(function() {
+    if (deviceDataCount.length === 0) {
+      toastr.options = {
+        closeButton: true,
+        debug: false,
+        positionClass: 'toast-top-center',
+        onclick: null
+      };
+      UIToastr.init();
+    }
+
+    $('#dashboard-report-range').daterangepicker({
+        opens: (Metronic.isRTL() ? 'right' : 'left'),
+        startDate: moment().startOf('day').subtract('days', 29),
+        endDate: moment().startOf('day'),
+        minDate: '01/01/2012',
+        maxDate: moment().add(1, 'days'),
+        dateLimit: {
+          days: 370
+        },
+        showDropdowns: false,
+        showWeekNumbers: false,
+        timePicker: true,
+        timePickerIncrement: 1,
+        timePicker12Hour: false,
+        ranges: {
+          'Bugün': [moment().startOf('day'), moment().endOf('day')],
+          'Dün': [moment().subtract('days', 1).startOf('day'), moment().subtract('days', 1).endOf('day')],
+          'Son 7 Gün': [moment().subtract('days', 6).startOf('day'), moment().endOf('day')],
+          'Son 30 Gün': [moment().subtract('days', 29).startOf('day'), moment().endOf('day')],
+          'Bu Ay': [moment().startOf('month'), moment().endOf('day')],
+          'Geçen Ay': [moment().subtract('month', 1).startOf('month'), moment().subtract('month', 1).endOf('month')]
+        },
+        buttonClasses: ['btn btn-sm'],
+        applyClass: ' blue',
+        cancelClass: 'default',
+        format: 'DD/MM/YYYY',
+        separator: ' to ',
+        locale: {
+          applyLabel: 'Uygula',
+          cancelLabel: 'Kapat',
+          fromLabel: 'Başlangıç',
+          toLabel: 'Bitiş',
+          customRangeLabel: 'Tarih Seçiniz',
+          daysOfWeek: ['Pz', 'Pt', 'Sa', 'Ça', 'Pe', 'Cu', 'Ct'],
+          monthNames: ['Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran', 'Temmuz', 'Ağustos', 'Eylül', 'Ekim', 'Kasım', 'Aralık'],
+          firstDay: 1
+        }
+      },
+      function(start, end) {
+        $('#dashboard-report-range span').html(start.format('DD/MM/YYYY') + ' - ' + end.format('DD/MM/YYYY'));
+      }
+    );
+    $('#dashboard-report-range').data('daterangepicker').setStartDate(moment('2026-11-01'));
+    $('#dashboard-report-range').data('daterangepicker').setEndDate(moment('2026-12-01 00:00:00'));
+    $('#dashboard-report-range').data('daterangepicker').setMinDate(moment('09/09/2026', "DD/MM/YYYY"));
+    $('#dashboard-report-range span').html(moment('2026-11-01').format('DD/MM/YYYY') + ' - ' + moment('2026-12-01 00:00:00').format('DD/MM/YYYY'));
+    $('#dashboard-report-range').show();
+    $('#dashboard-report-range').on('apply.daterangepicker', function(ev, picker) {
+      var startDate = picker.startDate.format('YYYY-MM-DD HH:mm:ss');
+      var endDate = picker.endDate.format('YYYY-MM-DD HH:mm:ss');
+      $('#date_startPrm').val(startDate);
+      $('#date_endPrm').val(endDate);
+      frm1.submit();
+    });
+    $('.tooltip-left').tooltipster({
+      offsetX: 2,
+      offsetY: 0,
+      position: 'bottom',
+      arrow: true
+    });
+    $('.tooltip-right').tooltipster({
+      offsetX: 2,
+      offsetY: 0,
+      position: 'bottom',
+      arrow: true
+    });
+    ComponentsDropdowns.init();
+  });
+
+  function pdf() {
+    console.log($("#frmpdf").length);
+    $("#frmpdf").submit();
+  }
+
+  function previousMonth() {
+    var date = $('#dashboard-report-range').data('daterangepicker').startDate;
+    var startDate1 = moment([date.year(), date.month(), 1]).subtract('month', 1);
+    var endDate1 = moment([date.year(), date.month(), 1]);
+    var dateStartFirstBill = moment('2026-09-01');
+    if (startDate1 < dateStartFirstBill) {
+      startDate1 = dateStartFirstBill;
+      endDate1 = moment(dateStartFirstBill).add('month', 1);
+    }
+
+    $('#date_startPrm').val(startDate1.format('YYYY-MM-DD'));
+    $('#date_endPrm').val(endDate1.format('YYYY-MM-DD HH:mm:ss'));
+    frm1.submit();
+  }
+
+  function nextMonth() {
+    var date = $('#dashboard-report-range').data('daterangepicker').endDate;
+    var startDate1 = moment([date.year(), date.month(), 1]);
+    var endDate1 = moment([date.year(), date.month(), 1]).add('month', 1);
+    var dateStartLastBill = moment('2026-11-01');
+    if (startDate1 > dateStartLastBill) {
+      startDate1 = dateStartLastBill;
+      endDate1 = moment('2026-12-01 00:00:00');
+    }
+
+    $('#date_startPrm').val(startDate1.format('YYYY-MM-DD'));
+    $('#date_endPrm').val(endDate1.format('YYYY-MM-DD HH:mm:ss'));
+    frm1.submit();
+  }
+</script>
+<script type="text/javascript" src="./Fatura - 366744_files/moment.min.js.indir"></script>
+<script type="text/javascript" src="./Fatura - 366744_files/daterangepicker.min.js.indir"></script>
+<script type="text/javascript" src="./Fatura - 366744_files/toastr.min.js.indir"></script>
+<script type="text/javascript" src="./Fatura - 366744_files/ui-toastr.js.indir"></script>
+<script type="text/javascript" src="./Fatura - 366744_files/components-dropdowns.js.indir"></script>
+<script type="text/javascript" src="./Fatura - 366744_files/bootstrap-select.min.js.indir"></script>
+<script type="text/javascript" src="./Fatura - 366744_files/select2.min.js.indir"></script>
+<script type="text/javascript" src="./Fatura - 366744_files/jquery.multi-select.js.indir"></script>
+
+<script type="text/javascript" src="./Fatura - 366744_files/jquery.tooltipster.min.js.indir" charset="utf-8"></script>
+<script type="text/javascript" src="./Fatura - 366744_files/jquery.dataTables.min.js.indir"></script>
+<script type="text/javascript" src="./Fatura - 366744_files/dataTables.tableTools.min.js.indir"></script>
+<script type="text/javascript" src="./Fatura - 366744_files/dataTables.scroller.min.js.indir"></script>
+<script type="text/javascript" src="./Fatura - 366744_files/dataTables.bootstrap.js.indir"></script>
+<script type="text/javascript" src="./Fatura - 366744_files/bootbox.min.js.indir"></script>
+<script type="text/javascript" src="./Fatura - 366744_files/bootbox.js.indir"></script>
+<!-- END CONTAINER -->
+<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+<!-- BEGIN CORE PLUGINS -->
+<!--[if lt IE 9]>
+<script src="/assets/global/plugins/respond.min.js"></script>
+<script src="/assets/global/plugins/excanvas.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="./Fatura - 366744_files/jquery-migrate-1.2.1.min.js.indir"></script>
+<!-- IMPORTANT! Load jquery-ui-1.10.3.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+<script type="text/javascript" src="./Fatura - 366744_files/bootstrap.min.js.indir"></script>
+<script type="text/javascript" src="./Fatura - 366744_files/bootstrap-hover-dropdown.min.js.indir"></script>
+<script type="text/javascript" src="./Fatura - 366744_files/jquery.slimscroll.min.js.indir"></script>
+<script type="text/javascript" src="./Fatura - 366744_files/jquery.blockui.min.js.indir"></script>
+<script type="text/javascript" src="./Fatura - 366744_files/jquery.cokie.min.js.indir"></script>
+<script type="text/javascript" src="./Fatura - 366744_files/jquery.uniform.min.js.indir"></script>
+<script type="text/javascript" src="./Fatura - 366744_files/bootstrap-switch.min.js.indir"></script>
+<!-- END CORE PLUGINS -->
+<script type="text/javascript" src="./Fatura - 366744_files/metronic.min.js.indir"></script>
+<script type="text/javascript" src="./Fatura - 366744_files/layout.js.indir"></script>
+<script type="text/javascript" src="./Fatura - 366744_files/quick-sidebar.js.indir"></script>
+<script>
+  //CSRF Token İstek Header a Ekleniyor
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
+  $(document).attr('title', config_title);
+  jQuery(document).ready(function() {
+
+    //Tipi POST olan formlara hidden input ekleme
+    $('form[method="POST"]').append(
+      '<input type="hidden" name="csrf-token" value="353ec246fd97af71f23c95bd113d38c3">'
+    );
+
+    Metronic.init(); // init metronic core components
+    Layout.init(); // init current layout
+    QuickSidebar.init(); // init quick sidebar
+
+    var menuStateClass = $(".page-sidebar-menu")[0].className;
+    if (menuStateClass == 'page-sidebar-menu') {
+      $('#menuCompanyLogo').height(57).width(106);
+      $('#menuGrupArgeLogo').height(57).width(106);
+    } else if (menuStateClass == 'page-sidebar-menu page-sidebar-menu-closed') {
+      $('#menuCompanyLogo').height(22).width(24);
+      $('#menuGrupArgeLogo').height(22).width(24);
+    }
+
+    $(".sidebar-toggler").click(function() {
+      var menuStateClass = $(".page-sidebar-menu")[0].className;
+      if (menuStateClass == 'page-sidebar-menu') {
+        $('#menuCompanyLogo').height(22).width(24);
+        $('#menuGrupArgeLogo').height(22).width(24);
+      } else if (menuStateClass == 'page-sidebar-menu page-sidebar-menu-closed') {
+        $('#menuCompanyLogo').height(57).width(106);
+        $('#menuGrupArgeLogo').height(57).width(106);
+      }
+    });
+
+    $("#menuCompanyLink, #menuGrupArgeLink").mouseenter(function() {
+      var menuStateClass = $(".page-sidebar-menu")[0].className;
+      if (menuStateClass == 'page-sidebar-menu page-sidebar-menu-closed') {
+        $(this).children('img').height(57).width(106);
+      }
+    });
+
+    $("#menuCompanyLink, #menuGrupArgeLink").mouseleave(function() {
+      var menuStateClass = $(".page-sidebar-menu")[0].className;
+      if (menuStateClass == 'page-sidebar-menu page-sidebar-menu-closed') {
+        $(this).children('img').height(22).width(24);
+      }
+    });
+  });
+</script>
+</div>
+</div>
+<div class="page-footer">
+  <div class="page-footer-inner">
+    Copyright © 2026 <a href="https://www.gruparge.com/" style="color:#98a6ba;" target="_blank">Grup Arge Enerji ve Kontrol Sistemleri</a>
+  </div>
+  <div class="page-footer-tools">
+    <span class="go-top">
+      <i class="fa fa-angle-up"></i>
+    </span>
+  </div>
+</div>
+<div id="modalDiv" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" data-dismiss="modal" class="btn btn-default">Kapatt</button>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="cookie_alert">
+        <div class="alert_content">
+            <div class="alert_text">
+                <p>İnternet sayfamızda, kullanımınızı en verimli hale getirebilmek ve kullanıcı deneyimlerinizi geliştirmek amacıyla; çerezlerden yararlanılmaktadır. İnternet sayfamızı kullanarak çerezlerin, Çerez politikamız ile uyumlu bir şekilde kullanılmasına onay verdiğiniz kabul edilmektedir. Detaylı bilgi almak için
+                <a href="https://www.enerjitakibi.com/kvkk/cp_v1.pdf" target="_blank" style="color: white;"><b><u>Çerez Politikamızı</u></b></a> inceleyebilirsiniz.</p>
+            </div>
+            <div class="cookie_choose">
+                <div class="alert_confirm">
+                    <button type="button" class="cookie_confirm_button">Kabul Et</button>               
+                </div>
+                <div class="alert_close">
+                    <button type="button" class="cookie_close_button"><i class="fa fa-times"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="./Fatura - 366744_files/cookie_alert.js.indir"></script>
+
+
+
+<div class="daterangepicker dropdown-menu opensleft"><div class="calendar left"><div class="calendar-date"><table class="table-condensed"><thead><tr><th class="prev available"><i class="fa fa-angle-left"></i></th><th colspan="5" class="month">Kasım 2026</th><th class="next available"><i class="fa fa-angle-right"></i></th></tr><tr><th>Pt</th><th>Sa</th><th>Ça</th><th>Pe</th><th>Cu</th><th>Ct</th><th>Pz</th></tr></thead><tbody><tr><td class="available off" data-title="r0c0">26</td><td class="available off" data-title="r0c1">27</td><td class="available off" data-title="r0c2">28</td><td class="available off" data-title="r0c3">29</td><td class="available off" data-title="r0c4">30</td><td class="available off" data-title="r0c5">31</td><td class="available active start-date" data-title="r0c6">1</td></tr><tr><td class="available in-range" data-title="r1c0">2</td><td class="available in-range" data-title="r1c1">3</td><td class="available in-range" data-title="r1c2">4</td><td class="available in-range" data-title="r1c3">5</td><td class="available in-range" data-title="r1c4">6</td><td class="available in-range" data-title="r1c5">7</td><td class="available in-range" data-title="r1c6">8</td></tr><tr><td class="available in-range" data-title="r2c0">9</td><td class="available in-range" data-title="r2c1">10</td><td class="available in-range" data-title="r2c2">11</td><td class="available in-range" data-title="r2c3">12</td><td class="available in-range" data-title="r2c4">13</td><td class="available in-range" data-title="r2c5">14</td><td class="available in-range" data-title="r2c6">15</td></tr><tr><td class="available in-range" data-title="r3c0">16</td><td class="available in-range" data-title="r3c1">17</td><td class="available in-range" data-title="r3c2">18</td><td class="available in-range" data-title="r3c3">19</td><td class="available in-range" data-title="r3c4">20</td><td class="off disabled" data-title="r3c5">21</td><td class="off disabled" data-title="r3c6">22</td></tr><tr><td class="off disabled" data-title="r4c0">23</td><td class="off disabled" data-title="r4c1">24</td><td class="off disabled" data-title="r4c2">25</td><td class="off disabled" data-title="r4c3">26</td><td class="off disabled" data-title="r4c4">27</td><td class="off disabled" data-title="r4c5">28</td><td class="off disabled" data-title="r4c6">29</td></tr><tr><td class="off disabled" data-title="r5c0">30</td><td class="off disabled" data-title="r5c1">1</td><td class="off disabled" data-title="r5c2">2</td><td class="off disabled" data-title="r5c3">3</td><td class="off disabled" data-title="r5c4">4</td><td class="off disabled" data-title="r5c5">5</td><td class="off disabled" data-title="r5c6">6</td></tr></tbody></table></div><div class="calendar-time"><select class="hourselect"><option value="0" selected="selected">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option></select> : <select class="minuteselect"><option value="0" selected="selected">00</option><option value="1">01</option><option value="2">02</option><option value="3">03</option><option value="4">04</option><option value="5">05</option><option value="6">06</option><option value="7">07</option><option value="8">08</option><option value="9">09</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option><option value="32">32</option><option value="33">33</option><option value="34">34</option><option value="35">35</option><option value="36">36</option><option value="37">37</option><option value="38">38</option><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42">42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option><option value="46">46</option><option value="47">47</option><option value="48">48</option><option value="49">49</option><option value="50">50</option><option value="51">51</option><option value="52">52</option><option value="53">53</option><option value="54">54</option><option value="55">55</option><option value="56">56</option><option value="57">57</option><option value="58">58</option><option value="59">59</option></select> </div></div><div class="calendar right"><div class="calendar-date"><table class="table-condensed"><thead><tr><th class="prev available"><i class="fa fa-angle-left"></i></th><th colspan="5" class="month">Aralık 2026</th><th></th></tr><tr><th>Pt</th><th>Sa</th><th>Ça</th><th>Pe</th><th>Cu</th><th>Ct</th><th>Pz</th></tr></thead><tbody><tr><td class="off disabled" data-title="r0c0">30</td><td class="off disabled" data-title="r0c1">1</td><td class="off disabled" data-title="r0c2">2</td><td class="off disabled" data-title="r0c3">3</td><td class="off disabled" data-title="r0c4">4</td><td class="off disabled" data-title="r0c5">5</td><td class="off disabled" data-title="r0c6">6</td></tr><tr><td class="off disabled" data-title="r1c0">7</td><td class="off disabled" data-title="r1c1">8</td><td class="off disabled" data-title="r1c2">9</td><td class="off disabled" data-title="r1c3">10</td><td class="off disabled" data-title="r1c4">11</td><td class="off disabled" data-title="r1c5">12</td><td class="off disabled" data-title="r1c6">13</td></tr><tr><td class="off disabled" data-title="r2c0">14</td><td class="off disabled" data-title="r2c1">15</td><td class="off disabled" data-title="r2c2">16</td><td class="off disabled" data-title="r2c3">17</td><td class="off disabled" data-title="r2c4">18</td><td class="off disabled" data-title="r2c5">19</td><td class="off disabled" data-title="r2c6">20</td></tr><tr><td class="off disabled" data-title="r3c0">21</td><td class="off disabled" data-title="r3c1">22</td><td class="off disabled" data-title="r3c2">23</td><td class="off disabled" data-title="r3c3">24</td><td class="off disabled" data-title="r3c4">25</td><td class="off disabled" data-title="r3c5">26</td><td class="off disabled" data-title="r3c6">27</td></tr><tr><td class="off disabled" data-title="r4c0">28</td><td class="off disabled" data-title="r4c1">29</td><td class="off disabled" data-title="r4c2">30</td><td class="off disabled" data-title="r4c3">31</td><td class="off disabled" data-title="r4c4">1</td><td class="off disabled" data-title="r4c5">2</td><td class="off disabled" data-title="r4c6">3</td></tr><tr><td class="off disabled" data-title="r5c0">4</td><td class="off disabled" data-title="r5c1">5</td><td class="off disabled" data-title="r5c2">6</td><td class="off disabled" data-title="r5c3">7</td><td class="off disabled" data-title="r5c4">8</td><td class="off disabled" data-title="r5c5">9</td><td class="off disabled" data-title="r5c6">10</td></tr></tbody></table></div><div class="calendar-time"><select class="hourselect"><option value="0" selected="selected">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option></select> : <select class="minuteselect"><option value="0" selected="selected">00</option><option value="1">01</option><option value="2">02</option><option value="3">03</option><option value="4">04</option><option value="5">05</option><option value="6">06</option><option value="7">07</option><option value="8">08</option><option value="9">09</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option><option value="32">32</option><option value="33">33</option><option value="34">34</option><option value="35">35</option><option value="36">36</option><option value="37">37</option><option value="38">38</option><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42">42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option><option value="46">46</option><option value="47">47</option><option value="48">48</option><option value="49">49</option><option value="50">50</option><option value="51">51</option><option value="52">52</option><option value="53">53</option><option value="54">54</option><option value="55">55</option><option value="56">56</option><option value="57">57</option><option value="58">58</option><option value="59">59</option></select> </div></div><div class="ranges"><ul><li>Bugün</li><li>Dün</li><li>Son 7 Gün</li><li>Son 30 Gün</li><li>Bu Ay</li><li>Geçen Ay</li><li class="active">Tarih Seçiniz</li></ul><div class="range_inputs"><div class="daterangepicker_start_input"><label for="daterangepicker_start">Başlangıç</label><input class="input-mini" type="text" name="daterangepicker_start" value="" disabled="disabled"></div><div class="daterangepicker_end_input"><label for="daterangepicker_end">Bitiş</label><input class="input-mini" type="text" name="daterangepicker_end" value="" disabled="disabled"></div><button class="applyBtn btn btn-sm blue">Uygula</button>&nbsp;<button class="cancelBtn btn btn-sm default">Kapat</button></div></div></div></body></html>

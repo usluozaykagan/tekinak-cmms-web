@@ -1,0 +1,1674 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0049)https://www.enerjitakibi.com/report.php?id=366744 -->
+<html lang="tr"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+      <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+        <!--Add to homescreen for Chrome on Android-->
+    <meta name="theme-color" content="#0093dd">
+    <link rel="manifest" href="https://www.enerjitakibi.com/PWApp/manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="csrf-token" content="353ec246fd97af71f23c95bd113d38c3">
+  <link href="./Rapor - 366744_files/fonts.googleapis.opensans.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="./Rapor - 366744_files/fonts.googleapis.local.min.css">
+  <link rel="stylesheet" type="text/css" href="./Rapor - 366744_files/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="./Rapor - 366744_files/simple-line-icons.min.css">
+  <link rel="stylesheet" type="text/css" href="./Rapor - 366744_files/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="./Rapor - 366744_files/uniform.default.min.css">
+  <link rel="stylesheet" type="text/css" href="./Rapor - 366744_files/bootstrap-switch.min.css">
+  <link rel="stylesheet" type="text/css" href="./Rapor - 366744_files/jquery.gritter.min.css">
+  <link rel="stylesheet" type="text/css" href="./Rapor - 366744_files/daterangepicker-bs3.min.css">
+  <link rel="stylesheet" type="text/css" href="./Rapor - 366744_files/fullcalendar.min.css">
+  <link rel="stylesheet" type="text/css" href="./Rapor - 366744_files/jqvmap.min.css">
+  <link rel="stylesheet" type="text/css" href="./Rapor - 366744_files/tasks.min.css">
+  <link rel="stylesheet" type="text/css" href="./Rapor - 366744_files/components.min.css">
+  <link rel="stylesheet" type="text/css" href="./Rapor - 366744_files/plugins.min.css">
+  <link rel="stylesheet" type="text/css" href="./Rapor - 366744_files/layout.min.css">
+  <link rel="stylesheet" type="text/css" href="./Rapor - 366744_files/darkblue.css" id="style_color">
+  <link rel="stylesheet" type="text/css" href="./Rapor - 366744_files/tabs.min.css">
+  <link rel="stylesheet" type="text/css" href="./Rapor - 366744_files/style.css">
+  <link rel="stylesheet" type="text/css" href="./Rapor - 366744_files/cookie_alert.css">
+  <script type="text/javascript" src="./Rapor - 366744_files/jquery-1.11.0.min.js.indir"></script>
+  <script type="text/javascript" src="./Rapor - 366744_files/jquery-ui-1.10.3.custom.min.js.indir"></script>
+  <script type="text/javascript" src="./Rapor - 366744_files/jquery.ui.datepicker-tr.js.indir"></script>
+  <meta name="keywords" content="enerjitakibi, enerji takibi, enerji izleme, sayaç izleme, uzaktan sayaç okuma, uzaktan izleme, kompanzasyon takibi, gruparge, grup arge, makel, köhler, kohler, kombi sayaç, elektrik sayacı, electricity meter, energy monitoring, remote monitoring, OSOS, otomatik sayaç izleme sistemi, uzaktan erişim, SmartGrid, SmartPower">
+  <link rel="SHORTCUT ICON" href="https://www.enerjitakibi.com/favicon.ico">
+  <link rel="stylesheet" href="./Rapor - 366744_files/jquery-ui.min.css">
+  <link rel="stylesheet" type="text/css" href="./Rapor - 366744_files/oldStyle.min.css">
+  <script>
+    const sp_lang = 'tr';
+    const sp_lang_filetime = '1744611426';
+    let sp_lang_data;
+    async function loadLanguageData() {
+      try {
+        const response = await fetch(`/language/${sp_lang}.json?v=${sp_lang_filetime}`);
+        if (!response.ok) {
+          throw new Error('Ağ isteği başarısız oldu');
+        }
+        const data = await response.json();
+        localStorage.setItem('languageData', JSON.stringify(data));
+        localStorage.setItem('language', sp_lang);
+      } catch (error) {
+        console.error('JSON dosyası yüklenemedi:', error);
+      }
+    }
+    loadLanguageData();
+
+    async function getLanguageData() {
+      if (sp_lang != localStorage.getItem('language')) {
+        console.log('dil değişti');
+        // window.location.reload();
+      }
+      sp_lang_data = await JSON.parse(localStorage.getItem('languageData'));
+    }
+    getLanguageData();
+  </script>
+    <script type="text/javascript" src="./Rapor - 366744_files/jquery-1.11.0.min.js.indir"></script>
+  <script type="text/javascript" src="./Rapor - 366744_files/jquery-ui-1.10.3.custom.min.js.indir"></script>
+  <script type="text/javascript" src="./Rapor - 366744_files/jquery.ui.datepicker-tr.js.indir"></script>
+      <script src="./Rapor - 366744_files/functions.js.indir"></script>
+      <script src="./Rapor - 366744_files/date.format.min.js.indir"></script>
+  <style>
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Open Sans', sans-serif !important;  }
+
+  #logo_img {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+  }
+
+  #logo_img:hover {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+
+  .menu-icon {
+    width: 20px;
+    height: 14px;
+    margin-right: 3px !important;
+    margin-left: 2px !important;
+  }
+
+  .building-item {
+    color: #000000;
+  }
+
+  .comsumption-item {
+    color: #C12C2C;
+  }
+
+  .compensation-item {
+    color: #BE578A;
+  }
+
+  .io-item {
+    color: #4DB3A2;
+  }
+
+  .temperature-item {
+    color: #F7CA18;
+  }
+
+  .gas-item {
+    color: #4C87B9;
+  }
+
+  .water-item {
+    color: #00D8FD;
+  }
+
+  .page-breadcrumb.breadcrumb {
+    margin-top: 0px;
+  }
+
+  @media (min-width: 768px) {
+    .pull-right-sm {
+      float: right;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .pull-right-md {
+      float: right;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .pull-right-lg {
+      float: right;
+    }
+  }
+
+  .daterangepicker {
+    background: #cce5ff !important;
+  }
+
+  #dashboard-report-range.active {
+    color: white;
+  }
+
+  .pointer {
+    cursor: pointer;
+  }
+
+  .emails-header {
+    color: whitesmoke;
+    margin: 0;
+    margin-top: -1px;
+    font-size: 13px;
+    font-weight: 400;
+    display: inline-block;
+    max-height: 46px;
+  }
+
+  @media (max-width: 700px) {
+    .emails-header {
+      color: whitesmoke;
+      margin: 0;
+      margin-top: 0px;
+      font-size: 11px;
+      font-weight: 200;
+      display: inline-block;
+      max-height: 46px;
+    }
+  }
+
+  .emails-header>p {
+    margin: 3px 0 !important;
+  }
+</style><title> Rapor  - 366744</title></head>
+
+
+<body class="page-header-fixed page-quick-sidebar-over-content" style="overflow-x: visible;">
+    <div class="page-header navbar navbar-fixed-top">
+    <div class="page-header-inner">
+      <!--      <div class="page-logo" id="logo_div">
+                        <a href="/index.php"> <img id="logo_img" src= "/assets/admin/layout/img/iss.png"  style="margin-top: 5px;" class="logo-default"></a>
+                        <span style="display:block;margin-left:40px;margin-top: -18px;font-size:12px;color:white;"><b><i>Technical Services</i></b></span>
+                        <div class="menu-toggler sidebar-toggler hide"></div>
+                      </div>-->
+      <div class="page-logo" id="logo_div">
+        <a href="https://www.enerjitakibi.com/index.php">
+          <img id="logo_img" src="./Rapor - 366744_files/logo_color.png" style="width: 170px; margin-top: 10px;  margin-bottom: 10px;  margin-right: 10px;  margin-left: 0px;" class="logo-default"></a>
+        <div class="menu-toggler sidebar-toggler hide"></div>
+      </div>
+      <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse"> </a>
+              <div class="emails-header">
+          <p><u>Destek:</u> destek@enerjitakibi.com</p>
+          <p><u>Ödeme:</u> enerjitakibi@gruparge.com</p>
+        </div>
+            <div class="top-menu">
+        <ul class="nav navbar-nav pull-right">
+          <style>
+  .handPointer {
+    cursor: pointer;
+  }
+</style>
+<li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">
+  <a href="https://www.enerjitakibi.com/report.php?id=366744#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+    <i class="icon-bell"></i>
+    <span class="badge badge-default">
+      0 </span>
+  </a>
+  <ul class="dropdown-menu">
+    <li>
+      <p>
+        Toplam 0 Bildirim      </p>
+    </li>
+    <li>
+      <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 250px;"><ul class="dropdown-menu-list scroller" style="overflow: hidden; width: auto; height: 250px;" data-initialized="1">
+              </ul><div class="slimScrollBar" style="background: rgb(187, 187, 187); width: 7px; position: absolute; top: 0px; opacity: 0.4; border-radius: 7px; z-index: 99; right: 1px; display: block;"></div><div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(234, 234, 234); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
+    </li>
+    <li class="external">
+      <a href="https://www.enerjitakibi.com/notification.php">
+        Tümünü Gör <i class="m-icon-swapright"></i>
+      </a>
+    </li>
+  </ul>
+</li>
+
+<script>
+  $(document).ready(function() {
+      });
+
+  function requestConfirm(id, decleration, isBuilding) {
+    if (decleration) {
+      document.location.href = '/notification.php?id=' + id + '&p=invite';
+    } else {
+      if (isBuilding == 0) {
+        $('#modalDiv').load('/ems/emsRequestConfirm.php', {
+          requestId: id
+        }, function() {
+          $('#modalDiv').modal();
+        });
+      } else {
+        $('#modalDiv').load('/ems/emsRequestConfirmBuilding.php', {
+          requestId: id
+        }, function() {
+          $('#modalDiv').modal();
+        });
+      }
+    }
+  }
+
+  function showPopup() {
+    $('#modalDiv').load('/ems/notificationPopup.php', function() {
+      $('#modalDiv').modal();
+    });
+  }
+</script>            <li class="dropdown dropdown-extended">
+              <a href="http://www.enerjitakibi.com/blog/" target="_blank" class="dropdown-toggle" data-hover="dropdown" data-close-others="true">
+                <i class="fa fa-rss" style="color: #02A6E4;"></i>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="http://www.enerjitakibi.com/blog/" target="_blank"><i class="fa fa-rss" style="color: #02A6E4;"></i> SmartPower Blog
+                  </a>
+                </li>
+              </ul>
+            </li>
+          
+<li class="dropdown dropdown-extended dropdown-inbox" id="header_inbox_bar">
+  <a href="https://www.enerjitakibi.com/support/supportUserRequestList.php" class="dropdown-toggle" data-hover="dropdown" data-close-others="true">
+    <i class="icon-envelope-open"></i>
+      </a>
+  <ul class="dropdown-menu">
+    <li>
+      <p>
+        Destek Talebi      </p>
+    </li>
+    <li>
+      <div class="slimScrollDiv" style="position: relative; width: auto; height: 123px;">
+        <ul class="dropdown-menu-list scroller" style="height: 250px; overflow: hidden; width: auto;" data-initialized="1">
+                    <li>
+            <a href="https://www.enerjitakibi.com/support/supportRequest.php">
+              <span class="message">
+                <i class="fa fa-plus"></i>
+                Destek Talebi Oluştur              </span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.enerjitakibi.com/support/supportUserRequestList.php">
+              <span class="message">
+                <i class="fa fa-list"></i>
+                Destek Taleplerim              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</li>            <li class="dropdown dropdown-extended">
+              <a href="https://new.enerjitakibi.com/auth/session/sign-in?session_id=fbcac0e11cb730a94930b139774ec426" target="_blank" class="dropdown-toggle" data-hover="dropdown" data-close-others="true">
+                <i class="fa fa-external-link"></i>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="https://new.enerjitakibi.com/auth/session/sign-in?session_id=fbcac0e11cb730a94930b139774ec426" target="_blank"><i class="fa fa-external-link"></i> Yeni Arayüzü Dene</a>
+                  <p style="background: #fff;">
+                    İstediğiniz zaman bu arayüze geri dönebilirsiniz.
+                  </p>
+                </li>
+              </ul>
+            </li>
+          
+          <li class="dropdown dropdown-user">
+            <a href="https://www.enerjitakibi.com/report.php?id=366744#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+              <img alt="" class="img-circle" src="./Rapor - 366744_files/user_icon_grey.png">
+              <span class="username"> h.basriadiyaman@gmail.com              </span>
+              <i class="fa fa-angle-down"></i>
+            </a>
+
+            <ul class="dropdown-menu">
+              <li>
+                <a href="https://www.enerjitakibi.com/userProfile/userSettings.php"> <i class="icon-user"></i>
+                  Profil                </a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a href="https://www.enerjitakibi.com/tx_logout.php"> <i class="icon-key"></i>
+                  Çıkış                </a>
+              </li>
+            </ul>
+          </li>
+
+          <!-- <li class="dropdown dropdown-user">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+              <i class="fa fa-th" style="color: #02A6E4;"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a onclick="Gapps()"><i class="fa fa-rss"></i> Tüm Uygulamalar</a>
+              </li>
+              <script>
+                function Gapps(merchant_oid, amount) {
+                  $('#modalDiv').load(`/inc/modal_order_detail.php?merchant_oid=${merchant_oid}`, function() {
+                    $('#modalDiv').modal('show');
+                  });
+                }
+              </script>
+            </ul>
+          </li> -->
+
+          <li class="dropdown">
+            <a href="https://www.enerjitakibi.com/report.php?id=366744#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+              <span>
+                <img style="margin-top:-5px;width:20px;" src="./Rapor - 366744_files/tr.svg">
+              </span>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a onclick="setLanguage('en')"><img style="width:25px;" src="./Rapor - 366744_files/en.svg">
+                  English </a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a onclick="setLanguage('tr')"><img style="width:25px;" src="./Rapor - 366744_files/tr.svg">
+                  Türkçe</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <!--<a class="btn btn-default btn-sm yellow" style='margin-top:10px'  href="javascript:addFavorites()"> Sık Kullanılanlar</a>-->
+      </div>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+  <div class="page-container">
+    <div class="page-sidebar-wrapper">
+      <div class="page-sidebar navbar-collapse collapse">
+        <ul class="page-sidebar-menu" data-auto-scroll="true" data-slide-speed="200">
+          <li class="sidebar-toggler-wrapper">
+            <div class="sidebar-toggler hidden-phone"></div>
+          </li>
+          <li class="sidebar-search-wrapper">
+            <form class="sidebar-search" action="https://www.enerjitakibi.com/search.php" method="GET">
+              <a href="javascript:;" class="remove"> <i class="icon-close"></i>
+              </a>
+              <div class="input-group">
+                <input type="text" class="form-control" id="query" name="query" autocomplete="on" placeholder="  Arama ...">
+                <span class="input-group-btn">
+                  <a href="javascript:;" class="btn submit"><i class="icon-magnifier"></i></a>
+                </span>
+              </div>
+            </form>
+          </li>
+                      <li class="" id="sidebarLi21">
+              <a href="https://www.enerjitakibi.com/index.php">
+                <i class="fa fa-home"></i>
+                <span class="title">Anasayfa</span>
+                                              </a>
+                        </li>
+                    <li class="" id="sidebarLi53">
+              <a href="https://www.enerjitakibi.com/alarm/alarm.php">
+                <i class="fa fa-bell-o"></i>
+                <span class="title">Alarmlar</span>
+                                              </a>
+                        </li>
+                    <li class="" id="sidebarLi56">
+              <a href="javascript:;">
+                <i class="fa fa-users"></i>
+                <span class="title">Yönetim</span>
+                <span class="arrow"></span>                              </a>
+              <ul class="sub-menu">            <li class="" id="submenuLi20">
+              <a href="https://www.enerjitakibi.com/userProfile/userSettings.php">
+                <i class="icon-user"></i>
+                <span class="title">
+                  Profil                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi21">
+              <a href="https://www.enerjitakibi.com/listUser.php">
+                <i class="fa fa-user"></i>
+                <span class="title">
+                  Kullanıcı                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi22">
+              <a href="https://www.enerjitakibi.com/listTariffs.php">
+                <i class="fa fa-file-text-o"></i>
+                <span class="title">
+                  Tarifeler                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi23">
+              <a href="https://www.enerjitakibi.com/listSeasons.php">
+                <i class="fa fa-file-text-o"></i>
+                <span class="title">
+                  Tarife Grupları                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi24">
+              <a href="https://www.enerjitakibi.com/listSession.php">
+                <i class="fa fa-list"></i>
+                <span class="title">
+                  Aktif Oturumlar                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi25">
+              <a href="https://www.enerjitakibi.com/notification.php">
+                <i class="fa fa-info"></i>
+                <span class="title">
+                  Duyurular                </span>
+              </a>
+            </li>
+
+          </ul>          </li>
+                    <li class="" id="sidebarLi27">
+              <a href="https://www.enerjitakibi.com/listCommDevices.php">
+                <i class="fa fa-signal"></i>
+                <span class="title">Modem</span>
+                                              </a>
+                        </li>
+                    <li class="" id="sidebarLi90">
+              <a href="javascript:;">
+                <i class="fa fa-database"></i>
+                <span class="title">Cihazlarım</span>
+                <span class="arrow"></span>                              </a>
+              <ul class="sub-menu">            <li class="" id="submenuLi40">
+              <a href="https://www.enerjitakibi.com/debug.php">
+                <i class="fa fa-database"></i>
+                <span class="title">
+                  Tüm Cihazlar                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi41">
+              <a href="https://www.enerjitakibi.com/listMeters.php">
+                <i class="fa fa-tachometer"></i>
+                <span class="title">
+                  Sayaç                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi42">
+              <a href="https://www.enerjitakibi.com/virtualMeasurePoint.php">
+                <i class="fa fa-podcast"></i>
+                <span class="title">
+                  Sanal Ölçü Noktası                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi43">
+              <a href="https://www.enerjitakibi.com/listRelays.php">
+                <i class="menu-icon icon icon2-dashboard"></i>
+                <span class="title">
+                  Röle                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi44">
+              <a href="https://www.enerjitakibi.com/listAnalyzers.php">
+                <i class="fa fa-bolt"></i>
+                <span class="title">
+                  Analizör                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi45">
+              <a href="https://www.enerjitakibi.com/sensor/sensorList.php">
+                <i class="icon sp-thermometer2"></i>
+                <span class="title">
+                  Sıcaklık Sensörü                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi46">
+              <a href="https://www.enerjitakibi.com/generator/listGenerator.php">
+                <i class="fa fa-ioxhost"></i>
+                <span class="title">
+                  Jeneratör                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi47">
+              <a href="https://www.enerjitakibi.com/sensor/analog/analogSensorList.php">
+                <i class="icon sp-feed"></i>
+                <span class="title">
+                  Analog Giriş                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi48">
+              <a href="https://www.enerjitakibi.com/pulseCounter/pulseCounterList.php">
+                <i class="fa fa-list-ol"></i>
+                <span class="title">
+                  Sayıcı                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi49">
+              <a href="https://www.enerjitakibi.com/pulseCounter/channels/view/listChannels.php?dataTableName=gas_meter_data">
+                <i class="menu-icon icon icon2-fire"></i>
+                <span class="title">
+                  Doğalgaz                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi410">
+              <a href="https://www.enerjitakibi.com/pulseCounter/channels/view/listChannels.php?dataTableName=water_meter_data">
+                <i class="fa fa-tint"></i>
+                <span class="title">
+                  Su                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi411">
+              <a href="https://www.enerjitakibi.com/groupSystem/listGroupDevices.php">
+                <i class="fa fa-database"></i>
+                <span class="title">
+                  Gruplanan Cihazlar                </span>
+              </a>
+            </li>
+
+          </ul>          </li>
+                    <li class="" id="sidebarLi67">
+              <a href="javascript:;">
+                <i class="fa fa-building"></i>
+                <span class="title">İşletme</span>
+                <span class="arrow"></span>                              </a>
+              <ul class="sub-menu">            <li class="" id="submenuLi50">
+              <a href="https://www.enerjitakibi.com/ems/emsBuildingList.php">
+                <i class="fa fa-area-chart"></i>
+                <span class="title">
+                  Analiz                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi51">
+              <a href="https://www.enerjitakibi.com/ems/emsBuildingComparisonGraph.php">
+                <i class="fa fa-line-chart"></i>
+                <span class="title">
+                  İşletme Karşılaştırma                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi52">
+              <a href="https://www.enerjitakibi.com/ems/emsBuildingGroupSettings.php">
+                <i class="fa fa-cogs"></i>
+                <span class="title">
+                  İşletme Ayarı                </span>
+              </a>
+            </li>
+
+          </ul>          </li>
+                    <li class="" id="sidebarLi28">
+              <a href="javascript:;">
+                <i class="fa fa-toggle-on"></i>
+                <span class="title">Input/Output</span>
+                <span class="arrow"></span>                              </a>
+              <ul class="sub-menu">            <li class="" id="submenuLi60">
+              <a href="https://www.enerjitakibi.com/io.php">
+                <i class="fa fa-power-off"></i>
+                <span class="title">
+                  Kontrol                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi61">
+              <a href="https://www.enerjitakibi.com/io/History/Graph.php">
+                <i class="fa fa-area-chart"></i>
+                <span class="title">
+                  Geçmiş Değerler                </span>
+              </a>
+            </li>
+
+          </ul>          </li>
+                    <li class="" id="sidebarLi73">
+              <a href="https://www.enerjitakibi.com/comparisonGraph.php">
+                <i class="fa fa-line-chart"></i>
+                <span class="title">Karşılaştırma</span>
+                                              </a>
+                        </li>
+                    <li class="" id="sidebarLi29">
+              <a href="javascript:;">
+                <i class="fa fa-shopping-cart"></i>
+                <span class="title">Ödeme</span>
+                <span class="arrow"></span>                              </a>
+              <ul class="sub-menu">            <li class="" id="submenuLi80">
+              <a href="https://www.enerjitakibi.com/managePayments.php">
+                <i class="fa fa-sitemap"></i>
+                <span class="title">
+                  Yönetim Paneli                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi81">
+              <a href="https://www.enerjitakibi.com/accountTransac.php">
+                <i class="fa fa-file-text"></i>
+                <span class="title">
+                  Hesap Özeti                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi82">
+              <a href="https://www.enerjitakibi.com/payment/index.php">
+                <i class="fa fa-turkish-lira"></i>
+                <span class="title">
+                  Paket Satın Al                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi83">
+              <a href="https://www.enerjitakibi.com/payment/orders.php">
+                <i class="fa fa-credit-card-alt"></i>
+                <span class="title">
+                  Siparişlerim                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi84">
+              <a href="https://www.enerjitakibi.com/simCard/sim_card_list.php">
+                <i class="fa fa-microchip"></i>
+                <span class="title">
+                  SIM Kartlarım                </span>
+              </a>
+            </li>
+
+          </ul>          </li>
+                    <li class="" id="sidebarLi33">
+              <a href="javascript:;">
+                <i class="fa fa-map-marker"></i>
+                <span class="title">Harita</span>
+                <span class="arrow"></span>                              </a>
+              <ul class="sub-menu">            <li class="" id="submenuLi90">
+              <a href="https://www.enerjitakibi.com/maps/compensationMap.php">
+                <i class="fa fa-map-marker"></i>
+                <span class="title">
+                  Kompanzasyon                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi91">
+              <a href="https://www.enerjitakibi.com/maps/consumptionMap.php">
+                <i class="fa fa-map-marker"></i>
+                <span class="title">
+                  Tüketim                </span>
+              </a>
+            </li>
+
+          </ul>          </li>
+                    <li class="" id="sidebarLi34">
+              <a href="javascript:;">
+                <i class="fa fa-question-circle"></i>
+                <span class="title">Destek</span>
+                <span class="arrow"></span>                              </a>
+              <ul class="sub-menu">            <li class="" id="submenuLi100">
+              <a href="https://www.enerjitakibi.com/helpText/helpList.php">
+                <i class="fa fa-list"></i>
+                <span class="title">
+                  Yardım                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi101">
+              <a href="https://www.enerjitakibi.com/support/supportRequest.php">
+                <i class="icon-envelope-open"></i>
+                <span class="title">
+                  Destek Talebi                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi102">
+              <a href="https://www.enerjitakibi.com/remoteSupport.php">
+                <i class="fa fa-support"></i>
+                <span class="title">
+                  Uzaktan Destek                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi103">
+              <a href="https://www.enerjitakibi.com/help.php">
+                <i class="fa fa-video-camera"></i>
+                <span class="title">
+                  Yardım Videoları                </span>
+              </a>
+            </li>
+
+          </ul>          </li>
+                    <li class="" id="sidebarLi35">
+              <a href="https://www.enerjitakibi.com/contact.php">
+                <i class="fa fa-globe"></i>
+                <span class="title">İletişim</span>
+                                              </a>
+                        </li>
+                          <li><a href="http://www.gruparge.com/" id="menuGrupArgeLink" target="_blank" align="center"> <br>
+              <img id="menuGrupArgeLogo" src="./Rapor - 366744_files/gruparge_logo_b2.png" height="57" width="106" style="height: 57px; width: 106px;"> <br><br>
+              <span class="title">
+                <p class="title text-center">
+                  <small>Grup Arge <br> Enerji ve Kontrol Sistemleri <br>
+                                          <b>Destek:</b> destek@enerjitakibi.com <br>
+                      <b>Ödeme:</b> enerjitakibi@gruparge.com
+                                      </small>
+                </p>
+              </span>
+              <span class="selected"></span>
+            </a>
+          </li>
+                        </ul>
+      </div>
+    </div>
+    <div class="page-content-wrapper">
+      <div class="page-content" style="min-height:832px">
+        <script src="./Rapor - 366744_files/platform.min.js.indir"></script>
+<style>
+  .modal-ku {
+    width: 750px;
+    margin: auto;
+  }
+
+  .modal-s {
+    overflow: auto !important;
+    width: 900px;
+
+  }
+
+  .modal-body {
+    /*height: 250px;*/
+    max-height: calc(100vh - 210px);
+
+    overflow-y: auto;
+
+  }
+</style>
+<!--  <div class="row">
+    <div class="col-md-12">
+      <div class="alert alert-info alert-dismissable text-center" style="background-color: #FF8600; color: white; margin-bottom: 0px;">
+        <strong><i class="fa fa-check-circle"></i></strong>  <strong><span onclick="javascript: changeView();" style="cursor: pointer;">  Geçiş Yap <i class="fa fa-exchange"></i></span></strong>
+        <div class="fa fa-edit fa-2x pull-right tooltipOld" title="Geri Bildirim" style="cursor: pointer;" onclick="javascript: writeFeedback();">
+        </div>
+      </div>
+    </div>
+  </div>-->
+<div class="row">
+  <div class="col-md-12">
+    <a href="https://www.enerjitakibi.com/supportedBrowser.php">
+      <div class="alert alert-info alert-dismissable" style="display: none;" id="browserCheck">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+        <strong><i class="fa fa-warning"></i></strong>Internet Explorer'ın eski bir sürümünü kullanıyorsunuz. Sistemin tüm özelliklerini kullanabilmeniz için lütfen tarayıcınızı son sürüme <strong>buradan güncelleyin</strong>.      </div>
+    </a>
+  </div>
+</div>
+<script>
+  var platformName = platform.name;
+  var platformVersion = platform.version;
+  var osVersion = platform.os.architecture;
+  var osName = platform.os.family;
+
+  if (platformName === 'IE' && (platformVersion === '9.0' || platformVersion === '8.0' || platformVersion === '7.0' || platformVersion === '6.0')) {
+    $('#browserCheck').show();
+  }
+
+  function writeFeedback() {
+    $('#modalDiv').load('/feedback/tx_writeFeedback.php', {}, function() {
+      $('#modalDiv').modal();
+    });
+  }
+</script>
+
+              <div class="row">
+                    <script>
+            var datatablePaginateEnable = true;
+            var config_title = "SmartPower Enerji İzleme Sistemi";
+
+            function setLanguage(language) {
+              $.cookie("language", language);
+              location.reload();
+            }
+          </script>
+          <script>
+            console.log('report');
+          </script></div>
+<link href="./Rapor - 366744_files/tooltipster.css" rel="stylesheet" type="text/css">
+<link href="./Rapor - 366744_files/daterangepicker-bs3.css" rel="stylesheet" type="text/css">
+<link href="./Rapor - 366744_files/bootstrap-select.min.css" rel="stylesheet" type="text/css">
+<link href="./Rapor - 366744_files/components.css" rel="stylesheet" type="text/css">
+<link href="./Rapor - 366744_files/DT_bootstrap.css" rel="stylesheet" type="text/css">
+<link href="./Rapor - 366744_files/dataTables.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="./Rapor - 366744_files/profile.css">
+<link href="./Rapor - 366744_files/toastr.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="./Rapor - 366744_files/jquery.gritter.css">
+<script type="text/javascript" charset="utf-8" src="./Rapor - 366744_files/jquery.gritter.js.indir"></script>
+<style>
+  .paddingClass {
+    padding-left: 30px;
+    margin-left: 10px;
+  }
+
+  .tab-content td {
+    margin-right: 5px;
+    padding: 5px;
+  }
+
+  .glyphicon-chevron-left:before,
+  .glyphicon-chevron-right:before {
+    color: white;
+  }
+
+  .nowrap {
+    white-space: nowrap;
+  }
+
+  .pageSelect {
+    width: 150px;
+  }
+
+  .btn {
+    text-align: left;
+  }
+
+  .disabled2 {
+    cursor: not-allowed;
+  }
+
+  .instantPassive {
+    color: silver;
+  }
+
+  .export-button-disabled {
+    border-color: #ccc !important;
+    background-color: #ccc !important;
+    cursor: default !important;
+  }
+</style>
+<link href="./Rapor - 366744_files/tabdrop.css" rel="stylesheet" type="text/css">
+<style>
+  .nav-tabs>li>a {
+    margin-right: 0px;
+    padding: 5px 15px;
+  }
+</style>
+<div class="row margin-bottom-5">
+  <div class="col-md-12">
+    <ul class="page-breadcrumb breadcrumb" style="margin-top: -10px; margin-bottom: 0px;">
+      <li>
+        <i class="fa fa-database"></i>
+        <a href="https://www.enerjitakibi.com/debug.php">
+          Cihazlarım          <i class="fa fa-angle-right"></i>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.enerjitakibi.com/report.php?id=366744">
+                  </a>
+      </li>
+      <li class="pull-right">
+        <a href="https://www.enerjitakibi.com/report.php?id=366744#" onclick="window.history.back()">
+          Önceki Sayfa          <i class="fa fa fa-undo"></i>
+        </a>
+              </li>
+    </ul>
+  </div>
+</div>
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style=" height:auto ;max-height:100%">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Bilgi Ekranı</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body" style=" height:auto ;max-height:100%">
+              </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">KAPAT</button>
+        <!--<button type="button" class="btn btn-primary">Kaydet</button>-->
+      </div>
+    </div>
+  </div>
+</div>
+<div class="portlet box blue">
+  <div class="portlet-title">
+    <div class="caption">
+      <b>Konum: </b> |
+      <b>Cihaz No </b>366744 |
+      <b>Modem: </b><a id="modemLink" style="color: white;" class="tooltipOld tooltipstered" href="https://www.enerjitakibi.com/updateCommDeviceSettings.php?id=38304">GRP35988</a>
+              | <b>Cihaz Tipi: </b><span>GRP_SVC12C3L_STANDART_V2</span>
+          </div>
+  </div>
+  <div class="portlet-body">
+    <div class="tabbable tabbable-tabdrop">
+      <ul class="nav nav-tabs nav-just"><li class="dropdown pull-right tabdrop hide"><a class="dropdown-toggle" data-toggle="dropdown" href="https://www.enerjitakibi.com/report.php?id=366744#"><i class="fa fa-ellipsis-v"></i> <b class="caret"></b></a><ul class="dropdown-menu"></ul></li>
+                  <li class="">
+            <a href="https://www.enerjitakibi.com/data.php?id=366744">
+              Enerji </a>
+          </li>
+                  <li class="">
+            <a href="https://www.enerjitakibi.com/instantValues.php?id=366744">
+              Akım/Gerilim </a>
+          </li>
+                  <li class="">
+            <a href="https://www.enerjitakibi.com/graph.php?id=366744">
+              Grafik </a>
+          </li>
+                  <li class="active">
+            <a href="https://www.enerjitakibi.com/report.php?id=366744">
+              Rapor </a>
+          </li>
+                  <li class="">
+            <a href="https://www.enerjitakibi.com/bill.php?id=366744">
+              Fatura </a>
+          </li>
+                  <li class="">
+            <a href="https://www.enerjitakibi.com/control_v2.php?id=366744">
+              Kontrol </a>
+          </li>
+                  <li class="">
+            <a href="https://www.enerjitakibi.com/alarm/deviceAlarm.php?id=366744">
+              Alarm </a>
+          </li>
+                  <li class="">
+            <a href="https://www.enerjitakibi.com/userDeviceAuthSettings.php?id=366744">
+              Yetkiler </a>
+          </li>
+                  <li class="">
+            <a href="https://www.enerjitakibi.com/deviceSettings.php?id=366744">
+              Ayarlar </a>
+          </li>
+              </ul>
+      <script src="./Rapor - 366744_files/bootstrap-tabdrop.js.indir" type="text/javascript"></script>
+      <script>
+        $(document).ready(function() {
+          $.fn.tooltipster('setDefaults', {
+            arrow: false,
+            contentAsHTML: true,
+            delay: 50,
+            offsetX: -30,
+            offsetY: -10,
+            position: 'bottom-left',
+            theme: 'tooltipster-punk'
+          });
+          $('.tooltipOld').tooltipster();
+        });
+        $('.nav-pills, .nav-tabs').tabdrop();
+      </script>
+      <link href="./Rapor - 366744_files/tooltipster.css" rel="stylesheet" type="text/css">
+      <!--<script src="../js/tooltipster_func.js"></script>-->
+      <script src="./Rapor - 366744_files/jquery.tooltipster.min.js.indir" type="text/javascript"></script><div class="tab-content">
+  <form name="frm1" action="https://www.enerjitakibi.com/report.php?id=366744" method="post">
+    <div class="tab-pane active" id="tab_1_1_1">
+    </div>
+    <input type="hidden" name="date_startPrm" id="date_startPrm" value="2026-11-01">
+    <input type="hidden" name="date_endPrm" id="date_endPrm" value="2026-12-01 00:00:00">
+    <!--<div class="col-md-12">-->
+    <div class="row profile ">
+      <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 margin-bottom-10">
+        <table class="table table-bordered table-hover">
+          <tbody><tr>
+            <td class=""> İlk Veri Zamanı </td>
+            <td class="info text-center" colspan="2"> 09/09/2026 </td>
+          </tr>
+          <tr>
+            <td class=""> Son Veri Zamanı </td>
+            <td class="info text-center" colspan="2"> 19/11/2026 </td>
+          </tr>
+          <tr>
+            <td class=""> Dışa Aktar </td>
+            <td class="text-center bg-green bg-font-green tooltipOld tooltipstered" style="cursor:pointer;" onclick="exportViaExcel(); return false">
+              <strong><i class="fa fa-file-excel-o"></i></strong>
+            </td>
+            <td class="text-center bg-red-thunderbird bg-font-red-thunderbird tooltipOld tooltipstered" style="cursor:pointer; " onclick="exportViaPdf(); return false">
+              <strong><i class="fa fa-file-pdf-o"></i></strong>
+            </td>
+          </tr>
+                      <tr>
+              <td colspan="2">
+                <a class="btn btn-sm btn-primary instantActive active" href="https://www.enerjitakibi.com/report.php?id=366744">
+                  <i class="fa fa-download" aria-hidden="true"></i> Import</a>
+                <a class="btn btn-sm btn-success instantPassive" href="https://www.enerjitakibi.com/export_report.php?id=366744">
+                  <i class="fa fa-upload" aria-hidden="true"></i> Export</a>
+              </td>
+            </tr>
+                  </tbody></table>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 margin-bottom-10 text-center">
+        <div class="btn-group-vertical">
+          <a onclick="pageSelect('dailyCons')" id="dailyCons" class="pageSelect btn btn-default btn-outline"> Günlük Tüketim </a>
+          <a onclick="pageSelect('hourlyCons')" id="hourlyCons" class="pageSelect btn btn-default btn-outline"> Saatlik Tüketim </a>
+          <a onclick="pageSelect('reactiveReportM')" id="reactiveReportM" class="pageSelect btn btn-default btn-outline"> Aylık Rapor </a>
+        </div>
+        <div class="btn-group-vertical">
+          <a onclick="pageSelect('reactiveReport')" id="reactiveReport" class="pageSelect btn btn-default btn-outline blue"> Reaktif Raporu </a>
+          <a onclick="pageSelect('comparisonReport')" id="comparisonReport" class="pageSelect btn btn-default btn-outline">Ek Tüketim</a>
+
+                    <a onclick="pageSelect('demandReport')" id="demandReport" class="pageSelect btn btn-default btn-outline"> Demand Raporu</a>
+
+        </div>
+      </div>
+      <div class="col-lg-5  col-md-4 col-sm-12 col-xs-12">
+        <div class="clearfix text-center pull-right-lg">
+          <div class="btn-group " data-toggle="buttons">
+            <a class="btn blue-madison tooltip-left tooltipstered" onclick="javascript:previousMonth();"><span class="glyphicon glyphicon-chevron-left"></span></a>
+            <a class="btn blue-madison tooltip-right margin-bottom-10 margin-right-10 tooltipstered" onclick="javascript:nextMonth();"><span class="glyphicon glyphicon-chevron-right"></span></a>
+            <a class="btn blue-madison active page-breadcrumb breadcrumb">
+              <div id="dashboard-report-range" class="tooltips" data-placement="left" data-original-title=" Tarih aralığını seçiniz ">
+                <i class="icon-calendar"></i>
+                <span>01/11/2026 - 01/12/2026</span>
+                <i class="fa fa-angle-down"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div id="requiredGlobal" class="alert alert-danger" style="margin-top:5px; display:none;">
+        <button class="close" data-dismiss="alert"></button>
+      </div>
+    </div>
+    <input type="hidden" name="idPrm" value="366744">
+  <input type="hidden" name="csrf-token" value="353ec246fd97af71f23c95bd113d38c3"></form>
+      <div style="max-width: 750px">
+      <div class="table-scrollable">
+        <table class="table table-striped table-bordered table-hover table1">
+          <thead>
+            <tr class="pdfBlue">
+              <th></th>
+              <th class="sp_column_header"> Tarih </th>
+              <th class="sp_column_header"> Aktif </th>
+              <th class="sp_column_header"> Endüktif </th>
+              <th class="sp_column_header"> Kapasitif </th>
+                          </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="txtBlack_b pdfGreen"> İlk Endeks </td>
+              <td nowrap="" class="txtBlack pdfYellow">01.11.2026 (00:35)</td>
+              <td nowrap="" align="right" class="pdfGreen">1.432.383,994</td>
+              <td nowrap="" align="right" class="pdfYellow">61.978,738</td>
+              <td nowrap="" align="right" class="pdfGreen">887,951</td>
+                          </tr>
+            <tr>
+              <td class="txtBlack_b pdfGreen"> Son Endeks </td>
+              <td nowrap="" class="txtBlack pdfYellow">19.11.2026 (12:53)</td>
+              <td nowrap="" align="right" class="pdfGreen">1.864.964,891</td>
+              <td nowrap="" align="right" class="pdfYellow">77.860,680</td>
+              <td nowrap="" align="right" class="pdfGreen">1.094,336</td>
+                          </tr>
+            <tr class="pdfBlue">
+              <td class="txtBlack_b pdfStyle2"> Fark </td>
+              <td class=""></td>
+              <td nowrap="" align="right" class="pdfStyle2">432.580,897</td>
+              <td nowrap="" align="right" class="pdfStyle2">15.881,942</td>
+              <td nowrap="" align="right" class="pdfStyle2">206,385</td>
+                          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="table-scrollable">
+        <table class="table table-striped table-bordered table-hover table2">
+          <!-- Tablo 2 -->
+          <thead>
+            <tr class="pdfBlue">
+              <th></th>
+              <th class="sp_column_header" nowrap="" align="center">Aktif</th>
+              <th class="sp_column_header" nowrap="" align="center">Endüktif</th>
+              <th class="sp_column_header" nowrap="" align="center">Kapasitif</th>
+                          </tr>
+          </thead>
+          <tbody><tr>
+            <td class="txtBlack_b pdfGreen"> Tüketim</td>
+            <td nowrap="" align="right" class="pdfYellow">432.580,897</td>
+            <td nowrap="" align="right" class="pdfGreen">15.881,942</td>
+            <td nowrap="" align="right" class="pdfYellow">206,385</td>
+                      </tr>
+        </tbody></table>
+      </div>
+
+      <div class="table-scrollable" style="max-width: 300px;">
+        <table class="table table-striped table-bordered table-hover table3">
+          <!-- Tablo 3 -->
+          <tbody><tr>
+            <td><b> Endüktif Oran :</b></td>
+            <td><span class="pdfStyle1">% 3,7</span></td>
+          </tr>
+          <tr>
+            <td><b> Kapasitif Oran :</b></td>
+            <td><span class="pdfStyle1">% 0,0</span></td>
+          </tr>
+        </tbody></table>
+      </div>
+    </div>
+
+    <div class="row" style="max-width: 1200px;">
+      <div class="col-md-12">
+        <div id="consArr_wrapper" class="dataTables_wrapper no-footer"><div class="row"><div class="col-md-6 col-sm-12"></div><div class="col-md-6 col-sm-12"></div><div id="consArr_processing" class="dataTables_processing" style="display: none;">İşleniyor...</div></div><div class="table-scrollable"><table class="table table-striped table-hover table-bordered dataTable no-footer" id="consArr" role="grid" style="width: 1168px;"><thead><tr role="row"><th class="columnRightAlign nowrap sorting_asc" tabindex="0" aria-controls="consArr" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" Tarih : activate to sort column ascending" style="width: 80px;"> Tarih </th><th class="columnRightAlign sorting" tabindex="0" aria-controls="consArr" rowspan="1" colspan="1" aria-label=" End. Oran : activate to sort column ascending" style="width: 112px;"> End. Oran </th><th class="columnRightAlign sorting" tabindex="0" aria-controls="consArr" rowspan="1" colspan="1" aria-label=" Kap. Oran : activate to sort column ascending" style="width: 113px;"> Kap. Oran </th><th class="columnRightAlign sorting" tabindex="0" aria-controls="consArr" rowspan="1" colspan="1" aria-label=" KümülatifEnd. Oran : activate to sort column ascending" style="width: 112px;"> Kümülatif<br>End. Oran </th><th class="columnRightAlign sorting" tabindex="0" aria-controls="consArr" rowspan="1" colspan="1" aria-label=" KümülatifKap. Oran : activate to sort column ascending" style="width: 113px;"> Kümülatif<br>Kap. Oran </th><th class="columnRightAlign sorting" tabindex="0" aria-controls="consArr" rowspan="1" colspan="1" aria-label=" Aktif Tüketim: activate to sort column ascending" style="width: 147px;"> Aktif Tüketim</th><th class="columnRightAlign sorting" tabindex="0" aria-controls="consArr" rowspan="1" colspan="1" aria-label=" End. Tük. : activate to sort column ascending" style="width: 148px;"> End. Tük. </th><th class="columnRightAlign sorting" tabindex="0" aria-controls="consArr" rowspan="1" colspan="1" aria-label=" Kap. Tük. : activate to sort column ascending" style="width: 121px;"> Kap. Tük. </th></tr></thead><tbody><tr role="row" class="odd tooltipOldRow tooltipstered"><td class="columnRightAlign nowrap sorting_1" nowrap="nowrap">01 Kasım</td><td class=" columnRightAlign" nowrap="nowrap">% 4,4</td><td class=" columnRightAlign" nowrap="nowrap">% 0,0</td><td class=" columnRightAlign" nowrap="nowrap">% 4,4</td><td class=" columnRightAlign" nowrap="nowrap">% 0,0</td><td class=" columnRightAlign" nowrap="nowrap">24.266,305 kW·h</td><td class=" columnRightAlign" nowrap="nowrap">1.071,763 kVAr·h</td><td class=" columnRightAlign" nowrap="nowrap">4,227 kVAr·h</td></tr><tr role="row" class="even tooltipOldRow tooltipstered"><td class="columnRightAlign nowrap sorting_1" nowrap="nowrap">02 Kasım</td><td class=" columnRightAlign" nowrap="nowrap">% 3,7</td><td class=" columnRightAlign" nowrap="nowrap">% 0,0</td><td class=" columnRightAlign" nowrap="nowrap">% 4,0</td><td class=" columnRightAlign" nowrap="nowrap">% 0,0</td><td class=" columnRightAlign" nowrap="nowrap">22.536,573 kW·h</td><td class=" columnRightAlign" nowrap="nowrap">829,088 kVAr·h</td><td class=" columnRightAlign" nowrap="nowrap">5,372 kVAr·h</td></tr><tr role="row" class="odd tooltipOldRow tooltipstered"><td class="columnRightAlign nowrap sorting_1" nowrap="nowrap">03 Kasım</td><td class=" columnRightAlign" nowrap="nowrap">% 3,5</td><td class=" columnRightAlign" nowrap="nowrap">% 0,0</td><td class=" columnRightAlign" nowrap="nowrap">% 3,8</td><td class=" columnRightAlign" nowrap="nowrap">% 0,0</td><td class=" columnRightAlign" nowrap="nowrap">23.594,643 kW·h</td><td class=" columnRightAlign" nowrap="nowrap">823,744 kVAr·h</td><td class=" columnRightAlign" nowrap="nowrap">9,733 kVAr·h</td></tr><tr role="row" class="even tooltipOldRow tooltipstered"><td class="columnRightAlign nowrap sorting_1" nowrap="nowrap">04 Kasım</td><td class=" columnRightAlign" nowrap="nowrap">% 3,8</td><td class=" columnRightAlign" nowrap="nowrap">% 0,0</td><td class=" columnRightAlign" nowrap="nowrap">% 3,8</td><td class=" columnRightAlign" nowrap="nowrap">% 0,0</td><td class=" columnRightAlign" nowrap="nowrap">23.349,065 kW·h</td><td class=" columnRightAlign" nowrap="nowrap">889,310 kVAr·h</td><td class=" columnRightAlign" nowrap="nowrap">7,022 kVAr·h</td></tr><tr role="row" class="odd tooltipOldRow tooltipstered"><td class="columnRightAlign nowrap sorting_1" nowrap="nowrap">05 Kasım</td><td class=" columnRightAlign" nowrap="nowrap">% 3,8</td><td class=" columnRightAlign" nowrap="nowrap">% 0,0</td><td class=" columnRightAlign" nowrap="nowrap">% 3,8</td><td class=" columnRightAlign" nowrap="nowrap">% 0,0</td><td class=" columnRightAlign" nowrap="nowrap">24.397,623 kW·h</td><td class=" columnRightAlign" nowrap="nowrap">927,115 kVAr·h</td><td class=" columnRightAlign" nowrap="nowrap">4,071 kVAr·h</td></tr><tr role="row" class="even tooltipOldRow tooltipstered"><td class="columnRightAlign nowrap sorting_1" nowrap="nowrap">06 Kasım</td><td class=" columnRightAlign" nowrap="nowrap">% 3,5</td><td class=" columnRightAlign" nowrap="nowrap">% 0,0</td><td class=" columnRightAlign" nowrap="nowrap">% 3,8</td><td class=" columnRightAlign" nowrap="nowrap">% 0,0</td><td class=" columnRightAlign" nowrap="nowrap">24.143,500 kW·h</td><td class=" columnRightAlign" nowrap="nowrap">856,362 kVAr·h</td><td class=" columnRightAlign" nowrap="nowrap">6,133 kVAr·h</td></tr><tr role="row" class="odd tooltipOldRow tooltipstered"><td class="columnRightAlign nowrap sorting_1" nowrap="nowrap">07 Kasım</td><td class=" columnRightAlign" nowrap="nowrap">% 3,5</td><td class=" columnRightAlign" nowrap="nowrap">% 0,0</td><td class=" columnRightAlign" nowrap="nowrap">% 3,7</td><td class=" columnRightAlign" nowrap="nowrap">% 0,0</td><td class=" columnRightAlign" nowrap="nowrap">24.523,911 kW·h</td><td class=" columnRightAlign" nowrap="nowrap">869,033 kVAr·h</td><td class=" columnRightAlign" nowrap="nowrap">7,179 kVAr·h</td></tr><tr role="row" class="even tooltipOldRow tooltipstered"><td class="columnRightAlign nowrap sorting_1" nowrap="nowrap">08 Kasım</td><td class=" columnRightAlign" nowrap="nowrap">% 3,9</td><td class=" columnRightAlign" nowrap="nowrap">% 0,0</td><td class=" columnRightAlign" nowrap="nowrap">% 3,8</td><td class=" columnRightAlign" nowrap="nowrap">% 0,0</td><td class=" columnRightAlign" nowrap="nowrap">23.867,795 kW·h</td><td class=" columnRightAlign" nowrap="nowrap">926,737 kVAr·h</td><td class=" columnRightAlign" nowrap="nowrap">4,246 kVAr·h</td></tr><tr role="row" class="odd tooltipOldRow tooltipstered"><td class="columnRightAlign nowrap sorting_1" nowrap="nowrap">09 Kasım</td><td class=" columnRightAlign" nowrap="nowrap">% 3,6</td><td class=" columnRightAlign" nowrap="nowrap">% 0,0</td><td class=" columnRightAlign" nowrap="nowrap">% 3,7</td><td class=" columnRightAlign" nowrap="nowrap">% 0,0</td><td class=" columnRightAlign" nowrap="nowrap">24.607,690 kW·h</td><td class=" columnRightAlign" nowrap="nowrap">894,477 kVAr·h</td><td class=" columnRightAlign" nowrap="nowrap">11,859 kVAr·h</td></tr><tr role="row" class="even tooltipOldRow tooltipstered"><td class="columnRightAlign nowrap sorting_1" nowrap="nowrap">10 Kasım</td><td class=" columnRightAlign" nowrap="nowrap">% 3,2</td><td class=" columnRightAlign" nowrap="nowrap">% 0,0</td><td class=" columnRightAlign" nowrap="nowrap">% 3,7</td><td class=" columnRightAlign" nowrap="nowrap">% 0,0</td><td class=" columnRightAlign" nowrap="nowrap">25.111,555 kW·h</td><td class=" columnRightAlign" nowrap="nowrap">793,001 kVAr·h</td><td class=" columnRightAlign" nowrap="nowrap">5,965 kVAr·h</td></tr><tr role="row" class="odd tooltipOldRow tooltipstered"><td class="columnRightAlign nowrap sorting_1" nowrap="nowrap">11 Kasım</td><td class=" columnRightAlign" nowrap="nowrap">% 3,4</td><td class=" columnRightAlign" nowrap="nowrap">% 0,1</td><td class=" columnRightAlign" nowrap="nowrap">% 3,7</td><td class=" columnRightAlign" nowrap="nowrap">% 0,0</td><td class=" columnRightAlign" nowrap="nowrap">20.470,152 kW·h</td><td class=" columnRightAlign" nowrap="nowrap">700,992 kVAr·h</td><td class=" columnRightAlign" nowrap="nowrap">22,000 kVAr·h</td></tr><tr role="row" class="even tooltipOldRow tooltipstered"><td class="columnRightAlign nowrap sorting_1" nowrap="nowrap">12 Kasım</td><td class=" columnRightAlign" nowrap="nowrap">% 3,4</td><td class=" columnRightAlign" nowrap="nowrap">% 0,2</td><td class=" columnRightAlign" nowrap="nowrap">% 3,6</td><td class=" columnRightAlign" nowrap="nowrap">% 0,0</td><td class=" columnRightAlign" nowrap="nowrap">15.970,865 kW·h</td><td class=" columnRightAlign" nowrap="nowrap">542,145 kVAr·h</td><td class=" columnRightAlign" nowrap="nowrap">32,611 kVAr·h</td></tr><tr role="row" class="odd tooltipOldRow tooltipstered"><td class="columnRightAlign nowrap sorting_1" nowrap="nowrap">13 Kasım</td><td class=" columnRightAlign" nowrap="nowrap">% 3,5</td><td class=" columnRightAlign" nowrap="nowrap">% 0,2</td><td class=" columnRightAlign" nowrap="nowrap">% 3,6</td><td class=" columnRightAlign" nowrap="nowrap">% 0,0</td><td class=" columnRightAlign" nowrap="nowrap">13.215,635 kW·h</td><td class=" columnRightAlign" nowrap="nowrap">460,866 kVAr·h</td><td class=" columnRightAlign" nowrap="nowrap">23,273 kVAr·h</td></tr><tr role="row" class="even tooltipOldRow tooltipstered"><td class="columnRightAlign nowrap sorting_1" nowrap="nowrap">14 Kasım</td><td class=" columnRightAlign" nowrap="nowrap">% 3,4</td><td class=" columnRightAlign" nowrap="nowrap">% 0,1</td><td class=" columnRightAlign" nowrap="nowrap">% 3,6</td><td class=" columnRightAlign" nowrap="nowrap">% 0,0</td><td class=" columnRightAlign" nowrap="nowrap">22.306,056 kW·h</td><td class=" columnRightAlign" nowrap="nowrap">749,287 kVAr·h</td><td class=" columnRightAlign" nowrap="nowrap">13,075 kVAr·h</td></tr><tr role="row" class="odd tooltipOldRow tooltipstered"><td class="columnRightAlign nowrap sorting_1" nowrap="nowrap">15 Kasım</td><td class=" columnRightAlign" nowrap="nowrap">% 4,1</td><td class=" columnRightAlign" nowrap="nowrap">% 0,0</td><td class=" columnRightAlign" nowrap="nowrap">% 3,7</td><td class=" columnRightAlign" nowrap="nowrap">% 0,0</td><td class=" columnRightAlign" nowrap="nowrap">23.283,525 kW·h</td><td class=" columnRightAlign" nowrap="nowrap">964,792 kVAr·h</td><td class=" columnRightAlign" nowrap="nowrap">2,677 kVAr·h</td></tr><tr role="row" class="even tooltipOldRow tooltipstered"><td class="columnRightAlign nowrap sorting_1" nowrap="nowrap">16 Kasım</td><td class=" columnRightAlign" nowrap="nowrap">% 4,0</td><td class=" columnRightAlign" nowrap="nowrap">% 0,0</td><td class=" columnRightAlign" nowrap="nowrap">% 3,7</td><td class=" columnRightAlign" nowrap="nowrap">% 0,0</td><td class=" columnRightAlign" nowrap="nowrap">23.762,967 kW·h</td><td class=" columnRightAlign" nowrap="nowrap">948,023 kVAr·h</td><td class=" columnRightAlign" nowrap="nowrap">6,882 kVAr·h</td></tr><tr role="row" class="odd tooltipOldRow tooltipstered"><td class="columnRightAlign nowrap sorting_1" nowrap="nowrap">17 Kasım</td><td class=" columnRightAlign" nowrap="nowrap">% 3,2</td><td class=" columnRightAlign" nowrap="nowrap">% 0,2</td><td class=" columnRightAlign" nowrap="nowrap">% 3,7</td><td class=" columnRightAlign" nowrap="nowrap">% 0,1</td><td class=" columnRightAlign" nowrap="nowrap">15.919,346 kW·h</td><td class=" columnRightAlign" nowrap="nowrap">505,499 kVAr·h</td><td class=" columnRightAlign" nowrap="nowrap">24,609 kVAr·h</td></tr><tr role="row" class="even tooltipOldRow tooltipstered"><td class="columnRightAlign nowrap sorting_1" nowrap="nowrap">18 Kasım</td><td class=" columnRightAlign" nowrap="nowrap">% 3,9</td><td class=" columnRightAlign" nowrap="nowrap">% 0,0</td><td class=" columnRightAlign" nowrap="nowrap">% 3,7</td><td class=" columnRightAlign" nowrap="nowrap">% 0,0</td><td class=" columnRightAlign" nowrap="nowrap">23.680,304 kW·h</td><td class=" columnRightAlign" nowrap="nowrap">921,106 kVAr·h</td><td class=" columnRightAlign" nowrap="nowrap">5,016 kVAr·h</td></tr><tr role="row" class="odd tooltipOldRow tooltipstered"><td class="columnRightAlign nowrap sorting_1" nowrap="nowrap">19 Kasım</td><td class=" columnRightAlign" nowrap="nowrap">% 3,9</td><td class=" columnRightAlign" nowrap="nowrap">% 0,0</td><td class=" columnRightAlign" nowrap="nowrap">% 3,7</td><td class=" columnRightAlign" nowrap="nowrap">% 0,0</td><td class=" columnRightAlign" nowrap="nowrap">12.140,257 kW·h</td><td class=" columnRightAlign" nowrap="nowrap">476,324 kVAr·h</td><td class=" columnRightAlign" nowrap="nowrap">3,389 kVAr·h</td></tr></tbody></table></div><div class="row"><div class="col-md-5 col-sm-12"></div><div class="col-md-7 col-sm-12"></div></div></div>
+      </div>
+    </div>
+    <div class="row">
+    <div class="col-md-4 col-sm-4">
+      <div class="note note-info">
+        <h4 class="block"> Birimler </h4>
+        <p>
+          <i>
+            <b>Aktif tüketimler için birim:</b> kW·h<br>
+            <b>Reaktif tüketimler için birim:</b> kVAr·h<br>
+          </i>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<form name="dailyConsForm" action="https://www.enerjitakibi.com/consumptionReport.php?id=366744" method="post">
+  <input type="hidden" name="c" value="d">
+<input type="hidden" name="csrf-token" value="353ec246fd97af71f23c95bd113d38c3"></form>
+<form name="hourlyConsForm" action="https://www.enerjitakibi.com/consumptionReport.php?id=366744" method="post">
+  <input type="hidden" name="c" value="h">
+<input type="hidden" name="csrf-token" value="353ec246fd97af71f23c95bd113d38c3"></form>
+  <form name="frmExcel" action="https://www.enerjitakibi.com/export/reportExcel.php" method="post">
+    <input type="hidden" name="datePrm" value="2026_11_01__2026_12_01">
+    <input type="hidden" name="idPrm" value="366744">
+    <input type="hidden" name="location_name" value="">
+    <input type="hidden" name="tesisat_no" value="">
+    <input type="hidden" name="deviceCategory" value="2">
+  <input type="hidden" name="csrf-token" value="353ec246fd97af71f23c95bd113d38c3"></form>
+
+  <form name="frmPdf" action="https://www.enerjitakibi.com/export/reportPdf.php" method="post" target="_blank">
+    <input type="hidden" name="datePrm" value="2026_11_01__2026_12_01">
+    <input type="hidden" name="idPrm" value="366744">
+    <input type="hidden" name="location_name" value="">
+    <input type="hidden" name="tesisat_no" value="">
+    <input type="hidden" name="deviceCategory" value="2">
+    <input type="hidden" name="consumption" value="432580.897&amp;15881.942&amp;206.385&amp;0&amp;0&amp;0&amp;1">
+    <input type="hidden" name="rates" value="3,7&amp;0,0">
+    <input type="hidden" name="pdfDayCount" id="pdfDayCount" value="18.512615740741">
+    <input type="hidden" name="html" id="html" value="/">
+  <input type="hidden" name="csrf-token" value="353ec246fd97af71f23c95bd113d38c3"></form>
+<form name="frmM" action="https://www.enerjitakibi.com/reportM.php?id=366744" method="post">
+<input type="hidden" name="csrf-token" value="353ec246fd97af71f23c95bd113d38c3"></form>
+<form name="frmComparison" action="https://www.enerjitakibi.com/consumptionComparison.php?id=366744" method="post">
+<input type="hidden" name="csrf-token" value="353ec246fd97af71f23c95bd113d38c3"></form>
+<form name="demand" action="https://www.enerjitakibi.com/demandReport.php?id=366744" method="post">
+<input type="hidden" name="csrf-token" value="353ec246fd97af71f23c95bd113d38c3"></form>
+<script src="./Rapor - 366744_files/moment.min.js.indir" type="text/javascript"></script>
+<script src="./Rapor - 366744_files/daterangepicker.min.js.indir" type="text/javascript"></script>
+<script src="./Rapor - 366744_files/components-dropdowns.js.indir" type="text/javascript"></script>
+<script src="./Rapor - 366744_files/bootstrap-select.min.js.indir" type="text/javascript"></script>
+<script src="./Rapor - 366744_files/select2.min.js.indir" type="text/javascript"></script>
+<script src="./Rapor - 366744_files/jquery.multi-select.js.indir" type="text/javascript"></script>
+<script src="./Rapor - 366744_files/jquery.dataTables.min.js.indir" type="text/javascript"></script>
+<script src="./Rapor - 366744_files/dataTables.tableTools.min.js.indir" type="text/javascript"></script>
+<script src="./Rapor - 366744_files/dataTables.scroller.min.js.indir" type="text/javascript"></script>
+<script src="./Rapor - 366744_files/dataTables.bootstrap.js.indir" type="text/javascript"></script>
+<script src="./Rapor - 366744_files/toastr.min.js.indir"></script>
+<script src="./Rapor - 366744_files/ui-toastr.js.indir"></script>
+<script>
+</script>
+<script>
+  var shortCutFunction = 'error',
+    msg = 'Seçilen aralığını aralığında kayıt bulunamadı!',
+    title = 'Uyarı',
+    showDuration = 1000,
+    hideDuration = 1000,
+    timeOut = 5000,
+    extendedTimeOut = 1000,
+    showEasing = 'swing',
+    hideEasing = 'linear',
+    showMethod = 'fadeIn',
+    hideMethod = 'fadeOut';
+  var consArr = $.parseJSON('[{"DateStr":"01 Kas\u0131m","Date":{"date":"2026-11-01 00:35:16.000000","timezone_type":3,"timezone":"Europe\/Istanbul"},"ActCons":"24.266,305","IndCons":"1.071,763","CapCons":"4,227","T1Cons":"0,000","T2Cons":"0,000","T3Cons":"0,000","IndRatio":"4,4","CapRatio":"0,0","DailyFirstIndex":"00:35","DailyLastIndex":"23:36","ActConsVal":24266.305000000168,"IndConsVal":1071.762999999999,"CapConsVal":4.226999999999975,"T1ConsVal":0,"T2ConsVal":0,"T3ConsVal":0,"IndRatioVal":4.416671594624693,"CapRatioVal":0.017419215657266097,"CumIndRatio":"4,4","CumIndRatioVal":4.416671594624693,"CumCapRatio":"0,0","CumCapRatioVal":0.017419215657266097},{"DateStr":"02 Kas\u0131m","Date":{"date":"2026-11-02 00:36:59.000000","timezone_type":3,"timezone":"Europe\/Istanbul"},"ActCons":"22.536,573","IndCons":"829,088","CapCons":"5,372","T1Cons":"0,000","T2Cons":"0,000","T3Cons":"0,000","IndRatio":"3,7","CapRatio":"0,0","DailyFirstIndex":"00:36","DailyLastIndex":"22:25","ActConsVal":22536.57300000009,"IndConsVal":829.0880000000034,"CapConsVal":5.372000000000071,"T1ConsVal":0,"T2ConsVal":0,"T3ConsVal":0,"IndRatioVal":3.678855698246579,"CapRatioVal":0.02383680961608515,"CumIndRatio":"4,0","CumIndRatioVal":4.045533793933805,"CumCapRatio":"0,0","CumCapRatioVal":0.0200530507635669},{"DateStr":"03 Kas\u0131m","Date":{"date":"2026-11-03 00:25:53.000000","timezone_type":3,"timezone":"Europe\/Istanbul"},"ActCons":"23.594,643","IndCons":"823,744","CapCons":"9,733","T1Cons":"0,000","T2Cons":"0,000","T3Cons":"0,000","IndRatio":"3,5","CapRatio":"0,0","DailyFirstIndex":"00:25","DailyLastIndex":"23:20","ActConsVal":23594.642999999924,"IndConsVal":823.7439999999988,"CapConsVal":9.732999999999947,"T1ConsVal":0,"T2ConsVal":0,"T3ConsVal":0,"IndRatioVal":3.4912331583063216,"CapRatioVal":0.04125088902595381,"CumIndRatio":"3,8","CumIndRatioVal":3.8498990317494934,"CumCapRatio":"0,0","CumCapRatioVal":0.02749957945453768},{"DateStr":"04 Kas\u0131m","Date":{"date":"2026-11-04 00:13:43.000000","timezone_type":3,"timezone":"Europe\/Istanbul"},"ActCons":"23.349,065","IndCons":"889,310","CapCons":"7,022","T1Cons":"0,000","T2Cons":"0,000","T3Cons":"0,000","IndRatio":"3,8","CapRatio":"0,0","DailyFirstIndex":"00:13","DailyLastIndex":"23:20","ActConsVal":23349.064999999944,"IndConsVal":889.3099999999977,"CapConsVal":7.022000000000048,"T1ConsVal":0,"T2ConsVal":0,"T3ConsVal":0,"IndRatioVal":3.8087606505870784,"CapRatioVal":0.030074009387528217,"CumIndRatio":"3,8","CumIndRatioVal":3.8383862988031807,"CumCapRatio":"0,0","CumCapRatioVal":0.02811192025455639},{"DateStr":"05 Kas\u0131m","Date":{"date":"2026-11-05 00:20:07.000000","timezone_type":3,"timezone":"Europe\/Istanbul"},"ActCons":"24.397,623","IndCons":"927,115","CapCons":"4,071","T1Cons":"0,000","T2Cons":"0,000","T3Cons":"0,000","IndRatio":"3,8","CapRatio":"0,0","DailyFirstIndex":"00:20","DailyLastIndex":"23:24","ActConsVal":24397.622999999905,"IndConsVal":927.1150000000052,"CapConsVal":4.071000000000026,"T1ConsVal":0,"T2ConsVal":0,"T3ConsVal":0,"IndRatioVal":3.800021829995524,"CapRatioVal":0.016686051751845014,"CumIndRatio":"3,8","CumIndRatioVal":3.828823344814863,"CumCapRatio":"0,0","CumCapRatioVal":0.025638183207729755},{"DateStr":"06 Kas\u0131m","Date":{"date":"2026-11-06 00:24:30.000000","timezone_type":3,"timezone":"Europe\/Istanbul"},"ActCons":"24.143,500","IndCons":"856,362","CapCons":"6,133","T1Cons":"0,000","T2Cons":"0,000","T3Cons":"0,000","IndRatio":"3,5","CapRatio":"0,0","DailyFirstIndex":"00:24","DailyLastIndex":"23:05","ActConsVal":24143.5,"IndConsVal":856.3620000000083,"CapConsVal":6.133000000000038,"T1ConsVal":0,"T2ConsVal":0,"T3ConsVal":0,"IndRatioVal":3.546967092592243,"CapRatioVal":0.025402282187752555,"CumIndRatio":"3,8","CumIndRatioVal":3.7851366771763217,"CumCapRatio":"0,0","CumCapRatioVal":0.025435889444030503},{"DateStr":"07 Kas\u0131m","Date":{"date":"2026-11-07 00:06:03.000000","timezone_type":3,"timezone":"Europe\/Istanbul"},"ActCons":"24.523,911","IndCons":"869,033","CapCons":"7,179","T1Cons":"0,000","T2Cons":"0,000","T3Cons":"0,000","IndRatio":"3,5","CapRatio":"0,0","DailyFirstIndex":"00:06","DailyLastIndex":"23:08","ActConsVal":24523.91100000008,"IndConsVal":869.0329999999958,"CapConsVal":7.178999999999974,"T1ConsVal":0,"T2ConsVal":0,"T3ConsVal":0,"IndRatioVal":3.5436150457404327,"CapRatioVal":0.029273471103365,"CumIndRatio":"3,7","CumIndRatioVal":3.7479357802139903,"CumCapRatio":"0,0","CumCapRatioVal":0.025992295400466037},{"DateStr":"08 Kas\u0131m","Date":{"date":"2026-11-08 00:09:00.000000","timezone_type":3,"timezone":"Europe\/Istanbul"},"ActCons":"23.867,795","IndCons":"926,737","CapCons":"4,246","T1Cons":"0,000","T2Cons":"0,000","T3Cons":"0,000","IndRatio":"3,9","CapRatio":"0,0","DailyFirstIndex":"00:09","DailyLastIndex":"23:10","ActConsVal":23867.794999999925,"IndConsVal":926.7370000000083,"CapConsVal":4.245999999999981,"T1ConsVal":0,"T2ConsVal":0,"T3ConsVal":0,"IndRatioVal":3.882792691993589,"CapRatioVal":0.01778966175970589,"CumIndRatio":"3,8","CumIndRatioVal":3.7623458567676695,"CumCapRatio":"0,0","CumCapRatioVal":0.024866665113326178},{"DateStr":"09 Kas\u0131m","Date":{"date":"2026-11-09 00:10:31.000000","timezone_type":3,"timezone":"Europe\/Istanbul"},"ActCons":"24.607,690","IndCons":"894,477","CapCons":"11,859","T1Cons":"0,000","T2Cons":"0,000","T3Cons":"0,000","IndRatio":"3,6","CapRatio":"0,0","DailyFirstIndex":"00:10","DailyLastIndex":"23:06","ActConsVal":24607.689999999944,"IndConsVal":894.476999999999,"CapConsVal":11.859000000000037,"T1ConsVal":0,"T2ConsVal":0,"T3ConsVal":0,"IndRatioVal":3.6349490748623743,"CapRatioVal":0.048192252096804146,"CumIndRatio":"3,7","CumIndRatioVal":3.749846726084732,"CumCapRatio":"0,0","CumCapRatioVal":0.027318304816863495},{"DateStr":"10 Kas\u0131m","Date":{"date":"2026-11-10 00:06:45.000000","timezone_type":3,"timezone":"Europe\/Istanbul"},"ActCons":"25.111,555","IndCons":"793,001","CapCons":"5,965","T1Cons":"0,000","T2Cons":"0,000","T3Cons":"0,000","IndRatio":"3,2","CapRatio":"0,0","DailyFirstIndex":"00:06","DailyLastIndex":"23:08","ActConsVal":25111.555000000168,"IndConsVal":793.0010000000038,"CapConsVal":5.965000000000032,"T1ConsVal":0,"T2ConsVal":0,"T3ConsVal":0,"IndRatioVal":3.1579127616748486,"CapRatioVal":0.02375400487942699,"CumIndRatio":"3,7","CumIndRatioVal":3.6866468134812314,"CumCapRatio":"0,0","CumCapRatioVal":0.026897463371857205},{"DateStr":"11 Kas\u0131m","Date":{"date":"2026-11-11 00:08:14.000000","timezone_type":3,"timezone":"Europe\/Istanbul"},"ActCons":"20.470,152","IndCons":"700,992","CapCons":"22,000","T1Cons":"0,000","T2Cons":"0,000","T3Cons":"0,000","IndRatio":"3,4","CapRatio":"0,1","DailyFirstIndex":"00:08","DailyLastIndex":"23:10","ActConsVal":20470.152000000002,"IndConsVal":700.9920000000129,"CapConsVal":22,"T1ConsVal":0,"T2ConsVal":0,"T3ConsVal":0,"IndRatioVal":3.4244591833026585,"CapRatioVal":0.10747355466632587,"CumIndRatio":"3,7","CumIndRatioVal":3.6638331272078246,"CumCapRatio":"0,0","CumCapRatioVal":0.032969398850468117},{"DateStr":"12 Kas\u0131m","Date":{"date":"2026-11-12 01:10:03.000000","timezone_type":3,"timezone":"Europe\/Istanbul"},"ActCons":"15.970,865","IndCons":"542,145","CapCons":"32,611","T1Cons":"0,000","T2Cons":"0,000","T3Cons":"0,000","IndRatio":"3,4","CapRatio":"0,2","DailyFirstIndex":"01:10","DailyLastIndex":"23:46","ActConsVal":15970.86499999999,"IndConsVal":542.1449999999895,"CapConsVal":32.611000000000104,"T1ConsVal":0,"T2ConsVal":0,"T3ConsVal":0,"IndRatioVal":3.3945875818247155,"CapRatioVal":0.204190568262897,"CumIndRatio":"3,6","CumIndRatioVal":3.645565859365642,"CumCapRatio":"0,0","CumCapRatioVal":0.04278591969722277},{"DateStr":"13 Kas\u0131m","Date":{"date":"2026-11-13 00:46:43.000000","timezone_type":3,"timezone":"Europe\/Istanbul"},"ActCons":"13.215,635","IndCons":"460,866","CapCons":"23,273","T1Cons":"0,000","T2Cons":"0,000","T3Cons":"0,000","IndRatio":"3,5","CapRatio":"0,2","DailyFirstIndex":"00:46","DailyLastIndex":"23:58","ActConsVal":13215.63500000001,"IndConsVal":460.8660000000091,"CapConsVal":23.273000000000025,"T1ConsVal":0,"T2ConsVal":0,"T3ConsVal":0,"IndRatioVal":3.4872785151830294,"CapRatioVal":0.1761020185560513,"CumIndRatio":"3,6","CumIndRatioVal":3.638793732789191,"CumCapRatio":"0,0","CumCapRatioVal":0.04850580424930902},{"DateStr":"14 Kas\u0131m","Date":{"date":"2026-11-14 00:58:45.000000","timezone_type":3,"timezone":"Europe\/Istanbul"},"ActCons":"22.306,056","IndCons":"749,287","CapCons":"13,075","T1Cons":"0,000","T2Cons":"0,000","T3Cons":"0,000","IndRatio":"3,4","CapRatio":"0,1","DailyFirstIndex":"00:58","DailyLastIndex":"23:25","ActConsVal":22306.055999999866,"IndConsVal":749.2869999999966,"CapConsVal":13.075000000000045,"T1ConsVal":0,"T2ConsVal":0,"T3ConsVal":0,"IndRatioVal":3.3591191558023574,"CapRatioVal":0.05861636857721564,"CumIndRatio":"3,6","CumIndRatioVal":3.6180406667118805,"CumCapRatio":"0,0","CumCapRatioVal":0.04938649594128062},{"DateStr":"15 Kas\u0131m","Date":{"date":"2026-11-15 00:24:57.000000","timezone_type":3,"timezone":"Europe\/Istanbul"},"ActCons":"23.283,525","IndCons":"964,792","CapCons":"2,677","T1Cons":"0,000","T2Cons":"0,000","T3Cons":"0,000","IndRatio":"4,1","CapRatio":"0,0","DailyFirstIndex":"00:24","DailyLastIndex":"23:26","ActConsVal":23283.524999999907,"IndConsVal":964.7920000000013,"CapConsVal":2.6770000000001346,"T1ConsVal":0,"T2ConsVal":0,"T3ConsVal":0,"IndRatioVal":4.143668108673429,"CapRatioVal":0.011497399985612769,"CumIndRatio":"3,7","CumIndRatioVal":3.651735036586098,"CumCapRatio":"0,0","CumCapRatioVal":0.046851929155498954},{"DateStr":"16 Kas\u0131m","Date":{"date":"2026-11-16 00:26:30.000000","timezone_type":3,"timezone":"Europe\/Istanbul"},"ActCons":"23.762,967","IndCons":"948,023","CapCons":"6,882","T1Cons":"0,000","T2Cons":"0,000","T3Cons":"0,000","IndRatio":"4,0","CapRatio":"0,0","DailyFirstIndex":"00:26","DailyLastIndex":"23:48","ActConsVal":23762.966999999946,"IndConsVal":948.023000000001,"CapConsVal":6.882000000000062,"T1ConsVal":0,"T2ConsVal":0,"T3ConsVal":0,"IndRatioVal":3.989497607769279,"CapRatioVal":0.028961029992593423,"CumIndRatio":"3,7","CumIndRatioVal":3.6734609508856217,"CumCapRatio":"0,0","CumCapRatioVal":0.045705162011844616},{"DateStr":"17 Kas\u0131m","Date":{"date":"2026-11-17 00:49:02.000000","timezone_type":3,"timezone":"Europe\/Istanbul"},"ActCons":"15.919,346","IndCons":"505,499","CapCons":"24,609","T1Cons":"0,000","T2Cons":"0,000","T3Cons":"0,000","IndRatio":"3,2","CapRatio":"0,2","DailyFirstIndex":"00:49","DailyLastIndex":"23:50","ActConsVal":15919.345999999903,"IndConsVal":505.49899999999616,"CapConsVal":24.608999999999924,"T1ConsVal":0,"T2ConsVal":0,"T3ConsVal":0,"IndRatioVal":3.175375420573177,"CapRatioVal":0.154585496162971,"CumIndRatio":"3,7","CumIndRatioVal":3.653626363403952,"CumCapRatio":"0,1","CumCapRatioVal":0.0500336259218033},{"DateStr":"18 Kas\u0131m","Date":{"date":"2026-11-18 00:51:00.000000","timezone_type":3,"timezone":"Europe\/Istanbul"},"ActCons":"23.680,304","IndCons":"921,106","CapCons":"5,016","T1Cons":"0,000","T2Cons":"0,000","T3Cons":"0,000","IndRatio":"3,9","CapRatio":"0,0","DailyFirstIndex":"00:51","DailyLastIndex":"23:52","ActConsVal":23680.304000000004,"IndConsVal":921.1059999999998,"CapConsVal":5.015999999999849,"T1ConsVal":0,"T2ConsVal":0,"T3ConsVal":0,"IndRatioVal":3.88975580718896,"CapRatioVal":0.021182160499290247,"CumIndRatio":"3,7","CumIndRatioVal":3.6640196618979317,"CumCapRatio":"0,0","CumCapRatioVal":0.04828301096714547},{"DateStr":"19 Kas\u0131m","Date":{"date":"2026-11-19 00:52:39.000000","timezone_type":3,"timezone":"Europe\/Istanbul"},"ActCons":"12.140,257","IndCons":"476,324","CapCons":"3,389","T1Cons":"0,000","T2Cons":"0,000","T3Cons":"0,000","IndRatio":"3,9","CapRatio":"0,0","DailyFirstIndex":"00:52","DailyLastIndex":"12:53","ActConsVal":12140.256999999983,"IndConsVal":476.32399999999325,"CapConsVal":3.3890000000001237,"T1ConsVal":0,"T2ConsVal":0,"T3ConsVal":0,"IndRatioVal":3.9235083738342107,"CapRatioVal":0.027915389270590635,"CumIndRatio":"3,7","CumIndRatioVal":3.6714385933690434,"CumCapRatio":"0,0","CumCapRatioVal":0.047710151195141645}]');
+  var id_auth = "366744";
+  config_title = ' Rapor  - ' + id_auth;
+  jQuery(document).ready(function() {
+    if (consArr.length == 0) {
+      toastr.options = {
+        closeButton: true,
+        debug: false,
+        positionClass: 'toast-top-center',
+        onclick: null
+      };
+      UIToastr.init();
+    }
+
+    ComponentsDropdowns.init();
+    var targets = [];
+    var deviceCategory = "2";
+    deviceCategory *= 1;
+    if (deviceCategory != 1) {
+      targets = [6, 7, 8];
+    }
+
+    let initComplete = false;
+    $('#consArr').dataTable({
+      "aoColumnDefs": [{
+        "bVisible": false,
+        "aTargets": targets
+      }],
+      "fnDrawCallback": function(oSettings) {
+        if (!initComplete) {
+          initTooltipster();
+          $('.tooltipOldRow').tooltipster({
+            arrow: false,
+            contentAsHTML: true,
+            delay: 50,
+            offsetX: 0,
+            offsetY: -13,
+            position: 'top',
+            theme: 'tooltipster-punk'
+          });
+          initComplete = !initComplete
+        }
+      },
+      "fnRowCallback": function(nRow, aData, iDisplayIndex) {
+        $('td', nRow).attr('nowrap', 'nowrap');
+        $(nRow).addClass("tooltipOldRow");
+        title = '<span style="white-space: nowrap;"><b class="tooltipX">' + aData.DailyFirstIndex + ' - ' + aData.DailyLastIndex + ' </b>  aralığına ait değerlerdir.</span>';
+        $(nRow).attr("title", title);
+        return nRow;
+      },
+      "aaData": consArr,
+      "bDeferRender": true,
+      "bLengthChange": false,
+      "bFilter": false,
+      "bInfo": false,
+      "bPaginate": false,
+      "iDisplayLength": 31,
+      "bProcessing": true,
+      "aoColumns": [{
+          "sTitle": " Tarih ",
+          "bSearchable": false,
+          "sType": "date",
+          "sClass": "columnRightAlign nowrap",
+          "mData": function(source, type, val) {
+            var DateObj;
+            var date = source.Date;
+            DateObj = parseDbDate(date.date);
+            source.DateObj = DateObj;
+            if (type === 'display') {
+              return source.DateStr;
+            } else if (type === 'sort') {
+              return source.DateObj;
+            } else {
+              return source.Date;
+            }
+          }
+        },
+        {
+          "sTitle": " End. Oran ",
+          "sClass": "columnRightAlign",
+          "mData": function(source, type, val) {
+            let ratioText = '% ' + source.IndRatio;
+            if (type === 'display') {
+              return ratioText;
+            } else if (type === 'sort') {
+              return source.IndRatioVal;
+            } else {
+              return source.IndRatioVal;
+            }
+          }
+        },
+        {
+          "sTitle": " Kap. Oran ",
+          "sClass": "columnRightAlign",
+          "mData": function(source, type, val) {
+            let ratioText = '% ' + source.CapRatio;
+            if (type === 'display') {
+              return ratioText;
+            } else if (type === 'sort') {
+              return source.CapRatioVal;
+            } else {
+              return source.CapRatioVal;
+            }
+          }
+        },
+        {
+          "sTitle": " Kümülatif</br>End. Oran ",
+          "sClass": "columnRightAlign",
+          "mData": function(source, type, val) {
+            let ratioText = '% ' + source.CumIndRatio;
+            if (type === 'display') {
+              return ratioText;
+            } else if (type === 'sort') {
+              return source.CumIndRatioVal;
+            } else {
+              return source.CumIndRatioVal;
+            }
+          }
+        },
+        {
+          "sTitle": " Kümülatif</br>Kap. Oran ",
+          "sClass": "columnRightAlign",
+          "mData": function(source, type, val) {
+            let ratioText = '% ' + source.CumCapRatio;
+            if (type === 'display') {
+              return ratioText;
+            } else if (type === 'sort') {
+              return source.CumCapRatioVal;
+            } else {
+              return source.CumCapRatioVal;
+            }
+          }
+        },
+        {
+          "sTitle": " Aktif Tüketim",
+          "sClass": "columnRightAlign",
+          "mData": function(source, type, val) {
+            source.ActiveConsumpDisplay = source.ActCons + ' kW·h';
+            return source.ActiveConsumpDisplay;
+          }
+        },
+        {
+          "sTitle": "  Gündüz (T1)",
+          "sClass": "columnRightAlign",
+          "mData": function(source, type, val) {
+            source.T1ConsumpDisplay = source.T1Cons + ' kW·h';
+            return source.T1ConsumpDisplay;
+          }
+        },
+        {
+          "sTitle": " Puant (T2)",
+          "sClass": "columnRightAlign",
+          "mData": function(source, type, val) {
+            source.T2ConsumpDisplay = source.T2Cons + ' kW·h';
+            return source.T2ConsumpDisplay;
+          }
+        },
+        {
+          "sTitle": " Gece (T3)",
+          "sClass": "columnRightAlign",
+          "mData": function(source, type, val) {
+            source.T3ConsumpDisplay = source.T3Cons + ' kW·h';
+            return source.T3ConsumpDisplay;
+          }
+        },
+        {
+          "sTitle": " End. Tük. ",
+          "sClass": "columnRightAlign",
+          "mData": function(source, type, val) {
+            source.IndConsumpDisplay = source.IndCons + ' kVAr·h';
+            return source.IndConsumpDisplay;
+          }
+        },
+        {
+          "sTitle": " Kap. Tük. ",
+          "sClass": "columnRightAlign",
+          "mData": function(source, type, val) {
+            source.CapConsumpDisplay = source.CapCons + ' kVAr·h';
+            return source.CapConsumpDisplay;
+          }
+        }
+      ],
+      "bStateSave": false,
+      "oLanguage": {
+        sUrl: `/dataTables/dataTables.${sp_lang}.txt`,
+      },
+      "stateSave": true
+    });
+    $('#dashboard-report-range').daterangepicker({
+        opens: (Metronic.isRTL() ? 'right' : 'left'),
+        startDate: moment().subtract('days', 29).format("DD/MM/YYYY 00:00"),
+        endDate: moment().format("DD/MM/YYYY 00:00"),
+        minDate: '09/09/2026',
+        maxDate: moment().endOf('month'),
+        dateLimit: {
+          days: 92
+        },
+        showDropdowns: true,
+        showWeekNumbers: false,
+        timePicker: true,
+        timePickerIncrement: 1,
+        timePicker12Hour: false,
+        ranges: {
+          'Bugün': [moment().subtract('days', 1).endOf('day'), moment()],
+          'Dün': [moment().subtract('days', 2).endOf('day'), moment().subtract('days', 1).endOf('day')],
+          'Son 7 Gün': [moment().subtract('days', 6), moment()],
+          'Son 30 Gün': [moment().subtract('days', 29), moment()],
+          'Bu Ay': [moment().startOf('month'), moment().endOf('month')]
+          //        'Geçen Ay': [moment().subtract('month', 1).startOf('month'), moment().subtract('month', 1).endOf('month')]
+        },
+        buttonClasses: ['btn btn-sm'],
+        applyClass: ' blue',
+        cancelClass: 'default',
+        format: 'DD/MM/YYYY HH:mm:ss',
+        separator: ' to ',
+        locale: {
+          applyLabel: 'Uygula',
+          cancelLabel: 'Kapat',
+          fromLabel: 'Başlangış',
+          toLabel: 'Bitiş',
+          customRangeLabel: 'Tarih Seçiniz',
+          daysOfWeek: ['Pz', 'Pt', 'Sa', 'Ça', 'Pe', 'Cu', 'Ct'],
+          monthNames: ['Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran', 'Temmuz', 'Ağustos', 'Eylül', 'Ekim', 'Kasım', 'Aralık'],
+          firstDay: 1
+        }
+      },
+      function(start, end) {
+        $('#dashboard-report-range span').html(start.format('DD/MM/YYYY') + ' - ' + end.format('DD/MM/YYYY'));
+      }
+    );
+    $('#dashboard-report-range').data('daterangepicker').setStartDate(moment('2026-11-01'));
+    $('#dashboard-report-range').data('daterangepicker').setEndDate(moment('2026-12-01 00:00:00'));
+    $('#dashboard-report-range span').html(moment('2026-11-01').format('DD/MM/YYYY') + ' - ' + moment('2026-12-01 00:00:00').format('DD/MM/YYYY'));
+    $('#dashboard-report-range').show();
+    $('#dashboard-report-range').on('apply.daterangepicker', function(ev, picker) {
+      $('#date_startPrm').val(picker.startDate.format('YYYY-MM-DD HH:mm:ss'));
+      $('#date_endPrm').val(picker.endDate.format('YYYY-MM-DD HH:mm:ss'));
+      frm1.submit();
+    });
+    $('.tooltip-left').tooltipster({
+      offsetX: 2,
+      offsetY: 0,
+      position: 'bottom',
+      arrow: true
+    });
+    $('.tooltip-right').tooltipster({
+      offsetX: 2,
+      offsetY: 0,
+      position: 'bottom',
+      arrow: true
+    });
+  });
+
+  function previousMonth() {
+    var date = $('#dashboard-report-range').data('daterangepicker').startDate;
+    var startDate1 = moment([date.year(), date.month(), 1]).subtract('month', 1);
+    //    var endDate1 = moment([date.year(), date.month(), 1]).add('days', 1).subtract('second', 1);
+    var endDate1 = moment([date.year(), date.month(), 1]);
+    var dateStartFirstBill = moment('2026-09-1');
+    if (startDate1 < dateStartFirstBill) {
+      startDate1 = dateStartFirstBill;
+      //      endDate1 = moment(dateStartFirstBill).add('month', 1).add('days', 1).subtract('second', 1);
+      endDate1 = moment(dateStartFirstBill).add('month', 1);
+    }
+
+    $('#date_startPrm').val(startDate1.format('YYYY-MM-DD'));
+    $('#date_endPrm').val(endDate1.format('YYYY-MM-DD HH:mm:ss'));
+    frm1.submit();
+  }
+
+  function nextMonth() {
+    var date = $('#dashboard-report-range').data('daterangepicker').endDate;
+    var startDate1 = moment([date.year(), date.month(), 1]);
+    //    var endDate1 = moment([date.year(), date.month(), 1]).add('month', 1).add('days', 1).subtract('second', 1);
+    var endDate1 = moment([date.year(), date.month(), 1]).add('month', 1);
+    var dateStartLastBill = moment('2026-11-01');
+    if (startDate1 > dateStartLastBill) {
+      startDate1 = dateStartLastBill;
+      endDate1 = moment('2026-12-01 00:00:00');
+    }
+
+    $('#date_startPrm').val(startDate1.format('YYYY-MM-DD'));
+    $('#date_endPrm').val(endDate1.format('YYYY-MM-DD HH:mm:ss'));
+    frm1.submit();
+  }
+
+  function exportViaExcel() {
+    self.document.frmExcel.submit();
+  }
+
+  function exportViaPdf() {
+    var htmlText = "";
+    htmlText += '<table cellpadding="4" border="">' + $(".table1").html() + '</table><br><br>';
+    $("#html").val(htmlText);
+    self.document.frmPdf.submit();
+  }
+
+  function pageSelect(e) {
+    //    var option = document.getElementById("options").value;
+    if (e === "dailyCons") {
+      document.getElementsByName("dailyConsForm")[0].submit();
+    } else if (e === "hourlyCons") {
+      document.getElementsByName("hourlyConsForm")[0].submit();
+    } else if (e === "reactiveReport") {
+      document.getElementsByName("frm1")[0].submit();
+    } else if (e === "reactiveReportM") {
+      document.getElementsByName("frmM")[0].submit();
+    } else if (e == "comparisonReport") {
+      document.getElementsByName("frmComparison")[0].submit();
+    } else if (e == "demandReport") {
+      document.getElementsByName("demand")[0].submit();
+    }
+  }
+
+  function noDataAlert() {
+    toastr.options = {
+      closeButton: true,
+      debug: false,
+      positionClass: 'toast-top-center',
+      onclick: null
+    };
+    UIToastr.init();
+  }
+</script>
+<script src="./Rapor - 366744_files/tooltipster_func.js.indir"></script>
+<script type="text/javascript" charset="utf-8" src="./Rapor - 366744_files/jquery.tooltipster.min.js.indir"></script>
+<script src="./Rapor - 366744_files/index.js.indir" type="text/javascript"></script>
+<script src="./Rapor - 366744_files/bootbox.min.js.indir" type="text/javascript"></script>
+<!-- END CONTAINER -->
+<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+<!-- BEGIN CORE PLUGINS -->
+<!--[if lt IE 9]>
+<script src="/assets/global/plugins/respond.min.js"></script>
+<script src="/assets/global/plugins/excanvas.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="./Rapor - 366744_files/jquery-migrate-1.2.1.min.js.indir"></script>
+<!-- IMPORTANT! Load jquery-ui-1.10.3.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+<script type="text/javascript" src="./Rapor - 366744_files/bootstrap.min.js.indir"></script>
+<script type="text/javascript" src="./Rapor - 366744_files/bootstrap-hover-dropdown.min.js.indir"></script>
+<script type="text/javascript" src="./Rapor - 366744_files/jquery.slimscroll.min.js.indir"></script>
+<script type="text/javascript" src="./Rapor - 366744_files/jquery.blockui.min.js.indir"></script>
+<script type="text/javascript" src="./Rapor - 366744_files/jquery.cokie.min.js.indir"></script>
+<script type="text/javascript" src="./Rapor - 366744_files/jquery.uniform.min.js.indir"></script>
+<script type="text/javascript" src="./Rapor - 366744_files/bootstrap-switch.min.js.indir"></script>
+<!-- END CORE PLUGINS -->
+<script type="text/javascript" src="./Rapor - 366744_files/metronic.min.js.indir"></script>
+<script type="text/javascript" src="./Rapor - 366744_files/layout.js.indir"></script>
+<script type="text/javascript" src="./Rapor - 366744_files/quick-sidebar.js.indir"></script>
+<script>
+  //CSRF Token İstek Header a Ekleniyor
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
+  $(document).attr('title', config_title);
+  jQuery(document).ready(function() {
+
+    //Tipi POST olan formlara hidden input ekleme
+    $('form[method="POST"]').append(
+      '<input type="hidden" name="csrf-token" value="353ec246fd97af71f23c95bd113d38c3">'
+    );
+
+    Metronic.init(); // init metronic core components
+    Layout.init(); // init current layout
+    QuickSidebar.init(); // init quick sidebar
+
+    var menuStateClass = $(".page-sidebar-menu")[0].className;
+    if (menuStateClass == 'page-sidebar-menu') {
+      $('#menuCompanyLogo').height(57).width(106);
+      $('#menuGrupArgeLogo').height(57).width(106);
+    } else if (menuStateClass == 'page-sidebar-menu page-sidebar-menu-closed') {
+      $('#menuCompanyLogo').height(22).width(24);
+      $('#menuGrupArgeLogo').height(22).width(24);
+    }
+
+    $(".sidebar-toggler").click(function() {
+      var menuStateClass = $(".page-sidebar-menu")[0].className;
+      if (menuStateClass == 'page-sidebar-menu') {
+        $('#menuCompanyLogo').height(22).width(24);
+        $('#menuGrupArgeLogo').height(22).width(24);
+      } else if (menuStateClass == 'page-sidebar-menu page-sidebar-menu-closed') {
+        $('#menuCompanyLogo').height(57).width(106);
+        $('#menuGrupArgeLogo').height(57).width(106);
+      }
+    });
+
+    $("#menuCompanyLink, #menuGrupArgeLink").mouseenter(function() {
+      var menuStateClass = $(".page-sidebar-menu")[0].className;
+      if (menuStateClass == 'page-sidebar-menu page-sidebar-menu-closed') {
+        $(this).children('img').height(57).width(106);
+      }
+    });
+
+    $("#menuCompanyLink, #menuGrupArgeLink").mouseleave(function() {
+      var menuStateClass = $(".page-sidebar-menu")[0].className;
+      if (menuStateClass == 'page-sidebar-menu page-sidebar-menu-closed') {
+        $(this).children('img').height(22).width(24);
+      }
+    });
+  });
+</script>
+</div>
+</div>
+<div class="page-footer">
+  <div class="page-footer-inner">
+    Copyright © 2026 <a href="https://www.gruparge.com/" style="color:#98a6ba;" target="_blank">Grup Arge Enerji ve Kontrol Sistemleri</a>
+  </div>
+  <div class="page-footer-tools">
+    <span class="go-top">
+      <i class="fa fa-angle-up"></i>
+    </span>
+  </div>
+</div>
+<div id="modalDiv" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" data-dismiss="modal" class="btn btn-default">Kapatt</button>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="cookie_alert">
+        <div class="alert_content">
+            <div class="alert_text">
+                <p>İnternet sayfamızda, kullanımınızı en verimli hale getirebilmek ve kullanıcı deneyimlerinizi geliştirmek amacıyla; çerezlerden yararlanılmaktadır. İnternet sayfamızı kullanarak çerezlerin, Çerez politikamız ile uyumlu bir şekilde kullanılmasına onay verdiğiniz kabul edilmektedir. Detaylı bilgi almak için
+                <a href="https://www.enerjitakibi.com/kvkk/cp_v1.pdf" target="_blank" style="color: white;"><b><u>Çerez Politikamızı</u></b></a> inceleyebilirsiniz.</p>
+            </div>
+            <div class="cookie_choose">
+                <div class="alert_confirm">
+                    <button type="button" class="cookie_confirm_button">Kabul Et</button>               
+                </div>
+                <div class="alert_close">
+                    <button type="button" class="cookie_close_button"><i class="fa fa-times"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="./Rapor - 366744_files/cookie_alert.js.indir"></script>
+
+
+
+<div class="daterangepicker dropdown-menu opensleft"><div class="calendar left"><div class="calendar-date"><table class="table-condensed"><thead><tr><th class="prev available"><i class="fa fa-angle-left"></i></th><th colspan="5" class="month"><select class="monthselect"><option value="0">Ocak</option><option value="1">Şubat</option><option value="2">Mart</option><option value="3">Nisan</option><option value="4">Mayıs</option><option value="5">Haziran</option><option value="6">Temmuz</option><option value="7">Ağustos</option><option value="8">Eylül</option><option value="9">Ekim</option><option value="10" selected="selected">Kasım</option><option value="11">Aralık</option></select><select class="yearselect"><option value="2026" selected="selected">2026</option></select></th><th class="next available"><i class="fa fa-angle-right"></i></th></tr><tr><th>Pt</th><th>Sa</th><th>Ça</th><th>Pe</th><th>Cu</th><th>Ct</th><th>Pz</th></tr></thead><tbody><tr><td class="available off" data-title="r0c0">26</td><td class="available off" data-title="r0c1">27</td><td class="available off" data-title="r0c2">28</td><td class="available off" data-title="r0c3">29</td><td class="available off" data-title="r0c4">30</td><td class="available off" data-title="r0c5">31</td><td class="available active start-date" data-title="r0c6">1</td></tr><tr><td class="available in-range" data-title="r1c0">2</td><td class="available in-range" data-title="r1c1">3</td><td class="available in-range" data-title="r1c2">4</td><td class="available in-range" data-title="r1c3">5</td><td class="available in-range" data-title="r1c4">6</td><td class="available in-range" data-title="r1c5">7</td><td class="available in-range" data-title="r1c6">8</td></tr><tr><td class="available in-range" data-title="r2c0">9</td><td class="available in-range" data-title="r2c1">10</td><td class="available in-range" data-title="r2c2">11</td><td class="available in-range" data-title="r2c3">12</td><td class="available in-range" data-title="r2c4">13</td><td class="available in-range" data-title="r2c5">14</td><td class="available in-range" data-title="r2c6">15</td></tr><tr><td class="available in-range" data-title="r3c0">16</td><td class="available in-range" data-title="r3c1">17</td><td class="available in-range" data-title="r3c2">18</td><td class="available in-range" data-title="r3c3">19</td><td class="available in-range" data-title="r3c4">20</td><td class="available in-range" data-title="r3c5">21</td><td class="available in-range" data-title="r3c6">22</td></tr><tr><td class="available in-range" data-title="r4c0">23</td><td class="available in-range" data-title="r4c1">24</td><td class="available in-range" data-title="r4c2">25</td><td class="available in-range" data-title="r4c3">26</td><td class="available in-range" data-title="r4c4">27</td><td class="available in-range" data-title="r4c5">28</td><td class="available in-range" data-title="r4c6">29</td></tr><tr><td class="available in-range" data-title="r5c0">30</td><td class="off disabled" data-title="r5c1">1</td><td class="off disabled" data-title="r5c2">2</td><td class="off disabled" data-title="r5c3">3</td><td class="off disabled" data-title="r5c4">4</td><td class="off disabled" data-title="r5c5">5</td><td class="off disabled" data-title="r5c6">6</td></tr></tbody></table></div><div class="calendar-time"><select class="hourselect"><option value="0" selected="selected">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option></select> : <select class="minuteselect"><option value="0" selected="selected">00</option><option value="1">01</option><option value="2">02</option><option value="3">03</option><option value="4">04</option><option value="5">05</option><option value="6">06</option><option value="7">07</option><option value="8">08</option><option value="9">09</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option><option value="32">32</option><option value="33">33</option><option value="34">34</option><option value="35">35</option><option value="36">36</option><option value="37">37</option><option value="38">38</option><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42">42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option><option value="46">46</option><option value="47">47</option><option value="48">48</option><option value="49">49</option><option value="50">50</option><option value="51">51</option><option value="52">52</option><option value="53">53</option><option value="54">54</option><option value="55">55</option><option value="56">56</option><option value="57">57</option><option value="58">58</option><option value="59">59</option></select> </div></div><div class="calendar right"><div class="calendar-date"><table class="table-condensed"><thead><tr><th class="prev available"><i class="fa fa-angle-left"></i></th><th colspan="5" class="month"><select class="monthselect"><option value="0">Ocak</option><option value="1">Şubat</option><option value="2">Mart</option><option value="3">Nisan</option><option value="4">Mayıs</option><option value="5">Haziran</option><option value="6">Temmuz</option><option value="7">Ağustos</option><option value="8">Eylül</option><option value="9">Ekim</option><option value="10">Kasım</option><option value="11" selected="selected">Aralık</option></select><select class="yearselect"><option value="2026" selected="selected">2026</option></select></th><th></th></tr><tr><th>Pt</th><th>Sa</th><th>Ça</th><th>Pe</th><th>Cu</th><th>Ct</th><th>Pz</th></tr></thead><tbody><tr><td class="available off in-range" data-title="r0c0">30</td><td class="off disabled" data-title="r0c1">1</td><td class="off disabled" data-title="r0c2">2</td><td class="off disabled" data-title="r0c3">3</td><td class="off disabled" data-title="r0c4">4</td><td class="off disabled" data-title="r0c5">5</td><td class="off disabled" data-title="r0c6">6</td></tr><tr><td class="off disabled" data-title="r1c0">7</td><td class="off disabled" data-title="r1c1">8</td><td class="off disabled" data-title="r1c2">9</td><td class="off disabled" data-title="r1c3">10</td><td class="off disabled" data-title="r1c4">11</td><td class="off disabled" data-title="r1c5">12</td><td class="off disabled" data-title="r1c6">13</td></tr><tr><td class="off disabled" data-title="r2c0">14</td><td class="off disabled" data-title="r2c1">15</td><td class="off disabled" data-title="r2c2">16</td><td class="off disabled" data-title="r2c3">17</td><td class="off disabled" data-title="r2c4">18</td><td class="off disabled" data-title="r2c5">19</td><td class="off disabled" data-title="r2c6">20</td></tr><tr><td class="off disabled" data-title="r3c0">21</td><td class="off disabled" data-title="r3c1">22</td><td class="off disabled" data-title="r3c2">23</td><td class="off disabled" data-title="r3c3">24</td><td class="off disabled" data-title="r3c4">25</td><td class="off disabled" data-title="r3c5">26</td><td class="off disabled" data-title="r3c6">27</td></tr><tr><td class="off disabled" data-title="r4c0">28</td><td class="off disabled" data-title="r4c1">29</td><td class="off disabled" data-title="r4c2">30</td><td class="off disabled" data-title="r4c3">31</td><td class="off disabled" data-title="r4c4">1</td><td class="off disabled" data-title="r4c5">2</td><td class="off disabled" data-title="r4c6">3</td></tr><tr><td class="off disabled" data-title="r5c0">4</td><td class="off disabled" data-title="r5c1">5</td><td class="off disabled" data-title="r5c2">6</td><td class="off disabled" data-title="r5c3">7</td><td class="off disabled" data-title="r5c4">8</td><td class="off disabled" data-title="r5c5">9</td><td class="off disabled" data-title="r5c6">10</td></tr></tbody></table></div><div class="calendar-time"><select class="hourselect"><option value="0" selected="selected">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option></select> : <select class="minuteselect"><option value="0" selected="selected">00</option><option value="1">01</option><option value="2">02</option><option value="3">03</option><option value="4">04</option><option value="5">05</option><option value="6">06</option><option value="7">07</option><option value="8">08</option><option value="9">09</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option><option value="32">32</option><option value="33">33</option><option value="34">34</option><option value="35">35</option><option value="36">36</option><option value="37">37</option><option value="38">38</option><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42">42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option><option value="46">46</option><option value="47">47</option><option value="48">48</option><option value="49">49</option><option value="50">50</option><option value="51">51</option><option value="52">52</option><option value="53">53</option><option value="54">54</option><option value="55">55</option><option value="56">56</option><option value="57">57</option><option value="58">58</option><option value="59">59</option></select> </div></div><div class="ranges"><ul><li>Bugün</li><li>Dün</li><li>Son 7 Gün</li><li>Son 30 Gün</li><li>Bu Ay</li><li class="active">Tarih Seçiniz</li></ul><div class="range_inputs"><div class="daterangepicker_start_input"><label for="daterangepicker_start">Başlangış</label><input class="input-mini" type="text" name="daterangepicker_start" value="" disabled="disabled"></div><div class="daterangepicker_end_input"><label for="daterangepicker_end">Bitiş</label><input class="input-mini" type="text" name="daterangepicker_end" value="" disabled="disabled"></div><button class="applyBtn btn btn-sm blue">Uygula</button>&nbsp;<button class="cancelBtn btn btn-sm default">Kapat</button></div></div></div></body></html>

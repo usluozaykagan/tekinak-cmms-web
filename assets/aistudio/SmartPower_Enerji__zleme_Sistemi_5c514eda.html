@@ -1,0 +1,2292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0053)https://www.enerjitakibi.com/control_v2.php?id=366744 -->
+<html lang="tr"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+      <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+        <!--Add to homescreen for Chrome on Android-->
+    <meta name="theme-color" content="#0093dd">
+    <link rel="manifest" href="https://www.enerjitakibi.com/PWApp/manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="csrf-token" content="353ec246fd97af71f23c95bd113d38c3">
+  <link href="./SmartPower Enerji İzleme Sistemi_files/fonts.googleapis.opensans.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="./SmartPower Enerji İzleme Sistemi_files/fonts.googleapis.local.min.css">
+  <link rel="stylesheet" type="text/css" href="./SmartPower Enerji İzleme Sistemi_files/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="./SmartPower Enerji İzleme Sistemi_files/simple-line-icons.min.css">
+  <link rel="stylesheet" type="text/css" href="./SmartPower Enerji İzleme Sistemi_files/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="./SmartPower Enerji İzleme Sistemi_files/uniform.default.min.css">
+  <link rel="stylesheet" type="text/css" href="./SmartPower Enerji İzleme Sistemi_files/bootstrap-switch.min.css">
+  <link rel="stylesheet" type="text/css" href="./SmartPower Enerji İzleme Sistemi_files/jquery.gritter.min.css">
+  <link rel="stylesheet" type="text/css" href="./SmartPower Enerji İzleme Sistemi_files/daterangepicker-bs3.min.css">
+  <link rel="stylesheet" type="text/css" href="./SmartPower Enerji İzleme Sistemi_files/fullcalendar.min.css">
+  <link rel="stylesheet" type="text/css" href="./SmartPower Enerji İzleme Sistemi_files/jqvmap.min.css">
+  <link rel="stylesheet" type="text/css" href="./SmartPower Enerji İzleme Sistemi_files/tasks.min.css">
+  <link rel="stylesheet" type="text/css" href="./SmartPower Enerji İzleme Sistemi_files/components.min.css">
+  <link rel="stylesheet" type="text/css" href="./SmartPower Enerji İzleme Sistemi_files/plugins.min.css">
+  <link rel="stylesheet" type="text/css" href="./SmartPower Enerji İzleme Sistemi_files/layout.min.css">
+  <link rel="stylesheet" type="text/css" href="./SmartPower Enerji İzleme Sistemi_files/darkblue.css" id="style_color">
+  <link rel="stylesheet" type="text/css" href="./SmartPower Enerji İzleme Sistemi_files/tabs.min.css">
+  <link rel="stylesheet" type="text/css" href="./SmartPower Enerji İzleme Sistemi_files/style.css">
+  <link rel="stylesheet" type="text/css" href="./SmartPower Enerji İzleme Sistemi_files/cookie_alert.css">
+  <script type="text/javascript" src="./SmartPower Enerji İzleme Sistemi_files/jquery-1.11.0.min.js.indir"></script>
+  <script type="text/javascript" src="./SmartPower Enerji İzleme Sistemi_files/jquery-ui-1.10.3.custom.min.js.indir"></script>
+  <script type="text/javascript" src="./SmartPower Enerji İzleme Sistemi_files/jquery.ui.datepicker-tr.js.indir"></script>
+  <meta name="keywords" content="enerjitakibi, enerji takibi, enerji izleme, sayaç izleme, uzaktan sayaç okuma, uzaktan izleme, kompanzasyon takibi, gruparge, grup arge, makel, köhler, kohler, kombi sayaç, elektrik sayacı, electricity meter, energy monitoring, remote monitoring, OSOS, otomatik sayaç izleme sistemi, uzaktan erişim, SmartGrid, SmartPower">
+  <link rel="SHORTCUT ICON" href="https://www.enerjitakibi.com/favicon.ico">
+  <link rel="stylesheet" href="./SmartPower Enerji İzleme Sistemi_files/jquery-ui.min.css">
+  <link rel="stylesheet" type="text/css" href="./SmartPower Enerji İzleme Sistemi_files/oldStyle.min.css">
+  <script>
+    const sp_lang = 'tr';
+    const sp_lang_filetime = '1744611426';
+    let sp_lang_data;
+    async function loadLanguageData() {
+      try {
+        const response = await fetch(`/language/${sp_lang}.json?v=${sp_lang_filetime}`);
+        if (!response.ok) {
+          throw new Error('Ağ isteği başarısız oldu');
+        }
+        const data = await response.json();
+        localStorage.setItem('languageData', JSON.stringify(data));
+        localStorage.setItem('language', sp_lang);
+      } catch (error) {
+        console.error('JSON dosyası yüklenemedi:', error);
+      }
+    }
+    loadLanguageData();
+
+    async function getLanguageData() {
+      if (sp_lang != localStorage.getItem('language')) {
+        console.log('dil değişti');
+        // window.location.reload();
+      }
+      sp_lang_data = await JSON.parse(localStorage.getItem('languageData'));
+    }
+    getLanguageData();
+  </script>
+    <script type="text/javascript" src="./SmartPower Enerji İzleme Sistemi_files/jquery-1.11.0.min.js.indir"></script>
+  <script type="text/javascript" src="./SmartPower Enerji İzleme Sistemi_files/jquery-ui-1.10.3.custom.min.js.indir"></script>
+  <script type="text/javascript" src="./SmartPower Enerji İzleme Sistemi_files/jquery.ui.datepicker-tr.js.indir"></script>
+      <script src="./SmartPower Enerji İzleme Sistemi_files/functions.js.indir"></script>
+      <script src="./SmartPower Enerji İzleme Sistemi_files/date.format.min.js.indir"></script>
+      <script src="./SmartPower Enerji İzleme Sistemi_files/control.js.indir"></script>
+  <style>
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Open Sans', sans-serif !important;  }
+
+  #logo_img {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+  }
+
+  #logo_img:hover {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+
+  .menu-icon {
+    width: 20px;
+    height: 14px;
+    margin-right: 3px !important;
+    margin-left: 2px !important;
+  }
+
+  .building-item {
+    color: #000000;
+  }
+
+  .comsumption-item {
+    color: #C12C2C;
+  }
+
+  .compensation-item {
+    color: #BE578A;
+  }
+
+  .io-item {
+    color: #4DB3A2;
+  }
+
+  .temperature-item {
+    color: #F7CA18;
+  }
+
+  .gas-item {
+    color: #4C87B9;
+  }
+
+  .water-item {
+    color: #00D8FD;
+  }
+
+  .page-breadcrumb.breadcrumb {
+    margin-top: 0px;
+  }
+
+  @media (min-width: 768px) {
+    .pull-right-sm {
+      float: right;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .pull-right-md {
+      float: right;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .pull-right-lg {
+      float: right;
+    }
+  }
+
+  .daterangepicker {
+    background: #cce5ff !important;
+  }
+
+  #dashboard-report-range.active {
+    color: white;
+  }
+
+  .pointer {
+    cursor: pointer;
+  }
+
+  .emails-header {
+    color: whitesmoke;
+    margin: 0;
+    margin-top: -1px;
+    font-size: 13px;
+    font-weight: 400;
+    display: inline-block;
+    max-height: 46px;
+  }
+
+  @media (max-width: 700px) {
+    .emails-header {
+      color: whitesmoke;
+      margin: 0;
+      margin-top: 0px;
+      font-size: 11px;
+      font-weight: 200;
+      display: inline-block;
+      max-height: 46px;
+    }
+  }
+
+  .emails-header>p {
+    margin: 3px 0 !important;
+  }
+</style><title>SmartPower Enerji İzleme Sistemi</title></head>
+
+
+<body class="page-header-fixed page-quick-sidebar-over-content" style="">
+    <div class="page-header navbar navbar-fixed-top">
+    <div class="page-header-inner">
+      <!--      <div class="page-logo" id="logo_div">
+                        <a href="/index.php"> <img id="logo_img" src= "/assets/admin/layout/img/iss.png"  style="margin-top: 5px;" class="logo-default"></a>
+                        <span style="display:block;margin-left:40px;margin-top: -18px;font-size:12px;color:white;"><b><i>Technical Services</i></b></span>
+                        <div class="menu-toggler sidebar-toggler hide"></div>
+                      </div>-->
+      <div class="page-logo" id="logo_div">
+        <a href="https://www.enerjitakibi.com/index.php">
+          <img id="logo_img" src="./SmartPower Enerji İzleme Sistemi_files/logo_color.png" style="width: 170px; margin-top: 10px;  margin-bottom: 10px;  margin-right: 10px;  margin-left: 0px;" class="logo-default"></a>
+        <div class="menu-toggler sidebar-toggler hide"></div>
+      </div>
+      <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse"> </a>
+              <div class="emails-header">
+          <p><u>Destek:</u> destek@enerjitakibi.com</p>
+          <p><u>Ödeme:</u> enerjitakibi@gruparge.com</p>
+        </div>
+            <div class="top-menu">
+        <ul class="nav navbar-nav pull-right">
+          <style>
+  .handPointer {
+    cursor: pointer;
+  }
+</style>
+<li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">
+  <a href="https://www.enerjitakibi.com/control_v2.php?id=366744#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+    <i class="icon-bell"></i>
+    <span class="badge badge-default">
+      0 </span>
+  </a>
+  <ul class="dropdown-menu">
+    <li>
+      <p>
+        Toplam 0 Bildirim      </p>
+    </li>
+    <li>
+      <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 250px;"><ul class="dropdown-menu-list scroller" style="overflow: hidden; width: auto; height: 250px;" data-initialized="1">
+              </ul><div class="slimScrollBar" style="background: rgb(187, 187, 187); width: 7px; position: absolute; top: 0px; opacity: 0.4; border-radius: 7px; z-index: 99; right: 1px; display: block;"></div><div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(234, 234, 234); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
+    </li>
+    <li class="external">
+      <a href="https://www.enerjitakibi.com/notification.php">
+        Tümünü Gör <i class="m-icon-swapright"></i>
+      </a>
+    </li>
+  </ul>
+</li>
+
+<script>
+  $(document).ready(function() {
+      });
+
+  function requestConfirm(id, decleration, isBuilding) {
+    if (decleration) {
+      document.location.href = '/notification.php?id=' + id + '&p=invite';
+    } else {
+      if (isBuilding == 0) {
+        $('#modalDiv').load('/ems/emsRequestConfirm.php', {
+          requestId: id
+        }, function() {
+          $('#modalDiv').modal();
+        });
+      } else {
+        $('#modalDiv').load('/ems/emsRequestConfirmBuilding.php', {
+          requestId: id
+        }, function() {
+          $('#modalDiv').modal();
+        });
+      }
+    }
+  }
+
+  function showPopup() {
+    $('#modalDiv').load('/ems/notificationPopup.php', function() {
+      $('#modalDiv').modal();
+    });
+  }
+</script>            <li class="dropdown dropdown-extended">
+              <a href="http://www.enerjitakibi.com/blog/" target="_blank" class="dropdown-toggle" data-hover="dropdown" data-close-others="true">
+                <i class="fa fa-rss" style="color: #02A6E4;"></i>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="http://www.enerjitakibi.com/blog/" target="_blank"><i class="fa fa-rss" style="color: #02A6E4;"></i> SmartPower Blog
+                  </a>
+                </li>
+              </ul>
+            </li>
+          
+<li class="dropdown dropdown-extended dropdown-inbox" id="header_inbox_bar">
+  <a href="https://www.enerjitakibi.com/support/supportUserRequestList.php" class="dropdown-toggle" data-hover="dropdown" data-close-others="true">
+    <i class="icon-envelope-open"></i>
+      </a>
+  <ul class="dropdown-menu">
+    <li>
+      <p>
+        Destek Talebi      </p>
+    </li>
+    <li>
+      <div class="slimScrollDiv" style="position: relative; width: auto; height: 123px;">
+        <ul class="dropdown-menu-list scroller" style="height: 250px; overflow: hidden; width: auto;" data-initialized="1">
+                    <li>
+            <a href="https://www.enerjitakibi.com/support/supportRequest.php">
+              <span class="message">
+                <i class="fa fa-plus"></i>
+                Destek Talebi Oluştur              </span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.enerjitakibi.com/support/supportUserRequestList.php">
+              <span class="message">
+                <i class="fa fa-list"></i>
+                Destek Taleplerim              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</li>            <li class="dropdown dropdown-extended">
+              <a href="https://new.enerjitakibi.com/auth/session/sign-in?session_id=fbcac0e11cb730a94930b139774ec426" target="_blank" class="dropdown-toggle" data-hover="dropdown" data-close-others="true">
+                <i class="fa fa-external-link"></i>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="https://new.enerjitakibi.com/auth/session/sign-in?session_id=fbcac0e11cb730a94930b139774ec426" target="_blank"><i class="fa fa-external-link"></i> Yeni Arayüzü Dene</a>
+                  <p style="background: #fff;">
+                    İstediğiniz zaman bu arayüze geri dönebilirsiniz.
+                  </p>
+                </li>
+              </ul>
+            </li>
+          
+          <li class="dropdown dropdown-user">
+            <a href="https://www.enerjitakibi.com/control_v2.php?id=366744#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+              <img alt="" class="img-circle" src="./SmartPower Enerji İzleme Sistemi_files/user_icon_grey.png">
+              <span class="username"> h.basriadiyaman@gmail.com              </span>
+              <i class="fa fa-angle-down"></i>
+            </a>
+
+            <ul class="dropdown-menu">
+              <li>
+                <a href="https://www.enerjitakibi.com/userProfile/userSettings.php"> <i class="icon-user"></i>
+                  Profil                </a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a href="https://www.enerjitakibi.com/tx_logout.php"> <i class="icon-key"></i>
+                  Çıkış                </a>
+              </li>
+            </ul>
+          </li>
+
+          <!-- <li class="dropdown dropdown-user">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+              <i class="fa fa-th" style="color: #02A6E4;"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a onclick="Gapps()"><i class="fa fa-rss"></i> Tüm Uygulamalar</a>
+              </li>
+              <script>
+                function Gapps(merchant_oid, amount) {
+                  $('#modalDiv').load(`/inc/modal_order_detail.php?merchant_oid=${merchant_oid}`, function() {
+                    $('#modalDiv').modal('show');
+                  });
+                }
+              </script>
+            </ul>
+          </li> -->
+
+          <li class="dropdown">
+            <a href="https://www.enerjitakibi.com/control_v2.php?id=366744#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+              <span>
+                <img style="margin-top:-5px;width:20px;" src="./SmartPower Enerji İzleme Sistemi_files/tr.svg">
+              </span>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a onclick="setLanguage('en')"><img style="width:25px;" src="./SmartPower Enerji İzleme Sistemi_files/en.svg">
+                  English </a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a onclick="setLanguage('tr')"><img style="width:25px;" src="./SmartPower Enerji İzleme Sistemi_files/tr.svg">
+                  Türkçe</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <!--<a class="btn btn-default btn-sm yellow" style='margin-top:10px'  href="javascript:addFavorites()"> Sık Kullanılanlar</a>-->
+      </div>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+  <div class="page-container">
+    <div class="page-sidebar-wrapper">
+      <div class="page-sidebar navbar-collapse collapse">
+        <ul class="page-sidebar-menu" data-auto-scroll="true" data-slide-speed="200">
+          <li class="sidebar-toggler-wrapper">
+            <div class="sidebar-toggler hidden-phone"></div>
+          </li>
+          <li class="sidebar-search-wrapper">
+            <form class="sidebar-search" action="https://www.enerjitakibi.com/search.php" method="GET">
+              <a href="javascript:;" class="remove"> <i class="icon-close"></i>
+              </a>
+              <div class="input-group">
+                <input type="text" class="form-control" id="query" name="query" autocomplete="on" placeholder="  Arama ...">
+                <span class="input-group-btn">
+                  <a href="javascript:;" class="btn submit"><i class="icon-magnifier"></i></a>
+                </span>
+              </div>
+            </form>
+          </li>
+                      <li class="" id="sidebarLi21">
+              <a href="https://www.enerjitakibi.com/index.php">
+                <i class="fa fa-home"></i>
+                <span class="title">Anasayfa</span>
+                                              </a>
+                        </li>
+                    <li class="" id="sidebarLi53">
+              <a href="https://www.enerjitakibi.com/alarm/alarm.php">
+                <i class="fa fa-bell-o"></i>
+                <span class="title">Alarmlar</span>
+                                              </a>
+                        </li>
+                    <li class="" id="sidebarLi56">
+              <a href="javascript:;">
+                <i class="fa fa-users"></i>
+                <span class="title">Yönetim</span>
+                <span class="arrow"></span>                              </a>
+              <ul class="sub-menu">            <li class="" id="submenuLi20">
+              <a href="https://www.enerjitakibi.com/userProfile/userSettings.php">
+                <i class="icon-user"></i>
+                <span class="title">
+                  Profil                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi21">
+              <a href="https://www.enerjitakibi.com/listUser.php">
+                <i class="fa fa-user"></i>
+                <span class="title">
+                  Kullanıcı                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi22">
+              <a href="https://www.enerjitakibi.com/listTariffs.php">
+                <i class="fa fa-file-text-o"></i>
+                <span class="title">
+                  Tarifeler                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi23">
+              <a href="https://www.enerjitakibi.com/listSeasons.php">
+                <i class="fa fa-file-text-o"></i>
+                <span class="title">
+                  Tarife Grupları                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi24">
+              <a href="https://www.enerjitakibi.com/listSession.php">
+                <i class="fa fa-list"></i>
+                <span class="title">
+                  Aktif Oturumlar                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi25">
+              <a href="https://www.enerjitakibi.com/notification.php">
+                <i class="fa fa-info"></i>
+                <span class="title">
+                  Duyurular                </span>
+              </a>
+            </li>
+
+          </ul>          </li>
+                    <li class="" id="sidebarLi27">
+              <a href="https://www.enerjitakibi.com/listCommDevices.php">
+                <i class="fa fa-signal"></i>
+                <span class="title">Modem</span>
+                                              </a>
+                        </li>
+                    <li class="" id="sidebarLi90">
+              <a href="javascript:;">
+                <i class="fa fa-database"></i>
+                <span class="title">Cihazlarım</span>
+                <span class="arrow"></span>                              </a>
+              <ul class="sub-menu">            <li class="" id="submenuLi40">
+              <a href="https://www.enerjitakibi.com/debug.php">
+                <i class="fa fa-database"></i>
+                <span class="title">
+                  Tüm Cihazlar                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi41">
+              <a href="https://www.enerjitakibi.com/listMeters.php">
+                <i class="fa fa-tachometer"></i>
+                <span class="title">
+                  Sayaç                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi42">
+              <a href="https://www.enerjitakibi.com/virtualMeasurePoint.php">
+                <i class="fa fa-podcast"></i>
+                <span class="title">
+                  Sanal Ölçü Noktası                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi43">
+              <a href="https://www.enerjitakibi.com/listRelays.php">
+                <i class="menu-icon icon icon2-dashboard"></i>
+                <span class="title">
+                  Röle                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi44">
+              <a href="https://www.enerjitakibi.com/listAnalyzers.php">
+                <i class="fa fa-bolt"></i>
+                <span class="title">
+                  Analizör                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi45">
+              <a href="https://www.enerjitakibi.com/sensor/sensorList.php">
+                <i class="icon sp-thermometer2"></i>
+                <span class="title">
+                  Sıcaklık Sensörü                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi46">
+              <a href="https://www.enerjitakibi.com/generator/listGenerator.php">
+                <i class="fa fa-ioxhost"></i>
+                <span class="title">
+                  Jeneratör                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi47">
+              <a href="https://www.enerjitakibi.com/sensor/analog/analogSensorList.php">
+                <i class="icon sp-feed"></i>
+                <span class="title">
+                  Analog Giriş                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi48">
+              <a href="https://www.enerjitakibi.com/pulseCounter/pulseCounterList.php">
+                <i class="fa fa-list-ol"></i>
+                <span class="title">
+                  Sayıcı                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi49">
+              <a href="https://www.enerjitakibi.com/pulseCounter/channels/view/listChannels.php?dataTableName=gas_meter_data">
+                <i class="menu-icon icon icon2-fire"></i>
+                <span class="title">
+                  Doğalgaz                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi410">
+              <a href="https://www.enerjitakibi.com/pulseCounter/channels/view/listChannels.php?dataTableName=water_meter_data">
+                <i class="fa fa-tint"></i>
+                <span class="title">
+                  Su                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi411">
+              <a href="https://www.enerjitakibi.com/groupSystem/listGroupDevices.php">
+                <i class="fa fa-database"></i>
+                <span class="title">
+                  Gruplanan Cihazlar                </span>
+              </a>
+            </li>
+
+          </ul>          </li>
+                    <li class="" id="sidebarLi67">
+              <a href="javascript:;">
+                <i class="fa fa-building"></i>
+                <span class="title">İşletme</span>
+                <span class="arrow"></span>                              </a>
+              <ul class="sub-menu">            <li class="" id="submenuLi50">
+              <a href="https://www.enerjitakibi.com/ems/emsBuildingList.php">
+                <i class="fa fa-area-chart"></i>
+                <span class="title">
+                  Analiz                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi51">
+              <a href="https://www.enerjitakibi.com/ems/emsBuildingComparisonGraph.php">
+                <i class="fa fa-line-chart"></i>
+                <span class="title">
+                  İşletme Karşılaştırma                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi52">
+              <a href="https://www.enerjitakibi.com/ems/emsBuildingGroupSettings.php">
+                <i class="fa fa-cogs"></i>
+                <span class="title">
+                  İşletme Ayarı                </span>
+              </a>
+            </li>
+
+          </ul>          </li>
+                    <li class="" id="sidebarLi28">
+              <a href="javascript:;">
+                <i class="fa fa-toggle-on"></i>
+                <span class="title">Input/Output</span>
+                <span class="arrow"></span>                              </a>
+              <ul class="sub-menu">            <li class="" id="submenuLi60">
+              <a href="https://www.enerjitakibi.com/io.php">
+                <i class="fa fa-power-off"></i>
+                <span class="title">
+                  Kontrol                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi61">
+              <a href="https://www.enerjitakibi.com/io/History/Graph.php">
+                <i class="fa fa-area-chart"></i>
+                <span class="title">
+                  Geçmiş Değerler                </span>
+              </a>
+            </li>
+
+          </ul>          </li>
+                    <li class="" id="sidebarLi73">
+              <a href="https://www.enerjitakibi.com/comparisonGraph.php">
+                <i class="fa fa-line-chart"></i>
+                <span class="title">Karşılaştırma</span>
+                                              </a>
+                        </li>
+                    <li class="" id="sidebarLi29">
+              <a href="javascript:;">
+                <i class="fa fa-shopping-cart"></i>
+                <span class="title">Ödeme</span>
+                <span class="arrow"></span>                              </a>
+              <ul class="sub-menu">            <li class="" id="submenuLi80">
+              <a href="https://www.enerjitakibi.com/managePayments.php">
+                <i class="fa fa-sitemap"></i>
+                <span class="title">
+                  Yönetim Paneli                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi81">
+              <a href="https://www.enerjitakibi.com/accountTransac.php">
+                <i class="fa fa-file-text"></i>
+                <span class="title">
+                  Hesap Özeti                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi82">
+              <a href="https://www.enerjitakibi.com/payment/index.php">
+                <i class="fa fa-turkish-lira"></i>
+                <span class="title">
+                  Paket Satın Al                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi83">
+              <a href="https://www.enerjitakibi.com/payment/orders.php">
+                <i class="fa fa-credit-card-alt"></i>
+                <span class="title">
+                  Siparişlerim                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi84">
+              <a href="https://www.enerjitakibi.com/simCard/sim_card_list.php">
+                <i class="fa fa-microchip"></i>
+                <span class="title">
+                  SIM Kartlarım                </span>
+              </a>
+            </li>
+
+          </ul>          </li>
+                    <li class="" id="sidebarLi33">
+              <a href="javascript:;">
+                <i class="fa fa-map-marker"></i>
+                <span class="title">Harita</span>
+                <span class="arrow"></span>                              </a>
+              <ul class="sub-menu">            <li class="" id="submenuLi90">
+              <a href="https://www.enerjitakibi.com/maps/compensationMap.php">
+                <i class="fa fa-map-marker"></i>
+                <span class="title">
+                  Kompanzasyon                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi91">
+              <a href="https://www.enerjitakibi.com/maps/consumptionMap.php">
+                <i class="fa fa-map-marker"></i>
+                <span class="title">
+                  Tüketim                </span>
+              </a>
+            </li>
+
+          </ul>          </li>
+                    <li class="" id="sidebarLi34">
+              <a href="javascript:;">
+                <i class="fa fa-question-circle"></i>
+                <span class="title">Destek</span>
+                <span class="arrow"></span>                              </a>
+              <ul class="sub-menu">            <li class="" id="submenuLi100">
+              <a href="https://www.enerjitakibi.com/helpText/helpList.php">
+                <i class="fa fa-list"></i>
+                <span class="title">
+                  Yardım                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi101">
+              <a href="https://www.enerjitakibi.com/support/supportRequest.php">
+                <i class="icon-envelope-open"></i>
+                <span class="title">
+                  Destek Talebi                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi102">
+              <a href="https://www.enerjitakibi.com/remoteSupport.php">
+                <i class="fa fa-support"></i>
+                <span class="title">
+                  Uzaktan Destek                </span>
+              </a>
+            </li>
+
+                      <li class="" id="submenuLi103">
+              <a href="https://www.enerjitakibi.com/help.php">
+                <i class="fa fa-video-camera"></i>
+                <span class="title">
+                  Yardım Videoları                </span>
+              </a>
+            </li>
+
+          </ul>          </li>
+                    <li class="" id="sidebarLi35">
+              <a href="https://www.enerjitakibi.com/contact.php">
+                <i class="fa fa-globe"></i>
+                <span class="title">İletişim</span>
+                                              </a>
+                        </li>
+                          <li><a href="http://www.gruparge.com/" id="menuGrupArgeLink" target="_blank" align="center"> <br>
+              <img id="menuGrupArgeLogo" src="./SmartPower Enerji İzleme Sistemi_files/gruparge_logo_b2.png" height="57" width="106" style="height: 57px; width: 106px;"> <br><br>
+              <span class="title">
+                <p class="title text-center">
+                  <small>Grup Arge <br> Enerji ve Kontrol Sistemleri <br>
+                                          <b>Destek:</b> destek@enerjitakibi.com <br>
+                      <b>Ödeme:</b> enerjitakibi@gruparge.com
+                                      </small>
+                </p>
+              </span>
+              <span class="selected"></span>
+            </a>
+          </li>
+                        </ul>
+      </div>
+    </div>
+    <div class="page-content-wrapper">
+      <div class="page-content" style="min-height:860px">
+        <script src="./SmartPower Enerji İzleme Sistemi_files/platform.min.js.indir"></script>
+<style>
+  .modal-ku {
+    width: 750px;
+    margin: auto;
+  }
+
+  .modal-s {
+    overflow: auto !important;
+    width: 900px;
+
+  }
+
+  .modal-body {
+    /*height: 250px;*/
+    max-height: calc(100vh - 210px);
+
+    overflow-y: auto;
+
+  }
+</style>
+<!--  <div class="row">
+    <div class="col-md-12">
+      <div class="alert alert-info alert-dismissable text-center" style="background-color: #FF8600; color: white; margin-bottom: 0px;">
+        <strong><i class="fa fa-check-circle"></i></strong>  <strong><span onclick="javascript: changeView();" style="cursor: pointer;">  Geçiş Yap <i class="fa fa-exchange"></i></span></strong>
+        <div class="fa fa-edit fa-2x pull-right tooltipOld" title="Geri Bildirim" style="cursor: pointer;" onclick="javascript: writeFeedback();">
+        </div>
+      </div>
+    </div>
+  </div>-->
+<div class="row">
+  <div class="col-md-12">
+    <a href="https://www.enerjitakibi.com/supportedBrowser.php">
+      <div class="alert alert-info alert-dismissable" style="display: none;" id="browserCheck">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+        <strong><i class="fa fa-warning"></i></strong>Internet Explorer'ın eski bir sürümünü kullanıyorsunuz. Sistemin tüm özelliklerini kullanabilmeniz için lütfen tarayıcınızı son sürüme <strong>buradan güncelleyin</strong>.      </div>
+    </a>
+  </div>
+</div>
+<script>
+  var platformName = platform.name;
+  var platformVersion = platform.version;
+  var osVersion = platform.os.architecture;
+  var osName = platform.os.family;
+
+  if (platformName === 'IE' && (platformVersion === '9.0' || platformVersion === '8.0' || platformVersion === '7.0' || platformVersion === '6.0')) {
+    $('#browserCheck').show();
+  }
+
+  function writeFeedback() {
+    $('#modalDiv').load('/feedback/tx_writeFeedback.php', {}, function() {
+      $('#modalDiv').modal();
+    });
+  }
+</script>
+
+              <div class="row">
+                    <script>
+            var datatablePaginateEnable = true;
+            var config_title = "SmartPower Enerji İzleme Sistemi";
+
+            function setLanguage(language) {
+              $.cookie("language", language);
+              location.reload();
+            }
+          </script>
+          <script>
+            console.log('control');
+          </script></div>
+<link rel="stylesheet" type="text/css" href="./SmartPower Enerji İzleme Sistemi_files/control_v2.css">
+<link href="./SmartPower Enerji İzleme Sistemi_files/components(1).min.css" rel="stylesheet" type="text/css">
+<link href="./SmartPower Enerji İzleme Sistemi_files/controlpage.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="./SmartPower Enerji İzleme Sistemi_files/jquery.gritter.css">
+<script type="text/javascript" charset="utf-8" src="./SmartPower Enerji İzleme Sistemi_files/jquery.gritter.js.indir"></script>
+<link href="./SmartPower Enerji İzleme Sistemi_files/bootstrap-table.css" rel="stylesheet" type="text/css">
+<link href="./SmartPower Enerji İzleme Sistemi_files/ladda-themeless.min.css" rel="stylesheet" type="text/css">
+<link href="./SmartPower Enerji İzleme Sistemi_files/toastr.min.css" rel="stylesheet" type="text/css">
+<script src="./SmartPower Enerji İzleme Sistemi_files/moment.min.js.indir" type="text/javascript"></script>
+
+<!-- <script src="/assets_v4.7.5/global/plugins/ladda/spin.min.js" type="text/javascript"></script> -->
+<!-- <script src="/assets_v4.7.5/global/plugins/ladda/ladda.min.js" type="text/javascript"></script> -->
+<script async="" src="./SmartPower Enerji İzleme Sistemi_files/bootbox.min.js.indir" type="text/javascript"></script>
+<link href="./SmartPower Enerji İzleme Sistemi_files/tabdrop.css" rel="stylesheet" type="text/css">
+<style>
+  .nav-tabs>li>a {
+    margin-right: 0px;
+    padding: 5px 15px;
+  }
+</style>
+<div class="row margin-bottom-5">
+  <div class="col-md-12">
+    <ul class="page-breadcrumb breadcrumb" style="margin-top: -10px; margin-bottom: 0px;">
+      <li>
+        <i class="fa fa-database"></i>
+        <a href="https://www.enerjitakibi.com/debug.php">
+          Cihazlarım          <i class="fa fa-angle-right"></i>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.enerjitakibi.com/control_v2.php?id=366744">
+                  </a>
+      </li>
+      <li class="pull-right">
+        <a href="https://www.enerjitakibi.com/control_v2.php?id=366744#" onclick="window.history.back()">
+          Önceki Sayfa          <i class="fa fa fa-undo"></i>
+        </a>
+              </li>
+    </ul>
+  </div>
+</div>
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style=" height:auto ;max-height:100%">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Bilgi Ekranı</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body" style=" height:auto ;max-height:100%">
+              </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">KAPAT</button>
+        <!--<button type="button" class="btn btn-primary">Kaydet</button>-->
+      </div>
+    </div>
+  </div>
+</div>
+<div class="portlet box blue">
+  <div class="portlet-title">
+    <div class="caption">
+      <b>Konum: </b> |
+      <b>Cihaz No </b>366744 |
+      <b>Modem: </b><a id="modemLink" style="color: white;" class="tooltipOld tooltipstered" href="https://www.enerjitakibi.com/updateCommDeviceSettings.php?id=38304">GRP35988</a>
+              | <b>Cihaz Tipi: </b><span>GRP_SVC12C3L_STANDART_V2</span>
+          </div>
+  </div>
+  <div class="portlet-body">
+    <div class="tabbable tabbable-tabdrop">
+      <ul class="nav nav-tabs nav-just"><li class="dropdown pull-right tabdrop hide"><a class="dropdown-toggle" data-toggle="dropdown" href="https://www.enerjitakibi.com/control_v2.php?id=366744#"><i class="fa fa-ellipsis-v"></i> <b class="caret"></b></a><ul class="dropdown-menu"></ul></li>
+                  <li class="">
+            <a href="https://www.enerjitakibi.com/data.php?id=366744">
+              Enerji </a>
+          </li>
+                  <li class="">
+            <a href="https://www.enerjitakibi.com/instantValues.php?id=366744">
+              Akım/Gerilim </a>
+          </li>
+                  <li class="">
+            <a href="https://www.enerjitakibi.com/graph.php?id=366744">
+              Grafik </a>
+          </li>
+                  <li class="">
+            <a href="https://www.enerjitakibi.com/report.php?id=366744">
+              Rapor </a>
+          </li>
+                  <li class="">
+            <a href="https://www.enerjitakibi.com/bill.php?id=366744">
+              Fatura </a>
+          </li>
+                  <li class="active">
+            <a href="https://www.enerjitakibi.com/control_v2.php?id=366744">
+              Kontrol </a>
+          </li>
+                  <li class="">
+            <a href="https://www.enerjitakibi.com/alarm/deviceAlarm.php?id=366744">
+              Alarm </a>
+          </li>
+                  <li class="">
+            <a href="https://www.enerjitakibi.com/userDeviceAuthSettings.php?id=366744">
+              Yetkiler </a>
+          </li>
+                  <li class="">
+            <a href="https://www.enerjitakibi.com/deviceSettings.php?id=366744">
+              Ayarlar </a>
+          </li>
+              </ul>
+      <script src="./SmartPower Enerji İzleme Sistemi_files/bootstrap-tabdrop.js.indir" type="text/javascript"></script>
+      <script>
+        $(document).ready(function() {
+          $.fn.tooltipster('setDefaults', {
+            arrow: false,
+            contentAsHTML: true,
+            delay: 50,
+            offsetX: -30,
+            offsetY: -10,
+            position: 'bottom-left',
+            theme: 'tooltipster-punk'
+          });
+          $('.tooltipOld').tooltipster();
+        });
+        $('.nav-pills, .nav-tabs').tabdrop();
+      </script>
+      <link href="./SmartPower Enerji İzleme Sistemi_files/tooltipster.css" rel="stylesheet" type="text/css">
+      <!--<script src="../js/tooltipster_func.js"></script>-->
+      <script src="./SmartPower Enerji İzleme Sistemi_files/jquery.tooltipster.min.js.indir" type="text/javascript"></script>
+<div class="tab-content" style="/*overflow-x: auto;*/">
+  <div class="row small ">
+    <div class="col-md-3"><b>Son Bağlantı: </b><span id="modemTime"></span> <span id="modemStatus"></span>
+    </div>
+    <div class="col-md-3"><b>Yetki:</b> <span id="">
+        Uzman      </span></div>
+    <div class="col-md-3"><b>Durum: </b><span id="spanRelayStatus">
+        Normal      </span></div>
+    <div class="col-md-3"><b>Modbus Adresi:</b> <span id="">
+        1      </span></div>
+
+  </div>
+  <div class="portlet light bordered">
+    <div class="portlet-title tabbable-line">
+      <div class="caption">
+        <!--<i class="icon-share font-dark"></i>-->
+        <!--<span class="caption-subject font-dark bold uppercase">Portlet Tabs</span>-->
+      </div>
+      <ul class="nav nav-tabs">
+                  <li class="tab-link active" id="li_stages">
+            <a href="https://www.enerjitakibi.com/control_v2.php?id=366744#tab_stages" data-toggle="tab" aria-expanded="false"> Kademeler </a>
+          </li>
+                  <li class="tab-link " id="li_enegry">
+            <a href="https://www.enerjitakibi.com/control_v2.php?id=366744#tab_enegry" data-toggle="tab" aria-expanded="true"> Enerji </a>
+          </li>
+                  <li class="tab-link " id="li_instant_values">
+            <a href="https://www.enerjitakibi.com/control_v2.php?id=366744#tab_instant_values" data-toggle="tab" aria-expanded="false"> Anlık Değerler </a>
+          </li>
+                  <li class="tab-link" id="li_parameters">
+            <a href="https://www.enerjitakibi.com/control_v2.php?id=366744#tab_parameters" data-toggle="tab" aria-expanded="false"> Parametreler </a>
+          </li>
+                  <li class="tab-link" id="li_power_flow_chart">
+            <a href="https://www.enerjitakibi.com/control_v2.php?id=366744#tab_power_flow_chart" data-toggle="tab" aria-expanded="false"> Güç Akış Profili</a>
+          </li>
+                  <li class="tab-link" id="li_periodic_readings">
+            <a href="https://www.enerjitakibi.com/control_v2.php?id=366744#tab_periodic_readings" data-toggle="tab" aria-expanded="false"> Periyodik Okumalar </a>
+          </li>
+              </ul>
+    </div>
+    <div class="portlet-body">
+      <div class="tab-content">
+                  <div class="tab-pane active" id="tab_stages">
+            
+  <div class="row small">
+    <div class="col-lg-8 col-md-12 col-sm-12">
+      <table id="stageTable" class="menuTable">
+        <tbody><tr>
+          <th><div class="checker" id="uniform-stageAll"><span><input type="checkbox" id="stageAll"></span></div></th>
+          <th width="50">Kademe</th>
+          <th width="50">L1</th>
+          <th width="50">L2</th>
+          <th width="50">L3</th>
+          <th width="50">Toplam</th>
+          <th width="70" nowrap="true">Tip</th>
+          <th>Kullanım</th>
+          <th width="55">Durum</th>
+        </tr>
+                  <tr id="trStageTable1">
+            <td id="tdStage1"><div class="checker" id="uniform-stage1"><span><input type="checkbox" id="stage1"></span></div></td>
+            <td align="center"><strong>1</strong></td>
+            <td id="stage1_L1"></td>
+            <td id="stage1_L2"></td>
+            <td id="stage1_L3"></td>
+            <td id="stage1_Total"></td>
+            <td nowrap="true" id="stage1_Info"></td>
+            <td id="stage1_Usage"></td>
+            <td id="tdStageStatus1">
+                              <img id="stageStatus1" width="12">
+                          </td>
+          </tr>
+                  <tr id="trStageTable2">
+            <td id="tdStage2"><div class="checker" id="uniform-stage2"><span><input type="checkbox" id="stage2"></span></div></td>
+            <td align="center"><strong>2</strong></td>
+            <td id="stage2_L1"></td>
+            <td id="stage2_L2"></td>
+            <td id="stage2_L3"></td>
+            <td id="stage2_Total"></td>
+            <td nowrap="true" id="stage2_Info"></td>
+            <td id="stage2_Usage"></td>
+            <td id="tdStageStatus2">
+                              <img id="stageStatus2" width="12">
+                          </td>
+          </tr>
+                  <tr id="trStageTable3">
+            <td id="tdStage3"><div class="checker" id="uniform-stage3"><span><input type="checkbox" id="stage3"></span></div></td>
+            <td align="center"><strong>3</strong></td>
+            <td id="stage3_L1"></td>
+            <td id="stage3_L2"></td>
+            <td id="stage3_L3"></td>
+            <td id="stage3_Total"></td>
+            <td nowrap="true" id="stage3_Info"></td>
+            <td id="stage3_Usage"></td>
+            <td id="tdStageStatus3">
+                              <img id="stageStatus3" width="12">
+                          </td>
+          </tr>
+                  <tr id="trStageTable4">
+            <td id="tdStage4"><div class="checker" id="uniform-stage4"><span><input type="checkbox" id="stage4"></span></div></td>
+            <td align="center"><strong>4</strong></td>
+            <td id="stage4_L1"></td>
+            <td id="stage4_L2"></td>
+            <td id="stage4_L3"></td>
+            <td id="stage4_Total"></td>
+            <td nowrap="true" id="stage4_Info"></td>
+            <td id="stage4_Usage"></td>
+            <td id="tdStageStatus4">
+                              <img id="stageStatus4" width="12">
+                          </td>
+          </tr>
+                  <tr id="trStageTable5">
+            <td id="tdStage5"><div class="checker" id="uniform-stage5"><span><input type="checkbox" id="stage5"></span></div></td>
+            <td align="center"><strong>5</strong></td>
+            <td id="stage5_L1"></td>
+            <td id="stage5_L2"></td>
+            <td id="stage5_L3"></td>
+            <td id="stage5_Total"></td>
+            <td nowrap="true" id="stage5_Info"></td>
+            <td id="stage5_Usage"></td>
+            <td id="tdStageStatus5">
+                              <img id="stageStatus5" width="12">
+                          </td>
+          </tr>
+                  <tr id="trStageTable6">
+            <td id="tdStage6"><div class="checker" id="uniform-stage6"><span><input type="checkbox" id="stage6"></span></div></td>
+            <td align="center"><strong>6</strong></td>
+            <td id="stage6_L1"></td>
+            <td id="stage6_L2"></td>
+            <td id="stage6_L3"></td>
+            <td id="stage6_Total"></td>
+            <td nowrap="true" id="stage6_Info"></td>
+            <td id="stage6_Usage"></td>
+            <td id="tdStageStatus6">
+                              <img id="stageStatus6" width="12">
+                          </td>
+          </tr>
+                  <tr id="trStageTable7">
+            <td id="tdStage7"><div class="checker" id="uniform-stage7"><span><input type="checkbox" id="stage7"></span></div></td>
+            <td align="center"><strong>7</strong></td>
+            <td id="stage7_L1"></td>
+            <td id="stage7_L2"></td>
+            <td id="stage7_L3"></td>
+            <td id="stage7_Total"></td>
+            <td nowrap="true" id="stage7_Info"></td>
+            <td id="stage7_Usage"></td>
+            <td id="tdStageStatus7">
+                              <img id="stageStatus7" width="12">
+                          </td>
+          </tr>
+                  <tr id="trStageTable8">
+            <td id="tdStage8"><div class="checker" id="uniform-stage8"><span><input type="checkbox" id="stage8"></span></div></td>
+            <td align="center"><strong>8</strong></td>
+            <td id="stage8_L1"></td>
+            <td id="stage8_L2"></td>
+            <td id="stage8_L3"></td>
+            <td id="stage8_Total"></td>
+            <td nowrap="true" id="stage8_Info"></td>
+            <td id="stage8_Usage"></td>
+            <td id="tdStageStatus8">
+                              <img id="stageStatus8" width="12">
+                          </td>
+          </tr>
+                  <tr id="trStageTable9">
+            <td id="tdStage9"><div class="checker" id="uniform-stage9"><span><input type="checkbox" id="stage9"></span></div></td>
+            <td align="center"><strong>9</strong></td>
+            <td id="stage9_L1"></td>
+            <td id="stage9_L2"></td>
+            <td id="stage9_L3"></td>
+            <td id="stage9_Total"></td>
+            <td nowrap="true" id="stage9_Info"></td>
+            <td id="stage9_Usage"></td>
+            <td id="tdStageStatus9">
+                              <img id="stageStatus9" width="12">
+                          </td>
+          </tr>
+                  <tr id="trStageTable10">
+            <td id="tdStage10"><div class="checker" id="uniform-stage10"><span><input type="checkbox" id="stage10"></span></div></td>
+            <td align="center"><strong>10</strong></td>
+            <td id="stage10_L1"></td>
+            <td id="stage10_L2"></td>
+            <td id="stage10_L3"></td>
+            <td id="stage10_Total"></td>
+            <td nowrap="true" id="stage10_Info"></td>
+            <td id="stage10_Usage"></td>
+            <td id="tdStageStatus10">
+                              <img id="stageStatus10" width="12">
+                          </td>
+          </tr>
+                  <tr id="trStageTable11">
+            <td id="tdStage11"><div class="checker" id="uniform-stage11"><span><input type="checkbox" id="stage11"></span></div></td>
+            <td align="center"><strong>11</strong></td>
+            <td id="stage11_L1"></td>
+            <td id="stage11_L2"></td>
+            <td id="stage11_L3"></td>
+            <td id="stage11_Total"></td>
+            <td nowrap="true" id="stage11_Info"></td>
+            <td id="stage11_Usage"></td>
+            <td id="tdStageStatus11">
+                              <img id="stageStatus11" width="12">
+                          </td>
+          </tr>
+                  <tr id="trStageTable12">
+            <td id="tdStage12"><div class="checker" id="uniform-stage12"><span><input type="checkbox" id="stage12"></span></div></td>
+            <td align="center"><strong>12</strong></td>
+            <td id="stage12_L1"></td>
+            <td id="stage12_L2"></td>
+            <td id="stage12_L3"></td>
+            <td id="stage12_Total"></td>
+            <td nowrap="true" id="stage12_Info"></td>
+            <td id="stage12_Usage"></td>
+            <td id="tdStageStatus12">
+                              <img id="stageStatus12" width="12">
+                          </td>
+          </tr>
+                  <tr id="trStageTable13" style="background-color: rgb(153, 204, 153);">
+            <td id="tdStage13"><div class="checker" id="uniform-stage13"><span><input type="checkbox" id="stage13" class="reactor"></span></div></td>
+            <td align="center"><strong>13</strong></td>
+            <td id="stage13_L1"></td>
+            <td id="stage13_L2"></td>
+            <td id="stage13_L3"></td>
+            <td id="stage13_Total"></td>
+            <td nowrap="true" id="stage13_Info"></td>
+            <td id="stage13_Usage"></td>
+            <td id="tdStageStatus13">
+                          </td>
+          </tr>
+                  <tr id="trStageTable14" style="background-color: rgb(153, 204, 153);">
+            <td id="tdStage14"><div class="checker" id="uniform-stage14"><span><input type="checkbox" id="stage14" class="reactor"></span></div></td>
+            <td align="center"><strong>14</strong></td>
+            <td id="stage14_L1"></td>
+            <td id="stage14_L2"></td>
+            <td id="stage14_L3"></td>
+            <td id="stage14_Total"></td>
+            <td nowrap="true" id="stage14_Info"></td>
+            <td id="stage14_Usage"></td>
+            <td id="tdStageStatus14">
+                          </td>
+          </tr>
+                  <tr id="trStageTable15" style="background-color: rgb(153, 204, 153);">
+            <td id="tdStage15"><div class="checker" id="uniform-stage15"><span><input type="checkbox" id="stage15" class="reactor"></span></div></td>
+            <td align="center"><strong>15</strong></td>
+            <td id="stage15_L1"></td>
+            <td id="stage15_L2"></td>
+            <td id="stage15_L3"></td>
+            <td id="stage15_Total"></td>
+            <td nowrap="true" id="stage15_Info"></td>
+            <td id="stage15_Usage"></td>
+            <td id="tdStageStatus15">
+                          </td>
+          </tr>
+                <tr>
+          <td colspan="7" id="stageValUpdateTime"></td>
+          <td id="stageUsageReadUpdateTime"></td>
+          <td id="stageStatusUpdateTime"></td>
+        </tr>
+      </tbody></table>
+            <a class="link oldValuesLink margin-bottom-20" href="https://www.enerjitakibi.com/stages.php?id=366744">Geçmiş Değerler</a>
+    </div>
+
+    <div class="col-lg-4 col-md-12 col-sm-12 margin-top-20">
+      <div class="col-lg-12 col-md-4">
+                  <div class="">
+            <table>
+              <tbody><tr>
+                <td><a class="btn btn-sm blue" style="width:200px" onclick="action_StageRead();">Kademe Değerlerini Oku</a></td>
+                <td style="vertical-align:middle"><img id="imgStagesRead" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg"></td>
+              </tr>
+            </tbody></table>
+          </div>
+                          <div class="margin-top-10">
+            <table>
+              <tbody><tr>
+                <td><input type="button" class="btn btn-sm blue" value="Kademe Durumlarını Al" style="width:200px" onclick="action_StageStatus();"></td>
+                <td style="vertical-align:middle"><img id="imgStageStatus" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg"></td>
+              </tr>
+            </tbody></table>
+          </div>
+                          <div class="margin-top-10 margin-bottom-10">
+            <table>
+              <tbody><tr>
+                <td><input type="button" class="btn btn-sm blue" value="Kademe Kullanımı" style="width:200px" onclick="action_StageUsageRead();"></td>
+                <td style="vertical-align:middle"><img id="imgStageUsageRead" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg"></td>
+              </tr>
+            </tbody></table>
+          </div>
+              </div>
+      <div class="col-lg-12 col-md-4">
+
+                  <div class="">
+            <table>
+              <tbody><tr>
+                <td><input id="btnStageTest" type="button" class="btn btn-sm blue controlAuth1 blue-chambray" value="Kademe Testi Başlat" style="width:200px" onclick="action_StageTest();"></td>
+                <td style="vertical-align:middle"><img id="imgStageTest" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg"></td>
+              </tr>
+            </tbody></table>
+          </div>
+                          <div class="margin-top-10 margin-bottom-10">
+            <table>
+              <tbody><tr>
+                <td><input id="btnStageTestCancel" type="button" class="btn btn-sm blue controlAuth1 blue-chambray" value="Kademe Testini Sonlandır" style="width:200px" onclick="action_StageTestCancel();"></td>
+                <td style="vertical-align:middle"><img id="imgStageTestCancel" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg"></td>
+              </tr>
+            </tbody></table>
+          </div>
+              </div>
+      <div class="col-lg-12 col-md-4">
+                  <div class="">
+            <table>
+              <tbody><tr>
+                <td><input id="btnCtTest" type="button" class="btn btn-sm blue controlAuth1 blue-steel" value="Trafo Testi Başlat" style="width:200px" onclick="action_TrafoTest();"></td>
+                <td style="vertical-align:middle"><img id="imgTrafoTest" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg"></td>
+              </tr>
+            </tbody></table>
+          </div>
+                          <div class="margin-top-10 margin-bottom-10">
+            <table>
+              <tbody><tr>
+                <td><input id="btnCtTestCancel" type="button" class="btn btn-sm blue controlAuth1 blue-steel" value="Trafo Testini Sonlandır" style="width:200px" onclick="action_TrafoTestCancel();"></td>
+                <td style="vertical-align:middle"><img id="imgTrafoTestCancel" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg"></td>
+              </tr>
+            </tbody></table>
+          </div>
+                          <div class="margin-top-10 margin-bottom-10">
+            <table>
+              <tbody><tr>
+                <td><input id="btnExitLockedState" type="button" class="btn btn-sm blue controlAuth1 blue-steel" value="Kilitlenme Durumundan Çıkar" style="width:200px" onclick="action_ExitLockedState();"></td>
+                <td style="vertical-align:middle"><img id="imgExitLockedState" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg"></td>
+              </tr>
+            </tbody></table>
+          </div>
+              </div>
+      <div class="row">
+        <div class="col-md-12">
+          <table class="menuTable">
+                          <tbody><tr>
+                <td>
+                  <table class="borderlessTable">
+                    <tbody><tr>
+                      <td>
+                        <input type="button" class="btn btn-sm blue" style="width: 220px;" value="Kademe Testi Uygunluğunu Sorgula" onclick="action_ReadParameter('LoadStability');">
+                      </td>
+                      <td style="vertical-align:middle; width:26px"><img id="imgReadLoadStability" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg"></td>
+                    </tr>
+                  </tbody></table>
+                </td>
+                <td id="LoadStabilityValue" class="menu_readValues" style="width: 250px;"></td>
+              </tr>
+                                      <tr>
+                <td>
+                  <table class="borderlessTable">
+                    <tbody><tr>
+                      <td>
+                        <input type="button" class="btn btn-sm blue" style="width: 220px;" value="Reaktör Durumu" onclick="action_ReadParameter('SvcTemperatureError');">
+                      </td>
+                      <td style="vertical-align:middle; width:26px"><img id="imgReadSvcTemperatureError" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg"></td>
+                    </tr>
+                  </tbody></table>
+                </td>
+                <td id="SvcTemperatureErrorValue" class="menu_readValues" style="width: 250px;"></td>
+              </tr>
+                        <tr>
+              <td>
+                <table class="borderlessTable">
+                  <tbody><tr>
+                    <td>
+                      <input type="button" class="btn btn-sm blue" style="width: 220px;" value="Cihaz Durumunu Sorgula" onclick="action_ReadParameter('DeviceStatus');">
+                    </td>
+                    <td style="vertical-align:middle; width:26px"><img id="imgReadDeviceStatus" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg"></td>
+                  </tr>
+                </tbody></table>
+              </td>
+              <td id="DeviceStatusValue" class="menu_readValues" style="width: 250px;"></td>
+            </tr>
+          </tbody></table>
+        </div>
+      </div>
+
+    </div>
+    <table class="menuTable" style="margin-top: 20px;">
+          </table>
+      </div>
+          </div>
+                  <div class="tab-pane " id="tab_enegry">
+            <!--<div class="portlet-body flip-scroll">-->
+<!--</div>-->
+<div class="row">
+  <div class="col-lg-9 col-md-9 col-sm-12">
+    <table class="table table-condensed small" id="energy_table"></table>
+  </div>
+</div>
+<div class="row margin-top-10">
+  <div class="col-md-6">
+    <table>
+      <tbody><tr>
+        <td> <a class="btn btn-sm blue" onclick="action_EnergyRead();">Enerjileri Oku <img id="imgEnergyRead" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg"></a> </td>
+        <td><a class="link oldValuesLink" href="https://www.enerjitakibi.com/data.php?id=366744">Geçmiş Değerler</a></td>
+      </tr>
+    </tbody></table>
+  </div>
+</div>
+  <div class="row margin-top-20">
+    <div class="col-lg-9 col-md-9 col-sm-12">
+      <table class="table table-condensed small" id="energy_export_table"></table>
+    </div>
+  </div>
+
+  <div class="row margin-top-10">
+    <div class="col-md-6">
+      <table>
+        <tbody><tr>
+          <td> <a class="btn btn-sm btn-success" onclick="action_EnergyExportRead();">Export Enerjileri Oku <img id="imgEnergyExportRead" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg"></a> </td>
+          <td><a class="link oldValuesLink" href="https://www.enerjitakibi.com/export_index_data.php?id=366744">Geçmiş Değerler</a></td>
+        </tr>
+      </tbody></table>
+    </div>
+  </div>
+          </div>
+                  <div class="tab-pane  " id="tab_instant_values">
+            <div class="row">
+  <div class="col-lg-5 col-md-8 col-sm-12 col-xs-12">
+          <table class="table" id="instant_values_table"></table>
+      </div>
+</div>
+
+
+  <div class="row">
+    <div class="col-lg-5 col-md-8 col-sm-12 col-xs-12">
+      <table class="table table-striped table-condensed ">
+        <tbody><tr>
+          <td colspan="2" id="instantValuesUpdateTime"><span style="color: #B45F04;"> Son Güncelleme: </span></td>
+        </tr>
+      </tbody></table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-5 col-md-6 col-sm-12">
+      <table id="reactiveRatios" class="small"></table>
+    </div>
+  </div>
+<div class="row margin-top-10">
+  <div class="col-lg-5 col-md-6 col-sm-12">
+    <table>
+      <tbody><tr>
+        <td><a class="btn blue btn-sm" onclick="action_InstantValues();">Anlık Değerleri Getir <img id="imgInstantValues" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg"></a></td>
+
+        <td>
+          <a class="link oldValuesLink" href="https://www.enerjitakibi.com/instantValues.php?id=366744">Geçmiş Değerler</a>
+        </td>
+      </tr>
+    </tbody></table>
+  </div>
+</div>          </div>
+                  <div class="tab-pane " id="tab_parameters">
+            <div class="row">
+      <div class="col-lg-8 col-md-10 col-sm-12 margin-bottom-10">
+      <div class="border-blue bg-default bg-font-default table-responsive">
+        <table class="table table-condensed table-hover table-bordered table-sm">
+          <tbody><tr>
+            <th>Parametre Adı</th>
+            <th colspan="2">Okunan Değer</th>
+            <th colspan="2">Yazılacak Değer</th>
+          </tr>
+                      <tr>
+              <td class="text-nowrap parameter-name">Endüktif Limit</td>
+              <td id="IndRatioSetValue" class="menu_readValues"></td>
+              <td>
+                                  <button class="btn btn-sm blue btn-block" onclick="action_ReadParameter('IndRatioSet');">
+                    Oku
+                    <img id="imgReadIndRatioSet" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg">
+                  </button>
+                              </td>
+                              <td align="right">
+                  <span class="ui-spinner ui-widget ui-widget-content ui-corner-all"><input type="text" id="IndRatioSetWrite" class="my-spinner controlAuthSpinner1 ui-spinner-input" name="IndRatioSetWrite" value="8" onkeypress="checkEnterKey(event, 'IndRatioSet');" aria-valuemin="1" aria-valuemax="99" aria-valuenow="8" autocomplete="off" role="spinbutton"><a class="ui-spinner-button ui-spinner-up ui-corner-tr" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-n">▲</span></a><a class="ui-spinner-button ui-spinner-down ui-corner-br" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-s">▼</span></a></span>
+                </td>
+                <td>
+                  <button class="btn btn-sm blue btn-block btn btn-sm blue controlAuth1" onclick="action_WriteParameter('IndRatioSet');">
+                    Yaz
+                    <img id="imgWriteIndRatioSet" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg">
+                  </button>
+                </td>
+                          </tr>
+                      <tr>
+              <td class="text-nowrap parameter-name">Kapasitif Limit</td>
+              <td id="CapRatioSetValue" class="menu_readValues"></td>
+              <td>
+                                  <button class="btn btn-sm blue btn-block" onclick="action_ReadParameter('CapRatioSet');">
+                    Oku
+                    <img id="imgReadCapRatioSet" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg">
+                  </button>
+                              </td>
+                              <td align="right">
+                  <span class="ui-spinner ui-widget ui-widget-content ui-corner-all"><input type="text" id="CapRatioSetWrite" class="my-spinner controlAuthSpinner1 ui-spinner-input" name="CapRatioSetWrite" value="13" onkeypress="checkEnterKey(event, 'CapRatioSet');" aria-valuemin="1" aria-valuemax="99" aria-valuenow="13" autocomplete="off" role="spinbutton"><a class="ui-spinner-button ui-spinner-up ui-corner-tr" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-n">▲</span></a><a class="ui-spinner-button ui-spinner-down ui-corner-br" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-s">▼</span></a></span>
+                </td>
+                <td>
+                  <button class="btn btn-sm blue btn-block btn btn-sm blue controlAuth1" onclick="action_WriteParameter('CapRatioSet');">
+                    Yaz
+                    <img id="imgWriteCapRatioSet" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg">
+                  </button>
+                </td>
+                          </tr>
+                      <tr>
+              <td class="text-nowrap parameter-name">Endüktif Histeresis</td>
+              <td id="IndHysteresisRatioValue" class="menu_readValues"></td>
+              <td>
+                                  <button class="btn btn-sm blue btn-block" onclick="action_ReadParameter('IndHysteresisRatio');">
+                    Oku
+                    <img id="imgReadIndHysteresisRatio" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg">
+                  </button>
+                              </td>
+                              <td align="right">
+                  <span class="ui-spinner ui-widget ui-widget-content ui-corner-all"><input type="text" id="IndHysteresisRatioWrite" class="my-spinner controlAuthSpinner1 ui-spinner-input" name="IndHysteresisRatioWrite" value="5" onkeypress="checkEnterKey(event, 'IndHysteresisRatio');" aria-valuemin="1" aria-valuemax="20" aria-valuenow="5" autocomplete="off" role="spinbutton"><a class="ui-spinner-button ui-spinner-up ui-corner-tr" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-n">▲</span></a><a class="ui-spinner-button ui-spinner-down ui-corner-br" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-s">▼</span></a></span>
+                </td>
+                <td>
+                  <button class="btn btn-sm blue btn-block btn btn-sm blue controlAuth1" onclick="action_WriteParameter('IndHysteresisRatio');">
+                    Yaz
+                    <img id="imgWriteIndHysteresisRatio" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg">
+                  </button>
+                </td>
+                          </tr>
+                      <tr>
+              <td class="text-nowrap parameter-name">Kapasitif Histeresis</td>
+              <td id="CapHysteresisRatioValue" class="menu_readValues"></td>
+              <td>
+                                  <button class="btn btn-sm blue btn-block" onclick="action_ReadParameter('CapHysteresisRatio');">
+                    Oku
+                    <img id="imgReadCapHysteresisRatio" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg">
+                  </button>
+                              </td>
+                              <td align="right">
+                  <span class="ui-spinner ui-widget ui-widget-content ui-corner-all"><input type="text" id="CapHysteresisRatioWrite" class="my-spinner controlAuthSpinner1 ui-spinner-input" name="CapHysteresisRatioWrite" value="2" onkeypress="checkEnterKey(event, 'CapHysteresisRatio');" aria-valuemin="1" aria-valuemax="20" aria-valuenow="2" autocomplete="off" role="spinbutton"><a class="ui-spinner-button ui-spinner-up ui-corner-tr" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-n">▲</span></a><a class="ui-spinner-button ui-spinner-down ui-corner-br" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-s">▼</span></a></span>
+                </td>
+                <td>
+                  <button class="btn btn-sm blue btn-block btn btn-sm blue controlAuth1" onclick="action_WriteParameter('CapHysteresisRatio');">
+                    Yaz
+                    <img id="imgWriteCapHysteresisRatio" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg">
+                  </button>
+                </td>
+                          </tr>
+                      <tr>
+              <td class="text-nowrap parameter-name">Akım Trafosu Oranı</td>
+              <td id="CurrentTransformerRatioValue" class="menu_readValues"></td>
+              <td>
+                                  <button class="btn btn-sm blue btn-block" onclick="action_ReadParameter('CurrentTransformerRatio');">
+                    Oku
+                    <img id="imgReadCurrentTransformerRatio" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg">
+                  </button>
+                              </td>
+                              <td align="right">
+                  <span class="ui-spinner ui-widget ui-widget-content ui-corner-all"><input type="text" id="CurrentTransformerRatioWrite" class="my-spinner controlAuthSpinner2 ui-spinner-input" name="CurrentTransformerRatioWrite" value="5" onkeypress="checkEnterKey(event, 'CurrentTransformerRatio');" aria-valuenow="5" autocomplete="off" role="spinbutton"><a class="ui-spinner-button ui-spinner-up ui-corner-tr" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-n">▲</span></a><a class="ui-spinner-button ui-spinner-down ui-corner-br" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-s">▼</span></a></span>
+                </td>
+                <td>
+                  <button class="btn btn-sm blue btn-block btn btn-sm blue controlAuth2" onclick="action_WriteParameter('CurrentTransformerRatio');">
+                    Yaz
+                    <img id="imgWriteCurrentTransformerRatio" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg">
+                  </button>
+                </td>
+                          </tr>
+                      <tr>
+              <td class="text-nowrap parameter-name">Gerilim Trafosu Oranı</td>
+              <td id="VoltageTransformerRatioValue" class="menu_readValues"></td>
+              <td>
+                                  <button class="btn btn-sm blue btn-block" onclick="action_ReadParameter('VoltageTransformerRatio');">
+                    Oku
+                    <img id="imgReadVoltageTransformerRatio" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg">
+                  </button>
+                              </td>
+                              <td align="right">
+                  <span class="ui-spinner ui-widget ui-widget-content ui-corner-all"><input type="text" id="VoltageTransformerRatioWrite" class="my-spinner controlAuthSpinner2 ui-spinner-input" name="VoltageTransformerRatioWrite" value="380" onkeypress="checkEnterKey(event, 'VoltageTransformerRatio');" aria-valuenow="380" autocomplete="off" role="spinbutton"><a class="ui-spinner-button ui-spinner-up ui-corner-tr" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-n">▲</span></a><a class="ui-spinner-button ui-spinner-down ui-corner-br" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-s">▼</span></a></span>
+                </td>
+                <td>
+                  <button class="btn btn-sm blue btn-block btn btn-sm blue controlAuth2" onclick="action_WriteParameter('VoltageTransformerRatio');">
+                    Yaz
+                    <img id="imgWriteVoltageTransformerRatio" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg">
+                  </button>
+                </td>
+                          </tr>
+                      <tr>
+              <td class="text-nowrap parameter-name">Reaktifte Cevap Süresi</td>
+              <td id="ReactiveResponseTimeValue" class="menu_readValues"></td>
+              <td>
+                                  <button class="btn btn-sm blue btn-block" onclick="action_ReadParameter('ReactiveResponseTime');">
+                    Oku
+                    <img id="imgReadReactiveResponseTime" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg">
+                  </button>
+                              </td>
+                              <td align="right">
+                  <span class="ui-spinner ui-widget ui-widget-content ui-corner-all"><input type="text" id="ReactiveResponseTimeWrite" class="my-spinner controlAuthSpinner1 ui-spinner-input" name="ReactiveResponseTimeWrite" value="2" onkeypress="checkEnterKey(event, 'ReactiveResponseTime');" aria-valuemin="0.1" aria-valuemax="20" aria-valuenow="2" autocomplete="off" role="spinbutton"><a class="ui-spinner-button ui-spinner-up ui-corner-tr" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-n">▲</span></a><a class="ui-spinner-button ui-spinner-down ui-corner-br" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-s">▼</span></a></span>
+                </td>
+                <td>
+                  <button class="btn btn-sm blue btn-block btn btn-sm blue controlAuth1" onclick="action_WriteParameter('ReactiveResponseTime');">
+                    Yaz
+                    <img id="imgWriteReactiveResponseTime" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg">
+                  </button>
+                </td>
+                          </tr>
+                      <tr>
+              <td class="text-nowrap parameter-name">Normalde Cevap Süresi</td>
+              <td id="NormalResponseTimeValue" class="menu_readValues"></td>
+              <td>
+                                  <button class="btn btn-sm blue btn-block" onclick="action_ReadParameter('NormalResponseTime');">
+                    Oku
+                    <img id="imgReadNormalResponseTime" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg">
+                  </button>
+                              </td>
+                              <td align="right">
+                  <span class="ui-spinner ui-widget ui-widget-content ui-corner-all"><input type="text" id="NormalResponseTimeWrite" class="my-spinner controlAuthSpinner1 ui-spinner-input" name="NormalResponseTimeWrite" value="120" onkeypress="checkEnterKey(event, 'NormalResponseTime');" aria-valuemin="0.1" aria-valuemax="300" aria-valuenow="120" autocomplete="off" role="spinbutton"><a class="ui-spinner-button ui-spinner-up ui-corner-tr" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-n">▲</span></a><a class="ui-spinner-button ui-spinner-down ui-corner-br" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-s">▼</span></a></span>
+                </td>
+                <td>
+                  <button class="btn btn-sm blue btn-block btn btn-sm blue controlAuth1" onclick="action_WriteParameter('NormalResponseTime');">
+                    Yaz
+                    <img id="imgWriteNormalResponseTime" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg">
+                  </button>
+                </td>
+                          </tr>
+                      <tr>
+              <td class="text-nowrap parameter-name">LC Cevap Süresi</td>
+              <td id="SvcResponseTimeValue" class="menu_readValues"></td>
+              <td>
+                                  <button class="btn btn-sm blue btn-block" onclick="action_ReadParameter('SvcResponseTime');">
+                    Oku
+                    <img id="imgReadSvcResponseTime" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg">
+                  </button>
+                              </td>
+                              <td align="right">
+                  <span class="ui-spinner ui-widget ui-widget-content ui-corner-all"><input type="text" id="SvcResponseTimeWrite" class="my-spinner controlAuthSpinner1 ui-spinner-input" name="SvcResponseTimeWrite" value="1" onkeypress="checkEnterKey(event, 'SvcResponseTime');" aria-valuemin="0.1" aria-valuemax="20" aria-valuenow="1" autocomplete="off" role="spinbutton"><a class="ui-spinner-button ui-spinner-up ui-corner-tr" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-n">▲</span></a><a class="ui-spinner-button ui-spinner-down ui-corner-br" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-s">▼</span></a></span>
+                </td>
+                <td>
+                  <button class="btn btn-sm blue btn-block btn btn-sm blue controlAuth1" onclick="action_WriteParameter('SvcResponseTime');">
+                    Yaz
+                    <img id="imgWriteSvcResponseTime" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg">
+                  </button>
+                </td>
+                          </tr>
+                      <tr>
+              <td class="text-nowrap parameter-name">Kondansatör Boşalma Süresi</td>
+              <td id="CapDischargeTimeValue" class="menu_readValues"></td>
+              <td>
+                                  <button class="btn btn-sm blue btn-block" onclick="action_ReadParameter('CapDischargeTime');">
+                    Oku
+                    <img id="imgReadCapDischargeTime" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg">
+                  </button>
+                              </td>
+                              <td align="right">
+                  <span class="ui-spinner ui-widget ui-widget-content ui-corner-all"><input type="text" id="CapDischargeTimeWrite" class="my-spinner controlAuthSpinner1 ui-spinner-input" name="CapDischargeTimeWrite" value="8" onkeypress="checkEnterKey(event, 'CapDischargeTime');" aria-valuemin="0.1" aria-valuemax="600" aria-valuenow="8" autocomplete="off" role="spinbutton"><a class="ui-spinner-button ui-spinner-up ui-corner-tr" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-n">▲</span></a><a class="ui-spinner-button ui-spinner-down ui-corner-br" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-s">▼</span></a></span>
+                </td>
+                <td>
+                  <button class="btn btn-sm blue btn-block btn btn-sm blue controlAuth1" onclick="action_WriteParameter('CapDischargeTime');">
+                    Yaz
+                    <img id="imgWriteCapDischargeTime" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg">
+                  </button>
+                </td>
+                          </tr>
+                      <tr>
+              <td class="text-nowrap parameter-name">Enerji Entegral Süresi</td>
+              <td id="EnergyIntegralTimeValue" class="menu_readValues"></td>
+              <td>
+                                  <button class="btn btn-sm blue btn-block" onclick="action_ReadParameter('EnergyIntegralTime');">
+                    Oku
+                    <img id="imgReadEnergyIntegralTime" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg">
+                  </button>
+                              </td>
+                              <td align="right">
+                  <span class="ui-spinner ui-widget ui-widget-content ui-corner-all"><input type="text" id="EnergyIntegralTimeWrite" class="my-spinner controlAuthSpinner2 ui-spinner-input" name="EnergyIntegralTimeWrite" value="0.1" onkeypress="checkEnterKey(event, 'EnergyIntegralTime');" aria-valuemin="0.1" aria-valuemax="2" aria-valuenow="0.1" autocomplete="off" role="spinbutton"><a class="ui-spinner-button ui-spinner-up ui-corner-tr" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-n">▲</span></a><a class="ui-spinner-button ui-spinner-down ui-corner-br" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-s">▼</span></a></span>
+                </td>
+                <td>
+                  <button class="btn btn-sm blue btn-block btn btn-sm blue controlAuth2" onclick="action_WriteParameter('EnergyIntegralTime');">
+                    Yaz
+                    <img id="imgWriteEnergyIntegralTime" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg">
+                  </button>
+                </td>
+                          </tr>
+                      <tr>
+              <td class="text-nowrap parameter-name">ADE Opamp Çarpanı</td>
+              <td id="DinamikSwOpampCarpaniAyarValue" class="menu_readValues"></td>
+              <td>
+                                  <button class="btn btn-sm blue btn-block" onclick="action_ReadParameter('DinamikSwOpampCarpaniAyar');">
+                    Oku
+                    <img id="imgReadDinamikSwOpampCarpaniAyar" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg">
+                  </button>
+                              </td>
+                              <td align="right">
+                  <span class="ui-spinner ui-widget ui-widget-content ui-corner-all"><input type="text" id="DinamikSwOpampCarpaniAyarWrite" class="my-spinner controlAuthSpinner2 ui-spinner-input" name="DinamikSwOpampCarpaniAyarWrite" value="1" onkeypress="checkEnterKey(event, 'DinamikSwOpampCarpaniAyar');" aria-valuenow="1" autocomplete="off" role="spinbutton"><a class="ui-spinner-button ui-spinner-up ui-corner-tr" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-n">▲</span></a><a class="ui-spinner-button ui-spinner-down ui-corner-br" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-s">▼</span></a></span>
+                </td>
+                <td>
+                  <button class="btn btn-sm blue btn-block btn btn-sm blue controlAuth2" onclick="action_WriteParameter('DinamikSwOpampCarpaniAyar');">
+                    Yaz
+                    <img id="imgWriteDinamikSwOpampCarpaniAyar" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg">
+                  </button>
+                </td>
+                          </tr>
+                      <tr>
+              <td class="text-nowrap parameter-name">ADE Hw Opamp Çarpanı</td>
+              <td id="DinamikHwOpampCarpaniAyarValue" class="menu_readValues"></td>
+              <td>
+                                  <button class="btn btn-sm blue btn-block" onclick="action_ReadParameter('DinamikHwOpampCarpaniAyar');">
+                    Oku
+                    <img id="imgReadDinamikHwOpampCarpaniAyar" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg">
+                  </button>
+                              </td>
+                              <td align="right">
+                  <span class="ui-spinner ui-widget ui-widget-content ui-corner-all"><input type="text" id="DinamikHwOpampCarpaniAyarWrite" class="my-spinner controlAuthSpinner2 ui-spinner-input" name="DinamikHwOpampCarpaniAyarWrite" value="1" onkeypress="checkEnterKey(event, 'DinamikHwOpampCarpaniAyar');" aria-valuenow="1" autocomplete="off" role="spinbutton"><a class="ui-spinner-button ui-spinner-up ui-corner-tr" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-n">▲</span></a><a class="ui-spinner-button ui-spinner-down ui-corner-br" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-s">▼</span></a></span>
+                </td>
+                <td>
+                  <button class="btn btn-sm blue btn-block btn btn-sm blue controlAuth2" onclick="action_WriteParameter('DinamikHwOpampCarpaniAyar');">
+                    Yaz
+                    <img id="imgWriteDinamikHwOpampCarpaniAyar" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg">
+                  </button>
+                </td>
+                          </tr>
+                      <tr>
+              <td class="text-nowrap parameter-name">Cevap Çözünürlüğü</td>
+              <td id="ResponseResolutionValue" class="menu_readValues"></td>
+              <td>
+                                  <button class="btn btn-sm blue btn-block" onclick="action_ReadParameter('ResponseResolution');">
+                    Oku
+                    <img id="imgReadResponseResolution" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg">
+                  </button>
+                              </td>
+                              <td align="right">
+                  <span class="ui-spinner ui-widget ui-widget-content ui-corner-all"><input type="text" id="ResponseResolutionWrite" class="my-spinner controlAuthSpinner1 ui-spinner-input" name="ResponseResolutionWrite" value="32" onkeypress="checkEnterKey(event, 'ResponseResolution');" aria-valuemin="1" aria-valuemax="60" aria-valuenow="32" autocomplete="off" role="spinbutton"><a class="ui-spinner-button ui-spinner-up ui-corner-tr" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-n">▲</span></a><a class="ui-spinner-button ui-spinner-down ui-corner-br" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-s">▼</span></a></span>
+                </td>
+                <td>
+                  <button class="btn btn-sm blue btn-block btn btn-sm blue controlAuth1" onclick="action_WriteParameter('ResponseResolution');">
+                    Yaz
+                    <img id="imgWriteResponseResolution" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg">
+                  </button>
+                </td>
+                          </tr>
+                  </tbody></table>
+      </div>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+          <div class="border-blue bg-default bg-font-default table-responsive">
+        <table class="table table-condensed table-hover table-bordered table-sm small parameter-table">
+          <tbody><tr>
+            <th colspan="5" class="text-center">
+              <h4> Ofset Kademe Ayarları </h4>
+              <small>*Bu özellik bazı modellerde çalışmayabilir</small>
+            </th>
+          </tr>
+          <tr>
+            <th>Parametre Adı</th>
+            <th colspan="2">Okunan Değer</th>
+            <th colspan="2">Yazılacak Değer</th>
+          </tr>
+                      <tr>
+              <td>Offset Kademe Seçimi</td>
+              <td id="OfsetKademeDegeriValue" class="menu_readValues"></td>
+              <td>
+                <table class="borderlessTable">
+                  <tbody><tr>
+                    <td>
+                      <input type="button" class="btn btn-sm blue" value="Oku" onclick="action_ReadParameter('OfsetKademeDegeri');">
+                    </td>
+                    <td style="vertical-align:middle; width:26px">
+                      <img id="imgReadOfsetKademeDegeri" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg">
+                    </td>
+                  </tr>
+                </tbody></table>
+              </td>
+              <td>
+                <span class="ui-spinner ui-widget ui-widget-content ui-corner-all"><input id="OfsetKademeDegeriWrite" class="controlAuthSpinner1 width80 ui-spinner-input" name="OfsetKademeDegeriWrite" value="Off" onkeypress="checkEnterKey(event, 'OfsetKademeDegeri');" aria-valuemin="0" aria-valuemax="18" autocomplete="off" role="spinbutton"><a class="ui-spinner-button ui-spinner-up ui-corner-tr" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-n">▲</span></a><a class="ui-spinner-button ui-spinner-down ui-corner-br" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-s">▼</span></a></span>
+              </td>
+              <td>
+                <table class="borderlessTable">
+                  <tbody><tr>
+                    <td>
+                      <input type="button" class="btn btn-sm blue controlAuth1" value="Yaz" onclick="action_OfsetStageSettingWrite('OfsetKademeDegeri');">
+                    </td>
+                    <td style="vertical-align:middle; width:26px">
+                      <img id="imgWriteOfsetKademeDegeri" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg">
+                    </td>
+                  </tr>
+                </tbody></table>
+              </td>
+            </tr>
+                      <tr>
+              <td>Offset Değeri</td>
+              <td id="OfsetGucuValue" class="menu_readValues"></td>
+              <td>
+                <table class="borderlessTable">
+                  <tbody><tr>
+                    <td>
+                      <input type="button" class="btn btn-sm blue" value="Oku" onclick="action_ReadParameter('OfsetGucuOku');">
+                    </td>
+                    <td style="vertical-align:middle; width:26px">
+                      <img id="imgReadOfsetGucu" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg">
+                    </td>
+                  </tr>
+                </tbody></table>
+              </td>
+              <td>
+                <span class="ui-spinner ui-widget ui-widget-content ui-corner-all"><input id="OfsetGucuWrite" class="controlAuthSpinner1 width80 ui-spinner-input" name="OfsetGucuWrite" value="0" onkeypress="checkEnterKey(event, 'OfsetGucu');" aria-valuemin="-32700" aria-valuemax="32700" aria-valuenow="0" autocomplete="off" role="spinbutton"><a class="ui-spinner-button ui-spinner-up ui-corner-tr" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-n">▲</span></a><a class="ui-spinner-button ui-spinner-down ui-corner-br" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-s">▼</span></a></span>
+              </td>
+              <td>
+                <table class="borderlessTable">
+                  <tbody><tr>
+                    <td>
+                      <input type="button" class="btn btn-sm blue controlAuth1" value="Yaz" onclick="action_OfsetStageSettingWrite('OfsetGucu');">
+                    </td>
+                    <td style="vertical-align:middle; width:26px">
+                      <img id="imgWriteOfsetGucu" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg">
+                    </td>
+                  </tr>
+                </tbody></table>
+              </td>
+            </tr>
+                  </tbody></table>
+      </div>
+              <div class="border-blue bg-default bg-font-default table-responsive margin-top-10">
+        <table class="table table-condensed table-hover table-bordered table-sm">
+          <tbody><tr>
+            <th colspan="5" class="text-center">
+              <h4> OG Röle Ayarları </h4>
+              <small>*Bu özellik bazı modellerde çalışmayabilir</small>
+            </th>
+          </tr>
+          <tr>
+            <th>Parametre Adı</th>
+            <th colspan="2">Okunan Değer</th>
+            <th colspan="2">Yazılacak Değer</th>
+          </tr>
+                      <tr>
+              <td>LC Offset L1</td>
+              <td id="SvcErrorPowerOffset_L1Value" class="menu_readValues"></td>
+              <td>
+                <table class="borderlessTable">
+                  <tbody><tr>
+                    <td>
+                      <input type="button" class="btn btn-sm blue" value="Oku" onclick="action_ReadParameter('SvcErrorPowerOffset_L1');">
+                    </td>
+                    <td style="vertical-align:middle; width:26px">
+                      <img id="imgReadSvcErrorPowerOffset_L1" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg">
+                    </td>
+                  </tr>
+                </tbody></table>
+              </td>
+              <td>
+                <span class="ui-spinner ui-widget ui-widget-content ui-corner-all"><input id="SvcErrorPowerOffset_L1Write" class="controlAuthSpinner2 ui-spinner-input" name="SvcErrorPowerOffset_L1Write" value="-3" onkeypress="checkEnterKey(event, 'SvcErrorPowerOffset_L1');" aria-valuemin="-50" aria-valuemax="50" aria-valuenow="-3" autocomplete="off" role="spinbutton"><a class="ui-spinner-button ui-spinner-up ui-corner-tr" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-n">▲</span></a><a class="ui-spinner-button ui-spinner-down ui-corner-br" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-s">▼</span></a></span>
+              </td>
+              <td>
+                <table class="borderlessTable">
+                  <tbody><tr>
+                    <td>
+                      <input type="button" class="btn btn-sm blue controlAuth2" value="Yaz" onclick="action_WriteParameter('SvcErrorPowerOffset_L1');">
+                    </td>
+                    <td style="vertical-align:middle; width:26px">
+                      <img id="imgWriteSvcErrorPowerOffset_L1" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg">
+                    </td>
+                  </tr>
+                </tbody></table>
+              </td>
+            </tr>
+                      <tr>
+              <td>LC Offset L2</td>
+              <td id="SvcErrorPowerOffset_L2Value" class="menu_readValues"></td>
+              <td>
+                <table class="borderlessTable">
+                  <tbody><tr>
+                    <td>
+                      <input type="button" class="btn btn-sm blue" value="Oku" onclick="action_ReadParameter('SvcErrorPowerOffset_L2');">
+                    </td>
+                    <td style="vertical-align:middle; width:26px">
+                      <img id="imgReadSvcErrorPowerOffset_L2" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg">
+                    </td>
+                  </tr>
+                </tbody></table>
+              </td>
+              <td>
+                <span class="ui-spinner ui-widget ui-widget-content ui-corner-all"><input id="SvcErrorPowerOffset_L2Write" class="controlAuthSpinner2 ui-spinner-input" name="SvcErrorPowerOffset_L2Write" value="-3" onkeypress="checkEnterKey(event, 'SvcErrorPowerOffset_L2');" aria-valuemin="-50" aria-valuemax="50" aria-valuenow="-3" autocomplete="off" role="spinbutton"><a class="ui-spinner-button ui-spinner-up ui-corner-tr" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-n">▲</span></a><a class="ui-spinner-button ui-spinner-down ui-corner-br" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-s">▼</span></a></span>
+              </td>
+              <td>
+                <table class="borderlessTable">
+                  <tbody><tr>
+                    <td>
+                      <input type="button" class="btn btn-sm blue controlAuth2" value="Yaz" onclick="action_WriteParameter('SvcErrorPowerOffset_L2');">
+                    </td>
+                    <td style="vertical-align:middle; width:26px">
+                      <img id="imgWriteSvcErrorPowerOffset_L2" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg">
+                    </td>
+                  </tr>
+                </tbody></table>
+              </td>
+            </tr>
+                      <tr>
+              <td>LC Offset L3</td>
+              <td id="SvcErrorPowerOffset_L3Value" class="menu_readValues"></td>
+              <td>
+                <table class="borderlessTable">
+                  <tbody><tr>
+                    <td>
+                      <input type="button" class="btn btn-sm blue" value="Oku" onclick="action_ReadParameter('SvcErrorPowerOffset_L3');">
+                    </td>
+                    <td style="vertical-align:middle; width:26px">
+                      <img id="imgReadSvcErrorPowerOffset_L3" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg">
+                    </td>
+                  </tr>
+                </tbody></table>
+              </td>
+              <td>
+                <span class="ui-spinner ui-widget ui-widget-content ui-corner-all"><input id="SvcErrorPowerOffset_L3Write" class="controlAuthSpinner2 ui-spinner-input" name="SvcErrorPowerOffset_L3Write" value="-3" onkeypress="checkEnterKey(event, 'SvcErrorPowerOffset_L3');" aria-valuemin="-50" aria-valuemax="50" aria-valuenow="-3" autocomplete="off" role="spinbutton"><a class="ui-spinner-button ui-spinner-up ui-corner-tr" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-n">▲</span></a><a class="ui-spinner-button ui-spinner-down ui-corner-br" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-s">▼</span></a></span>
+              </td>
+              <td>
+                <table class="borderlessTable">
+                  <tbody><tr>
+                    <td>
+                      <input type="button" class="btn btn-sm blue controlAuth2" value="Yaz" onclick="action_WriteParameter('SvcErrorPowerOffset_L3');">
+                    </td>
+                    <td style="vertical-align:middle; width:26px">
+                      <img id="imgWriteSvcErrorPowerOffset_L3" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.svg">
+                    </td>
+                  </tr>
+                </tbody></table>
+              </td>
+            </tr>
+                  </tbody></table>
+      </div>
+              </div>
+</div>
+          </div>
+                  <div class="tab-pane " id="tab_power_flow_chart">
+              <div class="row">
+    <div class="col-md-12">
+      <table id="powerSampleTable" class="menuTable">
+        <tbody><tr>
+          <th colspan="6" id="powerSampleHeader">Reaktif Güç Akış Profili</th>
+        </tr>
+        <tr>
+          <th width="30">No</th>
+          <th>L1 Fazı</th>
+          <th>L2 Fazı</th>
+          <th>L3 Fazı</th>
+          <th>Süre</th>
+          <th>Yüzde</th>
+        </tr>
+                  <tr>
+            <td align="right"><strong>1</strong></td>
+            <td class="powerSampleValue" id="sample1_L1"></td>
+            <td class="powerSampleValue" id="sample1_L2"></td>
+            <td class="powerSampleValue" id="sample1_L3"></td>
+            <td class="powerSampleValue" id="sample1_Duration"></td>
+            <td class="powerSampleValue" id="sample1_Percent"></td>
+          </tr>
+                  <tr>
+            <td align="right"><strong>2</strong></td>
+            <td class="powerSampleValue" id="sample2_L1"></td>
+            <td class="powerSampleValue" id="sample2_L2"></td>
+            <td class="powerSampleValue" id="sample2_L3"></td>
+            <td class="powerSampleValue" id="sample2_Duration"></td>
+            <td class="powerSampleValue" id="sample2_Percent"></td>
+          </tr>
+                  <tr>
+            <td align="right"><strong>3</strong></td>
+            <td class="powerSampleValue" id="sample3_L1"></td>
+            <td class="powerSampleValue" id="sample3_L2"></td>
+            <td class="powerSampleValue" id="sample3_L3"></td>
+            <td class="powerSampleValue" id="sample3_Duration"></td>
+            <td class="powerSampleValue" id="sample3_Percent"></td>
+          </tr>
+                  <tr>
+            <td align="right"><strong>4</strong></td>
+            <td class="powerSampleValue" id="sample4_L1"></td>
+            <td class="powerSampleValue" id="sample4_L2"></td>
+            <td class="powerSampleValue" id="sample4_L3"></td>
+            <td class="powerSampleValue" id="sample4_Duration"></td>
+            <td class="powerSampleValue" id="sample4_Percent"></td>
+          </tr>
+                  <tr>
+            <td align="right"><strong>5</strong></td>
+            <td class="powerSampleValue" id="sample5_L1"></td>
+            <td class="powerSampleValue" id="sample5_L2"></td>
+            <td class="powerSampleValue" id="sample5_L3"></td>
+            <td class="powerSampleValue" id="sample5_Duration"></td>
+            <td class="powerSampleValue" id="sample5_Percent"></td>
+          </tr>
+                  <tr>
+            <td align="right"><strong>6</strong></td>
+            <td class="powerSampleValue" id="sample6_L1"></td>
+            <td class="powerSampleValue" id="sample6_L2"></td>
+            <td class="powerSampleValue" id="sample6_L3"></td>
+            <td class="powerSampleValue" id="sample6_Duration"></td>
+            <td class="powerSampleValue" id="sample6_Percent"></td>
+          </tr>
+                  <tr>
+            <td align="right"><strong>7</strong></td>
+            <td class="powerSampleValue" id="sample7_L1"></td>
+            <td class="powerSampleValue" id="sample7_L2"></td>
+            <td class="powerSampleValue" id="sample7_L3"></td>
+            <td class="powerSampleValue" id="sample7_Duration"></td>
+            <td class="powerSampleValue" id="sample7_Percent"></td>
+          </tr>
+                  <tr>
+            <td align="right"><strong>8</strong></td>
+            <td class="powerSampleValue" id="sample8_L1"></td>
+            <td class="powerSampleValue" id="sample8_L2"></td>
+            <td class="powerSampleValue" id="sample8_L3"></td>
+            <td class="powerSampleValue" id="sample8_Duration"></td>
+            <td class="powerSampleValue" id="sample8_Percent"></td>
+          </tr>
+                  <tr>
+            <td align="right"><strong>9</strong></td>
+            <td class="powerSampleValue" id="sample9_L1"></td>
+            <td class="powerSampleValue" id="sample9_L2"></td>
+            <td class="powerSampleValue" id="sample9_L3"></td>
+            <td class="powerSampleValue" id="sample9_Duration"></td>
+            <td class="powerSampleValue" id="sample9_Percent"></td>
+          </tr>
+                  <tr>
+            <td align="right"><strong>10</strong></td>
+            <td class="powerSampleValue" id="sample10_L1"></td>
+            <td class="powerSampleValue" id="sample10_L2"></td>
+            <td class="powerSampleValue" id="sample10_L3"></td>
+            <td class="powerSampleValue" id="sample10_Duration"></td>
+            <td class="powerSampleValue" id="sample10_Percent"></td>
+          </tr>
+                <tr>
+          <td colspan="6" id="powerSampleUpdateTime">
+            <span style="color: #B45F04;"> Son Güncelleme: </span>
+          </td>
+        </tr>
+      </tbody></table>
+      <table class="borderlessTable" style="margin-top:30px;">
+        <tbody><tr>
+          <td><input type="button" class="btn blue" value="Güç Akış Grafiğini Getir" style="width:200px" onclick="action_PowerSampleRead();"></td>
+          <td style="vertical-align:middle; width:26px"><img id="imgPowerSampleRead" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.gif"></td>
+          <td><a class="link oldValuesLink" href="https://www.enerjitakibi.com/powerSamples.php?id=366744">Geçmiş Değerler</a></td>
+        </tr>
+      </tbody></table>
+      <table class="borderlessTable" style="margin-top:50px;">
+        <tbody><tr>
+          <td><input type="button" class="btn red controlAuth1" value="Güç Akış Grafiğini Sıfırla" style="width:200px" onclick="confirmResetPowerSample();"></td>
+          <td style="vertical-align:middle; width:26px"><img id="imgResetPowerSample" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.gif"></td>
+        </tr>
+      </tbody></table>
+    </div>
+  </div>
+          </div>
+                  <div class="tab-pane " id="tab_periodic_readings">
+            <div class="row">
+  <div class="col-md-6">
+    <table class="table table-bordered table-hover" id="tablePeriodicReading">
+      <tbody><tr>
+        <th></th>
+        <th>Parametre Adı</th>
+        <th>Okuma Periyodu</th>
+      </tr>
+                <tr align="left">
+            <td><div class="checker" id="uniform-chk_ParamEnergyExportRead"><span class="checked"><input type="checkbox" id="chk_ParamEnergyExportRead" checked="" onchange="change_Checkboxes_PeriodicReading(this)"></span></div></td>
+            <td>Export Endeks</td>
+            <td>
+              <select class="periodicReadingSetValue" id="sl_EnergyExportRead" onchange="change_Selects_PeriodicReading()">
+                                  <option value="5"> 5 dk </option>
+                                  <option value="15" selected=""> 15 dk </option>
+                                  <option value="30"> 30 dk </option>
+                                  <option value="45"> 45 dk </option>
+                                  <option value="60"> 1 saat </option>
+                                  <option value="120"> 2 saat </option>
+                                  <option value="180"> 3 saat </option>
+                                  <option value="240"> 4 saat </option>
+                                  <option value="1440"> 1 gün </option>
+                                  <option value="4320"> 3 gün </option>
+                                  <option value="10080"> 1 hafta </option>
+                            </select></td>
+          </tr>
+                <tr align="left">
+            <td><div class="checker disabled" id="uniform-chk_ParamEnergyRead"><span class="checked"><input type="checkbox" id="chk_ParamEnergyRead" checked="" onchange="change_Checkboxes_PeriodicReading(this)" disabled=""></span></div></td>
+            <td>Enerjileri Oku</td>
+            <td>
+              <select class="periodicReadingSetValue" id="sl_EnergyRead" onchange="change_Selects_PeriodicReading()">
+                                  <option value="5"> 5 dk </option>
+                                  <option value="15"> 15 dk </option>
+                                  <option value="30"> 30 dk </option>
+                                  <option value="45"> 45 dk </option>
+                                  <option value="60" selected=""> 1 saat </option>
+                                  <option value="120"> 2 saat </option>
+                                  <option value="180"> 3 saat </option>
+                                  <option value="240"> 4 saat </option>
+                            </select></td>
+          </tr>
+                <tr align="left">
+            <td><div class="checker" id="uniform-chk_ParamInstantValues"><span class="checked"><input type="checkbox" id="chk_ParamInstantValues" checked="" onchange="change_Checkboxes_PeriodicReading(this)"></span></div></td>
+            <td>Anlık Değerler</td>
+            <td>
+              <select class="periodicReadingSetValue" id="sl_InstantValues" onchange="change_Selects_PeriodicReading()">
+                                  <option value="5"> 5 dk </option>
+                                  <option value="15"> 15 dk </option>
+                                  <option value="30"> 30 dk </option>
+                                  <option value="45"> 45 dk </option>
+                                  <option value="60" selected=""> 1 saat </option>
+                                  <option value="120"> 2 saat </option>
+                                  <option value="180"> 3 saat </option>
+                                  <option value="240"> 4 saat </option>
+                                  <option value="1440"> 1 gün </option>
+                                  <option value="4320"> 3 gün </option>
+                                  <option value="10080"> 1 hafta </option>
+                            </select></td>
+          </tr>
+                <tr align="left">
+            <td><div class="checker" id="uniform-chk_ParamStageRead"><span><input type="checkbox" id="chk_ParamStageRead" onchange="change_Checkboxes_PeriodicReading(this)"></span></div></td>
+            <td>Kademeleri Oku</td>
+            <td>
+              <select class="periodicReadingSetValue" id="sl_StageRead" onchange="change_Selects_PeriodicReading()">
+                                  <option value="1440"> 1 gün </option>
+                                  <option value="4320"> 3 gün </option>
+                                  <option value="10080"> 1 hafta </option>
+                            </select></td>
+          </tr>
+          </tbody></table>
+    <table class="borderlessTable">
+      <tbody><tr>
+        <td><input type="button" class="btn blue" id="btnPeriodicReadingSubmit" value="Değişiklikleri Kaydet" onclick="createPeriodicReading();"></td>
+        <td style="vertical-align:middle; width:26px"><img id="imgPeriodicReading" class="loading_image" src="./SmartPower Enerji İzleme Sistemi_files/loading.gif"></td>
+        <td id="successPeriodicReading" style="display:none"></td>
+      </tr>
+    </tbody></table>
+    <div id="infoPeriodingReadingUpdate">
+    </div>
+  </div>
+</div>          </div>
+              </div>
+    </div>
+  </div>
+  <div id="divPendingRequests">
+  </div>
+  <div id="divShowPendingRequests">
+    İstekleri göster <span id="pendingRequestCount" style="font-style: italic; font-size: 12px; color: #000066"></span>
+  </div>
+  <div id="divProcessingRequest" style="top: 46px">
+    <table style="width: 100%;">
+      <tbody><tr>
+        <td id="tdProcessingRequest" style="text-align: center"></td>
+      </tr>
+      <tr>
+        <td id="tdCompletion" style="text-align:center; font-size: 25px"></td>
+      </tr>
+      <tr>
+        <td style="text-align:center;">
+          <div id="progressbar" style="height:15px; margin-bottom:3px;" class="ui-progressbar ui-widget ui-widget-content ui-corner-all" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="ui-progressbar-value ui-widget-header ui-corner-left" style="display: none; width: 2%;"></div></div>
+        </td>
+      </tr>
+    </tbody></table>
+  </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+<script async="" src="./SmartPower Enerji İzleme Sistemi_files/bootstrap-table.js.indir" type="text/javascript"></script>
+<!-- <script async src="/assets/global/plugins/bootstrap-table/src/locale/bootstrap-table-tr-TR.js" type="text/javascript"> -->
+
+<script async="" src="./SmartPower Enerji İzleme Sistemi_files/GRP_SVC12C3L_STANDART_V2.js.indir" type="text/javascript"></script>
+<script type="text/javascript">
+  var
+    sessionId = `fbcac0e11cb730a94930b139774ec426`,
+    multiplierUiValue = 1,
+    modemId = `GRP35988`,
+    is_transparent = `1`,
+    username = `h.basriadiyaman@gmail.com`,
+    deviceId = `366744`,
+    deviceModel = `GRP_SVC12C3L_STANDART_V2`,
+    deviceCategory = `2`,
+    modbusAdr = `1`,
+    // modbusAdr = (deviceModel == 'Meter') ? deviceId : `1`,
+    deviceLocation = ``,
+    paramList = $.parseJSON(`{"10544":"BinaryYuzdeFarkiSabiti","BinaryYuzdeFarkiSabiti":"10544","10547":"CapDischargeTime","CapDischargeTime":"10547","10548":"CapHysteresisRatio","CapHysteresisRatio":"10548","10549":"CapRatioSet","CapRatioSet":"10549","10550":"CurrentTransformerRatio","CurrentTransformerRatio":"10550","10551":"DeviceStatus","DeviceStatus":"10551","10552":"DinamikHwOpampCarpaniAyar","DinamikHwOpampCarpaniAyar":"10552","10553":"DinamikSwOpampCarpaniAyar","DinamikSwOpampCarpaniAyar":"10553","10554":"EndGecikmeCarpan","EndGecikmeCarpan":"10554","10555":"EnergyExportRead","EnergyExportRead":"10555","10557":"EnergyIntegralTime","EnergyIntegralTime":"10557","10558":"EnergyRead","EnergyRead":"10558","10559":"ExitLockedState","ExitLockedState":"10559","10560":"FactoryReset","FactoryReset":"10560","10563":"HizliOfsetIntibak","HizliOfsetIntibak":"10563","10564":"IndHysteresisRatio","IndHysteresisRatio":"10564","10565":"IndRatioSet","IndRatioSet":"10565","10566":"InstantValues","InstantValues":"10566","10567":"KapGecikmeCarpan","KapGecikmeCarpan":"10567","10568":"KonMuadilYuzde","KonMuadilYuzde":"10568","10569":"LoadStability","LoadStability":"10569","10570":"NormalResponseTime","NormalResponseTime":"10570","10571":"OfsetAnahtarlama","OfsetAnahtarlama":"10571","10572":"OfsetGucu","OfsetGucu":"10572","10573":"OfsetGucuOku","OfsetGucuOku":"10573","10574":"OfsetKademeDegeri","OfsetKademeDegeri":"10574","10575":"PhaseAngleTest","PhaseAngleTest":"10575","10576":"PowerSampleRead","PowerSampleRead":"10576","10577":"ReactiveResponseTime","ReactiveResponseTime":"10577","10578":"ResetEnergy","ResetEnergy":"10578","10579":"ResetPowerSample","ResetPowerSample":"10579","10580":"ResponseResolution","ResponseResolution":"10580","10582":"StageReactorStatus","StageReactorStatus":"10582","10583":"StageRead","StageRead":"10583","10584":"StageTest","StageTest":"10584","10585":"StageTestCancel","StageTestCancel":"10585","10586":"StageUsageRead","StageUsageRead":"10586","10587":"SvcErrorPowerOffset_L1","SvcErrorPowerOffset_L1":"10587","10588":"SvcErrorPowerOffset_L2","SvcErrorPowerOffset_L2":"10588","10589":"SvcErrorPowerOffset_L3","SvcErrorPowerOffset_L3":"10589","10590":"SvcResponseTime","SvcResponseTime":"10590","10591":"SvcTemperatureError","SvcTemperatureError":"10591","10592":"ThyResponseTime","ThyResponseTime":"10592","10593":"TrafoTest","TrafoTest":"10593","10594":"TrafoTestCancel","TrafoTestCancel":"10594","10595":"VoltageTransformerRatio","VoltageTransformerRatio":"10595"}`),
+    paramDisplayNameList = $.parseJSON(`{"BinaryYuzdeFarkiSabiti":"Binary Sistemler için Yüzdelik Hata Sınırı","CapDischargeTime":"Kondansatör Boşalma Süresi","CapHysteresisRatio":"Kapasitif Histeresis Oranı","CapRatioSet":"Kapasitif Oran Set Değeri","CurrentTransformerRatio":"Akım Trafosu Oranı","DeviceStatus":"Cihaz Çalışma Durumu","DinamikHwOpampCarpaniAyar":"Kademe Testi Opamp Çarpanı","DinamikSwOpampCarpaniAyar":"Normal Çalışma Opamp Çarpanı","EndGecikmeCarpan":"Endüktif Cevap Gecikme Çarpanı","EnergyExportRead":"Export Endeks","EnergyIntegralTime":"Enerji Entegral Süresi","EnergyRead":"Enerjileri Oku","ExitLockedState":"Kilitlenme Durumundan Çıkar","FactoryReset":"Fabrika Ayarlarına Dön","HizliOfsetIntibak":"Hızlı Ofset İntibak","IndHysteresisRatio":"Endüktif Histeresis Oranı","IndRatioSet":"Endüktif Oran Set Değeri","InstantValues":"Anlık Değerler","KapGecikmeCarpan":"Kapasitif Cevap Gecikme Çarpanı","KonMuadilYuzde":"Kondansatör Muadil Yüzdesi","LoadStability":"Yük Stabilitesi","NormalResponseTime":"Normalde Cevap Süresi","OfsetAnahtarlama":"Ofset Anahtarlama","OfsetGucu":"Ofset Gücü","OfsetGucuOku":"Ofset Gücü","OfsetKademeDegeri":"Ofset Kademe Değeri","PhaseAngleTest":"Faz Açısı Testi","PowerSampleRead":"Güç Akış Grafiği Okuma","ReactiveResponseTime":"Reaktifte Cevap Süresi","ResetEnergy":"Enerjileri Sıfırla","ResetPowerSample":"Güç Akış Grafiği Sıfırlama","ResponseResolution":"Cevap Çözünürlüğü","StageReactorStatus":"Kademe Durumları ve Reaktör Yüzdeleri","StageRead":"Kademeleri Oku","StageTest":"Kademe Testi","StageTestCancel":"Kademe Testi İptal","StageUsageRead":"Kontaktör Kullanım Sayısı","SvcErrorPowerOffset_L1":"SVC Anlık Reaktit Hata Gücü Ofset (L1)","SvcErrorPowerOffset_L2":"SVC Anlık Reaktit Hata Gücü Ofset (L2)","SvcErrorPowerOffset_L3":"SVC Anlık Reaktit Hata Gücü Ofset (L3)","SvcResponseTime":"SVC Cevap Süresi","SvcTemperatureError":"SvcTemperatureError","ThyResponseTime":"Tristörlü Sistemler İçin Cevap Süresi","TrafoTest":"TrafoTest","TrafoTestCancel":"Trafo Yön Testi İptal","VoltageTransformerRatio":"Gerilim Trafosu Oranı"}`),
+    authLevel = parseInt(`2`, 10),
+    stateProcessing = `STATE_PROCESSING`,
+    lastUpdateStr = `<span style="color: #B45F04;"> Son Güncelleme: </span>`,
+    isWebSocket = true,
+    stageCount = `15`,
+    svcStageCount = `3`;
+
+  if (deviceCategory == '3') //Analizör
+  {
+    ctRatioUiValue = parseInt('1', 10);
+    vtRatioUiValue = parseInt('1', 10);
+    multiplierUiValue = ctRatioUiValue * vtRatioUiValue;
+  }
+
+
+  var shortCutFunction = "success",
+    msg = "",
+    title = "",
+    showDuration = 1000,
+    hideDuration = 1000,
+    timeOut = 5000,
+    extendedTimeOut = 1000,
+    showEasing = "swing",
+    hideEasing = "linear",
+    showMethod = "fadeIn",
+    hideMethod = "fadeOut";
+
+  function showToastrMessage(statusPrm, msgPrm) {
+    shortCutFunction = statusPrm;
+    msg = msgPrm;
+    toastr.options = {
+      closeButton: true,
+      debug: false,
+      positionClass: "toast-top-center",
+      onclick: null,
+    };
+    UIToastr.init();
+  }
+</script>
+
+  <script src="./SmartPower Enerji İzleme Sistemi_files/functions_for_auth_level_1_or_2.js.indir" type="text/javascript"></script>
+<script src="./SmartPower Enerji İzleme Sistemi_files/common.js.indir" type="text/javascript"></script>
+<script src="./SmartPower Enerji İzleme Sistemi_files/toastr.min.js.indir"></script>
+<script src="./SmartPower Enerji İzleme Sistemi_files/ui-toastr.js.indir"></script>
+<!-- END CONTAINER -->
+<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+<!-- BEGIN CORE PLUGINS -->
+<!--[if lt IE 9]>
+<script src="/assets/global/plugins/respond.min.js"></script>
+<script src="/assets/global/plugins/excanvas.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="./SmartPower Enerji İzleme Sistemi_files/jquery-migrate-1.2.1.min.js.indir"></script>
+<!-- IMPORTANT! Load jquery-ui-1.10.3.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+<script type="text/javascript" src="./SmartPower Enerji İzleme Sistemi_files/bootstrap.min.js.indir"></script>
+<script type="text/javascript" src="./SmartPower Enerji İzleme Sistemi_files/bootstrap-hover-dropdown.min.js.indir"></script>
+<script type="text/javascript" src="./SmartPower Enerji İzleme Sistemi_files/jquery.slimscroll.min.js.indir"></script>
+<script type="text/javascript" src="./SmartPower Enerji İzleme Sistemi_files/jquery.blockui.min.js.indir"></script>
+<script type="text/javascript" src="./SmartPower Enerji İzleme Sistemi_files/jquery.cokie.min.js.indir"></script>
+<script type="text/javascript" src="./SmartPower Enerji İzleme Sistemi_files/jquery.uniform.min.js.indir"></script>
+<script type="text/javascript" src="./SmartPower Enerji İzleme Sistemi_files/bootstrap-switch.min.js.indir"></script>
+<!-- END CORE PLUGINS -->
+<script type="text/javascript" src="./SmartPower Enerji İzleme Sistemi_files/metronic.min.js.indir"></script>
+<script type="text/javascript" src="./SmartPower Enerji İzleme Sistemi_files/layout.js.indir"></script>
+<script type="text/javascript" src="./SmartPower Enerji İzleme Sistemi_files/quick-sidebar.js.indir"></script>
+<script>
+  //CSRF Token İstek Header a Ekleniyor
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
+  $(document).attr('title', config_title);
+  jQuery(document).ready(function() {
+
+    //Tipi POST olan formlara hidden input ekleme
+    $('form[method="POST"]').append(
+      '<input type="hidden" name="csrf-token" value="353ec246fd97af71f23c95bd113d38c3">'
+    );
+
+    Metronic.init(); // init metronic core components
+    Layout.init(); // init current layout
+    QuickSidebar.init(); // init quick sidebar
+
+    var menuStateClass = $(".page-sidebar-menu")[0].className;
+    if (menuStateClass == 'page-sidebar-menu') {
+      $('#menuCompanyLogo').height(57).width(106);
+      $('#menuGrupArgeLogo').height(57).width(106);
+    } else if (menuStateClass == 'page-sidebar-menu page-sidebar-menu-closed') {
+      $('#menuCompanyLogo').height(22).width(24);
+      $('#menuGrupArgeLogo').height(22).width(24);
+    }
+
+    $(".sidebar-toggler").click(function() {
+      var menuStateClass = $(".page-sidebar-menu")[0].className;
+      if (menuStateClass == 'page-sidebar-menu') {
+        $('#menuCompanyLogo').height(22).width(24);
+        $('#menuGrupArgeLogo').height(22).width(24);
+      } else if (menuStateClass == 'page-sidebar-menu page-sidebar-menu-closed') {
+        $('#menuCompanyLogo').height(57).width(106);
+        $('#menuGrupArgeLogo').height(57).width(106);
+      }
+    });
+
+    $("#menuCompanyLink, #menuGrupArgeLink").mouseenter(function() {
+      var menuStateClass = $(".page-sidebar-menu")[0].className;
+      if (menuStateClass == 'page-sidebar-menu page-sidebar-menu-closed') {
+        $(this).children('img').height(57).width(106);
+      }
+    });
+
+    $("#menuCompanyLink, #menuGrupArgeLink").mouseleave(function() {
+      var menuStateClass = $(".page-sidebar-menu")[0].className;
+      if (menuStateClass == 'page-sidebar-menu page-sidebar-menu-closed') {
+        $(this).children('img').height(22).width(24);
+      }
+    });
+  });
+</script>
+</div>
+</div>
+<div class="page-footer">
+  <div class="page-footer-inner">
+    Copyright © 2026 <a href="https://www.gruparge.com/" style="color:#98a6ba;" target="_blank">Grup Arge Enerji ve Kontrol Sistemleri</a>
+  </div>
+  <div class="page-footer-tools">
+    <span class="go-top">
+      <i class="fa fa-angle-up"></i>
+    </span>
+  </div>
+</div>
+<div id="modalDiv" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" data-dismiss="modal" class="btn btn-default">Kapatt</button>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="cookie_alert">
+        <div class="alert_content">
+            <div class="alert_text">
+                <p>İnternet sayfamızda, kullanımınızı en verimli hale getirebilmek ve kullanıcı deneyimlerinizi geliştirmek amacıyla; çerezlerden yararlanılmaktadır. İnternet sayfamızı kullanarak çerezlerin, Çerez politikamız ile uyumlu bir şekilde kullanılmasına onay verdiğiniz kabul edilmektedir. Detaylı bilgi almak için
+                <a href="https://www.enerjitakibi.com/kvkk/cp_v1.pdf" target="_blank" style="color: white;"><b><u>Çerez Politikamızı</u></b></a> inceleyebilirsiniz.</p>
+            </div>
+            <div class="cookie_choose">
+                <div class="alert_confirm">
+                    <button type="button" class="cookie_confirm_button">Kabul Et</button>               
+                </div>
+                <div class="alert_close">
+                    <button type="button" class="cookie_close_button"><i class="fa fa-times"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="./SmartPower Enerji İzleme Sistemi_files/cookie_alert.js.indir"></script>
+
+
+
+</body></html>

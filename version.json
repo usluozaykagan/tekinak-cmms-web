@@ -1,16 +1,16 @@
 {
-  "versionCode": 28,
-  "versionName": "1.5.7",
-  "releaseTag": "v1.5.7",
+  "versionCode": 29,
+  "versionName": "1.6.0",
+  "releaseTag": "v1.6.0",
   "releaseDate": "2026-11-19",
   "apkUrl": "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
   "fallbackUrl": "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-  "title": "Yeni Sürüm Mevcut (v1.5.7)",
+  "title": "Yeni Sürüm Mevcut (v1.6.0)",
   "changelog": [
-    "Web ve Android bulut giriş bağlantısı güçlendirildi (otomatik yeniden deneme ve HTTPS REST yedeği).",
-    "Web portalına Google ile Giriş Yap eklendi ve Google kayıtlarının Üyeler sekmesine eşzamanlı düşmesi sağlandı.",
-    "Enerji Yönetimi altına yalnızca Ana Yönetici için Canlı Enerji Takibi sekmesi eklendi.",
-    "Chiller (2020/2012 Trane), KHELL 2026 75 KW Kompresör, 09:00 kazan saati ve birim bazlı Chat güncellemeleri v1.5.7 (Kod: 28) sürümüne dahil edildi."
+    "Enerji Yönetimi (ISO 50001) modülü SmartPower (enerjitakibi.com) verileriyle baştan sona yenilendi.",
+    "Canlı Takip ekranına tek tıkla 'Verileri Çek' otomatik veri aktarım köprüsü eklendi (Rapor, Fatura, Saatlik Profil, 3-Faz, Harmonik ve Demand).",
+    "Yeni Enerji Kokpiti, Ay Sonu Tüketim/Fatura/CO2 Projeksiyonu, 3-Faz Güç Kalitesi & IEEE 519 Harmonik Analizi, Trafo Yükü ve Tek/Çok Zamanlı (T1/T2/T3) Tarife Simülatörü eklendi.",
+    "Android'den çekilen tüm SmartPower verileri bulut üzerinden Web Portalı ile anlık senkronize edilir ve Web'de HTML dosya içe aktarma desteği eklendi (v1.6.0 - Kod: 29)."
   ],
   "forceUpdate": false
 }
