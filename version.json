@@ -1,15 +1,15 @@
 {
-  "versionCode": 31,
-  "versionName": "1.6.2",
-  "releaseTag": "v1.6.2",
-  "releaseDate": "2026-11-19",
+  "versionCode": 32,
+  "versionName": "1.6.3",
+  "releaseTag": "v1.6.3",
+  "releaseDate": "2026-11-20",
   "apkUrl": "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
   "fallbackUrl": "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-  "title": "Yeni Sürüm Mevcut (v1.6.2)",
+  "title": "Yeni Sürüm Mevcut (v1.6.3)",
   "changelog": [
-    "Profil → Ayarlar sekmesine kişiye özel Erişilebilirlik (Büyük Yazı & Ekran Optimizasyonu) seçenek kutusu eklendi.",
-    "Yardımcı Tesisler kontrol tabloları (Kompresör, Chiller, Buhar Kazanı, Su Arıtma) ve veri giriş pencereleri erişilebilirlik modunda ek olarak büyütüldü.",
-    "3 kademeli büyütme seviyesi (Rahat +%12, Optimize +%18, Çok Büyük +%26) ve senkronize ekran yoğunluğu eklendi (v1.6.2 - Kod: 31)."
+    "Yardımcı Tesisler arayüzü yenilendi: Varsayılan 'Saatlik Giriş' ekranında seçilen saat dilimine (08:00 - 07:00) ait tüm üniteler tek sayfada listelenir (ör. 08:00'de Kompresör, Chiller, Kazan ve Arıtma; 09:00'da yalnızca Kazan).",
+    "Her saat dilimine özel 'Saatlik Açıklama / Not' alanı eklendi; yetkili kullanıcılar 'Tüm Tablolar' moduna geçerek tüm formları ve notları toplu inceleyebilir.",
+    "Yardımcı Tesisler için tek tıkla çok sayfalı 'Tüm Yardımcı Tesisler Excel (.xlsx)' çıktısı ve saatlik not sütunlu form bazlı Excel dışa aktarımı eklendi (v1.6.3 - Kod: 32)."
   ],
   "forceUpdate": false
 }
