@@ -1,15 +1,15 @@
 {
-  "versionCode": 32,
-  "versionName": "1.6.3",
-  "releaseTag": "v1.6.3",
+  "versionCode": 33,
+  "versionName": "1.6.4",
+  "releaseTag": "v1.6.4",
   "releaseDate": "2026-11-20",
   "apkUrl": "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
   "fallbackUrl": "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-  "title": "Yeni Sürüm Mevcut (v1.6.3)",
+  "title": "Yeni Sürüm Mevcut (v1.6.4)",
   "changelog": [
-    "Yardımcı Tesisler arayüzü yenilendi: Varsayılan 'Saatlik Giriş' ekranında seçilen saat dilimine (08:00 - 07:00) ait tüm üniteler tek sayfada listelenir (ör. 08:00'de Kompresör, Chiller, Kazan ve Arıtma; 09:00'da yalnızca Kazan).",
-    "Her saat dilimine özel 'Saatlik Açıklama / Not' alanı eklendi; yetkili kullanıcılar 'Tüm Tablolar' moduna geçerek tüm formları ve notları toplu inceleyebilir.",
-    "Yardımcı Tesisler için tek tıkla çok sayfalı 'Tüm Yardımcı Tesisler Excel (.xlsx)' çıktısı ve saatlik not sütunlu form bazlı Excel dışa aktarımı eklendi (v1.6.3 - Kod: 32)."
+    "Yardımcı Tesisler Saatlik Giriş ekranı çok daha az kaydırma gerektirecek şekilde yenilendi: 2 sütunlu kompakt sayısal giriş ızgarası ve tek satırlı durum/seçenek şeritleri eklendi.",
+    "Ekranın altına sabitlenen 'Kaydet / Sonraki Saat / Hızlı Not' çubuğu sayesinde sayfanın en altına inmeden tek dokunuşla kayıt ve saatlik açıklama ekleme imkanı eklendi.",
+    "Çoklu sistem saatlerinde hızlı sistem filtresi (Kompresör/Chiller/Kazan/Arıtma), katlanabilir ünite özet kartları, tek tıkla 'Normal' doldurma ve 'Önceki Saatten Kopyala' özellikleri eklendi (v1.6.4 - Kod: 33)."
   ],
   "forceUpdate": false
 }
