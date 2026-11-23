@@ -35,6 +35,8 @@
   <script src="https://unpkg.com/lucide@latest"></script>
   <!-- SheetJS for authentic Microsoft Excel (.xlsx) Generation -->
   <script src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
+  <!-- 10 İSG Kontrol Listesi Şablonu (136 Konu Başlığı, 1.347 Madde) -->
+  <script src="isg_checklist_templates.js?v=35"></script>
   <style>
     :root {
       --safe-top: env(safe-area-inset-top, 0px);
@@ -20819,6 +20821,55 @@
       }
     ];
 
+    // Harici 10 İSG Kontrol Listesi Şablonunu ISG_FORM_TEMPLATES içine eksiksiz yükle (toplam 12 şablon)
+    if (Array.isArray(window.ISG_EXTRA_TEMPLATES)) {
+      window.ISG_EXTRA_TEMPLATES.forEach(raw => {
+        if (!raw || !raw.templateId || ISG_FORM_TEMPLATES.some(x => x.templateId === raw.templateId)) return;
+        const flatItems = [];
+        const normSections = [];
+        (raw.sections || []).forEach(sec => {
+          const items = Array.isArray(sec.items) ? sec.items.map(s => String(s || "").trim()).filter(Boolean) : [];
+          if (items.length === 0) return;
+          const startIndex = flatItems.length;
+          items.forEach(it => flatItems.push(it));
+          normSections.push({
+            title: String(sec.title || "").trim(),
+            subHeader: String(sec.subHeader || "").trim(),
+            startIndex,
+            count: items.length
+          });
+        });
+        ISG_FORM_TEMPLATES.push({
+          templateId: raw.templateId,
+          title: raw.title || raw.shortName || "İSG KONTROL LİSTESİ",
+          runningHeader: raw.runningHeader || raw.title || "",
+          shortName: raw.shortName || raw.title || "İSG Kontrol Listesi",
+          layoutType: raw.layoutType || "ISG_TOPIC_ACTION_TABLE",
+          isLandscape: raw.isLandscape !== false,
+          headerStyle: raw.headerStyle || "TOPIC_COL",
+          pageBreaksAfterRow: [],
+          sayfaNo: raw.sayfaNo || "1-N",
+          formNo: raw.formNo || "İSG",
+          dosyaNo: raw.dosyaNo || "İSG-KL",
+          yayinTarihi: "-",
+          revizyonNo: "-",
+          revizyonTarihi: "-",
+          specRows: [],
+          checklistHeaderLeft: "Kontrol Listesi",
+          checklistHeaderMid: "Evet / Hayır",
+          checklistHeaderRight: raw.actionHeaderLabel || "Alınması Gereken Önlem",
+          actionHeaderLabel: raw.actionHeaderLabel || "Alınması Gereken Önlem",
+          dueDateHeaderLabel: raw.dueDateHeaderLabel || "Tamamlanacağı Tarih",
+          footnote: raw.footnote || "",
+          sections: normSections,
+          checklistItems: flatItems,
+          showMonthlyParafGrid: false,
+          approvalLeftLabel: "KONTROLÜ YAPAN",
+          approvalRightLabel: ""
+        });
+      });
+    }
+
     function getIsgTemplateById(tplId) {
       return ISG_FORM_TEMPLATES.find(t => t.templateId === tplId) || ISG_FORM_TEMPLATES[0];
     }
@@ -20838,6 +20889,13 @@
         ].map(x => String(x || "").trim()).filter(Boolean);
         return parts.length > 0 ? parts.join(" • ") : "Proje adı / tarih girilmedi";
       }
+      if (tpl.layoutType === "ISG_TOPIC_ACTION_TABLE") {
+        const parts = [
+          form.projectName ? `Bölüm/Alan: ${form.projectName}` : "",
+          form.checkDate ? `Tarih: ${form.checkDate}` : ""
+        ].map(x => String(x || "").trim()).filter(Boolean);
+        return parts.length > 0 ? parts.join(" • ") : `${(tpl.sections || []).length} Konu Başlığı • ${tpl.checklistItems.length} Madde`;
+      }
       const eq = form.equipmentFields || {};
       const parts = [eq.markasi, eq.tipi, eq.seri_no ? `Seri: ${eq.seri_no}` : ""].map(x => String(x || "").trim()).filter(Boolean);
       return parts.length > 0 ? parts.join(" • ") : "Ekipman bilgisi girilmedi";
@@ -20846,6 +20904,7 @@
     window.isgUiState = {
       filterMode: "ALL",
       activeForm: null,
+      sectionFilterIdx: null,
       pendingPhotoRowIdx: null,
       sigSlotKey: null,
       sigStrokes: [],
@@ -20903,7 +20962,10 @@
       const completedCount = visible.filter(f => f.status === "COMPLETED").length;
       const unsuitableTotal = visible.reduce((acc, f) => {
         const res = f.checkResults || {};
-        return acc + Object.values(res).filter(v => String(v || "").toUpperCase() === "UYGUN DEĞİL").length;
+        return acc + Object.values(res).filter(v => {
+          const u = String(v || "").toUpperCase();
+          return u === "UYGUN DEĞİL" || u === "HAYIR";
+        }).length;
       }, 0);
 
       const kTot = document.getElementById("isgKpiTotal");
@@ -20964,7 +21026,7 @@
             <div class="text-3xl">🦺</div>
             <div class="text-sm font-extrabold text-slate-800">Kayıtlı İSG Formu Bulunamadı</div>
             <p class="text-xs text-slate-500 max-w-md mx-auto">
-              ${isMgr ? "Yukarıdaki 'Yeni Form Oluştur & Yönlendir' butonundan Forklift Kontrol Formu veya Tekinak Gıda Elektrik Kontrol Formu oluşturup personele atayabilirsiniz." : "İSG yöneticisi tarafından size yönlendirilen kontrol formları burada görüntülenecektir."}
+              ${isMgr ? `Yukarıdaki 'Yeni Form Oluştur &amp; Yönlendir' butonundan ${ISG_FORM_TEMPLATES.length} İSG kontrol formundan birini oluşturup personele atayabilirsiniz.` : "İSG yöneticisi tarafından size yönlendirilen kontrol formları burada görüntülenecektir."}
             </p>
           </div>
         `;
@@ -20974,11 +21036,14 @@
           const totalItems = tpl.checklistItems.length;
           const resObj = f.checkResults || {};
           const filled = Object.values(resObj).filter(v => String(v || "").trim() !== "").length;
-          const bad = Object.values(resObj).filter(v => String(v || "").toUpperCase() === "UYGUN DEĞİL").length;
+          const bad = Object.values(resObj).filter(v => {
+            const u = String(v || "").toUpperCase();
+            return u === "UYGUN DEĞİL" || u === "HAYIR";
+          }).length;
           const photos = getIsgTotalPhotoCount(f);
           const sigCount = Object.values(f.signatures || {}).filter(v => String(v || "").trim() !== "").length;
           const isMine = window.isIsgFormAssignedToUser(f, cur);
-          const leadIcon = tpl.layoutType === "TEKINAK_YESNO_TABLE" ? "⚡" : "🚜";
+          const leadIcon = tpl.layoutType === "TEKINAK_YESNO_TABLE" ? "⚡" : (tpl.layoutType === "ISG_TOPIC_ACTION_TABLE" ? "📋" : "🚜");
           return `
             <div class="bg-white rounded-2xl border ${isMine && f.status !== 'COMPLETED' ? 'border-amber-400 ring-1 ring-amber-200' : 'border-slate-200'} p-4 custom-shadow flex flex-col gap-3">
               <div class="flex items-start justify-between gap-2">
@@ -21041,12 +21106,12 @@
       const lblB = document.getElementById("isgPrefillSerialLabel");
       const inpB = document.getElementById("isgPrefillSerial");
       if (!lblA || !inpA || !lblB || !inpB) return;
-      if (tpl.layoutType === "TEKINAK_YESNO_TABLE") {
-        lblA.textContent = "Proje Adı (İsteğe bağlı)";
-        inpA.placeholder = "Örn: Tekinak Gıda Ana Fabrika";
-        lblB.textContent = "Kontrol Tarihi (GG/AA/YYYY)";
-        inpB.placeholder = "Örn: " + new Date().toLocaleDateString("tr-TR").replace(/\./g, "/");
-        if (!inpB.value) inpB.value = new Date().toLocaleDateString("tr-TR").replace(/\./g, "/");
+      if (tpl.layoutType === "TEKINAK_YESNO_TABLE" || tpl.layoutType === "ISG_TOPIC_ACTION_TABLE") {
+        lblA.textContent = tpl.layoutType === "ISG_TOPIC_ACTION_TABLE" ? "Bölüm / Alan Adı (İsteğe bağlı)" : "Proje Adı (İsteğe bağlı)";
+        inpA.placeholder = tpl.layoutType === "ISG_TOPIC_ACTION_TABLE" ? "Örn: Ofis / Üretim Hattı / Laboratuvar" : "Örn: Tekinak Gıda Ana Fabrika";
+        lblB.textContent = "Kontrol Tarihi (GG.AA.YYYY)";
+        inpB.placeholder = "Örn: " + new Date().toLocaleDateString("tr-TR");
+        if (!inpB.value) inpB.value = new Date().toLocaleDateString("tr-TR");
       } else {
         lblA.textContent = "Markası (İsteğe bağlı)";
         inpA.placeholder = "Örn: Linde / Still";
@@ -21131,7 +21196,7 @@
         const fieldB = (document.getElementById("isgPrefillSerial").value || "").trim();
         let projectName = "";
         let checkDate = "";
-        if (tpl.layoutType === "TEKINAK_YESNO_TABLE") {
+        if (tpl.layoutType === "TEKINAK_YESNO_TABLE" || tpl.layoutType === "ISG_TOPIC_ACTION_TABLE") {
           projectName = fieldA;
           checkDate = fieldB;
         } else {
@@ -21156,6 +21221,8 @@
           checkNotes: {},
           checkPhotos: {},
           checkPhotoLists: {},
+          rowResponsibles: {},
+          rowDueDates: {},
           monthParafs: {},
           signatures: {},
           kontrolEden: "",
@@ -21301,12 +21368,21 @@
       window.isgUiState.activeForm.checkPhotos = photoMaps.checkPhotos;
       window.isgUiState.activeForm.checkPhotoLists = photoMaps.checkPhotoLists;
       if (!window.isgUiState.activeForm.monthParafs) window.isgUiState.activeForm.monthParafs = {};
+      if (!window.isgUiState.activeForm.rowResponsibles) window.isgUiState.activeForm.rowResponsibles = {};
+      if (!window.isgUiState.activeForm.rowDueDates) window.isgUiState.activeForm.rowDueDates = {};
       if (!window.isgUiState.activeForm.signatures) window.isgUiState.activeForm.signatures = {};
       if (typeof window.isgUiState.activeForm.projectName !== "string") window.isgUiState.activeForm.projectName = "";
       if (typeof window.isgUiState.activeForm.checkDate !== "string") window.isgUiState.activeForm.checkDate = "";
+      const openTpl = getIsgTemplateById(window.isgUiState.activeForm.templateId);
+      window.isgUiState.sectionFilterIdx = (openTpl.layoutType === "ISG_TOPIC_ACTION_TABLE" && openTpl.checklistItems.length > 75 && (openTpl.sections || []).length > 0) ? 0 : null;
       window.renderIsgSheetEditorBody();
       document.getElementById("modalIsgSheetEditor").classList.remove("hidden");
       lucide.createIcons();
+    };
+
+    window.setIsgSectionFilter = function(secIdx) {
+      window.isgUiState.sectionFilterIdx = (secIdx === null || secIdx === undefined || secIdx < 0) ? null : secIdx;
+      window.renderIsgSheetEditorBody();
     };
 
     // ================= DİJİTAL İMZA ÇİZİM PANELİ (WEB POINTER EVENTS) =================
@@ -21503,7 +21579,9 @@
       document.getElementById("isgSheetEditorTitle").textContent = f.templateTitle || tpl.title;
       document.getElementById("isgSheetEditorSubtitle").textContent = tpl.layoutType === "TEKINAK_YESNO_TABLE"
         ? `Yatay 3 Sayfa (48 Madde) • Proje: ${f.projectName || "-"} • Yönlendirilen: ${f.assignedToName || "-"}`
-        : `Form No: ${f.formNo || tpl.formNo} • Dosya No: ${f.dosyaNo || tpl.dosyaNo} • Yönlendirilen: ${f.assignedToName || "-"}`;
+        : (tpl.layoutType === "ISG_TOPIC_ACTION_TABLE"
+          ? `${(tpl.sections || []).length} Konu Başlığı • ${tpl.checklistItems.length} Madde • Bölüm: ${f.projectName || "-"} • Yönlendirilen: ${f.assignedToName || "-"}`
+          : `Form No: ${f.formNo || tpl.formNo} • Dosya No: ${f.dosyaNo || tpl.dosyaNo} • Yönlendirilen: ${f.assignedToName || "-"}`);
 
       const assignBannerHtml = f.assignmentNote ? `
         <div class="bg-blue-50 border border-blue-300 text-blue-950 rounded-xl px-3.5 py-2 text-xs font-semibold flex items-center justify-between gap-2">
@@ -21595,6 +21673,179 @@
               </div>
               <div class="mt-2 text-center text-[11px] text-slate-500">Sayfa 3 • Çıktı (PDF / Word / Excel) 3 sayfa yatay A4 olarak üretilir</div>
             </div>
+          </div>
+        `;
+      } else if (tpl.layoutType === "ISG_TOPIC_ACTION_TABLE") {
+        const sections = (tpl.sections && tpl.sections.length > 0)
+          ? tpl.sections
+          : [{ title: tpl.title, subHeader: "", startIndex: 0, count: tpl.checklistItems.length }];
+        const isBanner = tpl.headerStyle === "BANNER";
+        const isVerticalTopic = tpl.headerStyle === "VERTICAL_TOPIC";
+        const colCount = isBanner ? 6 : 7;
+        const selIdx = window.isgUiState.sectionFilterIdx;
+        const sectionsToRender = (selIdx === null || selIdx === undefined || !sections[selIdx]) ? sections : [sections[selIdx]];
+        const totalFilled = tpl.checklistItems.reduce((acc, _, i) => acc + (String((f.checkResults || {})[String(i)] || "").trim() ? 1 : 0), 0);
+        const totalNo = tpl.checklistItems.reduce((acc, _, i) => acc + (String((f.checkResults || {})[String(i)] || "").toUpperCase() === "HAYIR" ? 1 : 0), 0);
+
+        const sectionChipsHtml = `
+          <div class="bg-white border border-slate-300 rounded-xl p-2.5 space-y-2">
+            <div class="flex flex-wrap items-center justify-between gap-2 text-xs">
+              <span class="font-extrabold text-[#1E3A8A]">📑 Konu Başlıkları (${sections.length}) • ${totalFilled}/${tpl.checklistItems.length} madde dolduruldu</span>
+              ${totalNo > 0 ? `<span class="font-extrabold text-rose-700">⚠️ ${totalNo} Hayır</span>` : ""}
+            </div>
+            <div class="flex flex-wrap items-center gap-1.5">
+              <button type="button" onclick="setIsgSectionFilter(null)"
+                class="px-2.5 py-1 rounded-lg text-[11px] font-bold border transition ${selIdx === null ? 'bg-[#1E3A8A] text-white border-[#1E3A8A]' : 'bg-slate-50 text-slate-700 border-slate-300 hover:bg-slate-100'}">
+                Tümü (${tpl.checklistItems.length})
+              </button>
+              ${sections.map((sec, sIdx) => {
+                let secFilled = 0;
+                for (let k = sec.startIndex; k < sec.startIndex + sec.count; k++) {
+                  if (String((f.checkResults || {})[String(k)] || "").trim()) secFilled++;
+                }
+                const allDone = sec.count > 0 && secFilled === sec.count;
+                const active = selIdx === sIdx;
+                return `
+                  <button type="button" onclick="setIsgSectionFilter(${sIdx})"
+                    class="px-2.5 py-1 rounded-lg text-[11px] font-bold border transition ${active ? 'bg-[#1E3A8A] text-white border-[#1E3A8A]' : (allDone ? 'bg-emerald-50 text-emerald-900 border-emerald-300 hover:bg-emerald-100' : 'bg-slate-50 text-slate-700 border-slate-300 hover:bg-slate-100')}">
+                    ${allDone ? "✓ " : ""}${sIdx + 1}. ${escapeHtml(sec.title)} (${secFilled}/${sec.count})
+                  </button>
+                `;
+              }).join("")}
+            </div>
+          </div>
+        `;
+
+        let lastSubHeader = "";
+        const tableRowsHtml = sectionsToRender.map(sec => {
+          let html = "";
+          if (isVerticalTopic && sec.subHeader && sec.subHeader !== lastSubHeader) {
+            lastSubHeader = sec.subHeader;
+            html += `<tr><td colspan="${colCount}" style="border:1px solid #000; background:#e2e8f0; text-align:right; font-weight:800; font-size:12px; padding:6px 10px; color:#0f172a;">${escapeHtml(sec.subHeader)}</td></tr>`;
+          }
+          if (isBanner) {
+            html += `<tr><td colspan="${colCount}" style="border:1px solid #000; background:#D9E2F3; text-align:right; font-weight:800; font-size:12px; padding:6px 10px; color:#000;">${escapeHtml(sec.title)}</td></tr>`;
+          }
+          for (let localIdx = 0; localIdx < sec.count; localIdx++) {
+            const idx = sec.startIndex + localIdx;
+            if (idx >= tpl.checklistItems.length) break;
+            const q = tpl.checklistItems[idx];
+            const key = String(idx);
+            const val = String((f.checkResults || {})[key] || "").toUpperCase();
+            const note = (f.checkNotes || {})[key] || "";
+            const resp = (f.rowResponsibles || {})[key] || "";
+            const due = (f.rowDueDates || {})[key] || "";
+            const rowPhotos = getIsgRowPhotos(f, idx);
+            const isYes = val === "EVET";
+            const isNo = val === "HAYIR";
+            const topicCellHtml = (!isBanner && localIdx === 0)
+              ? (isVerticalTopic
+                ? `<td rowspan="${sec.count}" style="border:1px solid #000; background:#e5e7eb; text-align:center; vertical-align:middle; font-weight:800; font-size:10.5px; padding:4px 2px; width:44px; color:#000;"><div style="writing-mode:vertical-rl; transform:rotate(180deg); margin:0 auto; max-height:240px; overflow:hidden;">${escapeHtml(sec.title)}</div></td>`
+                : `<td rowspan="${sec.count}" style="border:1px solid #000; background:#fafafa; text-align:center; vertical-align:middle; font-weight:800; font-size:11px; padding:6px 5px; width:130px; color:#000;">${escapeHtml(sec.title)}</td>`)
+              : "";
+            html += `
+              <tr>
+                ${topicCellHtml}
+                <td style="border:1px solid #000; text-align:left; font-size:11.5px; line-height:1.35; padding:5px 7px; color:#000;">
+                  <span style="color:#64748b; font-weight:700; margin-right:4px;">${idx + 1}.</span>${escapeHtml(q)}
+                </td>
+                <td style="border:1px solid #000; text-align:center; padding:3px; width:56px; cursor:${canEdit ? 'pointer' : 'default'}; background:${isYes ? '#dcfce7' : '#fff'};"
+                    ${canEdit ? `onclick="toggleIsgCheckResult(${idx}, 'EVET')"` : ""}>
+                  <span style="font-size:16px; font-weight:900; color:${isYes ? '#15803d' : '#cbd5e1'};">${isYes ? "✓" : "○"}</span>
+                </td>
+                <td style="border:1px solid #000; text-align:center; padding:3px; width:56px; cursor:${canEdit ? 'pointer' : 'default'}; background:${isNo ? '#fee2e2' : '#fff'};"
+                    ${canEdit ? `onclick="toggleIsgCheckResult(${idx}, 'HAYIR')"` : ""}>
+                  <span style="font-size:16px; font-weight:900; color:${isNo ? '#b91c1c' : '#cbd5e1'};">${isNo ? "✗" : "○"}</span>
+                </td>
+                <td style="border:1px solid #000; padding:3px 5px; width:230px;">
+                  ${renderIsgRowAciklamaCellHtml(idx, idx + 1, note, rowPhotos, canEdit)}
+                </td>
+                <td style="border:1px solid #000; padding:3px 5px; width:115px;">
+                  <input type="text" ${canEdit ? "" : "disabled"} value="${escapeHtml(resp)}"
+                    oninput="updateIsgDraftField('rowResponsibles', '${key}', this.value)"
+                    placeholder="${canEdit ? 'Sorumlu...' : ''}"
+                    class="w-full text-[11px] bg-transparent border-none outline-none px-1 py-0.5 text-slate-900">
+                </td>
+                <td style="border:1px solid #000; padding:3px 5px; width:96px;">
+                  <input type="text" ${canEdit ? "" : "disabled"} value="${escapeHtml(due)}"
+                    oninput="updateIsgDraftField('rowDueDates', '${key}', this.value)"
+                    placeholder="${canEdit ? 'GG.AA.YYYY' : ''}"
+                    class="w-full text-[11px] text-center bg-transparent border-none outline-none px-1 py-0.5 text-slate-900">
+                </td>
+              </tr>
+            `;
+          }
+          return html;
+        }).join("");
+
+        const yesHdr = (isBanner || isVerticalTopic) ? "EVET<br>✓" : "Evet<br>☺";
+        const noHdr = (isBanner || isVerticalTopic) ? "HAYIR<br>✗" : "Hayır<br>☹";
+        const prevNextHtml = (selIdx !== null && selIdx !== undefined && sections.length > 1) ? `
+          <div class="flex items-center justify-between bg-white border border-slate-300 rounded-xl px-3 py-2 text-xs">
+            <button type="button" ${selIdx <= 0 ? "disabled" : ""} onclick="setIsgSectionFilter(${selIdx - 1})"
+              class="px-3 py-1.5 rounded-lg font-bold border border-slate-300 ${selIdx <= 0 ? 'opacity-40 cursor-not-allowed' : 'hover:bg-slate-100'}">◀ Önceki Konu</button>
+            <span class="font-extrabold text-[#1E3A8A]">Konu ${selIdx + 1} / ${sections.length}</span>
+            <button type="button" ${selIdx >= sections.length - 1 ? "disabled" : ""} onclick="setIsgSectionFilter(${selIdx + 1})"
+              class="px-3 py-1.5 rounded-lg font-bold bg-[#1E3A8A] text-white ${selIdx >= sections.length - 1 ? 'opacity-40 cursor-not-allowed' : 'hover:bg-blue-800'}">Sonraki Konu ▶</button>
+          </div>
+        ` : "";
+
+        document.getElementById("isgSheetEditorBody").innerHTML = `
+          <div class="max-w-[1160px] mx-auto space-y-3">
+            ${assignBannerHtml}
+            ${sectionChipsHtml}
+            <div class="bg-white shadow-xl border-2 border-black overflow-x-auto p-3 sm:p-4">
+              <table style="width:100%; min-width:960px; border-collapse:collapse; font-family:'Inter', Arial, sans-serif; color:#000;">
+                <tr>
+                  <td colspan="${colCount}" style="border:1.5px solid #000; text-align:center; font-weight:800; font-size:15.5px; padding:9px 8px; letter-spacing:0.3px;">
+                    ${escapeHtml(f.templateTitle || tpl.title)}
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="${colCount - 2}" style="border:1.5px solid #000; padding:6px 10px;">
+                    <div class="flex items-center gap-2">
+                      <span style="font-weight:800; font-size:11.5px; white-space:nowrap;">BÖLÜM / ALAN ADI:</span>
+                      <input type="text" ${canEdit ? "" : "disabled"} value="${escapeHtml(f.projectName || "")}"
+                        oninput="window.isgUiState.activeForm.projectName = this.value"
+                        placeholder="${canEdit ? 'Bölüm, hat, şube veya alan adını yazınız...' : ''}"
+                        style="flex:1; font-size:12px; font-weight:700; border:none; border-bottom:1px dotted #64748b; outline:none; background:transparent; padding:2px 4px;">
+                    </div>
+                  </td>
+                  <td colspan="2" style="border:1.5px solid #000; padding:6px 10px;">
+                    <div class="flex items-center gap-2">
+                      <span style="font-weight:800; font-size:11.5px; white-space:nowrap;">TARİH:</span>
+                      <input type="text" ${canEdit ? "" : "disabled"} value="${escapeHtml(f.checkDate || "")}"
+                        oninput="window.isgUiState.activeForm.checkDate = this.value"
+                        placeholder="...../...../20....."
+                        style="flex:1; font-size:12px; font-weight:700; text-align:center; border:none; border-bottom:1px dotted #64748b; outline:none; background:transparent; padding:2px 4px;">
+                    </div>
+                  </td>
+                </tr>
+                <tr style="background:#f1f5f9;">
+                  ${!isBanner ? `<th style="border:1.5px solid #000; text-align:center; font-weight:800; font-size:11px; padding:6px 4px;">${isVerticalTopic ? "Konu" : "Konu Başlığı"}</th>` : ""}
+                  <th style="border:1.5px solid #000; text-align:center; font-weight:800; font-size:11px; padding:6px 6px;">${(isBanner || isVerticalTopic) ? "KONTROL LİSTESİ" : "Kontrol Listesi"}</th>
+                  <th style="border:1.5px solid #000; text-align:center; font-weight:800; font-size:11px; padding:4px; color:#15803d;">${yesHdr}</th>
+                  <th style="border:1.5px solid #000; text-align:center; font-weight:800; font-size:11px; padding:4px; color:#b91c1c;">${noHdr}</th>
+                  <th style="border:1.5px solid #000; text-align:center; font-weight:800; font-size:11px; padding:6px 4px;">${escapeHtml(tpl.actionHeaderLabel || "Alınması Gereken Önlem")}</th>
+                  <th style="border:1.5px solid #000; text-align:center; font-weight:800; font-size:11px; padding:6px 4px;">${(isBanner || isVerticalTopic) ? "SORUMLU KİŞİ" : "Sorumlu Kişi"}</th>
+                  <th style="border:1.5px solid #000; text-align:center; font-weight:800; font-size:11px; padding:6px 4px;">${escapeHtml(tpl.dueDateHeaderLabel || "Tamamlanacağı Tarih")}</th>
+                </tr>
+                ${tableRowsHtml}
+              </table>
+              ${tpl.footnote ? `<div style="border:1px solid #000; border-top:none; background:#f8fafc; padding:7px 10px; font-size:10.5px; font-style:italic; color:#334155;">${escapeHtml(tpl.footnote)}</div>` : ""}
+              <div class="mt-4 flex justify-end">
+                <div style="border:1.5px solid #000; padding:10px 14px; width:340px; max-width:100%;">
+                  <div style="font-size:12px; font-weight:800; margin-bottom:6px;">KONTROLÜ YAPAN:</div>
+                  <input type="text" ${canEdit ? "" : "disabled"} value="${escapeHtml(f.kontrolEden || "")}"
+                    oninput="window.isgUiState.activeForm.kontrolEden = this.value"
+                    placeholder="${canEdit ? 'Ad Soyad / Ünvan' : ''}"
+                    class="w-full text-xs font-bold border border-slate-300 rounded-lg px-2.5 py-1.5">
+                  ${buildIsgSignatureSlotHtml(ISG_SIG_INSPECTOR, "KONTROLÜ YAPAN", sigs[ISG_SIG_INSPECTOR], canEdit)}
+                </div>
+              </div>
+              <div class="mt-2 text-center text-[11px] text-slate-500">Çıktı (PDF / Word / Excel) tüm ${sections.length} konu başlığı ve ${tpl.checklistItems.length} madde ile yatay A4 olarak eksiksiz üretilir</div>
+            </div>
+            ${prevNextHtml}
           </div>
         `;
       } else {
@@ -21863,6 +22114,8 @@
       f.checkPhotoLists = photoMaps.checkPhotoLists;
       const hasData = Object.values(f.checkResults || {}).some(Boolean)
         || Object.values(f.equipmentFields || {}).some(Boolean)
+        || Object.values(f.rowResponsibles || {}).some(Boolean)
+        || Object.values(f.rowDueDates || {}).some(Boolean)
         || Object.keys(photoMaps.checkPhotoLists).length > 0
         || Boolean(String(f.projectName || "").trim())
         || Object.values(f.signatures || {}).some(Boolean);
@@ -21877,6 +22130,8 @@
           checkNotes: f.checkNotes || {},
           checkPhotos: photoMaps.checkPhotos,
           checkPhotoLists: photoMaps.checkPhotoLists,
+          rowResponsibles: f.rowResponsibles || {},
+          rowDueDates: f.rowDueDates || {},
           monthParafs: f.monthParafs || {},
           signatures: f.signatures || {},
           kontrolEden: String(f.kontrolEden || "").trim(),
@@ -21917,6 +22172,8 @@
           checkNotes: f.checkNotes || {},
           checkPhotos: photoMaps.checkPhotos,
           checkPhotoLists: photoMaps.checkPhotoLists,
+          rowResponsibles: f.rowResponsibles || {},
+          rowDueDates: f.rowDueDates || {},
           monthParafs: f.monthParafs || {},
           signatures: f.signatures || {},
           kontrolEden: String(f.kontrolEden || myName).trim(),
@@ -22090,6 +22347,110 @@
     <button onclick="window.print()" style="padding:8px 16px; background:#1E3A8A; color:#fff; border:none; border-radius:8px; font-weight:700; cursor:pointer;">🖨️ Yatay A4 Yazdır / PDF Kaydet</button>
   </div>
   ${pagesHtml}
+  ${appendixBlock}
+</body>
+</html>`;
+      } else if (tpl.layoutType === "ISG_TOPIC_ACTION_TABLE") {
+        const resps = f.rowResponsibles || {};
+        const dues = f.rowDueDates || {};
+        const sections = (tpl.sections && tpl.sections.length > 0)
+          ? tpl.sections
+          : [{ title: tpl.title, subHeader: "", startIndex: 0, count: tpl.checklistItems.length }];
+        const isBanner = tpl.headerStyle === "BANNER";
+        const isVerticalTopic = tpl.headerStyle === "VERTICAL_TOPIC";
+        const colCount = isBanner ? 6 : 7;
+        const yesHdr = (isBanner || isVerticalTopic) ? "EVET<br>✓" : "Evet<br>☺";
+        const noHdr = (isBanner || isVerticalTopic) ? "HAYIR<br>✗" : "Hayır<br>☹";
+        const sigImg = sigs[ISG_SIG_INSPECTOR] || "";
+
+        let lastSub = "";
+        const bodyRowsHtml = sections.map(sec => {
+          let html = "";
+          if (isVerticalTopic && sec.subHeader && sec.subHeader !== lastSub) {
+            lastSub = sec.subHeader;
+            html += `<tr><td colspan="${colCount}" style="background:#e2e8f0; text-align:right; font-weight:800; font-size:9.5px; padding:4px 8px;">${escapeHtml(sec.subHeader)}</td></tr>`;
+          }
+          if (isBanner) {
+            html += `<tr><td colspan="${colCount}" style="background:#D9E2F3; text-align:right; font-weight:800; font-size:9.5px; padding:4px 8px;">${escapeHtml(sec.title)}</td></tr>`;
+          }
+          for (let localIdx = 0; localIdx < sec.count; localIdx++) {
+            const idx = sec.startIndex + localIdx;
+            if (idx >= tpl.checklistItems.length) break;
+            const k = String(idx);
+            const v = String(res[k] || "").toUpperCase();
+            const n = notes[k] || "";
+            const rowPhotos = getIsgRowPhotos(f, idx);
+            const inlineThumbs = rowPhotos.slice(0, 2).map(p => `<img src="${p}" style="width:18px; height:18px; object-fit:cover; border:0.5px solid #000; flex-shrink:0;">`).join("");
+            const extraTag = rowPhotos.length > 2 ? `<span style="font-size:7px; font-weight:700;">+${rowPhotos.length - 2}</span>` : "";
+            const fallbackTxt = rowPhotos.length > 1 ? `${rowPhotos.length} foto (Ek)` : (rowPhotos.length === 1 ? "Foto ekli" : "");
+            const topicCell = (!isBanner && localIdx === 0)
+              ? (isVerticalTopic
+                ? `<td rowspan="${sec.count}" style="background:#e5e7eb; text-align:center; vertical-align:middle; font-weight:800; font-size:8px; width:4.5%; padding:2px;"><div style="writing-mode:vertical-rl; transform:rotate(180deg); margin:0 auto;">${escapeHtml(sec.title)}</div></td>`
+                : `<td rowspan="${sec.count}" style="background:#fafafa; text-align:center; vertical-align:middle; font-weight:800; font-size:8.5px; width:12%; padding:3px;">${escapeHtml(sec.title)}</td>`)
+              : "";
+            html += `
+              <tr style="break-inside:avoid;">
+                ${topicCell}
+                <td style="text-align:left; font-size:8.5px; line-height:1.25; padding:2.5px 5px;">${escapeHtml(tpl.checklistItems[idx])}</td>
+                <td style="text-align:center; font-size:11px; font-weight:800; color:#15803d; width:5%; padding:2px;">${v === "EVET" ? "✓" : ""}</td>
+                <td style="text-align:center; font-size:11px; font-weight:800; color:#b91c1c; width:5%; padding:2px;">${v === "HAYIR" ? "✗" : ""}</td>
+                <td style="font-size:8px; width:21%; padding:2px 4px;">
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:3px;">
+                    <span style="flex:1; word-break:break-word;">${escapeHtml(n || fallbackTxt)}</span>
+                    ${inlineThumbs ? `<div style="display:flex; align-items:center; gap:2px; flex-shrink:0;">${inlineThumbs}${extraTag}</div>` : ""}
+                  </div>
+                </td>
+                <td style="font-size:8px; width:10%; padding:2px 4px;">${escapeHtml(resps[k] || "")}</td>
+                <td style="font-size:8px; width:8.5%; text-align:center; padding:2px 4px;">${escapeHtml(dues[k] || "")}</td>
+              </tr>
+            `;
+          }
+          return html;
+        }).join("");
+
+        htmlDoc = `<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>${escapeHtml(f.templateTitle || tpl.title)}</title>
+  <style>
+    @page { size: A4 landscape; margin: 7mm; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: #000; background: #fff; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    table { border-collapse: collapse; width: 100%; }
+    thead { display: table-header-group; }
+    td, th { border: 1px solid #000; }
+    .no-print { text-align: right; margin-bottom: 8px; }
+    @media print { .no-print { display: none; } }
+  </style>
+</head>
+<body>
+  <div class="no-print">
+    <button onclick="window.print()" style="padding:8px 16px; background:#1E3A8A; color:#fff; border:none; border-radius:8px; font-weight:700; cursor:pointer;">🖨️ Yatay A4 Yazdır / PDF Kaydet</button>
+  </div>
+  <div style="text-align:center; font-weight:800; font-size:13px; margin-bottom:5px;">${escapeHtml(f.templateTitle || tpl.title)}</div>
+  ${(f.projectName || f.checkDate) ? `<div style="display:flex; justify-content:space-between; font-size:9px; font-weight:700; border:1px solid #000; border-bottom:none; padding:3px 8px;"><span>BÖLÜM / ALAN: ${escapeHtml(f.projectName || "")}</span><span>TARİH: ${escapeHtml(f.checkDate || "")}</span></div>` : ""}
+  <table>
+    <thead>
+      <tr style="background:#f1f5f9;">
+        ${!isBanner ? `<th style="font-size:8.5px; font-weight:800; padding:4px 3px;">${isVerticalTopic ? "Konu" : "Konu Başlığı"}</th>` : ""}
+        <th style="font-size:8.5px; font-weight:800; padding:4px;">${(isBanner || isVerticalTopic) ? "KONTROL LİSTESİ" : "Kontrol Listesi"}</th>
+        <th style="font-size:8.5px; font-weight:800; padding:3px; color:#15803d;">${yesHdr}</th>
+        <th style="font-size:8.5px; font-weight:800; padding:3px; color:#b91c1c;">${noHdr}</th>
+        <th style="font-size:8.5px; font-weight:800; padding:4px 3px;">${escapeHtml(tpl.actionHeaderLabel || "Alınması Gereken Önlem")}</th>
+        <th style="font-size:8.5px; font-weight:800; padding:4px 3px;">${(isBanner || isVerticalTopic) ? "SORUMLU KİŞİ" : "Sorumlu Kişi"}</th>
+        <th style="font-size:8.5px; font-weight:800; padding:4px 3px;">${escapeHtml(tpl.dueDateHeaderLabel || "Tamamlanacağı Tarih")}</th>
+      </tr>
+    </thead>
+    <tbody>${bodyRowsHtml}</tbody>
+  </table>
+  ${tpl.footnote ? `<div style="border:1px solid #000; border-top:none; background:#f8fafc; padding:5px 8px; font-size:8px; font-style:italic;">${escapeHtml(tpl.footnote)}</div>` : ""}
+  <div style="display:flex; justify-content:flex-end; margin-top:8px; break-inside:avoid;">
+    <div style="border:1.2px solid #000; padding:6px 10px; width:270px; min-height:70px;">
+      <div style="font-size:9px; font-weight:800; margin-bottom:4px;">KONTROLÜ YAPAN: ${escapeHtml(f.kontrolEden || "")}</div>
+      ${sigImg ? `<img src="${sigImg}" style="height:44px; max-width:100%; object-fit:contain; display:block; margin:2px auto 0;">` : `<div style="height:34px;"></div>`}
+    </div>
+  </div>
   ${appendixBlock}
 </body>
 </html>`;
@@ -22504,6 +22865,97 @@
 
           bodyXml = `${tblOpen}${rowsXml}</w:tbl><w:p><w:pPr><w:spacing w:before="80" w:after="40"/></w:pPr></w:p>${sigTbl}`;
           sectPrXml = `<w:sectPr><w:pgSz w:w="16838" w:h="11906" w:orient="landscape"/><w:pgMar w:top="480" w:right="480" w:bottom="480" w:left="480"/></w:sectPr>`;
+        } else if (tpl.layoutType === "ISG_TOPIC_ACTION_TABLE") {
+          const resps = f.rowResponsibles || {};
+          const dues = f.rowDueDates || {};
+          const sections = (tpl.sections && tpl.sections.length > 0)
+            ? tpl.sections
+            : [{ title: tpl.title, subHeader: "", startIndex: 0, count: tpl.checklistItems.length }];
+          const isBanner = tpl.headerStyle === "BANNER";
+          const isVerticalTopic = tpl.headerStyle === "VERTICAL_TOPIC";
+          const colW = isBanner
+            ? [6898, 860, 860, 3680, 1840, 1740]
+            : (isVerticalTopic ? [880, 6198, 860, 860, 3560, 1800, 1720] : [1960, 5358, 840, 840, 3480, 1740, 1660]);
+          const totalW = colW.reduce((a, b) => a + b, 0);
+          const colCount = colW.length;
+          const yesHdr = (isBanner || isVerticalTopic) ? "EVET ✓" : "Evet ☺";
+          const noHdr = (isBanner || isVerticalTopic) ? "HAYIR ✗" : "Hayır ☹";
+
+          let headerLead = docxPara(f.templateTitle || tpl.title, { bold: true, sz: 24, before: 20, after: 40 });
+          if (f.projectName || f.checkDate) {
+            const mStr = [f.projectName ? `BÖLÜM / ALAN: ${f.projectName}` : "", f.checkDate ? `TARİH: ${f.checkDate}` : ""].filter(Boolean).join("     |     ");
+            headerLead += docxPara(mStr, { bold: true, sz: 18, before: 0, after: 40 });
+          }
+
+          const tblOpen = `<w:tbl><w:tblPr><w:tblW w:w="${totalW}" w:type="dxa"/><w:tblBorders><w:top w:val="single" w:sz="8" w:color="000000"/><w:left w:val="single" w:sz="8" w:color="000000"/><w:bottom w:val="single" w:sz="8" w:color="000000"/><w:right w:val="single" w:sz="8" w:color="000000"/><w:insideH w:val="single" w:sz="4" w:color="000000"/><w:insideV w:val="single" w:sz="4" w:color="000000"/></w:tblBorders></w:tblPr><w:tblGrid>${colW.map(w => `<w:gridCol w:w="${w}"/>`).join("")}</w:tblGrid>`;
+          let hc = 0;
+          let rowsXml = `<w:tr><w:trPr><w:tblHeader/></w:trPr>`
+            + (!isBanner ? docxCell(docxPara(isVerticalTopic ? "Konu" : "Konu Başlığı", { bold: true, sz: 17 }), { w: colW[hc++], fill: "F1F5F9" }) : "")
+            + docxCell(docxPara((isBanner || isVerticalTopic) ? "KONTROL LİSTESİ" : "Kontrol Listesi", { bold: true, sz: 17 }), { w: colW[hc++], fill: "F1F5F9" })
+            + docxCell(docxPara(yesHdr, { bold: true, sz: 16, color: "15803D" }), { w: colW[hc++], fill: "F1F5F9" })
+            + docxCell(docxPara(noHdr, { bold: true, sz: 16, color: "B91C1C" }), { w: colW[hc++], fill: "F1F5F9" })
+            + docxCell(docxPara(tpl.actionHeaderLabel || "Alınması Gereken Önlem", { bold: true, sz: 16 }), { w: colW[hc++], fill: "F1F5F9" })
+            + docxCell(docxPara((isBanner || isVerticalTopic) ? "SORUMLU KİŞİ" : "Sorumlu Kişi", { bold: true, sz: 16 }), { w: colW[hc++], fill: "F1F5F9" })
+            + docxCell(docxPara(tpl.dueDateHeaderLabel || "Tamamlanacağı Tarih", { bold: true, sz: 16 }), { w: colW[hc++], fill: "F1F5F9" })
+            + `</w:tr>`;
+
+          let lastSub = "";
+          sections.forEach(sec => {
+            if (isVerticalTopic && sec.subHeader && sec.subHeader !== lastSub) {
+              lastSub = sec.subHeader;
+              rowsXml += `<w:tr><w:trPr><w:cantSplit/></w:trPr>${docxCell(docxPara(sec.subHeader, { bold: true, sz: 18, align: "right" }), { w: totalW, gridSpan: colCount, fill: "E2E8F0" })}</w:tr>`;
+            }
+            if (isBanner) {
+              rowsXml += `<w:tr><w:trPr><w:cantSplit/></w:trPr>${docxCell(docxPara(sec.title, { bold: true, sz: 18, align: "right" }), { w: totalW, gridSpan: colCount, fill: "D9E2F3" })}</w:tr>`;
+            }
+            for (let localIdx = 0; localIdx < sec.count; localIdx++) {
+              const idx = sec.startIndex + localIdx;
+              if (idx >= tpl.checklistItems.length) break;
+              const q = tpl.checklistItems[idx];
+              const k = String(idx);
+              const v = String(res[k] || "").toUpperCase();
+              const n = notes[k] || "";
+              const imgs = rowImgLists[idx] || [];
+              let noteXml = n ? docxPara(n, { align: "left", sz: 15, before: 10, after: 10 }) : "";
+              if (imgs.length > 0) {
+                const cx = imgs.length === 1 ? 580000 : 450000;
+                const imgRuns = imgs.map((img, pIdx) => {
+                  const cy = Math.max(200000, Math.round(cx * (img.height / Math.max(1, img.width))));
+                  return docxInlineImgXml(img.rId, cx, Math.min(cy, 440000), docPrId++, `Madde_${idx + 1}_${pIdx + 1}`);
+                }).join(`<w:r><w:t xml:space="preserve"> </w:t></w:r>`);
+                noteXml += `<w:p><w:pPr><w:jc w:val="left"/><w:spacing w:before="15" w:after="15"/></w:pPr>${imgRuns}</w:p>`;
+              }
+              let ci = 0;
+              rowsXml += `<w:tr><w:trPr><w:cantSplit/></w:trPr>`;
+              if (!isBanner) {
+                rowsXml += docxCell(
+                  localIdx === 0 ? docxPara(sec.title, { bold: true, sz: 16 }) : "<w:p/>",
+                  { w: colW[ci++], vMerge: localIdx === 0 ? "restart" : "continue", vertical: isVerticalTopic, fill: isVerticalTopic ? "E5E7EB" : "FAFAFA" }
+                );
+              }
+              rowsXml += docxCell(docxPara(q, { align: "left", sz: 16 }), { w: colW[ci++] });
+              rowsXml += docxCell(docxPara(v === "EVET" ? "✓" : "", { bold: true, sz: 20, color: "15803D" }), { w: colW[ci++] });
+              rowsXml += docxCell(docxPara(v === "HAYIR" ? "✗" : "", { bold: true, sz: 20, color: "B91C1C" }), { w: colW[ci++] });
+              rowsXml += docxCell(noteXml || "<w:p/>", { w: colW[ci++] });
+              rowsXml += docxCell(docxPara(resps[k] || "", { align: "left", sz: 15 }), { w: colW[ci++] });
+              rowsXml += docxCell(docxPara(dues[k] || "", { align: "center", sz: 15 }), { w: colW[ci++] });
+              rowsXml += `</w:tr>`;
+            }
+          });
+          if (tpl.footnote) {
+            rowsXml += `<w:tr><w:trPr><w:cantSplit/></w:trPr>${docxCell(docxPara(tpl.footnote, { align: "left", sz: 15, color: "334155" }), { w: totalW, gridSpan: colCount, fill: "F8FAFC" })}</w:tr>`;
+          }
+
+          let sigBoxInner = docxPara(`KONTROLÜ YAPAN: ${f.kontrolEden || ""}`, { align: "left", bold: true, sz: 19, before: 40, after: 40 });
+          if (sigInspectorInfo) {
+            sigBoxInner += `<w:p><w:pPr><w:jc w:val="center"/><w:spacing w:before="20" w:after="20"/></w:pPr>${docxInlineImgXml(sigInspectorInfo.rId, 1850000, 700000, sigInspectorInfo.prId, "Imza_Kontrol")}</w:p>`;
+          } else {
+            sigBoxInner += docxPara(" ", { sz: 28, before: 100, after: 100 });
+          }
+          const sigTbl = `<w:tbl><w:tblPr><w:tblW w:w="${totalW}" w:type="dxa"/></w:tblPr><w:tblGrid><w:gridCol w:w="${totalW - 4878}"/><w:gridCol w:w="4878"/></w:tblGrid><w:tr>${docxCell("<w:p/>", { w: totalW - 4878, noBorders: true })}${docxCell(sigBoxInner, { w: 4878 })}</w:tr></w:tbl>`;
+
+          bodyXml = `${headerLead}${tblOpen}${rowsXml}</w:tbl><w:p><w:pPr><w:spacing w:before="60" w:after="30"/></w:pPr></w:p>${sigTbl}`;
+          sectPrXml = `<w:sectPr><w:pgSz w:w="16838" w:h="11906" w:orient="landscape"/><w:pgMar w:top="480" w:right="480" w:bottom="480" w:left="480"/></w:sectPr>`;
         } else {
           // BERRAK_STANDARD (FORKLİFT KONTROL FORMU — A4 Dikey: 11906 x 16838, kenar 480 -> genişlik 10946 dxa)
           const W = 10946;
@@ -22702,7 +23154,8 @@
         // 0=plain, 1=bordered center wrap 10pt, 2=bordered left wrap 10pt, 3=bordered bold center 11pt gray fill,
         // 4=bordered bold center 14pt title, 5=bordered bold center 10pt green, 6=bordered bold center 10pt red,
         // 7=bordered vertical 90deg center 9pt, 8=bordered bold left 10pt, 9=bordered bold right 10pt, 10=bordered bold underline center 11pt, 11=plain bold center 11pt
-        const stylesXml = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><fonts count="7"><font><sz val="10"/><color rgb="FF000000"/><name val="Calibri"/></font><font><b/><sz val="11"/><color rgb="FF000000"/><name val="Calibri"/></font><font><b/><sz val="14"/><color rgb="FF000000"/><name val="Calibri"/></font><font><b/><sz val="11"/><color rgb="FF15803D"/><name val="Calibri"/></font><font><b/><sz val="11"/><color rgb="FFB91C1C"/><name val="Calibri"/></font><font><sz val="9"/><color rgb="FF000000"/><name val="Calibri"/></font><font><b/><u/><sz val="11"/><color rgb="FF000000"/><name val="Calibri"/></font></fonts><fills count="3"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill><fill><patternFill patternType="solid"><fgColor rgb="FFF1F5F9"/></patternFill></fill></fills><borders count="2"><border><left/><right/><top/><bottom/><diagonal/></border><border><left style="thin"><color rgb="FF000000"/></left><right style="thin"><color rgb="FF000000"/></right><top style="thin"><color rgb="FF000000"/></top><bottom style="thin"><color rgb="FF000000"/></bottom><diagonal/></border></borders><cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs><cellXfs count="12"><xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/><xf numFmtId="0" fontId="0" fillId="0" borderId="1" xfId="0" applyFont="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="center" wrapText="1"/></xf><xf numFmtId="0" fontId="0" fillId="0" borderId="1" xfId="0" applyFont="1" applyBorder="1" applyAlignment="1"><alignment horizontal="left" vertical="center" wrapText="1"/></xf><xf numFmtId="0" fontId="1" fillId="2" borderId="1" xfId="0" applyFont="1" applyFill="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="center" wrapText="1"/></xf><xf numFmtId="0" fontId="2" fillId="0" borderId="1" xfId="0" applyFont="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="center" wrapText="1"/></xf><xf numFmtId="0" fontId="3" fillId="0" borderId="1" xfId="0" applyFont="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="center" wrapText="1"/></xf><xf numFmtId="0" fontId="4" fillId="0" borderId="1" xfId="0" applyFont="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="center" wrapText="1"/></xf><xf numFmtId="0" fontId="5" fillId="0" borderId="1" xfId="0" applyFont="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="center" textRotation="90" wrapText="1"/></xf><xf numFmtId="0" fontId="1" fillId="0" borderId="1" xfId="0" applyFont="1" applyBorder="1" applyAlignment="1"><alignment horizontal="left" vertical="center" wrapText="1"/></xf><xf numFmtId="0" fontId="1" fillId="0" borderId="1" xfId="0" applyFont="1" applyBorder="1" applyAlignment="1"><alignment horizontal="right" vertical="center" wrapText="1"/></xf><xf numFmtId="0" fontId="6" fillId="2" borderId="1" xfId="0" applyFont="1" applyFill="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="center" wrapText="1"/></xf><xf numFmtId="0" fontId="1" fillId="0" borderId="0" xfId="0" applyFont="1" applyAlignment="1"><alignment horizontal="center" vertical="center" wrapText="1"/></xf></cellXfs></styleSheet>`;
+        // 12=blue banner right bold, 13=gray topic center bold, 14=footnote small left shaded
+        const stylesXml = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><fonts count="7"><font><sz val="10"/><color rgb="FF000000"/><name val="Calibri"/></font><font><b/><sz val="11"/><color rgb="FF000000"/><name val="Calibri"/></font><font><b/><sz val="14"/><color rgb="FF000000"/><name val="Calibri"/></font><font><b/><sz val="11"/><color rgb="FF15803D"/><name val="Calibri"/></font><font><b/><sz val="11"/><color rgb="FFB91C1C"/><name val="Calibri"/></font><font><sz val="9"/><color rgb="FF000000"/><name val="Calibri"/></font><font><b/><u/><sz val="11"/><color rgb="FF000000"/><name val="Calibri"/></font></fonts><fills count="5"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill><fill><patternFill patternType="solid"><fgColor rgb="FFF1F5F9"/></patternFill></fill><fill><patternFill patternType="solid"><fgColor rgb="FFD9E2F3"/></patternFill></fill><fill><patternFill patternType="solid"><fgColor rgb="FFE5E7EB"/></patternFill></fill></fills><borders count="2"><border><left/><right/><top/><bottom/><diagonal/></border><border><left style="thin"><color rgb="FF000000"/></left><right style="thin"><color rgb="FF000000"/></right><top style="thin"><color rgb="FF000000"/></top><bottom style="thin"><color rgb="FF000000"/></bottom><diagonal/></border></borders><cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs><cellXfs count="15"><xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/><xf numFmtId="0" fontId="0" fillId="0" borderId="1" xfId="0" applyFont="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="center" wrapText="1"/></xf><xf numFmtId="0" fontId="0" fillId="0" borderId="1" xfId="0" applyFont="1" applyBorder="1" applyAlignment="1"><alignment horizontal="left" vertical="center" wrapText="1"/></xf><xf numFmtId="0" fontId="1" fillId="2" borderId="1" xfId="0" applyFont="1" applyFill="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="center" wrapText="1"/></xf><xf numFmtId="0" fontId="2" fillId="0" borderId="1" xfId="0" applyFont="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="center" wrapText="1"/></xf><xf numFmtId="0" fontId="3" fillId="0" borderId="1" xfId="0" applyFont="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="center" wrapText="1"/></xf><xf numFmtId="0" fontId="4" fillId="0" borderId="1" xfId="0" applyFont="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="center" wrapText="1"/></xf><xf numFmtId="0" fontId="5" fillId="0" borderId="1" xfId="0" applyFont="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="center" textRotation="90" wrapText="1"/></xf><xf numFmtId="0" fontId="1" fillId="0" borderId="1" xfId="0" applyFont="1" applyBorder="1" applyAlignment="1"><alignment horizontal="left" vertical="center" wrapText="1"/></xf><xf numFmtId="0" fontId="1" fillId="0" borderId="1" xfId="0" applyFont="1" applyBorder="1" applyAlignment="1"><alignment horizontal="right" vertical="center" wrapText="1"/></xf><xf numFmtId="0" fontId="6" fillId="2" borderId="1" xfId="0" applyFont="1" applyFill="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="center" wrapText="1"/></xf><xf numFmtId="0" fontId="1" fillId="0" borderId="0" xfId="0" applyFont="1" applyAlignment="1"><alignment horizontal="center" vertical="center" wrapText="1"/></xf><xf numFmtId="0" fontId="1" fillId="3" borderId="1" xfId="0" applyFont="1" applyFill="1" applyBorder="1" applyAlignment="1"><alignment horizontal="right" vertical="center" wrapText="1"/></xf><xf numFmtId="0" fontId="1" fillId="4" borderId="1" xfId="0" applyFont="1" applyFill="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="center" wrapText="1"/></xf><xf numFmtId="0" fontId="5" fillId="2" borderId="1" xfId="0" applyFont="1" applyFill="1" applyBorder="1" applyAlignment="1"><alignment horizontal="left" vertical="center" wrapText="1"/></xf></cellXfs></styleSheet>`;
 
         let colsXml = "";
         let rowsXml = "";
@@ -22741,6 +23194,110 @@
           rowsXml += `<row r="${sigRow + 1}" ht="56" customHeight="1">${xlsxCell(sigRow + 1, 3, "", 1)}${xlsxCell(sigRow + 1, 4, "", 1)}</row>`;
           merges.push(`D${sigRow}:E${sigRow}`, `D${sigRow + 1}:E${sigRow + 1}`);
           if (sigInspPng) addDrawImg(sigInspPng, 3, sigRow, 5, sigRow + 1, "Imza_Kontrol");
+
+          pageSetupXml = `<pageSetup paperSize="9" orientation="landscape" fitToWidth="1" fitToHeight="0"/>`;
+        } else if (tpl.layoutType === "ISG_TOPIC_ACTION_TABLE") {
+          const resps = f.rowResponsibles || {};
+          const dues = f.rowDueDates || {};
+          const sections = (tpl.sections && tpl.sections.length > 0)
+            ? tpl.sections
+            : [{ title: tpl.title, subHeader: "", startIndex: 0, count: tpl.checklistItems.length }];
+          const isBanner = tpl.headerStyle === "BANNER";
+          const isVerticalTopic = tpl.headerStyle === "VERTICAL_TOPIC";
+          const widths = isBanner ? [64, 9, 9, 36, 18, 16] : [isVerticalTopic ? 15 : 22, 56, 9, 9, 34, 17, 15];
+          const lastC = widths.length - 1;
+          const lastColName = xlsxColName(lastC);
+          colsXml = `<cols>${widths.map((w, i) => `<col min="${i + 1}" max="${i + 1}" width="${w}" customWidth="1"/>`).join("")}</cols>`;
+          const fillSpan = (r1, fromC, toC, st) => {
+            let s = "";
+            for (let c = fromC; c <= toC; c++) s += xlsxCell(r1, c, "", st);
+            return s;
+          };
+
+          let rCur = 1;
+          rowsXml += `<row r="${rCur}" ht="30" customHeight="1">${xlsxCell(rCur, 0, f.templateTitle || tpl.title, 4)}${fillSpan(rCur, 1, lastC, 4)}</row>`;
+          merges.push(`A${rCur}:${lastColName}${rCur}`);
+          rCur++;
+
+          const splitC = lastC - 2;
+          rowsXml += `<row r="${rCur}" ht="22" customHeight="1">${xlsxCell(rCur, 0, `BÖLÜM / ALAN ADI: ${f.projectName || ""}`, 8)}${fillSpan(rCur, 1, splitC, 8)}${xlsxCell(rCur, splitC + 1, `TARİH: ${f.checkDate || "...../...../20....."}`, 9)}${fillSpan(rCur, splitC + 2, lastC, 9)}</row>`;
+          merges.push(`A${rCur}:${xlsxColName(splitC)}${rCur}`, `${xlsxColName(splitC + 1)}${rCur}:${lastColName}${rCur}`);
+          rCur++;
+
+          const yesHdr = (isBanner || isVerticalTopic) ? "EVET ✓" : "Evet ☺";
+          const noHdr = (isBanner || isVerticalTopic) ? "HAYIR ✗" : "Hayır ☹";
+          let hc = 0;
+          rowsXml += `<row r="${rCur}" ht="26" customHeight="1">`
+            + (!isBanner ? xlsxCell(rCur, hc++, isVerticalTopic ? "Konu" : "Konu Başlığı", 3) : "")
+            + xlsxCell(rCur, hc++, (isBanner || isVerticalTopic) ? "KONTROL LİSTESİ" : "Kontrol Listesi", 3)
+            + xlsxCell(rCur, hc++, yesHdr, 5)
+            + xlsxCell(rCur, hc++, noHdr, 6)
+            + xlsxCell(rCur, hc++, tpl.actionHeaderLabel || "Alınması Gereken Önlem", 3)
+            + xlsxCell(rCur, hc++, (isBanner || isVerticalTopic) ? "SORUMLU KİŞİ" : "Sorumlu Kişi", 3)
+            + xlsxCell(rCur, hc++, tpl.dueDateHeaderLabel || "Tamamlanacağı Tarih", 3)
+            + `</row>`;
+          rCur++;
+
+          let lastSub = "";
+          sections.forEach(sec => {
+            if (isVerticalTopic && sec.subHeader && sec.subHeader !== lastSub) {
+              lastSub = sec.subHeader;
+              rowsXml += `<row r="${rCur}" ht="22" customHeight="1">${xlsxCell(rCur, 0, sec.subHeader, 13)}${fillSpan(rCur, 1, lastC, 13)}</row>`;
+              merges.push(`A${rCur}:${lastColName}${rCur}`);
+              rCur++;
+            }
+            if (isBanner) {
+              rowsXml += `<row r="${rCur}" ht="22" customHeight="1">${xlsxCell(rCur, 0, sec.title, 12)}${fillSpan(rCur, 1, lastC, 12)}</row>`;
+              merges.push(`A${rCur}:${lastColName}${rCur}`);
+              rCur++;
+            }
+            const secStart = rCur;
+            for (let localIdx = 0; localIdx < sec.count; localIdx++) {
+              const idx = sec.startIndex + localIdx;
+              if (idx >= tpl.checklistItems.length) break;
+              const q = tpl.checklistItems[idx];
+              const k = String(idx);
+              const v = String(res[k] || "").toUpperCase();
+              const n = notes[k] || "";
+              const rowPngs = rowPngLists[idx] || [];
+              const hasPhoto = rowPngs.length > 0;
+              const noteVal = rowPngs.length > 1
+                ? (n ? `${n} [${rowPngs.length} Fotoğraf — Ek Sayfasında]` : `${rowPngs.length} Fotoğraf ekli (Ek Sayfasında)`)
+                : (n || (hasPhoto ? "Fotoğraf ekli" : ""));
+              const lines = Math.max(1, Math.ceil(q.length / 64));
+              const ht = Math.max(hasPhoto ? 52 : 21, lines * 15 + 7);
+              let ci = 0;
+              rowsXml += `<row r="${rCur}" ht="${ht}" customHeight="1">`;
+              if (!isBanner) {
+                rowsXml += xlsxCell(rCur, ci++, localIdx === 0 ? sec.title : "", isVerticalTopic ? 13 : 3);
+              }
+              rowsXml += xlsxCell(rCur, ci++, q, 2);
+              rowsXml += xlsxCell(rCur, ci++, v === "EVET" ? "✓" : "", 5);
+              rowsXml += xlsxCell(rCur, ci++, v === "HAYIR" ? "✗" : "", 6);
+              const actCol = ci;
+              rowsXml += xlsxCell(rCur, ci++, noteVal, 2);
+              rowsXml += xlsxCell(rCur, ci++, resps[k] || "", 2);
+              rowsXml += xlsxCell(rCur, ci++, dues[k] || "", 1);
+              rowsXml += `</row>`;
+              if (hasPhoto) addDrawImg(rowPngs[0], actCol, rCur - 1, actCol + 1, rCur, `Foto_${idx + 1}`);
+              rCur++;
+            }
+            const secEnd = rCur - 1;
+            if (!isBanner && secEnd > secStart) merges.push(`A${secStart}:A${secEnd}`);
+          });
+
+          if (tpl.footnote) {
+            rowsXml += `<row r="${rCur}" ht="30" customHeight="1">${xlsxCell(rCur, 0, tpl.footnote, 14)}${fillSpan(rCur, 1, lastC, 14)}</row>`;
+            merges.push(`A${rCur}:${lastColName}${rCur}`);
+            rCur++;
+          }
+
+          rowsXml += `<row r="${rCur}" ht="22" customHeight="1">${xlsxCell(rCur, 0, `KONTROLÜ YAPAN: ${f.kontrolEden || ""}`, 8)}${fillSpan(rCur, 1, lastC, 8)}</row>`;
+          merges.push(`A${rCur}:${lastColName}${rCur}`);
+          rCur++;
+          rowsXml += `<row r="${rCur}" ht="56" customHeight="1">${xlsxCell(rCur, 0, "", 1)}${fillSpan(rCur, 1, lastC, 1)}</row>`;
+          merges.push(`A${rCur}:${lastColName}${rCur}`);
+          if (sigInspPng) addDrawImg(sigInspPng, 1, rCur - 1, 3, rCur, "Imza_Kontrol");
 
           pageSetupXml = `<pageSetup paperSize="9" orientation="landscape" fitToWidth="1" fitToHeight="0"/>`;
         } else {
@@ -22843,7 +23400,11 @@
         const mergeXml = merges.length > 0 ? `<mergeCells count="${merges.length}">${merges.map(ref => `<mergeCell ref="${ref}"/>`).join("")}</mergeCells>` : "";
         const sheetXml = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheetPr><pageSetUpPr fitToPage="1"/></sheetPr>${colsXml}<sheetData>${rowsXml}</sheetData>${mergeXml}<pageMargins left="0.3" right="0.3" top="0.35" bottom="0.35" header="0.2" footer="0.2"/>${pageSetupXml}${hasDrawings ? `<drawing r:id="rIdDraw1"/>` : ""}</worksheet>`;
 
-        const safeSheetName = tpl.layoutType === "TEKINAK_YESNO_TABLE" ? "Elektrik Kontrol" : `Form_${String(f.formNo || "27").replace(/[^a-zA-Z0-9_-]/g, "")}`;
+        const safeSheetName = tpl.layoutType === "TEKINAK_YESNO_TABLE"
+          ? "Elektrik Kontrol"
+          : (tpl.layoutType === "ISG_TOPIC_ACTION_TABLE"
+            ? `ISG_${String(f.formNo || tpl.formNo || "KL").replace(/[^a-zA-Z0-9_-]/g, "")}`
+            : `Form_${String(f.formNo || "27").replace(/[^a-zA-Z0-9_-]/g, "")}`);
         const wbXml = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets><sheet name="${xmlEsc(safeSheetName.slice(0, 31))}" sheetId="1" r:id="rId1"/>${hasSheet2 ? `<sheet name="Fotograf Ekleri" sheetId="2" r:id="rId3"/>` : ""}</sheets></workbook>`;
         const wbRelsXml = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet1.xml"/><Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/>${hasSheet2 ? `<Relationship Id="rId3" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet2.xml"/>` : ""}</Relationships>`;
         const rootRelsXml = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>`;
