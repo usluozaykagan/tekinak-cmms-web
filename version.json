@@ -1,15 +1,15 @@
 {
-  "versionCode": 33,
-  "versionName": "1.6.4",
-  "releaseTag": "v1.6.4",
-  "releaseDate": "2026-11-20",
+  "versionCode": 34,
+  "versionName": "1.6.5",
+  "releaseTag": "v1.6.5",
+  "releaseDate": "2026-11-23",
   "apkUrl": "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
   "fallbackUrl": "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-  "title": "Yeni Sürüm Mevcut (v1.6.4)",
+  "title": "Yeni Sürüm Mevcut (v1.6.5)",
   "changelog": [
-    "Yardımcı Tesisler Saatlik Giriş ekranı çok daha az kaydırma gerektirecek şekilde yenilendi: 2 sütunlu kompakt sayısal giriş ızgarası ve tek satırlı durum/seçenek şeritleri eklendi.",
-    "Ekranın altına sabitlenen 'Kaydet / Sonraki Saat / Hızlı Not' çubuğu sayesinde sayfanın en altına inmeden tek dokunuşla kayıt ve saatlik açıklama ekleme imkanı eklendi.",
-    "Çoklu sistem saatlerinde hızlı sistem filtresi (Kompresör/Chiller/Kazan/Arıtma), katlanabilir ünite özet kartları, tek tıkla 'Normal' doldurma ve 'Önceki Saatten Kopyala' özellikleri eklendi (v1.6.4 - Kod: 33)."
+    "Yeni İSG (İş Sağlığı ve Güvenliği) sekmesi eklendi: Birebir Forklift Kontrol Formu ve 48 maddelik Tekinak Gıda Elektrik Kontrol Formu, personele yönlendirme, fotoğraf ekleme ve tamamlanma bildirimi aktif.",
+    "Tüm İSG formlarına dokunmatik/kalem destekli Dijital İmza Paneli ve birebir Word (.docx), Excel (.xlsx) ve A4 PDF çıktı motoru eklendi.",
+    "Yönetici canlı sekme sıralaması, Web üst menü kaydırma okları, bakım saatlerine 21:00 dilimi ve Paketleme FR-59 Arıza/Bakım tablosu eklendi (v1.6.5 - Kod: 34)."
   ],
   "forceUpdate": false
 }
