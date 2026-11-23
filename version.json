@@ -1,15 +1,15 @@
 {
-  "versionCode": 34,
-  "versionName": "1.6.5",
-  "releaseTag": "v1.6.5",
+  "versionCode": 35,
+  "versionName": "1.6.6",
+  "releaseTag": "v1.6.6",
   "releaseDate": "2026-11-23",
   "apkUrl": "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
   "fallbackUrl": "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-  "title": "Yeni Sürüm Mevcut (v1.6.5)",
+  "title": "Yeni Sürüm Mevcut (v1.6.6)",
   "changelog": [
-    "Yeni İSG (İş Sağlığı ve Güvenliği) sekmesi eklendi: Birebir Forklift Kontrol Formu ve 48 maddelik Tekinak Gıda Elektrik Kontrol Formu, personele yönlendirme, fotoğraf ekleme ve tamamlanma bildirimi aktif.",
-    "Tüm İSG formlarına dokunmatik/kalem destekli Dijital İmza Paneli ve birebir Word (.docx), Excel (.xlsx) ve A4 PDF çıktı motoru eklendi.",
-    "Yönetici canlı sekme sıralaması, Web üst menü kaydırma okları, bakım saatlerine 21:00 dilimi ve Paketleme FR-59 Arıza/Bakım tablosu eklendi (v1.6.5 - Kod: 34)."
+    "İSG kontrol formlarında AÇIKLAMA sütununa satır başına birden fazla fotoğraf (6 adede kadar) ekleme, toplu seçim, tek tek kaldırma ve tam ekran önizleme eklendi.",
+    "Eklenen tüm çoklu fotoğraflar birebir A4 PDF, Word (.docx) ve Excel (.xlsx — Fotoğraf Ekleri sayfası dahil) çıktılarına otomatik olarak dahil edildi.",
+    "İSG Dijital İmza Paneli, 48 maddelik Tekinak Elektrik Kontrol Formu, Forklift Kontrol Formu, canlı sekme sıralaması ve Paketleme FR-59 tablosu ile uyumlu (v1.6.6 - Kod: 35)."
   ],
   "forceUpdate": false
 }
