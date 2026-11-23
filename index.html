@@ -5,9 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Tekinak Gıda CMMS - Endüstriyel Bakım Yönetim Portalı</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Tekinak Bakım">
   <meta name="theme-color" content="#1E3A8A">
+  <script>
+    (function () {
+      try {
+        var ua = navigator.userAgent || "";
+        var isIOS = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+        var isStandalone = window.navigator.standalone === true || (window.matchMedia && window.matchMedia("(display-mode: standalone)").matches);
+        var root = document.documentElement;
+        if (isIOS) {
+          root.classList.add("is-ios-touch");
+          var maxDim = Math.max(window.screen ? window.screen.width : 0, window.screen ? window.screen.height : 0);
+          if (maxDim >= 800 && /iPhone/i.test(ua)) root.classList.add("ios-notch");
+          if (isStandalone) root.classList.add("ios-standalone");
+        }
+      } catch (e) {}
+    })();
+  </script>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Google Fonts: Inter -->
@@ -19,7 +36,66 @@
   <!-- SheetJS for authentic Microsoft Excel (.xlsx) Generation -->
   <script src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
   <style>
+    :root {
+      --safe-top: env(safe-area-inset-top, 0px);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+      --safe-left: env(safe-area-inset-left, 0px);
+      --safe-right: env(safe-area-inset-right, 0px);
+    }
+    html { background-color: #1E3A8A; }
     html, body { width: 100%; max-width: 100%; overflow-x: hidden; overflow-x: clip; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
+    body { min-height: 100vh; min-height: 100dvh; }
+
+    /* ================= iOS / SAFE AREA (DYNAMIC ISLAND & DURUM ÇUBUĞU KORUMASI) ================= */
+    #mainApp > header {
+      padding-top: calc(var(--safe-top) + min(var(--safe-top), 10px));
+      padding-left: var(--safe-left);
+      padding-right: var(--safe-right);
+    }
+    html.ios-standalone.ios-notch #mainApp > header {
+      padding-top: calc(max(var(--safe-top), 54px) + 10px);
+    }
+    html.ios-standalone:not(.ios-notch) #mainApp > header {
+      padding-top: calc(max(var(--safe-top), 20px) + 6px);
+    }
+    #authContainer {
+      padding-top: calc(1rem + var(--safe-top) + min(var(--safe-top), 8px));
+      padding-bottom: calc(1rem + var(--safe-bottom));
+    }
+    html.ios-standalone.ios-notch #authContainer {
+      padding-top: calc(1rem + max(var(--safe-top), 54px) + 8px);
+    }
+    #mainApp > main {
+      padding-bottom: calc(1.75rem + var(--safe-bottom));
+      padding-left: max(0.75rem, var(--safe-left));
+      padding-right: max(0.75rem, var(--safe-right));
+    }
+    @media (min-width: 640px) {
+      #mainApp > main {
+        padding-left: max(1rem, var(--safe-left));
+        padding-right: max(1rem, var(--safe-right));
+      }
+    }
+    #chatDrawer > div:first-child {
+      padding-top: calc(1rem + var(--safe-top) + min(var(--safe-top), 8px));
+    }
+    html.ios-standalone.ios-notch #chatDrawer > div:first-child {
+      padding-top: calc(1rem + max(var(--safe-top), 54px) + 8px);
+    }
+    #chatInputBar,
+    #chatReadOnlyBar {
+      padding-bottom: calc(0.75rem + var(--safe-bottom));
+    }
+    #utilityHourlyContainer .sticky.bottom-2 {
+      bottom: calc(0.5rem + var(--safe-bottom));
+    }
+    [id^="modal"].fixed.inset-0 {
+      padding-top: calc(1rem + var(--safe-top));
+      padding-bottom: calc(1rem + var(--safe-bottom));
+      padding-left: calc(1rem + var(--safe-left));
+      padding-right: calc(1rem + var(--safe-right));
+    }
+
     .overflow-x-clip-safe { overflow-x: hidden; overflow-x: clip; }
     .hide-scrollbar::-webkit-scrollbar { display: none; }
     .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
