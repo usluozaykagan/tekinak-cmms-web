@@ -864,23 +864,83 @@
       </div>
 
       <!-- Başlık & Aksiyonlar -->
-      <div class="bg-white p-4 rounded-2xl border border-slate-200 custom-shadow flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-        <div>
-          <div class="flex items-center gap-2">
-            <span class="px-2 py-0.5 bg-amber-100 text-amber-900 border border-amber-300 rounded text-[10px] font-black">🍝 MAKARNA HATTI</span>
-            <h2 class="text-base font-extrabold text-slate-900">Paketleme Birimi — Vardiya, Gramaj &amp; KKN Takibi</h2>
+      <div class="bg-white p-4 rounded-2xl border border-slate-200 custom-shadow space-y-3">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 bg-amber-100 text-amber-900 border border-amber-300 rounded text-[10px] font-black">🍝 MAKARNA HATTI</span>
+              <h2 class="text-base font-extrabold text-slate-900">Paketleme Birimi — Vardiya, KKN &amp; FR-59 Arıza Takibi</h2>
+            </div>
+            <p class="text-xs text-slate-500 mt-0.5">Dikey dolum, kartonlama, 5 kg çuval hatları KKN kontrolü ve FR-59 Arıza ve Bakım Takip Formu</p>
           </div>
-          <p class="text-xs text-slate-500 mt-0.5">Dikey dolum, kartonlama ve 5 kg çuval hatları üretim adedi, bobin/lot izlenebilirliği, fire, duruş ve 4 KKN kalite kontrolü</p>
+          <div id="pkgShiftsActions" class="flex flex-wrap items-center gap-2 w-full sm:w-auto">
+            <button type="button" id="btnPackagingExcel" onclick="exportPackagingExcel()" class="btn-excel-export px-3 py-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 rounded-xl text-xs font-bold flex items-center gap-1.5 transition">
+              <i data-lucide="file-spreadsheet" class="w-3.5 h-3.5"></i> Excel (.xlsx)
+            </button>
+            <button type="button" id="btnAddPackagingLog" onclick="openPackagingLogModal()" class="px-4 py-2 bg-[#1E3A8A] hover:bg-blue-800 text-white rounded-xl text-xs font-bold shadow flex items-center gap-1.5 transition">
+              <i data-lucide="plus" class="w-4 h-4"></i> + Vardiya / Hat Kaydı Ekle
+            </button>
+          </div>
+          <div id="pkgFr59Actions" class="hidden flex flex-wrap items-center gap-2 w-full sm:w-auto">
+            <button type="button" onclick="printPackagingFaultForms()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-300 rounded-xl text-xs font-bold flex items-center gap-1.5 transition">
+              <i data-lucide="printer" class="w-3.5 h-3.5"></i> Yazdır (FR-59)
+            </button>
+            <button type="button" id="btnPackagingFr59Excel" onclick="exportPackagingFaultFormsExcel()" class="btn-excel-export px-3 py-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 rounded-xl text-xs font-bold flex items-center gap-1.5 transition">
+              <i data-lucide="file-spreadsheet" class="w-3.5 h-3.5"></i> Excel (.xlsx)
+            </button>
+            <button type="button" id="btnAddPackagingFr59" onclick="openPackagingFaultFormModal()" class="px-4 py-2 bg-[#1E3A8A] hover:bg-blue-800 text-white rounded-xl text-xs font-bold shadow flex items-center gap-1.5 transition">
+              <i data-lucide="plus" class="w-4 h-4"></i> + Yeni FR-59 Tablo Kaydı
+            </button>
+          </div>
         </div>
-        <div class="flex flex-wrap items-center gap-2 w-full sm:w-auto">
-          <button type="button" id="btnPackagingExcel" onclick="exportPackagingExcel()" class="btn-excel-export px-3 py-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 rounded-xl text-xs font-bold flex items-center gap-1.5 transition">
-            <i data-lucide="file-spreadsheet" class="w-3.5 h-3.5"></i> Excel (.xlsx)
+        <!-- Alt Sekme Geçişi: Vardiya & KKN | Paketleme Arıza (FR-59) -->
+        <div class="grid grid-cols-2 gap-2 pt-2 border-t border-slate-100">
+          <button type="button" id="pkgBranchBtn_shifts" onclick="switchPackagingBranch('shifts')" class="px-3 py-2.5 rounded-xl text-xs font-extrabold transition bg-[#1E3A8A] text-amber-300 shadow-sm">
+            📦 Vardiya &amp; KKN Takibi (<span id="pkgShiftsCountBadge">0</span>)
           </button>
-          <button type="button" id="btnAddPackagingLog" onclick="openPackagingLogModal()" class="px-4 py-2 bg-[#1E3A8A] hover:bg-blue-800 text-white rounded-xl text-xs font-bold shadow flex items-center gap-1.5 transition">
-            <i data-lucide="plus" class="w-4 h-4"></i> + Vardiya / Hat Kaydı Ekle
+          <button type="button" id="pkgBranchBtn_fr59" onclick="switchPackagingBranch('fr59')" class="px-3 py-2.5 rounded-xl text-xs font-extrabold transition bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200">
+            🛠️ Paketleme Arıza (FR-59) (<span id="pkgFr59CountBadge">0</span>)
           </button>
         </div>
       </div>
+
+      <!-- PAKETLEME ARIZA VE BAKIM TAKİP FORMU (FR-59) BÖLÜMÜ -->
+      <div id="pkgFr59Section" class="hidden space-y-4">
+        <div class="bg-white p-4 rounded-2xl border-2 border-slate-300 custom-shadow space-y-3">
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between border border-slate-600 rounded-lg overflow-hidden">
+            <div class="bg-red-700 text-white font-black text-sm px-5 py-3 flex items-center justify-center tracking-wider">BERRAK</div>
+            <div class="flex-1 text-center py-2.5 px-4 bg-slate-50">
+              <div class="font-black text-base text-slate-900 tracking-wide">ARIZA VE BAKIM TAKİP FORMU</div>
+              <div class="text-[11px] font-semibold text-slate-500">FR-59 07.07.2017/01/28.02.2025 • Paketleme Arıza ve Bakım Kayıt Tablosu</div>
+            </div>
+            <div class="flex items-center justify-center gap-3 px-4 py-2 bg-white border-t sm:border-t-0 sm:border-l border-slate-300 text-xs">
+              <div class="text-center"><div id="pkgFr59StatTotal" class="text-lg font-black text-[#1E3A8A]">0</div><div class="text-[10px] font-bold text-slate-500">Toplam</div></div>
+              <div class="w-px h-7 bg-slate-200"></div>
+              <div class="text-center"><div id="pkgFr59StatToday" class="text-lg font-black text-sky-700">0</div><div class="text-[10px] font-bold text-slate-500">Bugün</div></div>
+              <div class="w-px h-7 bg-slate-200"></div>
+              <div class="text-center"><div id="pkgFr59StatClean" class="text-lg font-black text-emerald-700">0</div><div class="text-[10px] font-bold text-slate-500">Temizlik ✓</div></div>
+            </div>
+          </div>
+
+          <div class="flex flex-col md:flex-row items-stretch md:items-center gap-2.5 text-xs">
+            <div class="relative flex-1">
+              <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-2.5"></i>
+              <input type="text" id="pkgFr59SearchInput" oninput="renderPackagingFaultForms()" placeholder="Arıza/Bakım No, tarih, yer, neden, sonuç, gideren veya kontrol eden ara..." class="w-full pl-9 pr-3 py-2 border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-[#1E3A8A]">
+            </div>
+            <div class="flex flex-wrap items-center gap-1.5">
+              <button type="button" id="pkgFr59Period_ALL" onclick="setPkgFr59Period('ALL')" class="px-2.5 py-1.5 rounded-full font-bold bg-[#1E3A8A] text-amber-300 text-[11px] transition">Tüm Tarihler</button>
+              <button type="button" id="pkgFr59Period_TODAY" onclick="setPkgFr59Period('TODAY')" class="px-2.5 py-1.5 rounded-full font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 text-[11px] transition">Bugün</button>
+              <button type="button" id="pkgFr59Period_7D" onclick="setPkgFr59Period('7D')" class="px-2.5 py-1.5 rounded-full font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 text-[11px] transition">Son 7 Gün</button>
+              <button type="button" id="pkgFr59Period_MONTH" onclick="setPkgFr59Period('MONTH')" class="px-2.5 py-1.5 rounded-full font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 text-[11px] transition">Bu Ay</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="pkgFr59Container" class="grid grid-cols-1 xl:grid-cols-2 gap-4"></div>
+      </div>
+
+      <!-- VARDİYA & KKN BÖLÜMÜ SARMALAYICI -->
+      <div id="pkgShiftsSection" class="space-y-4">
 
       <!-- KPI Özeti -->
       <div id="pkgKpisGrid" class="grid grid-cols-2 lg:grid-cols-4 gap-3">
@@ -992,6 +1052,7 @@
         <div class="text-sm font-bold text-amber-900">🔒 Paketleme Alt Sayfa Yetkisi Kısıtlı</div>
         <div class="text-xs text-slate-500">Üretim KPI Özeti veya Vardiya Kayıtları alt sayfalarından en az biri açıldığında içerikler burada görüntülenecektir.</div>
       </div>
+      </div><!-- /pkgShiftsSection -->
     </section>
 
     <!-- 5.5 TAB: YARDIMCI TESİSLER KONTROL FORMLARI (FR-38, FR-129, FR-37, FR-41) -->
@@ -2696,6 +2757,91 @@
       <div class="flex justify-end gap-2 pt-2 border-t">
         <button type="button" onclick="closeModal('modalPackagingLog')" class="px-4 py-2 border rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-50">İptal</button>
         <button type="button" onclick="savePackagingLog()" class="px-5 py-2 bg-[#1E3A8A] hover:bg-blue-800 text-white rounded-xl text-xs font-bold shadow">Kaydet &amp; Buluta Gönder</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: PAKETLEME ARIZA VE BAKIM TAKİP FORMU (FR-59) -->
+  <div id="modalPackagingFaultForm" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-2xl w-full p-6 shadow-2xl space-y-4 max-h-[92vh] overflow-y-auto">
+      <div class="flex items-center justify-between border-b pb-3">
+        <div>
+          <h3 id="pkgFr59ModalTitle" class="font-extrabold text-base text-slate-900 flex items-center gap-2">
+            <i data-lucide="clipboard-list" class="w-5 h-5 text-[#1E3A8A]"></i>
+            <span>ARIZA VE BAKIM TAKİP FORMU (FR-59)</span>
+          </h3>
+          <p class="text-[11px] text-slate-500">FR-59 07.07.2017/01/28.02.2025 — Basılı form tablosuyla birebir uyumlu kayıt</p>
+        </div>
+        <button type="button" onclick="closeModal('modalPackagingFaultForm')" class="text-slate-400 hover:text-slate-600"><i data-lucide="x" class="w-5 h-5"></i></button>
+      </div>
+      <input type="hidden" id="fr59EditId">
+      <div class="space-y-3 text-xs">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">TARİH *</label>
+            <input type="date" id="fr59DateIso" class="w-full border border-slate-300 rounded-lg p-2.5 font-semibold">
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">ARIZA/BAKIM NO *</label>
+            <input type="text" id="fr59FaultNo" placeholder="Örn: 1" class="w-full border border-slate-300 rounded-lg p-2.5 font-bold">
+          </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">ARIZA / BAKIM SAATİ</label>
+            <input type="text" id="fr59TimeRange" placeholder="Örn: 08:40 - 09:30" class="w-full border border-slate-300 rounded-lg p-2.5 font-semibold">
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">ARIZA / BAKIM YERİ *</label>
+            <input type="text" id="fr59Location" list="fr59LocationOptions" placeholder="Örn: Anselmo 104, Dikey Dolum Hattı 1..." class="w-full border border-slate-300 rounded-lg p-2.5 font-semibold">
+            <datalist id="fr59LocationOptions">
+              <option value="Anselmo 104"></option>
+              <option value="101 Buhler"></option>
+              <option value="102 Anselmo"></option>
+              <option value="103 Fava"></option>
+              <option value="104 Buhler"></option>
+              <option value="Dikey Dolum Hattı 1"></option>
+              <option value="Dikey Dolum Hattı 2"></option>
+              <option value="Dikey Dolum Hattı 3"></option>
+              <option value="Kartonlama &amp; Koli Hattı 4"></option>
+              <option value="5 Kg Çuval Hattı 5"></option>
+            </datalist>
+          </div>
+        </div>
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">ARIZA NEDENİ *</label>
+          <textarea id="fr59Reason" rows="2" placeholder="Örn: Filtre Temizliği, Çene ısı arızası..." class="w-full border border-slate-300 rounded-lg p-2.5"></textarea>
+        </div>
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">SONUÇ (Yapılan İşlem)</label>
+          <textarea id="fr59Result" rows="3" placeholder="Örn: Anselmo 2 Filtre temizlendi&#10;104 1 Filtre temizlendi" class="w-full border border-slate-300 rounded-lg p-2.5"></textarea>
+        </div>
+        <div>
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+            <label class="font-bold text-slate-700">BAKIM SONRASI TEMİZLİK KONTROLÜ</label>
+            <div class="flex items-center gap-1.5">
+              <button type="button" onclick="document.getElementById('fr59Cleaning').value='Yapıldı'" class="px-2 py-0.5 rounded bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 font-bold text-[10px]">✓ Yapıldı</button>
+              <button type="button" onclick="document.getElementById('fr59Cleaning').value='Yapılmadı'" class="px-2 py-0.5 rounded bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-200 font-bold text-[10px]">Yapılmadı</button>
+              <button type="button" onclick="document.getElementById('fr59Cleaning').value='Gerek Yok'" class="px-2 py-0.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 font-bold text-[10px]">Gerek Yok</button>
+            </div>
+          </div>
+          <input type="text" id="fr59Cleaning" value="Yapıldı" placeholder="Yapıldı" class="w-full border border-slate-300 rounded-lg p-2.5 font-semibold">
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">BAKIM/ARIZAYI GİDEREN</label>
+            <input type="text" id="fr59ResolvedBy" list="fr59StaffOptions" placeholder="Ad Soyad" class="w-full border border-slate-300 rounded-lg p-2.5 font-semibold">
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">KONTROL EDEN</label>
+            <input type="text" id="fr59CheckedBy" list="fr59StaffOptions" placeholder="Ad Soyad" class="w-full border border-slate-300 rounded-lg p-2.5 font-semibold">
+          </div>
+        </div>
+        <datalist id="fr59StaffOptions"></datalist>
+      </div>
+      <div class="flex justify-end gap-2 pt-2 border-t">
+        <button type="button" onclick="closeModal('modalPackagingFaultForm')" class="px-4 py-2 border rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-50">İptal</button>
+        <button type="button" onclick="savePackagingFaultForm()" class="px-5 py-2 bg-[#1E3A8A] hover:bg-blue-800 text-white rounded-xl text-xs font-bold shadow">FR-59 Kaydet &amp; Buluta Gönder</button>
       </div>
     </div>
   </div>
@@ -6060,6 +6206,32 @@
         });
       } catch (e) {
         console.warn("Failed to listen to packaging_logs:", e);
+      }
+
+      // 3.8b Paketleme Arıza ve Bakım Takip Formu (FR-59 - packaging_fault_forms)
+      try {
+        onSnapshot(collection(db, "packaging_fault_forms"), (snapshot) => {
+          const list = [];
+          snapshot.forEach(docSnap => {
+            list.push({ ...docSnap.data(), docId: docSnap.id, id: docSnap.id });
+          });
+          list.sort((a, b) => {
+            const dCmp = (b.dateIso || "").localeCompare(a.dateIso || "");
+            if (dCmp !== 0) return dCmp;
+            const nA = parseInt(String(a.faultNo || "").replace(/\D/g, ""), 10) || 0;
+            const nB = parseInt(String(b.faultNo || "").replace(/\D/g, ""), 10) || 0;
+            if (nB !== nA) return nB - nA;
+            return (b.updatedAtMillis || 0) - (a.updatedAtMillis || 0);
+          });
+          window.allPackagingFaultForms = list;
+          if (typeof window.renderPackagingFaultForms === "function") {
+            window.renderPackagingFaultForms();
+          }
+        }, (err) => {
+          console.warn("packaging_fault_forms listener error:", err);
+        });
+      } catch (e) {
+        console.warn("Failed to listen to packaging_fault_forms:", e);
       }
 
       // 3.9 Yedek Parça Envanteri (spare_parts)
@@ -12137,7 +12309,7 @@
     const UTILITY_BOILER_HOURS = [
       "08:00", "09:00", "10:00", "11:00", "12:00",
       "14:00", "15:00", "16:00", "17:00", "18:00",
-      "19:00", "20:00", "21:30", "22:00", "23:00",
+      "19:00", "20:00", "21:00", "22:00", "23:00",
       "00:00", "01:00", "02:00", "03:00", "04:00",
       "05:00", "06:00", "07:00"
     ];
@@ -12368,6 +12540,10 @@
         const legacy = cells[hourlyNoteCellKey("09:30")];
         if (typeof legacy === "string" && legacy.trim().length > 0) return legacy;
       }
+      if (formType === "BOILER" && timeSlot === "21:00") {
+        const legacy21 = cells[hourlyNoteCellKey("21:30")];
+        if (typeof legacy21 === "string" && legacy21.trim().length > 0) return legacy21;
+      }
       return "";
     }
 
@@ -12513,6 +12689,13 @@
             delete cells[cellK];
           } else if (cellK === "hourly_note__09:30") {
             if (!cells["hourly_note__09:00"]) cells["hourly_note__09:00"] = cells[cellK];
+            delete cells[cellK];
+          } else if (cellK.includes("__21:30__")) {
+            const migratedK = cellK.replace("__21:30__", "__21:00__");
+            if (!cells[migratedK]) cells[migratedK] = cells[cellK];
+            delete cells[cellK];
+          } else if (cellK === "hourly_note__21:30") {
+            if (!cells["hourly_note__21:00"]) cells["hourly_note__21:00"] = cells[cellK];
             delete cells[cellK];
           }
         });
@@ -12873,6 +13056,11 @@
       container.classList.toggle("hidden", !canViewLogs);
 
       const logs = window.allPackagingLogs || [];
+      const fr59Forms = window.allPackagingFaultForms || [];
+      const shiftsBadge = document.getElementById("pkgShiftsCountBadge");
+      if (shiftsBadge) shiftsBadge.textContent = String(logs.length);
+      const fr59Badge = document.getElementById("pkgFr59CountBadge");
+      if (fr59Badge) fr59Badge.textContent = String(fr59Forms.length);
       const filtered = getPkgFilteredLogs();
       window.lastFilteredPackagingLogs = filtered;
 
@@ -13368,6 +13556,378 @@
     };
     window.exportPackagingCsv = window.exportPackagingExcel;
 
+    // ================= PAKETLEME ARIZA VE BAKIM TAKİP FORMU (FR-59) =================
+    const PKG_FR59_FORM_CODE = "FR-59 07.07.2017/01/28.02.2025";
+    window.allPackagingFaultForms = window.allPackagingFaultForms || [];
+    window.pkgActiveBranch = window.pkgActiveBranch || "shifts";
+    window.pkgFr59PeriodFilter = window.pkgFr59PeriodFilter || "ALL";
+    window.lastFilteredPkgFr59 = [];
+
+    window.switchPackagingBranch = function(branch) {
+      window.pkgActiveBranch = (branch === "fr59") ? "fr59" : "shifts";
+      const isFr59 = window.pkgActiveBranch === "fr59";
+      const shiftsSec = document.getElementById("pkgShiftsSection");
+      const fr59Sec = document.getElementById("pkgFr59Section");
+      const shiftsAct = document.getElementById("pkgShiftsActions");
+      const fr59Act = document.getElementById("pkgFr59Actions");
+      const btnShifts = document.getElementById("pkgBranchBtn_shifts");
+      const btnFr59 = document.getElementById("pkgBranchBtn_fr59");
+      if (shiftsSec) shiftsSec.classList.toggle("hidden", isFr59);
+      if (fr59Sec) fr59Sec.classList.toggle("hidden", !isFr59);
+      if (shiftsAct) shiftsAct.classList.toggle("hidden", isFr59);
+      if (fr59Act) fr59Act.classList.toggle("hidden", !isFr59);
+      if (btnShifts) {
+        btnShifts.className = isFr59
+          ? "px-3 py-2.5 rounded-xl text-xs font-extrabold transition bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200"
+          : "px-3 py-2.5 rounded-xl text-xs font-extrabold transition bg-[#1E3A8A] text-amber-300 shadow-sm";
+      }
+      if (btnFr59) {
+        btnFr59.className = isFr59
+          ? "px-3 py-2.5 rounded-xl text-xs font-extrabold transition bg-[#1E3A8A] text-amber-300 shadow-sm"
+          : "px-3 py-2.5 rounded-xl text-xs font-extrabold transition bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200";
+      }
+      if (isFr59) window.renderPackagingFaultForms();
+      else if (typeof window.renderPackagingUnit === "function") window.renderPackagingUnit();
+      lucide.createIcons();
+    };
+
+    window.setPkgFr59Period = function(period) {
+      window.pkgFr59PeriodFilter = period || "ALL";
+      ["ALL", "TODAY", "7D", "MONTH"].forEach(p => {
+        const btn = document.getElementById(`pkgFr59Period_${p}`);
+        if (!btn) return;
+        const active = window.pkgFr59PeriodFilter === p;
+        btn.className = active
+          ? "px-2.5 py-1.5 rounded-full font-bold bg-[#1E3A8A] text-amber-300 text-[11px] transition"
+          : "px-2.5 py-1.5 rounded-full font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 text-[11px] transition";
+      });
+      window.renderPackagingFaultForms();
+    };
+
+    function isFr59CleaningApproved(val) {
+      const norm = String(val || "").trim().toLowerCase();
+      return norm.startsWith("yapıldı") || norm.startsWith("yapildi") || norm === "uygun" || norm === "ok" || norm === "✓";
+    }
+
+    function nextPkgFr59FaultNo() {
+      const maxNo = (window.allPackagingFaultForms || []).reduce((mx, r) => {
+        const n = parseInt(String(r.faultNo || "").replace(/\D/g, ""), 10) || 0;
+        return Math.max(mx, n);
+      }, 0);
+      return String(maxNo + 1);
+    }
+
+    window.renderPackagingFaultForms = function() {
+      const allForms = window.allPackagingFaultForms || [];
+      const shiftsCountEl = document.getElementById("pkgShiftsCountBadge");
+      const fr59CountEl = document.getElementById("pkgFr59CountBadge");
+      if (shiftsCountEl) shiftsCountEl.innerText = String((window.allPackagingLogs || []).length);
+      if (fr59CountEl) fr59CountEl.innerText = String(allForms.length);
+
+      const canEdit = window.canUserEditSubPage("pkg_logs", window.currentUser);
+      const canExcel = window.canUserExportExcel(window.currentUser);
+      const addBtn = document.getElementById("btnAddPackagingFr59");
+      const excelBtn = document.getElementById("btnPackagingFr59Excel");
+      if (addBtn) addBtn.classList.toggle("hidden", !canEdit);
+      if (excelBtn) excelBtn.classList.toggle("hidden", !canExcel);
+
+      const q = (document.getElementById("pkgFr59SearchInput")?.value || "").trim().toLowerCase();
+      const period = window.pkgFr59PeriodFilter || "ALL";
+      const todayIso = getLocalTodayIso();
+      const d7 = new Date(); d7.setDate(d7.getDate() - 6);
+      const sevenDaysAgoIso = `${d7.getFullYear()}-${String(d7.getMonth()+1).padStart(2,"0")}-${String(d7.getDate()).padStart(2,"0")}`;
+      const monthPrefix = todayIso.slice(0, 7);
+
+      const filtered = allForms.filter(r => {
+        const dIso = r.dateIso || "";
+        const matchPeriod = period === "TODAY" ? dIso === todayIso
+          : period === "7D" ? dIso >= sevenDaysAgoIso
+          : period === "MONTH" ? dIso.startsWith(monthPrefix)
+          : true;
+        if (!matchPeriod) return false;
+        if (!q) return true;
+        const hay = `${r.faultNo || ""} ${r.displayDate || formatDisplayDateTr(dIso)} ${r.timeRange || ""} ${r.location || ""} ${r.reason || ""} ${r.result || ""} ${r.cleaningControl || ""} ${r.resolvedBy || ""} ${r.checkedBy || ""}`.toLowerCase();
+        return hay.includes(q);
+      });
+      window.lastFilteredPkgFr59 = filtered;
+
+      const statTotal = document.getElementById("pkgFr59StatTotal");
+      const statToday = document.getElementById("pkgFr59StatToday");
+      const statClean = document.getElementById("pkgFr59StatClean");
+      if (statTotal) statTotal.innerText = String(filtered.length);
+      if (statToday) statToday.innerText = String(allForms.filter(r => r.dateIso === todayIso).length);
+      if (statClean) statClean.innerText = String(filtered.filter(r => isFr59CleaningApproved(r.cleaningControl)).length);
+
+      const container = document.getElementById("pkgFr59Container");
+      if (!container) return;
+      if (filtered.length === 0) {
+        container.innerHTML = `<div class="col-span-full py-12 text-center bg-white rounded-2xl border border-slate-200 text-slate-400 text-xs">Henüz bu filtrelere uygun Paketleme Arıza &amp; Bakım Takip Formu (FR-59) kaydı bulunmuyor.</div>`;
+        return;
+      }
+
+      container.innerHTML = filtered.map(r => {
+        const safeId = escapeHtml(r.id || r.docId || "");
+        const dispDate = escapeHtml(r.displayDate || formatDisplayDateTr(r.dateIso || ""));
+        const cleanOk = isFr59CleaningApproved(r.cleaningControl);
+        return `
+          <div class="bg-white rounded-2xl border border-slate-300 custom-shadow p-3.5 space-y-2.5">
+            <div class="flex items-center justify-between gap-2">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="px-2.5 py-0.5 rounded-md bg-[#1E3A8A] text-amber-300 text-[11px] font-black">NO: ${escapeHtml(r.faultNo || "-")}</span>
+                <span class="px-2 py-0.5 rounded-md text-[10px] font-bold border ${cleanOk ? "bg-emerald-50 text-emerald-800 border-emerald-200" : "bg-amber-50 text-amber-800 border-amber-200"}">
+                  ${cleanOk ? "✓ Temizlik: " : "⚠️ "}${escapeHtml(r.cleaningControl || "Kontrol Bekliyor")}
+                </span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                ${canEdit ? `<button type="button" onclick="openPackagingFaultFormModal('${safeId}')" class="px-2.5 py-1 bg-blue-50 hover:bg-blue-100 text-blue-800 border border-blue-200 rounded-lg text-[11px] font-bold">Düzenle</button>` : `<span class="text-[10px] text-slate-500 bg-slate-100 px-2 py-0.5 rounded font-semibold">🔒 Salt Okunur</span>`}
+                ${canEdit ? `<button type="button" onclick="deletePackagingFaultForm('${safeId}')" class="px-2 py-1 bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 rounded-lg text-[11px] font-bold">Sil</button>` : ""}
+              </div>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="w-full border-collapse text-xs border border-slate-600">
+                <tbody>
+                  <tr>
+                    <td class="border border-slate-600 bg-slate-100 font-extrabold text-slate-800 px-2 py-1.5 w-[22%] text-[10px]">TARİH</td>
+                    <td class="border border-slate-600 bg-white font-semibold text-slate-900 px-2.5 py-1.5 w-[28%]">${dispDate || "-"}</td>
+                    <td class="border border-slate-600 bg-slate-100 font-extrabold text-slate-800 px-2 py-1.5 w-[22%] text-[10px]">ARIZA/BAKIM NO</td>
+                    <td class="border border-slate-600 bg-white font-extrabold text-slate-900 px-2.5 py-1.5 w-[28%]">${escapeHtml(r.faultNo || "-")}</td>
+                  </tr>
+                  <tr>
+                    <td class="border border-slate-600 bg-slate-100 font-extrabold text-slate-800 px-2 py-1.5 text-[10px]">ARIZA / BAKIM SAATİ</td>
+                    <td class="border border-slate-600 bg-white font-semibold text-slate-900 px-2.5 py-1.5">${escapeHtml(r.timeRange || "-")}</td>
+                    <td class="border border-slate-600 bg-slate-100 font-extrabold text-slate-800 px-2 py-1.5 text-[10px]">ARIZA / BAKIM YERİ</td>
+                    <td class="border border-slate-600 bg-white font-semibold text-slate-900 px-2.5 py-1.5">${escapeHtml(r.location || "-")}</td>
+                  </tr>
+                  <tr>
+                    <td class="border border-slate-600 bg-slate-100 font-extrabold text-slate-800 px-2 py-2 text-[10px]">ARIZA NEDENİ</td>
+                    <td colspan="3" class="border border-slate-600 bg-white font-semibold text-slate-900 px-2.5 py-2 whitespace-pre-wrap">${escapeHtml(r.reason || "-")}</td>
+                  </tr>
+                  <tr>
+                    <td class="border border-slate-600 bg-slate-100 font-extrabold text-slate-800 px-2 py-2.5 text-[10px]">SONUÇ</td>
+                    <td colspan="3" class="border border-slate-600 bg-white font-medium text-slate-900 px-2.5 py-2.5 whitespace-pre-wrap">${escapeHtml(r.result || "-")}</td>
+                  </tr>
+                  <tr>
+                    <td class="border border-slate-600 bg-slate-100 font-extrabold text-slate-800 px-2 py-2 text-[10px]">BAKIM SONRASI TEMİZLİK KONTROLÜ</td>
+                    <td colspan="3" class="border border-slate-600 bg-white font-extrabold px-2.5 py-2 ${cleanOk ? "text-emerald-800" : "text-amber-800"}">${escapeHtml(r.cleaningControl || "-")}</td>
+                  </tr>
+                  <tr>
+                    <td class="border border-slate-600 bg-slate-100 font-extrabold text-slate-800 px-2 py-1.5 text-[10px]">BAKIM/ARIZAYI GİDEREN</td>
+                    <td class="border border-slate-600 bg-white font-semibold text-slate-900 px-2.5 py-1.5">${escapeHtml(r.resolvedBy || "-")}</td>
+                    <td class="border border-slate-600 bg-slate-100 font-extrabold text-slate-800 px-2 py-1.5 text-[10px]">KONTROL EDEN</td>
+                    <td class="border border-slate-600 bg-white font-semibold text-slate-900 px-2.5 py-1.5">${escapeHtml(r.checkedBy || "-")}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="flex items-center justify-between text-[10px] text-slate-500">
+              <span>${escapeHtml(r.formCode || PKG_FR59_FORM_CODE)}</span>
+              ${r.updatedByName ? `<span>Kayıt: ${escapeHtml(r.updatedByName)}</span>` : ""}
+            </div>
+          </div>
+        `;
+      }).join("");
+      lucide.createIcons();
+    };
+
+    window.openPackagingFaultFormModal = function(formId = null) {
+      if (!window.canUserEditSubPage("pkg_logs", window.currentUser)) {
+        alert("⛔ Salt Okunur Yetki: FR-59 kayıt ekleme/düzenleme yetkiniz kapalıdır.");
+        return;
+      }
+      const existing = formId ? (window.allPackagingFaultForms || []).find(x => x.id === formId || x.docId === formId) : null;
+      const staffList = document.getElementById("fr59StaffOptions");
+      if (staffList) {
+        const names = (window.allUsers || [])
+          .filter(u => !u.isDeleted && !u.isBlocked && !u.isHidden)
+          .map(u => (u.displayName || u.username || "").trim())
+          .filter(Boolean);
+        const uniqueNames = [...new Set(names)].sort((a, b) => a.localeCompare(b, "tr"));
+        staffList.innerHTML = uniqueNames.map(n => `<option value="${escapeHtml(n)}"></option>`).join("");
+      }
+      document.getElementById("fr59EditId").value = existing ? (existing.id || existing.docId) : "";
+      document.getElementById("fr59DateIso").value = existing?.dateIso || getLocalTodayIso();
+      document.getElementById("fr59FaultNo").value = existing?.faultNo || nextPkgFr59FaultNo();
+      document.getElementById("fr59TimeRange").value = existing?.timeRange || "";
+      document.getElementById("fr59Location").value = existing?.location || "";
+      document.getElementById("fr59Reason").value = existing?.reason || "";
+      document.getElementById("fr59Result").value = existing?.result || "";
+      document.getElementById("fr59Cleaning").value = existing?.cleaningControl || "Yapıldı";
+      document.getElementById("fr59ResolvedBy").value = existing?.resolvedBy || (window.currentUser?.displayName || "");
+      document.getElementById("fr59CheckedBy").value = existing?.checkedBy || "";
+      const titleEl = document.getElementById("pkgFr59ModalTitle");
+      if (titleEl) {
+        titleEl.innerHTML = `<i data-lucide="clipboard-list" class="w-5 h-5 text-[#1E3A8A]"></i> <span>${existing ? "FR-59 Kaydını Düzenle" : "Yeni FR-59 Arıza ve Bakım Takip Formu"}</span>`;
+      }
+      document.getElementById("modalPackagingFaultForm").classList.remove("hidden");
+      lucide.createIcons();
+    };
+
+    window.savePackagingFaultForm = async function() {
+      if (!window.canUserEditSubPage("pkg_logs", window.currentUser)) {
+        alert("⛔ FR-59 düzenleme yetkiniz kapalıdır.");
+        return;
+      }
+      const existingId = document.getElementById("fr59EditId").value.trim();
+      const dateIso = document.getElementById("fr59DateIso").value || getLocalTodayIso();
+      const faultNo = document.getElementById("fr59FaultNo").value.trim() || nextPkgFr59FaultNo();
+      const timeRange = document.getElementById("fr59TimeRange").value.trim();
+      const location = document.getElementById("fr59Location").value.trim();
+      const reason = document.getElementById("fr59Reason").value.trim();
+      const result = document.getElementById("fr59Result").value.trim();
+      const cleaningControl = document.getElementById("fr59Cleaning").value.trim() || "Yapıldı";
+      const resolvedBy = document.getElementById("fr59ResolvedBy").value.trim();
+      const checkedBy = document.getElementById("fr59CheckedBy").value.trim();
+
+      if (!location) { alert("Lütfen ARIZA / BAKIM YERİ alanını doldurun."); return; }
+      if (!reason) { alert("Lütfen ARIZA NEDENİ alanını doldurun."); return; }
+
+      const docId = existingId || `pkg_fr59_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+      const existing = existingId ? (window.allPackagingFaultForms || []).find(x => x.id === existingId || x.docId === existingId) : null;
+      const now = Date.now();
+      const u = window.currentUser || {};
+      const payload = {
+        id: docId,
+        formCode: existing?.formCode || PKG_FR59_FORM_CODE,
+        dateIso,
+        displayDate: formatDisplayDateTr(dateIso),
+        faultNo,
+        timeRange,
+        location,
+        reason,
+        result,
+        cleaningControl,
+        resolvedBy,
+        checkedBy,
+        updatedByUid: u.userId || u.id || "",
+        updatedByName: u.displayName || u.username || "Personel",
+        createdAtMillis: existing?.createdAtMillis || now,
+        updatedAtMillis: now,
+        updatedAt: serverTimestamp()
+      };
+      if (!existingId) payload.createdAt = serverTimestamp();
+
+      try {
+        await setDoc(doc(db, "packaging_fault_forms", docId), payload, { merge: true });
+        closeModal("modalPackagingFaultForm");
+      } catch (err) {
+        console.error("FR-59 kayıt hatası:", err);
+        alert("Kayıt sırasında hata oluştu: " + err.message);
+      }
+    };
+
+    window.deletePackagingFaultForm = async function(formId) {
+      if (!window.canUserEditSubPage("pkg_logs", window.currentUser)) return;
+      if (!confirm("Bu FR-59 Arıza ve Bakım Takip Formu kaydını silmek istediğinize emin misiniz?")) return;
+      try {
+        await deleteDoc(doc(db, "packaging_fault_forms", formId));
+      } catch (err) {
+        alert("Silme hatası: " + err.message);
+      }
+    };
+
+    window.exportPackagingFaultFormsExcel = function() {
+      if (!window.canUserExportExcel(window.currentUser)) {
+        alert("⛔ Excel çıktı yetkiniz kapalıdır.");
+        return;
+      }
+      if (typeof XLSX === "undefined") {
+        alert("Excel kütüphanesi yüklenemedi.");
+        return;
+      }
+      const rowsData = (Array.isArray(window.lastFilteredPkgFr59) && window.lastFilteredPkgFr59.length > 0)
+        ? window.lastFilteredPkgFr59
+        : (window.allPackagingFaultForms || []);
+      const aoa = [
+        ["TEKİNAK GIDA / BERRAK — ARIZA VE BAKIM TAKİP FORMU (FR-59)"],
+        [`Form Kodu: ${PKG_FR59_FORM_CODE} | Rapor Tarihi: ${new Date().toLocaleDateString("tr-TR")} | Kayıt Sayısı: ${rowsData.length}`],
+        [],
+        ["ARIZA/BAKIM NO", "TARİH", "ARIZA / BAKIM SAATİ", "ARIZA / BAKIM YERİ", "ARIZA NEDENİ", "SONUÇ", "BAKIM SONRASI TEMİZLİK KONTROLÜ", "BAKIM/ARIZAYI GİDEREN", "KONTROL EDEN", "FORM KODU"]
+      ];
+      rowsData.forEach((r, idx) => {
+        aoa.push([
+          r.faultNo || String(idx + 1),
+          r.displayDate || formatDisplayDateTr(r.dateIso || ""),
+          r.timeRange || "-",
+          r.location || "-",
+          r.reason || "-",
+          r.result || "-",
+          r.cleaningControl || "-",
+          r.resolvedBy || "-",
+          r.checkedBy || "-",
+          r.formCode || PKG_FR59_FORM_CODE
+        ]);
+      });
+      const wb = XLSX.utils.book_new();
+      const ws = XLSX.utils.aoa_to_sheet(aoa);
+      ws["!cols"] = [{wch:16},{wch:13},{wch:18},{wch:22},{wch:26},{wch:38},{wch:24},{wch:22},{wch:22},{wch:26}];
+      XLSX.utils.book_append_sheet(wb, ws, "FR-59 Arıza Bakım");
+      XLSX.writeFile(wb, `Tekinak_Paketleme_Ariza_FR59_${getLocalTodayIso()}.xlsx`);
+    };
+
+    window.printPackagingFaultForms = function() {
+      const list = (Array.isArray(window.lastFilteredPkgFr59) && window.lastFilteredPkgFr59.length > 0)
+        ? window.lastFilteredPkgFr59
+        : (window.allPackagingFaultForms || []);
+      if (list.length === 0) {
+        alert("Yazdırılacak FR-59 kaydı bulunmuyor.");
+        return;
+      }
+      const blockHtml = (r) => `
+        <table style="width:100%;border-collapse:collapse;margin-bottom:22px;font-family:Arial,sans-serif;font-size:12px;">
+          <tr>
+            <td style="border:1px solid #000;background:#f3f4f6;font-weight:bold;padding:6px;width:22%;">TARİH</td>
+            <td style="border:1px solid #000;padding:6px;width:28%;">${escapeHtml(r.displayDate || formatDisplayDateTr(r.dateIso || ""))}</td>
+            <td style="border:1px solid #000;background:#f3f4f6;font-weight:bold;padding:6px;width:22%;">ARIZA/BAKIM NO</td>
+            <td style="border:1px solid #000;padding:6px;width:28%;">${escapeHtml(r.faultNo || "")}</td>
+          </tr>
+          <tr>
+            <td style="border:1px solid #000;background:#f3f4f6;font-weight:bold;padding:6px;">ARIZA / BAKIM SAATİ</td>
+            <td style="border:1px solid #000;padding:6px;">${escapeHtml(r.timeRange || "")}</td>
+            <td style="border:1px solid #000;background:#f3f4f6;font-weight:bold;padding:6px;">ARIZA / BAKIM YERİ</td>
+            <td style="border:1px solid #000;padding:6px;">${escapeHtml(r.location || "")}</td>
+          </tr>
+          <tr>
+            <td style="border:1px solid #000;background:#f3f4f6;font-weight:bold;padding:10px 6px;">ARIZA NEDENİ</td>
+            <td colspan="3" style="border:1px solid #000;padding:10px 6px;white-space:pre-wrap;">${escapeHtml(r.reason || "")}</td>
+          </tr>
+          <tr>
+            <td style="border:1px solid #000;background:#f3f4f6;font-weight:bold;padding:14px 6px;">SONUÇ</td>
+            <td colspan="3" style="border:1px solid #000;padding:14px 6px;white-space:pre-wrap;">${escapeHtml(r.result || "")}</td>
+          </tr>
+          <tr>
+            <td style="border:1px solid #000;background:#f3f4f6;font-weight:bold;padding:8px 6px;">BAKIM SONRASI TEMİZLİK KONTROLÜ</td>
+            <td colspan="3" style="border:1px solid #000;padding:8px 6px;font-weight:bold;">${escapeHtml(r.cleaningControl || "")}</td>
+          </tr>
+          <tr>
+            <td style="border:1px solid #000;background:#f3f4f6;font-weight:bold;padding:6px;">BAKIM/ARIZAYI GİDEREN</td>
+            <td style="border:1px solid #000;padding:6px;">${escapeHtml(r.resolvedBy || "")}</td>
+            <td style="border:1px solid #000;background:#f3f4f6;font-weight:bold;padding:6px;">KONTROL EDEN</td>
+            <td style="border:1px solid #000;padding:6px;">${escapeHtml(r.checkedBy || "")}</td>
+          </tr>
+        </table>
+      `;
+      let pagesHtml = "";
+      for (let i = 0; i < list.length; i += 2) {
+        const pair = list.slice(i, i + 2);
+        pagesHtml += `
+          <div style="page-break-after:always;padding:10px;">
+            <table style="width:100%;border-collapse:collapse;margin-bottom:18px;font-family:Arial,sans-serif;">
+              <tr>
+                <td style="border:1px solid #000;width:110px;text-align:center;font-weight:900;color:#b91c1c;font-size:16px;padding:12px;">BERRAK</td>
+                <td style="border:1px solid #000;text-align:center;font-weight:900;font-size:18px;padding:12px;">ARIZA VE BAKIM TAKİP FORMU</td>
+              </tr>
+            </table>
+            ${pair.map(blockHtml).join("")}
+            <div style="font-family:Arial,sans-serif;font-size:11px;margin-top:8px;">${PKG_FR59_FORM_CODE}</div>
+          </div>
+        `;
+      }
+      const w = window.open("", "_blank");
+      if (!w) { alert("Yazdırma penceresi tarayıcı tarafından engellendi."); return; }
+      w.document.write(`<!DOCTYPE html><html lang="tr"><head><meta charset="UTF-8"><title>FR-59 Arıza ve Bakım Takip Formu</title></head><body onload="window.print()">${pagesHtml}</body></html>`);
+      w.document.close();
+    };
+
     // ================= YAN TESİSLER REFERANS LİMİT DEĞERLENDİRİCİ & DİKKAT BİLDİRİMLERİ =================
     function getDefaultUtilityReferenceRules() {
       const rules = {};
@@ -13524,6 +14084,12 @@
           return String(legacy);
         }
       }
+      if (defId === "BOILER" && hr === "21:00") {
+        const legacy21 = cells[`${secId}__21:30__${colId}`];
+        if (legacy21 !== undefined && legacy21 !== null && String(legacy21).trim().length > 0) {
+          return String(legacy21);
+        }
+      }
       return "";
     }
 
@@ -13645,7 +14211,9 @@
         if (!sec || !col) return;
 
         const matchingLog = logByKey[`${def.id}__${a.dateIso}`];
-        const normSlot = (def.id === "BOILER" && a.timeSlot === "09:30") ? "09:00" : (a.timeSlot || "");
+        const normSlot = (def.id === "BOILER" && a.timeSlot === "09:30") ? "09:00"
+          : (def.id === "BOILER" && a.timeSlot === "21:30") ? "21:00"
+          : (a.timeSlot || "");
         if (!matchingLog) {
           if (logs.length > 0) return;
           const ruleEval = evaluateUtilityCell(sec, normSlot, col, a.enteredValue || "", rules);
@@ -13807,7 +14375,9 @@
           const sec = def?.sections.find(s => s.id === a.sectionId);
           const col = sec?.columns.find(c => c.id === a.columnId);
           const matchingLog = logMap[`${a.formType}__${a.dateIso}`];
-          const normSlot = (def && def.id === "BOILER" && a.timeSlot === "09:30") ? "09:00" : (a.timeSlot || "");
+          const normSlot = (def && def.id === "BOILER" && a.timeSlot === "09:30") ? "09:00"
+            : (def && def.id === "BOILER" && a.timeSlot === "21:30") ? "21:00"
+            : (a.timeSlot || "");
           let liveEval = null;
           if (sec && col && matchingLog) {
             const val = getUtilityCellValueWithLegacy(def.id, matchingLog.cells || {}, sec.id, normSlot, col.id);
@@ -14103,7 +14673,9 @@
       const cleanedCells = {};
       Object.entries(window.utilityUiState.draftCells || {}).forEach(([k, v]) => {
         if (typeof v === "string" && v.trim().length > 0) {
-          const normKey = (def.id === "BOILER" && k.includes("__09:30__")) ? k.replace("__09:30__", "__09:00__") : k;
+          let normKey = k;
+          if (def.id === "BOILER" && normKey.includes("__09:30__")) normKey = normKey.replace("__09:30__", "__09:00__");
+          if (def.id === "BOILER" && normKey.includes("__21:30__")) normKey = normKey.replace("__21:30__", "__21:00__");
           if (!cleanedCells[normKey]) cleanedCells[normKey] = v.trim();
         }
       });
@@ -14438,7 +15010,9 @@
           const cleanedCells = {};
           Object.entries(draftMap).forEach(([k, v]) => {
             if (typeof v === "string" && v.trim().length > 0) {
-              const normKey = (fid === "BOILER" && k.includes("__09:30__")) ? k.replace("__09:30__", "__09:00__") : k;
+              let normKey = k;
+              if (fid === "BOILER" && normKey.includes("__09:30__")) normKey = normKey.replace("__09:30__", "__09:00__");
+              if (fid === "BOILER" && normKey.includes("__21:30__")) normKey = normKey.replace("__21:30__", "__21:00__");
               if (!cleanedCells[normKey]) cleanedCells[normKey] = v.trim();
             }
           });
