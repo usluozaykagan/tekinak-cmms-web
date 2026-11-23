@@ -1,15 +1,16 @@
 {
-  "versionCode": 35,
-  "versionName": "1.6.6",
-  "releaseTag": "v1.6.6",
+  "versionCode": 36,
+  "versionName": "1.6.7",
+  "releaseTag": "v1.6.7",
   "releaseDate": "2026-11-23",
   "apkUrl": "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
   "fallbackUrl": "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-  "title": "Yeni Sürüm Mevcut (v1.6.6)",
+  "title": "Yeni Sürüm Mevcut (v1.6.7)",
   "changelog": [
-    "İSG kontrol formlarında AÇIKLAMA sütununa satır başına birden fazla fotoğraf (6 adede kadar) ekleme, toplu seçim, tek tek kaldırma ve tam ekran önizleme eklendi.",
-    "Eklenen tüm çoklu fotoğraflar birebir A4 PDF, Word (.docx) ve Excel (.xlsx — Fotoğraf Ekleri sayfası dahil) çıktılarına otomatik olarak dahil edildi.",
-    "İSG Dijital İmza Paneli, 48 maddelik Tekinak Elektrik Kontrol Formu, Forklift Kontrol Formu, canlı sekme sıralaması ve Paketleme FR-59 tablosu ile uyumlu (v1.6.6 - Kod: 35)."
+    "İSG formlarında Android ve Web 1 MB belge boyutu kaydetme/tamamlama hatası giderildi: yüksek netlikteki (Full HD) fotoğraflar ayrı 'isg_form_photos' koleksiyonuna kaydedilir.",
+    "İSG formlarına Evrak Fotoğrafları (12 adede kadar) ve satır bazlı anlık kamera çekimi + çoklu galeri yükleme desteği (netlik korunarak) eklendi.",
+    "Web'de fotoğraf detay önizleme (tam ekran zoom, ileri/geri galeri ve indirme destekli lightbox) düzeltildi.",
+    "Yönlendirilen İSG formlarında yalnızca atanan personelin düzenleme yapabilmesi (diğer kullanıcılar için salt okunur inceleme ve PDF/Word/Excel çıktı alma) sağlandı (v1.6.7 - Kod: 36)."
   ],
   "forceUpdate": false
 }

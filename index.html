@@ -36,7 +36,7 @@
   <!-- SheetJS for authentic Microsoft Excel (.xlsx) Generation -->
   <script src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
   <!-- 10 İSG Kontrol Listesi Şablonu (136 Konu Başlığı, 1.347 Madde) -->
-  <script src="isg_checklist_templates.js?v=35"></script>
+  <script src="isg_checklist_templates.js?v=36"></script>
   <style>
     :root {
       --safe-top: env(safe-area-inset-top, 0px);
@@ -343,9 +343,9 @@
         </div>
 
         <div class="pt-3 text-center border-t border-slate-100 flex flex-col items-center justify-center gap-2">
-          <a href="app-release.apk?v=35" id="loginApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold rounded-lg border border-emerald-300 transition shadow-sm">
+          <a href="app-release.apk?v=36" id="loginApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold rounded-lg border border-emerald-300 transition shadow-sm">
             <i data-lucide="smartphone" class="w-3.5 h-3.5 text-emerald-600"></i>
-            <span id="loginApkBtnText">Android APK İndir (v1.6.6)</span>
+            <span id="loginApkBtnText">Android APK İndir (v1.6.7)</span>
           </a>
           <div class="text-[11px] text-slate-400 flex items-center justify-center gap-1.5">
             <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600"></i>
@@ -396,15 +396,15 @@
         </div>
 
         <!-- Android APK İndir Butonu (Tüm Kullanıcılar Görür) -->
-        <a href="app-release.apk?v=35" id="topApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center space-x-1 px-2.5 py-1 rounded-full text-[11px] sm:text-xs font-semibold bg-blue-700/60 hover:bg-blue-600 text-white border border-blue-400/40 transition shadow-sm whitespace-nowrap flex-shrink-0" title="Android Mobil APK İndir">
+        <a href="app-release.apk?v=36" id="topApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center space-x-1 px-2.5 py-1 rounded-full text-[11px] sm:text-xs font-semibold bg-blue-700/60 hover:bg-blue-600 text-white border border-blue-400/40 transition shadow-sm whitespace-nowrap flex-shrink-0" title="Android Mobil APK İndir">
           <i data-lucide="download" class="w-3.5 h-3.5 text-amber-300 flex-shrink-0"></i>
-          <span id="topApkBtnText">APK İndir (v1.6.6)</span>
+          <span id="topApkBtnText">APK İndir (v1.6.7)</span>
         </a>
 
         <!-- Mobil Sürüm Yönetimi Butonu (Sadece usluozaykagan@gmail.com için görünür) -->
         <button id="topAppVersionBtn" onclick="openAppVersionModal()" style="display: none;" class="hidden items-center space-x-1 px-2.5 py-1 rounded-full text-[11px] sm:text-xs font-semibold bg-emerald-600/70 hover:bg-emerald-600 text-white border border-emerald-400/40 transition shadow-sm whitespace-nowrap flex-shrink-0" title="Firebase Mobil Sürüm Kontrolü ve Güncelleme">
           <i data-lucide="smartphone" class="w-3.5 h-3.5 text-amber-300 flex-shrink-0"></i>
-          <span id="topVersionBadgeText">Sürüm: v1.6.6</span>
+          <span id="topVersionBadgeText">Sürüm: v1.6.7</span>
         </button>
 
         <!-- Bildirim Sihirbazı Butonu -->
@@ -500,11 +500,11 @@
         </span>
           <div class="min-w-0 flex-1">
             <div class="flex flex-wrap items-center gap-1.5 font-extrabold text-blue-950">
-              <span id="webUpdateBannerTitle" class="break-words">🚀 Yeni Mobil Sürüm Yayında: Tekinak CMMS v1.6.6</span>
-              <span id="webUpdateBannerCodeBadge" class="px-1.5 py-0.5 rounded bg-emerald-600 text-white text-[10px] font-bold whitespace-nowrap">v1.6.6 (Kod: 35)</span>
+              <span id="webUpdateBannerTitle" class="break-words">🚀 Yeni Mobil Sürüm Yayında: Tekinak CMMS v1.6.7</span>
+              <span id="webUpdateBannerCodeBadge" class="px-1.5 py-0.5 rounded bg-emerald-600 text-white text-[10px] font-bold whitespace-nowrap">v1.6.7 (Kod: 36)</span>
             </div>
             <div id="webUpdateBannerSummary" class="text-[11px] text-slate-600 mt-0.5 break-words">
-              İSG kontrol formlarında AÇIKLAMA sütununa satır başına birden fazla fotoğraf ekleme, çoklu seçim ve tüm fotoğrafların A4 PDF / Word (.docx) / Excel (.xlsx) çıktılarına aktarımı eklendi!
+              İSG formlarında 1 MB kaydetme/tamamlama hatası giderildi, Full HD net fotoğraf &amp; kamera çekimi, Evrak Fotoğrafları, web detay/zoom önizleme ve yalnızca yönlendirilen kişi düzenleme kilidi eklendi!
             </div>
           </div>
         </div>
@@ -512,9 +512,9 @@
           <button type="button" onclick="toggleWebUpdateChangelog()" class="px-2.5 py-1.5 bg-white hover:bg-slate-100 text-blue-800 border border-blue-200 rounded-lg font-bold text-[11px] transition">
             Yenilikler
           </button>
-          <a id="webUpdateBannerDownloadBtn" href="app-release.apk?v=35" download="tekinak-bakim.apk" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold text-[11px] shadow-sm flex items-center gap-1.5 transition whitespace-nowrap">
+          <a id="webUpdateBannerDownloadBtn" href="app-release.apk?v=36" download="tekinak-bakim.apk" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold text-[11px] shadow-sm flex items-center gap-1.5 transition whitespace-nowrap">
             <i data-lucide="download" class="w-3.5 h-3.5"></i>
-            <span id="webUpdateBannerDownloadText">APK İndir (v1.6.6)</span>
+            <span id="webUpdateBannerDownloadText">APK İndir (v1.6.7)</span>
           </a>
         <button type="button" onclick="dismissWebUpdateBanner()" class="p-1 text-slate-400 hover:text-slate-700 rounded-lg" title="Bu sürüm için gizle">
           <i data-lucide="x" class="w-4 h-4"></i>
@@ -1970,7 +1970,7 @@
         <div class="p-2.5 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-between text-[11px] text-slate-600">
           <div class="flex items-center gap-1.5 font-semibold text-slate-700">
             <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600"></i>
-            <span id="profSystemVersionText">Sistem Sürümü: v1.6.6</span>
+            <span id="profSystemVersionText">Sistem Sürümü: v1.6.7</span>
           </div>
           <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-300">Güncel ✓</span>
         </div>
@@ -2692,8 +2692,8 @@
         <div>
           <div class="text-[11px] font-bold text-emerald-800 uppercase tracking-wider">Aktif Firebase Sürümü</div>
           <div class="text-sm font-extrabold text-emerald-950 flex items-center gap-2" id="verModalCurrentBadge">
-            <span id="verModalVersionName">v1.6.6</span>
-            <span id="verModalVersionCode" class="text-xs px-2 py-0.5 bg-emerald-200 text-emerald-800 rounded-md font-semibold">Kod: 35</span>
+            <span id="verModalVersionName">v1.6.7</span>
+            <span id="verModalVersionCode" class="text-xs px-2 py-0.5 bg-emerald-200 text-emerald-800 rounded-md font-semibold">Kod: 36</span>
           </div>
         </div>
         <div class="text-right text-[11px] text-emerald-700">
@@ -2706,18 +2706,18 @@
         <div class="grid grid-cols-2 gap-3">
           <div>
             <label class="block font-semibold text-slate-700 mb-1">Yeni Sürüm Kodu (Build Code) *</label>
-            <input type="number" id="verFormCode" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 35" min="1">
+            <input type="number" id="verFormCode" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 37" min="1">
             <span class="text-[10px] text-slate-400">Yeni sürüm için kod mevcut koddan büyük olmalıdır</span>
           </div>
           <div>
             <label class="block font-semibold text-slate-700 mb-1">Yeni Sürüm Adı (Version Name) *</label>
-            <input type="text" id="verFormName" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 1.6.6">
+            <input type="text" id="verFormName" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 1.6.7">
           </div>
         </div>
 
         <div>
           <label class="block font-semibold text-slate-700 mb-1">Güncelleme Bildirim Başlığı *</label>
-          <input type="text" id="verFormTitle" required class="w-full px-3 py-2 border rounded-xl text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: Yeni Sürüm Yayınlandı (v1.6.6)">
+          <input type="text" id="verFormTitle" required class="w-full px-3 py-2 border rounded-xl text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: Yeni Sürüm Yayınlandı (v1.6.7)">
         </div>
 
         <div>
@@ -2736,9 +2736,9 @@
         </div>
 
         <div class="flex items-center justify-between gap-2 pt-2 border-t">
-          <button type="button" onclick="syncWithDeployedApk()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs rounded-xl font-bold border border-slate-300 flex items-center gap-1.5" title="Firebase'i şu an dağıtılan v1.6.6 (Kod: 35) APK ile eşitler ve güncellenen telefonlardaki popup'ı kapatır">
+          <button type="button" onclick="syncWithDeployedApk()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs rounded-xl font-bold border border-slate-300 flex items-center gap-1.5" title="Firebase'i şu an dağıtılan v1.6.7 (Kod: 36) APK ile eşitler ve güncellenen telefonlardaki popup'ı kapatır">
             <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-blue-600"></i>
-            <span>Mevcut APK ile Eşitle (v1.6.6 - Kod: 35)</span>
+            <span>Mevcut APK ile Eşitle (v1.6.7 - Kod: 36)</span>
           </button>
           <div class="flex gap-2">
             <button type="button" onclick="closeModal('modalAppVersion')" class="px-4 py-2 border rounded-xl font-semibold text-slate-600 hover:bg-slate-50">Kapat</button>
@@ -3020,6 +3020,7 @@
     <div id="isgSheetEditorBody" class="flex-1 min-h-0 overflow-auto bg-slate-200 p-3 sm:p-5"></div>
     <div id="isgSheetEditorFooter" class="shrink-0 bg-white border-t border-slate-300 px-4 py-3 flex flex-wrap items-center justify-between gap-2 shadow-inner"></div>
     <input type="file" id="isgRowPhotoFileInput" accept="image/*" multiple class="hidden" onchange="handleIsgRowPhotoSelected(event)">
+    <input type="file" id="isgRowCameraFileInput" accept="image/*" capture="environment" class="hidden" onchange="handleIsgRowPhotoSelected(event)">
   </div>
 
   <!-- MODAL: İSG DİJİTAL İMZA ÇİZİM PANELİ -->
@@ -3420,11 +3421,24 @@
     </div>
   </div>
 
-  <!-- MODAL: SOHBET FOTOĞRAF ÖNİZLEME (LIGHTBOX) -->
-  <div id="modalImagePreview" class="fixed inset-0 bg-black/85 z-[60] hidden flex items-center justify-center p-4" onclick="closeModal('modalImagePreview')">
-    <div class="relative max-w-3xl max-h-[90vh]" onclick="event.stopPropagation()">
-      <button type="button" onclick="closeModal('modalImagePreview')" class="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-white text-slate-900 font-black shadow flex items-center justify-center">✕</button>
-      <img id="modalImagePreviewSrc" src="" alt="Saha Fotoğrafı" class="max-w-full max-h-[85vh] rounded-xl shadow-2xl object-contain">
+  <!-- MODAL: TAM DETAY FOTOĞRAF ÖNİZLEME & ZOOM (LIGHTBOX) -->
+  <div id="modalImagePreview" class="fixed inset-0 bg-black/92 z-[95] hidden flex flex-col p-3 sm:p-5" onclick="closeModal('modalImagePreview')">
+    <div class="shrink-0 max-w-6xl w-full mx-auto flex flex-wrap items-center justify-between gap-2 pb-2.5 text-white" onclick="event.stopPropagation()">
+      <div class="min-w-0 flex-1">
+        <div id="modalImagePreviewCaption" class="font-extrabold text-sm sm:text-base truncate">Fotoğraf Önizleme</div>
+        <div id="modalImagePreviewMeta" class="text-[11px] text-slate-300 truncate">Yakınlaştırmak için fotoğrafa tıklayın</div>
+      </div>
+      <div class="flex items-center gap-1.5 shrink-0">
+        <span id="modalImagePreviewCounter" class="hidden px-2.5 py-1 rounded-lg bg-white/15 text-xs font-bold">1 / 1</span>
+        <button type="button" id="btnLightboxZoomToggle" onclick="toggleImageLightboxZoom()" class="px-2.5 py-1.5 rounded-lg bg-white/15 hover:bg-white/25 text-xs font-bold">🔍 Yakınlaştır</button>
+        <button type="button" id="btnLightboxDownload" onclick="downloadLightboxImage()" class="px-2.5 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-xs font-bold">⬇️ İndir</button>
+        <button type="button" onclick="closeModal('modalImagePreview')" class="w-9 h-9 rounded-full bg-white text-slate-900 hover:bg-slate-200 font-black shadow flex items-center justify-center" title="Kapat (ESC)">✕</button>
+      </div>
+    </div>
+    <div id="modalImagePreviewViewport" class="relative flex-1 min-h-0 max-w-6xl w-full mx-auto flex items-center justify-center overflow-auto rounded-2xl bg-black/40 border border-white/10" onclick="event.stopPropagation()">
+      <button type="button" id="btnLightboxPrev" onclick="stepImageLightbox(-1)" class="hidden fixed sm:absolute left-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/70 hover:bg-black/90 text-white text-2xl font-black border border-white/30 flex items-center justify-center shadow-lg" title="Önceki (←)">‹</button>
+      <img id="modalImagePreviewSrc" src="" alt="Saha Fotoğrafı" onclick="toggleImageLightboxZoom()" class="max-w-full max-h-[80vh] rounded-xl shadow-2xl object-contain transition-all duration-150 cursor-zoom-in">
+      <button type="button" id="btnLightboxNext" onclick="stepImageLightbox(1)" class="hidden fixed sm:absolute right-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/70 hover:bg-black/90 text-white text-2xl font-black border border-white/30 flex items-center justify-center shadow-lg" title="Sonraki (→)">›</button>
     </div>
   </div>
 
@@ -4318,6 +4332,16 @@
       if (target && myKeys.includes(target)) return true;
       const targetName = String(form.assignedToName || "").trim().toLowerCase();
       return !!targetName && targetName === String(u.displayName || "").trim().toLowerCase();
+    };
+
+    // SIKI DÜZENLEME KİLİDİ: Form bir kişiye yönlendirildiyse YALNIZCA yönlendirilen kişi düzenleyebilir.
+    window.canCurrentUserEditIsgForm = function(form, u = window.currentUser) {
+      if (!form || !u) return false;
+      const hasAssignee = Boolean(String(form.assignedToUid || "").trim() || String(form.assignedToName || "").trim());
+      if (hasAssignee) {
+        return window.isIsgFormAssignedToUser(form, u);
+      }
+      return window.isIsgManager(u);
     };
 
     window.hasAssignedIsgForms = function(u = window.currentUser) {
@@ -6851,7 +6875,7 @@
       });
 
       // 6. Mobil Uygulama Sürüm Takibi ve Firebase Yönetimi (app_version/current)
-      let hasAutoSyncedV35 = false;
+      let hasAutoSyncedV36 = false;
       try {
         onSnapshot(doc(db, "app_version", "current"), async (docSnap) => {
           if (docSnap && docSnap.exists()) {
@@ -6859,15 +6883,15 @@
             window.currentAppVersion = data;
             renderAppVersionBadge();
 
-            // Sürüm kodu 35'ten küçükse otomatik olarak v1.6.6 (Kod: 35)'e yükselt
+            // Sürüm kodu 36'dan küçükse otomatik olarak v1.6.7 (Kod: 36)'ya yükselt
             const verCodeNum = Number(data.versionCode || 0);
-            if (verCodeNum < 35 && !hasAutoSyncedV35) {
-              hasAutoSyncedV35 = true;
-              console.log("Firestore app_version sürüm kodu 35 (v1.6.6) olarak otomatik eşitleniyor...");
+            if (verCodeNum < 36 && !hasAutoSyncedV36) {
+              hasAutoSyncedV36 = true;
+              console.log("Firestore app_version sürüm kodu 36 (v1.6.7) olarak otomatik eşitleniyor...");
               seedInitialAppVersionInFirebase();
             }
-          } else if (!hasAutoSyncedV35) {
-            hasAutoSyncedV35 = true;
+          } else if (!hasAutoSyncedV36) {
+            hasAutoSyncedV36 = true;
             seedInitialAppVersionInFirebase();
           }
         }, (err) => {
@@ -17563,23 +17587,24 @@
       }
       document.getElementById("modalExcel").classList.remove("hidden");
     };
-    window.openNotificationWizard = () => document.getElementById("modalNotifWizard").classList.remove("hidden");
-    window.closeModal = (id) => document.getElementById(id).classList.add("hidden");
+    window.openNotificationWizard = () => document.getElementById("modalNotifWizard")?.classList.remove("hidden");
+    window.openModal = (id) => { const el = document.getElementById(id); if (el) el.classList.remove("hidden"); };
+    window.closeModal = (id) => { const el = document.getElementById(id); if (el) el.classList.add("hidden"); };
 
     function renderAppVersionBadge() {
       const v = window.currentAppVersion || {
-        versionName: "1.6.6",
-        versionCode: 35,
+        versionName: "1.6.7",
+        versionCode: 36,
         releaseDate: "2026-11-23",
-        title: "Tekinak CMMS v1.6.6",
+        title: "Tekinak CMMS v1.6.7",
         changelog: [
-          "İSG kontrol formlarında AÇIKLAMA sütununa satır başına birden fazla fotoğraf (6 adede kadar) ekleme, toplu seçim, tek tek kaldırma ve tam ekran önizleme eklendi.",
-          "Eklenen tüm çoklu fotoğraflar birebir A4 PDF, Word (.docx) ve Excel (.xlsx — Fotoğraf Ekleri sayfası dahil) çıktılarına otomatik olarak dahil edildi.",
-          "İSG Dijital İmza Paneli, 48 maddelik Tekinak Elektrik Kontrol Formu, Forklift Kontrol Formu, canlı sekme sıralaması ve Paketleme FR-59 tablosu ile uyumlu."
+          "İSG formlarında Android ve Web 1 MB belge boyutu kaydetme/tamamlama hatası giderildi: yüksek netlikteki (Full HD) fotoğraflar ayrı 'isg_form_photos' koleksiyonuna kaydedilir.",
+          "Evrak Fotoğrafları (Genel Ekler), kamera ile anlık net fotoğraf çekme ve web tam ekran yakınlaştırılabilir fotoğraf detay görüntüleyici eklendi.",
+          "İSG formlarında sıkı düzenleme kilidi eklendi: yönlendirilen kişi haricinde kimse formu tekrar düzenleyemez."
         ]
       };
-      const vName = v.versionName || "1.6.6";
-      const vCode = Number(v.versionCode || 35);
+      const vName = v.versionName || "1.6.7";
+      const vCode = Number(v.versionCode || 36);
       const localApkHref = `app-release.apk?v=${vCode}`;
 
       const badgeText = document.getElementById("topVersionBadgeText");
@@ -17638,7 +17663,7 @@
     };
 
     window.dismissWebUpdateBanner = function() {
-      const vCode = Number((window.currentAppVersion && window.currentAppVersion.versionCode) || 35);
+      const vCode = Number((window.currentAppVersion && window.currentAppVersion.versionCode) || 36);
       localStorage.setItem("tekinak_dismissed_ver_" + vCode, "1");
       const banner = document.getElementById("webAppUpdateBanner");
       if (banner) banner.classList.add("hidden");
@@ -17647,17 +17672,17 @@
     async function seedInitialAppVersionInFirebase() {
       try {
         const initialData = {
-          versionCode: 35,
-          versionName: "1.6.6",
-          releaseTag: "v1.6.6",
+          versionCode: 36,
+          versionName: "1.6.7",
+          releaseTag: "v1.6.7",
           releaseDate: new Date().toISOString().slice(0, 10),
           apkUrl: "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
           fallbackUrl: "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-          title: "Tekinak CMMS v1.6.6",
+          title: "Tekinak CMMS v1.6.7",
           changelog: [
-            "İSG kontrol formlarında AÇIKLAMA sütununa satır başına birden fazla fotoğraf (6 adede kadar) ekleme, toplu seçim, tek tek kaldırma ve tam ekran önizleme eklendi.",
-            "Eklenen tüm çoklu fotoğraflar birebir A4 PDF, Word (.docx) ve Excel (.xlsx — Fotoğraf Ekleri sayfası dahil) çıktılarına otomatik olarak dahil edildi.",
-            "İSG Dijital İmza Paneli, 48 maddelik Tekinak Elektrik Kontrol Formu, Forklift Kontrol Formu, canlı sekme sıralaması ve Paketleme FR-59 tablosu ile uyumlu."
+            "İSG formlarında Android ve Web 1 MB belge boyutu kaydetme/tamamlama hatası giderildi: yüksek netlikteki (Full HD) fotoğraflar ayrı 'isg_form_photos' koleksiyonuna kaydedilir.",
+            "Evrak Fotoğrafları (Genel Ekler), kamera ile anlık net fotoğraf çekme ve web tam ekran yakınlaştırılabilir fotoğraf detay görüntüleyici eklendi.",
+            "İSG formlarında sıkı düzenleme kilidi eklendi: yönlendirilen kişi haricinde kimse formu tekrar düzenleyemez."
           ],
           forceUpdate: false,
           updatedAtMillis: Date.now()
@@ -17676,10 +17701,10 @@
         alert("⛔ Yetkisiz İşlem: Mobil sürüm güncelleme yönetimi yalnızca usluozaykagan@gmail.com hesabına tanımlıdır.");
         return;
       }
-      const v = window.currentAppVersion || { versionCode: 35, versionName: "1.6.6", title: "Tekinak CMMS v1.6.6", apkUrl: "", changelog: [] };
-      document.getElementById("verFormCode").value = v.versionCode || 35;
-      document.getElementById("verFormName").value = v.versionName || "1.6.6";
-      document.getElementById("verFormTitle").value = `Yeni Sürüm Yayınlandı (v${v.versionName || "1.6.6"})`;
+      const v = window.currentAppVersion || { versionCode: 36, versionName: "1.6.7", title: "Tekinak CMMS v1.6.7", apkUrl: "", changelog: [] };
+      document.getElementById("verFormCode").value = v.versionCode || 36;
+      document.getElementById("verFormName").value = v.versionName || "1.6.7";
+      document.getElementById("verFormTitle").value = `Yeni Sürüm Yayınlandı (v${v.versionName || "1.6.7"})`;
       document.getElementById("verFormApkUrl").value = v.apkUrl || "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk";
       document.getElementById("verFormChangelog").value = (v.changelog && v.changelog.length) ? v.changelog.join("\n") : "Yeni bakım özellikleri ve performans iyileştirmeleri eklendi.";
       document.getElementById("modalAppVersion").classList.remove("hidden");
@@ -17704,7 +17729,7 @@
         return;
       }
       if (!name) {
-        alert("Lütfen sürüm adı giriniz (örn: 1.6.6).");
+        alert("Lütfen sürüm adı giriniz (örn: 1.6.7).");
         return;
       }
 
@@ -17764,17 +17789,17 @@
       }
       try {
         const payload = {
-          versionCode: 35,
-          versionName: "1.6.6",
-          releaseTag: "v1.6.6",
+          versionCode: 36,
+          versionName: "1.6.7",
+          releaseTag: "v1.6.7",
           releaseDate: new Date().toISOString().slice(0, 10),
           apkUrl: "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
           fallbackUrl: "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-          title: "Tekinak CMMS v1.6.6",
+          title: "Tekinak CMMS v1.6.7",
           changelog: [
-            "İSG kontrol formlarında AÇIKLAMA sütununa satır başına birden fazla fotoğraf (6 adede kadar) ekleme, toplu seçim, tek tek kaldırma ve tam ekran önizleme eklendi.",
-            "Eklenen tüm çoklu fotoğraflar birebir A4 PDF, Word (.docx) ve Excel (.xlsx — Fotoğraf Ekleri sayfası dahil) çıktılarına otomatik olarak dahil edildi.",
-            "İSG Dijital İmza Paneli, 48 maddelik Tekinak Elektrik Kontrol Formu, Forklift Kontrol Formu, canlı sekme sıralaması ve Paketleme FR-59 tablosu ile uyumlu."
+            "İSG formlarında Android ve Web 1 MB belge boyutu kaydetme/tamamlama hatası giderildi: yüksek netlikteki (Full HD) fotoğraflar ayrı 'isg_form_photos' koleksiyonuna kaydedilir.",
+            "Evrak Fotoğrafları (Genel Ekler), kamera ile anlık net fotoğraf çekme ve web tam ekran yakınlaştırılabilir fotoğraf detay görüntüleyici eklendi.",
+            "İSG formlarında sıkı düzenleme kilidi eklendi: yönlendirilen kişi haricinde kimse formu tekrar düzenleyemez."
           ],
           forceUpdate: false,
           updatedAtMillis: Date.now()
@@ -17783,7 +17808,7 @@
         window.currentAppVersion = payload;
         renderAppVersionBadge();
         closeModal("modalAppVersion");
-        alert("✅ Başarılı! Firebase sürümü şu an dağıtılan v1.6.6 (Kod: 35) APK ile eşitlendi.\n\nGüncellenen telefonlardaki popup penceresi anında kalktı.");
+        alert("✅ Başarılı! Firebase sürümü şu an dağıtılan v1.6.7 (Kod: 36) APK ile eşitlendi.\n\nGüncellenen telefonlardaki popup penceresi anında kalktı.");
       } catch (err) {
         alert("Eşitleme hatası: " + err.message);
       }
@@ -20219,12 +20244,114 @@
       await deleteDoc(doc(db, colName, id));
     };
 
-    window.openThermalPhotoZoom = function(src) {
+    window._lightboxState = { items: [], idx: 0, zoomed: false };
+
+    function renderImageLightboxCurrent() {
+      const st = window._lightboxState;
+      const cur = st.items[st.idx];
+      if (!cur || !cur.src) return;
       const img = document.getElementById("modalImagePreviewSrc");
-      if (img) img.src = src;
+      const capEl = document.getElementById("modalImagePreviewCaption");
+      const metaEl = document.getElementById("modalImagePreviewMeta");
+      const cntEl = document.getElementById("modalImagePreviewCounter");
+      const prevBtn = document.getElementById("btnLightboxPrev");
+      const nextBtn = document.getElementById("btnLightboxNext");
+      const zoomBtn = document.getElementById("btnLightboxZoomToggle");
+
+      st.zoomed = false;
+      if (capEl) capEl.textContent = cur.caption || "Fotoğraf Önizleme";
+      if (metaEl) metaEl.textContent = cur.subCaption || "Yakınlaştırmak için fotoğrafa tıklayın";
+      if (cntEl) {
+        cntEl.textContent = `${st.idx + 1} / ${st.items.length}`;
+        cntEl.classList.toggle("hidden", st.items.length <= 1);
+      }
+      if (prevBtn) prevBtn.classList.toggle("hidden", st.items.length <= 1);
+      if (nextBtn) nextBtn.classList.toggle("hidden", st.items.length <= 1);
+      if (zoomBtn) zoomBtn.textContent = "🔍 Yakınlaştır";
+
+      if (img) {
+        img.className = "max-w-full max-h-[80vh] rounded-xl shadow-2xl object-contain transition-all duration-150 cursor-zoom-in";
+        img.style.width = "";
+        img.style.maxWidth = "";
+        img.style.maxHeight = "";
+        img.onload = () => {
+          if (metaEl && img.naturalWidth && img.naturalHeight) {
+            const baseSub = cur.subCaption ? `${cur.subCaption} • ` : "";
+            metaEl.textContent = `${baseSub}Çözünürlük: ${img.naturalWidth} × ${img.naturalHeight} px • Yakınlaştırmak için tıklayın`;
+          }
+        };
+        img.src = cur.src;
+      }
+    }
+
+    window.toggleImageLightboxZoom = function() {
+      const st = window._lightboxState;
+      const img = document.getElementById("modalImagePreviewSrc");
+      const zoomBtn = document.getElementById("btnLightboxZoomToggle");
+      if (!img) return;
+      st.zoomed = !st.zoomed;
+      if (st.zoomed) {
+        img.className = "rounded-xl shadow-2xl transition-all duration-150 cursor-zoom-out";
+        img.style.maxWidth = "none";
+        img.style.maxHeight = "none";
+        img.style.width = Math.max(img.naturalWidth || 1200, Math.round(window.innerWidth * 1.45)) + "px";
+        if (zoomBtn) zoomBtn.textContent = "🔎 Ekrana Sığdır";
+      } else {
+        img.className = "max-w-full max-h-[80vh] rounded-xl shadow-2xl object-contain transition-all duration-150 cursor-zoom-in";
+        img.style.width = "";
+        img.style.maxWidth = "";
+        img.style.maxHeight = "";
+        if (zoomBtn) zoomBtn.textContent = "🔍 Yakınlaştır";
+      }
+    };
+
+    window.stepImageLightbox = function(delta) {
+      const st = window._lightboxState;
+      if (!st.items || st.items.length <= 1) return;
+      st.idx = (st.idx + delta + st.items.length) % st.items.length;
+      renderImageLightboxCurrent();
+    };
+
+    window.downloadLightboxImage = function() {
+      const cur = window._lightboxState.items[window._lightboxState.idx];
+      if (!cur || !cur.src) return;
+      const a = document.createElement("a");
+      a.href = cur.src;
+      const safeName = String(cur.caption || "saha_fotografi").replace(/[^a-zA-Z0-9_-ğüşıöçĞÜŞİÖÇ]+/g, "_").slice(0, 48);
+      a.download = `${safeName || "fotograf"}_${Date.now()}.jpg`;
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(() => a.remove(), 200);
+    };
+
+    window.openImageGalleryModal = function(items, startIdx = 0) {
+      const valid = (Array.isArray(items) ? items : []).filter(x => x && x.src);
+      if (valid.length === 0) return;
+      window._lightboxState = {
+        items: valid,
+        idx: Math.max(0, Math.min(startIdx, valid.length - 1)),
+        zoomed: false
+      };
+      renderImageLightboxCurrent();
       openModal("modalImagePreview");
     };
+
+    window.openThermalPhotoZoom = function(src, caption = "Fotoğraf Detayı", subCaption = "") {
+      if (!src) return;
+      window.openImageGalleryModal([{ src, caption, subCaption }], 0);
+    };
     window.openImagePreviewModal = window.openThermalPhotoZoom;
+
+    if (!window._lightboxKeysBound) {
+      window._lightboxKeysBound = true;
+      document.addEventListener("keydown", (ev) => {
+        const modal = document.getElementById("modalImagePreview");
+        if (!modal || modal.classList.contains("hidden")) return;
+        if (ev.key === "Escape") closeModal("modalImagePreview");
+        else if (ev.key === "ArrowLeft") window.stepImageLightbox(-1);
+        else if (ev.key === "ArrowRight") window.stepImageLightbox(1);
+      });
+    }
 
     window.transferThermalToWorkOrder = async function(recId) {
       if (!window.isMasterUser(window.currentUser)) return;
@@ -21043,6 +21170,7 @@
           const photos = getIsgTotalPhotoCount(f);
           const sigCount = Object.values(f.signatures || {}).filter(v => String(v || "").trim() !== "").length;
           const isMine = window.isIsgFormAssignedToUser(f, cur);
+          const canEditCard = window.canCurrentUserEditIsgForm(f, cur);
           const leadIcon = tpl.layoutType === "TEKINAK_YESNO_TABLE" ? "⚡" : (tpl.layoutType === "ISG_TOPIC_ACTION_TABLE" ? "📋" : "🚜");
           return `
             <div class="bg-white rounded-2xl border ${isMine && f.status !== 'COMPLETED' ? 'border-amber-400 ring-1 ring-amber-200' : 'border-slate-200'} p-4 custom-shadow flex flex-col gap-3">
@@ -21063,8 +21191,8 @@
               </div>
               ${f.assignmentNote ? `<div class="text-[11px] bg-blue-50 border border-blue-200 text-blue-900 rounded-lg px-2.5 py-1.5">📌 ${escapeHtml(f.assignmentNote)}</div>` : ""}
               <div class="flex flex-wrap items-center gap-1.5 pt-2 border-t border-slate-100">
-                <button type="button" onclick="openIsgSheetEditor('${escapeJsSingle(f.id)}')" class="px-3 py-1.5 bg-[#1E3A8A] hover:bg-blue-800 text-white rounded-lg text-xs font-bold flex items-center gap-1 shadow-sm">
-                  <i data-lucide="file-edit" class="w-3.5 h-3.5"></i> Formu Aç
+                <button type="button" onclick="openIsgSheetEditor('${escapeJsSingle(f.id)}')" class="px-3 py-1.5 ${canEditCard ? 'bg-[#1E3A8A] hover:bg-blue-800' : 'bg-slate-600 hover:bg-slate-700'} text-white rounded-lg text-xs font-bold flex items-center gap-1 shadow-sm">
+                  <i data-lucide="${canEditCard ? 'file-edit' : 'eye'}" class="w-3.5 h-3.5"></i> ${canEditCard ? 'Formu Aç' : 'İncele (Salt Okunur)'}
                 </button>
                 <button type="button" onclick="printIsgFormById('${escapeJsSingle(f.id)}')" class="px-2.5 py-1.5 bg-white hover:bg-slate-50 border border-slate-300 text-slate-800 rounded-lg text-xs font-bold flex items-center gap-1">
                   <i data-lucide="printer" class="w-3.5 h-3.5"></i> PDF
@@ -21258,6 +21386,66 @@
     };
 
     const ISG_MAX_PHOTOS_PER_ROW = 6;
+    const ISG_MAX_DOCUMENT_PHOTOS = 12;
+    const ISG_PHOTO_REF_PREFIX = "ref:";
+    window.isgPhotoCache = window.isgPhotoCache || new Map();
+
+    function isIsgPhotoRef(raw) {
+      return typeof raw === "string" && raw.trim().startsWith(ISG_PHOTO_REF_PREFIX);
+    }
+
+    function extractIsgPhotoRefId(raw) {
+      return isIsgPhotoRef(raw) ? raw.trim().slice(ISG_PHOTO_REF_PREFIX.length).trim() : null;
+    }
+
+    function resolveIsgPhotoSrc(raw) {
+      const s = String(raw || "").trim();
+      if (!s) return "";
+      if (isIsgPhotoRef(s)) {
+        const id = extractIsgPhotoRefId(s);
+        return (id && window.isgPhotoCache.get(id)) || "";
+      }
+      return s;
+    }
+
+    async function loadIsgFormPhotosWeb(formId) {
+      if (!formId) return 0;
+      try {
+        const snap = await getDocs(query(collection(db, "isg_form_photos"), where("formId", "==", formId)));
+        let count = 0;
+        snap.forEach(d => {
+          const data = d.data() || {};
+          const uri = String(data.dataUri || "").trim();
+          if (uri) {
+            window.isgPhotoCache.set(d.id, uri);
+            count++;
+          }
+        });
+        return count;
+      } catch (e) {
+        console.warn("loadIsgFormPhotosWeb notice:", e);
+        return 0;
+      }
+    }
+
+    async function externalizeIsgPhotoWeb(docId, rowKey, raw, now) {
+      const trimmed = String(raw || "").trim();
+      if (!trimmed) return "";
+      if (isIsgPhotoRef(trimmed)) return trimmed;
+      const safeRow = String(rowKey).replace(/[^a-zA-Z0-9_-]/g, "_").slice(0, 24) || "row";
+      const rand = Math.random().toString(36).slice(2, 8);
+      const photoId = `${docId}_${safeRow}_${now}_${rand}`;
+      await setDoc(doc(db, "isg_form_photos", photoId), {
+        id: photoId,
+        formId: docId,
+        rowKey: String(rowKey),
+        dataUri: trimmed,
+        createdAtMillis: now,
+        updatedAt: serverTimestamp()
+      });
+      window.isgPhotoCache.set(photoId, trimmed);
+      return ISG_PHOTO_REF_PREFIX + photoId;
+    }
 
     function getIsgRowPhotos(f, idx) {
       if (!f) return [];
@@ -21296,13 +21484,31 @@
       }
     }
 
+    function getIsgDocumentPhotos(f) {
+      if (!f || !Array.isArray(f.documentPhotos)) return [];
+      return f.documentPhotos
+        .map(p => String(p || "").trim())
+        .filter(Boolean)
+        .filter((v, i, arr) => arr.indexOf(v) === i)
+        .slice(0, ISG_MAX_DOCUMENT_PHOTOS);
+    }
+
+    function setIsgDocumentPhotos(f, list) {
+      if (!f) return;
+      f.documentPhotos = (Array.isArray(list) ? list : [])
+        .map(p => String(p || "").trim())
+        .filter(Boolean)
+        .filter((v, i, arr) => arr.indexOf(v) === i)
+        .slice(0, ISG_MAX_DOCUMENT_PHOTOS);
+    }
+
     function getIsgTotalPhotoCount(f) {
       if (!f) return 0;
       const keys = new Set([
         ...Object.keys(f.checkPhotoLists || {}),
         ...Object.keys(f.checkPhotos || {})
       ]);
-      let total = 0;
+      let total = getIsgDocumentPhotos(f).length;
       keys.forEach(k => { total += getIsgRowPhotos(f, k).length; });
       return total;
     }
@@ -21315,13 +21521,111 @@
         ...Object.keys(f?.checkPhotos || {})
       ]);
       keys.forEach(k => {
-        const list = getIsgRowPhotos(f, k);
+        const cleanKey = String(k || "").trim();
+        if (!cleanKey) return;
+        const list = getIsgRowPhotos(f, cleanKey);
         if (list.length > 0) {
-          checkPhotoLists[k] = list;
-          checkPhotos[k] = list[0];
+          checkPhotoLists[cleanKey] = list;
+          checkPhotos[cleanKey] = list[0];
         }
       });
       return { checkPhotos, checkPhotoLists };
+    }
+
+    window.openIsgPhotoLightbox = function(rowKey, photoIdx = 0) {
+      const f = window.isgUiState.activeForm;
+      if (!f) return;
+      const tpl = getIsgTemplateById(f.templateId);
+      const items = [];
+      let targetIdx = 0;
+
+      // Önce Evrak Genel Fotoğrafları
+      const docPhotos = getIsgDocumentPhotos(f);
+      docPhotos.forEach((raw, idx) => {
+        const src = resolveIsgPhotoSrc(raw);
+        if (!src) return;
+        if (String(rowKey) === "__doc__" && idx === Number(photoIdx)) targetIdx = items.length;
+        items.push({
+          src,
+          caption: `Evrak Fotoğrafı (${idx + 1}/${docPhotos.length})`,
+          subCaption: f.templateTitle || tpl.title
+        });
+      });
+
+      // Ardından tüm satır fotoğrafları
+      tpl.checklistItems.forEach((q, rIdx) => {
+        const list = getIsgRowPhotos(f, rIdx);
+        list.forEach((raw, pIdx) => {
+          const src = resolveIsgPhotoSrc(raw);
+          if (!src) return;
+          if (String(rowKey) === String(rIdx) && pIdx === Number(photoIdx)) targetIdx = items.length;
+          const note = (f.checkNotes || {})[String(rIdx)] || "";
+          const resVal = (f.checkResults || {})[String(rIdx)] || "";
+          items.push({
+            src,
+            caption: `Madde #${rIdx + 1}${list.length > 1 ? ` — Foto ${pIdx + 1}/${list.length}` : ""}${resVal ? ` (${resVal})` : ""}`,
+            subCaption: note ? `${q.slice(0, 90)} • Açıklama: ${note}` : q.slice(0, 120)
+          });
+        });
+      });
+
+      if (items.length === 0) {
+        alert("Fotoğraf henüz buluttan yükleniyor, lütfen birkaç saniye sonra tekrar tıklayın.");
+        return;
+      }
+      window.openImageGalleryModal(items, targetIdx);
+    };
+
+    function renderIsgDocumentPhotosCardHtml(f, canEdit) {
+      const docPhotos = getIsgDocumentPhotos(f);
+      const count = docPhotos.length;
+      const thumbsHtml = count > 0 ? `
+        <div class="flex flex-wrap items-center gap-2 mt-2">
+          ${docPhotos.map((raw, pIdx) => {
+            const src = resolveIsgPhotoSrc(raw);
+            return `
+              <div class="relative group flex-shrink-0">
+                ${src ? `
+                  <img src="${src}" alt="Evrak Foto ${pIdx + 1}" onclick="openIsgPhotoLightbox('__doc__', ${pIdx})"
+                    class="w-20 h-20 object-cover rounded-xl border-2 border-[#1E3A8A]/70 hover:border-amber-500 cursor-pointer shadow-sm transition"
+                    title="Tam boyutlu detayı görmek için tıklayın (Foto ${pIdx + 1}/${count})">
+                ` : `
+                  <div class="w-20 h-20 rounded-xl border border-dashed border-slate-300 bg-slate-100 flex items-center justify-center text-[10px] text-slate-500 animate-pulse">Yükleniyor...</div>
+                `}
+                ${canEdit ? `<button type="button" onclick="removeIsgRowPhoto('__doc__', ${pIdx})" class="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-rose-600 hover:bg-rose-700 text-white text-xs font-black flex items-center justify-center shadow" title="Bu fotoğrafı kaldır">×</button>` : ""}
+              </div>
+            `;
+          }).join("")}
+        </div>
+      ` : `<div class="text-[11px] text-slate-500 mt-1.5">Henüz evrak geneli fotoğraf eklenmedi. ${canEdit ? "Kamera ile anlık net fotoğraf çekebilir veya galeriden çoklu fotoğraf yükleyebilirsiniz." : ""}</div>`;
+
+      return `
+        <div class="bg-white border border-slate-300 rounded-xl p-3 shadow-sm">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <div class="text-xs font-extrabold text-[#1E3A8A] flex items-center gap-1.5">
+                <span>📷 Evrak Fotoğrafları (Genel Ekler)</span>
+                <span class="px-2 py-0.5 rounded-full bg-blue-50 text-[#1E3A8A] border border-blue-200 text-[10px] font-extrabold">${count}/${ISG_MAX_DOCUMENT_PHOTOS}</span>
+                <span class="px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px] font-bold">Full HD Net</span>
+              </div>
+              <div class="text-[10.5px] text-slate-500">Fotoğrafın üstüne tıklayarak tam boyutlu detayı, çözünürlüğü ve yakınlaştırmayı görüntüleyebilirsiniz.</div>
+            </div>
+            ${(canEdit && count < ISG_MAX_DOCUMENT_PHOTOS) ? `
+              <div class="flex flex-wrap items-center gap-1.5">
+                <button type="button" onclick="triggerIsgRowCameraCapture('__doc__')"
+                  class="px-3 py-1.5 rounded-lg bg-[#1E3A8A] hover:bg-blue-800 text-white text-[11px] font-extrabold flex items-center gap-1 shadow-sm">
+                  <span>📸</span><span>Anlık Çek</span>
+                </button>
+                <button type="button" onclick="triggerIsgRowPhotoUpload('__doc__')"
+                  class="px-3 py-1.5 rounded-lg bg-blue-50 hover:bg-blue-100 text-[#1E3A8A] border border-blue-300 text-[11px] font-extrabold flex items-center gap-1">
+                  <span>🖼️</span><span>Galeriden Ekle</span>
+                </button>
+              </div>
+            ` : ""}
+          </div>
+          ${thumbsHtml}
+        </div>
+      `;
     }
 
     function renderIsgRowAciklamaCellHtml(idx, rowNum, note, rowPhotos, canEdit) {
@@ -21329,19 +21633,34 @@
       const count = rowPhotos.length;
       const thumbsHtml = count > 0 ? `
         <div class="flex flex-wrap items-center gap-1 mt-1">
-          ${rowPhotos.map((p, pIdx) => `
-            <div class="relative flex-shrink-0">
-              <img src="${p}" alt="Madde ${rowNum} Foto ${pIdx + 1}" onclick="openImagePreviewModal('${escapeJsSingle(p)}')" class="w-8 h-8 object-cover rounded border border-[#1E3A8A] cursor-pointer" title="Büyüt (Foto ${pIdx + 1}/${count})">
-              ${canEdit ? `<button type="button" onclick="removeIsgRowPhoto(${idx}, ${pIdx})" class="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-rose-600 text-white text-[10px] font-black flex items-center justify-center shadow" title="Bu fotoğrafı kaldır">×</button>` : ""}
-            </div>
-          `).join("")}
+          ${rowPhotos.map((raw, pIdx) => {
+            const src = resolveIsgPhotoSrc(raw);
+            return `
+              <div class="relative flex-shrink-0">
+                ${src ? `
+                  <img src="${src}" alt="Madde ${rowNum} Foto ${pIdx + 1}" onclick="openIsgPhotoLightbox('${key}', ${pIdx})"
+                    class="w-9 h-9 object-cover rounded border border-[#1E3A8A] hover:ring-2 hover:ring-amber-400 cursor-pointer transition"
+                    title="Tam detayı görmek için tıklayın (Foto ${pIdx + 1}/${count})">
+                ` : `
+                  <div class="w-9 h-9 rounded border border-dashed border-slate-300 bg-slate-100 flex items-center justify-center text-[8px] text-slate-500 animate-pulse">...</div>
+                `}
+                ${canEdit ? `<button type="button" onclick="removeIsgRowPhoto(${idx}, ${pIdx})" class="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-rose-600 text-white text-[10px] font-black flex items-center justify-center shadow" title="Bu fotoğrafı kaldır">×</button>` : ""}
+              </div>
+            `;
+          }).join("")}
         </div>
       ` : "";
       const addBtnHtml = (canEdit && count < ISG_MAX_PHOTOS_PER_ROW) ? `
-        <button type="button" onclick="triggerIsgRowPhotoUpload(${idx})" title="Açıklamaya Fotoğraf Ekle (Birden fazla seçilebilir, en fazla ${ISG_MAX_PHOTOS_PER_ROW})"
-          class="flex-shrink-0 px-1.5 py-1 rounded border border-slate-300 ${count > 0 ? 'bg-blue-100 text-[#1E3A8A]' : 'bg-slate-100 hover:bg-blue-50 text-slate-700'} transition text-[11px] font-bold flex items-center gap-0.5">
-          <span>📷</span>${count > 0 ? `<span>+${count}</span>` : ""}
-        </button>
+        <div class="flex items-center gap-1 flex-shrink-0">
+          <button type="button" onclick="triggerIsgRowCameraCapture(${idx})" title="Kamera ile Anlık Net Fotoğraf Çek"
+            class="px-1.5 py-1 rounded border border-blue-300 bg-blue-50 hover:bg-blue-100 text-[#1E3A8A] transition text-[11px] font-bold">
+            📸
+          </button>
+          <button type="button" onclick="triggerIsgRowPhotoUpload(${idx})" title="Galeriden Fotoğraf Ekle (Birden fazla seçilebilir, en fazla ${ISG_MAX_PHOTOS_PER_ROW})"
+            class="px-1.5 py-1 rounded border border-slate-300 ${count > 0 ? 'bg-blue-100 text-[#1E3A8A]' : 'bg-slate-100 hover:bg-blue-50 text-slate-700'} transition text-[11px] font-bold flex items-center gap-0.5">
+            <span>🖼️</span>${count > 0 ? `<span>+${count}</span>` : ""}
+          </button>
+        </div>
       ` : (count >= ISG_MAX_PHOTOS_PER_ROW ? `<span class="flex-shrink-0 text-[10px] font-bold px-1.5 py-0.5 rounded bg-blue-100 text-[#1E3A8A]">${count}/${ISG_MAX_PHOTOS_PER_ROW}</span>` : "");
       return `
         <div class="flex flex-col">
@@ -21367,6 +21686,7 @@
       const photoMaps = buildIsgPhotoStorageMaps(window.isgUiState.activeForm);
       window.isgUiState.activeForm.checkPhotos = photoMaps.checkPhotos;
       window.isgUiState.activeForm.checkPhotoLists = photoMaps.checkPhotoLists;
+      window.isgUiState.activeForm.documentPhotos = getIsgDocumentPhotos(window.isgUiState.activeForm);
       if (!window.isgUiState.activeForm.monthParafs) window.isgUiState.activeForm.monthParafs = {};
       if (!window.isgUiState.activeForm.rowResponsibles) window.isgUiState.activeForm.rowResponsibles = {};
       if (!window.isgUiState.activeForm.rowDueDates) window.isgUiState.activeForm.rowDueDates = {};
@@ -21378,6 +21698,13 @@
       window.renderIsgSheetEditorBody();
       document.getElementById("modalIsgSheetEditor").classList.remove("hidden");
       lucide.createIcons();
+
+      // Harici yüksek çözünürlüklü fotoğrafları (isg_form_photos) anında yükle ve yenile
+      loadIsgFormPhotosWeb(found.id).then(loaded => {
+        if (loaded > 0 && window.isgUiState.activeForm && window.isgUiState.activeForm.id === found.id) {
+          window.renderIsgSheetEditorBody();
+        }
+      });
     };
 
     window.setIsgSectionFilter = function(secIdx) {
@@ -21471,6 +21798,8 @@
     };
 
     window.openIsgSignaturePad = function(slotKey, labelTitle) {
+      const f = window.isgUiState.activeForm;
+      if (!f || !window.canCurrentUserEditIsgForm(f)) return;
       bindIsgSignatureCanvasEvents();
       window.isgUiState.sigSlotKey = slotKey;
       window.isgUiState.sigStrokes = [];
@@ -21500,7 +21829,7 @@
       const strokes = window.isgUiState.sigStrokes || [];
       const slotKey = window.isgUiState.sigSlotKey;
       const f = window.isgUiState.activeForm;
-      if (!f || !slotKey) return;
+      if (!f || !slotKey || !window.canCurrentUserEditIsgForm(f)) return;
       if (strokes.length === 0) {
         alert("Lütfen önce alana imzanızı çizin.");
         return;
@@ -21535,7 +21864,7 @@
 
     window.clearIsgSignatureSlot = function(slotKey) {
       const f = window.isgUiState.activeForm;
-      if (!f || !f.signatures) return;
+      if (!f || !f.signatures || !window.canCurrentUserEditIsgForm(f)) return;
       delete f.signatures[slotKey];
       window.renderIsgSheetEditorBody();
     };
@@ -21573,7 +21902,7 @@
       const tpl = getIsgTemplateById(f.templateId);
       const cur = window.currentUser || {};
       const isMgr = window.isIsgManager(cur);
-      const canEdit = isMgr || window.isIsgFormAssignedToUser(f, cur) || window.canUserEditSubPage("isg_forms", cur);
+      const canEdit = window.canCurrentUserEditIsgForm(f, cur);
       const sigs = f.signatures || {};
 
       document.getElementById("isgSheetEditorTitle").textContent = f.templateTitle || tpl.title;
@@ -21583,12 +21912,19 @@
           ? `${(tpl.sections || []).length} Konu Başlığı • ${tpl.checklistItems.length} Madde • Bölüm: ${f.projectName || "-"} • Yönlendirilen: ${f.assignedToName || "-"}`
           : `Form No: ${f.formNo || tpl.formNo} • Dosya No: ${f.dosyaNo || tpl.dosyaNo} • Yönlendirilen: ${f.assignedToName || "-"}`);
 
-      const assignBannerHtml = f.assignmentNote ? `
+      const readOnlyBannerHtml = !canEdit ? `
+        <div class="bg-amber-50 border border-amber-400 text-amber-950 rounded-xl px-3.5 py-2 text-xs font-bold flex items-center justify-between gap-2">
+          <span>🔒 Salt Okunur — Bu form yalnızca yönlendirilen kişi (${escapeHtml(f.assignedToName || "Atanan Personel")}) tarafından düzenlenebilir.</span>
+          <span class="text-[11px] text-amber-800 whitespace-nowrap">İnceleme &amp; Çıktı Modu</span>
+        </div>
+      ` : "";
+
+      const assignBannerHtml = (readOnlyBannerHtml + (f.assignmentNote ? `
         <div class="bg-blue-50 border border-blue-300 text-blue-950 rounded-xl px-3.5 py-2 text-xs font-semibold flex items-center justify-between gap-2">
           <span>📌 İSG Yönlendirme Notu: ${escapeHtml(f.assignmentNote)}</span>
           <span class="text-[11px] text-blue-700">Yönlendiren: ${escapeHtml(f.assignedByName || "İSG")}</span>
         </div>
-      ` : "";
+      ` : "") + renderIsgDocumentPhotosCardHtml(f, canEdit));
 
       if (tpl.layoutType === "TEKINAK_YESNO_TABLE") {
         const rowsHtml = tpl.checklistItems.map((q, idx) => {
@@ -22022,14 +22358,14 @@
 
     window.updateIsgDraftField = function(mapKey, key, val) {
       const f = window.isgUiState.activeForm;
-      if (!f) return;
+      if (!f || !window.canCurrentUserEditIsgForm(f)) return;
       if (!f[mapKey]) f[mapKey] = {};
       f[mapKey][key] = val;
     };
 
     window.toggleIsgCheckResult = function(idx, choice) {
       const f = window.isgUiState.activeForm;
-      if (!f) return;
+      if (!f || !window.canCurrentUserEditIsgForm(f)) return;
       const key = String(idx);
       if (!f.checkResults) f.checkResults = {};
       f.checkResults[key] = (f.checkResults[key] === choice) ? "" : choice;
@@ -22037,6 +22373,8 @@
     };
 
     window.triggerIsgRowPhotoUpload = function(idx) {
+      const f = window.isgUiState.activeForm;
+      if (!f || !window.canCurrentUserEditIsgForm(f)) return;
       window.isgUiState.pendingPhotoRowIdx = idx;
       const inp = document.getElementById("isgRowPhotoFileInput");
       if (inp) {
@@ -22045,19 +22383,44 @@
       }
     };
 
-    function compressIsgFileToDataUri(file, maxSide = 680, quality = 0.58) {
+    window.triggerIsgRowCameraCapture = function(idx) {
+      const f = window.isgUiState.activeForm;
+      if (!f || !window.canCurrentUserEditIsgForm(f)) return;
+      window.isgUiState.pendingPhotoRowIdx = idx;
+      const inp = document.getElementById("isgRowCameraFileInput");
+      if (inp) {
+        inp.value = "";
+        inp.click();
+      }
+    };
+
+    // Yüksek Netlik (Full HD 1920px, %90 JPEG) — her fotoğraf kendi isg_form_photos belgesine kaydedildiği için netlik bozulmaz
+    function compressIsgFileToDataUri(file, maxSide = 1920, quality = 0.90) {
       return new Promise((resolve) => {
         const reader = new FileReader();
         reader.onload = function(ev) {
           const img = new Image();
           img.onload = function() {
-            const scale = Math.min(1, maxSide / Math.max(img.width || 1, img.height || 1));
-            const canvas = document.createElement("canvas");
-            canvas.width = Math.max(1, Math.round(img.width * scale));
-            canvas.height = Math.max(1, Math.round(img.height * scale));
-            const ctx = canvas.getContext("2d");
-            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-            resolve(canvas.toDataURL("image/jpeg", quality));
+            const origW = img.naturalWidth || img.width || 1;
+            const origH = img.naturalHeight || img.height || 1;
+            let side = maxSide;
+            let q = quality;
+            let uri = "";
+            for (let attempt = 0; attempt < 5; attempt++) {
+              const scale = Math.min(1, side / Math.max(origW, origH));
+              const canvas = document.createElement("canvas");
+              canvas.width = Math.max(1, Math.round(origW * scale));
+              canvas.height = Math.max(1, Math.round(origH * scale));
+              const ctx = canvas.getContext("2d");
+              ctx.imageSmoothingEnabled = true;
+              ctx.imageSmoothingQuality = "high";
+              ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+              uri = canvas.toDataURL("image/jpeg", q);
+              if (uri.length <= 740000) break;
+              if (q > 0.78) q = Math.max(0.76, q - 0.06);
+              else side = Math.round(side * 0.85);
+            }
+            resolve(uri || null);
           };
           img.onerror = () => resolve(null);
           img.src = ev.target.result;
@@ -22073,77 +22436,171 @@
       window.isgUiState.pendingPhotoRowIdx = null;
       const f = window.isgUiState.activeForm;
       if (files.length === 0 || idx === null || idx === undefined || !f) return;
+      if (!window.canCurrentUserEditIsgForm(f)) return;
 
-      const existing = getIsgRowPhotos(f, idx);
-      const remaining = Math.max(0, ISG_MAX_PHOTOS_PER_ROW - existing.length);
+      const isDoc = String(idx) === "__doc__";
+      const maxLimit = isDoc ? ISG_MAX_DOCUMENT_PHOTOS : ISG_MAX_PHOTOS_PER_ROW;
+      const existing = isDoc ? getIsgDocumentPhotos(f) : getIsgRowPhotos(f, idx);
+      const remaining = Math.max(0, maxLimit - existing.length);
       if (remaining === 0) {
-        alert(`Bir maddeye en fazla ${ISG_MAX_PHOTOS_PER_ROW} fotoğraf eklenebilir.`);
+        alert(isDoc
+          ? `Evrak geneline en fazla ${ISG_MAX_DOCUMENT_PHOTOS} fotoğraf eklenebilir.`
+          : `Bir maddeye en fazla ${ISG_MAX_PHOTOS_PER_ROW} fotoğraf eklenebilir.`);
         return;
       }
       const selected = files.slice(0, remaining);
       const compressedList = [];
       for (const file of selected) {
-        const uri = await compressIsgFileToDataUri(file, 680, 0.58);
+        const uri = await compressIsgFileToDataUri(file, 1920, 0.90);
         if (uri) compressedList.push(uri);
       }
       if (compressedList.length > 0) {
-        setIsgRowPhotos(f, idx, [...existing, ...compressedList]);
+        if (isDoc) setIsgDocumentPhotos(f, [...existing, ...compressedList]);
+        else setIsgRowPhotos(f, idx, [...existing, ...compressedList]);
         window.renderIsgSheetEditorBody();
         if (files.length > remaining) {
-          alert(`Madde #${idx + 1} için ${compressedList.length} fotoğraf eklendi (en fazla ${ISG_MAX_PHOTOS_PER_ROW} fotoğraf sınırı).`);
+          alert(`${isDoc ? "Evrak geneli" : `Madde #${Number(idx) + 1}`} için ${compressedList.length} fotoğraf eklendi (en fazla ${maxLimit} fotoğraf sınırı).`);
         }
       }
     };
 
     window.removeIsgRowPhoto = function(idx, photoIdx = 0) {
       const f = window.isgUiState.activeForm;
-      if (!f) return;
-      const existing = getIsgRowPhotos(f, idx);
-      const updated = existing.filter((_, i) => i !== photoIdx);
-      setIsgRowPhotos(f, idx, updated);
+      if (!f || !window.canCurrentUserEditIsgForm(f)) return;
+      if (String(idx) === "__doc__") {
+        const updated = getIsgDocumentPhotos(f).filter((_, i) => i !== photoIdx);
+        setIsgDocumentPhotos(f, updated);
+      } else {
+        const existing = getIsgRowPhotos(f, idx);
+        const updated = existing.filter((_, i) => i !== photoIdx);
+        setIsgRowPhotos(f, idx, updated);
+      }
       window.renderIsgSheetEditorBody();
     };
+
+    function cleanIsgStringMap(obj) {
+      const out = {};
+      Object.entries(obj || {}).forEach(([k, v]) => {
+        const ck = String(k || "").trim();
+        if (ck) out[ck] = String(v ?? "");
+      });
+      return out;
+    }
+
+    async function buildExternalizedIsgPayload(f, me, now, overrides = {}) {
+      const tpl = getIsgTemplateById(f.templateId);
+      const docId = f.id;
+
+      // 1. Satır fotoğraflarını yüksek netlikle isg_form_photos koleksiyonuna taşı ve hafif ref:'e çevir
+      const allRowKeys = Array.from(new Set([
+        ...Object.keys(f.checkPhotoLists || {}),
+        ...Object.keys(f.checkPhotos || {})
+      ])).map(k => String(k || "").trim()).filter(Boolean);
+
+      const externalizedPhotoLists = {};
+      const syncedLegacyPhotos = {};
+      for (const k of allRowKeys) {
+        const rawList = getIsgRowPhotos(f, k);
+        if (rawList.length > 0) {
+          const refList = [];
+          for (const item of rawList) {
+            const ref = await externalizeIsgPhotoWeb(docId, k, item, now);
+            if (ref && !refList.includes(ref)) refList.push(ref);
+          }
+          if (refList.length > 0) {
+            externalizedPhotoLists[k] = refList;
+            syncedLegacyPhotos[k] = refList[0];
+          }
+        }
+      }
+
+      // 2. Evrak genel fotoğraflarını isg_form_photos koleksiyonuna taşı ve hafif ref:'e çevir
+      const externalizedDocPhotos = [];
+      for (const item of getIsgDocumentPhotos(f)) {
+        const ref = await externalizeIsgPhotoWeb(docId, "__doc__", item, now);
+        if (ref && !externalizedDocPhotos.includes(ref)) externalizedDocPhotos.push(ref);
+      }
+
+      f.checkPhotoLists = externalizedPhotoLists;
+      f.checkPhotos = syncedLegacyPhotos;
+      f.documentPhotos = externalizedDocPhotos;
+
+      const safeCreated = Number(f.createdAtMillis) > 0 ? Number(f.createdAtMillis) : now;
+      const safeAssignedAt = Number(f.assignedAtMillis) > 0 ? Number(f.assignedAtMillis) : now;
+
+      return {
+        id: docId,
+        templateId: tpl.templateId,
+        templateTitle: String(f.templateTitle || tpl.title).trim(),
+        sayfaNo: String(f.sayfaNo || tpl.sayfaNo || "").trim(),
+        formNo: String(f.formNo || tpl.formNo || "").trim(),
+        dosyaNo: String(f.dosyaNo || tpl.dosyaNo || "").trim(),
+        yayinTarihi: String(f.yayinTarihi || tpl.yayinTarihi || "").trim(),
+        revizyonNo: String(f.revizyonNo || tpl.revizyonNo || "").trim(),
+        revizyonTarihi: String(f.revizyonTarihi || tpl.revizyonTarihi || "").trim(),
+        projectName: String(f.projectName || "").trim(),
+        checkDate: String(f.checkDate || "").trim(),
+        equipmentFields: cleanIsgStringMap(f.equipmentFields),
+        checkResults: cleanIsgStringMap(f.checkResults),
+        checkNotes: cleanIsgStringMap(f.checkNotes),
+        checkPhotos: syncedLegacyPhotos,
+        checkPhotoLists: externalizedPhotoLists,
+        documentPhotos: externalizedDocPhotos,
+        rowResponsibles: cleanIsgStringMap(f.rowResponsibles),
+        rowDueDates: cleanIsgStringMap(f.rowDueDates),
+        monthParafs: cleanIsgStringMap(f.monthParafs),
+        signatures: cleanIsgStringMap(f.signatures),
+        kontrolEden: String(f.kontrolEden || "").trim(),
+        isverenVekili: String(f.isverenVekili || "").trim(),
+        status: String(f.status || "ASSIGNED"),
+        assignedToUid: String(f.assignedToUid || "").trim(),
+        assignedToName: String(f.assignedToName || "").trim(),
+        assignedToDepartment: String(f.assignedToDepartment || "").trim(),
+        assignedByUid: String(f.assignedByUid || "").trim(),
+        assignedByName: String(f.assignedByName || "").trim(),
+        assignedAtMillis: safeAssignedAt,
+        assignmentNote: String(f.assignmentNote || "").trim(),
+        dueDateIso: String(f.dueDateIso || "").trim(),
+        completedAtMillis: Number(f.completedAtMillis || 0),
+        completedByUid: String(f.completedByUid || "").trim(),
+        completedByName: String(f.completedByName || "").trim(),
+        completionNote: String(f.completionNote || "").trim(),
+        managerNotified: Boolean(f.managerNotified),
+        managerAcknowledgedBy: String(f.managerAcknowledgedBy || "").trim(),
+        managerAcknowledgedAtMillis: Number(f.managerAcknowledgedAtMillis || 0),
+        updatedByUid: me.userId || me.id || "",
+        updatedByName: me.displayName || me.username || "",
+        createdAtMillis: safeCreated,
+        updatedAtMillis: now,
+        createdAt: f.createdAt || serverTimestamp(),
+        updatedAt: serverTimestamp(),
+        ...overrides
+      };
+    }
 
     window.saveIsgSheetForm = async function(silent = false) {
       const f = window.isgUiState.activeForm;
       if (!f || !f.id) return false;
+      if (!window.canCurrentUserEditIsgForm(f)) {
+        if (!silent) alert(`🔒 Bu form yalnızca yönlendirilen kişi (${f.assignedToName || "Atanan Personel"}) tarafından düzenlenebilir.`);
+        return false;
+      }
       const me = window.currentUser || {};
       const now = Date.now();
-      const photoMaps = buildIsgPhotoStorageMaps(f);
-      f.checkPhotos = photoMaps.checkPhotos;
-      f.checkPhotoLists = photoMaps.checkPhotoLists;
       const hasData = Object.values(f.checkResults || {}).some(Boolean)
         || Object.values(f.equipmentFields || {}).some(Boolean)
         || Object.values(f.rowResponsibles || {}).some(Boolean)
         || Object.values(f.rowDueDates || {}).some(Boolean)
-        || Object.keys(photoMaps.checkPhotoLists).length > 0
+        || getIsgTotalPhotoCount(f) > 0
         || Boolean(String(f.projectName || "").trim())
         || Object.values(f.signatures || {}).some(Boolean);
       const nextStatus = f.status === "COMPLETED" ? "COMPLETED" : (hasData ? "IN_PROGRESS" : (f.status || "ASSIGNED"));
       f.status = nextStatus;
       try {
-        const payload = {
-          projectName: String(f.projectName || "").trim(),
-          checkDate: String(f.checkDate || "").trim(),
-          equipmentFields: f.equipmentFields || {},
-          checkResults: f.checkResults || {},
-          checkNotes: f.checkNotes || {},
-          checkPhotos: photoMaps.checkPhotos,
-          checkPhotoLists: photoMaps.checkPhotoLists,
-          rowResponsibles: f.rowResponsibles || {},
-          rowDueDates: f.rowDueDates || {},
-          monthParafs: f.monthParafs || {},
-          signatures: f.signatures || {},
-          kontrolEden: String(f.kontrolEden || "").trim(),
-          isverenVekili: String(f.isverenVekili || "").trim(),
-          status: nextStatus,
-          updatedByUid: me.userId || me.id || "",
-          updatedByName: me.displayName || me.username || "",
-          updatedAtMillis: now,
-          updatedAt: serverTimestamp()
-        };
-        await setDoc(doc(db, "isg_forms", f.id), payload, { mergeFields: Object.keys(payload) });
-        if (!silent) alert("✅ İSG formu buluta kaydedildi.");
+        const payload = await buildExternalizedIsgPayload(f, me, now, { status: nextStatus });
+        // Tam belge yazımı: eski gömülü base64 şişkinliğini tamamen temizler, 1 MB sınırına takılmaz
+        await setDoc(doc(db, "isg_forms", f.id), payload);
+        if (!silent) alert("✅ İSG formu ve tüm yüksek netlikli fotoğraflar buluta kaydedildi.");
         window.renderIsgSheetEditorBody();
         return true;
       } catch (e) {
@@ -22155,41 +22612,26 @@
     window.completeIsgSheetForm = async function() {
       const f = window.isgUiState.activeForm;
       if (!f || !f.id) return;
+      if (!window.canCurrentUserEditIsgForm(f)) {
+        alert(`🔒 Bu form yalnızca yönlendirilen kişi (${f.assignedToName || "Atanan Personel"}) tarafından tamamlanabilir.`);
+        return;
+      }
       const note = prompt("Tamamlama notu ekleyebilirsiniz (isteğe bağlı):", f.completionNote || "");
       if (note === null) return;
       const me = window.currentUser || {};
       const now = Date.now();
       const myName = me.displayName || me.username || "Personel";
-      const photoMaps = buildIsgPhotoStorageMaps(f);
-      f.checkPhotos = photoMaps.checkPhotos;
-      f.checkPhotoLists = photoMaps.checkPhotoLists;
       try {
-        const payload = {
-          projectName: String(f.projectName || "").trim(),
-          checkDate: String(f.checkDate || "").trim(),
-          equipmentFields: f.equipmentFields || {},
-          checkResults: f.checkResults || {},
-          checkNotes: f.checkNotes || {},
-          checkPhotos: photoMaps.checkPhotos,
-          checkPhotoLists: photoMaps.checkPhotoLists,
-          rowResponsibles: f.rowResponsibles || {},
-          rowDueDates: f.rowDueDates || {},
-          monthParafs: f.monthParafs || {},
-          signatures: f.signatures || {},
+        const payload = await buildExternalizedIsgPayload(f, me, now, {
           kontrolEden: String(f.kontrolEden || myName).trim(),
-          isverenVekili: String(f.isverenVekili || "").trim(),
           status: "COMPLETED",
           completedAtMillis: now,
           completedByUid: me.userId || me.id || "",
           completedByName: myName,
           completionNote: String(note || "").trim(),
-          managerNotified: true,
-          updatedByUid: me.userId || me.id || "",
-          updatedByName: myName,
-          updatedAtMillis: now,
-          updatedAt: serverTimestamp()
-        };
-        await setDoc(doc(db, "isg_forms", f.id), payload, { mergeFields: Object.keys(payload) });
+          managerNotified: true
+        });
+        await setDoc(doc(db, "isg_forms", f.id), payload);
         closeModal("modalIsgSheetEditor");
         alert("✅ Form tamamlandı olarak işaretlendi ve İSG yöneticisine anında bildirim gönderildi!");
       } catch (e) {
@@ -22221,28 +22663,44 @@
       if (!window.isIsgManager(window.currentUser)) return;
       if (!confirm("Bu İSG kontrol formunu kalıcı olarak silmek istiyor musunuz?")) return;
       try {
+        try {
+          const pSnap = await getDocs(query(collection(db, "isg_form_photos"), where("formId", "==", formId)));
+          for (const d of pSnap.docs) {
+            await deleteDoc(doc(db, "isg_form_photos", d.id));
+            window.isgPhotoCache.delete(d.id);
+          }
+        } catch (_) {}
         await deleteDoc(doc(db, "isg_forms", formId));
       } catch (e) {
         alert("Form silinemedi: " + (e?.message || e));
       }
     };
 
-    window.printCurrentIsgForm = function() {
-      if (window.isgUiState.activeForm) window.printIsgFormObject(window.isgUiState.activeForm);
+    window.printCurrentIsgForm = async function() {
+      if (window.isgUiState.activeForm) await window.printIsgFormObject(window.isgUiState.activeForm);
     };
-    window.printIsgFormById = function(formId) {
+    window.printIsgFormById = async function(formId) {
       const f = (window.allIsgForms || []).find(x => x.id === formId);
-      if (f) window.printIsgFormObject(f);
+      if (f) await window.printIsgFormObject(f);
     };
 
-    window.printIsgFormObject = function(f) {
+    window.printIsgFormObject = async function(f) {
+      if (f?.id) await loadIsgFormPhotosWeb(f.id);
       const tpl = getIsgTemplateById(f.templateId);
       const res = f.checkResults || {};
       const notes = f.checkNotes || {};
       const sigs = f.signatures || {};
 
-      const photoAppendixItems = tpl.checklistItems.flatMap((q, idx) => {
-        const list = getIsgRowPhotos(f, idx);
+      const docPhotosResolved = getIsgDocumentPhotos(f).map(resolveIsgPhotoSrc).filter(Boolean);
+      const docPhotoAppendixItems = docPhotosResolved.map((src, pIdx) => `
+        <div style="border:1px solid #000; padding:8px; break-inside:avoid;">
+          <div style="font-weight:700; font-size:10px; margin-bottom:4px;">Evrak Fotoğrafı (Genel Ek ${pIdx + 1}/${docPhotosResolved.length})</div>
+          <img src="${src}" style="width:100%; max-height:240px; object-fit:contain; border:0.5px solid #cbd5e1;">
+        </div>
+      `).join("");
+
+      const rowPhotoAppendixItems = tpl.checklistItems.flatMap((q, idx) => {
+        const list = getIsgRowPhotos(f, idx).map(resolveIsgPhotoSrc).filter(Boolean);
         return list.map((p, pIdx) => `
           <div style="border:1px solid #000; padding:8px; break-inside:avoid;">
             <div style="font-weight:700; font-size:10px; margin-bottom:4px;">Madde #${idx + 1}${list.length > 1 ? ` (Foto ${pIdx + 1}/${list.length})` : ""} (${escapeHtml(res[String(idx)] || "Kontrol")})</div>
@@ -22253,10 +22711,12 @@
         `);
       }).join("");
 
+      const photoAppendixItems = docPhotoAppendixItems + rowPhotoAppendixItems;
+
       const appendixBlock = photoAppendixItems ? `
         <div style="page-break-before: always; padding-top: 6px;">
           <h3 style="text-align:center; font-size:13px; border-bottom:1.5px solid #000; padding-bottom:6px; margin:0 0 12px 0;">
-            ${escapeHtml(f.templateTitle || tpl.title)} — AÇIKLAMA FOTOĞRAF EKLERİ (${escapeHtml(f.dosyaNo || tpl.dosyaNo)})
+            ${escapeHtml(f.templateTitle || tpl.title)} — EVRAK VE AÇIKLAMA FOTOĞRAF EKLERİ (${escapeHtml(f.dosyaNo || tpl.dosyaNo)})
           </h3>
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
             ${photoAppendixItems}
@@ -22273,7 +22733,7 @@
             const k = String(i);
             const v = String(res[k] || "").toUpperCase();
             const n = notes[k] || "";
-            const rowPhotos = getIsgRowPhotos(f, i);
+            const rowPhotos = getIsgRowPhotos(f, i).map(resolveIsgPhotoSrc).filter(Boolean);
             const inlineThumbs = rowPhotos.slice(0, 3).map(p => `<img src="${p}" style="width:20px; height:20px; object-fit:cover; border:0.5px solid #000; flex-shrink:0;">`).join("");
             const extraTag = rowPhotos.length > 3 ? `<span style="font-size:7.5px; font-weight:700;">+${rowPhotos.length - 3}</span>` : "";
             const fallbackTxt = rowPhotos.length > 1 ? `${rowPhotos.length} fotoğraf ekli (Ek)` : (rowPhotos.length === 1 ? "Fotoğraf ekli" : "");
@@ -22379,7 +22839,7 @@
             const k = String(idx);
             const v = String(res[k] || "").toUpperCase();
             const n = notes[k] || "";
-            const rowPhotos = getIsgRowPhotos(f, idx);
+            const rowPhotos = getIsgRowPhotos(f, idx).map(resolveIsgPhotoSrc).filter(Boolean);
             const inlineThumbs = rowPhotos.slice(0, 2).map(p => `<img src="${p}" style="width:18px; height:18px; object-fit:cover; border:0.5px solid #000; flex-shrink:0;">`).join("");
             const extraTag = rowPhotos.length > 2 ? `<span style="font-size:7px; font-weight:700;">+${rowPhotos.length - 2}</span>` : "";
             const fallbackTxt = rowPhotos.length > 1 ? `${rowPhotos.length} foto (Ek)` : (rowPhotos.length === 1 ? "Foto ekli" : "");
@@ -22472,7 +22932,7 @@
           const k = String(idx);
           const r = res[k] || "";
           const n = notes[k] || "";
-          const rowPhotos = getIsgRowPhotos(f, idx);
+          const rowPhotos = getIsgRowPhotos(f, idx).map(resolveIsgPhotoSrc).filter(Boolean);
           const inlineThumbs = rowPhotos.slice(0, 3).map(p => `<img src="${p}" style="width:24px; height:24px; object-fit:cover; border:0.6px solid #000; flex-shrink:0;">`).join("");
           const extraTag = rowPhotos.length > 3 ? `<span style="font-size:8px; font-weight:700;">+${rowPhotos.length - 3}</span>` : "";
           const fallbackTxt = rowPhotos.length > 1 ? `${rowPhotos.length} fotoğraf ekli (Ek)` : (rowPhotos.length === 1 ? "Fotoğraf ekli (Ek)" : "");
@@ -22714,8 +23174,9 @@
       return out;
     }
 
-    async function loadImageAsPngInfo(src, maxSide = 680) {
-      if (!src) return null;
+    async function loadImageAsPngInfo(src, maxSide = 1080) {
+      const resolvedSrc = resolveIsgPhotoSrc(src) || src;
+      if (!resolvedSrc) return null;
       return new Promise((resolve) => {
         const img = new Image();
         img.crossOrigin = "anonymous";
@@ -22739,7 +23200,7 @@
           }
         };
         img.onerror = () => resolve(null);
-        img.src = src;
+        img.src = resolvedSrc;
       });
     }
 
@@ -22784,6 +23245,7 @@
 
     window.exportIsgFormDocxObject = async function(f) {
       try {
+        if (f?.id) await loadIsgFormPhotosWeb(f.id);
         const tpl = getIsgTemplateById(f.templateId);
         const res = f.checkResults || {};
         const notes = f.checkNotes || {};
@@ -22806,13 +23268,22 @@
           return { rId, width: pngInfo.width, height: pngInfo.height, prId: docPrId++ };
         };
 
+        const docImgList = [];
+        for (const p of getIsgDocumentPhotos(f)) {
+          const info = await loadImageAsPngInfo(p, 960);
+          if (info) {
+            const added = addImg(info);
+            if (added) docImgList.push(added);
+          }
+        }
+
         const rowImgLists = {};
         for (let i = 0; i < tpl.checklistItems.length; i++) {
           const plist = getIsgRowPhotos(f, i);
           if (plist.length > 0) {
             const loaded = [];
             for (const p of plist) {
-              const info = await loadImageAsPngInfo(p, 560);
+              const info = await loadImageAsPngInfo(p, 960);
               if (info) {
                 const added = addImg(info);
                 if (added) loaded.push(added);
@@ -23028,11 +23499,17 @@
           sectPrXml = `<w:sectPr><w:pgSz w:w="11906" w:h="16838"/><w:pgMar w:top="480" w:right="480" w:bottom="480" w:left="480"/></w:sectPr>`;
         }
 
-        // Fotoğraf Ekleri Sayfası (tüm satır fotoğrafları)
+        // Fotoğraf Ekleri Sayfası (Evrak Genel Fotoğrafları + tüm satır fotoğrafları)
         const photoKeys = Object.keys(rowImgLists).map(Number).sort((a, b) => a - b);
-        if (photoKeys.length > 0) {
+        if (docImgList.length > 0 || photoKeys.length > 0) {
           bodyXml += `<w:p><w:r><w:br w:type="page"/></w:r></w:p>`;
-          bodyXml += docxPara(`${f.templateTitle || tpl.title} — AÇIKLAMA FOTOĞRAF EKLERİ`, { bold: true, sz: 24, before: 60, after: 120 });
+          bodyXml += docxPara(`${f.templateTitle || tpl.title} — EVRAK VE AÇIKLAMA FOTOĞRAF EKLERİ`, { bold: true, sz: 24, before: 60, after: 120 });
+          docImgList.forEach((img, pIdx) => {
+            const cx = 4200000;
+            const cy = Math.min(3000000, Math.round(cx * (img.height / Math.max(1, img.width))));
+            bodyXml += docxPara(`Evrak Fotoğrafı (Genel Ek ${pIdx + 1}/${docImgList.length})`, { align: "left", bold: true, sz: 18, before: 80, after: 20 });
+            bodyXml += `<w:p><w:pPr><w:jc w:val="center"/><w:spacing w:before="20" w:after="100"/></w:pPr>${docxInlineImgXml(img.rId, cx, cy, docPrId++, `Evrak_${pIdx + 1}`)}</w:p>`;
+          });
           photoKeys.forEach(idx => {
             const imgs = rowImgLists[idx] || [];
             imgs.forEach((img, pIdx) => {
@@ -23098,6 +23575,7 @@
 
     window.exportIsgFormExcelObject = async function(f) {
       try {
+        if (f?.id) await loadIsgFormPhotosWeb(f.id);
         const tpl = getIsgTemplateById(f.templateId);
         const res = f.checkResults || {};
         const notes = f.checkNotes || {};
@@ -23135,13 +23613,19 @@
           sheet2DrawAnchors.push(xlsxDrawingAnchorXml(rId, col1, row1, col2, row2, name, m.picId));
         };
 
+        const docPngList = [];
+        for (const p of getIsgDocumentPhotos(f)) {
+          const info = await loadImageAsPngInfo(p, 900);
+          if (info) docPngList.push(info);
+        }
+
         const rowPngLists = {};
         for (let i = 0; i < tpl.checklistItems.length; i++) {
           const plist = getIsgRowPhotos(f, i);
           if (plist.length > 0) {
             const loaded = [];
             for (const p of plist) {
-              const info = await loadImageAsPngInfo(p, 520);
+              const info = await loadImageAsPngInfo(p, 900);
               if (info) loaded.push(info);
             }
             if (loaded.length > 0) rowPngLists[i] = loaded;
@@ -23373,24 +23857,40 @@
           pageSetupXml = `<pageSetup paperSize="9" orientation="portrait" fitToWidth="1" fitToHeight="1"/>`;
         }
 
-        // Sayfa 2: Fotograf Ekleri (tüm satır fotoğrafları tam boy)
+        // Sayfa 2: Fotograf Ekleri (Evrak Genel Fotoğrafları + tüm satır fotoğrafları tam boy)
         const allPhotoRows = [];
+        docPngList.forEach((pngInfo, dIdx) => {
+          allPhotoRows.push({
+            numLabel: `EVRAK (${dIdx + 1}/${docPngList.length})`,
+            q: `${f.templateTitle || tpl.title} — Evrak Genel Fotoğrafı`,
+            resVal: "GENEL EK",
+            noteVal: "",
+            nameTag: `Evrak_Foto_${dIdx + 1}`,
+            pngInfo
+          });
+        });
         tpl.checklistItems.forEach((q, idx) => {
           const list = rowPngLists[idx] || [];
           list.forEach((pngInfo, pIdx) => {
-            allPhotoRows.push({ itemNum: idx + 1, photoIdx: pIdx + 1, photoTotal: list.length, q, resVal: res[String(idx)] || "", noteVal: notes[String(idx)] || "", pngInfo });
+            allPhotoRows.push({
+              numLabel: list.length > 1 ? `#${idx + 1} (${pIdx + 1}/${list.length})` : `#${idx + 1}`,
+              q,
+              resVal: res[String(idx)] || "",
+              noteVal: notes[String(idx)] || "",
+              nameTag: `Ek_Foto_${idx + 1}_${pIdx + 1}`,
+              pngInfo
+            });
           });
         });
         const hasSheet2 = allPhotoRows.length > 0;
         let sheet2Xml = "";
         if (hasSheet2) {
-          const s2Cols = `<cols><col min="1" max="1" width="14" customWidth="1"/><col min="2" max="2" width="44" customWidth="1"/><col min="3" max="3" width="14" customWidth="1"/><col min="4" max="4" width="32" customWidth="1"/><col min="5" max="5" width="38" customWidth="1"/></cols>`;
-          let s2Rows = `<row r="1" ht="26" customHeight="1">${xlsxCell(1, 0, "MADDE NO", 3)}${xlsxCell(1, 1, "KONTROL MADDESİ", 3)}${xlsxCell(1, 2, "SONUÇ", 3)}${xlsxCell(1, 3, "AÇIKLAMA", 3)}${xlsxCell(1, 4, "FOTOĞRAF", 3)}</row>`;
+          const s2Cols = `<cols><col min="1" max="1" width="16" customWidth="1"/><col min="2" max="2" width="44" customWidth="1"/><col min="3" max="3" width="14" customWidth="1"/><col min="4" max="4" width="32" customWidth="1"/><col min="5" max="5" width="38" customWidth="1"/></cols>`;
+          let s2Rows = `<row r="1" ht="26" customHeight="1">${xlsxCell(1, 0, "MADDE / EK", 3)}${xlsxCell(1, 1, "KONTROL MADDESİ", 3)}${xlsxCell(1, 2, "SONUÇ", 3)}${xlsxCell(1, 3, "AÇIKLAMA", 3)}${xlsxCell(1, 4, "FOTOĞRAF", 3)}</row>`;
           allPhotoRows.forEach((entry, pIdx) => {
             const r1 = 2 + pIdx;
-            const numLabel = entry.photoTotal > 1 ? `#${entry.itemNum} (${entry.photoIdx}/${entry.photoTotal})` : `#${entry.itemNum}`;
-            s2Rows += `<row r="${r1}" ht="135" customHeight="1">${xlsxCell(r1, 0, numLabel, 1)}${xlsxCell(r1, 1, entry.q, 2)}${xlsxCell(r1, 2, entry.resVal, 1)}${xlsxCell(r1, 3, entry.noteVal, 2)}${xlsxCell(r1, 4, "", 1)}</row>`;
-            addSheet2DrawImg(entry.pngInfo, 4, r1 - 1, 5, r1, `Ek_Foto_${entry.itemNum}_${entry.photoIdx}`);
+            s2Rows += `<row r="${r1}" ht="135" customHeight="1">${xlsxCell(r1, 0, entry.numLabel, 1)}${xlsxCell(r1, 1, entry.q, 2)}${xlsxCell(r1, 2, entry.resVal, 1)}${xlsxCell(r1, 3, entry.noteVal, 2)}${xlsxCell(r1, 4, "", 1)}</row>`;
+            addSheet2DrawImg(entry.pngInfo, 4, r1 - 1, 5, r1, entry.nameTag);
           });
           sheet2Xml = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheetPr><pageSetUpPr fitToPage="1"/></sheetPr>${s2Cols}<sheetData>${s2Rows}</sheetData><pageMargins left="0.3" right="0.3" top="0.35" bottom="0.35" header="0.2" footer="0.2"/><pageSetup paperSize="9" orientation="landscape" fitToWidth="1" fitToHeight="0"/>${sheet2DrawAnchors.length > 0 ? `<drawing r:id="rIdDraw2"/>` : ""}</worksheet>`;
         }
