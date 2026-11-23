@@ -423,49 +423,68 @@
       </div>
     </div>
 
-    <!-- TAB NAVİGASYON ÇUBUĞU (Android AppTab İle Birebir) -->
-    <nav id="mainNavBar" class="w-full max-w-full bg-[#172554] border-t border-blue-900/80 overflow-x-auto hide-scrollbar">
-      <div class="max-w-7xl mx-auto px-3 sm:px-4 flex items-center space-x-1 min-w-max">
-        <button onclick="switchTab('dashboard')" id="nav-dashboard" class="nav-btn px-3.5 py-2.5 text-xs font-bold border-b-2 border-amber-400 text-amber-400 flex items-center gap-1.5 whitespace-nowrap">
-          <i data-lucide="layout-dashboard" class="w-4 h-4"></i> Genel Bakış
+    <!-- TAB NAVİGASYON ÇUBUĞU (Android AppTab İle Birebir • Sol/Sağ Ok + Mouse Tekerleği + Sabit Sağ Araçlar) -->
+    <nav class="w-full max-w-full bg-[#172554] border-t border-blue-900/80">
+      <div class="max-w-7xl mx-auto px-2 sm:px-3 flex items-center gap-1 min-w-0">
+        <button type="button" id="btnNavScrollLeft" onclick="scrollMainNavBar(-260)"
+          class="hidden flex-shrink-0 w-7 h-7 rounded-lg bg-blue-900/95 hover:bg-blue-700 text-amber-300 border border-amber-400/40 flex items-center justify-center shadow transition"
+          title="Sekmeleri Sola Kaydır">
+          <i data-lucide="chevron-left" class="w-4 h-4"></i>
         </button>
-        <button onclick="switchTab('electricalMaintenance')" id="nav-electricalMaintenance" class="nav-btn px-3.5 py-2.5 text-xs font-semibold border-b-2 border-transparent text-slate-300 hover:text-white flex items-center gap-1.5 whitespace-nowrap">
-          <i data-lucide="zap" class="w-4 h-4 text-amber-400"></i> Elektrik Bakım
-          <span id="tabElectricalBadge" class="bg-rose-600 text-white text-[10px] px-1.5 py-0.2 rounded-full font-bold ml-1">0</span>
+        <div id="mainNavBar"
+          onscroll="updateMainNavScrollControls()"
+          onwheel="if (this.scrollWidth > this.clientWidth && Math.abs(event.deltaY) >= Math.abs(event.deltaX)) { this.scrollLeft += event.deltaY; event.preventDefault(); }"
+          class="flex-1 min-w-0 overflow-x-auto thin-dark-scrollbar">
+          <div id="mainNavTrack" class="flex items-center space-x-0.5 min-w-max">
+            <button onclick="switchTab('dashboard')" id="nav-dashboard" class="nav-btn px-3 py-2.5 text-xs font-bold border-b-2 border-amber-400 text-amber-400 flex items-center gap-1.5 whitespace-nowrap">
+              <i data-lucide="layout-dashboard" class="w-4 h-4"></i> Genel Bakış
+            </button>
+            <button onclick="switchTab('electricalMaintenance')" id="nav-electricalMaintenance" class="nav-btn px-3 py-2.5 text-xs font-semibold border-b-2 border-transparent text-slate-300 hover:text-white flex items-center gap-1.5 whitespace-nowrap">
+              <i data-lucide="zap" class="w-4 h-4 text-amber-400"></i> Elektrik Bakım
+              <span id="tabElectricalBadge" class="bg-rose-600 text-white text-[10px] px-1.5 py-0.2 rounded-full font-bold ml-1">0</span>
+            </button>
+            <button onclick="switchTab('packagingUnit')" id="nav-packagingUnit" class="nav-btn px-3 py-2.5 text-xs font-semibold border-b-2 border-transparent text-slate-300 hover:text-white flex items-center gap-1.5 whitespace-nowrap">
+              <i data-lucide="package" class="w-4 h-4 text-amber-300"></i> Paketleme Birimi
+              <span id="tabPackagingBadge" class="bg-amber-600 text-white text-[10px] px-1.5 py-0.2 rounded-full font-bold ml-1 hidden">0</span>
+            </button>
+            <button onclick="switchTab('utilityControls')" id="nav-utilityControls" class="nav-btn px-3 py-2.5 text-xs font-semibold border-b-2 border-transparent text-slate-300 hover:text-white flex items-center gap-1.5 whitespace-nowrap">
+              <i data-lucide="gauge" class="w-4 h-4 text-sky-400"></i> Yardımcı Tesisler
+              <span id="tabUtilityAlertBadge" class="bg-rose-600 text-white text-[10px] px-1.5 py-0.2 rounded-full font-bold ml-1 hidden">0</span>
+            </button>
+            <button onclick="switchTab('production')" id="nav-production" class="nav-btn px-3 py-2.5 text-xs font-semibold border-b-2 border-transparent text-slate-300 hover:text-white flex items-center gap-1.5 whitespace-nowrap">
+              <i data-lucide="factory" class="w-4 h-4 text-orange-400"></i> Üretim
+              <span id="tabProductionBadge" class="bg-rose-600 text-white text-[10px] px-1.5 py-0.2 rounded-full font-bold ml-1 hidden">0</span>
+            </button>
+            <button onclick="switchTab('isg')" id="nav-isg" class="nav-btn px-3 py-2.5 text-xs font-semibold border-b-2 border-transparent text-slate-300 hover:text-white flex items-center gap-1.5 whitespace-nowrap">
+              <i data-lucide="shield-alert" class="w-4 h-4 text-emerald-400"></i> İSG
+              <span id="tabIsgBadge" class="bg-emerald-600 text-white text-[10px] px-1.5 py-0.2 rounded-full font-bold ml-1 hidden">0</span>
+            </button>
+            <button onclick="switchTab('members')" id="nav-members" class="nav-btn px-3 py-2.5 text-xs font-semibold border-b-2 border-transparent text-slate-300 hover:text-white flex items-center gap-1.5 whitespace-nowrap">
+              <i data-lucide="contact" class="w-4 h-4 text-emerald-400"></i> Üyeler
+              <span id="tabMembersBadge" class="bg-blue-600 text-white text-[10px] px-1.5 py-0.2 rounded-full font-bold ml-1">0</span>
+            </button>
+            <button onclick="switchTab('energyManagement')" id="nav-energyManagement" class="hidden nav-btn px-3 py-2.5 text-xs font-semibold border-b-2 border-transparent text-slate-300 hover:text-white flex items-center gap-1.5 whitespace-nowrap">
+              <i data-lucide="zap" class="w-4 h-4 text-yellow-300"></i> ⚡ Enerji Yönetimi (ISO 50001)
+              <span id="tabEnergyBadge" class="hidden bg-rose-600 text-white text-[10px] px-1.5 py-0.2 rounded-full font-bold ml-1">!</span>
+            </button>
+            <button onclick="switchTab('team')" id="nav-team" class="nav-btn px-3 py-2.5 text-xs font-semibold border-b-2 border-transparent text-slate-300 hover:text-white flex items-center gap-1.5 whitespace-nowrap">
+              <i data-lucide="shield-check" class="w-4 h-4 text-amber-400"></i> Personel & Yetki
+            </button>
+          </div>
+        </div>
+        <button type="button" id="btnNavScrollRight" onclick="scrollMainNavBar(260)"
+          class="hidden flex-shrink-0 w-7 h-7 rounded-lg bg-blue-900/95 hover:bg-blue-700 text-amber-300 border border-amber-400/40 flex items-center justify-center shadow transition"
+          title="Diğer Sekmeleri Görmek İçin Sağa Kaydır">
+          <i data-lucide="chevron-right" class="w-4 h-4"></i>
         </button>
-        <button onclick="switchTab('packagingUnit')" id="nav-packagingUnit" class="nav-btn px-3.5 py-2.5 text-xs font-semibold border-b-2 border-transparent text-slate-300 hover:text-white flex items-center gap-1.5 whitespace-nowrap">
-          <i data-lucide="package" class="w-4 h-4 text-amber-300"></i> Paketleme Birimi
-          <span id="tabPackagingBadge" class="bg-amber-600 text-white text-[10px] px-1.5 py-0.2 rounded-full font-bold ml-1 hidden">0</span>
-        </button>
-        <button onclick="switchTab('utilityControls')" id="nav-utilityControls" class="nav-btn px-3.5 py-2.5 text-xs font-semibold border-b-2 border-transparent text-slate-300 hover:text-white flex items-center gap-1.5 whitespace-nowrap">
-          <i data-lucide="gauge" class="w-4 h-4 text-sky-400"></i> Yardımcı Tesisler
-          <span id="tabUtilityAlertBadge" class="bg-rose-600 text-white text-[10px] px-1.5 py-0.2 rounded-full font-bold ml-1 hidden">0</span>
-        </button>
-        <button onclick="switchTab('production')" id="nav-production" class="nav-btn px-3.5 py-2.5 text-xs font-semibold border-b-2 border-transparent text-slate-300 hover:text-white flex items-center gap-1.5 whitespace-nowrap">
-          <i data-lucide="factory" class="w-4 h-4 text-orange-400"></i> Üretim
-          <span id="tabProductionBadge" class="bg-rose-600 text-white text-[10px] px-1.5 py-0.2 rounded-full font-bold ml-1 hidden">0</span>
-        </button>
-        <button onclick="switchTab('isg')" id="nav-isg" class="nav-btn px-3.5 py-2.5 text-xs font-semibold border-b-2 border-transparent text-slate-300 hover:text-white flex items-center gap-1.5 whitespace-nowrap">
-          <i data-lucide="shield-alert" class="w-4 h-4 text-emerald-400"></i> İSG
-          <span id="tabIsgBadge" class="bg-emerald-600 text-white text-[10px] px-1.5 py-0.2 rounded-full font-bold ml-1 hidden">0</span>
-        </button>
-        <button onclick="switchTab('members')" id="nav-members" class="nav-btn px-3.5 py-2.5 text-xs font-semibold border-b-2 border-transparent text-slate-300 hover:text-white flex items-center gap-1.5 whitespace-nowrap">
-          <i data-lucide="contact" class="w-4 h-4 text-emerald-400"></i> Üyeler
-          <span id="tabMembersBadge" class="bg-blue-600 text-white text-[10px] px-1.5 py-0.2 rounded-full font-bold ml-1">0</span>
-        </button>
-        <button onclick="switchTab('energyManagement')" id="nav-energyManagement" class="hidden nav-btn px-3.5 py-2.5 text-xs font-semibold border-b-2 border-transparent text-slate-300 hover:text-white flex items-center gap-1.5 whitespace-nowrap">
-          <i data-lucide="zap" class="w-4 h-4 text-yellow-300"></i> ⚡ Enerji Yönetimi (ISO 50001)
-          <span id="tabEnergyBadge" class="hidden bg-rose-600 text-white text-[10px] px-1.5 py-0.2 rounded-full font-bold ml-1">!</span>
-        </button>
-        <button onclick="switchTab('team')" id="nav-team" class="nav-btn px-3.5 py-2.5 text-xs font-semibold border-b-2 border-transparent text-slate-300 hover:text-white flex items-center gap-1.5 whitespace-nowrap">
-          <i data-lucide="shield-check" class="w-4 h-4 text-amber-400"></i> Personel & Yetki
-        </button>
-        <button id="btnReorderTabs" onclick="openTabOrderModal()" class="hidden px-2.5 py-1.5 my-1.5 text-[11px] font-bold bg-blue-900/90 hover:bg-blue-800 text-amber-300 border border-amber-400/40 rounded-lg flex items-center gap-1 shadow transition whitespace-nowrap" title="Yönetici: Sekme Sıralamasını Tüm Kullanıcılarda Anlık Değiştir">
-          <i data-lucide="arrow-left-right" class="w-3.5 h-3.5"></i> Sekme Sırası
-        </button>
-        <button id="btnHeaderExcel" onclick="openExcelDialog()" class="btn-excel-export ml-auto px-3.5 py-1.5 my-1.5 text-xs font-bold bg-emerald-700 hover:bg-emerald-600 text-white rounded-lg flex items-center gap-1.5 shadow transition whitespace-nowrap">
-          <i data-lucide="file-spreadsheet" class="w-4 h-4"></i> Excel İndir
-        </button>
+        <div class="flex items-center gap-1.5 flex-shrink-0 pl-1.5 border-l border-blue-800/80">
+          <button id="btnReorderTabs" onclick="openTabOrderModal()" class="hidden px-2 py-1.5 my-1 text-[11px] font-bold bg-blue-900/90 hover:bg-blue-800 text-amber-300 border border-amber-400/40 rounded-lg flex items-center gap-1 shadow transition whitespace-nowrap" title="Yönetici: Sekme Sıralamasını Tüm Kullanıcılarda Anlık Değiştir">
+            <i data-lucide="arrow-left-right" class="w-3.5 h-3.5"></i> <span class="hidden sm:inline">Sekme Sırası</span>
+          </button>
+          <button id="btnHeaderExcel" onclick="openExcelDialog()" class="btn-excel-export px-2.5 sm:px-3 py-1.5 my-1 text-xs font-bold bg-emerald-700 hover:bg-emerald-600 text-white rounded-lg flex items-center gap-1 shadow transition whitespace-nowrap">
+            <i data-lucide="file-spreadsheet" class="w-4 h-4"></i> <span class="hidden md:inline">Excel İndir</span>
+          </button>
+        </div>
       </div>
     </nav>
   </header>
@@ -2946,7 +2965,7 @@
       <div class="space-y-3 text-xs">
         <div id="isgTemplateSelectWrap">
           <label class="block font-bold text-slate-700 mb-1">İSG Form Şablonu *</label>
-          <select id="isgTemplateSelect" class="w-full border border-slate-300 rounded-xl p-2.5 font-semibold bg-white"></select>
+          <select id="isgTemplateSelect" onchange="onIsgCreateTemplateChanged()" class="w-full border border-slate-300 rounded-xl p-2.5 font-semibold bg-white"></select>
         </div>
         <div>
           <label class="block font-bold text-slate-700 mb-1">Yönlendirilecek Kişi *</label>
@@ -2954,11 +2973,11 @@
         </div>
         <div id="isgPrefillSpecsWrap" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
           <div>
-            <label class="block font-bold text-slate-700 mb-1">Markası (İsteğe bağlı)</label>
+            <label id="isgPrefillBrandLabel" class="block font-bold text-slate-700 mb-1">Markası (İsteğe bağlı)</label>
             <input type="text" id="isgPrefillBrand" placeholder="Örn: Linde / Still" class="w-full border border-slate-300 rounded-xl p-2.5">
           </div>
           <div>
-            <label class="block font-bold text-slate-700 mb-1">Seri No (İsteğe bağlı)</label>
+            <label id="isgPrefillSerialLabel" class="block font-bold text-slate-700 mb-1">Seri No (İsteğe bağlı)</label>
             <input type="text" id="isgPrefillSerial" placeholder="Örn: FL-04" class="w-full border border-slate-300 rounded-xl p-2.5">
           </div>
         </div>
@@ -2985,8 +3004,11 @@
         <button type="button" onclick="printCurrentIsgForm()" class="px-3 py-1.5 bg-white text-[#1E3A8A] hover:bg-blue-50 rounded-lg text-xs font-extrabold flex items-center gap-1 shadow">
           <i data-lucide="printer" class="w-3.5 h-3.5"></i> Birebir A4 Yazdır / PDF
         </button>
-        <button type="button" onclick="exportCurrentIsgFormExcel()" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-xs font-bold flex items-center gap-1 shadow">
-          <i data-lucide="file-spreadsheet" class="w-3.5 h-3.5"></i> Excel
+        <button type="button" onclick="exportCurrentIsgFormDocx()" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-500 text-white rounded-lg text-xs font-extrabold flex items-center gap-1 shadow">
+          <i data-lucide="file-text" class="w-3.5 h-3.5"></i> Word (.docx)
+        </button>
+        <button type="button" onclick="exportCurrentIsgFormExcel()" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-xs font-extrabold flex items-center gap-1 shadow">
+          <i data-lucide="file-spreadsheet" class="w-3.5 h-3.5"></i> Excel (.xlsx)
         </button>
         <button type="button" onclick="closeModal('modalIsgSheetEditor')" class="p-1.5 bg-blue-900/80 hover:bg-blue-800 text-white rounded-lg">
           <i data-lucide="x" class="w-5 h-5"></i>
@@ -2996,6 +3018,31 @@
     <div id="isgSheetEditorBody" class="flex-1 overflow-auto bg-slate-200 p-3 sm:p-5"></div>
     <div id="isgSheetEditorFooter" class="bg-white border-t border-slate-300 px-4 py-3 flex flex-wrap items-center justify-between gap-2 shadow-inner"></div>
     <input type="file" id="isgRowPhotoFileInput" accept="image/*" class="hidden" onchange="handleIsgRowPhotoSelected(event)">
+  </div>
+
+  <!-- MODAL: İSG DİJİTAL İMZA ÇİZİM PANELİ -->
+  <div id="modalIsgSignaturePad" class="fixed inset-0 bg-black/75 z-[60] hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-lg w-full p-5 shadow-2xl space-y-3">
+      <div class="flex items-center justify-between border-b pb-2.5">
+        <div>
+          <h3 id="isgSigPadTitle" class="font-extrabold text-sm text-[#1E3A8A]">✍️ Dijital İmza</h3>
+          <p class="text-[11px] text-slate-500">Fare, dokunmatik ekran veya kalemle aşağıdaki alana imzanızı çizin.</p>
+        </div>
+        <button type="button" onclick="closeModal('modalIsgSignaturePad')" class="text-slate-400 hover:text-slate-600">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+      <div class="border-2 border-[#1E3A8A] rounded-xl bg-slate-50 overflow-hidden">
+        <canvas id="isgSignatureCanvas" width="480" height="190" class="w-full h-48 block cursor-crosshair bg-white" style="touch-action: none;"></canvas>
+      </div>
+      <div class="flex flex-wrap items-center justify-between gap-2 pt-1">
+        <div class="flex items-center gap-1.5">
+          <button type="button" onclick="undoIsgSignatureStroke()" class="px-3 py-1.5 text-xs font-bold border border-slate-300 rounded-lg hover:bg-slate-100 text-slate-700">↶ Geri Al</button>
+          <button type="button" onclick="clearIsgSignatureCanvas()" class="px-3 py-1.5 text-xs font-bold border border-rose-200 rounded-lg hover:bg-rose-50 text-rose-600">Temizle</button>
+        </div>
+        <button type="button" onclick="saveIsgSignatureFromPad()" class="px-4 py-2 text-xs font-extrabold bg-emerald-700 hover:bg-emerald-600 text-white rounded-xl shadow">✅ İmzayı Kaydet</button>
+      </div>
+    </div>
   </div>
 
   <!-- MODAL: PAKETLEME ARIZA VE BAKIM TAKİP FORMU (FR-59) -->
@@ -20545,24 +20592,43 @@
     };
     window._tabOrderDraft = [...window.MASTER_ALL_TABS];
 
+    window.updateMainNavScrollControls = function() {
+      const bar = document.getElementById("mainNavBar");
+      const btnL = document.getElementById("btnNavScrollLeft");
+      const btnR = document.getElementById("btnNavScrollRight");
+      if (!bar || !btnL || !btnR) return;
+      const maxScroll = Math.max(0, bar.scrollWidth - bar.clientWidth);
+      const overflows = maxScroll > 4;
+      btnL.classList.toggle("hidden", !overflows || bar.scrollLeft <= 2);
+      btnR.classList.toggle("hidden", !overflows || bar.scrollLeft >= maxScroll - 2);
+    };
+
+    window.scrollMainNavBar = function(delta) {
+      const bar = document.getElementById("mainNavBar");
+      if (!bar) return;
+      bar.scrollBy({ left: delta, behavior: "smooth" });
+      setTimeout(() => window.updateMainNavScrollControls(), 240);
+    };
+
+    window.addEventListener("resize", () => {
+      window.updateMainNavScrollControls();
+    });
+
     window.applyGlobalTabOrder = function() {
-      const navInner = document.querySelector("#mainNavBar > div");
+      const navInner = document.getElementById("mainNavTrack") || document.querySelector("#mainNavBar > div");
       if (!navInner) return;
       const order = Array.isArray(window.globalTabOrder) && window.globalTabOrder.length > 0
         ? window.globalTabOrder
         : window.MASTER_ALL_TABS;
-      const anchorRight = document.getElementById("btnReorderTabs") || document.getElementById("btnHeaderExcel");
       order.forEach(tabId => {
         const navKey = window.REVERSE_TAB_ID_MAP[tabId] || tabId;
         const btn = document.getElementById("nav-" + navKey);
         if (btn && btn.parentElement === navInner) {
-          if (anchorRight && anchorRight.parentElement === navInner) {
-            navInner.insertBefore(btn, anchorRight);
-          } else {
-            navInner.appendChild(btn);
-          }
+          navInner.appendChild(btn);
         }
       });
+      requestAnimationFrame(() => window.updateMainNavScrollControls());
+      setTimeout(() => window.updateMainNavScrollControls(), 120);
     };
 
     window.openTabOrderModal = function() {
@@ -20628,13 +20694,18 @@
       }
     };
 
-    // ================= İŞ SAĞLIĞI VE GÜVENLİĞİ (İSG) MODÜLÜ & BİREBİR FORKLİFT FORMU =================
+    // ================= İŞ SAĞLIĞI VE GÜVENLİĞİ (İSG) MODÜLÜ & BİREBİR KONTROL FORMLARI =================
     const ISG_MONTHS_TR = ["OCAK", "ŞUBAT", "MART", "NİSAN", "MAYIS", "HAZİRAN", "TEMMUZ", "AĞUSTOS", "EYLÜL", "EKİM", "KASIM", "ARALIK"];
+    const ISG_SIG_INSPECTOR = "inspector";
+    const ISG_SIG_EMPLOYER = "employer";
     const ISG_FORM_TEMPLATES = [
       {
         templateId: "forklift_kontrol_27",
         title: "FORKLİFT KONTROL FORMU",
         shortName: "Forklift Kontrol Formu (Form No: 27 — GOSGB 02-27)",
+        layoutType: "BERRAK_STANDARD",
+        isLandscape: false,
+        pageBreaksAfterRow: [],
         sayfaNo: "1/1",
         formNo: "27",
         dosyaNo: "GOSGB 02-27",
@@ -20674,6 +20745,77 @@
         showMonthlyParafGrid: true,
         approvalLeftLabel: "KONTROL EDEN",
         approvalRightLabel: "İŞVEREN/VEKİLİ"
+      },
+      {
+        templateId: "elektrik_kontrol_tekinak",
+        title: "TEKİNAK GIDA ELEKTRİK KONTROL FORMU",
+        shortName: "Tekinak Gıda Elektrik Kontrol Formu (48 Madde — Yatay)",
+        layoutType: "TEKINAK_YESNO_TABLE",
+        isLandscape: true,
+        pageBreaksAfterRow: [20, 30],
+        sayfaNo: "1-3",
+        formNo: "ELK-01",
+        dosyaNo: "TEKİNAK İSG-ELK",
+        yayinTarihi: "-",
+        revizyonNo: "-",
+        revizyonTarihi: "-",
+        specRows: [],
+        checklistHeaderLeft: "KONTROL TİPİ",
+        checklistHeaderMid: "EVET / HAYIR",
+        checklistHeaderRight: "AÇIKLAMA",
+        checklistItems: [
+          "Prizlerde kapak koruması mevcut mu ?",
+          "Kullanılan prizler darbeye karşı dayanıklı malzemeden yapılmış mı ?",
+          "Prizlerin zeminden yüksekliği uygun mu ? (min=40 cm)",
+          "Değirmende kullanılan ekipmanlar (ELEKTRİK MOTORLARI,KABLOLAR, KAYIŞLAR KULLANILAN FİŞLER ve PRİZLER)EX-PROOF veortam şartlarına uygun özellikte olup hasarsız mı?",
+          "Elektrik kabloları ve prizlerindeki yük durumu uygun mu? (Ör: Prizden çekilen elektriksel yük uygun mu )?",
+          "Seyyar iletkenlerin kullanılması gereken yerlerde yeterli sayıda uygun topraklı elektrik prizleri mevcut mu ? Tüm prizler topraklı mı ?",
+          "Kablo grupları suya, mekanik ve çevresel etkilere karşı korunmuş mu ?",
+          "Elektrik kabloları güvenli yerlere yerleştirilmiş mi? (Ör: Takılma riski yaratmayacak şekilde ve su birikintilerinden uzak.)",
+          "Tüm elektrik kabloları kullanım için uygun, genel olarak iyi durumda ve hasarsız mı? Kesik yamalı izolasyonu bozulmuş hasarlı kablolar sahadan uzaklaştırılıyor mu ?",
+          "Elektrik kabloları her hafta başında test edilip ve o hafta için kullanılacak etiketlerle etiketlenmiş mi?",
+          "Etiketler kolayca sökülmeyecek özellikte mi ?",
+          "Etiketlerde kablonun hangi firmaya ait olduğu,kontrol tarihi ve kontrolü yapan kişinin ismi ünvanı belirtilmiş mi ?",
+          "Kabloların uzatılması gerektiği durumlarda, uygun bağlantı araçları sağlanmış mı ve bağlantı güvenli bir şekilde yapılmış mı? (kabloların doğrudan birbirine bağlanması yasaktır.)",
+          "Panolar IP65 standarlarına uygun mu ?",
+          "Elektrik panosu dış aksamında defarmasyon var mı ?",
+          "Panolar yerden yüksek çevresel etkenlerden uzak ve düz bir zeminde ve beton veya demir kaide üzerine oturtulup zemine sabitlenmiş mi?",
+          "Elektrik panosunun, çevresel etkenlerden korunması adına, çevresinde gerekli güvenlik tedbirleri alınmış mı ?",
+          "Pano kapaklarının kilidi var mı ?",
+          "Pano üzerine uyarıcı levhalar konulmuş mu ?",
+          "Topraklama yapılmış mı ?",
+          "Topraklama ölçüm raporu aylık olarak yapılıyor mu ?",
+          "Kaçak akım koruma rölesi var mı ?",
+          "Pano içerisindeki kabloların koruması mevcut mu ?",
+          "Kontroller elektrikten sorumlu personel tarafından yapılmış mı ?",
+          "Kontrolü yapacak personel KKD kullanılıyor mu ?",
+          "Tüm panoların görünür bir yerinde projesinde gösterilen pano yeri büyük punto harflerle yazılmış mı? Panolar numaralandırılmış mı ?",
+          "Tüm panolarda faz, nötr ve toprak baraları mevcut mu?",
+          "Pano içinde baralar tesis edilirken fazlar R-S-T sırasına sahip mi ? R fazı (1 Kahverengi) S fazı (2 Siyah) T fazı (3 Kırmızı) Nötr (N Açık mavi) Toprak (PE Sarı-yeşil)",
+          "Panolarda elektriksel bağlantı yerleri daima kapalı mı, hergün kontrol ediliyor mu ?",
+          "Tüp panoların her hafta kompresörle hava sıkarak tozları temizleniyor mu ?",
+          "Kontrol, bakım ve onarımı yapılacak makine ve elektrik devrelerinin akımını kesen şalter veya anahtarlarda kilitleme tertibatı mevcut mu ?",
+          "Panolar konumu gereği elektriksel ihtiyacı kolayca karşılayabileceği yere konulmuş mu ?",
+          "Panoların çevresinde malzeme istifi yapılmış mı ?",
+          "Panoların üzerinde (dış yüzeyinde) sorumlu birimin isim ve iletişim bilgileri var mı ?",
+          "Panolarda arızalı sigortalar çıkartılıp yenisiyle değiştiriliyor mu ?",
+          "Panolarda dış etkenlere karşı çevresinde gerekli güvenlik tedbirleri alınmış mı ?",
+          "İş makinalarının sürekli olarak kullandığı güzergahlarda pano bulunuyor mu ?",
+          "Koğuşların elektrik tesisatlarının haftalık kontrolleri yapılıyor mu ?",
+          "Yangın söndürme tüpü mevcut mu ?",
+          "Trafo yağ seviyesi aylık kontrolü yapılıyor mu ?",
+          "Trafo busingleri temizleniyor mu ?",
+          "Beton köşk içerisinde olması gereken cihazların ve KKD'lerin listesi yapılmış mı ?",
+          "Beton köşkün iç aydınlatması uygun özellikteki lambayla ve yeterli düzeyde yapılıyor mu ?",
+          "Yağışlı ve bulutlu havalarda yüksek gerilimde çalışılıyor mu ?",
+          "Jeneratörler ile ilgili kontroller yetkili servis tarafından yapılıyor mu ?",
+          "Jeneratörler üzerine acil durum anında müdahale edebilecek ilgili birimin ve yetkili firmanın iletişim bilgileri mevcut mu ?",
+          "Jeneratörlerde dışarıdan gelebilecek çevresel tehlikelere karşı gerekli güvenlik tedbirleri alınmış mı ?",
+          "Paratoner tesisatının periyodik kontrolleri yapılıyor mu ?"
+        ],
+        showMonthlyParafGrid: false,
+        approvalLeftLabel: "KONTROLÜ YAPAN",
+        approvalRightLabel: ""
       }
     ];
 
@@ -20688,6 +20830,14 @@
     }
 
     function getIsgEquipmentSummary(form) {
+      const tpl = getIsgTemplateById(form.templateId);
+      if (tpl.layoutType === "TEKINAK_YESNO_TABLE") {
+        const parts = [
+          form.projectName ? `Proje: ${form.projectName}` : "",
+          form.checkDate ? `Tarih: ${form.checkDate}` : ""
+        ].map(x => String(x || "").trim()).filter(Boolean);
+        return parts.length > 0 ? parts.join(" • ") : "Proje adı / tarih girilmedi";
+      }
       const eq = form.equipmentFields || {};
       const parts = [eq.markasi, eq.tipi, eq.seri_no ? `Seri: ${eq.seri_no}` : ""].map(x => String(x || "").trim()).filter(Boolean);
       return parts.length > 0 ? parts.join(" • ") : "Ekipman bilgisi girilmedi";
@@ -20696,7 +20846,12 @@
     window.isgUiState = {
       filterMode: "ALL",
       activeForm: null,
-      pendingPhotoRowIdx: null
+      pendingPhotoRowIdx: null,
+      sigSlotKey: null,
+      sigStrokes: [],
+      sigCurrentStroke: null,
+      sigDrawing: false,
+      sigBound: false
     };
 
     window.setIsgFilterMode = function(mode) {
@@ -20741,7 +20896,7 @@
       if (subEl) {
         subEl.textContent = isMgr
           ? "İSG Yöneticisi • Form şablonu oluşturabilir, personellere yönlendirebilir ve tamamlanan formları onaylayabilirsiniz"
-          : "Size yönlendirilen İSG kontrol formlarını birebir basılı form düzeninde doldurup fotoğraf ekleyebilir ve 'Tamamladım' diyebilirsiniz";
+          : "Size yönlendirilen İSG kontrol formlarını birebir basılı form düzeninde doldurup fotoğraf & dijital imza ekleyebilir ve 'Tamamladım' diyebilirsiniz";
       }
 
       const pendingCount = visible.filter(f => f.status !== "COMPLETED").length;
@@ -20760,7 +20915,6 @@
       const kUns = document.getElementById("isgKpiUnsuitable");
       if (kUns) kUns.textContent = String(unsuitableTotal);
 
-      // İSG Yöneticisi için onay bekleyen yeni tamamlanma bildirimleri
       const alertsBox = document.getElementById("isgCompletionAlertsBox");
       if (alertsBox) {
         const alerts = isMgr ? all.filter(f => f.status === "COMPLETED" && f.managerNotified === true) : [];
@@ -20800,7 +20954,7 @@
         if (mode === "PENDING" && f.status === "COMPLETED") return false;
         if (mode === "COMPLETED" && f.status !== "COMPLETED") return false;
         if (!q) return true;
-        return [f.templateTitle, f.formNo, f.dosyaNo, f.assignedToName, f.assignedToDepartment, getIsgEquipmentSummary(f), f.kontrolEden]
+        return [f.templateTitle, f.formNo, f.dosyaNo, f.assignedToName, f.assignedToDepartment, getIsgEquipmentSummary(f), f.kontrolEden, f.projectName]
           .some(v => String(v || "").toLowerCase().includes(q));
       });
 
@@ -20810,7 +20964,7 @@
             <div class="text-3xl">🦺</div>
             <div class="text-sm font-extrabold text-slate-800">Kayıtlı İSG Formu Bulunamadı</div>
             <p class="text-xs text-slate-500 max-w-md mx-auto">
-              ${isMgr ? "Yukarıdaki 'Yeni Form Oluştur & Yönlendir' butonundan FORKLİFT KONTROL FORMU oluşturup personele atayabilirsiniz." : "İSG yöneticisi tarafından size yönlendirilen kontrol formları burada görüntülenecektir."}
+              ${isMgr ? "Yukarıdaki 'Yeni Form Oluştur & Yönlendir' butonundan Forklift Kontrol Formu veya Tekinak Gıda Elektrik Kontrol Formu oluşturup personele atayabilirsiniz." : "İSG yöneticisi tarafından size yönlendirilen kontrol formları burada görüntülenecektir."}
             </p>
           </div>
         `;
@@ -20822,7 +20976,9 @@
           const filled = Object.values(resObj).filter(v => String(v || "").trim() !== "").length;
           const bad = Object.values(resObj).filter(v => String(v || "").toUpperCase() === "UYGUN DEĞİL").length;
           const photos = Object.values(f.checkPhotos || {}).filter(v => String(v || "").trim() !== "").length;
+          const sigCount = Object.values(f.signatures || {}).filter(v => String(v || "").trim() !== "").length;
           const isMine = window.isIsgFormAssignedToUser(f, cur);
+          const leadIcon = tpl.layoutType === "TEKINAK_YESNO_TABLE" ? "⚡" : "🚜";
           return `
             <div class="bg-white rounded-2xl border ${isMine && f.status !== 'COMPLETED' ? 'border-amber-400 ring-1 ring-amber-200' : 'border-slate-200'} p-4 custom-shadow flex flex-col gap-3">
               <div class="flex items-start justify-between gap-2">
@@ -20832,12 +20988,13 @@
                 </div>
                 ${getIsgStatusBadgeHtml(f.status)}
               </div>
-              <div class="text-xs font-bold text-slate-800">🚜 ${escapeHtml(getIsgEquipmentSummary(f))}</div>
+              <div class="text-xs font-bold text-slate-800">${leadIcon} ${escapeHtml(getIsgEquipmentSummary(f))}</div>
               <div class="flex flex-wrap items-center gap-3 text-[11px] text-slate-600">
                 <span class="font-bold ${isMine ? 'text-amber-700' : 'text-slate-700'}">👤 ${escapeHtml(f.assignedToName || "Atanmadı")}${isMine ? " (Siz)" : ""}</span>
                 <span class="font-bold text-sky-700">✓ ${filled}/${totalItems} madde</span>
                 ${bad > 0 ? `<span class="font-extrabold text-rose-600">⚠️ ${bad} Uygunsuz</span>` : ""}
                 ${photos > 0 ? `<span class="font-bold text-slate-700">📷 ${photos} Foto</span>` : ""}
+                ${sigCount > 0 ? `<span class="font-bold text-emerald-700">✍️ ${sigCount} İmza</span>` : ""}
               </div>
               ${f.assignmentNote ? `<div class="text-[11px] bg-blue-50 border border-blue-200 text-blue-900 rounded-lg px-2.5 py-1.5">📌 ${escapeHtml(f.assignmentNote)}</div>` : ""}
               <div class="flex flex-wrap items-center gap-1.5 pt-2 border-t border-slate-100">
@@ -20845,7 +21002,10 @@
                   <i data-lucide="file-edit" class="w-3.5 h-3.5"></i> Formu Aç
                 </button>
                 <button type="button" onclick="printIsgFormById('${escapeJsSingle(f.id)}')" class="px-2.5 py-1.5 bg-white hover:bg-slate-50 border border-slate-300 text-slate-800 rounded-lg text-xs font-bold flex items-center gap-1">
-                  <i data-lucide="printer" class="w-3.5 h-3.5"></i> Yazdır
+                  <i data-lucide="printer" class="w-3.5 h-3.5"></i> PDF
+                </button>
+                <button type="button" onclick="exportIsgFormDocxById('${escapeJsSingle(f.id)}')" class="px-2.5 py-1.5 bg-blue-50 hover:bg-blue-100 border border-blue-300 text-blue-800 rounded-lg text-xs font-bold flex items-center gap-1">
+                  <i data-lucide="file-text" class="w-3.5 h-3.5"></i> Word
                 </button>
                 <button type="button" onclick="exportIsgFormExcelById('${escapeJsSingle(f.id)}')" class="px-2.5 py-1.5 bg-emerald-50 hover:bg-emerald-100 border border-emerald-300 text-emerald-800 rounded-lg text-xs font-bold flex items-center gap-1">
                   <i data-lucide="file-spreadsheet" class="w-3.5 h-3.5"></i> Excel
@@ -20874,6 +21034,27 @@
       }).join("");
     }
 
+    window.onIsgCreateTemplateChanged = function() {
+      const tpl = getIsgTemplateById(document.getElementById("isgTemplateSelect")?.value);
+      const lblA = document.getElementById("isgPrefillBrandLabel");
+      const inpA = document.getElementById("isgPrefillBrand");
+      const lblB = document.getElementById("isgPrefillSerialLabel");
+      const inpB = document.getElementById("isgPrefillSerial");
+      if (!lblA || !inpA || !lblB || !inpB) return;
+      if (tpl.layoutType === "TEKINAK_YESNO_TABLE") {
+        lblA.textContent = "Proje Adı (İsteğe bağlı)";
+        inpA.placeholder = "Örn: Tekinak Gıda Ana Fabrika";
+        lblB.textContent = "Kontrol Tarihi (GG/AA/YYYY)";
+        inpB.placeholder = "Örn: " + new Date().toLocaleDateString("tr-TR").replace(/\./g, "/");
+        if (!inpB.value) inpB.value = new Date().toLocaleDateString("tr-TR").replace(/\./g, "/");
+      } else {
+        lblA.textContent = "Markası (İsteğe bağlı)";
+        inpA.placeholder = "Örn: Linde / Still";
+        lblB.textContent = "Seri No (İsteğe bağlı)";
+        inpB.placeholder = "Örn: FL-04";
+      }
+    };
+
     window.openIsgCreateAssignModal = function() {
       if (!window.isIsgManager(window.currentUser)) {
         alert("Yeni İSG formu oluşturma yetkisi yalnızca İSG Yöneticisine aittir.");
@@ -20889,6 +21070,7 @@
       document.getElementById("isgPrefillBrand").value = "";
       document.getElementById("isgPrefillSerial").value = "";
       document.getElementById("isgAssignNoteInput").value = "";
+      window.onIsgCreateTemplateChanged();
       document.getElementById("modalIsgCreateAssign").classList.remove("hidden");
       lucide.createIcons();
     };
@@ -20945,10 +21127,17 @@
         const tpl = getIsgTemplateById(document.getElementById("isgTemplateSelect").value);
         const docId = `isg_${now}_${Math.random().toString(36).slice(2, 8)}`;
         const eq = {};
-        const brand = (document.getElementById("isgPrefillBrand").value || "").trim();
-        const serial = (document.getElementById("isgPrefillSerial").value || "").trim();
-        if (brand) eq.markasi = brand;
-        if (serial) eq.seri_no = serial;
+        const fieldA = (document.getElementById("isgPrefillBrand").value || "").trim();
+        const fieldB = (document.getElementById("isgPrefillSerial").value || "").trim();
+        let projectName = "";
+        let checkDate = "";
+        if (tpl.layoutType === "TEKINAK_YESNO_TABLE") {
+          projectName = fieldA;
+          checkDate = fieldB;
+        } else {
+          if (fieldA) eq.markasi = fieldA;
+          if (fieldB) eq.seri_no = fieldB;
+        }
 
         await setDoc(doc(db, "isg_forms", docId), {
           id: docId,
@@ -20960,11 +21149,14 @@
           yayinTarihi: tpl.yayinTarihi,
           revizyonNo: tpl.revizyonNo,
           revizyonTarihi: tpl.revizyonTarihi,
+          projectName: projectName,
+          checkDate: checkDate,
           equipmentFields: eq,
           checkResults: {},
           checkNotes: {},
           checkPhotos: {},
           monthParafs: {},
+          signatures: {},
           kontrolEden: "",
           isverenVekili: "",
           status: "ASSIGNED",
@@ -21000,17 +21192,201 @@
     window.openIsgSheetEditor = function(formId) {
       const found = (window.allIsgForms || []).find(f => f.id === formId);
       if (!found) return;
-      // Deep clone draft for editing
       window.isgUiState.activeForm = JSON.parse(JSON.stringify(found));
       if (!window.isgUiState.activeForm.equipmentFields) window.isgUiState.activeForm.equipmentFields = {};
       if (!window.isgUiState.activeForm.checkResults) window.isgUiState.activeForm.checkResults = {};
       if (!window.isgUiState.activeForm.checkNotes) window.isgUiState.activeForm.checkNotes = {};
       if (!window.isgUiState.activeForm.checkPhotos) window.isgUiState.activeForm.checkPhotos = {};
       if (!window.isgUiState.activeForm.monthParafs) window.isgUiState.activeForm.monthParafs = {};
+      if (!window.isgUiState.activeForm.signatures) window.isgUiState.activeForm.signatures = {};
+      if (typeof window.isgUiState.activeForm.projectName !== "string") window.isgUiState.activeForm.projectName = "";
+      if (typeof window.isgUiState.activeForm.checkDate !== "string") window.isgUiState.activeForm.checkDate = "";
       window.renderIsgSheetEditorBody();
       document.getElementById("modalIsgSheetEditor").classList.remove("hidden");
       lucide.createIcons();
     };
+
+    // ================= DİJİTAL İMZA ÇİZİM PANELİ (WEB POINTER EVENTS) =================
+    function bindIsgSignatureCanvasEvents() {
+      const canvas = document.getElementById("isgSignatureCanvas");
+      if (!canvas || window.isgUiState.sigBound) return;
+      window.isgUiState.sigBound = true;
+
+      const getPos = (e) => {
+        const rect = canvas.getBoundingClientRect();
+        const sx = canvas.width / Math.max(1, rect.width);
+        const sy = canvas.height / Math.max(1, rect.height);
+        return { x: (e.clientX - rect.left) * sx, y: (e.clientY - rect.top) * sy };
+      };
+
+      canvas.addEventListener("pointerdown", (e) => {
+        e.preventDefault();
+        canvas.setPointerCapture?.(e.pointerId);
+        window.isgUiState.sigDrawing = true;
+        const pt = getPos(e);
+        window.isgUiState.sigCurrentStroke = [pt];
+        window.renderIsgSigCanvas();
+      });
+
+      canvas.addEventListener("pointermove", (e) => {
+        if (!window.isgUiState.sigDrawing || !window.isgUiState.sigCurrentStroke) return;
+        e.preventDefault();
+        window.isgUiState.sigCurrentStroke.push(getPos(e));
+        window.renderIsgSigCanvas();
+      });
+
+      const finishStroke = () => {
+        if (!window.isgUiState.sigDrawing) return;
+        window.isgUiState.sigDrawing = false;
+        if (window.isgUiState.sigCurrentStroke && window.isgUiState.sigCurrentStroke.length > 0) {
+          window.isgUiState.sigStrokes.push(window.isgUiState.sigCurrentStroke);
+        }
+        window.isgUiState.sigCurrentStroke = null;
+        window.renderIsgSigCanvas();
+      };
+
+      canvas.addEventListener("pointerup", finishStroke);
+      canvas.addEventListener("pointercancel", finishStroke);
+      canvas.addEventListener("pointerleave", finishStroke);
+    }
+
+    window.renderIsgSigCanvas = function() {
+      const canvas = document.getElementById("isgSignatureCanvas");
+      if (!canvas) return;
+      const ctx = canvas.getContext("2d");
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      // Kılavuz imza çizgisi
+      ctx.save();
+      ctx.strokeStyle = "#CBD5E1";
+      ctx.lineWidth = 1.2;
+      ctx.beginPath();
+      ctx.moveTo(24, canvas.height - 34);
+      ctx.lineTo(canvas.width - 24, canvas.height - 34);
+      ctx.stroke();
+      ctx.restore();
+
+      const allStrokes = [...(window.isgUiState.sigStrokes || [])];
+      if (window.isgUiState.sigCurrentStroke) allStrokes.push(window.isgUiState.sigCurrentStroke);
+
+      ctx.save();
+      ctx.strokeStyle = "#0F172A";
+      ctx.fillStyle = "#0F172A";
+      ctx.lineWidth = 3.2;
+      ctx.lineCap = "round";
+      ctx.lineJoin = "round";
+      allStrokes.forEach(stroke => {
+        if (stroke.length === 1) {
+          ctx.beginPath();
+          ctx.arc(stroke[0].x, stroke[0].y, 2, 0, Math.PI * 2);
+          ctx.fill();
+        } else if (stroke.length > 1) {
+          ctx.beginPath();
+          ctx.moveTo(stroke[0].x, stroke[0].y);
+          for (let i = 1; i < stroke.length; i++) {
+            ctx.lineTo(stroke[i].x, stroke[i].y);
+          }
+          ctx.stroke();
+        }
+      });
+      ctx.restore();
+    };
+
+    window.openIsgSignaturePad = function(slotKey, labelTitle) {
+      bindIsgSignatureCanvasEvents();
+      window.isgUiState.sigSlotKey = slotKey;
+      window.isgUiState.sigStrokes = [];
+      window.isgUiState.sigCurrentStroke = null;
+      window.isgUiState.sigDrawing = false;
+      const titleEl = document.getElementById("isgSigPadTitle");
+      if (titleEl) titleEl.textContent = `✍️ Dijital İmza — ${labelTitle || "Onay"}`;
+      document.getElementById("modalIsgSignaturePad")?.classList.remove("hidden");
+      window.renderIsgSigCanvas();
+      lucide.createIcons();
+    };
+
+    window.undoIsgSignatureStroke = function() {
+      if (window.isgUiState.sigStrokes.length > 0) {
+        window.isgUiState.sigStrokes.pop();
+        window.renderIsgSigCanvas();
+      }
+    };
+
+    window.clearIsgSignatureCanvas = function() {
+      window.isgUiState.sigStrokes = [];
+      window.isgUiState.sigCurrentStroke = null;
+      window.renderIsgSigCanvas();
+    };
+
+    window.saveIsgSignatureFromPad = function() {
+      const strokes = window.isgUiState.sigStrokes || [];
+      const slotKey = window.isgUiState.sigSlotKey;
+      const f = window.isgUiState.activeForm;
+      if (!f || !slotKey) return;
+      if (strokes.length === 0) {
+        alert("Lütfen önce alana imzanızı çizin.");
+        return;
+      }
+      // Şeffaf arka planlı temiz PNG üret (kılavuz çizgisi olmadan)
+      const out = document.createElement("canvas");
+      out.width = 480;
+      out.height = 190;
+      const ctx = out.getContext("2d");
+      ctx.strokeStyle = "#0F172A";
+      ctx.fillStyle = "#0F172A";
+      ctx.lineWidth = 3.2;
+      ctx.lineCap = "round";
+      ctx.lineJoin = "round";
+      strokes.forEach(stroke => {
+        if (stroke.length === 1) {
+          ctx.beginPath();
+          ctx.arc(stroke[0].x, stroke[0].y, 2, 0, Math.PI * 2);
+          ctx.fill();
+        } else if (stroke.length > 1) {
+          ctx.beginPath();
+          ctx.moveTo(stroke[0].x, stroke[0].y);
+          for (let i = 1; i < stroke.length; i++) ctx.lineTo(stroke[i].x, stroke[i].y);
+          ctx.stroke();
+        }
+      });
+      if (!f.signatures) f.signatures = {};
+      f.signatures[slotKey] = out.toDataURL("image/png");
+      closeModal("modalIsgSignaturePad");
+      window.renderIsgSheetEditorBody();
+    };
+
+    window.clearIsgSignatureSlot = function(slotKey) {
+      const f = window.isgUiState.activeForm;
+      if (!f || !f.signatures) return;
+      delete f.signatures[slotKey];
+      window.renderIsgSheetEditorBody();
+    };
+
+    function buildIsgSignatureSlotHtml(slotKey, labelTitle, dataUri, canEdit) {
+      if (dataUri) {
+        return `
+          <div class="mt-1.5 border border-slate-300 rounded-lg bg-slate-50/70 p-1.5 flex flex-col items-center gap-1">
+            <img src="${dataUri}" alt="${escapeHtml(labelTitle)} İmza" class="h-14 max-w-full object-contain">
+            ${canEdit ? `
+              <div class="flex items-center gap-1.5">
+                <button type="button" onclick="openIsgSignaturePad('${escapeJsSingle(slotKey)}', '${escapeJsSingle(labelTitle)}')"
+                  class="px-2 py-0.5 text-[10px] font-bold rounded bg-blue-50 hover:bg-blue-100 text-[#1E3A8A] border border-blue-200">✍️ Yeniden İmzala</button>
+                <button type="button" onclick="clearIsgSignatureSlot('${escapeJsSingle(slotKey)}')"
+                  class="px-2 py-0.5 text-[10px] font-bold rounded bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200">Sil</button>
+              </div>
+            ` : ""}
+          </div>
+        `;
+      }
+      if (!canEdit) {
+        return `<div class="mt-1.5 h-12 border border-dashed border-slate-300 rounded-lg flex items-center justify-center text-[10px] text-slate-400">İmza eklenmedi</div>`;
+      }
+      return `
+        <button type="button" onclick="openIsgSignaturePad('${escapeJsSingle(slotKey)}', '${escapeJsSingle(labelTitle)}')"
+          class="mt-1.5 w-full h-12 border border-dashed border-[#1E3A8A] bg-blue-50/40 hover:bg-blue-50 rounded-lg text-[11px] font-extrabold text-[#1E3A8A] transition">
+          ✍️ Dijital İmza Ekle
+        </button>
+      `;
+    }
 
     window.renderIsgSheetEditorBody = function() {
       const f = window.isgUiState.activeForm;
@@ -21019,183 +21395,290 @@
       const cur = window.currentUser || {};
       const isMgr = window.isIsgManager(cur);
       const canEdit = isMgr || window.isIsgFormAssignedToUser(f, cur) || window.canUserEditSubPage("isg_forms", cur);
+      const sigs = f.signatures || {};
 
       document.getElementById("isgSheetEditorTitle").textContent = f.templateTitle || tpl.title;
-      document.getElementById("isgSheetEditorSubtitle").textContent = `Form No: ${f.formNo || tpl.formNo} • Dosya No: ${f.dosyaNo || tpl.dosyaNo} • Yönlendirilen: ${f.assignedToName || "-"}`;
+      document.getElementById("isgSheetEditorSubtitle").textContent = tpl.layoutType === "TEKINAK_YESNO_TABLE"
+        ? `Yatay 3 Sayfa (48 Madde) • Proje: ${f.projectName || "-"} • Yönlendirilen: ${f.assignedToName || "-"}`
+        : `Form No: ${f.formNo || tpl.formNo} • Dosya No: ${f.dosyaNo || tpl.dosyaNo} • Yönlendirilen: ${f.assignedToName || "-"}`;
 
-      const specRowsHtml = tpl.specRows.map(sr => `
-        <tr>
-          <td style="border:1px solid #000; padding:4px 6px; text-align:center; font-size:11px; width:19%;">${escapeHtml(sr.leftLabel)}</td>
-          <td style="border:1px solid #000; padding:2px 4px; width:31%;">
-            <input type="text" ${canEdit ? "" : "disabled"} value="${escapeHtml((f.equipmentFields || {})[sr.leftKey] || "")}"
-              oninput="updateIsgDraftField('equipmentFields', '${sr.leftKey}', this.value)"
-              placeholder="${canEdit ? 'Yazınız...' : ''}"
-              style="width:100%; text-align:center; font-weight:700; font-size:12px; border:none; outline:none; background:transparent; padding:3px;">
-          </td>
-          <td style="border:1px solid #000; padding:4px 6px; text-align:center; font-size:11px; width:26%;">${escapeHtml(sr.rightLabel)}</td>
-          <td style="border:1px solid #000; padding:2px 4px; width:24%;">
-            <input type="text" ${canEdit ? "" : "disabled"} value="${escapeHtml((f.equipmentFields || {})[sr.rightKey] || "")}"
-              oninput="updateIsgDraftField('equipmentFields', '${sr.rightKey}', this.value)"
-              placeholder="${canEdit && sr.rightLabel ? 'Yazınız...' : ''}"
-              style="width:100%; text-align:center; font-weight:700; font-size:12px; border:none; outline:none; background:transparent; padding:3px;">
-          </td>
-        </tr>
-      `).join("");
+      const assignBannerHtml = f.assignmentNote ? `
+        <div class="bg-blue-50 border border-blue-300 text-blue-950 rounded-xl px-3.5 py-2 text-xs font-semibold flex items-center justify-between gap-2">
+          <span>📌 İSG Yönlendirme Notu: ${escapeHtml(f.assignmentNote)}</span>
+          <span class="text-[11px] text-blue-700">Yönlendiren: ${escapeHtml(f.assignedByName || "İSG")}</span>
+        </div>
+      ` : "";
 
-      const checklistRowsHtml = tpl.checklistItems.map((q, idx) => {
-        const key = String(idx);
-        const val = (f.checkResults || {})[key] || "";
-        const note = (f.checkNotes || {})[key] || "";
-        const photo = (f.checkPhotos || {})[key] || "";
-        const isOk = val === "UYGUN";
-        const isBad = val === "UYGUN DEĞİL";
-        return `
+      if (tpl.layoutType === "TEKINAK_YESNO_TABLE") {
+        const rowsHtml = tpl.checklistItems.map((q, idx) => {
+          const key = String(idx);
+          const val = String((f.checkResults || {})[key] || "").toUpperCase();
+          const note = (f.checkNotes || {})[key] || "";
+          const photo = (f.checkPhotos || {})[key] || "";
+          const isYes = val === "EVET";
+          const isNo = val === "HAYIR";
+          const rowNum = idx + 1;
+          const pageMarker = rowNum === 20
+            ? `<tr><td colspan="5" style="border:1px solid #000; background:#f8fafc; text-align:center; font-size:11px; padding:3px; color:#334155;">Sayfa 1 sonu — Aşağıdan Sayfa 2 devam eder</td></tr>`
+            : (rowNum === 30 ? `<tr><td colspan="5" style="border:1px solid #000; background:#f8fafc; text-align:center; font-size:11px; padding:3px; color:#334155;">Sayfa 2 sonu — Aşağıdan Sayfa 3 devam eder</td></tr>` : "");
+          return `
+            <tr>
+              <td style="border:1px solid #000; text-align:center; font-weight:700; font-size:11.5px; padding:5px 4px; width:46px;">${rowNum}</td>
+              <td style="border:1px solid #000; text-align:left; font-size:11.5px; line-height:1.35; padding:5px 8px; color:#000;">${escapeHtml(q)}</td>
+              <td style="border:1px solid #000; text-align:center; padding:3px; width:62px; cursor:${canEdit ? 'pointer' : 'default'}; background:${isYes ? '#dcfce7' : '#fff'};"
+                  ${canEdit ? `onclick="toggleIsgCheckResult(${idx}, 'EVET')"` : ""}>
+                <span style="font-size:16px; font-weight:900; color:${isYes ? '#15803d' : '#cbd5e1'};">${isYes ? "✓" : "○"}</span>
+              </td>
+              <td style="border:1px solid #000; text-align:center; padding:3px; width:62px; cursor:${canEdit ? 'pointer' : 'default'}; background:${isNo ? '#fee2e2' : '#fff'};"
+                  ${canEdit ? `onclick="toggleIsgCheckResult(${idx}, 'HAYIR')"` : ""}>
+                <span style="font-size:16px; font-weight:900; color:${isNo ? '#b91c1c' : '#cbd5e1'};">${isNo ? "✓" : "○"}</span>
+              </td>
+              <td style="border:1px solid #000; padding:3px 6px; width:240px;">
+                <div class="flex items-center gap-1.5">
+                  <input type="text" ${canEdit ? "" : "disabled"} value="${escapeHtml(note)}"
+                    oninput="updateIsgDraftField('checkNotes', '${key}', this.value)"
+                    placeholder="${canEdit ? 'Açıklama...' : ''}"
+                    class="flex-1 min-w-0 text-[11.5px] bg-transparent border-none outline-none px-1 py-0.5 text-slate-900">
+                  ${photo ? `
+                    <div class="relative flex-shrink-0">
+                      <img src="${photo}" alt="Madde ${rowNum}" onclick="openImagePreviewModal('${escapeJsSingle(photo)}')" class="w-8 h-8 object-cover rounded border border-[#1E3A8A] cursor-pointer">
+                      ${canEdit ? `<button type="button" onclick="removeIsgRowPhoto(${idx})" class="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-rose-600 text-white text-[10px] font-black flex items-center justify-center shadow">×</button>` : ""}
+                    </div>
+                  ` : ""}
+                  ${canEdit ? `
+                    <button type="button" onclick="triggerIsgRowPhotoUpload(${idx})" title="Açıklamaya Fotoğraf Ekle"
+                      class="flex-shrink-0 p-1 rounded border border-slate-300 ${photo ? 'bg-blue-100 text-[#1E3A8A]' : 'bg-slate-100 hover:bg-blue-50 text-slate-700'} transition text-xs">
+                      📷
+                    </button>
+                  ` : ""}
+                </div>
+              </td>
+            </tr>
+            ${pageMarker}
+          `;
+        }).join("");
+
+        document.getElementById("isgSheetEditorBody").innerHTML = `
+          <div class="max-w-[1060px] mx-auto space-y-3">
+            ${assignBannerHtml}
+            <div class="bg-white shadow-xl border-2 border-black overflow-x-auto p-3 sm:p-5">
+              <table style="width:100%; min-width:860px; border-collapse:collapse; font-family:'Inter', Arial, sans-serif; color:#000;">
+                <tr>
+                  <td colspan="5" style="border:1.5px solid #000; text-align:center; font-weight:800; font-size:17px; padding:10px 8px; letter-spacing:0.4px;">
+                    ${escapeHtml(f.templateTitle || tpl.title)}
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="3" style="border:1.5px solid #000; padding:6px 10px;">
+                    <div class="flex items-center gap-2">
+                      <span style="font-weight:800; font-size:12px; white-space:nowrap;">PROJE ADI:</span>
+                      <input type="text" ${canEdit ? "" : "disabled"} value="${escapeHtml(f.projectName || "")}"
+                        oninput="window.isgUiState.activeForm.projectName = this.value"
+                        placeholder="${canEdit ? 'Proje adını yazınız...' : ''}"
+                        style="flex:1; font-size:12px; font-weight:700; border:none; border-bottom:1px dotted #64748b; outline:none; background:transparent; padding:2px 4px;">
+                    </div>
+                  </td>
+                  <td colspan="2" style="border:1.5px solid #000; padding:6px 10px;">
+                    <div class="flex items-center gap-2">
+                      <span style="font-weight:800; font-size:12px; white-space:nowrap;">TARİH:</span>
+                      <input type="text" ${canEdit ? "" : "disabled"} value="${escapeHtml(f.checkDate || "")}"
+                        oninput="window.isgUiState.activeForm.checkDate = this.value"
+                        placeholder="...../...../ 20....."
+                        style="flex:1; font-size:12px; font-weight:700; text-align:center; border:none; border-bottom:1px dotted #64748b; outline:none; background:transparent; padding:2px 4px;">
+                    </div>
+                  </td>
+                </tr>
+                <tr style="background:#f8fafc;">
+                  <th style="border:1.5px solid #000; text-align:center; font-weight:800; font-size:12px; padding:7px 4px; width:46px;">SIRA</th>
+                  <th style="border:1.5px solid #000; text-align:center; font-weight:800; font-size:12px; padding:7px 8px;">KONTROL TİPİ</th>
+                  <th style="border:1.5px solid #000; text-align:center; font-weight:800; font-size:12px; padding:7px 4px; width:62px;">EVET</th>
+                  <th style="border:1.5px solid #000; text-align:center; font-weight:800; font-size:12px; padding:7px 4px; width:62px;">HAYIR</th>
+                  <th style="border:1.5px solid #000; text-align:center; font-weight:800; font-size:12px; padding:7px 8px; width:240px;">AÇIKLAMA</th>
+                </tr>
+                ${rowsHtml}
+              </table>
+              <div class="mt-4 flex justify-end">
+                <div style="border:1.5px solid #000; padding:10px 14px; width:340px; max-width:100%;">
+                  <div style="font-size:12px; font-weight:800; margin-bottom:6px;">KONTROLÜ YAPAN:</div>
+                  <input type="text" ${canEdit ? "" : "disabled"} value="${escapeHtml(f.kontrolEden || "")}"
+                    oninput="window.isgUiState.activeForm.kontrolEden = this.value"
+                    placeholder="${canEdit ? 'Ad Soyad / Ünvan' : ''}"
+                    class="w-full text-xs font-bold border border-slate-300 rounded-lg px-2.5 py-1.5">
+                  ${buildIsgSignatureSlotHtml(ISG_SIG_INSPECTOR, "KONTROLÜ YAPAN", sigs[ISG_SIG_INSPECTOR], canEdit)}
+                </div>
+              </div>
+              <div class="mt-2 text-center text-[11px] text-slate-500">Sayfa 3 • Çıktı (PDF / Word / Excel) 3 sayfa yatay A4 olarak üretilir</div>
+            </div>
+          </div>
+        `;
+      } else {
+        const specRowsHtml = tpl.specRows.map(sr => `
           <tr>
-            <td style="border:1px solid #000; padding:5px 8px; text-align:center; font-size:11.5px; line-height:1.35; color:#000;">${escapeHtml(q)}</td>
-            <td style="border:1px solid #000; padding:4px 6px; text-align:center;">
-              <div class="flex items-center justify-center gap-1.5">
-                <button type="button" ${canEdit ? "" : "disabled"} onclick="toggleIsgCheckResult(${idx}, 'UYGUN')"
-                  class="px-2.5 py-1 rounded text-[11px] font-extrabold border transition ${isOk ? 'bg-emerald-700 text-white border-emerald-800' : 'bg-slate-50 text-slate-700 border-slate-300 hover:bg-emerald-50'}">
-                  UYGUN
-                </button>
-                <button type="button" ${canEdit ? "" : "disabled"} onclick="toggleIsgCheckResult(${idx}, 'UYGUN DEĞİL')"
-                  class="px-2 py-1 rounded text-[11px] font-extrabold border transition ${isBad ? 'bg-rose-600 text-white border-rose-800' : 'bg-slate-50 text-slate-700 border-slate-300 hover:bg-rose-50'}">
-                  UYGUN DEĞİL
-                </button>
-              </div>
+            <td style="border:1px solid #000; padding:4px 6px; text-align:center; font-size:11px; width:19%;">${escapeHtml(sr.leftLabel)}</td>
+            <td style="border:1px solid #000; padding:2px 4px; width:31%;">
+              <input type="text" ${canEdit ? "" : "disabled"} value="${escapeHtml((f.equipmentFields || {})[sr.leftKey] || "")}"
+                oninput="updateIsgDraftField('equipmentFields', '${sr.leftKey}', this.value)"
+                placeholder="${canEdit ? 'Yazınız...' : ''}"
+                style="width:100%; text-align:center; font-weight:700; font-size:12px; border:none; outline:none; background:transparent; padding:3px;">
             </td>
-            <td style="border:1px solid #000; padding:4px 6px;">
-              <div class="flex items-center gap-1.5">
-                <input type="text" ${canEdit ? "" : "disabled"} value="${escapeHtml(note)}"
-                  oninput="updateIsgDraftField('checkNotes', '${key}', this.value)"
-                  placeholder="${canEdit ? 'Açıklama...' : ''}"
-                  class="flex-1 min-w-0 text-[11.5px] bg-transparent border-none outline-none px-1 py-0.5 text-slate-900">
-                ${photo ? `
-                  <div class="relative flex-shrink-0">
-                    <img src="${photo}" alt="Madde ${idx + 1}" onclick="openImagePreviewModal('${escapeJsSingle(photo)}')" class="w-9 h-9 object-cover rounded border border-[#1E3A8A] cursor-pointer">
-                    ${canEdit ? `<button type="button" onclick="removeIsgRowPhoto(${idx})" class="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-rose-600 text-white text-[10px] font-black flex items-center justify-center shadow">×</button>` : ""}
-                  </div>
-                ` : ""}
-                ${canEdit ? `
-                  <button type="button" onclick="triggerIsgRowPhotoUpload(${idx})" title="Açıklamaya Fotoğraf Ekle"
-                    class="flex-shrink-0 p-1.5 rounded-lg border border-slate-300 ${photo ? 'bg-blue-100 text-[#1E3A8A]' : 'bg-slate-100 hover:bg-blue-50 text-slate-700'} transition">
-                    📷
-                  </button>
-                ` : ""}
-              </div>
+            <td style="border:1px solid #000; padding:4px 6px; text-align:center; font-size:11px; width:26%;">${escapeHtml(sr.rightLabel)}</td>
+            <td style="border:1px solid #000; padding:2px 4px; width:24%;">
+              <input type="text" ${canEdit ? "" : "disabled"} value="${escapeHtml((f.equipmentFields || {})[sr.rightKey] || "")}"
+                oninput="updateIsgDraftField('equipmentFields', '${sr.rightKey}', this.value)"
+                placeholder="${canEdit && sr.rightLabel ? 'Yazınız...' : ''}"
+                style="width:100%; text-align:center; font-weight:700; font-size:12px; border:none; outline:none; background:transparent; padding:3px;">
             </td>
           </tr>
-        `;
-      }).join("");
+        `).join("");
 
-      const monthColsHeader = ["AY", ...ISG_MONTHS_TR].map(m => `
-        <th style="border:1px solid #000; width:28px; height:76px; vertical-align:middle; text-align:center; padding:2px; font-weight:600; font-size:10px;">
-          <div style="writing-mode:vertical-rl; transform:rotate(180deg); margin:0 auto; white-space:nowrap;">${m}</div>
-        </th>
-      `).join("");
+        const checklistRowsHtml = tpl.checklistItems.map((q, idx) => {
+          const key = String(idx);
+          const val = (f.checkResults || {})[key] || "";
+          const note = (f.checkNotes || {})[key] || "";
+          const photo = (f.checkPhotos || {})[key] || "";
+          const isOk = val === "UYGUN";
+          const isBad = val === "UYGUN DEĞİL";
+          return `
+            <tr>
+              <td style="border:1px solid #000; padding:5px 8px; text-align:center; font-size:11.5px; line-height:1.35; color:#000;">${escapeHtml(q)}</td>
+              <td style="border:1px solid #000; padding:4px 6px; text-align:center;">
+                <div class="flex items-center justify-center gap-1.5">
+                  <button type="button" ${canEdit ? "" : "disabled"} onclick="toggleIsgCheckResult(${idx}, 'UYGUN')"
+                    class="px-2.5 py-1 rounded text-[11px] font-extrabold border transition ${isOk ? 'bg-emerald-700 text-white border-emerald-800' : 'bg-slate-50 text-slate-700 border-slate-300 hover:bg-emerald-50'}">
+                    UYGUN
+                  </button>
+                  <button type="button" ${canEdit ? "" : "disabled"} onclick="toggleIsgCheckResult(${idx}, 'UYGUN DEĞİL')"
+                    class="px-2 py-1 rounded text-[11px] font-extrabold border transition ${isBad ? 'bg-rose-600 text-white border-rose-800' : 'bg-slate-50 text-slate-700 border-slate-300 hover:bg-rose-50'}">
+                    UYGUN DEĞİL
+                  </button>
+                </div>
+              </td>
+              <td style="border:1px solid #000; padding:4px 6px;">
+                <div class="flex items-center gap-1.5">
+                  <input type="text" ${canEdit ? "" : "disabled"} value="${escapeHtml(note)}"
+                    oninput="updateIsgDraftField('checkNotes', '${key}', this.value)"
+                    placeholder="${canEdit ? 'Açıklama...' : ''}"
+                    class="flex-1 min-w-0 text-[11.5px] bg-transparent border-none outline-none px-1 py-0.5 text-slate-900">
+                  ${photo ? `
+                    <div class="relative flex-shrink-0">
+                      <img src="${photo}" alt="Madde ${idx + 1}" onclick="openImagePreviewModal('${escapeJsSingle(photo)}')" class="w-9 h-9 object-cover rounded border border-[#1E3A8A] cursor-pointer">
+                      ${canEdit ? `<button type="button" onclick="removeIsgRowPhoto(${idx})" class="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-rose-600 text-white text-[10px] font-black flex items-center justify-center shadow">×</button>` : ""}
+                    </div>
+                  ` : ""}
+                  ${canEdit ? `
+                    <button type="button" onclick="triggerIsgRowPhotoUpload(${idx})" title="Açıklamaya Fotoğraf Ekle"
+                      class="flex-shrink-0 p-1.5 rounded-lg border border-slate-300 ${photo ? 'bg-blue-100 text-[#1E3A8A]' : 'bg-slate-100 hover:bg-blue-50 text-slate-700'} transition">
+                      📷
+                    </button>
+                  ` : ""}
+                </div>
+              </td>
+            </tr>
+          `;
+        }).join("");
 
-      const monthColsParaf = ISG_MONTHS_TR.map(m => `
-        <td style="border:1px solid #000; width:28px; height:78px; padding:1px; text-align:center; vertical-align:middle;">
-          <input type="text" ${canEdit ? "" : "disabled"} value="${escapeHtml((f.monthParafs || {})[m] || "")}"
-            oninput="updateIsgDraftField('monthParafs', '${m}', this.value)"
-            maxlength="10"
-            style="width:100%; text-align:center; font-size:10px; font-weight:700; border:none; outline:none; background:transparent;">
-        </td>
-      `).join("");
+        const monthColsHeader = ["AY", ...ISG_MONTHS_TR].map(m => `
+          <th style="border:1px solid #000; width:28px; height:76px; vertical-align:middle; text-align:center; padding:2px; font-weight:600; font-size:10px;">
+            <div style="writing-mode:vertical-rl; transform:rotate(180deg); margin:0 auto; white-space:nowrap;">${m}</div>
+          </th>
+        `).join("");
 
-      document.getElementById("isgSheetEditorBody").innerHTML = `
-        <div class="max-w-[860px] mx-auto space-y-3">
-          ${f.assignmentNote ? `
-            <div class="bg-blue-50 border border-blue-300 text-blue-950 rounded-xl px-3.5 py-2 text-xs font-semibold flex items-center justify-between gap-2">
-              <span>📌 İSG Yönlendirme Notu: ${escapeHtml(f.assignmentNote)}</span>
-              <span class="text-[11px] text-blue-700">Yönlendiren: ${escapeHtml(f.assignedByName || "İSG")}</span>
-            </div>
-          ` : ""}
-          <div class="bg-white shadow-xl border-2 border-black overflow-x-auto">
-            <table style="width:100%; min-width:740px; border-collapse:collapse; font-family:'Inter', Arial, sans-serif; color:#000;">
-              <!-- 1. ÜST BAŞLIK BLOĞU -->
-              <tr>
-                <td style="border:1px solid #000; width:19%; text-align:center; vertical-align:middle; padding:8px;">
-                  <img src="berrak_logo.png" alt="Berrak" style="max-height:66px; max-width:100%; margin:0 auto; object-fit:contain;" onerror="this.outerHTML='<div style=\\'font-weight:900;color:#b91c1c;font-size:20px;\\'>Berrak</div>'">
-                </td>
-                <td style="border:1px solid #000; width:56%; text-align:center; vertical-align:middle; padding:10px; font-weight:800; font-size:18px; letter-spacing:0.3px;">
-                  ${escapeHtml(f.templateTitle || tpl.title)}
-                </td>
-                <td style="border:1px solid #000; width:25%; padding:0; vertical-align:top;">
-                  <table style="width:100%; border-collapse:collapse; font-size:10.5px;">
-                    <tr><td style="border-bottom:1px solid #000; border-right:1px solid #000; padding:2px 4px; text-align:center; width:52%;">Sayfa No</td><td style="border-bottom:1px solid #000; padding:2px 4px; text-align:center;">${escapeHtml(f.sayfaNo || tpl.sayfaNo)}</td></tr>
-                    <tr><td style="border-bottom:1px solid #000; border-right:1px solid #000; padding:2px 4px; text-align:center;">Form No</td><td style="border-bottom:1px solid #000; padding:2px 4px; text-align:center;">${escapeHtml(f.formNo || tpl.formNo)}</td></tr>
-                    <tr><td style="border-bottom:1px solid #000; border-right:1px solid #000; padding:2px 4px; text-align:center;">Dosya No</td><td style="border-bottom:1px solid #000; padding:2px 4px; text-align:center;">${escapeHtml(f.dosyaNo || tpl.dosyaNo)}</td></tr>
-                    <tr><td style="border-bottom:1px solid #000; border-right:1px solid #000; padding:2px 4px; text-align:center;">Yayın Tarihi</td><td style="border-bottom:1px solid #000; padding:2px 4px; text-align:center;">${escapeHtml(f.yayinTarihi || tpl.yayinTarihi)}</td></tr>
-                    <tr><td style="border-bottom:1px solid #000; border-right:1px solid #000; padding:2px 4px; text-align:center;">Revizyon No</td><td style="border-bottom:1px solid #000; padding:2px 4px; text-align:center;">${escapeHtml(f.revizyonNo || tpl.revizyonNo)}</td></tr>
-                    <tr><td style="border-right:1px solid #000; padding:2px 4px; text-align:center;">Revizyon Tarihi</td><td style="padding:2px 4px; text-align:center;">${escapeHtml(f.revizyonTarihi || tpl.revizyonTarihi)}</td></tr>
-                  </table>
-                </td>
-              </tr>
-              <!-- 2. EKİPMAN BİLGİLERİ 4x4 -->
-              <tr>
-                <td colspan="3" style="padding:0;">
-                  <table style="width:100%; border-collapse:collapse;">
-                    ${specRowsHtml}
-                  </table>
-                </td>
-              </tr>
-              <!-- 3. KONTROL TABLOSU (19 MADDE) -->
-              <tr>
-                <td colspan="3" style="padding:0;">
-                  <table style="width:100%; border-collapse:collapse;">
-                    <thead>
-                      <tr>
-                        <th style="border:1px solid #000; padding:8px; text-align:center; font-size:13px; font-weight:800; width:50%;">${escapeHtml(tpl.checklistHeaderLeft)}</th>
-                        <th style="border:1px solid #000; padding:8px; text-align:center; font-size:12.5px; font-weight:800; width:26%;">${escapeHtml(tpl.checklistHeaderMid)}</th>
-                        <th style="border:1px solid #000; padding:8px; text-align:center; font-size:12.5px; font-weight:800; text-decoration:underline; width:24%;">${escapeHtml(tpl.checklistHeaderRight)}</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      ${checklistRowsHtml}
-                    </tbody>
-                  </table>
-                </td>
-              </tr>
-              <!-- 4. ALT BÖLÜM: AY/PARAF + ONAYLAR -->
-              <tr>
-                <td colspan="3" style="border:1px solid #000; padding:18px 20px;">
-                  <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:24px;">
-                    <table style="border-collapse:collapse; width:54%;">
-                      <tr>${monthColsHeader}</tr>
-                      <tr>
-                        <th style="border:1px solid #000; width:28px; height:78px; vertical-align:middle; text-align:center; font-weight:600; font-size:10px;">
-                          <div style="writing-mode:vertical-rl; transform:rotate(180deg); margin:0 auto;">PARAF</div>
-                        </th>
-                        ${monthColsParaf}
-                      </tr>
+        const monthColsParaf = ISG_MONTHS_TR.map(m => `
+          <td style="border:1px solid #000; width:28px; height:78px; padding:1px; text-align:center; vertical-align:middle;">
+            <input type="text" ${canEdit ? "" : "disabled"} value="${escapeHtml((f.monthParafs || {})[m] || "")}"
+              oninput="updateIsgDraftField('monthParafs', '${m}', this.value)"
+              maxlength="10"
+              style="width:100%; text-align:center; font-size:10px; font-weight:700; border:none; outline:none; background:transparent;">
+          </td>
+        `).join("");
+
+        document.getElementById("isgSheetEditorBody").innerHTML = `
+          <div class="max-w-[860px] mx-auto space-y-3">
+            ${assignBannerHtml}
+            <div class="bg-white shadow-xl border-2 border-black overflow-x-auto">
+              <table style="width:100%; min-width:740px; border-collapse:collapse; font-family:'Inter', Arial, sans-serif; color:#000;">
+                <tr>
+                  <td style="border:1px solid #000; width:19%; text-align:center; vertical-align:middle; padding:8px;">
+                    <img src="berrak_logo.png" alt="Berrak" style="max-height:66px; max-width:100%; margin:0 auto; object-fit:contain;" onerror="this.outerHTML='<div style=\\'font-weight:900;color:#b91c1c;font-size:20px;\\'>Berrak</div>'">
+                  </td>
+                  <td style="border:1px solid #000; width:56%; text-align:center; vertical-align:middle; padding:10px; font-weight:800; font-size:18px; letter-spacing:0.3px;">
+                    ${escapeHtml(f.templateTitle || tpl.title)}
+                  </td>
+                  <td style="border:1px solid #000; width:25%; padding:0; vertical-align:top;">
+                    <table style="width:100%; border-collapse:collapse; font-size:10.5px;">
+                      <tr><td style="border-bottom:1px solid #000; border-right:1px solid #000; padding:2px 4px; text-align:center; width:52%;">Sayfa No</td><td style="border-bottom:1px solid #000; padding:2px 4px; text-align:center;">${escapeHtml(f.sayfaNo || tpl.sayfaNo)}</td></tr>
+                      <tr><td style="border-bottom:1px solid #000; border-right:1px solid #000; padding:2px 4px; text-align:center;">Form No</td><td style="border-bottom:1px solid #000; padding:2px 4px; text-align:center;">${escapeHtml(f.formNo || tpl.formNo)}</td></tr>
+                      <tr><td style="border-bottom:1px solid #000; border-right:1px solid #000; padding:2px 4px; text-align:center;">Dosya No</td><td style="border-bottom:1px solid #000; padding:2px 4px; text-align:center;">${escapeHtml(f.dosyaNo || tpl.dosyaNo)}</td></tr>
+                      <tr><td style="border-bottom:1px solid #000; border-right:1px solid #000; padding:2px 4px; text-align:center;">Yayın Tarihi</td><td style="border-bottom:1px solid #000; padding:2px 4px; text-align:center;">${escapeHtml(f.yayinTarihi || tpl.yayinTarihi)}</td></tr>
+                      <tr><td style="border-bottom:1px solid #000; border-right:1px solid #000; padding:2px 4px; text-align:center;">Revizyon No</td><td style="border-bottom:1px solid #000; padding:2px 4px; text-align:center;">${escapeHtml(f.revizyonNo || tpl.revizyonNo)}</td></tr>
+                      <tr><td style="border-right:1px solid #000; padding:2px 4px; text-align:center;">Revizyon Tarihi</td><td style="padding:2px 4px; text-align:center;">${escapeHtml(f.revizyonTarihi || tpl.revizyonTarihi)}</td></tr>
                     </table>
-                    <div style="flex:1; text-align:center; padding-top:6px;">
-                      <div style="font-size:13px; font-weight:600; margin-bottom:20px;">ONAYLAR</div>
-                      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
-                        <div>
-                          <div style="font-size:12px; margin-bottom:8px;">${escapeHtml(tpl.approvalLeftLabel)}</div>
-                          <input type="text" ${canEdit ? "" : "disabled"} value="${escapeHtml(f.kontrolEden || "")}"
-                            oninput="window.isgUiState.activeForm.kontrolEden = this.value"
-                            placeholder="${canEdit ? 'Ad Soyad / İmza' : ''}"
-                            class="w-full text-center text-xs font-bold border border-slate-300 rounded-lg px-2 py-1.5">
-                        </div>
-                        <div>
-                          <div style="font-size:12px; margin-bottom:8px;">${escapeHtml(tpl.approvalRightLabel)}</div>
-                          <input type="text" ${canEdit ? "" : "disabled"} value="${escapeHtml(f.isverenVekili || "")}"
-                            oninput="window.isgUiState.activeForm.isverenVekili = this.value"
-                            placeholder="${canEdit ? 'Ad Soyad / İmza' : ''}"
-                            class="w-full text-center text-xs font-bold border border-slate-300 rounded-lg px-2 py-1.5">
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="3" style="padding:0;">
+                    <table style="width:100%; border-collapse:collapse;">
+                      ${specRowsHtml}
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="3" style="padding:0;">
+                    <table style="width:100%; border-collapse:collapse;">
+                      <thead>
+                        <tr>
+                          <th style="border:1px solid #000; padding:8px; text-align:center; font-size:13px; font-weight:800; width:50%;">${escapeHtml(tpl.checklistHeaderLeft)}</th>
+                          <th style="border:1px solid #000; padding:8px; text-align:center; font-size:12.5px; font-weight:800; width:26%;">${escapeHtml(tpl.checklistHeaderMid)}</th>
+                          <th style="border:1px solid #000; padding:8px; text-align:center; font-size:12.5px; font-weight:800; text-decoration:underline; width:24%;">${escapeHtml(tpl.checklistHeaderRight)}</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        ${checklistRowsHtml}
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="3" style="border:1px solid #000; padding:18px 20px;">
+                    <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:20px;">
+                      <table style="border-collapse:collapse; width:52%;">
+                        <tr>${monthColsHeader}</tr>
+                        <tr>
+                          <th style="border:1px solid #000; width:28px; height:78px; vertical-align:middle; text-align:center; font-weight:600; font-size:10px;">
+                            <div style="writing-mode:vertical-rl; transform:rotate(180deg); margin:0 auto;">PARAF</div>
+                          </th>
+                          ${monthColsParaf}
+                        </tr>
+                      </table>
+                      <div style="flex:1; text-align:center; padding-top:4px;">
+                        <div style="font-size:13px; font-weight:700; margin-bottom:14px;">ONAYLAR</div>
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+                          <div>
+                            <div style="font-size:11.5px; font-weight:700; margin-bottom:6px;">${escapeHtml(tpl.approvalLeftLabel)}</div>
+                            <input type="text" ${canEdit ? "" : "disabled"} value="${escapeHtml(f.kontrolEden || "")}"
+                              oninput="window.isgUiState.activeForm.kontrolEden = this.value"
+                              placeholder="${canEdit ? 'Ad Soyad' : ''}"
+                              class="w-full text-center text-xs font-bold border border-slate-300 rounded-lg px-2 py-1.5">
+                            ${buildIsgSignatureSlotHtml(ISG_SIG_INSPECTOR, tpl.approvalLeftLabel, sigs[ISG_SIG_INSPECTOR], canEdit)}
+                          </div>
+                          <div>
+                            <div style="font-size:11.5px; font-weight:700; margin-bottom:6px;">${escapeHtml(tpl.approvalRightLabel)}</div>
+                            <input type="text" ${canEdit ? "" : "disabled"} value="${escapeHtml(f.isverenVekili || "")}"
+                              oninput="window.isgUiState.activeForm.isverenVekili = this.value"
+                              placeholder="${canEdit ? 'Ad Soyad' : ''}"
+                              class="w-full text-center text-xs font-bold border border-slate-300 rounded-lg px-2 py-1.5">
+                            ${buildIsgSignatureSlotHtml(ISG_SIG_EMPLOYER, tpl.approvalRightLabel, sigs[ISG_SIG_EMPLOYER], canEdit)}
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </td>
-              </tr>
-            </table>
+                  </td>
+                </tr>
+              </table>
+            </div>
           </div>
-        </div>
-      `;
+        `;
+      }
 
       const footer = document.getElementById("isgSheetEditorFooter");
       footer.innerHTML = `
@@ -21280,16 +21763,22 @@
       if (!f || !f.id) return false;
       const me = window.currentUser || {};
       const now = Date.now();
-      const hasData = Object.values(f.checkResults || {}).some(Boolean) || Object.values(f.equipmentFields || {}).some(Boolean);
+      const hasData = Object.values(f.checkResults || {}).some(Boolean)
+        || Object.values(f.equipmentFields || {}).some(Boolean)
+        || Boolean(String(f.projectName || "").trim())
+        || Object.values(f.signatures || {}).some(Boolean);
       const nextStatus = f.status === "COMPLETED" ? "COMPLETED" : (hasData ? "IN_PROGRESS" : (f.status || "ASSIGNED"));
       f.status = nextStatus;
       try {
         await setDoc(doc(db, "isg_forms", f.id), {
+          projectName: String(f.projectName || "").trim(),
+          checkDate: String(f.checkDate || "").trim(),
           equipmentFields: f.equipmentFields || {},
           checkResults: f.checkResults || {},
           checkNotes: f.checkNotes || {},
           checkPhotos: f.checkPhotos || {},
           monthParafs: f.monthParafs || {},
+          signatures: f.signatures || {},
           kontrolEden: String(f.kontrolEden || "").trim(),
           isverenVekili: String(f.isverenVekili || "").trim(),
           status: nextStatus,
@@ -21317,11 +21806,14 @@
       const myName = me.displayName || me.username || "Personel";
       try {
         await setDoc(doc(db, "isg_forms", f.id), {
+          projectName: String(f.projectName || "").trim(),
+          checkDate: String(f.checkDate || "").trim(),
           equipmentFields: f.equipmentFields || {},
           checkResults: f.checkResults || {},
           checkNotes: f.checkNotes || {},
           checkPhotos: f.checkPhotos || {},
           monthParafs: f.monthParafs || {},
+          signatures: f.signatures || {},
           kontrolEden: String(f.kontrolEden || myName).trim(),
           isverenVekili: String(f.isverenVekili || "").trim(),
           status: "COMPLETED",
@@ -21382,52 +21874,10 @@
 
     window.printIsgFormObject = function(f) {
       const tpl = getIsgTemplateById(f.templateId);
-      const logoUrl = new URL("berrak_logo.png", window.location.href).href;
-      const eq = f.equipmentFields || {};
       const res = f.checkResults || {};
       const notes = f.checkNotes || {};
       const photos = f.checkPhotos || {};
-      const parafs = f.monthParafs || {};
-
-      const specRowsHtml = tpl.specRows.map(sr => `
-        <tr>
-          <td class="lbl" style="width:19%;">${escapeHtml(sr.leftLabel)}</td>
-          <td class="val" style="width:31%;">${escapeHtml(eq[sr.leftKey] || "")}</td>
-          <td class="lbl" style="width:26%;">${escapeHtml(sr.rightLabel)}</td>
-          <td class="val" style="width:24%;">${escapeHtml(eq[sr.rightKey] || "")}</td>
-        </tr>
-      `).join("");
-
-      const checklistHtml = tpl.checklistItems.map((q, idx) => {
-        const k = String(idx);
-        const r = res[k] || "";
-        const n = notes[k] || "";
-        const p = photos[k] || "";
-        const rColor = r === "UYGUN DEĞİL" ? "#b91c1c" : (r === "UYGUN" ? "#15803d" : "#000");
-        return `
-          <tr>
-            <td style="text-align:center; padding:3px 5px; font-size:9.5px; line-height:1.25;">${escapeHtml(q)}</td>
-            <td style="text-align:center; font-weight:700; font-size:9.5px; color:${rColor};">${escapeHtml(r)}</td>
-            <td style="padding:2px 4px; font-size:9px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; gap:4px;">
-                <span style="flex:1; word-break:break-word;">${escapeHtml(n || (p ? "Fotoğraf ekli (Ek)" : ""))}</span>
-                ${p ? `<img src="${p}" style="width:26px; height:26px; object-fit:cover; border:0.6px solid #000; flex-shrink:0;">` : ""}
-              </div>
-            </td>
-          </tr>
-        `;
-      }).join("");
-
-      const monthHeaders = ["AY", ...ISG_MONTHS_TR].map(m => `
-        <th style="width:22px; height:62px; font-size:8.5px; font-weight:500; padding:1px;">
-          <div style="writing-mode:vertical-rl; transform:rotate(180deg); margin:0 auto;">${m}</div>
-        </th>
-      `).join("");
-      const monthParafCells = ISG_MONTHS_TR.map(m => `
-        <td style="width:22px; height:64px; font-size:8.5px; font-weight:700; text-align:center; padding:1px;">
-          <div style="writing-mode:vertical-rl; transform:rotate(180deg); margin:0 auto;">${escapeHtml(parafs[m] || "")}</div>
-        </td>
-      `).join("");
+      const sigs = f.signatures || {};
 
       const photoAppendixItems = tpl.checklistItems.map((q, idx) => {
         const p = photos[String(idx)] || "";
@@ -21442,7 +21892,149 @@
         `;
       }).filter(Boolean).join("");
 
-      const htmlDoc = `<!DOCTYPE html>
+      const appendixBlock = photoAppendixItems ? `
+        <div style="page-break-before: always; padding-top: 6px;">
+          <h3 style="text-align:center; font-size:13px; border-bottom:1.5px solid #000; padding-bottom:6px; margin:0 0 12px 0;">
+            ${escapeHtml(f.templateTitle || tpl.title)} — AÇIKLAMA FOTOĞRAF EKLERİ (${escapeHtml(f.dosyaNo || tpl.dosyaNo)})
+          </h3>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+            ${photoAppendixItems}
+          </div>
+        </div>
+      ` : "";
+
+      let htmlDoc = "";
+      if (tpl.layoutType === "TEKINAK_YESNO_TABLE") {
+        const ranges = [[0, 20, "Sayfa 1", true, false], [20, 30, "Sayfa 2", false, false], [30, tpl.checklistItems.length, "Sayfa 3", false, true]];
+        const pagesHtml = ranges.map(([startIdx, endIdx, pageLabel, isFirst, isLast], pIdx) => {
+          const rows = [];
+          for (let i = startIdx; i < endIdx; i++) {
+            const k = String(i);
+            const v = String(res[k] || "").toUpperCase();
+            const n = notes[k] || "";
+            const p = photos[k] || "";
+            rows.push(`
+              <tr>
+                <td style="text-align:center; font-size:9px; font-weight:600; width:5.5%; padding:2.5px 2px;">${i + 1}</td>
+                <td style="text-align:left; font-size:9px; line-height:1.22; width:64.5%; padding:2.5px 5px;">${escapeHtml(tpl.checklistItems[i])}</td>
+                <td style="text-align:center; font-size:12px; font-weight:800; width:6%; padding:2px;">${v === "EVET" ? "✓" : ""}</td>
+                <td style="text-align:center; font-size:12px; font-weight:800; width:6%; padding:2px;">${v === "HAYIR" ? "✓" : ""}</td>
+                <td style="font-size:8.5px; width:18%; padding:2px 4px;">
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:3px;">
+                    <span style="flex:1; word-break:break-word;">${escapeHtml(n || (p ? "Fotoğraf ekli" : ""))}</span>
+                    ${p ? `<img src="${p}" style="width:22px; height:22px; object-fit:cover; border:0.5px solid #000; flex-shrink:0;">` : ""}
+                  </div>
+                </td>
+              </tr>
+            `);
+          }
+          const sigImg = sigs[ISG_SIG_INSPECTOR] || "";
+          return `
+            <div class="sheet-page" style="${pIdx > 0 ? 'page-break-before:always;' : ''}">
+              <table>
+                ${isFirst ? `
+                  <tr>
+                    <td colspan="5" style="text-align:center; font-weight:800; font-size:14px; padding:6px;">${escapeHtml(f.templateTitle || tpl.title)}</td>
+                  </tr>
+                  <tr>
+                    <td colspan="3" style="font-size:10px; font-weight:700; padding:4px 8px;">PROJE ADI: ${escapeHtml(f.projectName || "")}</td>
+                    <td colspan="2" style="font-size:10px; font-weight:700; padding:4px 8px; text-align:right;">TARİH: ${escapeHtml(f.checkDate || "...../...../ 20.....")}</td>
+                  </tr>
+                ` : ""}
+                <tr>
+                  <th style="width:5.5%; font-size:9.5px; font-weight:800; padding:4px 2px;">SIRA</th>
+                  <th style="width:64.5%; font-size:9.5px; font-weight:800; padding:4px;">KONTROL TİPİ</th>
+                  <th style="width:6%; font-size:9.5px; font-weight:800; padding:4px 2px;">EVET</th>
+                  <th style="width:6%; font-size:9.5px; font-weight:800; padding:4px 2px;">HAYIR</th>
+                  <th style="width:18%; font-size:9.5px; font-weight:800; padding:4px;">AÇIKLAMA</th>
+                </tr>
+                ${rows.join("")}
+              </table>
+              ${isLast ? `
+                <div style="display:flex; justify-content:flex-end; margin-top:8px;">
+                  <div style="border:1.2px solid #000; padding:6px 10px; width:260px; min-height:74px;">
+                    <div style="font-size:9.5px; font-weight:800; margin-bottom:4px;">KONTROLÜ YAPAN: ${escapeHtml(f.kontrolEden || "")}</div>
+                    ${sigImg ? `<img src="${sigImg}" style="height:46px; max-width:100%; object-fit:contain; display:block; margin:2px auto 0;">` : `<div style="height:36px;"></div>`}
+                  </div>
+                </div>
+              ` : ""}
+              <div style="text-align:center; font-size:9px; margin-top:6px;">${pageLabel}</div>
+            </div>
+          `;
+        }).join("");
+
+        htmlDoc = `<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>${escapeHtml(f.templateTitle || tpl.title)}</title>
+  <style>
+    @page { size: A4 landscape; margin: 7mm; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: #000; background: #fff; }
+    table { border-collapse: collapse; width: 100%; }
+    td, th { border: 1px solid #000; }
+    .no-print { text-align: right; margin-bottom: 8px; }
+    @media print { .no-print { display: none; } }
+  </style>
+</head>
+<body>
+  <div class="no-print">
+    <button onclick="window.print()" style="padding:8px 16px; background:#1E3A8A; color:#fff; border:none; border-radius:8px; font-weight:700; cursor:pointer;">🖨️ Yatay A4 Yazdır / PDF Kaydet</button>
+  </div>
+  ${pagesHtml}
+  ${appendixBlock}
+</body>
+</html>`;
+      } else {
+        const logoUrl = new URL("berrak_logo.png", window.location.href).href;
+        const eq = f.equipmentFields || {};
+        const parafs = f.monthParafs || {};
+
+        const specRowsHtml = tpl.specRows.map(sr => `
+          <tr>
+            <td class="lbl" style="width:19%;">${escapeHtml(sr.leftLabel)}</td>
+            <td class="val" style="width:31%;">${escapeHtml(eq[sr.leftKey] || "")}</td>
+            <td class="lbl" style="width:26%;">${escapeHtml(sr.rightLabel)}</td>
+            <td class="val" style="width:24%;">${escapeHtml(eq[sr.rightKey] || "")}</td>
+          </tr>
+        `).join("");
+
+        const checklistHtml = tpl.checklistItems.map((q, idx) => {
+          const k = String(idx);
+          const r = res[k] || "";
+          const n = notes[k] || "";
+          const p = photos[k] || "";
+          const rColor = r === "UYGUN DEĞİL" ? "#b91c1c" : (r === "UYGUN" ? "#15803d" : "#000");
+          return `
+            <tr>
+              <td style="text-align:center; padding:3px 5px; font-size:9.5px; line-height:1.25;">${escapeHtml(q)}</td>
+              <td style="text-align:center; font-weight:700; font-size:9.5px; color:${rColor};">${escapeHtml(r)}</td>
+              <td style="padding:2px 4px; font-size:9px;">
+                <div style="display:flex; align-items:center; justify-content:space-between; gap:4px;">
+                  <span style="flex:1; word-break:break-word;">${escapeHtml(n || (p ? "Fotoğraf ekli (Ek)" : ""))}</span>
+                  ${p ? `<img src="${p}" style="width:26px; height:26px; object-fit:cover; border:0.6px solid #000; flex-shrink:0;">` : ""}
+                </div>
+              </td>
+            </tr>
+          `;
+        }).join("");
+
+        const monthHeaders = ["AY", ...ISG_MONTHS_TR].map(m => `
+          <th style="width:22px; height:62px; font-size:8.5px; font-weight:500; padding:1px;">
+            <div style="writing-mode:vertical-rl; transform:rotate(180deg); margin:0 auto;">${m}</div>
+          </th>
+        `).join("");
+        const monthParafCells = ISG_MONTHS_TR.map(m => `
+          <td style="width:22px; height:64px; font-size:8.5px; font-weight:700; text-align:center; padding:1px;">
+            <div style="writing-mode:vertical-rl; transform:rotate(180deg); margin:0 auto;">${escapeHtml(parafs[m] || "")}</div>
+          </td>
+        `).join("");
+
+        const sigLeft = sigs[ISG_SIG_INSPECTOR] || "";
+        const sigRight = sigs[ISG_SIG_EMPLOYER] || "";
+
+        htmlDoc = `<!DOCTYPE html>
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
@@ -21503,32 +22095,27 @@
         </tr>
       </table>
       <div style="flex:1; text-align:center; padding-top:4px;">
-        <div style="font-size:11px; margin-bottom:16px;">ONAYLAR</div>
+        <div style="font-size:11px; font-weight:700; margin-bottom:10px;">ONAYLAR</div>
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
           <div>
-            <div style="font-size:10px; margin-bottom:12px;">${escapeHtml(tpl.approvalLeftLabel)}</div>
-            <div style="font-size:10.5px; font-weight:700;">${escapeHtml(f.kontrolEden || "")}</div>
+            <div style="font-size:10px; font-weight:700; margin-bottom:6px;">${escapeHtml(tpl.approvalLeftLabel)}</div>
+            <div style="font-size:10.5px; font-weight:700; min-height:14px;">${escapeHtml(f.kontrolEden || "")}</div>
+            ${sigLeft ? `<img src="${sigLeft}" style="height:44px; max-width:100%; object-fit:contain; margin:4px auto 0; display:block;">` : ""}
           </div>
           <div>
-            <div style="font-size:10px; margin-bottom:12px;">${escapeHtml(tpl.approvalRightLabel)}</div>
-            <div style="font-size:10.5px; font-weight:700;">${escapeHtml(f.isverenVekili || "")}</div>
+            <div style="font-size:10px; font-weight:700; margin-bottom:6px;">${escapeHtml(tpl.approvalRightLabel)}</div>
+            <div style="font-size:10.5px; font-weight:700; min-height:14px;">${escapeHtml(f.isverenVekili || "")}</div>
+            ${sigRight ? `<img src="${sigRight}" style="height:44px; max-width:100%; object-fit:contain; margin:4px auto 0; display:block;">` : ""}
           </div>
         </div>
       </div>
     </div>
   </div>
-  ${photoAppendixItems ? `
-    <div style="page-break-before: always; padding-top: 8px;">
-      <h3 style="text-align:center; font-size:13px; border-bottom:1.5px solid #000; padding-bottom:6px; margin:0 0 12px 0;">
-        ${escapeHtml(f.templateTitle || tpl.title)} — AÇIKLAMA FOTOĞRAF EKLERİ (${escapeHtml(f.dosyaNo || tpl.dosyaNo)})
-      </h3>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
-        ${photoAppendixItems}
-      </div>
-    </div>
-  ` : ""}
+  ${appendixBlock}
 </body>
 </html>`;
+      }
+
       const win = window.open("", "_blank");
       if (win) {
         win.document.open();
@@ -21536,6 +22123,368 @@
         win.document.close();
       } else {
         alert("Yazdırma penceresi tarayıcı tarafından engellendi. Lütfen açılır pencerelere izin veriniz.");
+      }
+    };
+
+    // ================= BİREBİR 1-TO-1 OOXML WORD (.docx) & EXCEL (.xlsx) ÇIKTI MOTORU =================
+    const ISG_CRC32_TABLE = (() => {
+      const t = new Uint32Array(256);
+      for (let i = 0; i < 256; i++) {
+        let c = i;
+        for (let k = 0; k < 8; k++) c = (c & 1) ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1);
+        t[i] = c >>> 0;
+      }
+      return t;
+    })();
+
+    function isgCrc32(bytes) {
+      let crc = 0xFFFFFFFF;
+      for (let i = 0; i < bytes.length; i++) crc = ISG_CRC32_TABLE[(crc ^ bytes[i]) & 0xFF] ^ (crc >>> 8);
+      return (crc ^ 0xFFFFFFFF) >>> 0;
+    }
+
+    function buildOoxmlZipBlob(entries, mimeType) {
+      const enc = new TextEncoder();
+      const localParts = [];
+      const centralParts = [];
+      let offset = 0;
+
+      entries.forEach(({ name, data }) => {
+        const nameBytes = enc.encode(name);
+        const contentBytes = typeof data === "string" ? enc.encode(data) : (data instanceof Uint8Array ? data : new Uint8Array(data));
+        const crc = isgCrc32(contentBytes);
+        const size = contentBytes.length;
+
+        const lh = new Uint8Array(30 + nameBytes.length);
+        const ldv = new DataView(lh.buffer);
+        ldv.setUint32(0, 0x04034b50, true);
+        ldv.setUint16(4, 20, true);
+        ldv.setUint16(6, 0x0800, true); // UTF-8
+        ldv.setUint16(8, 0, true); // STORE
+        ldv.setUint16(10, 0, true);
+        ldv.setUint16(12, 0, true);
+        ldv.setUint32(14, crc, true);
+        ldv.setUint32(18, size, true);
+        ldv.setUint32(22, size, true);
+        ldv.setUint16(26, nameBytes.length, true);
+        ldv.setUint16(28, 0, true);
+        lh.set(nameBytes, 30);
+        localParts.push(lh, contentBytes);
+
+        const ch = new Uint8Array(46 + nameBytes.length);
+        const cdv = new DataView(ch.buffer);
+        cdv.setUint32(0, 0x02014b50, true);
+        cdv.setUint16(4, 20, true);
+        cdv.setUint16(6, 20, true);
+        cdv.setUint16(8, 0x0800, true);
+        cdv.setUint16(10, 0, true);
+        cdv.setUint16(12, 0, true);
+        cdv.setUint16(14, 0, true);
+        cdv.setUint32(16, crc, true);
+        cdv.setUint32(20, size, true);
+        cdv.setUint32(24, size, true);
+        cdv.setUint16(28, nameBytes.length, true);
+        cdv.setUint16(30, 0, true);
+        cdv.setUint16(32, 0, true);
+        cdv.setUint16(34, 0, true);
+        cdv.setUint16(36, 0, true);
+        cdv.setUint32(38, 0, true);
+        cdv.setUint32(42, offset, true);
+        ch.set(nameBytes, 46);
+        centralParts.push(ch);
+
+        offset += lh.length + contentBytes.length;
+      });
+
+      const centralSize = centralParts.reduce((s, p) => s + p.length, 0);
+      const eocd = new Uint8Array(22);
+      const edv = new DataView(eocd.buffer);
+      edv.setUint32(0, 0x06054b50, true);
+      edv.setUint16(4, 0, true);
+      edv.setUint16(6, 0, true);
+      edv.setUint16(8, entries.length, true);
+      edv.setUint16(10, entries.length, true);
+      edv.setUint32(12, centralSize, true);
+      edv.setUint32(16, offset, true);
+      edv.setUint16(20, 0, true);
+
+      return new Blob([...localParts, ...centralParts, eocd], { type: mimeType });
+    }
+
+    function xmlEsc(v) {
+      return String(v ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&apos;");
+    }
+
+    function triggerBlobDownload(blob, filename) {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(() => {
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      }, 1000);
+    }
+
+    function dataUriToUint8Array(dataUri) {
+      const idx = dataUri.indexOf(",");
+      if (idx < 0) return null;
+      const b64 = dataUri.slice(idx + 1).replace(/\s+/g, "");
+      const bin = atob(b64);
+      const out = new Uint8Array(bin.length);
+      for (let i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i);
+      return out;
+    }
+
+    async function loadImageAsPngInfo(src, maxSide = 680) {
+      if (!src) return null;
+      return new Promise((resolve) => {
+        const img = new Image();
+        img.crossOrigin = "anonymous";
+        img.onload = () => {
+          try {
+            const w0 = img.naturalWidth || img.width || 1;
+            const h0 = img.naturalHeight || img.height || 1;
+            const scale = Math.min(1, maxSide / Math.max(w0, h0));
+            const w = Math.max(1, Math.round(w0 * scale));
+            const h = Math.max(1, Math.round(h0 * scale));
+            const c = document.createElement("canvas");
+            c.width = w;
+            c.height = h;
+            const ctx = c.getContext("2d");
+            ctx.drawImage(img, 0, 0, w, h);
+            const pngUri = c.toDataURL("image/png");
+            const bytes = dataUriToUint8Array(pngUri);
+            resolve(bytes ? { bytes, width: w, height: h } : null);
+          } catch (_) {
+            resolve(null);
+          }
+        };
+        img.onerror = () => resolve(null);
+        img.src = src;
+      });
+    }
+
+    function docxInlineImgXml(rId, cxEmu, cyEmu, docPrId, name) {
+      return `<w:r><w:drawing><wp:inline distT="0" distB="0" distL="0" distR="0" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"><wp:extent cx="${cxEmu}" cy="${cyEmu}"/><wp:docPr id="${docPrId}" name="${xmlEsc(name)}"/><a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"><a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture"><pic:pic xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture"><pic:nvPicPr><pic:cNvPr id="0" name="${xmlEsc(name)}"/><pic:cNvPicPr/></pic:nvPicPr><pic:blipFill><a:blip r:embed="${rId}" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"/><a:stretch><a:fillRect/></a:stretch></pic:blipFill><pic:spPr><a:xfrm><a:off x="0" y="0"/><a:ext cx="${cxEmu}" cy="${cyEmu}"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom></pic:spPr></pic:pic></a:graphicData></a:graphic></wp:inline></w:drawing></w:r>`;
+    }
+
+    function docxPara(text, opts = {}) {
+      const align = opts.align || "center";
+      const sz = opts.sz || 18; // half-pt
+      const bold = opts.bold ? "<w:b/>" : "";
+      const underline = opts.underline ? `<w:u w:val="single"/>` : "";
+      const color = opts.color ? `<w:color w:val="${opts.color}"/>` : `<w:color w:val="000000"/>`;
+      const before = opts.before ?? 20;
+      const after = opts.after ?? 20;
+      return `<w:p><w:pPr><w:jc w:val="${align}"/><w:spacing w:before="${before}" w:after="${after}"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri" w:cs="Calibri"/>${bold}${underline}${color}<w:sz w:val="${sz}"/><w:szCs w:val="${sz}"/></w:rPr><w:t xml:space="preserve">${xmlEsc(text)}</w:t></w:r></w:p>`;
+    }
+
+    function docxCell(innerXml, opts = {}) {
+      const w = opts.w ? `<w:tcW w:w="${opts.w}" w:type="dxa"/>` : "";
+      const span = opts.gridSpan > 1 ? `<w:gridSpan w:val="${opts.gridSpan}"/>` : "";
+      const vMerge = opts.vMerge === "restart" ? `<w:vMerge w:val="restart"/>` : (opts.vMerge === "continue" ? `<w:vMerge/>` : "");
+      const textDir = opts.vertical ? `<w:textDirection w:val="btLr"/>` : "";
+      const vAlign = `<w:vAlign w:val="${opts.vAlign || "center"}"/>`;
+      const shd = opts.fill ? `<w:shd w:val="clear" w:color="auto" w:fill="${opts.fill}"/>` : "";
+      const borders = opts.noBorders
+        ? `<w:tcBorders><w:top w:val="none"/><w:left w:val="none"/><w:bottom w:val="none"/><w:right w:val="none"/></w:tcBorders>`
+        : `<w:tcBorders><w:top w:val="single" w:sz="6" w:color="000000"/><w:left w:val="single" w:sz="6" w:color="000000"/><w:bottom w:val="single" w:sz="6" w:color="000000"/><w:right w:val="single" w:sz="6" w:color="000000"/></w:tcBorders>`;
+      const padH = opts.padH ?? 70;
+      const padV = opts.padV ?? 40;
+      const mar = `<w:tcMar><w:top w:w="${padV}" w:type="dxa"/><w:bottom w:w="${padV}" w:type="dxa"/><w:left w:w="${padH}" w:type="dxa"/><w:right w:w="${padH}" w:type="dxa"/></w:tcMar>`;
+      return `<w:tc><w:tcPr>${w}${span}${vMerge}${borders}${shd}${mar}${textDir}${vAlign}</w:tcPr>${innerXml || "<w:p/>"}</w:tc>`;
+    }
+
+    window.exportCurrentIsgFormDocx = function() {
+      if (window.isgUiState.activeForm) window.exportIsgFormDocxObject(window.isgUiState.activeForm);
+    };
+    window.exportIsgFormDocxById = function(formId) {
+      const f = (window.allIsgForms || []).find(x => x.id === formId);
+      if (f) window.exportIsgFormDocxObject(f);
+    };
+
+    window.exportIsgFormDocxObject = async function(f) {
+      try {
+        const tpl = getIsgTemplateById(f.templateId);
+        const res = f.checkResults || {};
+        const notes = f.checkNotes || {};
+        const photos = f.checkPhotos || {};
+        const sigs = f.signatures || {};
+        const eq = f.equipmentFields || {};
+        const parafs = f.monthParafs || {};
+
+        const mediaEntries = [];
+        const docRels = [];
+        let relIdx = 1;
+        let docPrId = 1;
+        const addImg = (pngInfo) => {
+          if (!pngInfo || !pngInfo.bytes) return null;
+          const fileName = `img_${relIdx}.png`;
+          const rId = `rIdImg${relIdx}`;
+          relIdx++;
+          mediaEntries.push({ name: `word/media/${fileName}`, data: pngInfo.bytes });
+          docRels.push(`<Relationship Id="${rId}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/${fileName}"/>`);
+          return { rId, width: pngInfo.width, height: pngInfo.height, prId: docPrId++ };
+        };
+
+        const rowImgs = {};
+        for (let i = 0; i < tpl.checklistItems.length; i++) {
+          const p = photos[String(i)];
+          if (p) {
+            const info = await loadImageAsPngInfo(p, 560);
+            if (info) rowImgs[i] = addImg(info);
+          }
+        }
+        const sigInspectorInfo = sigs[ISG_SIG_INSPECTOR] ? addImg(await loadImageAsPngInfo(sigs[ISG_SIG_INSPECTOR], 480)) : null;
+        const sigEmployerInfo = sigs[ISG_SIG_EMPLOYER] ? addImg(await loadImageAsPngInfo(sigs[ISG_SIG_EMPLOYER], 480)) : null;
+        const logoInfo = tpl.layoutType === "BERRAK_STANDARD" ? addImg(await loadImageAsPngInfo("berrak_logo.png", 360)) : null;
+
+        let bodyXml = "";
+        let sectPrXml = "";
+
+        if (tpl.layoutType === "TEKINAK_YESNO_TABLE") {
+          // A4 Yatay: 16838 x 11906 twips, kenar boşlukları 480 -> kullanılabilir ~15878 dxa
+          const colW = [720, 10250, 950, 950, 3008];
+          const tblOpen = `<w:tbl><w:tblPr><w:tblW w:w="15878" w:type="dxa"/><w:tblBorders><w:top w:val="single" w:sz="8" w:color="000000"/><w:left w:val="single" w:sz="8" w:color="000000"/><w:bottom w:val="single" w:sz="8" w:color="000000"/><w:right w:val="single" w:sz="8" w:color="000000"/><w:insideH w:val="single" w:sz="4" w:color="000000"/><w:insideV w:val="single" w:sz="4" w:color="000000"/></w:tblBorders></w:tblPr><w:tblGrid>${colW.map(w => `<w:gridCol w:w="${w}"/>`).join("")}</w:tblGrid>`;
+          let rowsXml = "";
+          rowsXml += `<w:tr>${docxCell(docxPara(f.templateTitle || tpl.title, { bold: true, sz: 26, before: 40, after: 40 }), { w: 15878, gridSpan: 5 })}</w:tr>`;
+          rowsXml += `<w:tr>${docxCell(docxPara(`PROJE ADI: ${f.projectName || ""}`, { align: "left", bold: true, sz: 20 }), { w: colW[0] + colW[1] + colW[2], gridSpan: 3 })}${docxCell(docxPara(`TARİH: ${f.checkDate || "...../...../ 20....."}`, { align: "right", bold: true, sz: 20 }), { w: colW[3] + colW[4], gridSpan: 2 })}</w:tr>`;
+          rowsXml += `<w:tr><w:trPr><w:tblHeader/></w:trPr>${docxCell(docxPara("SIRA", { bold: true, sz: 18 }), { w: colW[0], fill: "F1F5F9" })}${docxCell(docxPara("KONTROL TİPİ", { bold: true, sz: 18 }), { w: colW[1], fill: "F1F5F9" })}${docxCell(docxPara("EVET", { bold: true, sz: 18 }), { w: colW[2], fill: "F1F5F9" })}${docxCell(docxPara("HAYIR", { bold: true, sz: 18 }), { w: colW[3], fill: "F1F5F9" })}${docxCell(docxPara("AÇIKLAMA", { bold: true, sz: 18 }), { w: colW[4], fill: "F1F5F9" })}</w:tr>`;
+
+          tpl.checklistItems.forEach((q, idx) => {
+            const k = String(idx);
+            const v = String(res[k] || "").toUpperCase();
+            const n = notes[k] || "";
+            const img = rowImgs[idx];
+            let noteXml = n ? docxPara(n, { align: "left", sz: 16, before: 10, after: 10 }) : "";
+            if (img) {
+              const cx = 620000;
+              const cy = Math.max(240000, Math.round(cx * (img.height / Math.max(1, img.width))));
+              noteXml += `<w:p><w:pPr><w:jc w:val="center"/><w:spacing w:before="20" w:after="20"/></w:pPr>${docxInlineImgXml(img.rId, cx, Math.min(cy, 580000), img.prId, `Madde_${idx + 1}`)}</w:p>`;
+            }
+            rowsXml += `<w:tr><w:trPr><w:cantSplit/></w:trPr>${docxCell(docxPara(String(idx + 1), { bold: true, sz: 17 }), { w: colW[0] })}${docxCell(docxPara(q, { align: "left", sz: 17 }), { w: colW[1] })}${docxCell(docxPara(v === "EVET" ? "✓" : "", { bold: true, sz: 22, color: "15803D" }), { w: colW[2] })}${docxCell(docxPara(v === "HAYIR" ? "✓" : "", { bold: true, sz: 22, color: "B91C1C" }), { w: colW[3] })}${docxCell(noteXml || "<w:p/>", { w: colW[4] })}</w:tr>`;
+          });
+
+          // Alt KONTROLÜ YAPAN kutusu + dijital imza
+          let sigBoxInner = docxPara(`KONTROLÜ YAPAN: ${f.kontrolEden || ""}`, { align: "left", bold: true, sz: 19, before: 40, after: 40 });
+          if (sigInspectorInfo) {
+            sigBoxInner += `<w:p><w:pPr><w:jc w:val="center"/><w:spacing w:before="20" w:after="20"/></w:pPr>${docxInlineImgXml(sigInspectorInfo.rId, 1850000, 720000, sigInspectorInfo.prId, "Imza_Kontrol")}</w:p>`;
+          } else {
+            sigBoxInner += docxPara(" ", { sz: 28, before: 120, after: 120 });
+          }
+          const sigTbl = `<w:tbl><w:tblPr><w:tblW w:w="15878" w:type="dxa"/></w:tblPr><w:tblGrid><w:gridCol w:w="11000"/><w:gridCol w:w="4878"/></w:tblGrid><w:tr>${docxCell("<w:p/>", { w: 11000, noBorders: true })}${docxCell(sigBoxInner, { w: 4878 })}</w:tr></w:tbl>`;
+
+          bodyXml = `${tblOpen}${rowsXml}</w:tbl><w:p><w:pPr><w:spacing w:before="80" w:after="40"/></w:pPr></w:p>${sigTbl}`;
+          sectPrXml = `<w:sectPr><w:pgSz w:w="16838" w:h="11906" w:orient="landscape"/><w:pgMar w:top="480" w:right="480" w:bottom="480" w:left="480"/></w:sectPr>`;
+        } else {
+          // BERRAK_STANDARD (FORKLİFT KONTROL FORMU — A4 Dikey: 11906 x 16838, kenar 480 -> genişlik 10946 dxa)
+          const W = 10946;
+          const logoCellInner = logoInfo
+            ? `<w:p><w:pPr><w:jc w:val="center"/><w:spacing w:before="20" w:after="20"/></w:pPr>${docxInlineImgXml(logoInfo.rId, 1180000, Math.round(1180000 * (logoInfo.height / Math.max(1, logoInfo.width))), logoInfo.prId, "BerrakLogo")}</w:p>`
+            : docxPara("BERRAK", { bold: true, sz: 28, color: "B91C1C" });
+
+          const metaRows = [
+            ["Sayfa No", f.sayfaNo || tpl.sayfaNo],
+            ["Form No", f.formNo || tpl.formNo],
+            ["Dosya No", f.dosyaNo || tpl.dosyaNo],
+            ["Yayın Tarihi", f.yayinTarihi || tpl.yayinTarihi],
+            ["Revizyon No", f.revizyonNo || tpl.revizyonNo],
+            ["Revizyon Tarihi", f.revizyonTarihi || tpl.revizyonTarihi]
+          ];
+          const hdrColW = [2080, 6130, 1480, 1256];
+          let hdrTbl = `<w:tbl><w:tblPr><w:tblW w:w="${W}" w:type="dxa"/></w:tblPr><w:tblGrid>${hdrColW.map(w => `<w:gridCol w:w="${w}"/>`).join("")}</w:tblGrid>`;
+          metaRows.forEach(([ml, mv], rIdx) => {
+            hdrTbl += `<w:tr>${docxCell(rIdx === 0 ? logoCellInner : "", { w: hdrColW[0], vMerge: rIdx === 0 ? "restart" : "continue" })}${docxCell(rIdx === 0 ? docxPara(f.templateTitle || tpl.title, { bold: true, sz: 28 }) : "", { w: hdrColW[1], vMerge: rIdx === 0 ? "restart" : "continue" })}${docxCell(docxPara(ml, { sz: 15, before: 10, after: 10 }), { w: hdrColW[2], padV: 15 })}${docxCell(docxPara(mv, { sz: 15, before: 10, after: 10 }), { w: hdrColW[3], padV: 15 })}</w:tr>`;
+          });
+          hdrTbl += `</w:tbl>`;
+
+          const specColW = [2080, 3393, 2846, 2627];
+          let specTbl = `<w:tbl><w:tblPr><w:tblW w:w="${W}" w:type="dxa"/></w:tblPr><w:tblGrid>${specColW.map(w => `<w:gridCol w:w="${w}"/>`).join("")}</w:tblGrid>`;
+          tpl.specRows.forEach(sr => {
+            specTbl += `<w:tr>${docxCell(docxPara(sr.leftLabel, { sz: 16 }), { w: specColW[0] })}${docxCell(docxPara(eq[sr.leftKey] || "", { bold: true, sz: 17 }), { w: specColW[1] })}${docxCell(docxPara(sr.rightLabel, { sz: 16 }), { w: specColW[2] })}${docxCell(docxPara(eq[sr.rightKey] || "", { bold: true, sz: 17 }), { w: specColW[3] })}</w:tr>`;
+          });
+          specTbl += `</w:tbl>`;
+
+          const chkColW = [5473, 2846, 2627];
+          let chkTbl = `<w:tbl><w:tblPr><w:tblW w:w="${W}" w:type="dxa"/></w:tblPr><w:tblGrid>${chkColW.map(w => `<w:gridCol w:w="${w}"/>`).join("")}</w:tblGrid>`;
+          chkTbl += `<w:tr><w:trPr><w:tblHeader/></w:trPr>${docxCell(docxPara(tpl.checklistHeaderLeft, { bold: true, sz: 20 }), { w: chkColW[0] })}${docxCell(docxPara(tpl.checklistHeaderMid, { bold: true, sz: 19 }), { w: chkColW[1] })}${docxCell(docxPara(tpl.checklistHeaderRight, { bold: true, underline: true, sz: 19 }), { w: chkColW[2] })}</w:tr>`;
+          tpl.checklistItems.forEach((q, idx) => {
+            const k = String(idx);
+            const r = res[k] || "";
+            const n = notes[k] || "";
+            const img = rowImgs[idx];
+            const colHex = r === "UYGUN DEĞİL" ? "B91C1C" : (r === "UYGUN" ? "15803D" : "000000");
+            let noteXml = n ? docxPara(n, { align: "left", sz: 16, before: 10, after: 10 }) : "";
+            if (img) {
+              const cx = 560000;
+              const cy = Math.max(220000, Math.round(cx * (img.height / Math.max(1, img.width))));
+              noteXml += `<w:p><w:pPr><w:jc w:val="center"/><w:spacing w:before="15" w:after="15"/></w:pPr>${docxInlineImgXml(img.rId, cx, Math.min(cy, 520000), img.prId, `Madde_${idx + 1}`)}</w:p>`;
+            }
+            chkTbl += `<w:tr><w:trPr><w:cantSplit/></w:trPr>${docxCell(docxPara(q, { sz: 16 }), { w: chkColW[0] })}${docxCell(docxPara(r, { bold: true, sz: 17, color: colHex }), { w: chkColW[1] })}${docxCell(noteXml || "<w:p/>", { w: chkColW[2] })}</w:tr>`;
+          });
+          chkTbl += `</w:tbl>`;
+
+          // Alt blok: Sol AY/PARAF (13 sütun dikey) + Sağ ONAYLAR (KONTROL EDEN / İŞVEREN VEKİLİ + dijital imzalar)
+          const mColW = 415;
+          const mTblW = mColW * 13;
+          let mTbl = `<w:tbl><w:tblPr><w:tblW w:w="${mTblW}" w:type="dxa"/></w:tblPr><w:tblGrid>${Array(13).fill(`<w:gridCol w:w="${mColW}"/>`).join("")}</w:tblGrid>`;
+          mTbl += `<w:tr><w:trPr><w:trHeight w:val="1100" w:hRule="atLeast"/></w:trPr>${["AY", ...ISG_MONTHS_TR].map(m => docxCell(docxPara(m, { sz: 14, before: 0, after: 0 }), { w: mColW, vertical: true, padH: 15, padV: 20 })).join("")}</w:tr>`;
+          mTbl += `<w:tr><w:trPr><w:trHeight w:val="1100" w:hRule="atLeast"/></w:trPr>${docxCell(docxPara("PARAF", { sz: 14, before: 0, after: 0 }), { w: mColW, vertical: true, padH: 15, padV: 20 })}${ISG_MONTHS_TR.map(m => docxCell(docxPara(parafs[m] || "", { bold: true, sz: 14, before: 0, after: 0 }), { w: mColW, vertical: true, padH: 15, padV: 20 })).join("")}</w:tr></w:tbl>`;
+
+          let leftApp = docxPara(tpl.approvalLeftLabel, { bold: true, sz: 17 }) + docxPara(f.kontrolEden || "", { bold: true, sz: 17 });
+          if (sigInspectorInfo) leftApp += `<w:p><w:pPr><w:jc w:val="center"/></w:pPr>${docxInlineImgXml(sigInspectorInfo.rId, 1380000, 560000, sigInspectorInfo.prId, "Imza_Kontrol")}</w:p>`;
+          let rightApp = docxPara(tpl.approvalRightLabel, { bold: true, sz: 17 }) + docxPara(f.isverenVekili || "", { bold: true, sz: 17 });
+          if (sigEmployerInfo) rightApp += `<w:p><w:pPr><w:jc w:val="center"/></w:pPr>${docxInlineImgXml(sigEmployerInfo.rId, 1380000, 560000, sigEmployerInfo.prId, "Imza_Isveren")}</w:p>`;
+
+          const appColW = Math.floor((W - mTblW - 220) / 2);
+          const appTbl = `${docxPara("ONAYLAR", { bold: true, sz: 19, before: 20, after: 80 })}<w:tbl><w:tblPr><w:tblW w:w="${appColW * 2}" w:type="dxa"/></w:tblPr><w:tblGrid><w:gridCol w:w="${appColW}"/><w:gridCol w:w="${appColW}"/></w:tblGrid><w:tr>${docxCell(leftApp, { w: appColW, noBorders: true, vAlign: "top" })}${docxCell(rightApp, { w: appColW, noBorders: true, vAlign: "top" })}</w:tr></w:tbl>`;
+
+          const footerTbl = `<w:tbl><w:tblPr><w:tblW w:w="${W}" w:type="dxa"/></w:tblPr><w:tblGrid><w:gridCol w:w="${mTblW + 220}"/><w:gridCol w:w="${W - mTblW - 220}"/></w:tblGrid><w:tr>${docxCell(mTbl + "<w:p/>", { w: mTblW + 220, padH: 100, padV: 120 })}${docxCell(appTbl + "<w:p/>", { w: W - mTblW - 220, padH: 100, padV: 120, vAlign: "top" })}</w:tr></w:tbl>`;
+
+          bodyXml = `${hdrTbl}${specTbl}${chkTbl}${footerTbl}`;
+          sectPrXml = `<w:sectPr><w:pgSz w:w="11906" w:h="16838"/><w:pgMar w:top="480" w:right="480" w:bottom="480" w:left="480"/></w:sectPr>`;
+        }
+
+        // Fotoğraf Ekleri Sayfası (varsa)
+        const photoKeys = Object.keys(rowImgs).map(Number).sort((a, b) => a - b);
+        if (photoKeys.length > 0) {
+          bodyXml += `<w:p><w:r><w:br w:type="page"/></w:r></w:p>`;
+          bodyXml += docxPara(`${f.templateTitle || tpl.title} — AÇIKLAMA FOTOĞRAF EKLERİ`, { bold: true, sz: 24, before: 60, after: 120 });
+          photoKeys.forEach(idx => {
+            const img = rowImgs[idx];
+            const cx = 3600000;
+            const cy = Math.min(2600000, Math.round(cx * (img.height / Math.max(1, img.width))));
+            bodyXml += docxPara(`Madde #${idx + 1} (${res[String(idx)] || "-"}): ${tpl.checklistItems[idx]}`, { align: "left", bold: true, sz: 18, before: 80, after: 20 });
+            if (notes[String(idx)]) bodyXml += docxPara(`Açıklama: ${notes[String(idx)]}`, { align: "left", sz: 17, before: 0, after: 30 });
+            bodyXml += `<w:p><w:pPr><w:jc w:val="center"/><w:spacing w:before="20" w:after="100"/></w:pPr>${docxInlineImgXml(img.rId, cx, cy, docPrId++, `Ek_${idx + 1}`)}</w:p>`;
+          });
+        }
+
+        const documentXml = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><w:body>${bodyXml}${sectPrXml}</w:body></w:document>`;
+        const docRelsXml = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">${docRels.join("")}</Relationships>`;
+        const contentTypesXml = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Default Extension="png" ContentType="image/png"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/></Types>`;
+        const rootRelsXml = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>`;
+
+        const entries = [
+          { name: "[Content_Types].xml", data: contentTypesXml },
+          { name: "_rels/.rels", data: rootRelsXml },
+          { name: "word/document.xml", data: documentXml },
+          { name: "word/_rels/document.xml.rels", data: docRelsXml },
+          ...mediaEntries
+        ];
+        const blob = buildOoxmlZipBlob(entries, "application/vnd.openxmlformats-officedocument.wordprocessingml.document");
+        const safeNo = String(f.formNo || tpl.formNo || "ISG").replace(/[^a-zA-Z0-9_-]/g, "_");
+        triggerBlobDownload(blob, `Tekinak_ISG_${safeNo}_${new Date().toISOString().slice(0, 10)}.docx`);
+      } catch (e) {
+        alert("Word (.docx) çıktısı oluşturulamadı: " + (e?.message || e));
       }
     };
 
@@ -21547,46 +22496,206 @@
       if (f) window.exportIsgFormExcelObject(f);
     };
 
-    window.exportIsgFormExcelObject = function(f) {
-      if (typeof XLSX === "undefined") {
-        alert("Excel kütüphanesi yüklenemedi.");
-        return;
+    function xlsxColName(idx0) {
+      let n = idx0 + 1;
+      let s = "";
+      while (n > 0) {
+        const m = (n - 1) % 26;
+        s = String.fromCharCode(65 + m) + s;
+        n = Math.floor((n - 1) / 26);
       }
-      const tpl = getIsgTemplateById(f.templateId);
-      const eq = f.equipmentFields || {};
-      const res = f.checkResults || {};
-      const notes = f.checkNotes || {};
-      const photos = f.checkPhotos || {};
-      const parafs = f.monthParafs || {};
+      return s;
+    }
 
-      const aoa = [
-        ["BERRAK", f.templateTitle || tpl.title, "Sayfa No", f.sayfaNo || tpl.sayfaNo],
-        ["", "", "Form No", f.formNo || tpl.formNo],
-        ["", "", "Dosya No", f.dosyaNo || tpl.dosyaNo],
-        ["", "", "Yayın Tarihi", f.yayinTarihi || tpl.yayinTarihi],
-        ["", "", "Revizyon No / Tarihi", `${f.revizyonNo || "-"} / ${f.revizyonTarihi || "-"}`],
-        []
-      ];
-      tpl.specRows.forEach(sr => {
-        aoa.push([sr.leftLabel, eq[sr.leftKey] || "", sr.rightLabel, eq[sr.rightKey] || ""]);
-      });
-      aoa.push([]);
-      aoa.push(["NO", tpl.checklistHeaderLeft, tpl.checklistHeaderMid, tpl.checklistHeaderRight, "FOTOĞRAF"]);
-      tpl.checklistItems.forEach((q, idx) => {
-        const k = String(idx);
-        aoa.push([idx + 1, q, res[k] || "", notes[k] || "", photos[k] ? "Fotoğraf Ekli (PDF çıktısında görünür)" : ""]);
-      });
-      aoa.push([]);
-      aoa.push(["AY", ...ISG_MONTHS_TR]);
-      aoa.push(["PARAF", ...ISG_MONTHS_TR.map(m => parafs[m] || "")]);
-      aoa.push([]);
-      aoa.push(["ONAYLAR", `${tpl.approvalLeftLabel}: ${f.kontrolEden || "-"}`, `${tpl.approvalRightLabel}: ${f.isverenVekili || "-"}`, `Durum: ${f.status || "-"}`]);
+    function xlsxCell(r1, c0, val, styleId = 1) {
+      const ref = xlsxColName(c0) + r1;
+      const vStr = String(val ?? "");
+      if (!vStr) return `<c r="${ref}" s="${styleId}"/>`;
+      return `<c r="${ref}" t="inlineStr" s="${styleId}"><is><t xml:space="preserve">${xmlEsc(vStr)}</t></is></c>`;
+    }
 
-      const ws = XLSX.utils.aoa_to_sheet(aoa);
-      ws["!cols"] = [{ wch: 18 }, { wch: 56 }, { wch: 24 }, { wch: 32 }, { wch: 24 }];
-      const wb = XLSX.utils.book_new();
-      XLSX.utils.book_append_sheet(wb, ws, `Form_${f.formNo || "27"}`);
-      XLSX.writeFile(wb, `Tekinak_ISG_Form_${f.formNo || "27"}_${new Date().toISOString().slice(0, 10)}.xlsx`);
+    function xlsxDrawingAnchorXml(rId, col1, row1, col2, row2, name, picId) {
+      return `<xdr:twoCellAnchor editAs="oneCell"><xdr:from><xdr:col>${col1}</xdr:col><xdr:colOff>38100</xdr:colOff><xdr:row>${row1}</xdr:row><xdr:rowOff>25400</xdr:rowOff></xdr:from><xdr:to><xdr:col>${col2}</xdr:col><xdr:colOff>-38100</xdr:colOff><xdr:row>${row2}</xdr:row><xdr:rowOff>-25400</xdr:rowOff></xdr:to><xdr:pic><xdr:nvPicPr><xdr:cNvPr id="${picId}" name="${xmlEsc(name)}"/><xdr:cNvPicPr><a:picLocks noChangeAspect="1"/></xdr:cNvPicPr></xdr:nvPicPr><xdr:blipFill><a:blip xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" r:embed="${rId}"/><a:stretch><a:fillRect/></a:stretch></xdr:blipFill><xdr:spPr><a:xfrm><a:off x="0" y="0"/><a:ext cx="0" cy="0"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom></xdr:spPr></xdr:pic><xdr:clientData/></xdr:twoCellAnchor>`;
+    }
+
+    window.exportIsgFormExcelObject = async function(f) {
+      try {
+        const tpl = getIsgTemplateById(f.templateId);
+        const res = f.checkResults || {};
+        const notes = f.checkNotes || {};
+        const photos = f.checkPhotos || {};
+        const sigs = f.signatures || {};
+        const eq = f.equipmentFields || {};
+        const parafs = f.monthParafs || {};
+
+        const mediaEntries = [];
+        const drawRels = [];
+        const drawAnchors = [];
+        let mediaIdx = 1;
+        const addDrawImg = (pngInfo, col1, row1, col2, row2, name) => {
+          if (!pngInfo || !pngInfo.bytes) return;
+          const fileName = `image${mediaIdx}.png`;
+          const rId = `rIdImg${mediaIdx}`;
+          const picId = mediaIdx + 1;
+          mediaIdx++;
+          mediaEntries.push({ name: `xl/media/${fileName}`, data: pngInfo.bytes });
+          drawRels.push(`<Relationship Id="${rId}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="../media/${fileName}"/>`);
+          drawAnchors.push(xlsxDrawingAnchorXml(rId, col1, row1, col2, row2, name, picId));
+        };
+
+        const rowPngInfos = {};
+        for (let i = 0; i < tpl.checklistItems.length; i++) {
+          if (photos[String(i)]) {
+            const info = await loadImageAsPngInfo(photos[String(i)], 480);
+            if (info) rowPngInfos[i] = info;
+          }
+        }
+        const sigInspPng = sigs[ISG_SIG_INSPECTOR] ? await loadImageAsPngInfo(sigs[ISG_SIG_INSPECTOR], 480) : null;
+        const sigEmpPng = sigs[ISG_SIG_EMPLOYER] ? await loadImageAsPngInfo(sigs[ISG_SIG_EMPLOYER], 480) : null;
+
+        // Styles:
+        // 0=plain, 1=bordered center wrap 10pt, 2=bordered left wrap 10pt, 3=bordered bold center 11pt gray fill,
+        // 4=bordered bold center 14pt title, 5=bordered bold center 10pt green, 6=bordered bold center 10pt red,
+        // 7=bordered vertical 90deg center 9pt, 8=bordered bold left 10pt, 9=bordered bold right 10pt, 10=bordered bold underline center 11pt, 11=plain bold center 11pt
+        const stylesXml = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><fonts count="7"><font><sz val="10"/><color rgb="FF000000"/><name val="Calibri"/></font><font><b/><sz val="11"/><color rgb="FF000000"/><name val="Calibri"/></font><font><b/><sz val="14"/><color rgb="FF000000"/><name val="Calibri"/></font><font><b/><sz val="11"/><color rgb="FF15803D"/><name val="Calibri"/></font><font><b/><sz val="11"/><color rgb="FFB91C1C"/><name val="Calibri"/></font><font><sz val="9"/><color rgb="FF000000"/><name val="Calibri"/></font><font><b/><u/><sz val="11"/><color rgb="FF000000"/><name val="Calibri"/></font></fonts><fills count="3"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill><fill><patternFill patternType="solid"><fgColor rgb="FFF1F5F9"/></patternFill></fill></fills><borders count="2"><border><left/><right/><top/><bottom/><diagonal/></border><border><left style="thin"><color rgb="FF000000"/></left><right style="thin"><color rgb="FF000000"/></right><top style="thin"><color rgb="FF000000"/></top><bottom style="thin"><color rgb="FF000000"/></bottom><diagonal/></border></borders><cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs><cellXfs count="12"><xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/><xf numFmtId="0" fontId="0" fillId="0" borderId="1" xfId="0" applyFont="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="center" wrapText="1"/></xf><xf numFmtId="0" fontId="0" fillId="0" borderId="1" xfId="0" applyFont="1" applyBorder="1" applyAlignment="1"><alignment horizontal="left" vertical="center" wrapText="1"/></xf><xf numFmtId="0" fontId="1" fillId="2" borderId="1" xfId="0" applyFont="1" applyFill="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="center" wrapText="1"/></xf><xf numFmtId="0" fontId="2" fillId="0" borderId="1" xfId="0" applyFont="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="center" wrapText="1"/></xf><xf numFmtId="0" fontId="3" fillId="0" borderId="1" xfId="0" applyFont="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="center" wrapText="1"/></xf><xf numFmtId="0" fontId="4" fillId="0" borderId="1" xfId="0" applyFont="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="center" wrapText="1"/></xf><xf numFmtId="0" fontId="5" fillId="0" borderId="1" xfId="0" applyFont="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="center" textRotation="90" wrapText="1"/></xf><xf numFmtId="0" fontId="1" fillId="0" borderId="1" xfId="0" applyFont="1" applyBorder="1" applyAlignment="1"><alignment horizontal="left" vertical="center" wrapText="1"/></xf><xf numFmtId="0" fontId="1" fillId="0" borderId="1" xfId="0" applyFont="1" applyBorder="1" applyAlignment="1"><alignment horizontal="right" vertical="center" wrapText="1"/></xf><xf numFmtId="0" fontId="6" fillId="2" borderId="1" xfId="0" applyFont="1" applyFill="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="center" wrapText="1"/></xf><xf numFmtId="0" fontId="1" fillId="0" borderId="0" xfId="0" applyFont="1" applyAlignment="1"><alignment horizontal="center" vertical="center" wrapText="1"/></xf></cellXfs></styleSheet>`;
+
+        let colsXml = "";
+        let rowsXml = "";
+        const merges = [];
+        let pageSetupXml = "";
+
+        if (tpl.layoutType === "TEKINAK_YESNO_TABLE") {
+          colsXml = `<cols><col min="1" max="1" width="7" customWidth="1"/><col min="2" max="2" width="78" customWidth="1"/><col min="3" max="3" width="9" customWidth="1"/><col min="4" max="4" width="9" customWidth="1"/><col min="5" max="5" width="32" customWidth="1"/></cols>`;
+          // Row 1: Başlık
+          rowsXml += `<row r="1" ht="30" customHeight="1">${xlsxCell(1, 0, f.templateTitle || tpl.title, 4)}${xlsxCell(1, 1, "", 4)}${xlsxCell(1, 2, "", 4)}${xlsxCell(1, 3, "", 4)}${xlsxCell(1, 4, "", 4)}</row>`;
+          merges.push("A1:E1");
+          // Row 2: PROJE ADI + TARİH
+          rowsXml += `<row r="2" ht="24" customHeight="1">${xlsxCell(2, 0, `PROJE ADI: ${f.projectName || ""}`, 8)}${xlsxCell(2, 1, "", 8)}${xlsxCell(2, 2, "", 8)}${xlsxCell(2, 3, `TARİH: ${f.checkDate || "...../...../ 20....."}`, 9)}${xlsxCell(2, 4, "", 9)}</row>`;
+          merges.push("A2:C2", "D2:E2");
+          // Row 3: Sütun Başlıkları
+          rowsXml += `<row r="3" ht="24" customHeight="1">${xlsxCell(3, 0, "SIRA", 3)}${xlsxCell(3, 1, "KONTROL TİPİ", 3)}${xlsxCell(3, 2, "EVET", 3)}${xlsxCell(3, 3, "HAYIR", 3)}${xlsxCell(3, 4, "AÇIKLAMA", 3)}</row>`;
+
+          tpl.checklistItems.forEach((q, idx) => {
+            const r1 = 4 + idx;
+            const k = String(idx);
+            const v = String(res[k] || "").toUpperCase();
+            const n = notes[k] || "";
+            const hasPhoto = Boolean(rowPngInfos[idx]);
+            const lines = Math.max(1, Math.ceil(q.length / 72));
+            const ht = Math.max(hasPhoto ? 54 : 20, lines * 16 + 8);
+            rowsXml += `<row r="${r1}" ht="${ht}" customHeight="1">${xlsxCell(r1, 0, String(idx + 1), 1)}${xlsxCell(r1, 1, q, 2)}${xlsxCell(r1, 2, v === "EVET" ? "✓" : "", 5)}${xlsxCell(r1, 3, v === "HAYIR" ? "✓" : "", 6)}${xlsxCell(r1, 4, n, 2)}</row>`;
+            if (hasPhoto) addDrawImg(rowPngInfos[idx], 4, r1 - 1, 5, r1, `Foto_${idx + 1}`);
+          });
+
+          const sigRow = 4 + tpl.checklistItems.length + 1;
+          rowsXml += `<row r="${sigRow}" ht="22" customHeight="1">${xlsxCell(sigRow, 3, `KONTROLÜ YAPAN: ${f.kontrolEden || ""}`, 8)}${xlsxCell(sigRow, 4, "", 8)}</row>`;
+          rowsXml += `<row r="${sigRow + 1}" ht="56" customHeight="1">${xlsxCell(sigRow + 1, 3, "", 1)}${xlsxCell(sigRow + 1, 4, "", 1)}</row>`;
+          merges.push(`D${sigRow}:E${sigRow}`, `D${sigRow + 1}:E${sigRow + 1}`);
+          if (sigInspPng) addDrawImg(sigInspPng, 3, sigRow, 5, sigRow + 1, "Imza_Kontrol");
+
+          pageSetupXml = `<pageSetup paperSize="9" orientation="landscape" fitToWidth="1" fitToHeight="0"/>`;
+        } else {
+          // BERRAK_STANDARD (18 sütunlu ızgara: A..M = 13 ay/paraf kolonu + N..R = 5 onay/sağ kolonu)
+          const colWidths = [4.5, 4.5, 4.5, 4.5, 4.5, 4.5, 4.5, 4.5, 4.5, 4.5, 4.5, 4.5, 4.5, 11, 11, 11, 11, 11];
+          colsXml = `<cols>${colWidths.map((w, i) => `<col min="${i + 1}" max="${i + 1}" width="${w}" customWidth="1"/>`).join("")}</cols>`;
+          const fillRow = (r1, startC, endC, st) => {
+            let s = "";
+            for (let c = startC; c <= endC; c++) s += xlsxCell(r1, c, "", st);
+            return s;
+          };
+
+          const metaRows = [
+            ["Sayfa No", f.sayfaNo || tpl.sayfaNo],
+            ["Form No", f.formNo || tpl.formNo],
+            ["Dosya No", f.dosyaNo || tpl.dosyaNo],
+            ["Yayın Tarihi", f.yayinTarihi || tpl.yayinTarihi],
+            ["Revizyon No", f.revizyonNo || tpl.revizyonNo],
+            ["Revizyon Tarihi", f.revizyonTarihi || tpl.revizyonTarihi]
+          ];
+          const logoPng = await loadImageAsPngInfo("berrak_logo.png", 360);
+          metaRows.forEach(([ml, mv], i) => {
+            const r1 = i + 1;
+            rowsXml += `<row r="${r1}" ht="17" customHeight="1">${xlsxCell(r1, 0, i === 0 && !logoPng ? "BERRAK" : "", 4)}${fillRow(r1, 1, 3, 4)}${xlsxCell(r1, 4, i === 0 ? (f.templateTitle || tpl.title) : "", 4)}${fillRow(r1, 5, 13, 4)}${xlsxCell(r1, 14, ml, 1)}${xlsxCell(r1, 15, "", 1)}${xlsxCell(r1, 16, mv, 1)}${xlsxCell(r1, 17, "", 1)}</row>`;
+            merges.push(`O${r1}:P${r1}`, `Q${r1}:R${r1}`);
+          });
+          merges.push("A1:D6", "E1:N6");
+          if (logoPng) addDrawImg(logoPng, 0, 0, 4, 6, "BerrakLogo");
+
+          // Ekipman Bilgileri 4x4 (satır 7..10)
+          tpl.specRows.forEach((sr, i) => {
+            const r1 = 7 + i;
+            rowsXml += `<row r="${r1}" ht="21" customHeight="1">${xlsxCell(r1, 0, sr.leftLabel, 1)}${fillRow(r1, 1, 3, 1)}${xlsxCell(r1, 4, eq[sr.leftKey] || "", 8)}${fillRow(r1, 5, 9, 8)}${xlsxCell(r1, 10, sr.rightLabel, 1)}${fillRow(r1, 11, 14, 1)}${xlsxCell(r1, 15, eq[sr.rightKey] || "", 8)}${fillRow(r1, 16, 17, 8)}</row>`;
+            merges.push(`A${r1}:D${r1}`, `E${r1}:J${r1}`, `K${r1}:O${r1}`, `P${r1}:R${r1}`);
+          });
+
+          // Kontrol Başlık Satırı (satır 11)
+          rowsXml += `<row r="11" ht="24" customHeight="1">${xlsxCell(11, 0, tpl.checklistHeaderLeft, 3)}${fillRow(11, 1, 9, 3)}${xlsxCell(11, 10, tpl.checklistHeaderMid, 3)}${fillRow(11, 11, 14, 3)}${xlsxCell(11, 15, tpl.checklistHeaderRight, 10)}${fillRow(11, 16, 17, 10)}</row>`;
+          merges.push("A11:J11", "K11:O11", "P11:R11");
+
+          // 19 Madde (satır 12..30)
+          tpl.checklistItems.forEach((q, idx) => {
+            const r1 = 12 + idx;
+            const k = String(idx);
+            const rVal = res[k] || "";
+            const nVal = notes[k] || "";
+            const hasPhoto = Boolean(rowPngInfos[idx]);
+            const rStyle = rVal === "UYGUN DEĞİL" ? 6 : (rVal === "UYGUN" ? 5 : 1);
+            const ht = Math.max(hasPhoto ? 54 : 22, Math.ceil(q.length / 46) * 15 + 6);
+            rowsXml += `<row r="${r1}" ht="${ht}" customHeight="1">${xlsxCell(r1, 0, q, 1)}${fillRow(r1, 1, 9, 1)}${xlsxCell(r1, 10, rVal, rStyle)}${fillRow(r1, 11, 14, rStyle)}${xlsxCell(r1, 15, nVal, 2)}${fillRow(r1, 16, 17, 2)}</row>`;
+            merges.push(`A${r1}:J${r1}`, `K${r1}:O${r1}`, `P${r1}:R${r1}`);
+            if (hasPhoto) addDrawImg(rowPngInfos[idx], 15, r1 - 1, 18, r1, `Foto_${idx + 1}`);
+          });
+
+          // Alt Bölüm: AY/PARAF (dikey 90°) + ONAYLAR + Dijital İmzalar
+          const rFootTop = 12 + tpl.checklistItems.length + 1;
+          const rFootBot = rFootTop + 1;
+          const rFootSig = rFootTop + 2;
+          const monthCellsTop = ["AY", ...ISG_MONTHS_TR].map((m, ci) => xlsxCell(rFootTop, ci, m, 7)).join("");
+          const monthCellsBot = [xlsxCell(rFootBot, 0, "PARAF", 7), ...ISG_MONTHS_TR.map((m, ci) => xlsxCell(rFootBot, ci + 1, parafs[m] || "", 7))].join("");
+
+          rowsXml += `<row r="${rFootTop}" ht="64" customHeight="1">${monthCellsTop}${xlsxCell(rFootTop, 13, "ONAYLAR", 11)}${xlsxCell(rFootTop, 14, "", 0)}${xlsxCell(rFootTop, 15, "", 0)}${xlsxCell(rFootTop, 16, "", 0)}${xlsxCell(rFootTop, 17, "", 0)}</row>`;
+          rowsXml += `<row r="${rFootBot}" ht="26" customHeight="1">${monthCellsBot}${xlsxCell(rFootBot, 13, `${tpl.approvalLeftLabel}\n${f.kontrolEden || ""}`, 1)}${xlsxCell(rFootBot, 14, "", 1)}${xlsxCell(rFootBot, 15, "", 0)}${xlsxCell(rFootBot, 16, `${tpl.approvalRightLabel}\n${f.isverenVekili || ""}`, 1)}${xlsxCell(rFootBot, 17, "", 1)}</row>`;
+          rowsXml += `<row r="${rFootSig}" ht="52" customHeight="1">${xlsxCell(rFootSig, 13, "", 1)}${xlsxCell(rFootSig, 14, "", 1)}${xlsxCell(rFootSig, 15, "", 0)}${xlsxCell(rFootSig, 16, "", 1)}${xlsxCell(rFootSig, 17, "", 1)}</row>`;
+          merges.push(`N${rFootTop}:R${rFootTop}`, `N${rFootBot}:O${rFootBot}`, `Q${rFootBot}:R${rFootBot}`, `N${rFootSig}:O${rFootSig}`, `Q${rFootSig}:R${rFootSig}`);
+          if (sigInspPng) addDrawImg(sigInspPng, 13, rFootSig - 1, 15, rFootSig, "Imza_Kontrol");
+          if (sigEmpPng) addDrawImg(sigEmpPng, 16, rFootSig - 1, 18, rFootSig, "Imza_Isveren");
+
+          pageSetupXml = `<pageSetup paperSize="9" orientation="portrait" fitToWidth="1" fitToHeight="1"/>`;
+        }
+
+        const hasDrawings = drawAnchors.length > 0;
+        const mergeXml = merges.length > 0 ? `<mergeCells count="${merges.length}">${merges.map(ref => `<mergeCell ref="${ref}"/>`).join("")}</mergeCells>` : "";
+        const sheetXml = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheetPr><pageSetUpPr fitToPage="1"/></sheetPr>${colsXml}<sheetData>${rowsXml}</sheetData>${mergeXml}<pageMargins left="0.3" right="0.3" top="0.35" bottom="0.35" header="0.2" footer="0.2"/>${pageSetupXml}${hasDrawings ? `<drawing r:id="rIdDraw1"/>` : ""}</worksheet>`;
+
+        const safeSheetName = tpl.layoutType === "TEKINAK_YESNO_TABLE" ? "Elektrik Kontrol" : `Form_${String(f.formNo || "27").replace(/[^a-zA-Z0-9_-]/g, "")}`;
+        const wbXml = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets><sheet name="${xmlEsc(safeSheetName.slice(0, 31))}" sheetId="1" r:id="rId1"/></sheets></workbook>`;
+        const wbRelsXml = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet1.xml"/><Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>`;
+        const rootRelsXml = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>`;
+        const contentTypesXml = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Default Extension="png" ContentType="image/png"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/><Override PartName="/xl/worksheets/sheet1.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/><Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"/>${hasDrawings ? `<Override PartName="/xl/drawings/drawing1.xml" ContentType="application/vnd.openxmlformats-officedocument.drawing+xml"/>` : ""}</Types>`;
+
+        const entries = [
+          { name: "[Content_Types].xml", data: contentTypesXml },
+          { name: "_rels/.rels", data: rootRelsXml },
+          { name: "xl/workbook.xml", data: wbXml },
+          { name: "xl/_rels/workbook.xml.rels", data: wbRelsXml },
+          { name: "xl/styles.xml", data: stylesXml },
+          { name: "xl/worksheets/sheet1.xml", data: sheetXml }
+        ];
+        if (hasDrawings) {
+          entries.push(
+            { name: "xl/worksheets/_rels/sheet1.xml.rels", data: `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rIdDraw1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/drawing" Target="../drawings/drawing1.xml"/></Relationships>` },
+            { name: "xl/drawings/drawing1.xml", data: `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><xdr:wsDr xmlns:xdr="http://schemas.openxmlformats.org/drawingml/2006/spreadsheetDrawing" xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">${drawAnchors.join("")}</xdr:wsDr>` },
+            { name: "xl/drawings/_rels/drawing1.xml.rels", data: `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">${drawRels.join("")}</Relationships>` },
+            ...mediaEntries
+          );
+        }
+
+        const blob = buildOoxmlZipBlob(entries, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+        const safeNo = String(f.formNo || tpl.formNo || "ISG").replace(/[^a-zA-Z0-9_-]/g, "_");
+        triggerBlobDownload(blob, `Tekinak_ISG_${safeNo}_${new Date().toISOString().slice(0, 10)}.xlsx`);
+      } catch (e) {
+        alert("Excel (.xlsx) çıktısı oluşturulamadı: " + (e?.message || e));
+      }
     };
 
     // Uygulamayı Başlat
