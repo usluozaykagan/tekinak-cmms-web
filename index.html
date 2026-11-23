@@ -445,6 +445,10 @@
           <i data-lucide="factory" class="w-4 h-4 text-orange-400"></i> Üretim
           <span id="tabProductionBadge" class="bg-rose-600 text-white text-[10px] px-1.5 py-0.2 rounded-full font-bold ml-1 hidden">0</span>
         </button>
+        <button onclick="switchTab('isg')" id="nav-isg" class="nav-btn px-3.5 py-2.5 text-xs font-semibold border-b-2 border-transparent text-slate-300 hover:text-white flex items-center gap-1.5 whitespace-nowrap">
+          <i data-lucide="shield-alert" class="w-4 h-4 text-emerald-400"></i> İSG
+          <span id="tabIsgBadge" class="bg-emerald-600 text-white text-[10px] px-1.5 py-0.2 rounded-full font-bold ml-1 hidden">0</span>
+        </button>
         <button onclick="switchTab('members')" id="nav-members" class="nav-btn px-3.5 py-2.5 text-xs font-semibold border-b-2 border-transparent text-slate-300 hover:text-white flex items-center gap-1.5 whitespace-nowrap">
           <i data-lucide="contact" class="w-4 h-4 text-emerald-400"></i> Üyeler
           <span id="tabMembersBadge" class="bg-blue-600 text-white text-[10px] px-1.5 py-0.2 rounded-full font-bold ml-1">0</span>
@@ -455,6 +459,9 @@
         </button>
         <button onclick="switchTab('team')" id="nav-team" class="nav-btn px-3.5 py-2.5 text-xs font-semibold border-b-2 border-transparent text-slate-300 hover:text-white flex items-center gap-1.5 whitespace-nowrap">
           <i data-lucide="shield-check" class="w-4 h-4 text-amber-400"></i> Personel & Yetki
+        </button>
+        <button id="btnReorderTabs" onclick="openTabOrderModal()" class="hidden px-2.5 py-1.5 my-1.5 text-[11px] font-bold bg-blue-900/90 hover:bg-blue-800 text-amber-300 border border-amber-400/40 rounded-lg flex items-center gap-1 shadow transition whitespace-nowrap" title="Yönetici: Sekme Sıralamasını Tüm Kullanıcılarda Anlık Değiştir">
+          <i data-lucide="arrow-left-right" class="w-3.5 h-3.5"></i> Sekme Sırası
         </button>
         <button id="btnHeaderExcel" onclick="openExcelDialog()" class="btn-excel-export ml-auto px-3.5 py-1.5 my-1.5 text-xs font-bold bg-emerald-700 hover:bg-emerald-600 text-white rounded-lg flex items-center gap-1.5 shadow transition whitespace-nowrap">
           <i data-lucide="file-spreadsheet" class="w-4 h-4"></i> Excel İndir
@@ -1531,6 +1538,67 @@
         </div>
         <div id="blockedAccountsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3"></div>
       </div>
+    </section>
+
+    <!-- ================= İŞ SAĞLIĞI VE GÜVENLİĞİ (İSG) SEKMESİ ================= -->
+    <section id="pane-isg" class="tab-pane hidden space-y-5 w-full min-w-0">
+      <!-- Kurumsal İSG Başlık & KPI Şeridi -->
+      <div class="bg-gradient-to-r from-[#1E3A8A] via-[#172554] to-slate-900 text-white rounded-2xl p-5 shadow-lg border border-blue-900/60 space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div class="flex items-center gap-3">
+            <div class="w-11 h-11 rounded-xl bg-amber-400/20 border border-amber-400/40 flex items-center justify-center text-amber-300 flex-shrink-0">
+              <i data-lucide="shield-alert" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <h2 class="text-base sm:text-lg font-extrabold tracking-tight">İş Sağlığı ve Güvenliği (İSG) Kontrol Formları</h2>
+              <p id="isgRoleSubtitle" class="text-xs text-blue-200">Basılı form düzeniyle birebir periyodik kontroller, fotoğraf ekleri ve canlı yönlendirme akışı</p>
+            </div>
+          </div>
+          <div class="flex flex-wrap items-center gap-2">
+            <button type="button" id="btnIsgCreateAssign" onclick="openIsgCreateAssignModal()" class="hidden px-4 py-2 bg-amber-400 hover:bg-amber-300 text-blue-950 font-extrabold text-xs rounded-xl shadow flex items-center gap-1.5 transition">
+              <i data-lucide="file-plus-2" class="w-4 h-4"></i> Yeni Form Oluştur &amp; Yönlendir
+            </button>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-center">
+          <div class="bg-white/10 rounded-xl p-2.5 border border-white/10">
+            <div id="isgKpiTotal" class="text-xl font-black text-sky-300">0</div>
+            <div class="text-[10px] text-blue-100 font-semibold">Toplam Form</div>
+          </div>
+          <div class="bg-white/10 rounded-xl p-2.5 border border-white/10">
+            <div id="isgKpiPending" class="text-xl font-black text-amber-300">0</div>
+            <div class="text-[10px] text-blue-100 font-semibold">Bekleyen / Devam</div>
+          </div>
+          <div class="bg-white/10 rounded-xl p-2.5 border border-white/10">
+            <div id="isgKpiCompleted" class="text-xl font-black text-emerald-300">0</div>
+            <div class="text-[10px] text-blue-100 font-semibold">Tamamlanan</div>
+          </div>
+          <div class="bg-white/10 rounded-xl p-2.5 border border-white/10">
+            <div id="isgKpiUnsuitable" class="text-xl font-black text-rose-300">0</div>
+            <div class="text-[10px] text-blue-100 font-semibold">Uygunsuz Madde</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- İSG Yöneticisi Canlı Tamamlanma Bildirimleri -->
+      <div id="isgCompletionAlertsBox" class="hidden bg-emerald-50 border-2 border-emerald-500 rounded-2xl p-4 space-y-2.5 shadow-sm"></div>
+
+      <!-- Arama & Filtreler -->
+      <div class="bg-white rounded-2xl border border-slate-200 p-3.5 custom-shadow flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5">
+        <div class="relative flex-1">
+          <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-2.5"></i>
+          <input type="text" id="isgSearchInput" oninput="renderIsgTab()" placeholder="Form adı, marka, seri no veya yönlendirilen personel ara..." class="w-full pl-9 pr-3 py-2 text-xs border border-slate-300 rounded-xl outline-none focus:ring-2 focus:ring-[#1E3A8A]">
+        </div>
+        <div class="flex flex-wrap items-center gap-1.5 text-xs">
+          <button type="button" onclick="setIsgFilterMode('ALL')" id="isgFilter_ALL" class="px-3 py-1.5 rounded-lg font-bold bg-[#1E3A8A] text-white transition">Tümü</button>
+          <button type="button" onclick="setIsgFilterMode('MINE')" id="isgFilter_MINE" class="px-3 py-1.5 rounded-lg font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Bana Yönlendirilen</button>
+          <button type="button" onclick="setIsgFilterMode('PENDING')" id="isgFilter_PENDING" class="px-3 py-1.5 rounded-lg font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Bekleyen</button>
+          <button type="button" onclick="setIsgFilterMode('COMPLETED')" id="isgFilter_COMPLETED" class="px-3 py-1.5 rounded-lg font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Tamamlanan</button>
+        </div>
+      </div>
+
+      <!-- İSG Form Kartları Listesi -->
+      <div id="isgFormsListContainer" class="grid grid-cols-1 lg:grid-cols-2 gap-4"></div>
     </section>
 
   </main>
@@ -2837,6 +2905,99 @@
     </div>
   </div>
 
+  <!-- MODAL: YÖNETİCİ GLOBAL SEKME SIRALAMASI -->
+  <div id="modalTabOrder" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-md w-full p-5 shadow-2xl space-y-4 max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between border-b pb-3">
+        <div>
+          <h3 class="font-extrabold text-base text-slate-900 flex items-center gap-2">
+            <i data-lucide="arrow-left-right" class="w-5 h-5 text-[#1E3A8A]"></i>
+            <span>Sekme Sıralamasını Düzenle</span>
+          </h3>
+          <p class="text-[11px] text-slate-500">Kaydettiğinizde tüm kullanıcıların Android ve Web ekranında anlık güncellenir.</p>
+        </div>
+        <button type="button" onclick="closeModal('modalTabOrder')" class="text-slate-400 hover:text-slate-600"><i data-lucide="x" class="w-5 h-5"></i></button>
+      </div>
+      <div id="tabOrderListContainer" class="space-y-1.5"></div>
+      <div class="flex items-center justify-between pt-2 border-t gap-2">
+        <button type="button" onclick="resetTabOrderDraft()" class="px-3 py-2 text-xs font-bold text-slate-600 hover:bg-slate-100 rounded-xl">Varsayılan Sıra</button>
+        <div class="flex items-center gap-2">
+          <button type="button" onclick="closeModal('modalTabOrder')" class="px-3.5 py-2 text-xs font-bold border border-slate-300 rounded-xl hover:bg-slate-50">İptal</button>
+          <button type="button" onclick="saveGlobalTabOrderWeb()" class="px-4 py-2 text-xs font-extrabold bg-[#1E3A8A] hover:bg-blue-800 text-white rounded-xl shadow">Kaydet &amp; Herkeste Güncelle</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: İSG FORM OLUŞTUR & PERSONELE YÖNLENDİR -->
+  <div id="modalIsgCreateAssign" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-lg w-full p-5 shadow-2xl space-y-4 max-h-[92vh] overflow-y-auto">
+      <div class="flex items-center justify-between border-b pb-3">
+        <div>
+          <h3 id="isgAssignModalTitle" class="font-extrabold text-base text-slate-900 flex items-center gap-2">
+            <i data-lucide="shield-alert" class="w-5 h-5 text-[#1E3A8A]"></i>
+            <span>Yeni İSG Formu Oluştur &amp; Yönlendir</span>
+          </h3>
+          <p class="text-[11px] text-slate-500">Yönlendirilen personel formu anında görür, doldurup fotoğraf ekler ve tamamladığında size bildirim düşer.</p>
+        </div>
+        <button type="button" onclick="closeModal('modalIsgCreateAssign')" class="text-slate-400 hover:text-slate-600"><i data-lucide="x" class="w-5 h-5"></i></button>
+      </div>
+      <input type="hidden" id="isgReassignFormId">
+      <div class="space-y-3 text-xs">
+        <div id="isgTemplateSelectWrap">
+          <label class="block font-bold text-slate-700 mb-1">İSG Form Şablonu *</label>
+          <select id="isgTemplateSelect" class="w-full border border-slate-300 rounded-xl p-2.5 font-semibold bg-white"></select>
+        </div>
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Yönlendirilecek Kişi *</label>
+          <select id="isgAssigneeSelect" class="w-full border border-slate-300 rounded-xl p-2.5 font-semibold bg-white"></select>
+        </div>
+        <div id="isgPrefillSpecsWrap" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Markası (İsteğe bağlı)</label>
+            <input type="text" id="isgPrefillBrand" placeholder="Örn: Linde / Still" class="w-full border border-slate-300 rounded-xl p-2.5">
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Seri No (İsteğe bağlı)</label>
+            <input type="text" id="isgPrefillSerial" placeholder="Örn: FL-04" class="w-full border border-slate-300 rounded-xl p-2.5">
+          </div>
+        </div>
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Yönlendirme Notu / Talimat</label>
+          <textarea id="isgAssignNoteInput" rows="2" placeholder="Örn: Depo 2 forkliftinin aylık kontrolünü yapıp fotoğraf ekleyiniz." class="w-full border border-slate-300 rounded-xl p-2.5"></textarea>
+        </div>
+      </div>
+      <div class="flex justify-end gap-2 pt-2 border-t">
+        <button type="button" onclick="closeModal('modalIsgCreateAssign')" class="px-4 py-2 text-xs font-bold border border-slate-300 rounded-xl hover:bg-slate-50">İptal</button>
+        <button type="button" onclick="submitIsgCreateOrReassign()" class="px-5 py-2 text-xs font-extrabold bg-[#1E3A8A] hover:bg-blue-800 text-white rounded-xl shadow">Kaydet &amp; Yönlendir</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: BİREBİR BASILI İSG KONTROL FORMU DÜZENLEYİCİ (TAM EKRAN) -->
+  <div id="modalIsgSheetEditor" class="fixed inset-0 bg-black/75 z-50 hidden flex flex-col">
+    <div class="bg-[#1E3A8A] text-white px-4 py-3 flex flex-wrap items-center justify-between gap-2 shadow-lg">
+      <div class="min-w-0">
+        <div id="isgSheetEditorTitle" class="font-extrabold text-sm sm:text-base truncate">FORKLİFT KONTROL FORMU</div>
+        <div id="isgSheetEditorSubtitle" class="text-[11px] text-amber-200 truncate">Form No: 27 • Dosya No: GOSGB 02-27</div>
+      </div>
+      <div class="flex flex-wrap items-center gap-1.5">
+        <button type="button" onclick="printCurrentIsgForm()" class="px-3 py-1.5 bg-white text-[#1E3A8A] hover:bg-blue-50 rounded-lg text-xs font-extrabold flex items-center gap-1 shadow">
+          <i data-lucide="printer" class="w-3.5 h-3.5"></i> Birebir A4 Yazdır / PDF
+        </button>
+        <button type="button" onclick="exportCurrentIsgFormExcel()" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-xs font-bold flex items-center gap-1 shadow">
+          <i data-lucide="file-spreadsheet" class="w-3.5 h-3.5"></i> Excel
+        </button>
+        <button type="button" onclick="closeModal('modalIsgSheetEditor')" class="p-1.5 bg-blue-900/80 hover:bg-blue-800 text-white rounded-lg">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+    <div id="isgSheetEditorBody" class="flex-1 overflow-auto bg-slate-200 p-3 sm:p-5"></div>
+    <div id="isgSheetEditorFooter" class="bg-white border-t border-slate-300 px-4 py-3 flex flex-wrap items-center justify-between gap-2 shadow-inner"></div>
+    <input type="file" id="isgRowPhotoFileInput" accept="image/*" class="hidden" onchange="handleIsgRowPhotoSelected(event)">
+  </div>
+
   <!-- MODAL: PAKETLEME ARIZA VE BAKIM TAKİP FORMU (FR-59) -->
   <div id="modalPackagingFaultForm" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
     <div class="bg-white rounded-2xl max-w-2xl w-full p-6 shadow-2xl space-y-4 max-h-[92vh] overflow-y-auto">
@@ -3449,8 +3610,10 @@
 
     // ================= MERKEZİ YETKİ & GÖRME/DÜZENLEME MOTORU =================
     window.LEGACY_ELECTRICAL_TABS = ["fault_reports", "work_orders", "schedule", "analytics"];
-    window.MASTER_ALL_TABS = ["dashboard", "electrical_maintenance", "packaging_unit", "utility_controls", "production", "members", "energy_management", "team"];
-    window.ALL_CONFIGURABLE_TABS = ["dashboard", "electrical_maintenance", "packaging_unit", "utility_controls", "production", "members"];
+    window.MASTER_ALL_TABS = ["dashboard", "electrical_maintenance", "production", "packaging_unit", "utility_controls", "isg", "members", "energy_management", "team"];
+    window.ALL_CONFIGURABLE_TABS = ["dashboard", "electrical_maintenance", "production", "packaging_unit", "utility_controls", "isg", "members"];
+    window.globalTabOrder = [...window.MASTER_ALL_TABS];
+    window.allIsgForms = [];
 
     window.TAB_ID_MAP = {
       dashboard: "dashboard",
@@ -3468,6 +3631,7 @@
       utilityControls: "utility_controls",
       utility_controls: "utility_controls",
       production: "production",
+      isg: "isg",
       members: "members",
       energyManagement: "energy_management",
       energy_management: "energy_management",
@@ -3483,6 +3647,7 @@
       packaging_unit: "packagingUnit",
       utility_controls: "utilityControls",
       production: "production",
+      isg: "isg",
       members: "members",
       energy_management: "energyManagement",
       team: "team"
@@ -3493,6 +3658,7 @@
       { suffix: "Packaging", id: "packaging_unit", icon: "📦", title: "Paketleme Birimi", hint: "Makarna hatları vardiya, gramaj ve KKN kontrolleri" },
       { suffix: "Utility", id: "utility_controls", icon: "🏭", title: "Yardımcı Tesisler", hint: "FR-38, FR-129, FR-37, FR-41 ve Referans Limitleri" },
       { suffix: "Production", id: "production", icon: "⚙️", title: "Üretim", hint: "Üretim Verileri ve Bağımsız Üretim Arızaları" },
+      { suffix: "Isg", id: "isg", icon: "🦺", title: "İSG", hint: "İş Sağlığı ve Güvenliği Kontrol Formları, Yönlendirme ve Bildirim" },
       { suffix: "Members", id: "members", icon: "👥", title: "Üyeler", hint: "Personel rehberi ve üye gizlilik / silme yönetimi" }
     ];
 
@@ -3948,6 +4114,9 @@
       { id: "prod_data", parentTab: "production", title: "Üretim Verileri", hint: "Gör: Üretim verileri sekmesi • Düzenle: Üretim verisi ekleme ve düzenleme" },
       { id: "prod_faults", parentTab: "production", title: "Üretim Arızaları", hint: "Gör: Üretim arızaları ve duruş KPI raporları • Düzenle: Kayıt, çözüm ve silme" },
 
+      { id: "isg_forms", parentTab: "isg", title: "İSG Kontrol Formları", hint: "Gör: İSG formlarını görüntüler • Düzenle: Form doldurma, fotoğraf ekleme ve tamamlama" },
+      { id: "isg_manage", parentTab: "isg", title: "İSG Yöneticisi & Yönlendirme", hint: "Gör: Tüm fabrika İSG formları ve bildirimler • Düzenle: Form oluşturma, personele yönlendirme ve onay" },
+
       { id: "members_directory", parentTab: "members", title: "Personel Rehberi & İletişim", hint: "Gör: Telefon, e-posta ve iletişim • Düzenle: Rehber iletişim aksiyonları" },
       { id: "members_management", parentTab: "members", title: "Üye Görünürlük & Silme Yönetimi", hint: "Gör: Gizlilik durum rozetleri • Düzenle: Üye gizleme ve silme" }
     ];
@@ -4093,11 +4262,37 @@
       }).map(s => s.id);
     };
 
+    window.isIsgFormAssignedToUser = function(form, u = window.currentUser) {
+      if (!form || !u) return false;
+      const target = String(form.assignedToUid || "").trim().toLowerCase();
+      const myKeys = [u.userId, u.id, u.username, u.email].map(x => String(x || "").trim().toLowerCase()).filter(Boolean);
+      if (target && myKeys.includes(target)) return true;
+      const targetName = String(form.assignedToName || "").trim().toLowerCase();
+      return !!targetName && targetName === String(u.displayName || "").trim().toLowerCase();
+    };
+
+    window.hasAssignedIsgForms = function(u = window.currentUser) {
+      if (!u) return false;
+      return (window.allIsgForms || []).some(f => window.isIsgFormAssignedToUser(f, u));
+    };
+
+    window.isIsgManager = function(u = window.currentUser) {
+      if (!u) return false;
+      if (window.isMasterUser(u) || String(u.role || "").toUpperCase() === "ADMIN") return true;
+      return window.canUserEditSubPage("isg_manage", u);
+    };
+
+    window.canUserReorderTabs = function(u = window.currentUser) {
+      if (!u) return false;
+      return window.isMasterUser(u) || String(u.role || "").toUpperCase() === "ADMIN";
+    };
+
     window.canUserViewTab = function(tabKeyOrId, u = window.currentUser) {
       if (!u) return false;
       const tabId = window.TAB_ID_MAP[tabKeyOrId] || tabKeyOrId;
       if (tabId === "team" || tabId === "energy_management") return window.isMasterUser(u);
       if (window.isMasterUser(u)) return true;
+      if (tabId === "isg" && window.hasAssignedIsgForms(u)) return true;
       return window.getUserAllowedTabs(u).includes(tabId);
     };
 
@@ -5011,9 +5206,12 @@
     };
 
     window.getFirstAllowedNavTabId = function(u = window.currentUser) {
-      const order = ["dashboard", "electricalMaintenance", "packagingUnit", "utilityControls", "production", "members", "team"];
-      for (const navTab of order) {
-        if (window.canUserViewTab(navTab, u)) return navTab;
+      const canonicalOrder = Array.isArray(window.globalTabOrder) && window.globalTabOrder.length > 0
+        ? window.globalTabOrder
+        : window.MASTER_ALL_TABS;
+      for (const tabId of canonicalOrder) {
+        const navTab = window.REVERSE_TAB_ID_MAP[tabId] || tabId;
+        if (window.canUserViewTab(tabId, u)) return navTab;
       }
       return null;
     };
@@ -5072,7 +5270,7 @@
         }
       };
 
-      const hasAnyTab = isMaster || window.getUserAllowedTabs(u).length > 0;
+      const hasAnyTab = isMaster || window.getUserAllowedTabs(u).length > 0 || window.hasAssignedIsgForms(u);
       const mainNavBar = document.getElementById("mainNavBar");
       if (mainNavBar) mainNavBar.classList.toggle("hidden", !hasAnyTab);
       const notifBanner = document.getElementById("notificationAlertBanner");
@@ -5085,9 +5283,14 @@
       setTabVisibility("nav-packagingUnit", window.canUserViewTab("packaging_unit", u));
       setTabVisibility("nav-utilityControls", window.canUserViewTab("utility_controls", u));
       setTabVisibility("nav-production", window.canUserViewTab("production", u));
+      setTabVisibility("nav-isg", window.canUserViewTab("isg", u));
       setTabVisibility("nav-members", window.canUserViewTab("members", u));
       setTabVisibility("nav-energyManagement", window.isMasterUser(u));
       setTabVisibility("nav-team", window.isMasterUser(u));
+
+      const btnReorder = document.getElementById("btnReorderTabs");
+      if (btnReorder) btnReorder.classList.toggle("hidden", !window.canUserReorderTabs(u));
+      if (typeof window.applyGlobalTabOrder === "function") window.applyGlobalTabOrder();
 
       // Alt Sayfa Bazlı Görme & Düzenleme Yetkileri
       const hasElecView = window.canUserViewTab("electrical_maintenance", u);
@@ -6308,6 +6511,86 @@
         });
       } catch (e) {
         console.warn("Failed to listen to packaging_fault_forms:", e);
+      }
+
+      // 3.8c Global Yönetici Sekme Sıralaması (app_config/tab_order — herkeste anlık güncellenir)
+      try {
+        onSnapshot(doc(db, "app_config", "tab_order"), (docSnap) => {
+          const rawOrder = docSnap.exists() && Array.isArray(docSnap.data()?.order) ? docSnap.data().order : [];
+          const cleaned = rawOrder.filter(id => window.MASTER_ALL_TABS.includes(id));
+          window.MASTER_ALL_TABS.forEach(id => { if (!cleaned.includes(id)) cleaned.push(id); });
+          window.globalTabOrder = cleaned;
+          if (typeof window.applyGlobalTabOrder === "function") {
+            window.applyGlobalTabOrder();
+          }
+        }, (err) => {
+          console.warn("tab_order listener error:", err);
+        });
+      } catch (e) {
+        console.warn("Failed to listen to tab_order:", e);
+      }
+
+      // 3.8d İş Sağlığı ve Güvenliği (İSG) Formları (isg_forms) + Canlı Yönlendirme & Tamamlanma Bildirimleri
+      let isFirstIsgLoad = true;
+      const notifiedIsgKeys = new Set();
+      try {
+        onSnapshot(collection(db, "isg_forms"), (snapshot) => {
+          const list = [];
+          snapshot.forEach(docSnap => {
+            list.push({ ...docSnap.data(), docId: docSnap.id, id: docSnap.id });
+          });
+          list.sort((a, b) => {
+            const rankA = (a.status === "COMPLETED" && a.managerNotified) ? 0 : (a.status !== "COMPLETED" ? 1 : 2);
+            const rankB = (b.status === "COMPLETED" && b.managerNotified) ? 0 : (b.status !== "COMPLETED" ? 1 : 2);
+            if (rankA !== rankB) return rankA - rankB;
+            return (b.updatedAtMillis || 0) - (a.updatedAtMillis || 0);
+          });
+          window.allIsgForms = list;
+
+          if (!isFirstIsgLoad && window.currentUser) {
+            const cur = window.currentUser;
+            const myIds = new Set([cur.userId, cur.id, cur.username, cur.email].map(x => String(x || "").trim().toLowerCase()).filter(Boolean));
+            snapshot.docChanges().forEach(change => {
+              if (change.type !== "added" && change.type !== "modified") return;
+              const f = { ...change.doc.data(), id: change.doc.id };
+              // 1) Yeni yönlendirme bildirimi (yönlendirilen kişiye)
+              if (f.status !== "COMPLETED" && window.isIsgFormAssignedToUser(f, cur) && !myIds.has(String(f.assignedByUid || "").trim().toLowerCase())) {
+                const k = `assign_${f.id}_${f.assignedAtMillis || 0}`;
+                if (!notifiedIsgKeys.has(k)) {
+                  notifiedIsgKeys.add(k);
+                  if (typeof Notification !== "undefined" && Notification.permission === "granted") {
+                    try { new Notification("🦺 Yeni İSG Formu Yönlendirildi", { body: `${f.templateTitle} — Yönlendiren: ${f.assignedByName || "İSG Yöneticisi"}` }); } catch (_) {}
+                  }
+                }
+              }
+              // 2) Tamamlandı bildirimi (İSG yöneticisine / yönlendirene)
+              if (f.status === "COMPLETED" && f.managerNotified === true) {
+                const isMgrOrAssigner = window.isIsgManager(cur) || myIds.has(String(f.assignedByUid || "").trim().toLowerCase());
+                const doneByMe = myIds.has(String(f.completedByUid || "").trim().toLowerCase());
+                if (isMgrOrAssigner && !doneByMe) {
+                  const k = `done_${f.id}_${f.completedAtMillis || 0}`;
+                  if (!notifiedIsgKeys.has(k)) {
+                    notifiedIsgKeys.add(k);
+                    if (typeof Notification !== "undefined" && Notification.permission === "granted") {
+                      try { new Notification("✅ İSG Formu Tamamlandı", { body: `${f.completedByName || f.assignedToName} — ${f.templateTitle} kontrolünü tamamladı.` }); } catch (_) {}
+                    }
+                  }
+                }
+              }
+            });
+          }
+          isFirstIsgLoad = false;
+
+          if (window.currentUser) {
+            window.updateTopBarUser(window.currentUser);
+          }
+          if (typeof window.updateIsgTabBadge === "function") window.updateIsgTabBadge();
+          if (typeof window.renderIsgTab === "function") window.renderIsgTab();
+        }, (err) => {
+          console.warn("isg_forms listener error:", err);
+        });
+      } catch (e) {
+        console.warn("Failed to listen to isg_forms:", e);
       }
 
       // 3.9 Yedek Parça Envanteri (spare_parts)
@@ -16526,6 +16809,7 @@
       if (resolvedTab === 'packagingUnit') window.renderPackagingUnit();
       if (resolvedTab === 'utilityControls') window.renderUtilityControls();
       if (resolvedTab === 'production' && typeof window.renderProductionTab === "function") window.renderProductionTab();
+      if (resolvedTab === 'isg' && typeof window.renderIsgTab === "function") window.renderIsgTab();
       if (resolvedTab === 'energyManagement' && typeof window.renderEnergyManagementTab === "function") window.renderEnergyManagementTab();
       if (resolvedTab === 'members') renderMembers();
       if (resolvedTab === 'team') renderTeam();
@@ -19891,6 +20175,7 @@
       if (img) img.src = src;
       openModal("modalImagePreview");
     };
+    window.openImagePreviewModal = window.openThermalPhotoZoom;
 
     window.transferThermalToWorkOrder = async function(recId) {
       if (!window.isMasterUser(window.currentUser)) return;
@@ -20244,6 +20529,1064 @@
         updatedAt: serverTimestamp()
       }, { merge: true });
       closeModal("modalEnergyEditor");
+    };
+
+    // ================= GLOBAL SEKME SIRALAMA YÖNETİCİSİ (ANLIK BULUT SENKRONLU) =================
+    const TAB_DISPLAY_LABELS = {
+      dashboard: "Genel Bakış",
+      electrical_maintenance: "Elektrik Bakım",
+      production: "Üretim",
+      packaging_unit: "Paketleme Birimi",
+      utility_controls: "Yardımcı Tesisler",
+      isg: "İSG",
+      members: "Üyeler",
+      energy_management: "Enerji Yönetimi (ISO 50001)",
+      team: "Personel & Yetki"
+    };
+    window._tabOrderDraft = [...window.MASTER_ALL_TABS];
+
+    window.applyGlobalTabOrder = function() {
+      const navInner = document.querySelector("#mainNavBar > div");
+      if (!navInner) return;
+      const order = Array.isArray(window.globalTabOrder) && window.globalTabOrder.length > 0
+        ? window.globalTabOrder
+        : window.MASTER_ALL_TABS;
+      const anchorRight = document.getElementById("btnReorderTabs") || document.getElementById("btnHeaderExcel");
+      order.forEach(tabId => {
+        const navKey = window.REVERSE_TAB_ID_MAP[tabId] || tabId;
+        const btn = document.getElementById("nav-" + navKey);
+        if (btn && btn.parentElement === navInner) {
+          if (anchorRight && anchorRight.parentElement === navInner) {
+            navInner.insertBefore(btn, anchorRight);
+          } else {
+            navInner.appendChild(btn);
+          }
+        }
+      });
+    };
+
+    window.openTabOrderModal = function() {
+      if (!window.canUserReorderTabs(window.currentUser)) {
+        alert("Bu işlem yalnızca yöneticiler içindir.");
+        return;
+      }
+      window._tabOrderDraft = [...(window.globalTabOrder || window.MASTER_ALL_TABS)];
+      window.renderTabOrderModalList();
+      document.getElementById("modalTabOrder")?.classList.remove("hidden");
+      lucide.createIcons();
+    };
+
+    window.renderTabOrderModalList = function() {
+      const container = document.getElementById("tabOrderListContainer");
+      if (!container) return;
+      container.innerHTML = window._tabOrderDraft.map((tabId, idx) => `
+        <div class="flex items-center justify-between gap-2 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs">
+          <div class="flex items-center gap-2 min-w-0">
+            <span class="w-6 h-6 rounded-full bg-[#1E3A8A] text-white font-extrabold flex items-center justify-center text-[11px] flex-shrink-0">${idx + 1}</span>
+            <span class="font-bold text-slate-800 truncate">${escapeHtml(TAB_DISPLAY_LABELS[tabId] || tabId)}</span>
+          </div>
+          <div class="flex items-center gap-1 flex-shrink-0">
+            <button type="button" onclick="moveTabOrderItem(${idx}, -1)" ${idx === 0 ? "disabled" : ""} class="p-1.5 rounded-lg border border-slate-300 bg-white hover:bg-blue-50 disabled:opacity-35 text-slate-700 font-bold" title="Yukarı Taşı">▲</button>
+            <button type="button" onclick="moveTabOrderItem(${idx}, 1)" ${idx === window._tabOrderDraft.length - 1 ? "disabled" : ""} class="p-1.5 rounded-lg border border-slate-300 bg-white hover:bg-blue-50 disabled:opacity-35 text-slate-700 font-bold" title="Aşağı Taşı">▼</button>
+          </div>
+        </div>
+      `).join("");
+    };
+
+    window.moveTabOrderItem = function(idx, delta) {
+      const target = idx + delta;
+      if (target < 0 || target >= window._tabOrderDraft.length) return;
+      const arr = [...window._tabOrderDraft];
+      const [item] = arr.splice(idx, 1);
+      arr.splice(target, 0, item);
+      window._tabOrderDraft = arr;
+      window.renderTabOrderModalList();
+    };
+
+    window.resetTabOrderDraft = function() {
+      window._tabOrderDraft = [...window.MASTER_ALL_TABS];
+      window.renderTabOrderModalList();
+    };
+
+    window.saveGlobalTabOrderWeb = async function() {
+      if (!window.canUserReorderTabs(window.currentUser)) return;
+      try {
+        const me = window.currentUser || {};
+        await setDoc(doc(db, "app_config", "tab_order"), {
+          order: [...window._tabOrderDraft],
+          updatedByUid: me.userId || me.id || "admin",
+          updatedByName: me.displayName || me.username || "Yönetici",
+          updatedAtMillis: Date.now(),
+          updatedAt: serverTimestamp()
+        }, { merge: true });
+        window.globalTabOrder = [...window._tabOrderDraft];
+        window.applyGlobalTabOrder();
+        closeModal("modalTabOrder");
+        alert("✅ Sekme sıralaması kaydedildi ve tüm kullanıcılarda anlık olarak güncellendi.");
+      } catch (e) {
+        alert("Sekme sıralaması kaydedilemedi: " + (e?.message || e));
+      }
+    };
+
+    // ================= İŞ SAĞLIĞI VE GÜVENLİĞİ (İSG) MODÜLÜ & BİREBİR FORKLİFT FORMU =================
+    const ISG_MONTHS_TR = ["OCAK", "ŞUBAT", "MART", "NİSAN", "MAYIS", "HAZİRAN", "TEMMUZ", "AĞUSTOS", "EYLÜL", "EKİM", "KASIM", "ARALIK"];
+    const ISG_FORM_TEMPLATES = [
+      {
+        templateId: "forklift_kontrol_27",
+        title: "FORKLİFT KONTROL FORMU",
+        shortName: "Forklift Kontrol Formu (Form No: 27 — GOSGB 02-27)",
+        sayfaNo: "1/1",
+        formNo: "27",
+        dosyaNo: "GOSGB 02-27",
+        yayinTarihi: "05.03.2020",
+        revizyonNo: "-",
+        revizyonTarihi: "-",
+        specRows: [
+          { leftKey: "markasi", leftLabel: "MARKASI", rightKey: "kaldirma_yuksekligi", rightLabel: "KALDIRMA YÜKSEKLİĞİ" },
+          { leftKey: "kapasitesi_kg", leftLabel: "KAPASİTESİ (KG)", rightKey: "agirlik_mesafesi", rightLabel: "AĞIRLIK MESAFESİ" },
+          { leftKey: "tipi", leftLabel: "TİPİ", rightKey: "seri_no", rightLabel: "SERİ NO" },
+          { leftKey: "yakit_cinsi", leftLabel: "YAKIT CİNSİ", rightKey: "extra_right_4", rightLabel: "" }
+        ],
+        checklistHeaderLeft: "TEST VE KONTROLLER",
+        checklistHeaderMid: "UYGUN /UYGUN DEĞİL",
+        checklistHeaderRight: "AÇIKLAMA",
+        checklistItems: [
+          "Kabin sağlam demir veya çelikten yapılmış mıdır?",
+          "Kabinde kırık, çatlak, kirli cam vb görmeyi ve operatörü engelleyici bir durum var mıdır?",
+          "El freni normal çalışmakta mıdır?",
+          "Yakıt göstergesi var mıdır? Normal çalışmakta mıdır?",
+          "Hararet göstergesi var mıdır? Normal çalışmakta mıdır?",
+          "Motor yağlama yağ basıncı çalışmakta mıdır?",
+          "Şarj göstergesi var mıdır? Çalışmakta mıdır?",
+          "Farlar normal çalışmakta mıdır?",
+          "Stop lambaları normal çalışmakta mıdır?",
+          "Çatalda deformasyon ve çatlaklık durumu var mıdır?",
+          "Lastik ve bijonların durumu?",
+          "Egzost sistemi ve gaz temizleyici durumu",
+          "Debriyaj ve fren boşlukları normal midir?",
+          "Debriyajda kavrama normal midir?",
+          "Şanzıman ve motor(sesleri) çalışması normal midir?",
+          "Geri vites kornası ve sinyali çalışıyor mu?",
+          "Yük freni yükleyicinin en fazla kaldırabileceği ağırlığı frenleyecek güçtemidir?",
+          "Hidrolik sistemin yağ basınç göstergesi çalışmakta mıdır?",
+          "Uyarı ikaz levhaları"
+        ],
+        showMonthlyParafGrid: true,
+        approvalLeftLabel: "KONTROL EDEN",
+        approvalRightLabel: "İŞVEREN/VEKİLİ"
+      }
+    ];
+
+    function getIsgTemplateById(tplId) {
+      return ISG_FORM_TEMPLATES.find(t => t.templateId === tplId) || ISG_FORM_TEMPLATES[0];
+    }
+
+    function getIsgStatusBadgeHtml(status) {
+      if (status === "COMPLETED") return `<span class="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-emerald-100 text-emerald-800 border border-emerald-200">Tamamlandı</span>`;
+      if (status === "IN_PROGRESS") return `<span class="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-amber-100 text-amber-900 border border-amber-200">Devam Ediyor</span>`;
+      return `<span class="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-blue-100 text-blue-800 border border-blue-200">Yönlendirildi</span>`;
+    }
+
+    function getIsgEquipmentSummary(form) {
+      const eq = form.equipmentFields || {};
+      const parts = [eq.markasi, eq.tipi, eq.seri_no ? `Seri: ${eq.seri_no}` : ""].map(x => String(x || "").trim()).filter(Boolean);
+      return parts.length > 0 ? parts.join(" • ") : "Ekipman bilgisi girilmedi";
+    }
+
+    window.isgUiState = {
+      filterMode: "ALL",
+      activeForm: null,
+      pendingPhotoRowIdx: null
+    };
+
+    window.setIsgFilterMode = function(mode) {
+      window.isgUiState.filterMode = mode;
+      ["ALL", "MINE", "PENDING", "COMPLETED"].forEach(m => {
+        const btn = document.getElementById("isgFilter_" + m);
+        if (!btn) return;
+        if (m === mode) {
+          btn.className = "px-3 py-1.5 rounded-lg font-bold bg-[#1E3A8A] text-white transition";
+        } else {
+          btn.className = "px-3 py-1.5 rounded-lg font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition";
+        }
+      });
+      window.renderIsgTab();
+    };
+
+    window.updateIsgTabBadge = function() {
+      const badge = document.getElementById("tabIsgBadge");
+      if (!badge || !window.currentUser) return;
+      const cur = window.currentUser;
+      const isMgr = window.isIsgManager(cur);
+      const list = window.allIsgForms || [];
+      const doneAlerts = isMgr ? list.filter(f => f.status === "COMPLETED" && f.managerNotified === true).length : 0;
+      const myPending = list.filter(f => window.isIsgFormAssignedToUser(f, cur) && f.status !== "COMPLETED").length;
+      const total = doneAlerts + myPending;
+      badge.innerText = total > 99 ? "99+" : String(total);
+      badge.classList.toggle("hidden", total <= 0);
+    };
+
+    window.renderIsgTab = function() {
+      const container = document.getElementById("isgFormsListContainer");
+      if (!container || !window.currentUser) return;
+      const cur = window.currentUser;
+      const isMgr = window.isIsgManager(cur);
+      const all = window.allIsgForms || [];
+      const canSeeAll = isMgr || window.getUserAllowedTabs(cur).includes("isg");
+      const visible = canSeeAll ? all : all.filter(f => window.isIsgFormAssignedToUser(f, cur));
+
+      const btnCreate = document.getElementById("btnIsgCreateAssign");
+      if (btnCreate) btnCreate.classList.toggle("hidden", !isMgr);
+      const subEl = document.getElementById("isgRoleSubtitle");
+      if (subEl) {
+        subEl.textContent = isMgr
+          ? "İSG Yöneticisi • Form şablonu oluşturabilir, personellere yönlendirebilir ve tamamlanan formları onaylayabilirsiniz"
+          : "Size yönlendirilen İSG kontrol formlarını birebir basılı form düzeninde doldurup fotoğraf ekleyebilir ve 'Tamamladım' diyebilirsiniz";
+      }
+
+      const pendingCount = visible.filter(f => f.status !== "COMPLETED").length;
+      const completedCount = visible.filter(f => f.status === "COMPLETED").length;
+      const unsuitableTotal = visible.reduce((acc, f) => {
+        const res = f.checkResults || {};
+        return acc + Object.values(res).filter(v => String(v || "").toUpperCase() === "UYGUN DEĞİL").length;
+      }, 0);
+
+      const kTot = document.getElementById("isgKpiTotal");
+      if (kTot) kTot.textContent = String(visible.length);
+      const kPen = document.getElementById("isgKpiPending");
+      if (kPen) kPen.textContent = String(pendingCount);
+      const kCom = document.getElementById("isgKpiCompleted");
+      if (kCom) kCom.textContent = String(completedCount);
+      const kUns = document.getElementById("isgKpiUnsuitable");
+      if (kUns) kUns.textContent = String(unsuitableTotal);
+
+      // İSG Yöneticisi için onay bekleyen yeni tamamlanma bildirimleri
+      const alertsBox = document.getElementById("isgCompletionAlertsBox");
+      if (alertsBox) {
+        const alerts = isMgr ? all.filter(f => f.status === "COMPLETED" && f.managerNotified === true) : [];
+        if (alerts.length === 0) {
+          alertsBox.classList.add("hidden");
+          alertsBox.innerHTML = "";
+        } else {
+          alertsBox.classList.remove("hidden");
+          alertsBox.innerHTML = `
+            <div class="flex items-center gap-2 text-emerald-950 font-extrabold text-sm">
+              <span>🔔 Tamamlanan İSG Formu Bildirimleri (${alerts.length})</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5">
+              ${alerts.map(f => {
+                const whenStr = f.completedAtMillis ? new Date(f.completedAtMillis).toLocaleString("tr-TR") : "";
+                return `
+                  <div class="bg-white border border-emerald-200 rounded-xl p-3 flex flex-col gap-2 text-xs">
+                    <div class="font-extrabold text-slate-900">✅ ${escapeHtml(f.completedByName || f.assignedToName || "Personel")} — ${escapeHtml(f.templateTitle)}</div>
+                    <div class="text-[11px] text-slate-600">${escapeHtml(getIsgEquipmentSummary(f))} • ${escapeHtml(whenStr)}</div>
+                    ${f.completionNote ? `<div class="text-[11px] text-emerald-800 font-semibold">Not: ${escapeHtml(f.completionNote)}</div>` : ""}
+                    <div class="flex items-center gap-2 pt-1">
+                      <button type="button" onclick="openIsgSheetEditor('${escapeJsSingle(f.id)}')" class="px-3 py-1.5 bg-white hover:bg-slate-50 border border-slate-300 text-slate-800 rounded-lg font-bold text-[11px]">Formu İncele</button>
+                      <button type="button" onclick="acknowledgeIsgFormNotif('${escapeJsSingle(f.id)}')" class="px-3 py-1.5 bg-emerald-700 hover:bg-emerald-600 text-white rounded-lg font-bold text-[11px]">Okundu / Onayla</button>
+                    </div>
+                  </div>
+                `;
+              }).join("")}
+            </div>
+          `;
+        }
+      }
+
+      const q = (document.getElementById("isgSearchInput")?.value || "").trim().toLowerCase();
+      const mode = window.isgUiState.filterMode || "ALL";
+      const filtered = visible.filter(f => {
+        if (mode === "MINE" && !window.isIsgFormAssignedToUser(f, cur)) return false;
+        if (mode === "PENDING" && f.status === "COMPLETED") return false;
+        if (mode === "COMPLETED" && f.status !== "COMPLETED") return false;
+        if (!q) return true;
+        return [f.templateTitle, f.formNo, f.dosyaNo, f.assignedToName, f.assignedToDepartment, getIsgEquipmentSummary(f), f.kontrolEden]
+          .some(v => String(v || "").toLowerCase().includes(q));
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="col-span-full bg-white rounded-2xl border border-slate-200 p-8 text-center space-y-2">
+            <div class="text-3xl">🦺</div>
+            <div class="text-sm font-extrabold text-slate-800">Kayıtlı İSG Formu Bulunamadı</div>
+            <p class="text-xs text-slate-500 max-w-md mx-auto">
+              ${isMgr ? "Yukarıdaki 'Yeni Form Oluştur & Yönlendir' butonundan FORKLİFT KONTROL FORMU oluşturup personele atayabilirsiniz." : "İSG yöneticisi tarafından size yönlendirilen kontrol formları burada görüntülenecektir."}
+            </p>
+          </div>
+        `;
+      } else {
+        container.innerHTML = filtered.map(f => {
+          const tpl = getIsgTemplateById(f.templateId);
+          const totalItems = tpl.checklistItems.length;
+          const resObj = f.checkResults || {};
+          const filled = Object.values(resObj).filter(v => String(v || "").trim() !== "").length;
+          const bad = Object.values(resObj).filter(v => String(v || "").toUpperCase() === "UYGUN DEĞİL").length;
+          const photos = Object.values(f.checkPhotos || {}).filter(v => String(v || "").trim() !== "").length;
+          const isMine = window.isIsgFormAssignedToUser(f, cur);
+          return `
+            <div class="bg-white rounded-2xl border ${isMine && f.status !== 'COMPLETED' ? 'border-amber-400 ring-1 ring-amber-200' : 'border-slate-200'} p-4 custom-shadow flex flex-col gap-3">
+              <div class="flex items-start justify-between gap-2">
+                <div>
+                  <div class="font-extrabold text-sm text-[#1E3A8A]">${escapeHtml(f.templateTitle || tpl.title)}</div>
+                  <div class="text-[11px] text-slate-500">Form No: ${escapeHtml(f.formNo || tpl.formNo)} • Dosya No: ${escapeHtml(f.dosyaNo || tpl.dosyaNo)}</div>
+                </div>
+                ${getIsgStatusBadgeHtml(f.status)}
+              </div>
+              <div class="text-xs font-bold text-slate-800">🚜 ${escapeHtml(getIsgEquipmentSummary(f))}</div>
+              <div class="flex flex-wrap items-center gap-3 text-[11px] text-slate-600">
+                <span class="font-bold ${isMine ? 'text-amber-700' : 'text-slate-700'}">👤 ${escapeHtml(f.assignedToName || "Atanmadı")}${isMine ? " (Siz)" : ""}</span>
+                <span class="font-bold text-sky-700">✓ ${filled}/${totalItems} madde</span>
+                ${bad > 0 ? `<span class="font-extrabold text-rose-600">⚠️ ${bad} Uygunsuz</span>` : ""}
+                ${photos > 0 ? `<span class="font-bold text-slate-700">📷 ${photos} Foto</span>` : ""}
+              </div>
+              ${f.assignmentNote ? `<div class="text-[11px] bg-blue-50 border border-blue-200 text-blue-900 rounded-lg px-2.5 py-1.5">📌 ${escapeHtml(f.assignmentNote)}</div>` : ""}
+              <div class="flex flex-wrap items-center gap-1.5 pt-2 border-t border-slate-100">
+                <button type="button" onclick="openIsgSheetEditor('${escapeJsSingle(f.id)}')" class="px-3 py-1.5 bg-[#1E3A8A] hover:bg-blue-800 text-white rounded-lg text-xs font-bold flex items-center gap-1 shadow-sm">
+                  <i data-lucide="file-edit" class="w-3.5 h-3.5"></i> Formu Aç
+                </button>
+                <button type="button" onclick="printIsgFormById('${escapeJsSingle(f.id)}')" class="px-2.5 py-1.5 bg-white hover:bg-slate-50 border border-slate-300 text-slate-800 rounded-lg text-xs font-bold flex items-center gap-1">
+                  <i data-lucide="printer" class="w-3.5 h-3.5"></i> Yazdır
+                </button>
+                <button type="button" onclick="exportIsgFormExcelById('${escapeJsSingle(f.id)}')" class="px-2.5 py-1.5 bg-emerald-50 hover:bg-emerald-100 border border-emerald-300 text-emerald-800 rounded-lg text-xs font-bold flex items-center gap-1">
+                  <i data-lucide="file-spreadsheet" class="w-3.5 h-3.5"></i> Excel
+                </button>
+                ${isMgr ? `
+                  <button type="button" onclick="openIsgReassignModal('${escapeJsSingle(f.id)}')" class="ml-auto px-2.5 py-1.5 bg-amber-50 hover:bg-amber-100 border border-amber-300 text-amber-900 rounded-lg text-xs font-bold" title="Başka Personele Yönlendir">👤 Yönlendir</button>
+                  <button type="button" onclick="deleteIsgFormWeb('${escapeJsSingle(f.id)}')" class="p-1.5 text-rose-600 hover:bg-rose-50 rounded-lg" title="Sil"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
+                ` : ""}
+              </div>
+            </div>
+          `;
+        }).join("");
+      }
+      lucide.createIcons();
+    };
+
+    function populateIsgAssigneeOptions(selectedUid = "") {
+      const sel = document.getElementById("isgAssigneeSelect");
+      if (!sel) return;
+      const activeUsers = (window.allUsers || [])
+        .filter(u => !u.isDeleted && !u.isBlocked)
+        .sort((a, b) => (a.displayName || "").localeCompare(b.displayName || "", "tr"));
+      sel.innerHTML = activeUsers.map(u => {
+        const uid = u.userId || u.id || "";
+        return `<option value="${escapeHtml(uid)}" ${uid === selectedUid ? "selected" : ""}>${escapeHtml(u.displayName || u.username || u.email)} — ${escapeHtml(u.department || "Personel")}</option>`;
+      }).join("");
+    }
+
+    window.openIsgCreateAssignModal = function() {
+      if (!window.isIsgManager(window.currentUser)) {
+        alert("Yeni İSG formu oluşturma yetkisi yalnızca İSG Yöneticisine aittir.");
+        return;
+      }
+      document.getElementById("isgReassignFormId").value = "";
+      document.getElementById("isgAssignModalTitle").innerHTML = `<i data-lucide="shield-alert" class="w-5 h-5 text-[#1E3A8A]"></i><span>Yeni İSG Formu Oluştur &amp; Yönlendir</span>`;
+      document.getElementById("isgTemplateSelectWrap").classList.remove("hidden");
+      document.getElementById("isgPrefillSpecsWrap").classList.remove("hidden");
+      const tplSel = document.getElementById("isgTemplateSelect");
+      tplSel.innerHTML = ISG_FORM_TEMPLATES.map(t => `<option value="${escapeHtml(t.templateId)}">${escapeHtml(t.shortName)}</option>`).join("");
+      populateIsgAssigneeOptions();
+      document.getElementById("isgPrefillBrand").value = "";
+      document.getElementById("isgPrefillSerial").value = "";
+      document.getElementById("isgAssignNoteInput").value = "";
+      document.getElementById("modalIsgCreateAssign").classList.remove("hidden");
+      lucide.createIcons();
+    };
+
+    window.openIsgReassignModal = function(formId) {
+      if (!window.isIsgManager(window.currentUser)) return;
+      const form = (window.allIsgForms || []).find(f => f.id === formId);
+      if (!form) return;
+      document.getElementById("isgReassignFormId").value = form.id;
+      document.getElementById("isgAssignModalTitle").innerHTML = `<i data-lucide="user-check" class="w-5 h-5 text-[#1E3A8A]"></i><span>Formu Personele Yönlendir</span>`;
+      document.getElementById("isgTemplateSelectWrap").classList.add("hidden");
+      document.getElementById("isgPrefillSpecsWrap").classList.add("hidden");
+      populateIsgAssigneeOptions(form.assignedToUid || "");
+      document.getElementById("isgAssignNoteInput").value = form.assignmentNote || "";
+      document.getElementById("modalIsgCreateAssign").classList.remove("hidden");
+      lucide.createIcons();
+    };
+
+    window.submitIsgCreateOrReassign = async function() {
+      const me = window.currentUser || {};
+      const reassignId = document.getElementById("isgReassignFormId").value.trim();
+      const targetUid = document.getElementById("isgAssigneeSelect").value;
+      const targetUser = (window.allUsers || []).find(u => (u.userId || u.id) === targetUid);
+      if (!targetUser) {
+        alert("Lütfen yönlendirilecek bir personel seçiniz.");
+        return;
+      }
+      const note = (document.getElementById("isgAssignNoteInput").value || "").trim();
+      const now = Date.now();
+
+      try {
+        if (reassignId) {
+          const existing = (window.allIsgForms || []).find(f => f.id === reassignId);
+          await setDoc(doc(db, "isg_forms", reassignId), {
+            assignedToUid: targetUser.userId || targetUser.id,
+            assignedToName: targetUser.displayName || targetUser.username || "Personel",
+            assignedToDepartment: targetUser.department || "",
+            assignedByUid: me.userId || me.id || "",
+            assignedByName: me.displayName || me.username || "İSG Yöneticisi",
+            assignedAtMillis: now,
+            assignmentNote: note,
+            status: existing?.status === "COMPLETED" ? "ASSIGNED" : (existing?.status || "ASSIGNED"),
+            managerNotified: false,
+            updatedByUid: me.userId || me.id || "",
+            updatedByName: me.displayName || me.username || "",
+            updatedAtMillis: now,
+            updatedAt: serverTimestamp()
+          }, { merge: true });
+          closeModal("modalIsgCreateAssign");
+          alert(`✅ Form ${targetUser.displayName} kişisine yönlendirildi.`);
+          return;
+        }
+
+        const tpl = getIsgTemplateById(document.getElementById("isgTemplateSelect").value);
+        const docId = `isg_${now}_${Math.random().toString(36).slice(2, 8)}`;
+        const eq = {};
+        const brand = (document.getElementById("isgPrefillBrand").value || "").trim();
+        const serial = (document.getElementById("isgPrefillSerial").value || "").trim();
+        if (brand) eq.markasi = brand;
+        if (serial) eq.seri_no = serial;
+
+        await setDoc(doc(db, "isg_forms", docId), {
+          id: docId,
+          templateId: tpl.templateId,
+          templateTitle: tpl.title,
+          sayfaNo: tpl.sayfaNo,
+          formNo: tpl.formNo,
+          dosyaNo: tpl.dosyaNo,
+          yayinTarihi: tpl.yayinTarihi,
+          revizyonNo: tpl.revizyonNo,
+          revizyonTarihi: tpl.revizyonTarihi,
+          equipmentFields: eq,
+          checkResults: {},
+          checkNotes: {},
+          checkPhotos: {},
+          monthParafs: {},
+          kontrolEden: "",
+          isverenVekili: "",
+          status: "ASSIGNED",
+          assignedToUid: targetUser.userId || targetUser.id,
+          assignedToName: targetUser.displayName || targetUser.username || "Personel",
+          assignedToDepartment: targetUser.department || "",
+          assignedByUid: me.userId || me.id || "",
+          assignedByName: me.displayName || me.username || "İSG Yöneticisi",
+          assignedAtMillis: now,
+          assignmentNote: note,
+          dueDateIso: "",
+          completedAtMillis: 0,
+          completedByUid: "",
+          completedByName: "",
+          completionNote: "",
+          managerNotified: false,
+          managerAcknowledgedBy: "",
+          managerAcknowledgedAtMillis: 0,
+          updatedByUid: me.userId || me.id || "",
+          updatedByName: me.displayName || me.username || "",
+          createdAtMillis: now,
+          updatedAtMillis: now,
+          createdAt: serverTimestamp(),
+          updatedAt: serverTimestamp()
+        }, { merge: true });
+        closeModal("modalIsgCreateAssign");
+        alert(`✅ ${tpl.title} oluşturuldu ve ${targetUser.displayName} kişisine yönlendirildi.`);
+      } catch (e) {
+        alert("Form kaydedilemedi: " + (e?.message || e));
+      }
+    };
+
+    window.openIsgSheetEditor = function(formId) {
+      const found = (window.allIsgForms || []).find(f => f.id === formId);
+      if (!found) return;
+      // Deep clone draft for editing
+      window.isgUiState.activeForm = JSON.parse(JSON.stringify(found));
+      if (!window.isgUiState.activeForm.equipmentFields) window.isgUiState.activeForm.equipmentFields = {};
+      if (!window.isgUiState.activeForm.checkResults) window.isgUiState.activeForm.checkResults = {};
+      if (!window.isgUiState.activeForm.checkNotes) window.isgUiState.activeForm.checkNotes = {};
+      if (!window.isgUiState.activeForm.checkPhotos) window.isgUiState.activeForm.checkPhotos = {};
+      if (!window.isgUiState.activeForm.monthParafs) window.isgUiState.activeForm.monthParafs = {};
+      window.renderIsgSheetEditorBody();
+      document.getElementById("modalIsgSheetEditor").classList.remove("hidden");
+      lucide.createIcons();
+    };
+
+    window.renderIsgSheetEditorBody = function() {
+      const f = window.isgUiState.activeForm;
+      if (!f) return;
+      const tpl = getIsgTemplateById(f.templateId);
+      const cur = window.currentUser || {};
+      const isMgr = window.isIsgManager(cur);
+      const canEdit = isMgr || window.isIsgFormAssignedToUser(f, cur) || window.canUserEditSubPage("isg_forms", cur);
+
+      document.getElementById("isgSheetEditorTitle").textContent = f.templateTitle || tpl.title;
+      document.getElementById("isgSheetEditorSubtitle").textContent = `Form No: ${f.formNo || tpl.formNo} • Dosya No: ${f.dosyaNo || tpl.dosyaNo} • Yönlendirilen: ${f.assignedToName || "-"}`;
+
+      const specRowsHtml = tpl.specRows.map(sr => `
+        <tr>
+          <td style="border:1px solid #000; padding:4px 6px; text-align:center; font-size:11px; width:19%;">${escapeHtml(sr.leftLabel)}</td>
+          <td style="border:1px solid #000; padding:2px 4px; width:31%;">
+            <input type="text" ${canEdit ? "" : "disabled"} value="${escapeHtml((f.equipmentFields || {})[sr.leftKey] || "")}"
+              oninput="updateIsgDraftField('equipmentFields', '${sr.leftKey}', this.value)"
+              placeholder="${canEdit ? 'Yazınız...' : ''}"
+              style="width:100%; text-align:center; font-weight:700; font-size:12px; border:none; outline:none; background:transparent; padding:3px;">
+          </td>
+          <td style="border:1px solid #000; padding:4px 6px; text-align:center; font-size:11px; width:26%;">${escapeHtml(sr.rightLabel)}</td>
+          <td style="border:1px solid #000; padding:2px 4px; width:24%;">
+            <input type="text" ${canEdit ? "" : "disabled"} value="${escapeHtml((f.equipmentFields || {})[sr.rightKey] || "")}"
+              oninput="updateIsgDraftField('equipmentFields', '${sr.rightKey}', this.value)"
+              placeholder="${canEdit && sr.rightLabel ? 'Yazınız...' : ''}"
+              style="width:100%; text-align:center; font-weight:700; font-size:12px; border:none; outline:none; background:transparent; padding:3px;">
+          </td>
+        </tr>
+      `).join("");
+
+      const checklistRowsHtml = tpl.checklistItems.map((q, idx) => {
+        const key = String(idx);
+        const val = (f.checkResults || {})[key] || "";
+        const note = (f.checkNotes || {})[key] || "";
+        const photo = (f.checkPhotos || {})[key] || "";
+        const isOk = val === "UYGUN";
+        const isBad = val === "UYGUN DEĞİL";
+        return `
+          <tr>
+            <td style="border:1px solid #000; padding:5px 8px; text-align:center; font-size:11.5px; line-height:1.35; color:#000;">${escapeHtml(q)}</td>
+            <td style="border:1px solid #000; padding:4px 6px; text-align:center;">
+              <div class="flex items-center justify-center gap-1.5">
+                <button type="button" ${canEdit ? "" : "disabled"} onclick="toggleIsgCheckResult(${idx}, 'UYGUN')"
+                  class="px-2.5 py-1 rounded text-[11px] font-extrabold border transition ${isOk ? 'bg-emerald-700 text-white border-emerald-800' : 'bg-slate-50 text-slate-700 border-slate-300 hover:bg-emerald-50'}">
+                  UYGUN
+                </button>
+                <button type="button" ${canEdit ? "" : "disabled"} onclick="toggleIsgCheckResult(${idx}, 'UYGUN DEĞİL')"
+                  class="px-2 py-1 rounded text-[11px] font-extrabold border transition ${isBad ? 'bg-rose-600 text-white border-rose-800' : 'bg-slate-50 text-slate-700 border-slate-300 hover:bg-rose-50'}">
+                  UYGUN DEĞİL
+                </button>
+              </div>
+            </td>
+            <td style="border:1px solid #000; padding:4px 6px;">
+              <div class="flex items-center gap-1.5">
+                <input type="text" ${canEdit ? "" : "disabled"} value="${escapeHtml(note)}"
+                  oninput="updateIsgDraftField('checkNotes', '${key}', this.value)"
+                  placeholder="${canEdit ? 'Açıklama...' : ''}"
+                  class="flex-1 min-w-0 text-[11.5px] bg-transparent border-none outline-none px-1 py-0.5 text-slate-900">
+                ${photo ? `
+                  <div class="relative flex-shrink-0">
+                    <img src="${photo}" alt="Madde ${idx + 1}" onclick="openImagePreviewModal('${escapeJsSingle(photo)}')" class="w-9 h-9 object-cover rounded border border-[#1E3A8A] cursor-pointer">
+                    ${canEdit ? `<button type="button" onclick="removeIsgRowPhoto(${idx})" class="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-rose-600 text-white text-[10px] font-black flex items-center justify-center shadow">×</button>` : ""}
+                  </div>
+                ` : ""}
+                ${canEdit ? `
+                  <button type="button" onclick="triggerIsgRowPhotoUpload(${idx})" title="Açıklamaya Fotoğraf Ekle"
+                    class="flex-shrink-0 p-1.5 rounded-lg border border-slate-300 ${photo ? 'bg-blue-100 text-[#1E3A8A]' : 'bg-slate-100 hover:bg-blue-50 text-slate-700'} transition">
+                    📷
+                  </button>
+                ` : ""}
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join("");
+
+      const monthColsHeader = ["AY", ...ISG_MONTHS_TR].map(m => `
+        <th style="border:1px solid #000; width:28px; height:76px; vertical-align:middle; text-align:center; padding:2px; font-weight:600; font-size:10px;">
+          <div style="writing-mode:vertical-rl; transform:rotate(180deg); margin:0 auto; white-space:nowrap;">${m}</div>
+        </th>
+      `).join("");
+
+      const monthColsParaf = ISG_MONTHS_TR.map(m => `
+        <td style="border:1px solid #000; width:28px; height:78px; padding:1px; text-align:center; vertical-align:middle;">
+          <input type="text" ${canEdit ? "" : "disabled"} value="${escapeHtml((f.monthParafs || {})[m] || "")}"
+            oninput="updateIsgDraftField('monthParafs', '${m}', this.value)"
+            maxlength="10"
+            style="width:100%; text-align:center; font-size:10px; font-weight:700; border:none; outline:none; background:transparent;">
+        </td>
+      `).join("");
+
+      document.getElementById("isgSheetEditorBody").innerHTML = `
+        <div class="max-w-[860px] mx-auto space-y-3">
+          ${f.assignmentNote ? `
+            <div class="bg-blue-50 border border-blue-300 text-blue-950 rounded-xl px-3.5 py-2 text-xs font-semibold flex items-center justify-between gap-2">
+              <span>📌 İSG Yönlendirme Notu: ${escapeHtml(f.assignmentNote)}</span>
+              <span class="text-[11px] text-blue-700">Yönlendiren: ${escapeHtml(f.assignedByName || "İSG")}</span>
+            </div>
+          ` : ""}
+          <div class="bg-white shadow-xl border-2 border-black overflow-x-auto">
+            <table style="width:100%; min-width:740px; border-collapse:collapse; font-family:'Inter', Arial, sans-serif; color:#000;">
+              <!-- 1. ÜST BAŞLIK BLOĞU -->
+              <tr>
+                <td style="border:1px solid #000; width:19%; text-align:center; vertical-align:middle; padding:8px;">
+                  <img src="berrak_logo.png" alt="Berrak" style="max-height:66px; max-width:100%; margin:0 auto; object-fit:contain;" onerror="this.outerHTML='<div style=\\'font-weight:900;color:#b91c1c;font-size:20px;\\'>Berrak</div>'">
+                </td>
+                <td style="border:1px solid #000; width:56%; text-align:center; vertical-align:middle; padding:10px; font-weight:800; font-size:18px; letter-spacing:0.3px;">
+                  ${escapeHtml(f.templateTitle || tpl.title)}
+                </td>
+                <td style="border:1px solid #000; width:25%; padding:0; vertical-align:top;">
+                  <table style="width:100%; border-collapse:collapse; font-size:10.5px;">
+                    <tr><td style="border-bottom:1px solid #000; border-right:1px solid #000; padding:2px 4px; text-align:center; width:52%;">Sayfa No</td><td style="border-bottom:1px solid #000; padding:2px 4px; text-align:center;">${escapeHtml(f.sayfaNo || tpl.sayfaNo)}</td></tr>
+                    <tr><td style="border-bottom:1px solid #000; border-right:1px solid #000; padding:2px 4px; text-align:center;">Form No</td><td style="border-bottom:1px solid #000; padding:2px 4px; text-align:center;">${escapeHtml(f.formNo || tpl.formNo)}</td></tr>
+                    <tr><td style="border-bottom:1px solid #000; border-right:1px solid #000; padding:2px 4px; text-align:center;">Dosya No</td><td style="border-bottom:1px solid #000; padding:2px 4px; text-align:center;">${escapeHtml(f.dosyaNo || tpl.dosyaNo)}</td></tr>
+                    <tr><td style="border-bottom:1px solid #000; border-right:1px solid #000; padding:2px 4px; text-align:center;">Yayın Tarihi</td><td style="border-bottom:1px solid #000; padding:2px 4px; text-align:center;">${escapeHtml(f.yayinTarihi || tpl.yayinTarihi)}</td></tr>
+                    <tr><td style="border-bottom:1px solid #000; border-right:1px solid #000; padding:2px 4px; text-align:center;">Revizyon No</td><td style="border-bottom:1px solid #000; padding:2px 4px; text-align:center;">${escapeHtml(f.revizyonNo || tpl.revizyonNo)}</td></tr>
+                    <tr><td style="border-right:1px solid #000; padding:2px 4px; text-align:center;">Revizyon Tarihi</td><td style="padding:2px 4px; text-align:center;">${escapeHtml(f.revizyonTarihi || tpl.revizyonTarihi)}</td></tr>
+                  </table>
+                </td>
+              </tr>
+              <!-- 2. EKİPMAN BİLGİLERİ 4x4 -->
+              <tr>
+                <td colspan="3" style="padding:0;">
+                  <table style="width:100%; border-collapse:collapse;">
+                    ${specRowsHtml}
+                  </table>
+                </td>
+              </tr>
+              <!-- 3. KONTROL TABLOSU (19 MADDE) -->
+              <tr>
+                <td colspan="3" style="padding:0;">
+                  <table style="width:100%; border-collapse:collapse;">
+                    <thead>
+                      <tr>
+                        <th style="border:1px solid #000; padding:8px; text-align:center; font-size:13px; font-weight:800; width:50%;">${escapeHtml(tpl.checklistHeaderLeft)}</th>
+                        <th style="border:1px solid #000; padding:8px; text-align:center; font-size:12.5px; font-weight:800; width:26%;">${escapeHtml(tpl.checklistHeaderMid)}</th>
+                        <th style="border:1px solid #000; padding:8px; text-align:center; font-size:12.5px; font-weight:800; text-decoration:underline; width:24%;">${escapeHtml(tpl.checklistHeaderRight)}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      ${checklistRowsHtml}
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              <!-- 4. ALT BÖLÜM: AY/PARAF + ONAYLAR -->
+              <tr>
+                <td colspan="3" style="border:1px solid #000; padding:18px 20px;">
+                  <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:24px;">
+                    <table style="border-collapse:collapse; width:54%;">
+                      <tr>${monthColsHeader}</tr>
+                      <tr>
+                        <th style="border:1px solid #000; width:28px; height:78px; vertical-align:middle; text-align:center; font-weight:600; font-size:10px;">
+                          <div style="writing-mode:vertical-rl; transform:rotate(180deg); margin:0 auto;">PARAF</div>
+                        </th>
+                        ${monthColsParaf}
+                      </tr>
+                    </table>
+                    <div style="flex:1; text-align:center; padding-top:6px;">
+                      <div style="font-size:13px; font-weight:600; margin-bottom:20px;">ONAYLAR</div>
+                      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+                        <div>
+                          <div style="font-size:12px; margin-bottom:8px;">${escapeHtml(tpl.approvalLeftLabel)}</div>
+                          <input type="text" ${canEdit ? "" : "disabled"} value="${escapeHtml(f.kontrolEden || "")}"
+                            oninput="window.isgUiState.activeForm.kontrolEden = this.value"
+                            placeholder="${canEdit ? 'Ad Soyad / İmza' : ''}"
+                            class="w-full text-center text-xs font-bold border border-slate-300 rounded-lg px-2 py-1.5">
+                        </div>
+                        <div>
+                          <div style="font-size:12px; margin-bottom:8px;">${escapeHtml(tpl.approvalRightLabel)}</div>
+                          <input type="text" ${canEdit ? "" : "disabled"} value="${escapeHtml(f.isverenVekili || "")}"
+                            oninput="window.isgUiState.activeForm.isverenVekili = this.value"
+                            placeholder="${canEdit ? 'Ad Soyad / İmza' : ''}"
+                            class="w-full text-center text-xs font-bold border border-slate-300 rounded-lg px-2 py-1.5">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      `;
+
+      const footer = document.getElementById("isgSheetEditorFooter");
+      footer.innerHTML = `
+        <div class="text-xs text-slate-600 flex items-center gap-2">
+          ${getIsgStatusBadgeHtml(f.status)}
+          ${f.completedAtMillis ? `<span>Tamamlayan: <strong>${escapeHtml(f.completedByName || f.assignedToName)}</strong></span>` : ""}
+        </div>
+        <div class="flex flex-wrap items-center gap-2">
+          ${canEdit ? `
+            <button type="button" onclick="saveIsgSheetForm(false)" class="px-4 py-2 bg-white hover:bg-slate-50 border border-slate-300 text-slate-800 rounded-xl text-xs font-bold shadow-sm">💾 Kaydet</button>
+            ${f.status !== "COMPLETED" ? `
+              <button type="button" onclick="completeIsgSheetForm()" class="px-5 py-2 bg-emerald-700 hover:bg-emerald-600 text-white rounded-xl text-xs font-extrabold shadow">✅ Tamamladım (İSG'ye Bildir)</button>
+            ` : ""}
+          ` : ""}
+          ${isMgr && f.status === "COMPLETED" && f.managerNotified === true ? `
+            <button type="button" onclick="acknowledgeIsgFormNotif('${escapeJsSingle(f.id)}', true)" class="px-4 py-2 bg-sky-700 hover:bg-sky-600 text-white rounded-xl text-xs font-extrabold shadow">✔️ İnceledim / Bildirimi Onayla</button>
+          ` : ""}
+        </div>
+      `;
+    };
+
+    window.updateIsgDraftField = function(mapKey, key, val) {
+      const f = window.isgUiState.activeForm;
+      if (!f) return;
+      if (!f[mapKey]) f[mapKey] = {};
+      f[mapKey][key] = val;
+    };
+
+    window.toggleIsgCheckResult = function(idx, choice) {
+      const f = window.isgUiState.activeForm;
+      if (!f) return;
+      const key = String(idx);
+      if (!f.checkResults) f.checkResults = {};
+      f.checkResults[key] = (f.checkResults[key] === choice) ? "" : choice;
+      window.renderIsgSheetEditorBody();
+    };
+
+    window.triggerIsgRowPhotoUpload = function(idx) {
+      window.isgUiState.pendingPhotoRowIdx = idx;
+      const inp = document.getElementById("isgRowPhotoFileInput");
+      if (inp) {
+        inp.value = "";
+        inp.click();
+      }
+    };
+
+    window.handleIsgRowPhotoSelected = function(event) {
+      const file = event?.target?.files?.[0];
+      const idx = window.isgUiState.pendingPhotoRowIdx;
+      window.isgUiState.pendingPhotoRowIdx = null;
+      if (!file || idx === null || idx === undefined || !window.isgUiState.activeForm) return;
+      const reader = new FileReader();
+      reader.onload = function(ev) {
+        const img = new Image();
+        img.onload = function() {
+          const maxSide = 760;
+          const scale = Math.min(1, maxSide / Math.max(img.width || 1, img.height || 1));
+          const canvas = document.createElement("canvas");
+          canvas.width = Math.max(1, Math.round(img.width * scale));
+          canvas.height = Math.max(1, Math.round(img.height * scale));
+          const ctx = canvas.getContext("2d");
+          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+          const compressed = canvas.toDataURL("image/jpeg", 0.62);
+          if (!window.isgUiState.activeForm.checkPhotos) window.isgUiState.activeForm.checkPhotos = {};
+          window.isgUiState.activeForm.checkPhotos[String(idx)] = compressed;
+          window.renderIsgSheetEditorBody();
+        };
+        img.src = ev.target.result;
+      };
+      reader.readAsDataURL(file);
+    };
+
+    window.removeIsgRowPhoto = function(idx) {
+      const f = window.isgUiState.activeForm;
+      if (!f || !f.checkPhotos) return;
+      delete f.checkPhotos[String(idx)];
+      window.renderIsgSheetEditorBody();
+    };
+
+    window.saveIsgSheetForm = async function(silent = false) {
+      const f = window.isgUiState.activeForm;
+      if (!f || !f.id) return false;
+      const me = window.currentUser || {};
+      const now = Date.now();
+      const hasData = Object.values(f.checkResults || {}).some(Boolean) || Object.values(f.equipmentFields || {}).some(Boolean);
+      const nextStatus = f.status === "COMPLETED" ? "COMPLETED" : (hasData ? "IN_PROGRESS" : (f.status || "ASSIGNED"));
+      f.status = nextStatus;
+      try {
+        await setDoc(doc(db, "isg_forms", f.id), {
+          equipmentFields: f.equipmentFields || {},
+          checkResults: f.checkResults || {},
+          checkNotes: f.checkNotes || {},
+          checkPhotos: f.checkPhotos || {},
+          monthParafs: f.monthParafs || {},
+          kontrolEden: String(f.kontrolEden || "").trim(),
+          isverenVekili: String(f.isverenVekili || "").trim(),
+          status: nextStatus,
+          updatedByUid: me.userId || me.id || "",
+          updatedByName: me.displayName || me.username || "",
+          updatedAtMillis: now,
+          updatedAt: serverTimestamp()
+        }, { merge: true });
+        if (!silent) alert("✅ İSG formu buluta kaydedildi.");
+        window.renderIsgSheetEditorBody();
+        return true;
+      } catch (e) {
+        alert("Form kaydedilemedi: " + (e?.message || e));
+        return false;
+      }
+    };
+
+    window.completeIsgSheetForm = async function() {
+      const f = window.isgUiState.activeForm;
+      if (!f || !f.id) return;
+      const note = prompt("Tamamlama notu ekleyebilirsiniz (isteğe bağlı):", f.completionNote || "");
+      if (note === null) return;
+      const me = window.currentUser || {};
+      const now = Date.now();
+      const myName = me.displayName || me.username || "Personel";
+      try {
+        await setDoc(doc(db, "isg_forms", f.id), {
+          equipmentFields: f.equipmentFields || {},
+          checkResults: f.checkResults || {},
+          checkNotes: f.checkNotes || {},
+          checkPhotos: f.checkPhotos || {},
+          monthParafs: f.monthParafs || {},
+          kontrolEden: String(f.kontrolEden || myName).trim(),
+          isverenVekili: String(f.isverenVekili || "").trim(),
+          status: "COMPLETED",
+          completedAtMillis: now,
+          completedByUid: me.userId || me.id || "",
+          completedByName: myName,
+          completionNote: String(note || "").trim(),
+          managerNotified: true,
+          updatedByUid: me.userId || me.id || "",
+          updatedByName: myName,
+          updatedAtMillis: now,
+          updatedAt: serverTimestamp()
+        }, { merge: true });
+        closeModal("modalIsgSheetEditor");
+        alert("✅ Form tamamlandı olarak işaretlendi ve İSG yöneticisine anında bildirim gönderildi!");
+      } catch (e) {
+        alert("Tamamlama işlemi kaydedilemedi: " + (e?.message || e));
+      }
+    };
+
+    window.acknowledgeIsgFormNotif = async function(formId, closeEditorAfter = false) {
+      const me = window.currentUser || {};
+      const now = Date.now();
+      try {
+        await setDoc(doc(db, "isg_forms", formId), {
+          managerNotified: false,
+          managerAcknowledgedBy: me.displayName || me.username || "İSG Yöneticisi",
+          managerAcknowledgedAtMillis: now,
+          updatedAtMillis: now,
+          updatedAt: serverTimestamp()
+        }, { merge: true });
+        if (window.isgUiState.activeForm && window.isgUiState.activeForm.id === formId) {
+          window.isgUiState.activeForm.managerNotified = false;
+        }
+        if (closeEditorAfter) closeModal("modalIsgSheetEditor");
+      } catch (e) {
+        alert("Bildirim onaylanamadı: " + (e?.message || e));
+      }
+    };
+
+    window.deleteIsgFormWeb = async function(formId) {
+      if (!window.isIsgManager(window.currentUser)) return;
+      if (!confirm("Bu İSG kontrol formunu kalıcı olarak silmek istiyor musunuz?")) return;
+      try {
+        await deleteDoc(doc(db, "isg_forms", formId));
+      } catch (e) {
+        alert("Form silinemedi: " + (e?.message || e));
+      }
+    };
+
+    window.printCurrentIsgForm = function() {
+      if (window.isgUiState.activeForm) window.printIsgFormObject(window.isgUiState.activeForm);
+    };
+    window.printIsgFormById = function(formId) {
+      const f = (window.allIsgForms || []).find(x => x.id === formId);
+      if (f) window.printIsgFormObject(f);
+    };
+
+    window.printIsgFormObject = function(f) {
+      const tpl = getIsgTemplateById(f.templateId);
+      const logoUrl = new URL("berrak_logo.png", window.location.href).href;
+      const eq = f.equipmentFields || {};
+      const res = f.checkResults || {};
+      const notes = f.checkNotes || {};
+      const photos = f.checkPhotos || {};
+      const parafs = f.monthParafs || {};
+
+      const specRowsHtml = tpl.specRows.map(sr => `
+        <tr>
+          <td class="lbl" style="width:19%;">${escapeHtml(sr.leftLabel)}</td>
+          <td class="val" style="width:31%;">${escapeHtml(eq[sr.leftKey] || "")}</td>
+          <td class="lbl" style="width:26%;">${escapeHtml(sr.rightLabel)}</td>
+          <td class="val" style="width:24%;">${escapeHtml(eq[sr.rightKey] || "")}</td>
+        </tr>
+      `).join("");
+
+      const checklistHtml = tpl.checklistItems.map((q, idx) => {
+        const k = String(idx);
+        const r = res[k] || "";
+        const n = notes[k] || "";
+        const p = photos[k] || "";
+        const rColor = r === "UYGUN DEĞİL" ? "#b91c1c" : (r === "UYGUN" ? "#15803d" : "#000");
+        return `
+          <tr>
+            <td style="text-align:center; padding:3px 5px; font-size:9.5px; line-height:1.25;">${escapeHtml(q)}</td>
+            <td style="text-align:center; font-weight:700; font-size:9.5px; color:${rColor};">${escapeHtml(r)}</td>
+            <td style="padding:2px 4px; font-size:9px;">
+              <div style="display:flex; align-items:center; justify-content:space-between; gap:4px;">
+                <span style="flex:1; word-break:break-word;">${escapeHtml(n || (p ? "Fotoğraf ekli (Ek)" : ""))}</span>
+                ${p ? `<img src="${p}" style="width:26px; height:26px; object-fit:cover; border:0.6px solid #000; flex-shrink:0;">` : ""}
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join("");
+
+      const monthHeaders = ["AY", ...ISG_MONTHS_TR].map(m => `
+        <th style="width:22px; height:62px; font-size:8.5px; font-weight:500; padding:1px;">
+          <div style="writing-mode:vertical-rl; transform:rotate(180deg); margin:0 auto;">${m}</div>
+        </th>
+      `).join("");
+      const monthParafCells = ISG_MONTHS_TR.map(m => `
+        <td style="width:22px; height:64px; font-size:8.5px; font-weight:700; text-align:center; padding:1px;">
+          <div style="writing-mode:vertical-rl; transform:rotate(180deg); margin:0 auto;">${escapeHtml(parafs[m] || "")}</div>
+        </td>
+      `).join("");
+
+      const photoAppendixItems = tpl.checklistItems.map((q, idx) => {
+        const p = photos[String(idx)] || "";
+        if (!p) return "";
+        return `
+          <div style="border:1px solid #000; padding:8px; break-inside:avoid;">
+            <div style="font-weight:700; font-size:10px; margin-bottom:4px;">Madde #${idx + 1} (${escapeHtml(res[String(idx)] || "Kontrol")})</div>
+            <div style="font-size:9.5px; margin-bottom:6px;">${escapeHtml(q)}</div>
+            <img src="${p}" style="width:100%; max-height:220px; object-fit:contain; border:0.5px solid #cbd5e1;">
+            ${notes[String(idx)] ? `<div style="font-size:9.5px; margin-top:5px;"><strong>Açıklama:</strong> ${escapeHtml(notes[String(idx)])}</div>` : ""}
+          </div>
+        `;
+      }).filter(Boolean).join("");
+
+      const htmlDoc = `<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>${escapeHtml(f.templateTitle || tpl.title)}</title>
+  <style>
+    @page { size: A4 portrait; margin: 8mm; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: #000; background: #fff; }
+    table { border-collapse: collapse; width: 100%; }
+    td, th { border: 1px solid #000; }
+    .outer { border: 1.5px solid #000; }
+    .lbl { text-align: center; font-size: 9.5px; padding: 3px 4px; }
+    .val { text-align: center; font-size: 10px; font-weight: 700; padding: 3px 4px; }
+    .no-print { text-align: right; margin-bottom: 8px; }
+    @media print { .no-print { display: none; } }
+  </style>
+</head>
+<body>
+  <div class="no-print">
+    <button onclick="window.print()" style="padding:8px 16px; background:#1E3A8A; color:#fff; border:none; border-radius:8px; font-weight:700; cursor:pointer;">🖨️ Yazdır / PDF Kaydet</button>
+  </div>
+  <div class="outer">
+    <table>
+      <tr>
+        <td style="width:19%; text-align:center; padding:6px;"><img src="${logoUrl}" style="max-height:58px; max-width:100%; object-fit:contain;"></td>
+        <td style="width:56%; text-align:center; font-size:15px; font-weight:800; padding:6px;">${escapeHtml(f.templateTitle || tpl.title)}</td>
+        <td style="width:25%; padding:0; vertical-align:top;">
+          <table style="font-size:8.5px;">
+            <tr><td style="border-top:0;border-left:0;text-align:center;padding:1.5px 3px;width:52%;">Sayfa No</td><td style="border-top:0;border-right:0;text-align:center;padding:1.5px 3px;">${escapeHtml(f.sayfaNo || tpl.sayfaNo)}</td></tr>
+            <tr><td style="border-left:0;text-align:center;padding:1.5px 3px;">Form No</td><td style="border-right:0;text-align:center;padding:1.5px 3px;">${escapeHtml(f.formNo || tpl.formNo)}</td></tr>
+            <tr><td style="border-left:0;text-align:center;padding:1.5px 3px;">Dosya No</td><td style="border-right:0;text-align:center;padding:1.5px 3px;">${escapeHtml(f.dosyaNo || tpl.dosyaNo)}</td></tr>
+            <tr><td style="border-left:0;text-align:center;padding:1.5px 3px;">Yayın Tarihi</td><td style="border-right:0;text-align:center;padding:1.5px 3px;">${escapeHtml(f.yayinTarihi || tpl.yayinTarihi)}</td></tr>
+            <tr><td style="border-left:0;text-align:center;padding:1.5px 3px;">Revizyon No</td><td style="border-right:0;text-align:center;padding:1.5px 3px;">${escapeHtml(f.revizyonNo || tpl.revizyonNo)}</td></tr>
+            <tr><td style="border-bottom:0;border-left:0;text-align:center;padding:1.5px 3px;">Revizyon Tarihi</td><td style="border-bottom:0;border-right:0;text-align:center;padding:1.5px 3px;">${escapeHtml(f.revizyonTarihi || tpl.revizyonTarihi)}</td></tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <table>${specRowsHtml}</table>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:50%; padding:6px; font-size:11px; font-weight:800;">${escapeHtml(tpl.checklistHeaderLeft)}</th>
+          <th style="width:26%; padding:6px; font-size:10.5px; font-weight:800;">${escapeHtml(tpl.checklistHeaderMid)}</th>
+          <th style="width:24%; padding:6px; font-size:10.5px; font-weight:800; text-decoration:underline;">${escapeHtml(tpl.checklistHeaderRight)}</th>
+        </tr>
+      </thead>
+      <tbody>${checklistHtml}</tbody>
+    </table>
+    <div style="border-top:1px solid #000; padding:12px 14px; display:flex; align-items:flex-start; justify-content:space-between; gap:18px;">
+      <table style="width:53%;">
+        <tr>${monthHeaders}</tr>
+        <tr>
+          <th style="width:22px; height:64px; font-size:8.5px; font-weight:500;">
+            <div style="writing-mode:vertical-rl; transform:rotate(180deg); margin:0 auto;">PARAF</div>
+          </th>
+          ${monthParafCells}
+        </tr>
+      </table>
+      <div style="flex:1; text-align:center; padding-top:4px;">
+        <div style="font-size:11px; margin-bottom:16px;">ONAYLAR</div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+          <div>
+            <div style="font-size:10px; margin-bottom:12px;">${escapeHtml(tpl.approvalLeftLabel)}</div>
+            <div style="font-size:10.5px; font-weight:700;">${escapeHtml(f.kontrolEden || "")}</div>
+          </div>
+          <div>
+            <div style="font-size:10px; margin-bottom:12px;">${escapeHtml(tpl.approvalRightLabel)}</div>
+            <div style="font-size:10.5px; font-weight:700;">${escapeHtml(f.isverenVekili || "")}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  ${photoAppendixItems ? `
+    <div style="page-break-before: always; padding-top: 8px;">
+      <h3 style="text-align:center; font-size:13px; border-bottom:1.5px solid #000; padding-bottom:6px; margin:0 0 12px 0;">
+        ${escapeHtml(f.templateTitle || tpl.title)} — AÇIKLAMA FOTOĞRAF EKLERİ (${escapeHtml(f.dosyaNo || tpl.dosyaNo)})
+      </h3>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+        ${photoAppendixItems}
+      </div>
+    </div>
+  ` : ""}
+</body>
+</html>`;
+      const win = window.open("", "_blank");
+      if (win) {
+        win.document.open();
+        win.document.write(htmlDoc);
+        win.document.close();
+      } else {
+        alert("Yazdırma penceresi tarayıcı tarafından engellendi. Lütfen açılır pencerelere izin veriniz.");
+      }
+    };
+
+    window.exportCurrentIsgFormExcel = function() {
+      if (window.isgUiState.activeForm) window.exportIsgFormExcelObject(window.isgUiState.activeForm);
+    };
+    window.exportIsgFormExcelById = function(formId) {
+      const f = (window.allIsgForms || []).find(x => x.id === formId);
+      if (f) window.exportIsgFormExcelObject(f);
+    };
+
+    window.exportIsgFormExcelObject = function(f) {
+      if (typeof XLSX === "undefined") {
+        alert("Excel kütüphanesi yüklenemedi.");
+        return;
+      }
+      const tpl = getIsgTemplateById(f.templateId);
+      const eq = f.equipmentFields || {};
+      const res = f.checkResults || {};
+      const notes = f.checkNotes || {};
+      const photos = f.checkPhotos || {};
+      const parafs = f.monthParafs || {};
+
+      const aoa = [
+        ["BERRAK", f.templateTitle || tpl.title, "Sayfa No", f.sayfaNo || tpl.sayfaNo],
+        ["", "", "Form No", f.formNo || tpl.formNo],
+        ["", "", "Dosya No", f.dosyaNo || tpl.dosyaNo],
+        ["", "", "Yayın Tarihi", f.yayinTarihi || tpl.yayinTarihi],
+        ["", "", "Revizyon No / Tarihi", `${f.revizyonNo || "-"} / ${f.revizyonTarihi || "-"}`],
+        []
+      ];
+      tpl.specRows.forEach(sr => {
+        aoa.push([sr.leftLabel, eq[sr.leftKey] || "", sr.rightLabel, eq[sr.rightKey] || ""]);
+      });
+      aoa.push([]);
+      aoa.push(["NO", tpl.checklistHeaderLeft, tpl.checklistHeaderMid, tpl.checklistHeaderRight, "FOTOĞRAF"]);
+      tpl.checklistItems.forEach((q, idx) => {
+        const k = String(idx);
+        aoa.push([idx + 1, q, res[k] || "", notes[k] || "", photos[k] ? "Fotoğraf Ekli (PDF çıktısında görünür)" : ""]);
+      });
+      aoa.push([]);
+      aoa.push(["AY", ...ISG_MONTHS_TR]);
+      aoa.push(["PARAF", ...ISG_MONTHS_TR.map(m => parafs[m] || "")]);
+      aoa.push([]);
+      aoa.push(["ONAYLAR", `${tpl.approvalLeftLabel}: ${f.kontrolEden || "-"}`, `${tpl.approvalRightLabel}: ${f.isverenVekili || "-"}`, `Durum: ${f.status || "-"}`]);
+
+      const ws = XLSX.utils.aoa_to_sheet(aoa);
+      ws["!cols"] = [{ wch: 18 }, { wch: 56 }, { wch: 24 }, { wch: 32 }, { wch: 24 }];
+      const wb = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, `Form_${f.formNo || "27"}`);
+      XLSX.writeFile(wb, `Tekinak_ISG_Form_${f.formNo || "27"}_${new Date().toISOString().slice(0, 10)}.xlsx`);
     };
 
     // Uygulamayı Başlat
