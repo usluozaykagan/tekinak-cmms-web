@@ -1,16 +1,17 @@
 {
-  "versionCode": 36,
-  "versionName": "1.6.7",
-  "releaseTag": "v1.6.7",
-  "releaseDate": "2026-11-23",
+  "versionCode": 37,
+  "versionName": "1.6.8",
+  "releaseTag": "v1.6.8",
+  "releaseDate": "2026-11-26",
   "apkUrl": "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
   "fallbackUrl": "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-  "title": "Yeni Sürüm Mevcut (v1.6.7)",
+  "title": "Yeni Sürüm Mevcut (v1.6.8)",
   "changelog": [
-    "İSG formlarında Android ve Web 1 MB belge boyutu kaydetme/tamamlama hatası giderildi: yüksek netlikteki (Full HD) fotoğraflar ayrı 'isg_form_photos' koleksiyonuna kaydedilir.",
-    "İSG formlarına Evrak Fotoğrafları (12 adede kadar) ve satır bazlı anlık kamera çekimi + çoklu galeri yükleme desteği (netlik korunarak) eklendi.",
-    "Web'de fotoğraf detay önizleme (tam ekran zoom, ileri/geri galeri ve indirme destekli lightbox) düzeltildi.",
-    "Yönlendirilen İSG formlarında yalnızca atanan personelin düzenleme yapabilmesi (diğer kullanıcılar için salt okunur inceleme ve PDF/Word/Excel çıktı alma) sağlandı (v1.6.7 - Kod: 36)."
+    "Bildirim açma ve cihaz kurulum ayarları Ayarlar sekmesine taşındı; ana ekrandaki bildirim uyarı şeridi kaldırıldı ve anlık bildirim akışı korundu.",
+    "Forklift kontrol formu aylık PARAF kutuları düz açılan dijital imza alanı olarak güncellendi ve imza kutucuğa 90° sola yatırılarak sığdırıldı.",
+    "İSG sekmesinden Word/Excel dışa aktarma butonları, konu başlıkları filtresi ve Evrak Fotoğrafları bölümü kaldırıldı.",
+    "Paketleme Arıza (FR-59) çıktılarında başlangıç tarihi seçimi eklendi ve sayfaya sığabildiği kadar arıza tablosu dinamik olarak yerleştirildi.",
+    "Uygulama ve web genelindeki tüm Excel çıktıları Yazdır / PDF raporlarına dönüştürüldü (v1.6.8 - Kod: 37)."
   ],
   "forceUpdate": false
 }

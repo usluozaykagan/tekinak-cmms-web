@@ -36,7 +36,7 @@
   <!-- SheetJS for authentic Microsoft Excel (.xlsx) Generation -->
   <script src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
   <!-- 10 İSG Kontrol Listesi Şablonu (136 Konu Başlığı, 1.347 Madde) -->
-  <script src="isg_checklist_templates.js?v=36"></script>
+  <script src="isg_checklist_templates.js?v=37"></script>
   <style>
     :root {
       --safe-top: env(safe-area-inset-top, 0px);
@@ -343,9 +343,9 @@
         </div>
 
         <div class="pt-3 text-center border-t border-slate-100 flex flex-col items-center justify-center gap-2">
-          <a href="app-release.apk?v=36" id="loginApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold rounded-lg border border-emerald-300 transition shadow-sm">
+          <a href="app-release.apk?v=37" id="loginApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold rounded-lg border border-emerald-300 transition shadow-sm">
             <i data-lucide="smartphone" class="w-3.5 h-3.5 text-emerald-600"></i>
-            <span id="loginApkBtnText">Android APK İndir (v1.6.7)</span>
+            <span id="loginApkBtnText">Android APK İndir (v1.6.8)</span>
           </a>
           <div class="text-[11px] text-slate-400 flex items-center justify-center gap-1.5">
             <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600"></i>
@@ -396,20 +396,15 @@
         </div>
 
         <!-- Android APK İndir Butonu (Tüm Kullanıcılar Görür) -->
-        <a href="app-release.apk?v=36" id="topApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center space-x-1 px-2.5 py-1 rounded-full text-[11px] sm:text-xs font-semibold bg-blue-700/60 hover:bg-blue-600 text-white border border-blue-400/40 transition shadow-sm whitespace-nowrap flex-shrink-0" title="Android Mobil APK İndir">
+        <a href="app-release.apk?v=37" id="topApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center space-x-1 px-2.5 py-1 rounded-full text-[11px] sm:text-xs font-semibold bg-blue-700/60 hover:bg-blue-600 text-white border border-blue-400/40 transition shadow-sm whitespace-nowrap flex-shrink-0" title="Android Mobil APK İndir">
           <i data-lucide="download" class="w-3.5 h-3.5 text-amber-300 flex-shrink-0"></i>
-          <span id="topApkBtnText">APK İndir (v1.6.7)</span>
+          <span id="topApkBtnText">APK İndir (v1.6.8)</span>
         </a>
 
         <!-- Mobil Sürüm Yönetimi Butonu (Sadece usluozaykagan@gmail.com için görünür) -->
         <button id="topAppVersionBtn" onclick="openAppVersionModal()" style="display: none;" class="hidden items-center space-x-1 px-2.5 py-1 rounded-full text-[11px] sm:text-xs font-semibold bg-emerald-600/70 hover:bg-emerald-600 text-white border border-emerald-400/40 transition shadow-sm whitespace-nowrap flex-shrink-0" title="Firebase Mobil Sürüm Kontrolü ve Güncelleme">
           <i data-lucide="smartphone" class="w-3.5 h-3.5 text-amber-300 flex-shrink-0"></i>
-          <span id="topVersionBadgeText">Sürüm: v1.6.7</span>
-        </button>
-
-        <!-- Bildirim Sihirbazı Butonu -->
-        <button id="topNotifBtn" onclick="openNotificationWizard()" class="p-1.5 sm:p-2 hover:bg-blue-800 text-amber-300 rounded-xl transition relative flex-shrink-0" title="Yüksek Öncelikli Bildirim Ayarı">
-          <i data-lucide="bell-ring" class="w-5 h-5"></i>
+          <span id="topVersionBadgeText">Sürüm: v1.6.8</span>
         </button>
 
         <!-- Saha Chatbox Butonu (Badged) -->
@@ -483,8 +478,8 @@
           <button id="btnReorderTabs" onclick="openTabOrderModal()" class="hidden px-2 py-1.5 my-1 text-[11px] font-bold bg-blue-900/90 hover:bg-blue-800 text-amber-300 border border-amber-400/40 rounded-lg flex items-center gap-1 shadow transition whitespace-nowrap" title="Yönetici: Sekme Sıralamasını Tüm Kullanıcılarda Anlık Değiştir">
             <i data-lucide="arrow-left-right" class="w-3.5 h-3.5"></i> <span class="hidden sm:inline">Sekme Sırası</span>
           </button>
-          <button id="btnHeaderExcel" onclick="openExcelDialog()" class="btn-excel-export px-2.5 sm:px-3 py-1.5 my-1 text-xs font-bold bg-emerald-700 hover:bg-emerald-600 text-white rounded-lg flex items-center gap-1 shadow transition whitespace-nowrap">
-            <i data-lucide="file-spreadsheet" class="w-4 h-4"></i> <span class="hidden md:inline">Excel İndir</span>
+          <button id="btnHeaderExcel" onclick="openExcelDialog()" class="btn-excel-export px-2.5 sm:px-3 py-1.5 my-1 text-xs font-bold bg-[#1E3A8A] hover:bg-blue-700 text-white border border-blue-400/40 rounded-lg flex items-center gap-1 shadow transition whitespace-nowrap" title="PDF / Yazdır Rapor Merkezi">
+            <i data-lucide="printer" class="w-4 h-4"></i> <span class="hidden md:inline">Yazdır / PDF</span>
           </button>
         </div>
       </div>
@@ -500,11 +495,11 @@
         </span>
           <div class="min-w-0 flex-1">
             <div class="flex flex-wrap items-center gap-1.5 font-extrabold text-blue-950">
-              <span id="webUpdateBannerTitle" class="break-words">🚀 Yeni Mobil Sürüm Yayında: Tekinak CMMS v1.6.7</span>
-              <span id="webUpdateBannerCodeBadge" class="px-1.5 py-0.5 rounded bg-emerald-600 text-white text-[10px] font-bold whitespace-nowrap">v1.6.7 (Kod: 36)</span>
+              <span id="webUpdateBannerTitle" class="break-words">🚀 Yeni Mobil Sürüm Yayında: Tekinak CMMS v1.6.8</span>
+              <span id="webUpdateBannerCodeBadge" class="px-1.5 py-0.5 rounded bg-emerald-600 text-white text-[10px] font-bold whitespace-nowrap">v1.6.8 (Kod: 37)</span>
             </div>
             <div id="webUpdateBannerSummary" class="text-[11px] text-slate-600 mt-0.5 break-words">
-              İSG formlarında 1 MB kaydetme/tamamlama hatası giderildi, Full HD net fotoğraf &amp; kamera çekimi, Evrak Fotoğrafları, web detay/zoom önizleme ve yalnızca yönlendirilen kişi düzenleme kilidi eklendi!
+              Bildirim açma ayarları Ayarlar bölümüne taşındı, Forklift aylık PARAF dijital imza kutusu (-90° yatay sığdırma) eklendi, FR-59 tarihli dinamik PDF çıktı ve tüm raporlarda Yazdır / PDF desteği sağlandı!
             </div>
           </div>
         </div>
@@ -512,9 +507,9 @@
           <button type="button" onclick="toggleWebUpdateChangelog()" class="px-2.5 py-1.5 bg-white hover:bg-slate-100 text-blue-800 border border-blue-200 rounded-lg font-bold text-[11px] transition">
             Yenilikler
           </button>
-          <a id="webUpdateBannerDownloadBtn" href="app-release.apk?v=36" download="tekinak-bakim.apk" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold text-[11px] shadow-sm flex items-center gap-1.5 transition whitespace-nowrap">
+          <a id="webUpdateBannerDownloadBtn" href="app-release.apk?v=37" download="tekinak-bakim.apk" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold text-[11px] shadow-sm flex items-center gap-1.5 transition whitespace-nowrap">
             <i data-lucide="download" class="w-3.5 h-3.5"></i>
-            <span id="webUpdateBannerDownloadText">APK İndir (v1.6.7)</span>
+            <span id="webUpdateBannerDownloadText">APK İndir (v1.6.8)</span>
           </a>
         <button type="button" onclick="dismissWebUpdateBanner()" class="p-1 text-slate-400 hover:text-slate-700 rounded-lg" title="Bu sürüm için gizle">
           <i data-lucide="x" class="w-4 h-4"></i>
@@ -522,18 +517,6 @@
       </div>
     </div>
     <ul id="webUpdateChangelogList" class="hidden mt-2 pt-2 border-t border-blue-200/70 text-[11px] text-slate-700 space-y-1 pl-5 sm:pl-9 list-disc break-words"></ul>
-  </div>
-
-  <!-- ================= BİLDİRİM UYARI ŞERİDİ ================= -->
-  <div id="notificationAlertBanner" class="bg-amber-50 border-b border-amber-200 px-3 sm:px-4 py-2 flex flex-wrap sm:flex-nowrap items-center justify-between gap-2 text-xs text-amber-900 max-w-7xl mx-auto w-full min-w-0 overflow-hidden">
-    <div class="flex items-start sm:items-center space-x-2 min-w-0 flex-1">
-      <i data-lucide="bell" class="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5 sm:mt-0"></i>
-      <span class="break-words"><strong>Xiaomi / Android Bildirim Uyarısı:</strong> Telefon kapalıyken anlık ses ve ekran bildirimlerini almak için Otomatik Başlatma ve Pil Kısıtlamasını ayarlayınız.</span>
-    </div>
-    <div class="flex items-center space-x-2 flex-shrink-0 ml-auto">
-      <button onclick="openNotificationWizard()" class="px-2.5 py-1 bg-amber-600 hover:bg-amber-700 text-white rounded-md font-bold text-[11px] whitespace-nowrap">Ayarla</button>
-      <button onclick="document.getElementById('notificationAlertBanner').remove()" class="text-amber-600 hover:text-amber-800"><i data-lucide="x" class="w-4 h-4"></i></button>
-    </div>
   </div>
 
   <!-- ================= FIREBASE AUTH DURUM BİLGİLENDİRMESİ ================= -->
@@ -858,8 +841,8 @@
             <button type="button" id="btnSchedCalendarToggle" onclick="toggleScheduleCalendar()" class="px-3 py-2 bg-indigo-50 hover:bg-indigo-100 text-indigo-900 border border-indigo-200 text-xs font-bold rounded-lg flex items-center gap-1.5 transition">
               <i data-lucide="calendar-days" class="w-4 h-4 text-indigo-700"></i> Takvim Görünümü
             </button>
-            <button id="btnScheduleExcel" onclick="openExcelDialog()" class="btn-excel-export px-3.5 py-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-300 text-xs font-bold rounded-lg flex items-center gap-1.5 transition">
-              <i data-lucide="file-spreadsheet" class="w-4 h-4 text-emerald-600"></i> Excel (.xlsx)
+            <button id="btnScheduleExcel" onclick="openExcelDialog()" class="btn-excel-export px-3.5 py-2 bg-blue-50 hover:bg-blue-100 text-[#1E3A8A] border border-blue-300 text-xs font-bold rounded-lg flex items-center gap-1.5 transition">
+              <i data-lucide="printer" class="w-4 h-4 text-[#1E3A8A]"></i> Yazdır / PDF
             </button>
             <button id="btnSchedNewPlan" onclick="openNewScheduleModal()" class="px-3.5 py-2 bg-[#1E3A8A] hover:bg-blue-800 text-white text-xs font-bold rounded-lg flex items-center gap-1.5 shadow transition">
               <i data-lucide="plus" class="w-4 h-4"></i> Yeni Bakım Planı Ekle
@@ -920,7 +903,7 @@
       <div id="pane-analytics" class="elec-sub-pane hidden space-y-5">
         <div id="analyticsReadOnlyBanner" class="hidden bg-amber-50 border border-amber-200 text-amber-900 px-3.5 py-2.5 rounded-xl text-xs font-semibold flex items-center gap-2">
           <i data-lucide="eye" class="w-4 h-4 text-amber-700 flex-shrink-0"></i>
-          <span>Salt Okunur (Sadece Görüntüleme): Analiz detay inceleme ve Excel dışa aktarma yetkiniz kapalıdır.</span>
+          <span>Salt Okunur (Sadece Görüntüleme): Analiz detay inceleme ve PDF / Yazdır dışa aktarma yetkiniz kapalıdır.</span>
         </div>
         <div class="bg-white p-5 rounded-xl border border-slate-200 custom-shadow space-y-5">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
@@ -928,8 +911,8 @@
               <h3 class="font-bold text-base text-slate-800">Fabrika Bakım KPI &amp; Performans Analizi</h3>
               <p id="analyticsSubHint" class="text-xs text-slate-500">Detayları incelemek için KPI kartlarına tıklayabilirsiniz • Canlı MTTR, Kök Neden ve Darboğaz Raporu</p>
             </div>
-            <button id="btnAnalyticsExcel" onclick="openExcelDialog()" class="btn-excel-export px-4 py-2 bg-emerald-700 hover:bg-emerald-600 text-white rounded-xl text-xs font-bold flex items-center gap-2 shadow transition">
-              <i data-lucide="file-spreadsheet" class="w-4 h-4"></i> Excel Tablosu İndir
+            <button id="btnAnalyticsExcel" onclick="openExcelDialog()" class="btn-excel-export px-4 py-2 bg-[#1E3A8A] hover:bg-blue-800 text-white rounded-xl text-xs font-bold flex items-center gap-2 shadow transition">
+              <i data-lucide="printer" class="w-4 h-4"></i> Yazdır / PDF
             </button>
           </div>
 
@@ -978,19 +961,16 @@
             <p class="text-xs text-slate-500 mt-0.5">Dikey dolum, kartonlama, 5 kg çuval hatları KKN kontrolü ve FR-59 Arıza ve Bakım Takip Formu</p>
           </div>
           <div id="pkgShiftsActions" class="flex flex-wrap items-center gap-2 w-full sm:w-auto">
-            <button type="button" id="btnPackagingExcel" onclick="exportPackagingExcel()" class="btn-excel-export px-3 py-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 rounded-xl text-xs font-bold flex items-center gap-1.5 transition">
-              <i data-lucide="file-spreadsheet" class="w-3.5 h-3.5"></i> Excel (.xlsx)
+            <button type="button" id="btnPackagingExcel" onclick="exportPackagingExcel()" class="btn-excel-export px-3 py-2 bg-blue-50 hover:bg-blue-100 text-[#1E3A8A] border border-blue-200 rounded-xl text-xs font-bold flex items-center gap-1.5 transition">
+              <i data-lucide="printer" class="w-3.5 h-3.5"></i> Yazdır / PDF
             </button>
             <button type="button" id="btnAddPackagingLog" onclick="openPackagingLogModal()" class="px-4 py-2 bg-[#1E3A8A] hover:bg-blue-800 text-white rounded-xl text-xs font-bold shadow flex items-center gap-1.5 transition">
               <i data-lucide="plus" class="w-4 h-4"></i> + Vardiya / Hat Kaydı Ekle
             </button>
           </div>
           <div id="pkgFr59Actions" class="hidden flex flex-wrap items-center gap-2 w-full sm:w-auto">
-            <button type="button" onclick="printPackagingFaultForms()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-300 rounded-xl text-xs font-bold flex items-center gap-1.5 transition">
-              <i data-lucide="printer" class="w-3.5 h-3.5"></i> Yazdır (FR-59)
-            </button>
-            <button type="button" id="btnPackagingFr59Excel" onclick="exportPackagingFaultFormsExcel()" class="btn-excel-export px-3 py-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 rounded-xl text-xs font-bold flex items-center gap-1.5 transition">
-              <i data-lucide="file-spreadsheet" class="w-3.5 h-3.5"></i> Excel (.xlsx)
+            <button type="button" onclick="openPackagingFr59PrintModal()" class="px-3 py-2 bg-blue-50 hover:bg-blue-100 text-[#1E3A8A] border border-blue-300 rounded-xl text-xs font-bold flex items-center gap-1.5 transition">
+              <i data-lucide="printer" class="w-3.5 h-3.5"></i> Yazdır / PDF (FR-59)
             </button>
             <button type="button" id="btnAddPackagingFr59" onclick="openPackagingFaultFormModal()" class="px-4 py-2 bg-[#1E3A8A] hover:bg-blue-800 text-white rounded-xl text-xs font-bold shadow flex items-center gap-1.5 transition">
               <i data-lucide="plus" class="w-4 h-4"></i> + Yeni FR-59 Tablo Kaydı
@@ -1215,11 +1195,11 @@
             <button type="button" id="btnUtilityReferenceEditor" onclick="openUtilityReferenceEditor()" class="hidden px-3 py-2 bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300 rounded-xl text-xs font-bold flex items-center gap-1 transition">
               <i data-lucide="sliders" class="w-3.5 h-3.5 text-amber-700"></i> Referans Limitleri
             </button>
-            <button type="button" id="btnUtilityExcelAll" onclick="exportAllUtilitiesDayExcel()" class="btn-excel-export px-3 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow-sm flex items-center gap-1.5 transition" title="Seçili gündeki tüm yardımcı tesisleri (saatlik özet, notlar ve tüm birimler) tek Excel (.xlsx) dosyası olarak indir">
-              <i data-lucide="file-spreadsheet" class="w-3.5 h-3.5"></i> Tüm Tesisler Excel (.xlsx)
+            <button type="button" id="btnUtilityExcelAll" onclick="exportAllUtilitiesDayExcel()" class="btn-excel-export px-3 py-2 bg-[#1E3A8A] hover:bg-blue-800 text-white rounded-xl text-xs font-bold shadow-sm flex items-center gap-1.5 transition" title="Seçili gündeki tüm yardımcı tesisleri (saatlik özet, notlar ve tüm birimler) yazdırılabilir PDF raporu olarak aç">
+              <i data-lucide="printer" class="w-3.5 h-3.5"></i> Tüm Tesisler PDF / Yazdır
             </button>
-            <button type="button" id="btnUtilityExcel" onclick="exportUtilityFormExcel()" class="btn-excel-export hidden px-3 py-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 rounded-xl text-xs font-bold flex items-center gap-1 transition">
-              <i data-lucide="file-spreadsheet" class="w-3.5 h-3.5"></i> Aktif Form (.xlsx)
+            <button type="button" id="btnUtilityExcel" onclick="exportUtilityFormExcel()" class="btn-excel-export hidden px-3 py-2 bg-blue-50 hover:bg-blue-100 text-[#1E3A8A] border border-blue-200 rounded-xl text-xs font-bold flex items-center gap-1 transition">
+              <i data-lucide="printer" class="w-3.5 h-3.5"></i> Aktif Form PDF / Yazdır
             </button>
             <button type="button" id="btnUtilitySaveTop" onclick="saveUtilityControlForm()" class="px-4 py-2 bg-emerald-700 hover:bg-emerald-600 text-white rounded-xl text-xs font-bold shadow flex items-center gap-1.5 transition">
               <i data-lucide="save" class="w-3.5 h-3.5"></i> Formu Kaydet
@@ -1356,8 +1336,8 @@
             <p class="text-xs text-slate-500 mt-0.5">101 Buhler, 102 Anselmo, 103 Fava, 104 Buhler, 201 Kesme, 202 Kesme hatlarına ait bağımsız arıza ve duruş süresi kayıtları</p>
           </div>
           <div class="flex flex-wrap items-center gap-2 w-full sm:w-auto">
-            <button type="button" id="btnProdFaultExcel" onclick="exportProductionFaultsExcel()" class="btn-excel-export px-3 py-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 rounded-xl text-xs font-bold flex items-center gap-1.5 transition">
-              <i data-lucide="file-spreadsheet" class="w-3.5 h-3.5"></i> Excel (.xlsx)
+            <button type="button" id="btnProdFaultExcel" onclick="exportProductionFaultsExcel()" class="btn-excel-export px-3 py-2 bg-blue-50 hover:bg-blue-100 text-[#1E3A8A] border border-blue-200 rounded-xl text-xs font-bold flex items-center gap-1.5 transition">
+              <i data-lucide="printer" class="w-3.5 h-3.5"></i> Yazdır / PDF
             </button>
             <button type="button" id="btnNewProdFault" onclick="openNewProdFaultModal()" class="px-4 py-2 bg-[#1E3A8A] hover:bg-blue-900 text-white rounded-xl text-xs font-bold shadow flex items-center gap-1.5 transition">
               <i data-lucide="plus" class="w-4 h-4"></i> + Yeni Üretim Arızası
@@ -1913,8 +1893,37 @@
         </div>
       </div>
 
-      <!-- SEKME 2: AYARLAR & ERİŞİLEBİLİRLİK (Herkes kendi isteğine göre kullanabilir) -->
+      <!-- SEKME 2: AYARLAR, BİLDİRİMLER & ERİŞİLEBİLİRLİK -->
       <div id="profPanelSettings" class="hidden space-y-3 text-xs">
+        <div id="profNotifCard" class="p-3.5 bg-slate-50 border border-slate-200 rounded-xl space-y-2.5 transition">
+          <div class="flex items-center justify-between gap-2">
+            <div class="flex items-center gap-1.5 font-bold text-[#1E3A8A] text-sm">
+              <i data-lucide="bell-ring" class="w-4 h-4 text-amber-600"></i>
+              <span>Bildirimler</span>
+            </div>
+            <span id="profNotifStatusBadge" class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800">Aktif</span>
+          </div>
+
+          <label class="flex items-start gap-2.5 p-2.5 bg-white border border-slate-200 rounded-xl cursor-pointer hover:border-blue-400 transition">
+            <input type="checkbox" id="profNotifEnabled" onchange="onWebNotificationsToggle(this.checked)" class="w-4 h-4 mt-0.5 rounded text-[#1E3A8A] focus:ring-[#1E3A8A] flex-shrink-0 cursor-pointer">
+            <div class="space-y-0.5">
+              <div class="font-bold text-slate-900">Anlık Bildirim Mesajları</div>
+              <div id="profNotifStatusText" class="text-[11px] text-slate-500 leading-snug">Yeni arıza, iş emri, İSG form yönlendirme ve bakım bildirimlerini alırsınız.</div>
+            </div>
+          </label>
+
+          <div class="flex flex-wrap items-center gap-2">
+            <button type="button" id="btnEnableWebNotifications" onclick="enableWebNotifications()" class="flex-1 min-w-[160px] py-2 px-3 bg-[#1E3A8A] hover:bg-blue-800 text-white rounded-xl text-[11px] font-bold flex items-center justify-center gap-1.5 transition">
+              <i data-lucide="bell" class="w-3.5 h-3.5"></i>
+              <span>Tarayıcı Bildirimlerini Aç</span>
+            </button>
+            <button type="button" onclick="openNotificationWizard()" class="flex-1 min-w-[160px] py-2 px-3 bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300 rounded-xl text-[11px] font-bold flex items-center justify-center gap-1.5 transition">
+              <i data-lucide="smartphone" class="w-3.5 h-3.5 text-amber-700"></i>
+              <span>Xiaomi / Android Kurulum</span>
+            </button>
+          </div>
+        </div>
+
         <div id="profA11yCard" class="p-3.5 bg-slate-50 border border-slate-200 rounded-xl space-y-3 transition">
           <div class="flex items-center justify-between gap-2">
             <div class="flex items-center gap-1.5 font-bold text-[#1E3A8A] text-sm">
@@ -1970,7 +1979,7 @@
         <div class="p-2.5 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-between text-[11px] text-slate-600">
           <div class="flex items-center gap-1.5 font-semibold text-slate-700">
             <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600"></i>
-            <span id="profSystemVersionText">Sistem Sürümü: v1.6.7</span>
+            <span id="profSystemVersionText">Sistem Sürümü: v1.6.8</span>
           </div>
           <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-300">Güncel ✓</span>
         </div>
@@ -2080,30 +2089,29 @@
     </div>
   </div>
 
-  <!-- MODAL: EXCEL / XLSX DIŞA AKTARMA (Tarih Aralığı ve Gerçek Çoklu Sayfalı Excel) -->
+  <!-- MODAL: YAZDIR / PDF RAPOR MERKEZİ (Tarih Aralığı & A4 Baskı) -->
   <div id="modalExcel" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
     <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl space-y-4 max-h-[92vh] overflow-y-auto">
       <div class="flex items-center justify-between border-b pb-3">
-        <h3 class="font-bold text-base text-emerald-800 flex items-center gap-2">
-          <i data-lucide="file-spreadsheet" class="w-5 h-5 text-emerald-600"></i> Excel (.xlsx) Raporlama & Dışa Aktarma
+        <h3 class="font-bold text-base text-[#1E3A8A] flex items-center gap-2">
+          <i data-lucide="printer" class="w-5 h-5 text-[#1E3A8A]"></i> PDF / Yazdır Rapor Merkezi
         </h3>
         <button onclick="closeModal('modalExcel')" class="text-slate-400 hover:text-slate-600"><i data-lucide="x" class="w-5 h-5"></i></button>
       </div>
       
       <div class="text-xs space-y-3">
-        <div class="bg-emerald-50 p-3.5 rounded-xl border border-emerald-200 text-emerald-950 flex items-start gap-2.5">
-          <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+        <div class="bg-blue-50 p-3.5 rounded-xl border border-blue-200 text-blue-950 flex items-start gap-2.5">
+          <i data-lucide="check-circle-2" class="w-4 h-4 text-[#1E3A8A] shrink-0 mt-0.5"></i>
           <div>
-            <strong>Orijinal Microsoft Excel (.xlsx) Formatı:</strong>
-            <p class="text-[11px] text-emerald-800 mt-0.5">Raporlar CSV yerine çift tıklamayla açılan gerçek Excel (.xlsx) formatında oluşturulur. Arıza kayıtları, iş emirleri ve periyodik bakımlar ayrı çalışma sayfalarında 'İşi Yapan Personel' sütunuyla listelenir.</p>
+            <strong>A4 PDF &amp; Yazıcı Çıktısı:</strong>
+            <p class="text-[11px] text-blue-900 mt-0.5">Tüm raporlar doğrudan yazdırılabilir ve PDF olarak kaydedilebilir biçimde açılır. Arıza kayıtları, iş emirleri, periyodik bakımlar ve yardımcı tesisler tek tıkla A4 çıktı verir.</p>
           </div>
         </div>
 
-        <!-- TARİH ARALIĞI PRESETLERİ (Android Birebir) -->
         <div>
           <label class="block font-bold text-slate-700 mb-1.5">Tarih Aralığı Seçiniz:</label>
           <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
-            <button type="button" onclick="setExcelPreset('ALL')" id="excelPresetALL" class="excel-preset-btn p-2 rounded-lg border text-left bg-emerald-50 border-emerald-500 text-emerald-900 font-bold transition">
+            <button type="button" onclick="setExcelPreset('ALL')" id="excelPresetALL" class="excel-preset-btn p-2 rounded-lg border text-left bg-blue-50 border-blue-500 text-blue-900 font-bold transition">
               <div class="font-bold">Tüm Zamanlar</div>
               <div class="text-[10px] text-slate-500 font-normal">Kayıtlı tüm veriler</div>
             </button>
@@ -2126,7 +2134,6 @@
           </div>
         </div>
 
-        <!-- ÖZEL TARİH SEÇİCİLER -->
         <div id="excelCustomDateContainer" class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
           <div>
             <label class="block font-semibold text-slate-700 mb-1">Başlangıç Tarihi</label>
@@ -2141,7 +2148,7 @@
         <div>
           <label class="block font-semibold text-slate-700 mb-1">Rapor Kapsamı</label>
           <select id="excelScope" class="w-full border rounded-lg p-2.5 bg-white font-medium">
-            <option value="ALL">Tüm Veriler (Ayrı Sayfalarda: Arızalar + İş Emirleri + Periyodik Bakım + Yardımcı Tesisler)</option>
+            <option value="ALL">Tüm Veriler (Arızalar + İş Emirleri + Periyodik Bakım + Yardımcı Tesisler)</option>
             <option value="UTILITY">Yalnızca Yardımcı Tesisler Kontrol Formları &amp; Saatlik Açıklamalar</option>
             <option value="FAULTS">Yalnızca Arıza Kayıtları</option>
             <option value="WO">Yalnızca İş Emirleri</option>
@@ -2152,8 +2159,54 @@
 
       <div class="flex justify-end gap-2 pt-3 border-t">
         <button onclick="closeModal('modalExcel')" class="px-4 py-2 border rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-50">İptal</button>
-        <button onclick="executeExcelDownload()" class="px-5 py-2.5 bg-emerald-700 hover:bg-emerald-600 text-white rounded-xl text-xs font-bold shadow flex items-center gap-2 transition">
-          <i data-lucide="file-spreadsheet" class="w-4 h-4"></i> Excel (.xlsx) Olarak İndir
+        <button onclick="executeExcelDownload()" class="px-5 py-2.5 bg-[#1E3A8A] hover:bg-blue-800 text-white rounded-xl text-xs font-bold shadow flex items-center gap-2 transition">
+          <i data-lucide="printer" class="w-4 h-4"></i> Yazdır / PDF Oluştur
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: PAKETLEME FR-59 ÇIKTI TARİH SEÇİMİ -->
+  <div id="modalPkgFr59Print" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4">
+      <div class="flex items-center justify-between border-b pb-3">
+        <h3 class="font-bold text-base text-[#1E3A8A] flex items-center gap-2">
+          <i data-lucide="printer" class="w-5 h-5 text-[#1E3A8A]"></i> FR-59 Yazdır / PDF
+        </h3>
+        <button onclick="closeModal('modalPkgFr59Print')" class="text-slate-400 hover:text-slate-600"><i data-lucide="x" class="w-5 h-5"></i></button>
+      </div>
+
+      <div class="space-y-3 text-xs">
+        <div class="bg-blue-50 border border-blue-200 rounded-xl p-3 text-blue-950">
+          Çıktı sayfaya sığabildiği kadar FR-59 arıza tablosunu otomatik sığdırır.
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Hangi tarihten itibaren çıktı alınsın?</label>
+          <input type="date" id="pkgFr59PrintStartDate" oninput="updatePkgFr59PrintPreviewCount()" class="w-full border border-slate-300 rounded-xl p-2.5 font-bold text-[#1E3A8A] bg-white">
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
+          <button type="button" onclick="setPkgFr59PrintPreset('TODAY')" class="px-2 py-1.5 rounded-lg border border-slate-300 bg-slate-50 hover:bg-blue-50 text-[11px] font-bold text-slate-700">Bugün</button>
+          <button type="button" onclick="setPkgFr59PrintPreset('7D')" class="px-2 py-1.5 rounded-lg border border-slate-300 bg-slate-50 hover:bg-blue-50 text-[11px] font-bold text-slate-700">Son 7 Gün</button>
+          <button type="button" onclick="setPkgFr59PrintPreset('30D')" class="px-2 py-1.5 rounded-lg border border-slate-300 bg-slate-50 hover:bg-blue-50 text-[11px] font-bold text-slate-700">Son 30 Gün</button>
+          <button type="button" onclick="setPkgFr59PrintPreset('ALL')" class="px-2 py-1.5 rounded-lg border border-slate-300 bg-slate-50 hover:bg-blue-50 text-[11px] font-bold text-slate-700">Tüm Tarihler</button>
+        </div>
+
+        <label class="flex items-center gap-2 p-2.5 rounded-xl border border-slate-200 bg-slate-50 cursor-pointer">
+          <input type="checkbox" id="pkgFr59PrintAllDates" onchange="onPkgFr59AllDatesToggle(this.checked)" class="w-4 h-4 rounded text-[#1E3A8A]">
+          <span class="font-semibold text-slate-800">Tarih sınırı olmadan listedeki tüm kayıtları yazdır</span>
+        </label>
+
+        <div id="pkgFr59PrintCountText" class="text-[11px] font-extrabold text-[#1E3A8A] bg-blue-50/70 border border-blue-200 rounded-lg px-3 py-2">
+          Seçilen aralıkta 0 kayıt bulundu.
+        </div>
+      </div>
+
+      <div class="flex justify-end gap-2 pt-3 border-t">
+        <button onclick="closeModal('modalPkgFr59Print')" class="px-4 py-2 border rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-50">İptal</button>
+        <button type="button" id="btnPkgFr59ConfirmPrint" onclick="executePackagingFr59Print()" class="px-5 py-2.5 bg-[#1E3A8A] hover:bg-blue-800 text-white rounded-xl text-xs font-bold shadow flex items-center gap-2 transition">
+          <i data-lucide="printer" class="w-4 h-4"></i> Yazdır / PDF
         </button>
       </div>
     </div>
@@ -2296,7 +2349,7 @@
           </label>
           <label class="flex items-center gap-2 text-slate-700 cursor-pointer">
             <input type="checkbox" id="adminPermExcel" class="w-4 h-4 rounded text-[#1E3A8A]">
-            <span>📊 Excel ve CSV Rapor Çıktısı Alabilir</span>
+            <span>🖨️ PDF / Yazdır Rapor Çıktısı Alabilir</span>
           </label>
           <label class="flex items-center gap-2 text-slate-700 cursor-pointer">
             <input type="checkbox" id="adminPermSchedules" onchange="syncScheduleCheckbox('adminNew', this.checked)" class="w-4 h-4 rounded text-[#1E3A8A]">
@@ -2441,7 +2494,7 @@
           </label>
           <label class="flex items-center gap-2 text-slate-700 cursor-pointer">
             <input type="checkbox" id="editPermCanExcel" class="w-4 h-4 rounded text-[#1E3A8A]">
-            <span>📊 Excel Rapor İndirme</span>
+            <span>🖨️ PDF / Yazdır Rapor Çıktısı</span>
           </label>
           <label class="flex items-center gap-2 text-slate-700 cursor-pointer">
             <input type="checkbox" id="editPermCanSchedules" onchange="syncScheduleCheckbox('editPerm', this.checked)" class="w-4 h-4 rounded text-[#1E3A8A]">
@@ -2557,7 +2610,7 @@
 
         <div class="bg-white p-3 rounded-xl border border-slate-200 grid grid-cols-1 sm:grid-cols-2 gap-1.5">
           <label class="flex items-center gap-2 text-slate-700 cursor-pointer"><input type="checkbox" id="roleEditPermUtilRefs" onchange="syncUtilRefsCheckbox('roleEdit', this.checked)" class="w-4 h-4 rounded text-amber-600"><span>📏 Yan Tesis Referans Limitleri</span></label>
-          <label class="flex items-center gap-2 text-slate-700 cursor-pointer"><input type="checkbox" id="roleEditPermExcel" class="w-4 h-4 rounded text-[#1E3A8A]"><span>📊 Excel Rapor İndirme</span></label>
+          <label class="flex items-center gap-2 text-slate-700 cursor-pointer"><input type="checkbox" id="roleEditPermExcel" class="w-4 h-4 rounded text-[#1E3A8A]"><span>🖨️ PDF / Yazdır Rapor Çıktısı</span></label>
           <label class="flex items-center gap-2 text-slate-700 cursor-pointer"><input type="checkbox" id="roleEditPermSchedules" onchange="syncScheduleCheckbox('roleEdit', this.checked)" class="w-4 h-4 rounded text-[#1E3A8A]"><span>📅 Bakım Planı Düzenleme</span></label>
           <label class="flex items-center gap-2 text-slate-700 cursor-pointer"><input type="checkbox" id="roleEditPermChatView" class="w-4 h-4 rounded text-[#1E3A8A]"><span>💬 Saha Sohbetini Görüntüleme</span></label>
           <label class="flex items-center gap-2 text-slate-700 cursor-pointer"><input type="checkbox" id="roleEditPermChatSend" class="w-4 h-4 rounded text-[#1E3A8A]"><span>✉️ Saha Sohbetine Yazma</span></label>
@@ -2692,12 +2745,12 @@
         <div>
           <div class="text-[11px] font-bold text-emerald-800 uppercase tracking-wider">Aktif Firebase Sürümü</div>
           <div class="text-sm font-extrabold text-emerald-950 flex items-center gap-2" id="verModalCurrentBadge">
-            <span id="verModalVersionName">v1.6.7</span>
-            <span id="verModalVersionCode" class="text-xs px-2 py-0.5 bg-emerald-200 text-emerald-800 rounded-md font-semibold">Kod: 36</span>
+            <span id="verModalVersionName">v1.6.8</span>
+            <span id="verModalVersionCode" class="text-xs px-2 py-0.5 bg-emerald-200 text-emerald-800 rounded-md font-semibold">Kod: 37</span>
           </div>
         </div>
         <div class="text-right text-[11px] text-emerald-700">
-          <div>Son Yayın: <span id="verModalReleaseDate" class="font-semibold">2026-11-23</span></div>
+          <div>Son Yayın: <span id="verModalReleaseDate" class="font-semibold">2026-11-26</span></div>
           <div class="text-emerald-600 font-medium flex items-center justify-end gap-1"><span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Anlık Dinlemede</div>
         </div>
       </div>
@@ -2706,18 +2759,18 @@
         <div class="grid grid-cols-2 gap-3">
           <div>
             <label class="block font-semibold text-slate-700 mb-1">Yeni Sürüm Kodu (Build Code) *</label>
-            <input type="number" id="verFormCode" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 37" min="1">
+            <input type="number" id="verFormCode" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 38" min="1">
             <span class="text-[10px] text-slate-400">Yeni sürüm için kod mevcut koddan büyük olmalıdır</span>
           </div>
           <div>
             <label class="block font-semibold text-slate-700 mb-1">Yeni Sürüm Adı (Version Name) *</label>
-            <input type="text" id="verFormName" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 1.6.7">
+            <input type="text" id="verFormName" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 1.6.8">
           </div>
         </div>
 
         <div>
           <label class="block font-semibold text-slate-700 mb-1">Güncelleme Bildirim Başlığı *</label>
-          <input type="text" id="verFormTitle" required class="w-full px-3 py-2 border rounded-xl text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: Yeni Sürüm Yayınlandı (v1.6.7)">
+          <input type="text" id="verFormTitle" required class="w-full px-3 py-2 border rounded-xl text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: Yeni Sürüm Yayınlandı (v1.6.8)">
         </div>
 
         <div>
@@ -2736,9 +2789,9 @@
         </div>
 
         <div class="flex items-center justify-between gap-2 pt-2 border-t">
-          <button type="button" onclick="syncWithDeployedApk()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs rounded-xl font-bold border border-slate-300 flex items-center gap-1.5" title="Firebase'i şu an dağıtılan v1.6.7 (Kod: 36) APK ile eşitler ve güncellenen telefonlardaki popup'ı kapatır">
+          <button type="button" onclick="syncWithDeployedApk()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs rounded-xl font-bold border border-slate-300 flex items-center gap-1.5" title="Firebase'i şu an dağıtılan v1.6.8 (Kod: 37) APK ile eşitler ve güncellenen telefonlardaki popup'ı kapatır">
             <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-blue-600"></i>
-            <span>Mevcut APK ile Eşitle (v1.6.7 - Kod: 36)</span>
+            <span>Mevcut APK ile Eşitle (v1.6.8 - Kod: 37)</span>
           </button>
           <div class="flex gap-2">
             <button type="button" onclick="closeModal('modalAppVersion')" class="px-4 py-2 border rounded-xl font-semibold text-slate-600 hover:bg-slate-50">Kapat</button>
@@ -3005,12 +3058,6 @@
       <div class="flex flex-wrap items-center gap-1.5">
         <button type="button" onclick="printCurrentIsgForm()" class="px-3 py-1.5 bg-white text-[#1E3A8A] hover:bg-blue-50 rounded-lg text-xs font-extrabold flex items-center gap-1 shadow">
           <i data-lucide="printer" class="w-3.5 h-3.5"></i> Birebir A4 Yazdır / PDF
-        </button>
-        <button type="button" onclick="exportCurrentIsgFormDocx()" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-500 text-white rounded-lg text-xs font-extrabold flex items-center gap-1 shadow">
-          <i data-lucide="file-text" class="w-3.5 h-3.5"></i> Word (.docx)
-        </button>
-        <button type="button" onclick="exportCurrentIsgFormExcel()" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-xs font-extrabold flex items-center gap-1 shadow">
-          <i data-lucide="file-spreadsheet" class="w-3.5 h-3.5"></i> Excel (.xlsx)
         </button>
         <button type="button" onclick="closeModal('modalIsgSheetEditor')" class="p-1.5 bg-blue-900/80 hover:bg-blue-800 text-white rounded-lg">
           <i data-lucide="x" class="w-5 h-5"></i>
@@ -5346,10 +5393,6 @@
       const hasAnyTab = isMaster || window.getUserAllowedTabs(u).length > 0 || window.hasAssignedIsgForms(u);
       const mainNavBar = document.getElementById("mainNavBar");
       if (mainNavBar) mainNavBar.classList.toggle("hidden", !hasAnyTab);
-      const notifBanner = document.getElementById("notificationAlertBanner");
-      if (notifBanner) notifBanner.classList.toggle("hidden", !hasAnyTab);
-      const topNotifBtn = document.getElementById("topNotifBtn");
-      if (topNotifBtn) topNotifBtn.classList.toggle("hidden", !hasAnyTab);
 
       setTabVisibility("nav-dashboard", window.canUserViewTab("dashboard", u));
       setTabVisibility("nav-electricalMaintenance", window.canUserViewTab("electrical_maintenance", u));
@@ -6519,7 +6562,7 @@
                 fromOtherOrNew,
                 "Sahadaki Yardımcı Tesisler kontrol formunda referans aralığı dışında yeni değer kaydedildi:"
               );
-              if (typeof Notification !== "undefined" && Notification.permission === "granted") {
+              if (window.isWebNotificationsEnabled() && typeof Notification !== "undefined" && Notification.permission === "granted") {
                 try {
                   const first = fromOtherOrNew[0];
                   new Notification("⚠️ Yardımcı Tesisler Dikkat Bildirimi", {
@@ -6631,7 +6674,7 @@
                 const k = `assign_${f.id}_${f.assignedAtMillis || 0}`;
                 if (!notifiedIsgKeys.has(k)) {
                   notifiedIsgKeys.add(k);
-                  if (typeof Notification !== "undefined" && Notification.permission === "granted") {
+                  if (window.isWebNotificationsEnabled() && typeof Notification !== "undefined" && Notification.permission === "granted") {
                     try { new Notification("🦺 Yeni İSG Formu Yönlendirildi", { body: `${f.templateTitle} — Yönlendiren: ${f.assignedByName || "İSG Yöneticisi"}` }); } catch (_) {}
                   }
                 }
@@ -6644,7 +6687,7 @@
                   const k = `done_${f.id}_${f.completedAtMillis || 0}`;
                   if (!notifiedIsgKeys.has(k)) {
                     notifiedIsgKeys.add(k);
-                    if (typeof Notification !== "undefined" && Notification.permission === "granted") {
+                    if (window.isWebNotificationsEnabled() && typeof Notification !== "undefined" && Notification.permission === "granted") {
                       try { new Notification("✅ İSG Formu Tamamlandı", { body: `${f.completedByName || f.assignedToName} — ${f.templateTitle} kontrolünü tamamladı.` }); } catch (_) {}
                     }
                   }
@@ -6875,7 +6918,7 @@
       });
 
       // 6. Mobil Uygulama Sürüm Takibi ve Firebase Yönetimi (app_version/current)
-      let hasAutoSyncedV36 = false;
+      let hasAutoSyncedV37 = false;
       try {
         onSnapshot(doc(db, "app_version", "current"), async (docSnap) => {
           if (docSnap && docSnap.exists()) {
@@ -6883,15 +6926,15 @@
             window.currentAppVersion = data;
             renderAppVersionBadge();
 
-            // Sürüm kodu 36'dan küçükse otomatik olarak v1.6.7 (Kod: 36)'ya yükselt
+            // Sürüm kodu 37'den küçükse otomatik olarak v1.6.8 (Kod: 37)'ye yükselt
             const verCodeNum = Number(data.versionCode || 0);
-            if (verCodeNum < 36 && !hasAutoSyncedV36) {
-              hasAutoSyncedV36 = true;
-              console.log("Firestore app_version sürüm kodu 36 (v1.6.7) olarak otomatik eşitleniyor...");
+            if (verCodeNum < 37 && !hasAutoSyncedV37) {
+              hasAutoSyncedV37 = true;
+              console.log("Firestore app_version sürüm kodu 37 (v1.6.8) olarak otomatik eşitleniyor...");
               seedInitialAppVersionInFirebase();
             }
-          } else if (!hasAutoSyncedV36) {
-            hasAutoSyncedV36 = true;
+          } else if (!hasAutoSyncedV37) {
+            hasAutoSyncedV37 = true;
             seedInitialAppVersionInFirebase();
           }
         }, (err) => {
@@ -12424,7 +12467,86 @@
       }
     };
 
-    // ================= EXCEL (.xlsx) DIŞA AKTARMA (TARİH ARALIĞI VE ÇOKLU ÇALIŞMA SAYFASI) =================
+    // ================= PDF / YAZDIR RAPOR MOTORU =================
+    window.openHtmlPrintReport = function({ title, subtitle = "", landscape = true, summaryCards = [], sections = [], footerNote = "" }) {
+      const w = window.open("", "_blank");
+      if (!w) {
+        alert("Yazdırma penceresi tarayıcı tarafından engellendi. Lütfen açılır pencere izni verin.");
+        return;
+      }
+      const cardsHtml = (summaryCards && summaryCards.length) ? `
+        <div class="cards">
+          ${summaryCards.map(c => `
+            <div class="card">
+              <div class="c-lbl">${escapeHtml(c.label || "")}</div>
+              <div class="c-val">${escapeHtml(String(c.value ?? ""))}</div>
+            </div>
+          `).join("")}
+        </div>
+      ` : "";
+      const sectionsHtml = (sections || []).map(sec => {
+        const cols = sec.headers || [];
+        const rows = sec.rows || [];
+        const bodyHtml = rows.length
+          ? rows.map(r => `<tr>${r.map(cell => `<td>${escapeHtml(String(cell ?? ""))}</td>`).join("")}</tr>`).join("")
+          : `<tr><td colspan="${Math.max(1, cols.length)}" style="text-align:center;color:#64748b;padding:12px;">Kayıt bulunamadı.</td></tr>`;
+        return `
+          <div class="sec">
+            ${sec.title ? `<div class="sec-title">${escapeHtml(sec.title)}</div>` : ""}
+            <table>
+              <thead><tr>${cols.map(h => `<th>${escapeHtml(h)}</th>`).join("")}</tr></thead>
+              <tbody>${bodyHtml}</tbody>
+            </table>
+          </div>
+        `;
+      }).join("");
+      const docHtml = `<!DOCTYPE html><html lang="tr"><head><meta charset="UTF-8"><title>${escapeHtml(title || "Tekinak CMMS Rapor")}</title>
+      <style>
+        @page { size: A4 ${landscape ? "landscape" : "portrait"}; margin: 10mm; }
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: #0f172a; font-size: 10px; background: #fff; }
+        .no-print { display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 10px; }
+        .hdr { border: 1.5px solid #1e3a8a; border-radius: 6px; padding: 8px 12px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; background: #f8fafc; }
+        .hdr-left h1 { margin: 0; font-size: 14px; color: #1e3a8a; }
+        .hdr-left p { margin: 2px 0 0; font-size: 10px; color: #475569; }
+        .hdr-right { text-align: right; font-size: 9.5px; color: #334155; font-weight: 700; }
+        .cards { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+        .card { flex: 1 1 130px; border: 1px solid #cbd5e1; border-radius: 6px; padding: 6px 8px; background: #f8fafc; }
+        .c-lbl { font-size: 8.5px; color: #64748b; font-weight: 700; text-transform: uppercase; }
+        .c-val { font-size: 13px; color: #1e3a8a; font-weight: 900; margin-top: 2px; }
+        .sec { margin-bottom: 12px; }
+        .sec-title { font-size: 11px; font-weight: 800; color: #1e3a8a; margin: 4px 0; border-left: 3px solid #1e3a8a; padding-left: 6px; }
+        table { width: 100%; border-collapse: collapse; table-layout: auto; }
+        th { background: #1e3a8a; color: #fff; font-weight: 700; font-size: 9px; padding: 4px 5px; border: 1px solid #334155; text-align: left; }
+        td { border: 1px solid #cbd5e1; padding: 4px 5px; font-size: 9px; vertical-align: top; word-break: break-word; }
+        tr:nth-child(even) td { background: #f8fafc; }
+        thead { display: table-header-group; }
+        tr { break-inside: avoid; page-break-inside: avoid; }
+        .ftr { margin-top: 8px; font-size: 8.5px; color: #64748b; text-align: right; }
+        @media print { .no-print { display: none !important; } }
+      </style></head>
+      <body onload="setTimeout(() => window.print(), 250)">
+        <div class="no-print">
+          <button onclick="window.print()" style="padding:8px 16px;background:#1e3a8a;color:#fff;border:none;border-radius:8px;font-weight:700;cursor:pointer;">🖨️ Yazdır / PDF Kaydet</button>
+        </div>
+        <div class="hdr">
+          <div class="hdr-left">
+            <h1>${escapeHtml(title || "TEKİNAK GIDA CMMS RAPORU")}</h1>
+            ${subtitle ? `<p>${escapeHtml(subtitle)}</p>` : ""}
+          </div>
+          <div class="hdr-right">
+            <div>TEKİNAK GIDA SAN. VE TİC. A.Ş.</div>
+            <div>Tarih: ${escapeHtml(new Date().toLocaleString("tr-TR"))}</div>
+          </div>
+        </div>
+        ${cardsHtml}
+        ${sectionsHtml}
+        ${footerNote ? `<div class="ftr">${escapeHtml(footerNote)}</div>` : ""}
+      </body></html>`;
+      w.document.write(docHtml);
+      w.document.close();
+    };
+
     window.selectedExcelPreset = 'ALL';
     window.setExcelPreset = function(preset) {
       window.selectedExcelPreset = preset;
@@ -12433,7 +12555,7 @@
       });
       const activeBtn = document.getElementById("excelPreset" + preset);
       if (activeBtn) {
-        activeBtn.className = "excel-preset-btn p-2 rounded-lg border text-left bg-emerald-50 border-emerald-500 text-emerald-900 font-bold transition";
+        activeBtn.className = "excel-preset-btn p-2 rounded-lg border text-left bg-blue-50 border-blue-500 text-blue-900 font-bold transition";
       }
 
       const now = new Date();
@@ -12460,13 +12582,8 @@
 
     window.executeExcelDownload = function() {
       if (!window.canUserExportExcel(window.currentUser)) {
-        alert("⚠️ Excel rapor çıktısı alma yetkiniz bulunmamaktadır. Lütfen sistem yöneticisi ile iletişime geçiniz.");
+        alert("⚠️ PDF / Yazdır rapor çıktısı alma yetkiniz bulunmamaktadır. Lütfen sistem yöneticisi ile iletişime geçiniz.");
         closeModal('modalExcel');
-        return;
-      }
-
-      if (typeof XLSX === 'undefined') {
-        alert("Excel kütüphanesi henüz yüklenemedi. Lütfen sayfayı yenileyiniz.");
         return;
       }
 
@@ -12482,124 +12599,79 @@
         return ms >= startMillis && ms <= endMillis;
       };
 
-      const wb = XLSX.utils.book_new();
-      const trDate = new Date().toLocaleDateString('tr-TR');
+      const sections = [];
+      const summaryCards = [];
 
-      // 1. ARIZALAR ÇALIŞMA SAYFASI
       if (scope === "ALL" || scope === "FAULTS") {
         const faultsFiltered = window.allFaults.filter(f => inRange(f.createdAtMillis));
-        const faultData = [
-          ["TEKİNAK GIDA SAN. VE TİC. A.Ş. - ARIZA BİLDİRİM VE MÜDAHALE RAPORU"],
-          [`Rapor Tarihi: ${trDate} | Filtre: ${window.selectedExcelPreset} | Toplam: ${faultsFiltered.length} Kayıt`],
-          [],
-          ["Arıza ID", "Makine / Ekipman", "Bölüm / Departman", "Arıza Tipi", "Öncelik", "Durum", "Bildiren", "Müdahale Edenler / İşi Yapan", "Bildirim Tarihi", "Çözüm Tarihi", "Çözüm Açıklaması"]
-        ];
-
-        faultsFiltered.forEach(f => {
-          faultData.push([
-            f.id || "",
-            f.machineName || f.location || "",
-            f.department || "",
-            f.faultType || "",
+        summaryCards.push({ label: "Arıza Kayıtları", value: faultsFiltered.length });
+        sections.push({
+          title: `Arıza Kayıtları (${faultsFiltered.length})`,
+          headers: ["Makine / Ekipman", "Bölüm", "Tip", "Öncelik", "Durum", "Bildiren", "Müdahale Edenler", "Tarih", "Çözüm"],
+          rows: faultsFiltered.map(f => [
+            f.machineName || f.location || "-",
+            f.department || "-",
+            f.faultType || "-",
             f.severity || f.priority || "Orta",
             f.status || "Açık",
-            f.reportedByName || "",
-            formatIntervened(f),
+            f.reportedByName || "-",
+            formatIntervened(f) || "-",
             formatDate(f.createdAtMillis),
-            formatDate(f.resolvedAtMillis),
             f.resolutionNotes || f.description || ""
-          ]);
+          ])
         });
-
-        const wsFaults = XLSX.utils.aoa_to_sheet(faultData);
-        wsFaults['!cols'] = [
-          { wch: 18 }, { wch: 30 }, { wch: 20 }, { wch: 16 }, { wch: 12 }, { wch: 12 }, { wch: 22 }, { wch: 28 }, { wch: 18 }, { wch: 18 }, { wch: 40 }
-        ];
-        XLSX.utils.book_append_sheet(wb, wsFaults, "Arıza Kayıtları");
       }
 
-      // 2. İŞ EMİRLERİ ÇALIŞMA SAYFASI
       if (scope === "ALL" || scope === "WO") {
         const woFiltered = window.allWorkOrders.filter(w => inRange(w.createdAtMillis));
-        const woData = [
-          ["TEKİNAK GIDA SAN. VE TİC. A.Ş. - BAKIM VE İŞ EMİRLERİ RAPORU"],
-          [`Rapor Tarihi: ${trDate} | Filtre: ${window.selectedExcelPreset} | Toplam: ${woFiltered.length} Kayıt`],
-          [],
-          ["İş Emri No", "Başlık", "Makine / Hat", "Departman", "Öncelik", "Durum", "Oluşturan", "Atanan / Müdahale Edenler", "Açılış Tarihi", "Kapanış Tarihi", "Yapılan İşlemler / Çözüm"]
-        ];
-
-        woFiltered.forEach(w => {
-          const intervened = (w.intervenedByNames && w.intervenedByNames.length) ? w.intervenedByNames.join('; ') : (w.assignedToName || "");
-          woData.push([
-            w.id || "",
-            w.title || "",
-            w.machineName || "",
-            w.department || "",
-            w.priority || "Orta",
-            w.status || "Açık",
-            w.reportedByName || "",
-            intervened,
-            formatDate(w.createdAtMillis),
-            formatDate(w.completedAtMillis),
-            w.solutionNotes || w.description || ""
-          ]);
+        summaryCards.push({ label: "İş Emirleri", value: woFiltered.length });
+        sections.push({
+          title: `İş Emirleri (${woFiltered.length})`,
+          headers: ["Başlık", "Makine / Hat", "Departman", "Öncelik", "Durum", "Atanan / Yapan", "Açılış", "Kapanış", "Yapılan İşlemler"],
+          rows: woFiltered.map(w => {
+            const intervened = (w.intervenedByNames && w.intervenedByNames.length) ? w.intervenedByNames.join('; ') : (w.assignedToName || "");
+            return [
+              w.title || "-",
+              w.machineName || "-",
+              w.department || "-",
+              w.priority || "Orta",
+              w.status || "Açık",
+              intervened || "-",
+              formatDate(w.createdAtMillis),
+              formatDate(w.completedAtMillis),
+              w.solutionNotes || w.description || ""
+            ];
+          })
         });
-
-        const wsWo = XLSX.utils.aoa_to_sheet(woData);
-        wsWo['!cols'] = [
-          { wch: 18 }, { wch: 32 }, { wch: 25 }, { wch: 20 }, { wch: 12 }, { wch: 12 }, { wch: 20 }, { wch: 28 }, { wch: 18 }, { wch: 18 }, { wch: 40 }
-        ];
-        XLSX.utils.book_append_sheet(wb, wsWo, "İş Emirleri");
       }
 
-      // 3. PERİYODİK BAKIM TAKVİMİ ÇALIŞMA SAYFASI
       if (scope === "ALL" || scope === "SCHEDULES") {
         const schedFiltered = window.allSchedules.filter(s => inRange(s.scheduledDateMillis));
-        const schedData = [
-          ["TEKİNAK GIDA SAN. VE TİC. A.Ş. - PERİYODİK BAKIM TAKVİMİ RAPORU"],
-          [`Rapor Tarihi: ${trDate} | Filtre: ${window.selectedExcelPreset} | Toplam: ${schedFiltered.length} Kayıt`],
-          [],
-          ["Plan No", "Makine / Ekipman", "Makine Kodu", "Bakım Başlığı", "Bölüm", "Döngü / Periyot", "Planlanan Tarih", "Durum", "Sorumlu Teknisyen", "Tamamlayan", "Checklist / Talimat"]
-        ];
-
-        schedFiltered.forEach(s => {
-          schedData.push([
-            s.id || "",
-            s.machineName || "",
-            s.machineId || "",
-            s.title || "",
+        summaryCards.push({ label: "Periyodik Bakımlar", value: schedFiltered.length });
+        sections.push({
+          title: `Periyodik Bakım Takvimi (${schedFiltered.length})`,
+          headers: ["Makine / Ekipman", "Kod", "Bakım Başlığı", "Bölüm", "Periyot", "Planlanan Tarih", "Durum", "Sorumlu", "Tamamlayan"],
+          rows: schedFiltered.map(s => [
+            s.machineName || "-",
+            s.machineId || "-",
+            s.title || "-",
             s.faultType || s.department || "Mekanik",
             s.period || (s.repeatDays ? `${s.repeatDays} Gün` : "Aylık"),
             formatDate(s.scheduledDateMillis),
             s.status || "Planlandı",
-            s.assignedToName || s.responsiblePerson || "",
-            s.completedByName || "",
-            (s.checklist && s.checklist.length) ? s.checklist.join('; ') : (s.description || "")
-          ]);
+            s.assignedToName || s.responsiblePerson || "-",
+            s.completedByName || "-"
+          ])
         });
-
-        const wsSched = XLSX.utils.aoa_to_sheet(schedData);
-        wsSched['!cols'] = [
-          { wch: 18 }, { wch: 30 }, { wch: 16 }, { wch: 35 }, { wch: 18 }, { wch: 16 }, { wch: 18 }, { wch: 14 }, { wch: 22 }, { wch: 22 }, { wch: 45 }
-        ];
-        XLSX.utils.book_append_sheet(wb, wsSched, "Periyodik Bakımlar");
       }
 
-      // 4. YARDIMCI TESİSLER KONTROL FORMLARI & SAATLİK AÇIKLAMALAR
       if (scope === "ALL" || scope === "UTILITY") {
         const utilLogsInRange = (window.allUtilityLogs || []).filter(l => {
           if (!l || !l.dateIso || l.formType === "WATER_FILTER") return false;
           const ms = new Date(l.dateIso + "T12:00:00").getTime();
           return inRange(ms);
         }).sort((a, b) => String(b.dateIso || "").localeCompare(String(a.dateIso || "")));
-
-        const utilAoa = [
-          ["TEKİNAK GIDA SAN. VE TİC. A.Ş. - YARDIMCI TESİSLER KONTROL & SAATLİK AÇIKLAMA RAPORU"],
-          [`Rapor Tarihi: ${trDate} | Filtre: ${window.selectedExcelPreset} | Toplam Gün/Form Kaydı: ${utilLogsInRange.length}`],
-          [],
-          ["Tarih", "Sistem", "Form Kodu", "Ünite / Bölüm", "Saat", "Parametreler & Değerler", "Saatlik Açıklama / Not", "Kontrol Eden / Teknisyen", "Genel Form Notu"]
-        ];
-
+        const utilRows = [];
         utilLogsInRange.forEach(log => {
           const def = UTILITY_FORM_DEFS[log.formType];
           if (!def) return;
@@ -12614,34 +12686,35 @@
                 .filter(Boolean);
               const hrNote = getUtilityHourlyNoteFromCells(def.id, cells, hr);
               if (vals.length > 0 || hrNote) {
-                utilAoa.push([
+                utilRows.push([
                   log.displayDate || formatDisplayDateTr(log.dateIso),
-                  def.shortBadge + " • " + (def.tabTitle || def.id),
-                  def.formCode,
+                  `${def.shortBadge} (${def.formCode})`,
                   sec.title,
                   hr,
                   vals.join(" | "),
                   hrNote || "—",
-                  log.operatorName || log.updatedByName || "",
-                  log.notes || ""
+                  log.operatorName || log.updatedByName || "-"
                 ]);
               }
             });
           });
         });
-
-        const wsUtil = XLSX.utils.aoa_to_sheet(utilAoa);
-        wsUtil['!cols'] = [
-          { wch: 13 }, { wch: 22 }, { wch: 11 }, { wch: 24 }, { wch: 8 }, { wch: 52 }, { wch: 30 }, { wch: 22 }, { wch: 28 }
-        ];
-        XLSX.utils.book_append_sheet(wb, wsUtil, "Yardimci_Tesisler");
+        summaryCards.push({ label: "Yardımcı Tesisler Satırı", value: utilRows.length });
+        sections.push({
+          title: `Yardımcı Tesisler Kontrol & Saatlik Açıklamalar (${utilRows.length})`,
+          headers: ["Tarih", "Sistem", "Ünite", "Saat", "Parametreler & Değerler", "Saatlik Açıklama", "Teknisyen"],
+          rows: utilRows
+        });
       }
 
-      const fileName = scope === "UTILITY"
-        ? `Tekinak_Yardimci_Tesisler_Rapor_${new Date().toISOString().slice(0,10)}.xlsx`
-        : `Tekinak_CMMS_Rapor_${new Date().toISOString().slice(0,10)}.xlsx`;
-      XLSX.writeFile(wb, fileName);
       closeModal('modalExcel');
+      window.openHtmlPrintReport({
+        title: "TEKİNAK CMMS — PDF / YAZDIR RAPORU",
+        subtitle: `Filtre: ${window.selectedExcelPreset} • Kapsam: ${scope}`,
+        landscape: true,
+        summaryCards,
+        sections
+      });
     };
 
     // YARDIMCI VE BİÇİMLENDİRME FONKSİYONLARI
@@ -13937,11 +14010,7 @@
 
     window.exportPackagingExcel = function() {
       if (!window.canUserExportExcel(window.currentUser)) {
-        alert("⚠️ Excel rapor çıktısı alma yetkiniz bulunmamaktadır.");
-        return;
-      }
-      if (typeof XLSX === "undefined") {
-        alert("Excel kütüphanesi henüz yüklenemedi. Lütfen sayfayı yenileyiniz.");
+        alert("⚠️ PDF / Yazdır rapor çıktısı alma yetkiniz bulunmamaktadır.");
         return;
       }
       const logs = (Array.isArray(window.lastFilteredPackagingLogs) && window.lastFilteredPackagingLogs.length > 0)
@@ -13951,40 +14020,42 @@
       const totTgt = logs.reduce((s, p) => s + Number(p.targetPacks || 0), 0);
       const totScrap = logs.reduce((s, p) => s + Number(p.scrapKg || 0), 0);
       const totDt = logs.reduce((s, p) => s + Number(p.downtimeMinutes || 0), 0);
-      const aoa = [
-        ["TEKİNAK GIDA SAN. VE TİC. A.Ş. - PAKETLEME BİRİMİ & KKN TAKİP RAPORU"],
-        [`Rapor Tarihi: ${new Date().toLocaleDateString("tr-TR")} | Kayıt Sayısı: ${logs.length} | Üretilen: ${totProd.toLocaleString("tr-TR")} / Hedef: ${totTgt.toLocaleString("tr-TR")} | Toplam Fire: ${totScrap.toFixed(1)} kg | Toplam Duruş: ${totDt} dk`],
-        [],
-        ["Tarih", "Vardiya", "Hat", "Ürün", "Lot No", "Bobin Kodu", "Hedef Paket", "Üretilen Paket", "Verim (%)", "Fire (kg)", "Duruş (dk)", "Duruş Nedeni", "Metal Dedektör", "Gramaj", "Çene Isısı", "SKT/Lot Baskı", "Operatör", "Notlar"]
-      ];
-      logs.forEach(p => {
-        const eff = Number(p.targetPacks) > 0 ? Math.round((Number(p.producedPacks || 0) / Number(p.targetPacks)) * 100) : 0;
-        aoa.push([
-          p.dateIso || "",
-          p.shift || "",
-          p.lineName || "",
-          p.productName || "",
-          p.lotNumber || "",
-          p.filmCode || "",
-          Number(p.targetPacks || 0),
-          Number(p.producedPacks || 0),
-          `%${eff}`,
-          Number(p.scrapKg || 0),
-          Number(p.downtimeMinutes || 0),
-          p.downtimeReason || "",
-          p.metalDetectorOk !== false ? "Uygun" : "HATA",
-          p.weightCheckOk !== false ? "Uygun" : "HATA",
-          p.sealingCheckOk !== false ? "Uygun" : "HATA",
-          p.codingCheckOk !== false ? "Uygun" : "HATA",
-          p.operatorName || "",
-          p.notes || ""
-        ]);
+      window.openHtmlPrintReport({
+        title: "PAKETLEME BİRİMİ — VARDİYA & KKN TAKİP RAPORU",
+        subtitle: `Kayıt Sayısı: ${logs.length} • Üretilen: ${totProd.toLocaleString("tr-TR")} / Hedef: ${totTgt.toLocaleString("tr-TR")}`,
+        landscape: true,
+        summaryCards: [
+          { label: "Toplam Vardiya", value: logs.length },
+          { label: "Üretilen Paket", value: totProd.toLocaleString("tr-TR") },
+          { label: "Fire (kg)", value: totScrap.toFixed(1) },
+          { label: "Duruş (dk)", value: totDt }
+        ],
+        sections: [{
+          title: "Vardiya & KKN Kontrol Listesi",
+          headers: ["Tarih", "Vardiya", "Hat", "Ürün", "Lot", "Hedef", "Üretilen", "Verim", "Fire", "Duruş", "Metal", "Gramaj", "Çene", "SKT", "Operatör", "Notlar"],
+          rows: logs.map(p => {
+            const eff = Number(p.targetPacks) > 0 ? Math.round((Number(p.producedPacks || 0) / Number(p.targetPacks)) * 100) : 0;
+            return [
+              p.dateIso || "",
+              p.shift || "",
+              p.lineName || "",
+              p.productName || "",
+              p.lotNumber || "",
+              Number(p.targetPacks || 0),
+              Number(p.producedPacks || 0),
+              `%${eff}`,
+              Number(p.scrapKg || 0),
+              `${Number(p.downtimeMinutes || 0)} dk`,
+              p.metalDetectorOk !== false ? "Uygun" : "HATA",
+              p.weightCheckOk !== false ? "Uygun" : "HATA",
+              p.sealingCheckOk !== false ? "Uygun" : "HATA",
+              p.codingCheckOk !== false ? "Uygun" : "HATA",
+              p.operatorName || "",
+              p.notes || ""
+            ];
+          })
+        }]
       });
-      const wb = XLSX.utils.book_new();
-      const ws = XLSX.utils.aoa_to_sheet(aoa);
-      ws["!cols"] = [{wch:12},{wch:18},{wch:24},{wch:24},{wch:14},{wch:14},{wch:12},{wch:14},{wch:10},{wch:10},{wch:10},{wch:20},{wch:14},{wch:12},{wch:12},{wch:14},{wch:20},{wch:30}];
-      XLSX.utils.book_append_sheet(wb, ws, "Paketleme Kayıtları");
-      XLSX.writeFile(wb, `Tekinak_Paketleme_Birimi_${getLocalTodayIso()}.xlsx`);
     };
     window.exportPackagingCsv = window.exportPackagingExcel;
 
@@ -14057,11 +14128,8 @@
       if (fr59CountEl) fr59CountEl.innerText = String(allForms.length);
 
       const canEdit = window.canUserEditSubPage("pkg_logs", window.currentUser);
-      const canExcel = window.canUserExportExcel(window.currentUser);
       const addBtn = document.getElementById("btnAddPackagingFr59");
-      const excelBtn = document.getElementById("btnPackagingFr59Excel");
       if (addBtn) addBtn.classList.toggle("hidden", !canEdit);
-      if (excelBtn) excelBtn.classList.toggle("hidden", !canExcel);
 
       const q = (document.getElementById("pkgFr59SearchInput")?.value || "").trim().toLowerCase();
       const period = window.pkgFr59PeriodFilter || "ALL";
@@ -14257,106 +14325,186 @@
       }
     };
 
-    window.exportPackagingFaultFormsExcel = function() {
-      if (!window.canUserExportExcel(window.currentUser)) {
-        alert("⛔ Excel çıktı yetkiniz kapalıdır.");
-        return;
-      }
-      if (typeof XLSX === "undefined") {
-        alert("Excel kütüphanesi yüklenemedi.");
-        return;
-      }
-      const rowsData = (Array.isArray(window.lastFilteredPkgFr59) && window.lastFilteredPkgFr59.length > 0)
+    window.getFr59PrintSourceList = function() {
+      return (Array.isArray(window.lastFilteredPkgFr59) && window.lastFilteredPkgFr59.length > 0)
         ? window.lastFilteredPkgFr59
         : (window.allPackagingFaultForms || []);
-      const aoa = [
-        ["TEKİNAK GIDA / BERRAK — ARIZA VE BAKIM TAKİP FORMU (FR-59)"],
-        [`Form Kodu: ${PKG_FR59_FORM_CODE} | Rapor Tarihi: ${new Date().toLocaleDateString("tr-TR")} | Kayıt Sayısı: ${rowsData.length}`],
-        [],
-        ["ARIZA/BAKIM NO", "TARİH", "ARIZA / BAKIM SAATİ", "ARIZA / BAKIM YERİ", "ARIZA NEDENİ", "SONUÇ", "BAKIM SONRASI TEMİZLİK KONTROLÜ", "BAKIM/ARIZAYI GİDEREN", "KONTROL EDEN", "FORM KODU"]
-      ];
-      rowsData.forEach((r, idx) => {
-        aoa.push([
-          r.faultNo || String(idx + 1),
-          r.displayDate || formatDisplayDateTr(r.dateIso || ""),
-          r.timeRange || "-",
-          r.location || "-",
-          r.reason || "-",
-          r.result || "-",
-          r.cleaningControl || "-",
-          r.resolvedBy || "-",
-          r.checkedBy || "-",
-          r.formCode || PKG_FR59_FORM_CODE
-        ]);
-      });
-      const wb = XLSX.utils.book_new();
-      const ws = XLSX.utils.aoa_to_sheet(aoa);
-      ws["!cols"] = [{wch:16},{wch:13},{wch:18},{wch:22},{wch:26},{wch:38},{wch:24},{wch:22},{wch:22},{wch:26}];
-      XLSX.utils.book_append_sheet(wb, ws, "FR-59 Arıza Bakım");
-      XLSX.writeFile(wb, `Tekinak_Paketleme_Ariza_FR59_${getLocalTodayIso()}.xlsx`);
     };
 
-    window.printPackagingFaultForms = function() {
-      const list = (Array.isArray(window.lastFilteredPkgFr59) && window.lastFilteredPkgFr59.length > 0)
-        ? window.lastFilteredPkgFr59
-        : (window.allPackagingFaultForms || []);
+    window.filterFr59RecordsForPrint = function(list, startDateIso, allDates) {
+      const base = (allDates || !startDateIso)
+        ? [...(list || [])]
+        : (list || []).filter(r => String(r.dateIso || "") >= String(startDateIso));
+      return base.sort((a, b) => {
+        const dc = String(a.dateIso || "").localeCompare(String(b.dateIso || ""));
+        if (dc !== 0) return dc;
+        const na = parseInt(String(a.faultNo || "").replace(/\D/g, ""), 10) || 0;
+        const nb = parseInt(String(b.faultNo || "").replace(/\D/g, ""), 10) || 0;
+        return na - nb;
+      });
+    };
+
+    window.updatePkgFr59PrintPreviewCount = function() {
+      const allChk = document.getElementById("pkgFr59PrintAllDates")?.checked || false;
+      const startIso = document.getElementById("pkgFr59PrintStartDate")?.value || "";
+      const matched = window.filterFr59RecordsForPrint(window.getFr59PrintSourceList(), startIso, allChk);
+      const el = document.getElementById("pkgFr59PrintCountText");
+      const btn = document.getElementById("btnPkgFr59ConfirmPrint");
+      if (el) el.textContent = matched.length > 0
+        ? `Seçilen aralıkta ${matched.length} arıza kaydı sayfaya sığdırılarak yazdırılacak.`
+        : "Seçilen tarihten itibaren yazdırılacak kayıt bulunamadı.";
+      if (btn) btn.disabled = matched.length === 0;
+    };
+
+    window.onPkgFr59AllDatesToggle = function(checked) {
+      const inp = document.getElementById("pkgFr59PrintStartDate");
+      if (inp) inp.disabled = !!checked;
+      window.updatePkgFr59PrintPreviewCount();
+    };
+
+    window.setPkgFr59PrintPreset = function(preset) {
+      const inp = document.getElementById("pkgFr59PrintStartDate");
+      const allChk = document.getElementById("pkgFr59PrintAllDates");
+      const todayIso = getLocalTodayIso();
+      if (preset === "ALL") {
+        if (allChk) allChk.checked = true;
+        if (inp) inp.disabled = true;
+      } else {
+        if (allChk) allChk.checked = false;
+        if (inp) {
+          inp.disabled = false;
+          const d = new Date();
+          if (preset === "7D") d.setDate(d.getDate() - 6);
+          else if (preset === "30D") d.setDate(d.getDate() - 29);
+          inp.value = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+        }
+      }
+      window.updatePkgFr59PrintPreviewCount();
+    };
+
+    window.openPackagingFr59PrintModal = function() {
+      const list = window.getFr59PrintSourceList();
       if (list.length === 0) {
         alert("Yazdırılacak FR-59 kaydı bulunmuyor.");
         return;
       }
-      const blockHtml = (r) => `
-        <table style="width:100%;border-collapse:collapse;margin-bottom:22px;font-family:Arial,sans-serif;font-size:12px;">
-          <tr>
-            <td style="border:1px solid #000;background:#f3f4f6;font-weight:bold;padding:6px;width:22%;">TARİH</td>
-            <td style="border:1px solid #000;padding:6px;width:28%;">${escapeHtml(r.displayDate || formatDisplayDateTr(r.dateIso || ""))}</td>
-            <td style="border:1px solid #000;background:#f3f4f6;font-weight:bold;padding:6px;width:22%;">ARIZA/BAKIM NO</td>
-            <td style="border:1px solid #000;padding:6px;width:28%;">${escapeHtml(r.faultNo || "")}</td>
-          </tr>
-          <tr>
-            <td style="border:1px solid #000;background:#f3f4f6;font-weight:bold;padding:6px;">ARIZA / BAKIM SAATİ</td>
-            <td style="border:1px solid #000;padding:6px;">${escapeHtml(r.timeRange || "")}</td>
-            <td style="border:1px solid #000;background:#f3f4f6;font-weight:bold;padding:6px;">ARIZA / BAKIM YERİ</td>
-            <td style="border:1px solid #000;padding:6px;">${escapeHtml(r.location || "")}</td>
-          </tr>
-          <tr>
-            <td style="border:1px solid #000;background:#f3f4f6;font-weight:bold;padding:10px 6px;">ARIZA NEDENİ</td>
-            <td colspan="3" style="border:1px solid #000;padding:10px 6px;white-space:pre-wrap;">${escapeHtml(r.reason || "")}</td>
-          </tr>
-          <tr>
-            <td style="border:1px solid #000;background:#f3f4f6;font-weight:bold;padding:14px 6px;">SONUÇ</td>
-            <td colspan="3" style="border:1px solid #000;padding:14px 6px;white-space:pre-wrap;">${escapeHtml(r.result || "")}</td>
-          </tr>
-          <tr>
-            <td style="border:1px solid #000;background:#f3f4f6;font-weight:bold;padding:8px 6px;">BAKIM SONRASI TEMİZLİK KONTROLÜ</td>
-            <td colspan="3" style="border:1px solid #000;padding:8px 6px;font-weight:bold;">${escapeHtml(r.cleaningControl || "")}</td>
-          </tr>
-          <tr>
-            <td style="border:1px solid #000;background:#f3f4f6;font-weight:bold;padding:6px;">BAKIM/ARIZAYI GİDEREN</td>
-            <td style="border:1px solid #000;padding:6px;">${escapeHtml(r.resolvedBy || "")}</td>
-            <td style="border:1px solid #000;background:#f3f4f6;font-weight:bold;padding:6px;">KONTROL EDEN</td>
-            <td style="border:1px solid #000;padding:6px;">${escapeHtml(r.checkedBy || "")}</td>
-          </tr>
-        </table>
-      `;
-      let pagesHtml = "";
-      for (let i = 0; i < list.length; i += 2) {
-        const pair = list.slice(i, i + 2);
-        pagesHtml += `
-          <div style="page-break-after:always;padding:10px;">
-            <table style="width:100%;border-collapse:collapse;margin-bottom:18px;font-family:Arial,sans-serif;">
-              <tr>
-                <td style="border:1px solid #000;width:110px;text-align:center;font-weight:900;color:#b91c1c;font-size:16px;padding:12px;">BERRAK</td>
-                <td style="border:1px solid #000;text-align:center;font-weight:900;font-size:18px;padding:12px;">ARIZA VE BAKIM TAKİP FORMU</td>
-              </tr>
-            </table>
-            ${pair.map(blockHtml).join("")}
-            <div style="font-family:Arial,sans-serif;font-size:11px;margin-top:8px;">${PKG_FR59_FORM_CODE}</div>
-          </div>
-        `;
+      const d = new Date();
+      d.setDate(d.getDate() - 6);
+      const defStart = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+      const inp = document.getElementById("pkgFr59PrintStartDate");
+      const allChk = document.getElementById("pkgFr59PrintAllDates");
+      if (allChk) allChk.checked = false;
+      if (inp) {
+        inp.disabled = false;
+        inp.value = defStart;
       }
+      window.updatePkgFr59PrintPreviewCount();
+      document.getElementById("modalPkgFr59Print")?.classList.remove("hidden");
+      lucide.createIcons();
+    };
+
+    window.executePackagingFr59Print = function() {
+      const allChk = document.getElementById("pkgFr59PrintAllDates")?.checked || false;
+      const startIso = document.getElementById("pkgFr59PrintStartDate")?.value || "";
+      closeModal("modalPkgFr59Print");
+      window.printPackagingFaultForms(startIso, allChk);
+    };
+
+    window.exportPackagingFaultFormsExcel = function() {
+      window.openPackagingFr59PrintModal();
+    };
+
+    window.printPackagingFaultForms = function(startDateIso = "", allDates = true) {
+      const list = window.filterFr59RecordsForPrint(window.getFr59PrintSourceList(), startDateIso, allDates);
+      if (list.length === 0) {
+        alert("Seçilen tarih aralığında yazdırılacak FR-59 kaydı bulunmuyor.");
+        return;
+      }
+      const blockHtml = (r) => `
+        <div class="fr59-block">
+          <table class="fr59-tbl">
+            <tr>
+              <td class="lbl" style="width:20%;">TARİH</td>
+              <td class="val" style="width:30%;">${escapeHtml(r.displayDate || formatDisplayDateTr(r.dateIso || ""))}</td>
+              <td class="lbl" style="width:20%;">ARIZA/BAKIM NO</td>
+              <td class="val" style="width:30%;font-weight:700;">${escapeHtml(r.faultNo || "")}</td>
+            </tr>
+            <tr>
+              <td class="lbl">ARIZA / BAKIM SAATİ</td>
+              <td class="val">${escapeHtml(r.timeRange || "")}</td>
+              <td class="lbl">ARIZA / BAKIM YERİ</td>
+              <td class="val">${escapeHtml(r.location || "")}</td>
+            </tr>
+            <tr>
+              <td class="lbl">ARIZA NEDENİ</td>
+              <td colspan="3" class="val pre">${escapeHtml(r.reason || "")}</td>
+            </tr>
+            <tr>
+              <td class="lbl">SONUÇ</td>
+              <td colspan="3" class="val pre">${escapeHtml(r.result || "")}</td>
+            </tr>
+            <tr>
+              <td class="lbl">BAKIM SONRASI TEMİZLİK KONTROLÜ</td>
+              <td colspan="3" class="val" style="font-weight:700;">${escapeHtml(r.cleaningControl || "")}</td>
+            </tr>
+            <tr>
+              <td class="lbl">BAKIM/ARIZAYI GİDEREN</td>
+              <td class="val">${escapeHtml(r.resolvedBy || "")}</td>
+              <td class="lbl">KONTROL EDEN</td>
+              <td class="val">${escapeHtml(r.checkedBy || "")}</td>
+            </tr>
+          </table>
+        </div>
+      `;
+      const rangeSubtitle = (!allDates && startDateIso)
+        ? `Başlangıç Tarihi: ${formatDisplayDateTr(startDateIso)} ve sonrası • ${list.length} Kayıt`
+        : `Tüm Tarihler • ${list.length} Kayıt`;
       const w = window.open("", "_blank");
       if (!w) { alert("Yazdırma penceresi tarayıcı tarafından engellendi."); return; }
-      w.document.write(`<!DOCTYPE html><html lang="tr"><head><meta charset="UTF-8"><title>FR-59 Arıza ve Bakım Takip Formu</title></head><body onload="window.print()">${pagesHtml}</body></html>`);
+      w.document.write(`<!DOCTYPE html><html lang="tr"><head><meta charset="UTF-8"><title>FR-59 Arıza ve Bakım Takip Formu</title>
+      <style>
+        @page { size: A4 portrait; margin: 8mm; }
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: #000; background: #fff; }
+        .no-print { display: flex; justify-content: flex-end; margin-bottom: 8px; }
+        .frame-table { width: 100%; border-collapse: collapse; }
+        .frame-table > thead { display: table-header-group; }
+        .frame-table > tfoot { display: table-footer-group; }
+        .hdr-table { width: 100%; border-collapse: collapse; margin-bottom: 8px; }
+        .hdr-table td { border: 1px solid #000; padding: 7px 10px; }
+        .fr59-block { break-inside: avoid; page-break-inside: avoid; margin-bottom: 8px; }
+        .fr59-tbl { width: 100%; border-collapse: collapse; font-size: 9.5px; }
+        .fr59-tbl td { border: 1px solid #000; padding: 3.5px 5px; vertical-align: top; }
+        .fr59-tbl .lbl { background: #f3f4f6; font-weight: 700; }
+        .fr59-tbl .pre { white-space: pre-wrap; }
+        @media print { .no-print { display: none !important; } }
+      </style></head>
+      <body onload="setTimeout(() => window.print(), 250)">
+        <div class="no-print">
+          <button onclick="window.print()" style="padding:8px 16px;background:#1e3a8a;color:#fff;border:none;border-radius:8px;font-weight:700;cursor:pointer;">🖨️ Yazdır / PDF Kaydet</button>
+        </div>
+        <table class="frame-table">
+          <thead>
+            <tr><td style="padding:0;">
+              <table class="hdr-table">
+                <tr>
+                  <td style="width:105px;text-align:center;font-weight:900;color:#b91c1c;font-size:15px;">BERRAK</td>
+                  <td style="text-align:center;">
+                    <div style="font-weight:900;font-size:15px;">ARIZA VE BAKIM TAKİP FORMU</div>
+                    <div style="font-size:9.5px;color:#334155;margin-top:2px;">${escapeHtml(rangeSubtitle)}</div>
+                  </td>
+                </tr>
+              </table>
+            </td></tr>
+          </thead>
+          <tbody>
+            <tr><td style="padding:0;">${list.map(blockHtml).join("")}</td></tr>
+          </tbody>
+          <tfoot>
+            <tr><td style="padding-top:4px;font-size:9.5px;">${PKG_FR59_FORM_CODE}</td></tr>
+          </tfoot>
+        </table>
+      </body></html>`);
       w.document.close();
     };
 
@@ -15504,11 +15652,7 @@
 
     window.exportAllUtilitiesDayExcel = function() {
       if (!window.canUserExportExcel(window.currentUser)) {
-        alert("⚠️ Excel rapor çıktısı alma yetkiniz bulunmamaktadır.");
-        return;
-      }
-      if (typeof XLSX === "undefined") {
-        alert("Excel kütüphanesi henüz yüklenemedi. Lütfen sayfayı yenileyiniz.");
+        alert("⚠️ PDF / Yazdır rapor çıktısı alma yetkiniz bulunmamaktadır.");
         return;
       }
       const u = window.currentUser;
@@ -15517,25 +15661,9 @@
       const visibleFormKeys = Object.keys(UTILITY_FORM_DEFS).filter(fid => window.canUserViewSubPage(window.utilityFormToSubPage(fid), u));
       const cellsByForm = window.utilityUiState.allDraftCellsByForm || {};
       const rules = mergeUtilityReferenceRules();
-      const wb = XLSX.utils.book_new();
-      const usedNames = new Set();
-      const makeSheetName = (raw) => {
-        const clean = String(raw || "Sayfa").replace(/[\\/*?:\[\]]/g, " ").trim().slice(0, 28) || "Sayfa";
-        let name = clean;
-        let idx = 2;
-        while (usedNames.has(name)) {
-          name = `${clean.slice(0, 25)}_${idx++}`;
-        }
-        usedNames.add(name);
-        return name;
-      };
+      const sections = [];
 
-      // 1. Saatlik Özet & Notlar
-      const summaryAoa = [
-        ["TEKİNAK GIDA SAN. VE TİC. A.Ş.", "YARDIMCI TESİSLER GÜNLÜK SAATLİK ÖZET RAPORU", `TARİH: ${displayDate}`],
-        [],
-        ["SAAT", "KONTROL EDİLECEK SİSTEMLER", "DOLU ÜNİTE", "REFERANS DURUMU", "SAATLİK AÇIKLAMA / NOT"]
-      ];
+      const summaryRows = [];
       const allHours = getAvailableUtilityHours(visibleFormKeys);
       allHours.forEach(slot => {
         const groups = getScheduledUtilityGroupsForHour(slot, visibleFormKeys);
@@ -15554,7 +15682,7 @@
           });
         });
         const hrNote = resolveUtilityHourlyNote(slot, cellsByForm, groups.map(g => g.formType));
-        summaryAoa.push([
+        summaryRows.push([
           slot,
           sysNames,
           `${filledUnits}/${totalUnits}`,
@@ -15562,11 +15690,12 @@
           hrNote || "—"
         ]);
       });
-      const wsSummary = XLSX.utils.aoa_to_sheet(summaryAoa);
-      wsSummary["!cols"] = [{wch:10},{wch:36},{wch:14},{wch:18},{wch:44}];
-      XLSX.utils.book_append_sheet(wb, wsSummary, makeSheetName("Saatlik_Ozet_Notlar"));
+      sections.push({
+        title: `Saatlik Özet & Notlar (${displayDate})`,
+        headers: ["SAAT", "KONTROL EDİLECEK SİSTEMLER", "DOLU ÜNİTE", "REFERANS DURUMU", "SAATLİK AÇIKLAMA / NOT"],
+        rows: summaryRows
+      });
 
-      // 2. Her Sistem ve Ünite İçin Ayrı Çalışma Sayfaları
       const allDayAnoms = [];
       visibleFormKeys.forEach(fid => {
         const def = UTILITY_FORM_DEFS[fid];
@@ -15578,161 +15707,141 @@
         anoms.forEach(a => allDayAnoms.push({ ...a, formTitle: utilityFormTabTitleWeb(fid) }));
 
         def.sections.forEach(sec => {
-          const secAoa = [
-            ["TEKİNAK GIDA SAN. VE TİC. A.Ş.", def.documentTitle, def.formCode, `TARİH: ${displayDate}`],
-            ["ÜNİTE", sec.title, "KONTROL EDEN", opName || "—"],
-            [],
-            ["SAAT", ...sec.columns.map(c => c.title), "SAATLİK AÇIKLAMA / NOT", "REFERANS DURUMU"]
-          ];
-          sec.hours.forEach(hr => {
+          const rows = sec.hours.map(hr => {
             const rowVals = sec.columns.map(col => getUtilityCellValueWithLegacy(def.id, fc, sec.id, hr, col.id));
             const rowAnoms = sec.columns
               .map(col => evaluateUtilityCell(sec, hr, col, getUtilityCellValueWithLegacy(def.id, fc, sec.id, hr, col.id), rules))
               .filter(Boolean);
             const hrNote = getUtilityHourlyNoteFromCells(def.id, fc, hr);
-            secAoa.push([
+            return [
               hr,
               ...rowVals,
               hrNote || "",
               rowAnoms.length ? rowAnoms.map(a => `⚠️ ${a.columnTitle}: ${a.reason}`).join(" | ") : (rowVals.some(Boolean) ? "Normal" : "")
-            ]);
+            ];
           });
-          if (log?.notes) {
-            secAoa.push([]);
-            secAoa.push(["Genel Form Notu", log.notes]);
-          }
-          const wsSec = XLSX.utils.aoa_to_sheet(secAoa);
-          wsSec["!cols"] = [{wch:10}, ...sec.columns.map(() => ({wch:18})), {wch:30}, {wch:28}];
-          XLSX.utils.book_append_sheet(wb, wsSec, makeSheetName(`${def.shortBadge}_${sec.title}`));
+          sections.push({
+            title: `${def.documentTitle} (${def.formCode}) — ${sec.title} • Teknisyen: ${opName || "—"}`,
+            headers: ["SAAT", ...sec.columns.map(c => c.title), "SAATLİK AÇIKLAMA", "DURUM"],
+            rows
+          });
         });
 
         if (fid === "COMPRESSOR" && (isLastDayOfMonthIso(dateIso) || Object.keys(fc).some(k => k.startsWith("ay_sonu_calisma_saati__")))) {
-          const eomAoa = [
-            ["AY SONU KOMPRESÖR ÇALIŞMA SAATLERİ", `TARİH: ${displayDate}`],
-            [],
-            ["Kompresör", "Çalışma Saati (Saat)"]
-          ];
-          def.sections.forEach(sec => eomAoa.push([sec.title, fc[`ay_sonu_calisma_saati__${sec.id}`] || ""]));
-          const wsEom = XLSX.utils.aoa_to_sheet(eomAoa);
-          wsEom["!cols"] = [{wch:30},{wch:22}];
-          XLSX.utils.book_append_sheet(wb, wsEom, makeSheetName("Ay_Sonu_Calisma_Saati"));
+          sections.push({
+            title: "AY SONU KOMPRESÖR ÇALIŞMA SAATLERİ",
+            headers: ["Kompresör", "Çalışma Saati (Saat)"],
+            rows: def.sections.map(sec => [sec.title, fc[`ay_sonu_calisma_saati__${sec.id}`] || ""])
+          });
         }
       });
 
       if (allDayAnoms.length) {
-        const anAoa = [
-          ["REFERANS DIŞI / ANORMAL DEĞER UYARILARI", `TARİH: ${displayDate}`],
-          [],
-          ["Sistem", "Ünite", "Saat", "Parametre", "Girilen Değer", "Uyarı Nedeni", "Beklenen Referans"]
-        ];
-        allDayAnoms.forEach(a => anAoa.push([a.formTitle, a.sectionTitle, a.timeSlot, a.columnTitle, a.enteredValue, a.reason, a.expectedRange || "—"]));
-        const wsAn = XLSX.utils.aoa_to_sheet(anAoa);
-        wsAn["!cols"] = [{wch:16},{wch:24},{wch:10},{wch:22},{wch:14},{wch:28},{wch:18}];
-        XLSX.utils.book_append_sheet(wb, wsAn, makeSheetName("Referans_Uyarilari"));
+        sections.push({
+          title: `Referans Dışı / Anormal Değer Uyarıları (${allDayAnoms.length})`,
+          headers: ["Sistem", "Ünite", "Saat", "Parametre", "Girilen Değer", "Uyarı Nedeni", "Beklenen Referans"],
+          rows: allDayAnoms.map(a => [a.formTitle, a.sectionTitle, a.timeSlot, a.columnTitle, a.enteredValue, a.reason, a.expectedRange || "—"])
+        });
       }
 
       const dayWf = getWaterFilterLogsSorted().filter(l => l.dateIso === dateIso);
       if (dayWf.length) {
-        const wfAoa = [
-          ["ARITMA MEMBRAN & FİLTRE DEĞİŞİMİ", `TARİH: ${displayDate}`],
-          [],
-          ["Tarih", "Arıtma Ünitesi", "Torba Filtre", "Kartuş Filtre", "Membran", "Personel", "Not"]
-        ];
-        dayWf.forEach(wf => wfAoa.push([
-          wf.displayDate || displayDate,
-          wf.cells?.unit || WATER_FILTER_UNITS[0],
-          Number(wf.cells?.torba_filtre || 0),
-          Number(wf.cells?.kartus_filtre || 0),
-          Number(wf.cells?.membran || 0),
-          wf.operatorName || wf.updatedByName || "-",
-          wf.notes || "-"
-        ]));
-        const wsWf = XLSX.utils.aoa_to_sheet(wfAoa);
-        wsWf["!cols"] = [{wch:14},{wch:26},{wch:14},{wch:14},{wch:12},{wch:20},{wch:30}];
-        XLSX.utils.book_append_sheet(wb, wsWf, makeSheetName("Membran_Filtre"));
-      }
-
-      XLSX.writeFile(wb, `Tekinak_Yardimci_Tesisler_${dateIso}.xlsx`);
-    };
-
-    window.exportUtilityFormExcel = function() {
-      if (!window.canUserExportExcel(window.currentUser)) {
-        alert("⚠️ Excel rapor çıktısı alma yetkiniz bulunmamaktadır.");
-        return;
-      }
-      if (typeof XLSX === "undefined") {
-        alert("Excel kütüphanesi henüz yüklenemedi. Lütfen sayfayı yenileyiniz.");
-        return;
-      }
-      const formType = window.utilityUiState.formType;
-      const dateIso = window.utilityUiState.dateIso || getLocalTodayIso();
-      if (window.utilityUiState.viewMode === "filter" || (formType === "WATER_TREATMENT" && window.utilityUiState.waterInnerMode === "filter")) {
-        const wfLogs = getWaterFilterLogsSorted();
-        const wb = XLSX.utils.book_new();
-        const aoa = [
-          ["TEKİNAK GIDA SAN. VE TİC. A.Ş.", "ARITMA TESİSİ MEMBRAN VE FİLTRE DEĞİŞİM KAYITLARI", `TOPLAM ${wfLogs.length} KAYIT`],
-          [],
-          ["Tarih", "Arıtma Ünitesi", "Torba Filtre (Adet)", "Kartuş Filtre (Adet)", "Membran (Adet)", "Personel", "Not / Açıklama"]
-        ];
-        wfLogs.forEach(wf => {
-          aoa.push([
-            wf.displayDate || formatDisplayDateTr(wf.dateIso),
+        sections.push({
+          title: "Arıtma Membran & Filtre Değişimi",
+          headers: ["Tarih", "Arıtma Ünitesi", "Torba", "Kartuş", "Membran", "Personel", "Not"],
+          rows: dayWf.map(wf => [
+            wf.displayDate || displayDate,
             wf.cells?.unit || WATER_FILTER_UNITS[0],
             Number(wf.cells?.torba_filtre || 0),
             Number(wf.cells?.kartus_filtre || 0),
             Number(wf.cells?.membran || 0),
             wf.operatorName || wf.updatedByName || "-",
             wf.notes || "-"
-          ]);
+          ])
         });
-        const ws = XLSX.utils.aoa_to_sheet(aoa);
-        ws["!cols"] = [{wch:14},{wch:30},{wch:18},{wch:18},{wch:16},{wch:22},{wch:34}];
-        XLSX.utils.book_append_sheet(wb, ws, "Membran_Filtre");
-        XLSX.writeFile(wb, `Tekinak_Aritma_Membran_Filtre_${getLocalTodayIso()}.xlsx`);
+      }
+
+      window.openHtmlPrintReport({
+        title: `YARDIMCI TESİSLER GÜNLÜK KONTROL RAPORU (${displayDate})`,
+        subtitle: `Tüm Sistemler • ${allDayAnoms.length} Referans Uyarısı`,
+        landscape: true,
+        summaryCards: [
+          { label: "Tarih", value: displayDate },
+          { label: "Sistem Sayısı", value: visibleFormKeys.length },
+          { label: "Referans Uyarısı", value: allDayAnoms.length }
+        ],
+        sections
+      });
+    };
+
+    window.exportUtilityFormExcel = function() {
+      if (!window.canUserExportExcel(window.currentUser)) {
+        alert("⚠️ PDF / Yazdır rapor çıktısı alma yetkiniz bulunmamaktadır.");
+        return;
+      }
+      const formType = window.utilityUiState.formType;
+      const dateIso = window.utilityUiState.dateIso || getLocalTodayIso();
+      const displayDate = formatDisplayDateTr(dateIso);
+      if (window.utilityUiState.viewMode === "filter" || (formType === "WATER_TREATMENT" && window.utilityUiState.waterInnerMode === "filter")) {
+        const wfLogs = getWaterFilterLogsSorted();
+        window.openHtmlPrintReport({
+          title: "ARITMA TESİSİ MEMBRAN VE FİLTRE DEĞİŞİM KAYITLARI",
+          subtitle: `Toplam ${wfLogs.length} Kayıt`,
+          landscape: true,
+          summaryCards: [{ label: "Toplam Değişim Kaydı", value: wfLogs.length }],
+          sections: [{
+            title: "Membran & Filtre Değişim Geçmişi",
+            headers: ["Tarih", "Arıtma Ünitesi", "Torba Filtre", "Kartuş Filtre", "Membran", "Personel", "Not / Açıklama"],
+            rows: wfLogs.map(wf => [
+              wf.displayDate || formatDisplayDateTr(wf.dateIso),
+              wf.cells?.unit || WATER_FILTER_UNITS[0],
+              Number(wf.cells?.torba_filtre || 0),
+              Number(wf.cells?.kartus_filtre || 0),
+              Number(wf.cells?.membran || 0),
+              wf.operatorName || wf.updatedByName || "-",
+              wf.notes || "-"
+            ])
+          }]
+        });
         return;
       }
 
       const def = UTILITY_FORM_DEFS[formType] || UTILITY_FORM_DEFS.COMPRESSOR;
       const cells = (window.utilityUiState.allDraftCellsByForm && window.utilityUiState.allDraftCellsByForm[formType]) || window.utilityUiState.draftCells || {};
-      const wb = XLSX.utils.book_new();
-      const aoa = [
-        ["TEKİNAK GIDA SAN. VE TİC. A.Ş.", def.documentTitle, def.formCode, `TARİH: ${formatDisplayDateTr(dateIso)}`]
-      ];
-      def.sections.forEach(sec => {
-        aoa.push([]);
-        aoa.push([sec.title]);
-        aoa.push(["SAAT", ...sec.columns.map(c => c.title), "SAATLİK AÇIKLAMA / NOT"]);
-        sec.hours.forEach(hr => {
-          aoa.push([
-            hr,
-            ...sec.columns.map(col => getUtilityCellValueWithLegacy(def.id, cells, sec.id, hr, col.id)),
-            getUtilityHourlyNoteFromCells(def.id, cells, hr)
-          ]);
-        });
-      });
+      const sections = def.sections.map(sec => ({
+        title: sec.title,
+        headers: ["SAAT", ...sec.columns.map(c => c.title), "SAATLİK AÇIKLAMA / NOT"],
+        rows: sec.hours.map(hr => [
+          hr,
+          ...sec.columns.map(col => getUtilityCellValueWithLegacy(def.id, cells, sec.id, hr, col.id)),
+          getUtilityHourlyNoteFromCells(def.id, cells, hr)
+        ])
+      }));
 
       const hasCompEom = formType === "COMPRESSOR" && (isLastDayOfMonthIso(dateIso) || Object.keys(cells).some(k => k.startsWith("ay_sonu_calisma_saati__")));
       if (hasCompEom) {
-        aoa.push([]);
-        aoa.push(["AY SONU KOMPRESÖR ÇALIŞMA SAATLERİ"]);
-        aoa.push(["Kompresör", "Çalışma Saati (Saat)"]);
-        def.sections.forEach(sec => {
-          aoa.push([sec.title, cells[`ay_sonu_calisma_saati__${sec.id}`] || ""]);
+        sections.push({
+          title: "AY SONU KOMPRESÖR ÇALIŞMA SAATLERİ",
+          headers: ["Kompresör", "Çalışma Saati (Saat)"],
+          rows: def.sections.map(sec => [sec.title, cells[`ay_sonu_calisma_saati__${sec.id}`] || ""])
         });
       }
 
       const op = document.getElementById("utilityOperatorInput")?.value || window.utilityUiState.hourlyOperator || "";
       const sup = def.supervisorLabel ? (document.getElementById("utilitySupervisorInput")?.value || "") : "";
       const notes = document.getElementById("utilityNotesInput")?.value || "";
-      aoa.push([]);
-      aoa.push([def.operatorLabel, op]);
-      if (def.supervisorLabel) aoa.push([def.supervisorLabel, sup]);
-      if (notes) aoa.push(["Ek Not / Açıklama", notes]);
-
-      const ws = XLSX.utils.aoa_to_sheet(aoa);
-      ws["!cols"] = [{wch:12}, ...Array.from({length: 6}, () => ({wch:22})), {wch:30}];
-      XLSX.utils.book_append_sheet(wb, ws, def.shortBadge || "Form");
-      XLSX.writeFile(wb, `Tekinak_${def.shortBadge}_${formType}_${dateIso}.xlsx`);
+      window.openHtmlPrintReport({
+        title: `${def.documentTitle} (${def.formCode})`,
+        subtitle: `Tarih: ${displayDate} • ${def.operatorLabel}: ${op || "—"}${sup ? ` • ${def.supervisorLabel}: ${sup}` : ""}`,
+        landscape: true,
+        summaryCards: [
+          { label: "Form Kodu", value: def.formCode },
+          { label: "Tarih", value: displayDate },
+          { label: "Kontrol Eden", value: op || "—" }
+        ],
+        sections,
+        footerNote: notes ? `Ek Not: ${notes}` : ""
+      });
     };
     window.exportUtilityFormCsv = window.exportUtilityFormExcel;
 
@@ -16495,8 +16604,8 @@
       if (btnExcel) {
         btnExcel.classList.toggle("hidden", !(canExport && (isWaterFilter || viewMode === "tables")));
         btnExcel.innerHTML = isWaterFilter
-          ? `<i data-lucide="file-spreadsheet" class="w-3.5 h-3.5"></i> Filtre Excel (.xlsx)`
-          : `<i data-lucide="file-spreadsheet" class="w-3.5 h-3.5"></i> ${escapeHtml(utilityFormTabTitleWeb(formType))} (.xlsx)`;
+          ? `<i data-lucide="printer" class="w-3.5 h-3.5"></i> Filtre PDF / Yazdır`
+          : `<i data-lucide="printer" class="w-3.5 h-3.5"></i> ${escapeHtml(utilityFormTabTitleWeb(formType))} PDF / Yazdır`;
       }
 
       const hourlyContainer = document.getElementById("utilityHourlyContainer");
@@ -17482,66 +17591,62 @@
 
     window.exportProductionFaultsExcel = function() {
       if (!window.canUserExportExcel(window.currentUser)) {
-        alert("⚠️ Excel rapor çıktısı alma yetkiniz bulunmamaktadır.");
-        return;
-      }
-      if (typeof XLSX === "undefined") {
-        alert("Excel kütüphanesi henüz yüklenemedi. Lütfen sayfayı yenileyiniz.");
+        alert("⚠️ PDF / Yazdır rapor çıktısı alma yetkiniz bulunmamaktadır.");
         return;
       }
       const list = (Array.isArray(window.lastFilteredProductionFaults) && window.lastFilteredProductionFaults.length > 0)
         ? window.lastFilteredProductionFaults
         : (window.allProductionFaults || []);
       const nowMs = Date.now();
-      const aoa = [
-        ["TEKİNAK GIDA SAN. VE TİC. A.Ş. - BAĞIMSIZ ÜRETİM ARIZALARI RAPORU"],
-        [`Rapor Tarihi: ${new Date().toLocaleDateString("tr-TR")} | Kayıt Sayısı: ${list.length}`],
-        [],
-        ["Hat Numarası", "Durum", "Arıza Başlangıcı", "Çözüm Zamanı", "Duruş (dk)", "Duruş Süresi", "Arıza Açıklaması", "Yapılan İşlem", "Yapan Kişiler", "Değişen Parçalar", "Bildiren"]
-      ];
-      list.forEach(f => {
+      const faultRows = list.map(f => {
         const startMs = Number(f.faultOccurredAtMillis || f.createdAtMillis || 0);
         const endMs = Number(f.resolvedAtMillis || 0);
         const dt = f.status === "Çözüldü"
           ? (Number(f.downtimeMinutes || 0) > 0 ? Number(f.downtimeMinutes) : (startMs > 0 && endMs > startMs ? Math.round((endMs - startMs) / 60000) : 0))
           : (startMs > 0 ? Math.max(0, Math.round((nowMs - startMs) / 60000)) : 0);
-        aoa.push([
+        return [
           f.lineName || "-",
           f.status || "Açık",
           formatProdDateTime(startMs),
           f.status === "Çözüldü" ? formatProdDateTime(endMs) : "-",
-          dt,
-          formatProdDuration(dt),
+          `${dt} dk (${formatProdDuration(dt)})`,
           f.description || "",
           f.resolutionNotes || "",
           Array.isArray(f.resolvedByNames) ? f.resolvedByNames.join(", ") : "",
           Array.isArray(f.usedParts) ? f.usedParts.join(", ") : "",
           f.reportedByName || ""
-        ]);
+        ];
       });
-
-      const kpiAoa = [
-        ["ÜRETİM ARIZA HAT DURUŞ KPI ÖZETİ"],
-        [],
-        ["Hat Numarası", "Toplam Arıza", "Açık", "Çözülen", "Çözülen Duruş (dk)", "Devam Eden Duruş (dk)", "Genel Toplam Duruş"]
-      ];
-      PRODUCTION_LINES_ORDERED.forEach(line => {
+      const kpiRows = PRODUCTION_LINES_ORDERED.map(line => {
         const sub = list.filter(x => x.lineName === line);
         const openArr = sub.filter(x => x.status !== "Çözüldü");
         const resArr = sub.filter(x => x.status === "Çözüldü");
         const resMins = resArr.reduce((s, x) => s + Number(x.downtimeMinutes || 0), 0);
         const openMins = openArr.reduce((s, x) => s + Math.max(0, Math.round((nowMs - Number(x.faultOccurredAtMillis || x.createdAtMillis || nowMs)) / 60000)), 0);
-        kpiAoa.push([line, sub.length, openArr.length, resArr.length, resMins, openMins, formatProdDuration(resMins + openMins)]);
+        return [line, sub.length, openArr.length, resArr.length, resMins, openMins, formatProdDuration(resMins + openMins)];
       });
-
-      const wb = XLSX.utils.book_new();
-      const ws1 = XLSX.utils.aoa_to_sheet(aoa);
-      ws1["!cols"] = [{wch:16},{wch:12},{wch:18},{wch:18},{wch:12},{wch:16},{wch:32},{wch:32},{wch:24},{wch:26},{wch:18}];
-      const ws2 = XLSX.utils.aoa_to_sheet(kpiAoa);
-      ws2["!cols"] = [{wch:18},{wch:14},{wch:10},{wch:10},{wch:20},{wch:22},{wch:20}];
-      XLSX.utils.book_append_sheet(wb, ws1, "Üretim Arızaları");
-      XLSX.utils.book_append_sheet(wb, ws2, "Hat Duruş KPI");
-      XLSX.writeFile(wb, `Tekinak_Uretim_Arizalari_${getLocalTodayIso()}.xlsx`);
+      window.openHtmlPrintReport({
+        title: "BAĞIMSIZ ÜRETİM ARIZALARI & HAT DURUŞ KPI RAPORU",
+        subtitle: `Toplam ${list.length} Üretim Arızası Kaydı`,
+        landscape: true,
+        summaryCards: [
+          { label: "Toplam Arıza", value: list.length },
+          { label: "Açık", value: list.filter(x => x.status !== "Çözüldü").length },
+          { label: "Çözülen", value: list.filter(x => x.status === "Çözüldü").length }
+        ],
+        sections: [
+          {
+            title: "Hat Duruş KPI Özeti",
+            headers: ["Hat", "Toplam", "Açık", "Çözülen", "Çözülen Duruş (dk)", "Devam Eden Duruş (dk)", "Genel Toplam"],
+            rows: kpiRows
+          },
+          {
+            title: "Üretim Arıza Kayıtları",
+            headers: ["Hat", "Durum", "Başlangıç", "Çözüm Zamanı", "Duruş", "Açıklama", "Yapılan İşlem", "Yapanlar", "Değişen Parçalar", "Bildiren"],
+            rows: faultRows
+          }
+        ]
+      });
     };
 
     // Modal Fonksiyonları
@@ -17582,7 +17687,7 @@
     };
     window.openExcelDialog = () => {
       if (!window.canUserExportExcel(window.currentUser)) {
-        alert("⚠️ Excel rapor çıktısı alma yetkiniz bulunmamaktadır. Lütfen sistem yöneticisi ile iletişime geçiniz.");
+        alert("⚠️ PDF / Yazdır rapor çıktısı alma yetkiniz bulunmamaktadır. Lütfen sistem yöneticisi ile iletişime geçiniz.");
         return;
       }
       document.getElementById("modalExcel").classList.remove("hidden");
@@ -17593,18 +17698,20 @@
 
     function renderAppVersionBadge() {
       const v = window.currentAppVersion || {
-        versionName: "1.6.7",
-        versionCode: 36,
-        releaseDate: "2026-11-23",
-        title: "Tekinak CMMS v1.6.7",
+        versionName: "1.6.8",
+        versionCode: 37,
+        releaseDate: "2026-11-26",
+        title: "Tekinak CMMS v1.6.8",
         changelog: [
-          "İSG formlarında Android ve Web 1 MB belge boyutu kaydetme/tamamlama hatası giderildi: yüksek netlikteki (Full HD) fotoğraflar ayrı 'isg_form_photos' koleksiyonuna kaydedilir.",
-          "Evrak Fotoğrafları (Genel Ekler), kamera ile anlık net fotoğraf çekme ve web tam ekran yakınlaştırılabilir fotoğraf detay görüntüleyici eklendi.",
-          "İSG formlarında sıkı düzenleme kilidi eklendi: yönlendirilen kişi haricinde kimse formu tekrar düzenleyemez."
+          "Bildirim açma ve cihaz kurulum ayarları Ayarlar sekmesine taşındı; ana ekrandaki bildirim uyarı şeridi kaldırıldı ve anlık bildirim akışı korundu.",
+          "Forklift kontrol formu aylık PARAF kutuları düz açılan dijital imza alanı olarak güncellendi ve imza kutucuğa 90° sola yatırılarak sığdırıldı.",
+          "İSG sekmesinden Word/Excel dışa aktarma butonları, konu başlıkları filtresi ve Evrak Fotoğrafları bölümü kaldırıldı.",
+          "Paketleme Arıza (FR-59) çıktılarında başlangıç tarihi seçimi eklendi ve sayfaya sığabildiği kadar arıza tablosu dinamik olarak yerleştirildi.",
+          "Uygulama ve web genelindeki tüm Excel çıktıları Yazdır / PDF raporlarına dönüştürüldü (v1.6.8 - Kod: 37)."
         ]
       };
-      const vName = v.versionName || "1.6.7";
-      const vCode = Number(v.versionCode || 36);
+      const vName = v.versionName || "1.6.8";
+      const vCode = Number(v.versionCode || 37);
       const localApkHref = `app-release.apk?v=${vCode}`;
 
       const badgeText = document.getElementById("topVersionBadgeText");
@@ -17663,7 +17770,7 @@
     };
 
     window.dismissWebUpdateBanner = function() {
-      const vCode = Number((window.currentAppVersion && window.currentAppVersion.versionCode) || 36);
+      const vCode = Number((window.currentAppVersion && window.currentAppVersion.versionCode) || 37);
       localStorage.setItem("tekinak_dismissed_ver_" + vCode, "1");
       const banner = document.getElementById("webAppUpdateBanner");
       if (banner) banner.classList.add("hidden");
@@ -17672,17 +17779,19 @@
     async function seedInitialAppVersionInFirebase() {
       try {
         const initialData = {
-          versionCode: 36,
-          versionName: "1.6.7",
-          releaseTag: "v1.6.7",
+          versionCode: 37,
+          versionName: "1.6.8",
+          releaseTag: "v1.6.8",
           releaseDate: new Date().toISOString().slice(0, 10),
           apkUrl: "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
           fallbackUrl: "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-          title: "Tekinak CMMS v1.6.7",
+          title: "Tekinak CMMS v1.6.8",
           changelog: [
-            "İSG formlarında Android ve Web 1 MB belge boyutu kaydetme/tamamlama hatası giderildi: yüksek netlikteki (Full HD) fotoğraflar ayrı 'isg_form_photos' koleksiyonuna kaydedilir.",
-            "Evrak Fotoğrafları (Genel Ekler), kamera ile anlık net fotoğraf çekme ve web tam ekran yakınlaştırılabilir fotoğraf detay görüntüleyici eklendi.",
-            "İSG formlarında sıkı düzenleme kilidi eklendi: yönlendirilen kişi haricinde kimse formu tekrar düzenleyemez."
+            "Bildirim açma ve cihaz kurulum ayarları Ayarlar sekmesine taşındı; ana ekrandaki bildirim uyarı şeridi kaldırıldı ve anlık bildirim akışı korundu.",
+            "Forklift kontrol formu aylık PARAF kutuları düz açılan dijital imza alanı olarak güncellendi ve imza kutucuğa 90° sola yatırılarak sığdırıldı.",
+            "İSG sekmesinden Word/Excel dışa aktarma butonları, konu başlıkları filtresi ve Evrak Fotoğrafları bölümü kaldırıldı.",
+            "Paketleme Arıza (FR-59) çıktılarında başlangıç tarihi seçimi eklendi ve sayfaya sığabildiği kadar arıza tablosu dinamik olarak yerleştirildi.",
+            "Uygulama ve web genelindeki tüm Excel çıktıları Yazdır / PDF raporlarına dönüştürüldü (v1.6.8 - Kod: 37)."
           ],
           forceUpdate: false,
           updatedAtMillis: Date.now()
@@ -17701,10 +17810,10 @@
         alert("⛔ Yetkisiz İşlem: Mobil sürüm güncelleme yönetimi yalnızca usluozaykagan@gmail.com hesabına tanımlıdır.");
         return;
       }
-      const v = window.currentAppVersion || { versionCode: 36, versionName: "1.6.7", title: "Tekinak CMMS v1.6.7", apkUrl: "", changelog: [] };
-      document.getElementById("verFormCode").value = v.versionCode || 36;
-      document.getElementById("verFormName").value = v.versionName || "1.6.7";
-      document.getElementById("verFormTitle").value = `Yeni Sürüm Yayınlandı (v${v.versionName || "1.6.7"})`;
+      const v = window.currentAppVersion || { versionCode: 37, versionName: "1.6.8", title: "Tekinak CMMS v1.6.8", apkUrl: "", changelog: [] };
+      document.getElementById("verFormCode").value = v.versionCode || 37;
+      document.getElementById("verFormName").value = v.versionName || "1.6.8";
+      document.getElementById("verFormTitle").value = `Yeni Sürüm Yayınlandı (v${v.versionName || "1.6.8"})`;
       document.getElementById("verFormApkUrl").value = v.apkUrl || "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk";
       document.getElementById("verFormChangelog").value = (v.changelog && v.changelog.length) ? v.changelog.join("\n") : "Yeni bakım özellikleri ve performans iyileştirmeleri eklendi.";
       document.getElementById("modalAppVersion").classList.remove("hidden");
@@ -17729,7 +17838,7 @@
         return;
       }
       if (!name) {
-        alert("Lütfen sürüm adı giriniz (örn: 1.6.7).");
+        alert("Lütfen sürüm adı giriniz (örn: 1.6.8).");
         return;
       }
 
@@ -17789,17 +17898,19 @@
       }
       try {
         const payload = {
-          versionCode: 36,
-          versionName: "1.6.7",
-          releaseTag: "v1.6.7",
+          versionCode: 37,
+          versionName: "1.6.8",
+          releaseTag: "v1.6.8",
           releaseDate: new Date().toISOString().slice(0, 10),
           apkUrl: "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
           fallbackUrl: "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-          title: "Tekinak CMMS v1.6.7",
+          title: "Tekinak CMMS v1.6.8",
           changelog: [
-            "İSG formlarında Android ve Web 1 MB belge boyutu kaydetme/tamamlama hatası giderildi: yüksek netlikteki (Full HD) fotoğraflar ayrı 'isg_form_photos' koleksiyonuna kaydedilir.",
-            "Evrak Fotoğrafları (Genel Ekler), kamera ile anlık net fotoğraf çekme ve web tam ekran yakınlaştırılabilir fotoğraf detay görüntüleyici eklendi.",
-            "İSG formlarında sıkı düzenleme kilidi eklendi: yönlendirilen kişi haricinde kimse formu tekrar düzenleyemez."
+            "Bildirim açma ve cihaz kurulum ayarları Ayarlar sekmesine taşındı; ana ekrandaki bildirim uyarı şeridi kaldırıldı ve anlık bildirim akışı korundu.",
+            "Forklift kontrol formu aylık PARAF kutuları düz açılan dijital imza alanı olarak güncellendi ve imza kutucuğa 90° sola yatırılarak sığdırıldı.",
+            "İSG sekmesinden Word/Excel dışa aktarma butonları, konu başlıkları filtresi ve Evrak Fotoğrafları bölümü kaldırıldı.",
+            "Paketleme Arıza (FR-59) çıktılarında başlangıç tarihi seçimi eklendi ve sayfaya sığabildiği kadar arıza tablosu dinamik olarak yerleştirildi.",
+            "Uygulama ve web genelindeki tüm Excel çıktıları Yazdır / PDF raporlarına dönüştürüldü (v1.6.8 - Kod: 37)."
           ],
           forceUpdate: false,
           updatedAtMillis: Date.now()
@@ -17808,7 +17919,7 @@
         window.currentAppVersion = payload;
         renderAppVersionBadge();
         closeModal("modalAppVersion");
-        alert("✅ Başarılı! Firebase sürümü şu an dağıtılan v1.6.7 (Kod: 36) APK ile eşitlendi.\n\nGüncellenen telefonlardaki popup penceresi anında kalktı.");
+        alert("✅ Başarılı! Firebase sürümü şu an dağıtılan v1.6.8 (Kod: 37) APK ile eşitlendi.\n\nGüncellenen telefonlardaki popup penceresi anında kalktı.");
       } catch (err) {
         alert("Eşitleme hatası: " + err.message);
       }
@@ -17904,6 +18015,89 @@
       });
     }
 
+    // ================= BİLDİRİM AYARLARI (AYARLAR SEKMESİ) =================
+    const WEB_NOTIF_STORAGE_KEY = "tekinak_web_notifications_enabled";
+    window.isWebNotificationsEnabled = function() {
+      try {
+        return localStorage.getItem(WEB_NOTIF_STORAGE_KEY) !== "false";
+      } catch (_) {
+        return true;
+      }
+    };
+
+    window.syncProfileNotificationsUI = function() {
+      const enabled = window.isWebNotificationsEnabled();
+      const chk = document.getElementById("profNotifEnabled");
+      if (chk) chk.checked = enabled;
+      const badge = document.getElementById("profNotifStatusBadge");
+      const statusText = document.getElementById("profNotifStatusText");
+      const perm = (typeof Notification !== "undefined") ? Notification.permission : "unsupported";
+      if (badge) {
+        if (!enabled) {
+          badge.textContent = "Kapalı";
+          badge.className = "px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-200 text-slate-700";
+        } else if (perm === "granted") {
+          badge.textContent = "Açık • İzinli";
+          badge.className = "px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800";
+        } else if (perm === "denied") {
+          badge.textContent = "Engelli";
+          badge.className = "px-2 py-0.5 rounded-full text-[10px] font-bold bg-rose-100 text-rose-800";
+        } else {
+          badge.textContent = "İzin Bekliyor";
+          badge.className = "px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-800";
+        }
+      }
+      if (statusText) {
+        statusText.textContent = !enabled
+          ? "Bildirim mesajları duraklatıldı. Tekrar almak için anahtarı açabilirsiniz."
+          : (perm === "granted"
+            ? "Anlık arıza, iş emri ve İSG yönlendirme bildirimleri aktif."
+            : (perm === "denied"
+              ? "Tarayıcı bildirim izni engellenmiş; tarayıcı site ayarlarından izin verebilirsiniz."
+              : "Bildirimleri masaüstü/tarayıcı uyarısı olarak almak için 'Tarayıcı Bildirimlerini Aç' butonuna tıklayın."));
+      }
+    };
+
+    window.onWebNotificationsToggle = function(checked) {
+      try {
+        localStorage.setItem(WEB_NOTIF_STORAGE_KEY, checked ? "true" : "false");
+      } catch (_) {}
+      window.syncProfileNotificationsUI();
+      if (checked && typeof Notification !== "undefined" && Notification.permission === "default") {
+        window.enableWebNotifications();
+      }
+    };
+
+    window.enableWebNotifications = async function() {
+      try {
+        localStorage.setItem(WEB_NOTIF_STORAGE_KEY, "true");
+      } catch (_) {}
+      if (typeof Notification === "undefined") {
+        alert("Bu tarayıcı masaüstü bildirimlerini desteklemiyor. Android mobil uygulamada Ayarlar -> Bildirimler bölümünden yönetebilirsiniz.");
+        window.syncProfileNotificationsUI();
+        return;
+      }
+      if (Notification.permission === "granted") {
+        window.syncProfileNotificationsUI();
+        alert("✅ Bildirimler aktif ve izin verilmiş durumda.");
+        return;
+      }
+      if (Notification.permission === "denied") {
+        window.syncProfileNotificationsUI();
+        alert("⚠️ Tarayıcı bildirim izni engellenmiş. Adres çubuğundaki kilit/site ayarları simgesinden Bildirimler iznini 'İzin Ver' olarak değiştirin.");
+        return;
+      }
+      try {
+        const res = await Notification.requestPermission();
+        window.syncProfileNotificationsUI();
+        if (res === "granted") {
+          try { new Notification("✅ Tekinak CMMS Bildirimleri Açıldı", { body: "Yeni arıza, iş emri ve İSG bildirimleri artık anında gösterilecek." }); } catch (_) {}
+        }
+      } catch (e) {
+        window.syncProfileNotificationsUI();
+      }
+    };
+
     window.switchProfileModalTab = function(tab) {
       const isSettings = tab === "settings";
       const pProfile = document.getElementById("profPanelProfile");
@@ -17927,10 +18121,13 @@
       }
       if (titleEl) {
         titleEl.innerHTML = isSettings
-          ? `<i data-lucide="settings" class="w-5 h-5 text-amber-500"></i> Ayarlar & Erişilebilirlik`
+          ? `<i data-lucide="settings" class="w-5 h-5 text-amber-500"></i> Ayarlar & Bildirimler`
           : `<i data-lucide="user" class="w-5 h-5 text-amber-500"></i> Profil & Hesap`;
       }
-      if (isSettings) syncProfileA11yUI();
+      if (isSettings) {
+        syncProfileA11yUI();
+        window.syncProfileNotificationsUI();
+      }
       lucide.createIcons();
     };
 
@@ -17983,6 +18180,7 @@
       }
 
       syncProfileA11yUI();
+      window.syncProfileNotificationsUI();
       window.switchProfileModalTab(initialTab === "settings" ? "settings" : "profile");
       document.getElementById("modalEditProfile").classList.remove("hidden");
       lucide.createIcons();
@@ -21195,13 +21393,7 @@
                   <i data-lucide="${canEditCard ? 'file-edit' : 'eye'}" class="w-3.5 h-3.5"></i> ${canEditCard ? 'Formu Aç' : 'İncele (Salt Okunur)'}
                 </button>
                 <button type="button" onclick="printIsgFormById('${escapeJsSingle(f.id)}')" class="px-2.5 py-1.5 bg-white hover:bg-slate-50 border border-slate-300 text-slate-800 rounded-lg text-xs font-bold flex items-center gap-1">
-                  <i data-lucide="printer" class="w-3.5 h-3.5"></i> PDF
-                </button>
-                <button type="button" onclick="exportIsgFormDocxById('${escapeJsSingle(f.id)}')" class="px-2.5 py-1.5 bg-blue-50 hover:bg-blue-100 border border-blue-300 text-blue-800 rounded-lg text-xs font-bold flex items-center gap-1">
-                  <i data-lucide="file-text" class="w-3.5 h-3.5"></i> Word
-                </button>
-                <button type="button" onclick="exportIsgFormExcelById('${escapeJsSingle(f.id)}')" class="px-2.5 py-1.5 bg-emerald-50 hover:bg-emerald-100 border border-emerald-300 text-emerald-800 rounded-lg text-xs font-bold flex items-center gap-1">
-                  <i data-lucide="file-spreadsheet" class="w-3.5 h-3.5"></i> Excel
+                  <i data-lucide="printer" class="w-3.5 h-3.5"></i> Yazdır / PDF
                 </button>
                 ${isMgr ? `
                   <button type="button" onclick="openIsgReassignModal('${escapeJsSingle(f.id)}')" class="ml-auto px-2.5 py-1.5 bg-amber-50 hover:bg-amber-100 border border-amber-300 text-amber-900 rounded-lg text-xs font-bold" title="Başka Personele Yönlendir">👤 Yönlendir</button>
@@ -21693,8 +21885,7 @@
       if (!window.isgUiState.activeForm.signatures) window.isgUiState.activeForm.signatures = {};
       if (typeof window.isgUiState.activeForm.projectName !== "string") window.isgUiState.activeForm.projectName = "";
       if (typeof window.isgUiState.activeForm.checkDate !== "string") window.isgUiState.activeForm.checkDate = "";
-      const openTpl = getIsgTemplateById(window.isgUiState.activeForm.templateId);
-      window.isgUiState.sectionFilterIdx = (openTpl.layoutType === "ISG_TOPIC_ACTION_TABLE" && openTpl.checklistItems.length > 75 && (openTpl.sections || []).length > 0) ? 0 : null;
+      window.isgUiState.sectionFilterIdx = null;
       window.renderIsgSheetEditorBody();
       document.getElementById("modalIsgSheetEditor").classList.remove("hidden");
       lucide.createIcons();
@@ -21924,7 +22115,7 @@
           <span>📌 İSG Yönlendirme Notu: ${escapeHtml(f.assignmentNote)}</span>
           <span class="text-[11px] text-blue-700">Yönlendiren: ${escapeHtml(f.assignedByName || "İSG")}</span>
         </div>
-      ` : "") + renderIsgDocumentPhotosCardHtml(f, canEdit));
+      ` : ""));
 
       if (tpl.layoutType === "TEKINAK_YESNO_TABLE") {
         const rowsHtml = tpl.checklistItems.map((q, idx) => {
@@ -22007,7 +22198,7 @@
                   ${buildIsgSignatureSlotHtml(ISG_SIG_INSPECTOR, "KONTROLÜ YAPAN", sigs[ISG_SIG_INSPECTOR], canEdit)}
                 </div>
               </div>
-              <div class="mt-2 text-center text-[11px] text-slate-500">Sayfa 3 • Çıktı (PDF / Word / Excel) 3 sayfa yatay A4 olarak üretilir</div>
+              <div class="mt-2 text-center text-[11px] text-slate-500">Sayfa 3 • Çıktı (PDF / Yazdır) 3 sayfa yatay A4 olarak üretilir</div>
             </div>
           </div>
         `;
@@ -22018,39 +22209,7 @@
         const isBanner = tpl.headerStyle === "BANNER";
         const isVerticalTopic = tpl.headerStyle === "VERTICAL_TOPIC";
         const colCount = isBanner ? 6 : 7;
-        const selIdx = window.isgUiState.sectionFilterIdx;
-        const sectionsToRender = (selIdx === null || selIdx === undefined || !sections[selIdx]) ? sections : [sections[selIdx]];
-        const totalFilled = tpl.checklistItems.reduce((acc, _, i) => acc + (String((f.checkResults || {})[String(i)] || "").trim() ? 1 : 0), 0);
-        const totalNo = tpl.checklistItems.reduce((acc, _, i) => acc + (String((f.checkResults || {})[String(i)] || "").toUpperCase() === "HAYIR" ? 1 : 0), 0);
-
-        const sectionChipsHtml = `
-          <div class="bg-white border border-slate-300 rounded-xl p-2.5 space-y-2">
-            <div class="flex flex-wrap items-center justify-between gap-2 text-xs">
-              <span class="font-extrabold text-[#1E3A8A]">📑 Konu Başlıkları (${sections.length}) • ${totalFilled}/${tpl.checklistItems.length} madde dolduruldu</span>
-              ${totalNo > 0 ? `<span class="font-extrabold text-rose-700">⚠️ ${totalNo} Hayır</span>` : ""}
-            </div>
-            <div class="flex flex-wrap items-center gap-1.5">
-              <button type="button" onclick="setIsgSectionFilter(null)"
-                class="px-2.5 py-1 rounded-lg text-[11px] font-bold border transition ${selIdx === null ? 'bg-[#1E3A8A] text-white border-[#1E3A8A]' : 'bg-slate-50 text-slate-700 border-slate-300 hover:bg-slate-100'}">
-                Tümü (${tpl.checklistItems.length})
-              </button>
-              ${sections.map((sec, sIdx) => {
-                let secFilled = 0;
-                for (let k = sec.startIndex; k < sec.startIndex + sec.count; k++) {
-                  if (String((f.checkResults || {})[String(k)] || "").trim()) secFilled++;
-                }
-                const allDone = sec.count > 0 && secFilled === sec.count;
-                const active = selIdx === sIdx;
-                return `
-                  <button type="button" onclick="setIsgSectionFilter(${sIdx})"
-                    class="px-2.5 py-1 rounded-lg text-[11px] font-bold border transition ${active ? 'bg-[#1E3A8A] text-white border-[#1E3A8A]' : (allDone ? 'bg-emerald-50 text-emerald-900 border-emerald-300 hover:bg-emerald-100' : 'bg-slate-50 text-slate-700 border-slate-300 hover:bg-slate-100')}">
-                    ${allDone ? "✓ " : ""}${sIdx + 1}. ${escapeHtml(sec.title)} (${secFilled}/${sec.count})
-                  </button>
-                `;
-              }).join("")}
-            </div>
-          </div>
-        `;
+        const sectionsToRender = sections;
 
         let lastSubHeader = "";
         const tableRowsHtml = sectionsToRender.map(sec => {
@@ -22116,20 +22275,10 @@
 
         const yesHdr = (isBanner || isVerticalTopic) ? "EVET<br>✓" : "Evet<br>☺";
         const noHdr = (isBanner || isVerticalTopic) ? "HAYIR<br>✗" : "Hayır<br>☹";
-        const prevNextHtml = (selIdx !== null && selIdx !== undefined && sections.length > 1) ? `
-          <div class="flex items-center justify-between bg-white border border-slate-300 rounded-xl px-3 py-2 text-xs">
-            <button type="button" ${selIdx <= 0 ? "disabled" : ""} onclick="setIsgSectionFilter(${selIdx - 1})"
-              class="px-3 py-1.5 rounded-lg font-bold border border-slate-300 ${selIdx <= 0 ? 'opacity-40 cursor-not-allowed' : 'hover:bg-slate-100'}">◀ Önceki Konu</button>
-            <span class="font-extrabold text-[#1E3A8A]">Konu ${selIdx + 1} / ${sections.length}</span>
-            <button type="button" ${selIdx >= sections.length - 1 ? "disabled" : ""} onclick="setIsgSectionFilter(${selIdx + 1})"
-              class="px-3 py-1.5 rounded-lg font-bold bg-[#1E3A8A] text-white ${selIdx >= sections.length - 1 ? 'opacity-40 cursor-not-allowed' : 'hover:bg-blue-800'}">Sonraki Konu ▶</button>
-          </div>
-        ` : "";
 
         document.getElementById("isgSheetEditorBody").innerHTML = `
           <div class="max-w-[1160px] mx-auto space-y-3">
             ${assignBannerHtml}
-            ${sectionChipsHtml}
             <div class="bg-white shadow-xl border-2 border-black overflow-x-auto p-3 sm:p-4">
               <table style="width:100%; min-width:960px; border-collapse:collapse; font-family:'Inter', Arial, sans-serif; color:#000;">
                 <tr>
@@ -22179,9 +22328,9 @@
                   ${buildIsgSignatureSlotHtml(ISG_SIG_INSPECTOR, "KONTROLÜ YAPAN", sigs[ISG_SIG_INSPECTOR], canEdit)}
                 </div>
               </div>
-              <div class="mt-2 text-center text-[11px] text-slate-500">Çıktı (PDF / Word / Excel) tüm ${sections.length} konu başlığı ve ${tpl.checklistItems.length} madde ile yatay A4 olarak eksiksiz üretilir</div>
+              <div class="mt-2 text-center text-[11px] text-slate-500">Çıktı (PDF / Yazdır) tüm ${sections.length} konu başlığı ve ${tpl.checklistItems.length} madde ile yatay A4 olarak eksiksiz üretilir</div>
             </div>
-            ${prevNextHtml}
+          </div>
           </div>
         `;
       } else {
@@ -22239,14 +22388,25 @@
           </th>
         `).join("");
 
-        const monthColsParaf = ISG_MONTHS_TR.map(m => `
-          <td style="border:1px solid #000; width:28px; height:78px; padding:1px; text-align:center; vertical-align:middle;">
-            <input type="text" ${canEdit ? "" : "disabled"} value="${escapeHtml((f.monthParafs || {})[m] || "")}"
-              oninput="updateIsgDraftField('monthParafs', '${m}', this.value)"
-              maxlength="10"
-              style="width:100%; text-align:center; font-size:10px; font-weight:700; border:none; outline:none; background:transparent;">
-          </td>
-        `).join("");
+        const monthColsParaf = ISG_MONTHS_TR.map(m => {
+          const sigKey = `paraf_${m}`;
+          const sigData = sigs[sigKey] || "";
+          const legacyTxt = String((f.monthParafs || {})[m] || "");
+          return `
+            <td style="border:1px solid #000; width:30px; height:84px; padding:1px; text-align:center; vertical-align:middle; position:relative; ${canEdit ? 'cursor:pointer;' : ''} background:${sigData ? '#f8fafc' : '#fff'};"
+                ${canEdit ? `onclick="openIsgSignaturePad('${sigKey}', '${m} — Aylık Paraf')"` : ""}
+                title="${canEdit ? `${m} ayı için dijital paraf imzası at` : m}">
+              <div style="width:28px; height:80px; display:flex; align-items:center; justify-content:center; overflow:hidden; position:relative;">
+                ${sigData
+                  ? `<img src="${sigData}" alt="${m} Paraf" style="width:76px; height:26px; max-width:none; object-fit:contain; transform:rotate(-90deg); pointer-events:none;">`
+                  : (legacyTxt
+                    ? `<div style="writing-mode:vertical-rl; transform:rotate(180deg); font-size:9px; font-weight:700; color:#0f172a;">${escapeHtml(legacyTxt)}</div>`
+                    : (canEdit ? `<span style="font-size:11px; color:#94a3b8;">✍️</span>` : ""))}
+              </div>
+              ${(sigData && canEdit) ? `<button type="button" onclick="event.stopPropagation(); clearIsgSignatureSlot('${sigKey}')" title="Parafı Sil" style="position:absolute; top:1px; right:1px; width:14px; height:14px; border-radius:999px; background:#dc2626; color:#fff; font-size:9px; font-weight:900; border:none; line-height:14px; padding:0; cursor:pointer;">×</button>` : ""}
+            </td>
+          `;
+        }).join("");
 
         document.getElementById("isgSheetEditorBody").innerHTML = `
           <div class="max-w-[860px] mx-auto space-y-3">
@@ -22956,11 +23116,17 @@
             <div style="writing-mode:vertical-rl; transform:rotate(180deg); margin:0 auto;">${m}</div>
           </th>
         `).join("");
-        const monthParafCells = ISG_MONTHS_TR.map(m => `
-          <td style="width:22px; height:64px; font-size:8.5px; font-weight:700; text-align:center; padding:1px;">
-            <div style="writing-mode:vertical-rl; transform:rotate(180deg); margin:0 auto;">${escapeHtml(parafs[m] || "")}</div>
-          </td>
-        `).join("");
+        const monthParafCells = ISG_MONTHS_TR.map(m => {
+          const sigData = sigs[`paraf_${m}`] || "";
+          const legacyTxt = String(parafs[m] || "");
+          return `
+            <td style="width:24px; height:68px; font-size:8.5px; font-weight:700; text-align:center; vertical-align:middle; padding:1px; overflow:hidden;">
+              ${sigData
+                ? `<div style="width:22px; height:64px; display:flex; align-items:center; justify-content:center; overflow:hidden; margin:0 auto;"><img src="${sigData}" alt="${m}" style="width:60px; height:20px; max-width:none; object-fit:contain; transform:rotate(-90deg);"></div>`
+                : `<div style="writing-mode:vertical-rl; transform:rotate(180deg); margin:0 auto;">${escapeHtml(legacyTxt)}</div>`}
+            </td>
+          `;
+        }).join("");
 
         const sigLeft = sigs[ISG_SIG_INSPECTOR] || "";
         const sigRight = sigs[ISG_SIG_EMPLOYER] || "";
