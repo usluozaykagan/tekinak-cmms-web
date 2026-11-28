@@ -1,15 +1,15 @@
 {
-  "versionCode": 39,
-  "versionName": "1.7.0",
-  "releaseTag": "v1.7.0",
+  "versionCode": 40,
+  "versionName": "1.7.1",
+  "releaseTag": "v1.7.1",
   "releaseDate": "2026-11-28",
   "apkUrl": "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
   "fallbackUrl": "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-  "title": "Yeni Sürüm Mevcut (v1.7.0)",
+  "title": "Yeni Sürüm Mevcut (v1.7.1)",
   "changelog": [
-    "Yardımcı Tesisler Kompresör (FR-38) kontrol formunda EKOMAK 2023 45 kW kompresör tablosu 2. sıraya, KHELL 2026 75 kW kompresör tablosu 3. sıraya alındı.",
-    "Mobil, web, saatlik görünüm, ay sonu çalışma saatleri ve PDF/Yazdır çıktılarında yeni kompresör tablo sıralaması eşitlendi.",
-    "Firestore canlı dinleyici yaşam döngüsü ve kota koruma iyileştirmeleri korundu (v1.7.0 - Kod: 39)."
+    "İSG sayfasına 'Uygunsuzluk Bildirimi' alt sekmesi ve resmi FR-İSG-UYG Uygunsuzluk Bildirim & Düzeltici Faaliyet Evrakı eklendi.",
+    "Personel & Yetki paneline 'Uygunsuzluk Bildirimi' alt sayfa yetkisi eklendi; yetkilendirilen her personel kameralı/galerili fotoğraf yükleyerek resmi evrak açabilir.",
+    "Dijital imza, DÖF takibi, canlı bildirimler ve A4 Yazdır / PDF çıktısı mobil ve web arasında eşitlendi (v1.7.1 - Kod: 40)."
   ],
   "forceUpdate": false
 }

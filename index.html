@@ -36,7 +36,7 @@
   <!-- SheetJS for authentic Microsoft Excel (.xlsx) Generation -->
   <script src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
   <!-- 10 İSG Kontrol Listesi Şablonu (136 Konu Başlığı, 1.347 Madde) -->
-  <script src="isg_checklist_templates.js?v=39"></script>
+  <script src="isg_checklist_templates.js?v=40"></script>
   <style>
     :root {
       --safe-top: env(safe-area-inset-top, 0px);
@@ -343,9 +343,9 @@
         </div>
 
         <div class="pt-3 text-center border-t border-slate-100 flex flex-col items-center justify-center gap-2">
-          <a href="app-release.apk?v=39" id="loginApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold rounded-lg border border-emerald-300 transition shadow-sm">
+          <a href="app-release.apk?v=40" id="loginApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold rounded-lg border border-emerald-300 transition shadow-sm">
             <i data-lucide="smartphone" class="w-3.5 h-3.5 text-emerald-600"></i>
-            <span id="loginApkBtnText">Android APK İndir (v1.7.0)</span>
+            <span id="loginApkBtnText">Android APK İndir (v1.7.1)</span>
           </a>
           <div class="text-[11px] text-slate-400 flex items-center justify-center gap-1.5">
             <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600"></i>
@@ -396,15 +396,15 @@
         </div>
 
         <!-- Android APK İndir Butonu (Tüm Kullanıcılar Görür) -->
-        <a href="app-release.apk?v=39" id="topApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center space-x-1 px-2.5 py-1 rounded-full text-[11px] sm:text-xs font-semibold bg-blue-700/60 hover:bg-blue-600 text-white border border-blue-400/40 transition shadow-sm whitespace-nowrap flex-shrink-0" title="Android Mobil APK İndir">
+        <a href="app-release.apk?v=40" id="topApkDownloadLink" download="tekinak-bakim.apk" class="inline-flex items-center space-x-1 px-2.5 py-1 rounded-full text-[11px] sm:text-xs font-semibold bg-blue-700/60 hover:bg-blue-600 text-white border border-blue-400/40 transition shadow-sm whitespace-nowrap flex-shrink-0" title="Android Mobil APK İndir">
           <i data-lucide="download" class="w-3.5 h-3.5 text-amber-300 flex-shrink-0"></i>
-          <span id="topApkBtnText">APK İndir (v1.7.0)</span>
+          <span id="topApkBtnText">APK İndir (v1.7.1)</span>
         </a>
 
         <!-- Mobil Sürüm Yönetimi Butonu (Sadece usluozaykagan@gmail.com için görünür) -->
         <button id="topAppVersionBtn" onclick="openAppVersionModal()" style="display: none;" class="hidden items-center space-x-1 px-2.5 py-1 rounded-full text-[11px] sm:text-xs font-semibold bg-emerald-600/70 hover:bg-emerald-600 text-white border border-emerald-400/40 transition shadow-sm whitespace-nowrap flex-shrink-0" title="Firebase Mobil Sürüm Kontrolü ve Güncelleme">
           <i data-lucide="smartphone" class="w-3.5 h-3.5 text-amber-300 flex-shrink-0"></i>
-          <span id="topVersionBadgeText">Sürüm: v1.7.0</span>
+          <span id="topVersionBadgeText">Sürüm: v1.7.1</span>
         </button>
 
         <!-- Saha Chatbox Butonu (Badged) -->
@@ -495,11 +495,11 @@
         </span>
           <div class="min-w-0 flex-1">
             <div class="flex flex-wrap items-center gap-1.5 font-extrabold text-blue-950">
-              <span id="webUpdateBannerTitle" class="break-words">🚀 Yeni Mobil Sürüm Yayında: Tekinak CMMS v1.7.0</span>
-              <span id="webUpdateBannerCodeBadge" class="px-1.5 py-0.5 rounded bg-emerald-600 text-white text-[10px] font-bold whitespace-nowrap">v1.7.0 (Kod: 39)</span>
+              <span id="webUpdateBannerTitle" class="break-words">🚀 Yeni Mobil Sürüm Yayında: Tekinak CMMS v1.7.1</span>
+              <span id="webUpdateBannerCodeBadge" class="px-1.5 py-0.5 rounded bg-emerald-600 text-white text-[10px] font-bold whitespace-nowrap">v1.7.1 (Kod: 40)</span>
             </div>
             <div id="webUpdateBannerSummary" class="text-[11px] text-slate-600 mt-0.5 break-words">
-              Yardımcı Tesisler Kompresör (FR-38) tablosunda EKOMAK 2023 45 kW 2. sıraya, KHELL 2026 75 kW 3. sıraya alındı!
+              İSG sayfasına yetkilendirmeli ve fotoğraflı resmi Uygunsuzluk Bildirimi (FR-İSG-UYG) sekmesi eklendi!
             </div>
           </div>
         </div>
@@ -507,9 +507,9 @@
           <button type="button" onclick="toggleWebUpdateChangelog()" class="px-2.5 py-1.5 bg-white hover:bg-slate-100 text-blue-800 border border-blue-200 rounded-lg font-bold text-[11px] transition">
             Yenilikler
           </button>
-          <a id="webUpdateBannerDownloadBtn" href="app-release.apk?v=39" download="tekinak-bakim.apk" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold text-[11px] shadow-sm flex items-center gap-1.5 transition whitespace-nowrap">
+          <a id="webUpdateBannerDownloadBtn" href="app-release.apk?v=40" download="tekinak-bakim.apk" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold text-[11px] shadow-sm flex items-center gap-1.5 transition whitespace-nowrap">
             <i data-lucide="download" class="w-3.5 h-3.5"></i>
-            <span id="webUpdateBannerDownloadText">APK İndir (v1.7.0)</span>
+            <span id="webUpdateBannerDownloadText">APK İndir (v1.7.1)</span>
           </a>
         <button type="button" onclick="dismissWebUpdateBanner()" class="p-1 text-slate-400 hover:text-slate-700 rounded-lg" title="Bu sürüm için gizle">
           <i data-lucide="x" class="w-4 h-4"></i>
@@ -1551,17 +1551,32 @@
               <i data-lucide="shield-alert" class="w-6 h-6"></i>
             </div>
             <div>
-              <h2 class="text-base sm:text-lg font-extrabold tracking-tight">İş Sağlığı ve Güvenliği (İSG) Kontrol Formları</h2>
-              <p id="isgRoleSubtitle" class="text-xs text-blue-200">Basılı form düzeniyle birebir periyodik kontroller, fotoğraf ekleri ve canlı yönlendirme akışı</p>
+              <h2 id="isgHeaderTitle" class="text-base sm:text-lg font-extrabold tracking-tight">İş Sağlığı ve Güvenliği (İSG)</h2>
+              <p id="isgRoleSubtitle" class="text-xs text-blue-200">Periyodik kontrol formları ve resmi uygunsuzluk bildirim evrakları</p>
             </div>
           </div>
           <div class="flex flex-wrap items-center gap-2">
             <button type="button" id="btnIsgCreateAssign" onclick="openIsgCreateAssignModal()" class="hidden px-4 py-2 bg-amber-400 hover:bg-amber-300 text-blue-950 font-extrabold text-xs rounded-xl shadow flex items-center gap-1.5 transition">
               <i data-lucide="file-plus-2" class="w-4 h-4"></i> Yeni Form Oluştur &amp; Yönlendir
             </button>
+            <button type="button" id="btnIsgNewNonconformity" onclick="openIsgNonconformityModal(null)" class="hidden px-4 py-2 bg-rose-600 hover:bg-rose-500 text-white font-extrabold text-xs rounded-xl shadow flex items-center gap-1.5 transition">
+              <i data-lucide="alert-triangle" class="w-4 h-4"></i> Yeni Uygunsuzluk Bildirimi
+            </button>
           </div>
         </div>
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-center">
+        <!-- Alt Sekme Geçişi: Kontrol Formları | Uygunsuzluk Bildirimi -->
+        <div id="isgSubTabBar" class="flex flex-wrap items-center gap-2 bg-white/10 p-1.5 rounded-xl border border-white/15">
+          <button type="button" id="btnIsgSubForms" onclick="setIsgSubTab('FORMS')" class="flex-1 min-w-[160px] px-3.5 py-2 rounded-lg text-xs font-extrabold bg-white text-[#1E3A8A] shadow flex items-center justify-center gap-2 transition">
+            <i data-lucide="clipboard-check" class="w-4 h-4"></i>
+            <span>İSG Kontrol Formları</span>
+          </button>
+          <button type="button" id="btnIsgSubNonconformity" onclick="setIsgSubTab('NONCONFORMITY')" class="flex-1 min-w-[160px] px-3.5 py-2 rounded-lg text-xs font-extrabold text-blue-100 hover:bg-white/10 flex items-center justify-center gap-2 transition">
+            <i data-lucide="alert-octagon" class="w-4 h-4"></i>
+            <span>Uygunsuzluk Bildirimi</span>
+            <span id="isgNonconfSubBadge" class="hidden px-1.5 py-0.5 rounded-full text-[10px] font-black bg-rose-500 text-white">0</span>
+          </button>
+        </div>
+        <div id="isgFormsKpiGrid" class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-center">
           <div class="bg-white/10 rounded-xl p-2.5 border border-white/10">
             <div id="isgKpiTotal" class="text-xl font-black text-sky-300">0</div>
             <div class="text-[10px] text-blue-100 font-semibold">Toplam Form</div>
@@ -1579,27 +1594,66 @@
             <div class="text-[10px] text-blue-100 font-semibold">Uygunsuz Madde</div>
           </div>
         </div>
+        <div id="isgNonconfKpiGrid" class="hidden grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-center">
+          <div class="bg-white/10 rounded-xl p-2.5 border border-white/10">
+            <div id="isgUygKpiTotal" class="text-xl font-black text-sky-300">0</div>
+            <div class="text-[10px] text-blue-100 font-semibold">Toplam Bildirim</div>
+          </div>
+          <div class="bg-white/10 rounded-xl p-2.5 border border-white/10">
+            <div id="isgUygKpiOpen" class="text-xl font-black text-amber-300">0</div>
+            <div class="text-[10px] text-blue-100 font-semibold">Açık / İşlemde</div>
+          </div>
+          <div class="bg-white/10 rounded-xl p-2.5 border border-white/10">
+            <div id="isgUygKpiHigh" class="text-xl font-black text-rose-300">0</div>
+            <div class="text-[10px] text-blue-100 font-semibold">Yüksek / Kritik Risk</div>
+          </div>
+          <div class="bg-white/10 rounded-xl p-2.5 border border-white/10">
+            <div id="isgUygKpiClosed" class="text-xl font-black text-emerald-300">0</div>
+            <div class="text-[10px] text-blue-100 font-semibold">Kapandı</div>
+          </div>
+        </div>
       </div>
 
-      <!-- İSG Yöneticisi Canlı Tamamlanma Bildirimleri -->
-      <div id="isgCompletionAlertsBox" class="hidden bg-emerald-50 border-2 border-emerald-500 rounded-2xl p-4 space-y-2.5 shadow-sm"></div>
+      <!-- ALT SEKME 1: İSG KONTROL FORMLARI -->
+      <div id="isgFormsSubPane" class="space-y-4">
+        <!-- İSG Yöneticisi Canlı Tamamlanma Bildirimleri -->
+        <div id="isgCompletionAlertsBox" class="hidden bg-emerald-50 border-2 border-emerald-500 rounded-2xl p-4 space-y-2.5 shadow-sm"></div>
 
-      <!-- Arama & Filtreler -->
-      <div class="bg-white rounded-2xl border border-slate-200 p-3.5 custom-shadow flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5">
-        <div class="relative flex-1">
-          <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-2.5"></i>
-          <input type="text" id="isgSearchInput" oninput="renderIsgTab()" placeholder="Form adı, marka, seri no veya yönlendirilen personel ara..." class="w-full pl-9 pr-3 py-2 text-xs border border-slate-300 rounded-xl outline-none focus:ring-2 focus:ring-[#1E3A8A]">
+        <!-- Arama & Filtreler -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-3.5 custom-shadow flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5">
+          <div class="relative flex-1">
+            <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-2.5"></i>
+            <input type="text" id="isgSearchInput" oninput="renderIsgTab()" placeholder="Form adı, marka, seri no veya yönlendirilen personel ara..." class="w-full pl-9 pr-3 py-2 text-xs border border-slate-300 rounded-xl outline-none focus:ring-2 focus:ring-[#1E3A8A]">
+          </div>
+          <div class="flex flex-wrap items-center gap-1.5 text-xs">
+            <button type="button" onclick="setIsgFilterMode('ALL')" id="isgFilter_ALL" class="px-3 py-1.5 rounded-lg font-bold bg-[#1E3A8A] text-white transition">Tümü</button>
+            <button type="button" onclick="setIsgFilterMode('MINE')" id="isgFilter_MINE" class="px-3 py-1.5 rounded-lg font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Bana Yönlendirilen</button>
+            <button type="button" onclick="setIsgFilterMode('PENDING')" id="isgFilter_PENDING" class="px-3 py-1.5 rounded-lg font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Bekleyen</button>
+            <button type="button" onclick="setIsgFilterMode('COMPLETED')" id="isgFilter_COMPLETED" class="px-3 py-1.5 rounded-lg font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Tamamlanan</button>
+          </div>
         </div>
-        <div class="flex flex-wrap items-center gap-1.5 text-xs">
-          <button type="button" onclick="setIsgFilterMode('ALL')" id="isgFilter_ALL" class="px-3 py-1.5 rounded-lg font-bold bg-[#1E3A8A] text-white transition">Tümü</button>
-          <button type="button" onclick="setIsgFilterMode('MINE')" id="isgFilter_MINE" class="px-3 py-1.5 rounded-lg font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Bana Yönlendirilen</button>
-          <button type="button" onclick="setIsgFilterMode('PENDING')" id="isgFilter_PENDING" class="px-3 py-1.5 rounded-lg font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Bekleyen</button>
-          <button type="button" onclick="setIsgFilterMode('COMPLETED')" id="isgFilter_COMPLETED" class="px-3 py-1.5 rounded-lg font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Tamamlanan</button>
-        </div>
+
+        <!-- İSG Form Kartları Listesi -->
+        <div id="isgFormsListContainer" class="grid grid-cols-1 lg:grid-cols-2 gap-4"></div>
       </div>
 
-      <!-- İSG Form Kartları Listesi -->
-      <div id="isgFormsListContainer" class="grid grid-cols-1 lg:grid-cols-2 gap-4"></div>
+      <!-- ALT SEKME 2: İSG UYGUNSUZLUK BİLDİRİMİ (FR-İSG-UYG) -->
+      <div id="isgNonconformitySubPane" class="hidden space-y-4">
+        <div class="bg-white rounded-2xl border border-slate-200 p-3.5 custom-shadow flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5">
+          <div class="relative flex-1">
+            <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-2.5"></i>
+            <input type="text" id="isgUygSearchInput" oninput="renderIsgNonconformityList()" placeholder="Kayıt no, başlık, bölüm, tespit yeri veya bildiren ara..." class="w-full pl-9 pr-3 py-2 text-xs border border-slate-300 rounded-xl outline-none focus:ring-2 focus:ring-rose-600">
+          </div>
+          <div class="flex flex-wrap items-center gap-1.5 text-xs">
+            <button type="button" onclick="setIsgUygFilterMode('ALL')" id="isgUygFilter_ALL" class="px-3 py-1.5 rounded-lg font-bold bg-[#1E3A8A] text-white transition">Tümü</button>
+            <button type="button" onclick="setIsgUygFilterMode('OPEN')" id="isgUygFilter_OPEN" class="px-3 py-1.5 rounded-lg font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Açık</button>
+            <button type="button" onclick="setIsgUygFilterMode('HIGH')" id="isgUygFilter_HIGH" class="px-3 py-1.5 rounded-lg font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Yüksek / Kritik</button>
+            <button type="button" onclick="setIsgUygFilterMode('MINE')" id="isgUygFilter_MINE" class="px-3 py-1.5 rounded-lg font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Benim Kayıtlarım</button>
+            <button type="button" onclick="setIsgUygFilterMode('CLOSED')" id="isgUygFilter_CLOSED" class="px-3 py-1.5 rounded-lg font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Kapandı</button>
+          </div>
+        </div>
+        <div id="isgNonconformityListContainer" class="grid grid-cols-1 lg:grid-cols-2 gap-4"></div>
+      </div>
     </section>
 
   </main>
@@ -1979,7 +2033,7 @@
         <div class="p-2.5 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-between text-[11px] text-slate-600">
           <div class="flex items-center gap-1.5 font-semibold text-slate-700">
             <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600"></i>
-            <span id="profSystemVersionText">Sistem Sürümü: v1.7.0</span>
+            <span id="profSystemVersionText">Sistem Sürümü: v1.7.1</span>
           </div>
           <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-300">Güncel ✓</span>
         </div>
@@ -2745,8 +2799,8 @@
         <div>
           <div class="text-[11px] font-bold text-emerald-800 uppercase tracking-wider">Aktif Firebase Sürümü</div>
           <div class="text-sm font-extrabold text-emerald-950 flex items-center gap-2" id="verModalCurrentBadge">
-            <span id="verModalVersionName">v1.7.0</span>
-            <span id="verModalVersionCode" class="text-xs px-2 py-0.5 bg-emerald-200 text-emerald-800 rounded-md font-semibold">Kod: 39</span>
+            <span id="verModalVersionName">v1.7.1</span>
+            <span id="verModalVersionCode" class="text-xs px-2 py-0.5 bg-emerald-200 text-emerald-800 rounded-md font-semibold">Kod: 40</span>
           </div>
         </div>
         <div class="text-right text-[11px] text-emerald-700">
@@ -2759,18 +2813,18 @@
         <div class="grid grid-cols-2 gap-3">
           <div>
             <label class="block font-semibold text-slate-700 mb-1">Yeni Sürüm Kodu (Build Code) *</label>
-            <input type="number" id="verFormCode" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 40" min="1">
+            <input type="number" id="verFormCode" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 41" min="1">
             <span class="text-[10px] text-slate-400">Yeni sürüm için kod mevcut koddan büyük olmalıdır</span>
           </div>
           <div>
             <label class="block font-semibold text-slate-700 mb-1">Yeni Sürüm Adı (Version Name) *</label>
-            <input type="text" id="verFormName" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 1.7.0">
+            <input type="text" id="verFormName" required class="w-full px-3 py-2 border rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: 1.7.1">
           </div>
         </div>
 
         <div>
           <label class="block font-semibold text-slate-700 mb-1">Güncelleme Bildirim Başlığı *</label>
-          <input type="text" id="verFormTitle" required class="w-full px-3 py-2 border rounded-xl text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: Yeni Sürüm Yayınlandı (v1.7.0)">
+          <input type="text" id="verFormTitle" required class="w-full px-3 py-2 border rounded-xl text-slate-800 focus:ring-2 focus:ring-emerald-500" placeholder="Örn: Yeni Sürüm Yayınlandı (v1.7.1)">
         </div>
 
         <div>
@@ -2789,9 +2843,9 @@
         </div>
 
         <div class="flex items-center justify-between gap-2 pt-2 border-t">
-          <button type="button" onclick="syncWithDeployedApk()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs rounded-xl font-bold border border-slate-300 flex items-center gap-1.5" title="Firebase'i şu an dağıtılan v1.7.0 (Kod: 39) APK ile eşitler ve güncellenen telefonlardaki popup'ı kapatır">
+          <button type="button" onclick="syncWithDeployedApk()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs rounded-xl font-bold border border-slate-300 flex items-center gap-1.5" title="Firebase'i şu an dağıtılan v1.7.1 (Kod: 40) APK ile eşitler ve güncellenen telefonlardaki popup'ı kapatır">
             <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-blue-600"></i>
-            <span>Mevcut APK ile Eşitle (v1.7.0 - Kod: 39)</span>
+            <span>Mevcut APK ile Eşitle (v1.7.1 - Kod: 40)</span>
           </button>
           <div class="flex gap-2">
             <button type="button" onclick="closeModal('modalAppVersion')" class="px-4 py-2 border rounded-xl font-semibold text-slate-600 hover:bg-slate-50">Kapat</button>
@@ -3093,6 +3147,30 @@
         <button type="button" onclick="saveIsgSignatureFromPad()" class="px-4 py-2 text-xs font-extrabold bg-emerald-700 hover:bg-emerald-600 text-white rounded-xl shadow">✅ İmzayı Kaydet</button>
       </div>
     </div>
+  </div>
+
+  <!-- MODAL: İSG UYGUNSUZLUK BİLDİRİM VE DÜZELTİCİ FAALİYET EVRAKI (FR-İSG-UYG) -->
+  <div id="modalIsgNonconformityDoc" class="fixed inset-0 bg-slate-900/80 z-50 hidden flex flex-col">
+    <div class="shrink-0 bg-[#1E3A8A] text-white px-4 py-3 flex flex-wrap items-center justify-between gap-2 shadow">
+      <div class="min-w-0">
+        <div id="isgUygModalTitle" class="font-extrabold text-sm sm:text-base truncate">İSG Uygunsuzluk Bildirim Evrakı (FR-İSG-UYG)</div>
+        <div id="isgUygModalSubtitle" class="text-[11px] text-blue-200">Tekinak Gıda A.Ş. • Resmi Düzeltici Faaliyet Evrakı</div>
+      </div>
+      <div class="flex flex-wrap items-center gap-2">
+        <button type="button" onclick="printIsgNonconformityPdf()" class="px-3 py-1.5 rounded-lg bg-white text-[#1E3A8A] hover:bg-blue-50 font-extrabold text-xs flex items-center gap-1.5 shadow">
+          <i data-lucide="printer" class="w-4 h-4"></i> Yazdır / PDF
+        </button>
+        <button type="button" id="btnSaveIsgUygDoc" onclick="saveIsgNonconformityDoc()" class="px-3.5 py-1.5 rounded-lg bg-amber-400 hover:bg-amber-300 text-blue-950 font-extrabold text-xs flex items-center gap-1.5 shadow">
+          <i data-lucide="save" class="w-4 h-4"></i> Evrakı Kaydet
+        </button>
+        <button type="button" onclick="closeModal('modalIsgNonconformityDoc')" class="p-1.5 rounded-lg text-blue-200 hover:text-white hover:bg-white/10">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+    <div id="isgUygModalBody" class="flex-1 min-h-0 overflow-auto bg-slate-200 p-3 sm:p-5"></div>
+    <input type="file" id="isgUygGalleryInput" accept="image/*" multiple class="hidden" onchange="handleIsgUygPhotoSelected(event)">
+    <input type="file" id="isgUygCameraInput" accept="image/*" capture="environment" class="hidden" onchange="handleIsgUygPhotoSelected(event)">
   </div>
 
   <!-- MODAL: PAKETLEME ARIZA VE BAKIM TAKİP FORMU (FR-59) -->
@@ -4248,6 +4326,7 @@
       { id: "prod_faults", parentTab: "production", title: "Üretim Arızaları", hint: "Gör: Üretim arızaları ve duruş KPI raporları • Düzenle: Kayıt, çözüm ve silme" },
 
       { id: "isg_forms", parentTab: "isg", title: "İSG Kontrol Formları", hint: "Gör: İSG formlarını görüntüler • Düzenle: Form doldurma, fotoğraf ekleme ve tamamlama" },
+      { id: "isg_nonconformity", parentTab: "isg", title: "Uygunsuzluk Bildirimi", hint: "Gör: Uygunsuzluk bildirim evraklarını görüntüler • Düzenle: Yeni uygunsuzluk bildirimi açma ve fotoğraf ekleme" },
       { id: "isg_manage", parentTab: "isg", title: "İSG Yöneticisi & Yönlendirme", hint: "Gör: Tüm fabrika İSG formları ve bildirimler • Düzenle: Form oluşturma, personele yönlendirme ve onay" },
 
       { id: "members_directory", parentTab: "members", title: "Personel Rehberi & İletişim", hint: "Gör: Telefon, e-posta ve iletişim • Düzenle: Rehber iletişim aksiyonları" },
@@ -4416,7 +4495,15 @@
 
     window.hasAssignedIsgForms = function(u = window.currentUser) {
       if (!u) return false;
-      return (window.allIsgForms || []).some(f => window.isIsgFormAssignedToUser(f, u));
+      if (window.canUserViewSubPage && window.canUserViewSubPage("isg_nonconformity", u)) return true;
+      const hasForm = (window.allIsgForms || []).some(f => window.isIsgFormAssignedToUser(f, u));
+      if (hasForm) return true;
+      const myIds = new Set([u.userId, u.id, u.username, u.email].map(v => String(v || "").trim().toLowerCase()).filter(Boolean));
+      if (myIds.size === 0) return false;
+      return (window.allIsgNonconformities || []).some(n =>
+        myIds.has(String(n.responsibleUid || "").trim().toLowerCase()) ||
+        myIds.has(String(n.reporterUid || "").trim().toLowerCase())
+      );
     };
 
     window.isIsgManager = function(u = window.currentUser) {
@@ -6740,6 +6827,60 @@
         console.warn("Failed to listen to isg_forms:", e);
       }
 
+      // 3.8e İSG Uygunsuzluk Bildirimi Evrakları (isg_nonconformities) + Canlı Bildirimler
+      let isFirstIsgUygLoad = true;
+      const notifiedIsgUygKeys = new Set();
+      window.allIsgNonconformities = window.allIsgNonconformities || [];
+      try {
+        onSnapshot(collection(db, "isg_nonconformities"), (snapshot) => {
+          const list = [];
+          snapshot.forEach(docSnap => {
+            list.push({ ...docSnap.data(), docId: docSnap.id, id: docSnap.id });
+          });
+          const statusRank = { OPEN: 0, IN_REVIEW: 1, ACTION_PLANNED: 2, CLOSED: 3 };
+          list.sort((a, b) => {
+            const ra = statusRank[String(a.status || "OPEN").toUpperCase()] ?? 0;
+            const rb = statusRank[String(b.status || "OPEN").toUpperCase()] ?? 0;
+            if (ra !== rb) return ra - rb;
+            return (b.createdAtMillis || 0) - (a.createdAtMillis || 0);
+          });
+          window.allIsgNonconformities = list;
+
+          if (!isFirstIsgUygLoad && window.currentUser) {
+            const cur = window.currentUser;
+            const myIds = new Set([cur.userId, cur.id, cur.username, cur.email].map(x => String(x || "").trim().toLowerCase()).filter(Boolean));
+            snapshot.docChanges().forEach(change => {
+              if (change.type !== "added") return;
+              const rec = { ...change.doc.data(), id: change.doc.id };
+              const reportedByMe = myIds.has(String(rec.reporterUid || "").trim().toLowerCase());
+              const isMgr = window.isIsgManager(cur);
+              const isResp = myIds.has(String(rec.responsibleUid || "").trim().toLowerCase());
+              if (!reportedByMe && (isMgr || isResp)) {
+                const k = `uyg_${rec.id}_${rec.createdAtMillis || 0}`;
+                if (!notifiedIsgUygKeys.has(k)) {
+                  notifiedIsgUygKeys.add(k);
+                  if (window.isWebNotificationsEnabled() && typeof Notification !== "undefined" && Notification.permission === "granted") {
+                    try {
+                      new Notification(`⚠️ Yeni İSG Uygunsuzluk (${rec.docNo || "FR-İSG-UYG"})`, {
+                        body: `[${rec.riskLevel || "ORTA"}] ${rec.title || rec.category || "Uygunsuzluk"} — ${rec.department || ""}`
+                      });
+                    } catch (_) {}
+                  }
+                }
+              }
+            });
+          }
+          isFirstIsgUygLoad = false;
+
+          if (typeof window.updateIsgTabBadge === "function") window.updateIsgTabBadge();
+          if (typeof window.renderIsgTab === "function") window.renderIsgTab();
+        }, (err) => {
+          console.warn("isg_nonconformities listener error:", err);
+        });
+      } catch (e) {
+        console.warn("Failed to listen to isg_nonconformities:", e);
+      }
+
       // 3.9 Yedek Parça Envanteri (spare_parts)
       let seededSparePartsOnce = false;
       try {
@@ -6960,11 +7101,11 @@
             window.currentAppVersion = data;
             renderAppVersionBadge();
 
-            // Sürüm kodu 39'dan küçükse yalnızca Master oturumda otomatik olarak v1.7.0 (Kod: 39)'a yükselt
+            // Sürüm kodu 40'tan küçükse yalnızca Master oturumda otomatik olarak v1.7.1 (Kod: 40)'a yükselt
             const verCodeNum = Number(data.versionCode || 0);
-            if (isMasterNow && verCodeNum < 39 && !hasAutoSyncedV39) {
+            if (isMasterNow && verCodeNum < 40 && !hasAutoSyncedV39) {
               hasAutoSyncedV39 = true;
-              console.log("Firestore app_version sürüm kodu 39 (v1.7.0) olarak otomatik eşitleniyor...");
+              console.log("Firestore app_version sürüm kodu 40 (v1.7.1) olarak otomatik eşitleniyor...");
               seedInitialAppVersionInFirebase();
             }
           } else if (isMasterNow && !hasAutoSyncedV39) {
@@ -17732,18 +17873,18 @@
 
     function renderAppVersionBadge() {
       const v = window.currentAppVersion || {
-        versionName: "1.7.0",
-        versionCode: 39,
+        versionName: "1.7.1",
+        versionCode: 40,
         releaseDate: "2026-11-28",
-        title: "Tekinak CMMS v1.7.0",
+        title: "Tekinak CMMS v1.7.1",
         changelog: [
-          "Yardımcı Tesisler Kompresör (FR-38) kontrol formunda EKOMAK 2023 45 kW kompresör tablosu 2. sıraya, KHELL 2026 75 kW kompresör tablosu 3. sıraya alındı.",
-          "Mobil, web, saatlik görünüm, ay sonu çalışma saatleri ve PDF/Yazdır çıktılarında yeni kompresör tablo sıralaması eşitlendi.",
-          "Firestore canlı dinleyici yaşam döngüsü ve kota koruma iyileştirmeleri korundu (v1.7.0 - Kod: 39)."
+          "İSG sayfasına yetkilendirmeli ve fotoğraflı resmi Uygunsuzluk Bildirimi (FR-İSG-UYG) sekmesi eklendi.",
+          "Ekip yetkilendirme panelinden istenen tüm personellere İSG Uygunsuzluk Bildirimi (Gör / Düzenle) izni verilebilir.",
+          "Kamera ve galeri ile çoklu HD fotoğraf yükleme, DÖF takibi, dijital imza ve resmi A4 Yazdır / PDF çıktısı eklendi (v1.7.1 - Kod: 40)."
         ]
       };
-      const vName = v.versionName || "1.7.0";
-      const vCode = Number(v.versionCode || 39);
+      const vName = v.versionName || "1.7.1";
+      const vCode = Number(v.versionCode || 40);
       const localApkHref = `app-release.apk?v=${vCode}`;
 
       const badgeText = document.getElementById("topVersionBadgeText");
@@ -17802,7 +17943,7 @@
     };
 
     window.dismissWebUpdateBanner = function() {
-      const vCode = Number((window.currentAppVersion && window.currentAppVersion.versionCode) || 39);
+      const vCode = Number((window.currentAppVersion && window.currentAppVersion.versionCode) || 40);
       localStorage.setItem("tekinak_dismissed_ver_" + vCode, "1");
       const banner = document.getElementById("webAppUpdateBanner");
       if (banner) banner.classList.add("hidden");
@@ -17811,17 +17952,17 @@
     async function seedInitialAppVersionInFirebase() {
       try {
         const initialData = {
-          versionCode: 39,
-          versionName: "1.7.0",
-          releaseTag: "v1.7.0",
+          versionCode: 40,
+          versionName: "1.7.1",
+          releaseTag: "v1.7.1",
           releaseDate: new Date().toISOString().slice(0, 10),
           apkUrl: "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
           fallbackUrl: "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-          title: "Tekinak CMMS v1.7.0",
+          title: "Tekinak CMMS v1.7.1",
           changelog: [
-            "Yardımcı Tesisler Kompresör (FR-38) kontrol formunda EKOMAK 2023 45 kW kompresör tablosu 2. sıraya, KHELL 2026 75 kW kompresör tablosu 3. sıraya alındı.",
-            "Mobil, web, saatlik görünüm, ay sonu çalışma saatleri ve PDF/Yazdır çıktılarında yeni kompresör tablo sıralaması eşitlendi.",
-            "Firestore canlı dinleyici yaşam döngüsü ve kota koruma iyileştirmeleri korundu (v1.7.0 - Kod: 39)."
+            "İSG sayfasına 'Uygunsuzluk Bildirimi' alt sekmesi ve resmi FR-İSG-UYG Uygunsuzluk Bildirim & Düzeltici Faaliyet Evrakı eklendi.",
+            "Personel & Yetki paneline 'Uygunsuzluk Bildirimi' alt sayfa yetkisi eklendi; yetkilendirilen her personel fotoğraf yükleyerek resmi evrak açabilir.",
+            "Dijital imza, DÖF takibi, canlı bildirimler ve A4 Yazdır / PDF çıktısı mobil ve web arasında eşitlendi (v1.7.1 - Kod: 40)."
           ],
           forceUpdate: false,
           updatedAtMillis: Date.now()
@@ -17840,10 +17981,10 @@
         alert("⛔ Yetkisiz İşlem: Mobil sürüm güncelleme yönetimi yalnızca usluozaykagan@gmail.com hesabına tanımlıdır.");
         return;
       }
-      const v = window.currentAppVersion || { versionCode: 39, versionName: "1.7.0", title: "Tekinak CMMS v1.7.0", apkUrl: "", changelog: [] };
-      document.getElementById("verFormCode").value = v.versionCode || 39;
-      document.getElementById("verFormName").value = v.versionName || "1.7.0";
-      document.getElementById("verFormTitle").value = `Yeni Sürüm Yayınlandı (v${v.versionName || "1.7.0"})`;
+      const v = window.currentAppVersion || { versionCode: 40, versionName: "1.7.1", title: "Tekinak CMMS v1.7.1", apkUrl: "", changelog: [] };
+      document.getElementById("verFormCode").value = v.versionCode || 40;
+      document.getElementById("verFormName").value = v.versionName || "1.7.1";
+      document.getElementById("verFormTitle").value = `Yeni Sürüm Yayınlandı (v${v.versionName || "1.7.1"})`;
       document.getElementById("verFormApkUrl").value = v.apkUrl || "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk";
       document.getElementById("verFormChangelog").value = (v.changelog && v.changelog.length) ? v.changelog.join("\n") : "Yeni bakım özellikleri ve performans iyileştirmeleri eklendi.";
       document.getElementById("modalAppVersion").classList.remove("hidden");
@@ -17868,7 +18009,7 @@
         return;
       }
       if (!name) {
-        alert("Lütfen sürüm adı giriniz (örn: 1.7.0).");
+        alert("Lütfen sürüm adı giriniz (örn: 1.7.1).");
         return;
       }
 
@@ -17928,17 +18069,17 @@
       }
       try {
         const payload = {
-          versionCode: 39,
-          versionName: "1.7.0",
-          releaseTag: "v1.7.0",
+          versionCode: 40,
+          versionName: "1.7.1",
+          releaseTag: "v1.7.1",
           releaseDate: new Date().toISOString().slice(0, 10),
           apkUrl: "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
           fallbackUrl: "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-          title: "Tekinak CMMS v1.7.0",
+          title: "Tekinak CMMS v1.7.1",
           changelog: [
-            "Yardımcı Tesisler Kompresör (FR-38) kontrol formunda EKOMAK 2023 45 kW kompresör tablosu 2. sıraya, KHELL 2026 75 kW kompresör tablosu 3. sıraya alındı.",
-            "Mobil, web, saatlik görünüm, ay sonu çalışma saatleri ve PDF/Yazdır çıktılarında yeni kompresör tablo sıralaması eşitlendi.",
-            "Firestore canlı dinleyici yaşam döngüsü ve kota koruma iyileştirmeleri korundu (v1.7.0 - Kod: 39)."
+            "İSG sayfasına 'Uygunsuzluk Bildirimi' alt sekmesi ve resmi FR-İSG-UYG Uygunsuzluk Bildirim & Düzeltici Faaliyet Evrakı eklendi.",
+            "Personel & Yetki paneline 'Uygunsuzluk Bildirimi' alt sayfa yetkisi eklendi; yetkilendirilen her personel fotoğraf yükleyerek resmi evrak açabilir.",
+            "Dijital imza, DÖF takibi, canlı bildirimler ve A4 Yazdır / PDF çıktısı mobil ve web arasında eşitlendi (v1.7.1 - Kod: 40)."
           ],
           forceUpdate: false,
           updatedAtMillis: Date.now()
@@ -17947,7 +18088,7 @@
         window.currentAppVersion = payload;
         renderAppVersionBadge();
         closeModal("modalAppVersion");
-        alert("✅ Başarılı! Firebase sürümü şu an dağıtılan v1.7.0 (Kod: 39) APK ile eşitlendi.\n\nGüncellenen telefonlardaki popup penceresi anında kalktı.");
+        alert("✅ Başarılı! Firebase sürümü şu an dağıtılan v1.7.1 (Kod: 40) APK ile eşitlendi.\n\nGüncellenen telefonlardaki popup penceresi anında kalktı.");
       } catch (err) {
         alert("Eşitleme hatası: " + err.message);
       }
@@ -21259,11 +21400,39 @@
       const cur = window.currentUser;
       const isMgr = window.isIsgManager(cur);
       const list = window.allIsgForms || [];
+      const nonconfs = window.allIsgNonconformities || [];
       const doneAlerts = isMgr ? list.filter(f => f.status === "COMPLETED" && f.managerNotified === true).length : 0;
       const myPending = list.filter(f => window.isIsgFormAssignedToUser(f, cur) && f.status !== "COMPLETED").length;
-      const total = doneAlerts + myPending;
+      const openUyg = nonconfs.filter(r => String(r.status || "OPEN").toUpperCase() !== "CLOSED").length;
+      const total = doneAlerts + myPending + (isMgr ? openUyg : 0);
       badge.innerText = total > 99 ? "99+" : String(total);
       badge.classList.toggle("hidden", total <= 0);
+      const subBadge = document.getElementById("isgNonconfSubBadge");
+      if (subBadge) {
+        subBadge.innerText = openUyg > 99 ? "99+" : String(openUyg);
+        subBadge.classList.toggle("hidden", openUyg <= 0);
+      }
+    };
+
+    window.canViewIsgNonconformityWeb = function(user = window.currentUser) {
+      if (!user) return false;
+      if (window.isIsgManager(user)) return true;
+      return typeof window.canUserViewSubPage === "function"
+        ? window.canUserViewSubPage(user, "isg_nonconformity")
+        : window.getUserAllowedTabs(user).includes("isg");
+    };
+
+    window.canReportIsgNonconformityWeb = function(user = window.currentUser) {
+      if (!user) return false;
+      if (window.isIsgManager(user)) return true;
+      return typeof window.canUserEditSubPage === "function"
+        ? window.canUserEditSubPage(user, "isg_nonconformity")
+        : false;
+    };
+
+    window.setIsgSubTab = function(subTab) {
+      window.isgUiState.activeSubTab = subTab === "NONCONFORMITY" ? "NONCONFORMITY" : "FORMS";
+      window.renderIsgTab();
     };
 
     window.renderIsgTab = function() {
@@ -21272,17 +21441,69 @@
       const cur = window.currentUser;
       const isMgr = window.isIsgManager(cur);
       const all = window.allIsgForms || [];
-      const canSeeAll = isMgr || window.getUserAllowedTabs(cur).includes("isg");
-      const visible = canSeeAll ? all : all.filter(f => window.isIsgFormAssignedToUser(f, cur));
+      const hasAssigned = all.some(f => window.isIsgFormAssignedToUser(f, cur));
+      const canViewForms = isMgr || (typeof window.canUserViewSubPage === "function" ? window.canUserViewSubPage(cur, "isg_forms") : window.getUserAllowedTabs(cur).includes("isg")) || hasAssigned;
+      const canViewNonconf = window.canViewIsgNonconformityWeb(cur);
+      const canReportNonconf = window.canReportIsgNonconformityWeb(cur);
+
+      if (!window.isgUiState.activeSubTab) {
+        window.isgUiState.activeSubTab = (!canViewForms && canViewNonconf) ? "NONCONFORMITY" : "FORMS";
+      }
+      if (window.isgUiState.activeSubTab === "NONCONFORMITY" && !canViewNonconf) {
+        window.isgUiState.activeSubTab = "FORMS";
+      }
+      if (window.isgUiState.activeSubTab === "FORMS" && !canViewForms && canViewNonconf) {
+        window.isgUiState.activeSubTab = "NONCONFORMITY";
+      }
+      const activeSub = window.isgUiState.activeSubTab || "FORMS";
+
+      const subBar = document.getElementById("isgSubTabBar");
+      const btnSubForms = document.getElementById("btnIsgSubForms");
+      const btnSubNonconf = document.getElementById("btnIsgSubNonconformity");
+      if (subBar) subBar.classList.toggle("hidden", !(canViewForms && canViewNonconf));
+      if (btnSubForms && btnSubNonconf) {
+        if (activeSub === "FORMS") {
+          btnSubForms.className = "flex-1 min-w-[160px] px-3.5 py-2 rounded-lg text-xs font-extrabold bg-white text-[#1E3A8A] shadow flex items-center justify-center gap-2 transition";
+          btnSubNonconf.className = "flex-1 min-w-[160px] px-3.5 py-2 rounded-lg text-xs font-extrabold text-blue-100 hover:bg-white/10 flex items-center justify-center gap-2 transition";
+        } else {
+          btnSubForms.className = "flex-1 min-w-[160px] px-3.5 py-2 rounded-lg text-xs font-extrabold text-blue-100 hover:bg-white/10 flex items-center justify-center gap-2 transition";
+          btnSubNonconf.className = "flex-1 min-w-[160px] px-3.5 py-2 rounded-lg text-xs font-extrabold bg-rose-600 text-white shadow flex items-center justify-center gap-2 transition";
+        }
+      }
+
+      document.getElementById("isgFormsSubPane")?.classList.toggle("hidden", activeSub !== "FORMS");
+      document.getElementById("isgNonconformitySubPane")?.classList.toggle("hidden", activeSub !== "NONCONFORMITY");
+      document.getElementById("isgFormsKpiGrid")?.classList.toggle("hidden", activeSub !== "FORMS");
+      document.getElementById("isgNonconfKpiGrid")?.classList.toggle("hidden", activeSub !== "NONCONFORMITY");
 
       const btnCreate = document.getElementById("btnIsgCreateAssign");
-      if (btnCreate) btnCreate.classList.toggle("hidden", !isMgr);
+      if (btnCreate) btnCreate.classList.toggle("hidden", !(isMgr && activeSub === "FORMS"));
+      const btnNewUyg = document.getElementById("btnIsgNewNonconformity");
+      if (btnNewUyg) btnNewUyg.classList.toggle("hidden", !(canReportNonconf && activeSub === "NONCONFORMITY"));
+
+      const titleEl = document.getElementById("isgHeaderTitle");
+      if (titleEl) {
+        titleEl.textContent = activeSub === "NONCONFORMITY"
+          ? "İSG Uygunsuzluk Bildirimi (FR-İSG-UYG)"
+          : "İş Sağlığı ve Güvenliği (İSG) Kontrol Formları";
+      }
       const subEl = document.getElementById("isgRoleSubtitle");
       if (subEl) {
-        subEl.textContent = isMgr
-          ? "İSG Yöneticisi • Form şablonu oluşturabilir, personellere yönlendirebilir ve tamamlanan formları onaylayabilirsiniz"
-          : "Size yönlendirilen İSG kontrol formlarını birebir basılı form düzeninde doldurup fotoğraf & dijital imza ekleyebilir ve 'Tamamladım' diyebilirsiniz";
+        subEl.textContent = activeSub === "NONCONFORMITY"
+          ? "Sahada tespit edilen uygunsuzlukları fotoğraflı resmi evrak (FR-İSG-UYG) olarak bildirin ve DÖF sürecini takip edin"
+          : (isMgr
+            ? "İSG Yöneticisi • Form şablonu oluşturabilir, personellere yönlendirebilir ve tamamlanan formları onaylayabilirsiniz"
+            : "Size yönlendirilen İSG kontrol formlarını birebir basılı form düzeninde doldurup fotoğraf & dijital imza ekleyebilir ve 'Tamamladım' diyebilirsiniz");
       }
+
+      if (activeSub === "NONCONFORMITY") {
+        if (typeof window.renderIsgNonconformityList === "function") window.renderIsgNonconformityList();
+        lucide.createIcons();
+        return;
+      }
+
+      const canSeeAll = isMgr || (typeof window.canUserViewSubPage === "function" ? window.canUserViewSubPage(cur, "isg_forms") : window.getUserAllowedTabs(cur).includes("isg"));
+      const visible = canSeeAll ? all : all.filter(f => window.isIsgFormAssignedToUser(f, cur));
 
       const pendingCount = visible.filter(f => f.status !== "COMPLETED").length;
       const completedCount = visible.filter(f => f.status === "COMPLETED").length;
@@ -21990,8 +22211,13 @@
     };
 
     window.openIsgSignaturePad = function(slotKey, labelTitle) {
-      const f = window.isgUiState.activeForm;
-      if (!f || !window.canCurrentUserEditIsgForm(f)) return;
+      const isUygSig = String(slotKey || "").startsWith("__uyg_");
+      if (!isUygSig) {
+        const f = window.isgUiState.activeForm;
+        if (!f || !window.canCurrentUserEditIsgForm(f)) return;
+      } else if (!window.isgUygState?.activeDoc) {
+        return;
+      }
       bindIsgSignatureCanvasEvents();
       window.isgUiState.sigSlotKey = slotKey;
       window.isgUiState.sigStrokes = [];
@@ -22020,8 +22246,11 @@
     window.saveIsgSignatureFromPad = function() {
       const strokes = window.isgUiState.sigStrokes || [];
       const slotKey = window.isgUiState.sigSlotKey;
+      const isUygSig = String(slotKey || "").startsWith("__uyg_");
       const f = window.isgUiState.activeForm;
-      if (!f || !slotKey || !window.canCurrentUserEditIsgForm(f)) return;
+      if (!slotKey) return;
+      if (!isUygSig && (!f || !window.canCurrentUserEditIsgForm(f))) return;
+      if (isUygSig && !window.isgUygState?.activeDoc) return;
       if (strokes.length === 0) {
         alert("Lütfen önce alana imzanızı çizin.");
         return;
@@ -22048,9 +22277,21 @@
           ctx.stroke();
         }
       });
-      if (!f.signatures) f.signatures = {};
-      f.signatures[slotKey] = out.toDataURL("image/png");
+      const pngUri = out.toDataURL("image/png");
       closeModal("modalIsgSignaturePad");
+      if (isUygSig) {
+        const docObj = window.isgUygState.activeDoc;
+        if (slotKey === "__uyg_reporter") {
+          docObj.reporterSignature = pngUri;
+        } else if (slotKey === "__uyg_manager") {
+          docObj.managerSignature = pngUri;
+          if (!docObj.managerName && window.currentUser) docObj.managerName = window.currentUser.displayName || "";
+        }
+        window.renderIsgNonconformityDocBody();
+        return;
+      }
+      if (!f.signatures) f.signatures = {};
+      f.signatures[slotKey] = pngUri;
       window.renderIsgSheetEditorBody();
     };
 
@@ -24110,6 +24351,729 @@
       } catch (e) {
         alert("Excel (.xlsx) çıktısı oluşturulamadı: " + (e?.message || e));
       }
+    };
+
+    // ================= İSG UYGUNSUZLUK BİLDİRİMİ (FR-İSG-UYG) WEB MODÜLÜ =================
+    const ISG_UYG_CATEGORIES = [
+      "İş Güvenliği / Genel Tehlike",
+      "KKD İhlali",
+      "Makine Koruyucu / Mekanik",
+      "Elektrik Tehlikesi",
+      "Yangın & Acil Durum",
+      "Kimyasal & Sızıntı",
+      "Tertip-Düzen / Kayma-Düşme",
+      "Ramak Kala",
+      "Gıda Güvenliği & Hijyen",
+      "Diğer"
+    ];
+    const ISG_UYG_STATUS_LABELS = {
+      OPEN: "Açık",
+      IN_REVIEW: "İnceleniyor",
+      ACTION_PLANNED: "DÖF Planlandı",
+      CLOSED: "Kapandı"
+    };
+    window.isgUygState = {
+      filterMode: "ALL",
+      activeDoc: null,
+      photoTarget: "EVIDENCE"
+    };
+
+    function formatTodayTrUyg(ms = Date.now()) {
+      const d = new Date(ms);
+      const dd = String(d.getDate()).padStart(2, "0");
+      const mm = String(d.getMonth() + 1).padStart(2, "0");
+      return `${dd}.${mm}.${d.getFullYear()}`;
+    }
+    function formatTimeTrUyg(ms = Date.now()) {
+      const d = new Date(ms);
+      return `${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}`;
+    }
+    function generateNextIsgUygDocNo() {
+      const year = new Date().getFullYear();
+      const prefix = `UYG-${year}-`;
+      let maxSeq = 0;
+      (window.allIsgNonconformities || []).forEach(r => {
+        const no = String(r.docNo || "").trim().toUpperCase();
+        if (no.startsWith(prefix)) {
+          const n = parseInt(no.slice(prefix.length), 10);
+          if (!isNaN(n) && n > maxSeq) maxSeq = n;
+        }
+      });
+      return `${prefix}${String(maxSeq + 1).padStart(3, "0")}`;
+    }
+    function isgUygRiskClasses(lvl) {
+      const u = String(lvl || "ORTA").toUpperCase();
+      if (u.includes("KRİT") || u.includes("CRIT")) return "bg-rose-100 text-rose-800 border-rose-300";
+      if (u.includes("YÜK") || u.includes("HIGH")) return "bg-orange-100 text-orange-800 border-orange-300";
+      if (u.includes("DÜŞ") || u.includes("LOW")) return "bg-emerald-100 text-emerald-800 border-emerald-300";
+      return "bg-amber-100 text-amber-800 border-amber-300";
+    }
+    function isgUygStatusClasses(st) {
+      const u = String(st || "OPEN").toUpperCase();
+      if (u === "CLOSED") return "bg-emerald-100 text-emerald-800";
+      if (u === "ACTION_PLANNED") return "bg-blue-100 text-blue-800";
+      if (u === "IN_REVIEW") return "bg-purple-100 text-purple-800";
+      return "bg-rose-100 text-rose-800";
+    }
+    function canEditIsgUygReportWeb(rec, user = window.currentUser) {
+      if (!user) return false;
+      if (window.isIsgManager(user)) return true;
+      if (!rec || !rec.id) return window.canReportIsgNonconformityWeb(user);
+      const myIds = new Set([user.userId, user.id, user.username, user.email].map(x => String(x || "").trim().toLowerCase()).filter(Boolean));
+      const isMine = myIds.has(String(rec.reporterUid || "").trim().toLowerCase()) ||
+        (String(rec.reporterName || "").trim().toLowerCase() === String(user.displayName || "").trim().toLowerCase());
+      return window.canReportIsgNonconformityWeb(user) && isMine && String(rec.status || "OPEN").toUpperCase() === "OPEN";
+    }
+    function canEditIsgUygDofWeb(rec, user = window.currentUser) {
+      if (!user) return false;
+      if (window.isIsgManager(user)) return true;
+      if (!rec) return false;
+      const myIds = new Set([user.userId, user.id, user.username, user.email].map(x => String(x || "").trim().toLowerCase()).filter(Boolean));
+      return myIds.has(String(rec.responsibleUid || "").trim().toLowerCase());
+    }
+
+    window.setIsgUygFilterMode = function(mode) {
+      window.isgUygState.filterMode = mode || "ALL";
+      ["ALL", "OPEN", "HIGH", "MINE", "CLOSED"].forEach(m => {
+        const btn = document.getElementById(`isgUygFilter_${m}`);
+        if (!btn) return;
+        btn.className = (m === window.isgUygState.filterMode)
+          ? "px-3 py-1.5 rounded-lg font-bold bg-[#1E3A8A] text-white transition"
+          : "px-3 py-1.5 rounded-lg font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition";
+      });
+      window.renderIsgNonconformityList();
+    };
+
+    window.renderIsgNonconformityList = function() {
+      const container = document.getElementById("isgNonconformityListContainer");
+      if (!container || !window.currentUser) return;
+      const cur = window.currentUser;
+      const isMgr = window.isIsgManager(cur);
+      const canReport = window.canReportIsgNonconformityWeb(cur);
+      const all = window.allIsgNonconformities || [];
+
+      const openCount = all.filter(r => String(r.status || "OPEN").toUpperCase() !== "CLOSED").length;
+      const highCount = all.filter(r => {
+        const st = String(r.status || "OPEN").toUpperCase();
+        const rl = String(r.riskLevel || "").toUpperCase();
+        return st !== "CLOSED" && (rl.includes("KRİT") || rl.includes("YÜK") || rl.includes("CRIT") || rl.includes("HIGH"));
+      }).length;
+      const closedCount = all.filter(r => String(r.status || "OPEN").toUpperCase() === "CLOSED").length;
+
+      const setText = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = String(val); };
+      setText("isgUygKpiTotal", all.length);
+      setText("isgUygKpiOpen", openCount);
+      setText("isgUygKpiHigh", highCount);
+      setText("isgUygKpiClosed", closedCount);
+
+      const q = (document.getElementById("isgUygSearchInput")?.value || "").trim().toLowerCase();
+      const mode = window.isgUygState.filterMode || "ALL";
+      const myIds = new Set([cur.userId, cur.id, cur.username, cur.email].map(x => String(x || "").trim().toLowerCase()).filter(Boolean));
+
+      const filtered = all.filter(r => {
+        const st = String(r.status || "OPEN").toUpperCase();
+        const rl = String(r.riskLevel || "").toUpperCase();
+        if (mode === "OPEN" && st === "CLOSED") return false;
+        if (mode === "CLOSED" && st !== "CLOSED") return false;
+        if (mode === "HIGH" && (st === "CLOSED" || !(rl.includes("KRİT") || rl.includes("YÜK") || rl.includes("CRIT") || rl.includes("HIGH")))) return false;
+        if (mode === "MINE") {
+          const mine = myIds.has(String(r.reporterUid || "").trim().toLowerCase()) ||
+            myIds.has(String(r.responsibleUid || "").trim().toLowerCase());
+          if (!mine) return false;
+        }
+        if (!q) return true;
+        return [r.docNo, r.title, r.description, r.department, r.location, r.category, r.reporterName, r.responsibleName, r.riskLevel]
+          .some(v => String(v || "").toLowerCase().includes(q));
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="col-span-full bg-white rounded-2xl border border-slate-200 p-8 text-center space-y-2">
+            <div class="text-3xl">⚠️</div>
+            <div class="text-sm font-extrabold text-slate-800">Uygunsuzluk Bildirimi Bulunamadı</div>
+            <p class="text-xs text-slate-500 max-w-md mx-auto">
+              ${canReport ? "Yukarıdaki 'Yeni Uygunsuzluk Bildirimi' butonundan fotoğraflı resmi uygunsuzluk evrakı (FR-İSG-UYG) oluşturabilirsiniz." : "Kayıtlı uygunsuzluk bildirimi bulunmamaktadır."}
+            </p>
+          </div>`;
+        return;
+      }
+
+      container.innerHTML = filtered.map(r => {
+        const st = String(r.status || "OPEN").toUpperCase();
+        const stLabel = ISG_UYG_STATUS_LABELS[st] || "Açık";
+        const photoCount = (Array.isArray(r.photos) ? r.photos.length : 0) + (Array.isArray(r.closurePhotos) ? r.closurePhotos.length : 0);
+        const isCriticalOpen = st !== "CLOSED" && String(r.riskLevel || "").toUpperCase().includes("KRİT");
+        return `
+          <div class="bg-white rounded-2xl border ${isCriticalOpen ? "border-rose-400 ring-1 ring-rose-200" : "border-slate-200"} p-4 shadow-sm hover:shadow-md transition flex flex-col justify-between gap-3">
+            <div class="space-y-2">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <div class="flex flex-wrap items-center gap-1.5">
+                  <span class="px-2 py-0.5 rounded-md bg-[#1E3A8A] text-white text-[10px] font-extrabold">${escapeHtml(r.docNo || "FR-İSG-UYG")}</span>
+                  <span class="px-2 py-0.5 rounded-md border text-[10px] font-extrabold ${isgUygRiskClasses(r.riskLevel)}">${escapeHtml(r.riskLevel || "ORTA")}</span>
+                  <span class="px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 text-[10px] font-semibold">${escapeHtml(r.category || "")}</span>
+                </div>
+                <span class="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold ${isgUygStatusClasses(st)}">${escapeHtml(stLabel)}</span>
+              </div>
+              <div onclick="openIsgNonconformityModal('${escapeJsSingle(r.id)}')" class="cursor-pointer group">
+                <h4 class="text-sm font-extrabold text-slate-900 group-hover:text-[#1E3A8A] transition">${escapeHtml(r.title || r.category || "Uygunsuzluk Bildirimi")}</h4>
+                ${r.description ? `<p class="text-xs text-slate-600 line-clamp-2 mt-1">${escapeHtml(r.description)}</p>` : ""}
+              </div>
+              <div class="flex flex-wrap items-center gap-2 text-[11px] text-slate-600">
+                <span class="font-semibold">📍 ${escapeHtml(r.department || "-")}${r.location ? " • " + escapeHtml(r.location) : ""}</span>
+                ${photoCount > 0 ? `<span class="px-2 py-0.5 rounded-md bg-blue-50 text-[#1E3A8A] font-bold">📷 ${photoCount} Fotoğraf</span>` : ""}
+              </div>
+            </div>
+            <div class="pt-2.5 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2 text-[11px]">
+              <div class="text-slate-500">
+                <div>Bildiren: <b class="text-slate-700">${escapeHtml(r.reporterName || "Personel")}</b> • ${escapeHtml(r.reportDate || "")} ${escapeHtml(r.reportTime || "")}</div>
+                ${r.responsibleName ? `<div class="text-[#1E3A8A] font-semibold">Sorumlu: ${escapeHtml(r.responsibleName)}${r.dueDate ? " • Termin: " + escapeHtml(r.dueDate) : ""}</div>` : ""}
+              </div>
+              <div class="flex items-center gap-1.5">
+                <button type="button" onclick="openIsgNonconformityModal('${escapeJsSingle(r.id)}')" class="px-3 py-1.5 rounded-lg bg-[#1E3A8A] hover:bg-blue-900 text-white font-bold text-[11px]">Evrakı Aç</button>
+                <button type="button" onclick="printIsgNonconformityPdf('${escapeJsSingle(r.id)}')" class="px-2.5 py-1.5 rounded-lg border border-slate-300 hover:bg-slate-50 text-slate-700 font-bold text-[11px]">🖨️ PDF</button>
+                ${isMgr ? `<button type="button" onclick="deleteIsgNonconformityWeb('${escapeJsSingle(r.id)}')" class="p-1.5 rounded-lg text-rose-600 hover:bg-rose-50" title="Sil"><i data-lucide="trash-2" class="w-4 h-4"></i></button>` : ""}
+              </div>
+            </div>
+          </div>
+        `;
+      }).join("");
+      lucide.createIcons();
+    };
+
+    window.openIsgNonconformityModal = async function(docId) {
+      if (!window.currentUser) return;
+      const cur = window.currentUser;
+      let rec;
+      if (docId) {
+        const found = (window.allIsgNonconformities || []).find(r => r.id === docId);
+        if (!found) return;
+        rec = JSON.parse(JSON.stringify(found));
+      } else {
+        if (!window.canReportIsgNonconformityWeb(cur)) {
+          alert("Uygunsuzluk bildirimi oluşturma yetkiniz bulunmamaktadır.");
+          return;
+        }
+        const now = Date.now();
+        rec = {
+          id: "",
+          docNo: generateNextIsgUygDocNo(),
+          formCode: "FR-İSG-UYG",
+          reportDate: formatTodayTrUyg(now),
+          reportTime: formatTimeTrUyg(now),
+          department: cur.department || "Üretim",
+          location: "",
+          category: ISG_UYG_CATEGORIES[0],
+          riskLevel: "ORTA",
+          title: "",
+          description: "",
+          immediateAction: "",
+          photos: [],
+          rootCause: "",
+          correctiveAction: "",
+          responsibleUid: "",
+          responsibleName: "",
+          dueDate: "",
+          closureNotes: "",
+          closurePhotos: [],
+          status: "OPEN",
+          reporterUid: cur.userId || cur.id || "",
+          reporterName: cur.displayName || "Personel",
+          reporterDepartment: cur.department || "",
+          reporterRole: cur.role || "",
+          reporterSignature: "",
+          managerName: "",
+          managerSignature: "",
+          createdAtMillis: now
+        };
+      }
+      window.isgUygState.activeDoc = rec;
+      document.getElementById("modalIsgNonconformityDoc")?.classList.remove("hidden");
+      window.renderIsgNonconformityDocBody();
+      if (rec.id) {
+        const loaded = await loadIsgFormPhotosWeb(rec.id);
+        if (loaded > 0) window.renderIsgNonconformityDocBody();
+      }
+    };
+
+    window.updateIsgUygField = function(field, value) {
+      if (!window.isgUygState.activeDoc) return;
+      window.isgUygState.activeDoc[field] = value;
+      if (field === "responsibleUid") {
+        const u = (window.allUsers || []).find(x => (x.userId || x.id) === value);
+        window.isgUygState.activeDoc.responsibleName = u ? (u.displayName || "") : "";
+      }
+    };
+
+    window.setIsgUygRisk = function(lvl) {
+      if (!window.isgUygState.activeDoc || !canEditIsgUygReportWeb(window.isgUygState.activeDoc)) return;
+      window.isgUygState.activeDoc.riskLevel = lvl;
+      window.renderIsgNonconformityDocBody();
+    };
+
+    window.setIsgUygStatus = function(st) {
+      if (!window.isgUygState.activeDoc || !canEditIsgUygDofWeb(window.isgUygState.activeDoc)) return;
+      window.isgUygState.activeDoc.status = st;
+      window.renderIsgNonconformityDocBody();
+    };
+
+    window.triggerIsgUygPhotoUpload = function(target, useCamera) {
+      window.isgUygState.photoTarget = target;
+      const input = document.getElementById(useCamera ? "isgUygCameraInput" : "isgUygGalleryInput");
+      if (input) {
+        input.value = "";
+        input.click();
+      }
+    };
+
+    window.handleIsgUygPhotoSelected = async function(event) {
+      const files = Array.from(event?.target?.files || []);
+      const docObj = window.isgUygState.activeDoc;
+      if (!docObj || files.length === 0) return;
+      const target = window.isgUygState.photoTarget || "EVIDENCE";
+      const listKey = target === "CLOSURE" ? "closurePhotos" : "photos";
+      const maxLimit = target === "CLOSURE" ? 6 : 8;
+      if (!Array.isArray(docObj[listKey])) docObj[listKey] = [];
+      const remaining = Math.max(0, maxLimit - docObj[listKey].length);
+      if (remaining === 0) {
+        alert(`Bu alana en fazla ${maxLimit} fotoğraf eklenebilir.`);
+        return;
+      }
+      for (const file of files.slice(0, remaining)) {
+        const uri = await compressIsgFileToDataUri(file, 1920, 0.90);
+        if (uri) docObj[listKey].push(uri);
+      }
+      window.renderIsgNonconformityDocBody();
+    };
+
+    window.removeIsgUygPhoto = function(target, idx) {
+      const docObj = window.isgUygState.activeDoc;
+      if (!docObj) return;
+      const listKey = target === "CLOSURE" ? "closurePhotos" : "photos";
+      if (Array.isArray(docObj[listKey])) {
+        docObj[listKey].splice(idx, 1);
+        window.renderIsgNonconformityDocBody();
+      }
+    };
+
+    window.clearIsgUygSignature = function(which) {
+      const docObj = window.isgUygState.activeDoc;
+      if (!docObj) return;
+      if (which === "reporter") docObj.reporterSignature = "";
+      if (which === "manager") docObj.managerSignature = "";
+      window.renderIsgNonconformityDocBody();
+    };
+
+    window.renderIsgNonconformityDocBody = function() {
+      const body = document.getElementById("isgUygModalBody");
+      const docObj = window.isgUygState.activeDoc;
+      if (!body || !docObj) return;
+
+      const canEditReport = canEditIsgUygReportWeb(docObj);
+      const canEditDof = canEditIsgUygDofWeb(docObj);
+      const isMgr = window.isIsgManager(window.currentUser);
+      const titleEl = document.getElementById("isgUygModalTitle");
+      if (titleEl) titleEl.textContent = `${docObj.id ? "Uygunsuzluk Evrakı" : "Yeni Uygunsuzluk Bildirimi"} — ${docObj.docNo || "FR-İSG-UYG"}`;
+      const saveBtn = document.getElementById("btnSaveIsgUygDoc");
+      if (saveBtn) saveBtn.classList.toggle("hidden", !(canEditReport || canEditDof));
+
+      const deptSet = new Set(["Üretim", "Mekanik Bakım", "Elektrik Bakım", "Paketleme Birimi", "Yardımcı Tesisler", "Kalite Kontrol", "Depo & Lojistik", "İSG", "İdari İşler"]);
+      (window.customDepartments || []).forEach(d => { if (d?.name) deptSet.add(d.name); });
+      if (docObj.department) deptSet.add(docObj.department);
+      const deptOptions = Array.from(deptSet);
+
+      const activeUsers = (window.allUsers || [])
+        .filter(u => !u.isDeleted && !u.isBlocked)
+        .sort((a, b) => String(a.displayName || "").localeCompare(String(b.displayName || ""), "tr"));
+
+      const renderPhotoStrip = (list, target, canEdit, maxLimit) => {
+        const arr = Array.isArray(list) ? list : [];
+        return `
+          <div class="space-y-2">
+            ${canEdit && arr.length < maxLimit ? `
+              <div class="flex flex-wrap gap-2">
+                <button type="button" onclick="triggerIsgUygPhotoUpload('${target}', true)" class="px-3 py-1.5 rounded-lg bg-[#1E3A8A] hover:bg-blue-900 text-white font-bold text-xs flex items-center gap-1.5">📷 Anlık Çek</button>
+                <button type="button" onclick="triggerIsgUygPhotoUpload('${target}', false)" class="px-3 py-1.5 rounded-lg border border-slate-300 hover:bg-slate-50 text-slate-800 font-bold text-xs flex items-center gap-1.5">🖼️ Galeriden Ekle</button>
+                <span class="text-[11px] text-slate-500 self-center">${arr.length}/${maxLimit} fotoğraf</span>
+              </div>` : ""}
+            ${arr.length === 0 ? `<div class="text-xs text-slate-400 italic bg-slate-50 border border-dashed border-slate-300 rounded-lg p-3">Henüz fotoğraf eklenmedi.</div>` : `
+              <div class="flex flex-wrap gap-2.5">
+                ${arr.map((raw, idx) => {
+                  const src = resolveIsgPhotoUri(raw);
+                  return `
+                    <div class="relative w-24 h-24 rounded-lg overflow-hidden border-2 border-[#1E3A8A] bg-slate-100">
+                      ${src ? `<img src="${src}" alt="Fotoğraf ${idx + 1}" onclick="openIsgPhotoLightbox('${escapeJsSingle(raw)}', '${target === "CLOSURE" ? "Kapanış Fotoğrafı #" : "Kanıt Fotoğrafı #"}${idx + 1}')" class="w-full h-full object-cover cursor-zoom-in">`
+                            : `<div class="w-full h-full flex items-center justify-center text-[10px] text-slate-400">Yükleniyor...</div>`}
+                      ${canEdit ? `<button type="button" onclick="removeIsgUygPhoto('${target}', ${idx})" class="absolute top-1 right-1 w-5 h-5 rounded-full bg-rose-600 text-white text-[11px] font-bold flex items-center justify-center shadow">×</button>` : ""}
+                    </div>
+                  `;
+                }).join("")}
+              </div>`}
+          </div>`;
+      };
+
+      const st = String(docObj.status || "OPEN").toUpperCase();
+      body.innerHTML = `
+        <div class="max-w-4xl mx-auto bg-white border-2 border-slate-900 rounded-xl shadow-xl overflow-hidden text-xs">
+          <!-- RESMİ EVRAK ÜST KÜNYESİ -->
+          <div class="grid grid-cols-1 sm:grid-cols-12 border-b-2 border-slate-900 bg-slate-50">
+            <div class="sm:col-span-3 p-3 flex items-center justify-center border-b sm:border-b-0 sm:border-r border-slate-900">
+              <img src="berrak-logo.png" alt="Berrak" class="h-12 object-contain" onerror="this.style.display='none'">
+            </div>
+            <div class="sm:col-span-6 p-3 text-center flex flex-col justify-center border-b sm:border-b-0 sm:border-r border-slate-900">
+              <div class="text-[11px] font-extrabold text-[#1E3A8A]">TEKİNAK GIDA SAN. VE TİC. A.Ş.</div>
+              <div class="text-sm sm:text-base font-black text-slate-900 leading-tight mt-0.5">İSG UYGUNSUZLUK BİLDİRİM VE DÜZELTİCİ FAALİYET FORMU</div>
+              <div class="text-[10px] text-slate-500 mt-0.5">İş Sağlığı ve Güvenliği Yönetim Sistemi</div>
+            </div>
+            <div class="sm:col-span-3 divide-y divide-slate-300 text-[11px]">
+              <div class="px-2.5 py-1 flex justify-between"><span class="font-bold text-slate-600">Form Kodu:</span><span class="font-extrabold">FR-İSG-UYG</span></div>
+              <div class="px-2.5 py-1 flex justify-between"><span class="font-bold text-slate-600">Kayıt No:</span><span class="font-extrabold text-[#1E3A8A]">${escapeHtml(docObj.docNo || "-")}</span></div>
+              <div class="px-2.5 py-1 flex justify-between"><span class="font-bold text-slate-600">Tarih/Saat:</span><span>${escapeHtml(docObj.reportDate || "")} ${escapeHtml(docObj.reportTime || "")}</span></div>
+              <div class="px-2.5 py-1 flex justify-between"><span class="font-bold text-slate-600">Durum:</span><span class="font-extrabold">${escapeHtml(ISG_UYG_STATUS_LABELS[st] || "Açık")}</span></div>
+            </div>
+          </div>
+
+          <!-- BÖLÜM 1 -->
+          <div class="bg-[#1E3A8A] text-white font-extrabold px-3.5 py-2 text-[11px] tracking-wide">1. BİLDİRİM VE TESPİT BİLGİLERİ</div>
+          <div class="p-4 grid grid-cols-1 sm:grid-cols-2 gap-3 border-b border-slate-300">
+            <div>
+              <label class="block font-bold text-slate-700 mb-1">Bildiren Personel</label>
+              <input type="text" readonly value="${escapeHtml(docObj.reporterName || "")}" class="w-full px-3 py-2 bg-slate-100 border border-slate-300 rounded-lg font-semibold">
+            </div>
+            <div>
+              <label class="block font-bold text-slate-700 mb-1">Bölüm / Departman</label>
+              <select ${canEditReport ? "" : "disabled"} onchange="updateIsgUygField('department', this.value)" class="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white">
+                ${deptOptions.map(d => `<option value="${escapeHtml(d)}" ${d === docObj.department ? "selected" : ""}>${escapeHtml(d)}</option>`).join("")}
+              </select>
+            </div>
+            <div class="sm:col-span-2">
+              <label class="block font-bold text-slate-700 mb-1">Tespit Yeri / Makine / Hat</label>
+              <input type="text" ${canEditReport ? "" : "readonly"} value="${escapeHtml(docObj.location || "")}" oninput="updateIsgUygField('location', this.value)" placeholder="Örn: Makarna Hat-3, Kompresör Dairesi, Değirmen 2. Kat" class="w-full px-3 py-2 border border-slate-300 rounded-lg">
+            </div>
+          </div>
+
+          <!-- BÖLÜM 2 -->
+          <div class="bg-[#1E3A8A] text-white font-extrabold px-3.5 py-2 text-[11px] tracking-wide">2. UYGUNSUZLUK TÜRÜ VE RİSK DERECESİ</div>
+          <div class="p-4 grid grid-cols-1 sm:grid-cols-2 gap-3 border-b border-slate-300">
+            <div>
+              <label class="block font-bold text-slate-700 mb-1">Uygunsuzluk Kategorisi</label>
+              <select ${canEditReport ? "" : "disabled"} onchange="updateIsgUygField('category', this.value)" class="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white">
+                ${ISG_UYG_CATEGORIES.map(c => `<option value="${escapeHtml(c)}" ${c === docObj.category ? "selected" : ""}>${escapeHtml(c)}</option>`).join("")}
+              </select>
+            </div>
+            <div>
+              <label class="block font-bold text-slate-700 mb-1">Risk Derecesi</label>
+              <div class="grid grid-cols-4 gap-1.5">
+                ${["DÜŞÜK", "ORTA", "YÜKSEK", "KRİTİK"].map(lvl => {
+                  const sel = String(docObj.riskLevel || "ORTA").toUpperCase() === lvl;
+                  return `<button type="button" ${canEditReport ? `onclick="setIsgUygRisk('${lvl}')"` : "disabled"} class="py-2 rounded-lg border font-extrabold text-[11px] transition ${sel ? "bg-slate-900 text-white border-slate-900 shadow" : isgUygRiskClasses(lvl)}">${lvl}</button>`;
+                }).join("")}
+              </div>
+            </div>
+          </div>
+
+          <!-- BÖLÜM 3 -->
+          <div class="bg-[#1E3A8A] text-white font-extrabold px-3.5 py-2 text-[11px] tracking-wide">3. TESPİT EDİLEN UYGUNSUZLUK TANIMI VE ANLIK TEDBİR</div>
+          <div class="p-4 space-y-3 border-b border-slate-300">
+            <div>
+              <label class="block font-bold text-slate-700 mb-1">Konu / Kısa Başlık *</label>
+              <input type="text" ${canEditReport ? "" : "readonly"} value="${escapeHtml(docObj.title || "")}" oninput="updateIsgUygField('title', this.value)" placeholder="Örn: Konveyör koruyucu kapağı açık" class="w-full px-3 py-2 border border-slate-300 rounded-lg font-semibold">
+            </div>
+            <div>
+              <label class="block font-bold text-slate-700 mb-1">Uygunsuzluğun Detaylı Tanımı *</label>
+              <textarea rows="3" ${canEditReport ? "" : "readonly"} oninput="updateIsgUygField('description', this.value)" placeholder="Gözlemlenen tehlikeyi ve riski ayrıntılı yazınız..." class="w-full px-3 py-2 border border-slate-300 rounded-lg">${escapeHtml(docObj.description || "")}</textarea>
+            </div>
+            <div>
+              <label class="block font-bold text-slate-700 mb-1">Olay Yerinde Alınan Anlık / Geçici Tedbir</label>
+              <textarea rows="2" ${canEditReport ? "" : "readonly"} oninput="updateIsgUygField('immediateAction', this.value)" placeholder="Örn: Alan güvenlik şeridiyle çevrildi, amire bildirildi..." class="w-full px-3 py-2 border border-slate-300 rounded-lg">${escapeHtml(docObj.immediateAction || "")}</textarea>
+            </div>
+          </div>
+
+          <!-- BÖLÜM 4 -->
+          <div class="bg-[#1E3A8A] text-white font-extrabold px-3.5 py-2 text-[11px] tracking-wide">4. KANIT FOTOĞRAFLARI</div>
+          <div class="p-4 border-b border-slate-300">
+            ${renderPhotoStrip(docObj.photos, "EVIDENCE", canEditReport, 8)}
+          </div>
+
+          <!-- BÖLÜM 5 -->
+          <div class="bg-[#1E3A8A] text-white font-extrabold px-3.5 py-2 text-[11px] tracking-wide">5. DÜZELTİCİ / ÖNLEYİCİ FAALİYET (DÖF) VE KAPANIŞ (İSG YÖNETİMİ)</div>
+          <div class="p-4 space-y-3 border-b border-slate-300 bg-slate-50/50">
+            <div>
+              <label class="block font-bold text-slate-700 mb-1">Evrak Durumu</label>
+              <div class="flex flex-wrap gap-1.5">
+                ${["OPEN", "IN_REVIEW", "ACTION_PLANNED", "CLOSED"].map(sKey => {
+                  const sel = st === sKey;
+                  return `<button type="button" ${canEditDof ? `onclick="setIsgUygStatus('${sKey}')"` : "disabled"} class="px-3 py-1.5 rounded-lg font-extrabold text-[11px] border transition ${sel ? "bg-[#1E3A8A] text-white border-[#1E3A8A]" : "bg-white text-slate-700 border-slate-300"}">${ISG_UYG_STATUS_LABELS[sKey]}</button>`;
+                }).join("")}
+              </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block font-bold text-slate-700 mb-1">Faaliyet Sorumlusu</label>
+                <select ${canEditDof ? "" : "disabled"} onchange="updateIsgUygField('responsibleUid', this.value)" class="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white">
+                  <option value="">Atanmadı</option>
+                  ${activeUsers.map(u => {
+                    const uid = u.userId || u.id || "";
+                    return `<option value="${escapeHtml(uid)}" ${uid === docObj.responsibleUid ? "selected" : ""}>${escapeHtml(u.displayName || "")} (${escapeHtml(u.department || "")})</option>`;
+                  }).join("")}
+                </select>
+              </div>
+              <div>
+                <label class="block font-bold text-slate-700 mb-1">Termin Tarihi (GG.AA.YYYY)</label>
+                <input type="text" ${canEditDof ? "" : "readonly"} value="${escapeHtml(docObj.dueDate || "")}" oninput="updateIsgUygField('dueDate', this.value)" placeholder="Örn: 15.12.2026" class="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white">
+              </div>
+            </div>
+            <div>
+              <label class="block font-bold text-slate-700 mb-1">Kök Neden Analizi</label>
+              <textarea rows="2" ${canEditDof ? "" : "readonly"} oninput="updateIsgUygField('rootCause', this.value)" class="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white">${escapeHtml(docObj.rootCause || "")}</textarea>
+            </div>
+            <div>
+              <label class="block font-bold text-slate-700 mb-1">Planlanan / Uygulanan Düzeltici Faaliyet</label>
+              <textarea rows="2" ${canEditDof ? "" : "readonly"} oninput="updateIsgUygField('correctiveAction', this.value)" class="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white">${escapeHtml(docObj.correctiveAction || "")}</textarea>
+            </div>
+            <div>
+              <label class="block font-bold text-slate-700 mb-1">Kapanış &amp; Doğrulama Açıklaması</label>
+              <textarea rows="2" ${canEditDof ? "" : "readonly"} oninput="updateIsgUygField('closureNotes', this.value)" class="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white">${escapeHtml(docObj.closureNotes || "")}</textarea>
+            </div>
+            <div>
+              <label class="block font-bold text-emerald-800 mb-1">Kapanış Doğrulama Fotoğrafları</label>
+              ${renderPhotoStrip(docObj.closurePhotos, "CLOSURE", canEditDof, 6)}
+            </div>
+          </div>
+
+          <!-- BÖLÜM 6: DİJİTAL İMZALAR -->
+          <div class="bg-[#1E3A8A] text-white font-extrabold px-3.5 py-2 text-[11px] tracking-wide">6. DİJİTAL ONAY VE İMZALAR</div>
+          <div class="p-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="border border-slate-300 rounded-xl p-3 bg-slate-50 space-y-2">
+              <div class="font-extrabold text-[#1E3A8A] text-[11px]">BİLDİREN PERSONEL</div>
+              <div class="font-semibold text-slate-800">${escapeHtml(docObj.reporterName || "")}</div>
+              <div class="h-20 bg-white border border-slate-300 rounded-lg flex items-center justify-center overflow-hidden">
+                ${docObj.reporterSignature ? `<img src="${docObj.reporterSignature}" alt="Bildiren İmza" class="h-16 object-contain">` : `<span class="text-slate-400 text-[11px]">İmza yok</span>`}
+              </div>
+              ${canEditReport ? `
+                <div class="flex gap-2">
+                  <button type="button" onclick="openIsgSignaturePad('__uyg_reporter', 'Bildiren Personel İmzası')" class="px-2.5 py-1 rounded-lg bg-[#1E3A8A] text-white font-bold text-[11px]">✍️ İmzala</button>
+                  ${docObj.reporterSignature ? `<button type="button" onclick="clearIsgUygSignature('reporter')" class="px-2.5 py-1 rounded-lg border border-rose-300 text-rose-600 font-bold text-[11px]">Temizle</button>` : ""}
+                </div>` : ""}
+            </div>
+            <div class="border border-slate-300 rounded-xl p-3 bg-slate-50 space-y-2">
+              <div class="font-extrabold text-[#1E3A8A] text-[11px]">İSG SORUMLUSU / ONAY</div>
+              <div class="font-semibold text-slate-800">${escapeHtml(docObj.managerName || (isMgr ? (window.currentUser?.displayName || "") : "İSG Onayı Bekliyor"))}</div>
+              <div class="h-20 bg-white border border-slate-300 rounded-lg flex items-center justify-center overflow-hidden">
+                ${docObj.managerSignature ? `<img src="${docObj.managerSignature}" alt="İSG Onay İmza" class="h-16 object-contain">` : `<span class="text-slate-400 text-[11px]">İmza yok</span>`}
+              </div>
+              ${isMgr ? `
+                <div class="flex gap-2">
+                  <button type="button" onclick="openIsgSignaturePad('__uyg_manager', 'İSG Sorumlusu Onay İmzası')" class="px-2.5 py-1 rounded-lg bg-emerald-700 text-white font-bold text-[11px]">✍️ Onayla &amp; İmzala</button>
+                  ${docObj.managerSignature ? `<button type="button" onclick="clearIsgUygSignature('manager')" class="px-2.5 py-1 rounded-lg border border-rose-300 text-rose-600 font-bold text-[11px]">Temizle</button>` : ""}
+                </div>` : ""}
+            </div>
+          </div>
+        </div>`;
+      lucide.createIcons();
+    };
+
+    window.saveIsgNonconformityDoc = async function() {
+      const docObj = window.isgUygState.activeDoc;
+      if (!docObj || !window.currentUser) return;
+      if (!String(docObj.title || "").trim()) {
+        alert("Lütfen kısa uygunsuzluk başlığını girin.");
+        return;
+      }
+      if (!String(docObj.description || "").trim()) {
+        alert("Lütfen uygunsuzluk tanımını girin.");
+        return;
+      }
+      const btn = document.getElementById("btnSaveIsgUygDoc");
+      if (btn) btn.disabled = true;
+      try {
+        const now = Date.now();
+        const docId = String(docObj.id || "").trim() || `uyg_${now}_${Math.random().toString(36).slice(2, 8)}`;
+        const docNo = String(docObj.docNo || "").trim() || generateNextIsgUygDocNo();
+
+        const extPhotos = [];
+        for (const p of (docObj.photos || [])) {
+          const ref = await externalizeIsgPhotoWeb(docId, "uyg_evidence", p, now);
+          if (ref && !extPhotos.includes(ref)) extPhotos.push(ref);
+        }
+        const extClosurePhotos = [];
+        for (const p of (docObj.closurePhotos || [])) {
+          const ref = await externalizeIsgPhotoWeb(docId, "uyg_closure", p, now);
+          if (ref && !extClosurePhotos.includes(ref)) extClosurePhotos.push(ref);
+        }
+
+        const st = String(docObj.status || "OPEN").toUpperCase();
+        const isClosed = st === "CLOSED";
+        const payload = {
+          id: docId,
+          docNo,
+          formCode: "FR-İSG-UYG",
+          reportDate: String(docObj.reportDate || formatTodayTrUyg(now)).trim(),
+          reportTime: String(docObj.reportTime || formatTimeTrUyg(now)).trim(),
+          department: String(docObj.department || "").trim(),
+          location: String(docObj.location || "").trim(),
+          category: String(docObj.category || ISG_UYG_CATEGORIES[0]).trim(),
+          riskLevel: String(docObj.riskLevel || "ORTA").trim(),
+          title: String(docObj.title || "").trim(),
+          description: String(docObj.description || "").trim(),
+          immediateAction: String(docObj.immediateAction || "").trim(),
+          photos: extPhotos,
+          rootCause: String(docObj.rootCause || "").trim(),
+          correctiveAction: String(docObj.correctiveAction || "").trim(),
+          responsibleUid: String(docObj.responsibleUid || "").trim(),
+          responsibleName: String(docObj.responsibleName || "").trim(),
+          dueDate: String(docObj.dueDate || "").trim(),
+          closureNotes: String(docObj.closureNotes || "").trim(),
+          closurePhotos: extClosurePhotos,
+          status: st,
+          reporterUid: String(docObj.reporterUid || window.currentUser.userId || window.currentUser.id || "").trim(),
+          reporterName: String(docObj.reporterName || window.currentUser.displayName || "").trim(),
+          reporterDepartment: String(docObj.reporterDepartment || window.currentUser.department || "").trim(),
+          reporterRole: String(docObj.reporterRole || window.currentUser.role || "").trim(),
+          reporterSignature: String(docObj.reporterSignature || "").trim(),
+          managerName: String(docObj.managerName || "").trim(),
+          managerSignature: String(docObj.managerSignature || "").trim(),
+          createdAtMillis: docObj.createdAtMillis || now,
+          updatedAtMillis: now,
+          closedAtMillis: isClosed ? (docObj.closedAtMillis || now) : 0,
+          closedByName: isClosed ? (docObj.closedByName || window.currentUser.displayName || "") : "",
+          updatedAt: serverTimestamp()
+        };
+        if (!docObj.id) payload.createdAt = serverTimestamp();
+
+        await setDoc(doc(db, "isg_nonconformities", docId), payload);
+        closeModal("modalIsgNonconformityDoc");
+        window.renderIsgNonconformityList();
+      } catch (e) {
+        alert("Uygunsuzluk evrakı kaydedilemedi: " + (e?.message || e));
+      } finally {
+        if (btn) btn.disabled = false;
+      }
+    };
+
+    window.deleteIsgNonconformityWeb = async function(docId) {
+      if (!window.isIsgManager(window.currentUser)) return;
+      if (!confirm("Bu uygunsuzluk bildirim evrakı ve ekli fotoğrafları kalıcı olarak silinecektir. Onaylıyor musunuz?")) return;
+      try {
+        try {
+          const pSnap = await getDocs(query(collection(db, "isg_form_photos"), where("formId", "==", docId)));
+          for (const d of pSnap.docs) await deleteDoc(doc(db, "isg_form_photos", d.id));
+        } catch (_) {}
+        await deleteDoc(doc(db, "isg_nonconformities", docId));
+      } catch (e) {
+        alert("Silme işlemi başarısız: " + (e?.message || e));
+      }
+    };
+
+    window.printIsgNonconformityPdf = async function(docId) {
+      let rec = docId
+        ? (window.allIsgNonconformities || []).find(r => r.id === docId)
+        : window.isgUygState.activeDoc;
+      if (!rec) return;
+      if (rec.id) await loadIsgFormPhotosWeb(rec.id);
+
+      const stLabel = ISG_UYG_STATUS_LABELS[String(rec.status || "OPEN").toUpperCase()] || "Açık";
+      const allPhotos = [
+        ...(rec.photos || []).map((p, i) => ({ cap: `Tespit Kanıt Fotoğrafı #${i + 1}`, src: resolveIsgPhotoUri(p) })),
+        ...(rec.closurePhotos || []).map((p, i) => ({ cap: `Kapanış Doğrulama Fotoğrafı #${i + 1}`, src: resolveIsgPhotoUri(p) }))
+      ].filter(x => x.src);
+
+      const photoPagesHtml = allPhotos.length > 0 ? `
+        <div style="page-break-before: always; padding-top: 8px;">
+          <div style="background:#1E3A8A;color:#fff;font-weight:800;font-size:12px;padding:6px 10px;border:1px solid #0f172a;">
+            EK FOTOĞRAFLAR — ${escapeHtml(rec.docNo || "FR-İSG-UYG")} • ${escapeHtml(rec.title || "")}
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px;">
+            ${allPhotos.map(p => `
+              <div style="border:1px solid #0f172a;break-inside:avoid;">
+                <div style="background:#eff6ff;padding:5px 8px;font-weight:700;font-size:11px;border-bottom:1px solid #0f172a;">${escapeHtml(p.cap)}</div>
+                <div style="padding:8px;text-align:center;">
+                  <img src="${p.src}" style="max-width:100%;max-height:310px;object-fit:contain;">
+                </div>
+              </div>`).join("")}
+          </div>
+        </div>` : "";
+
+      const html = `<!DOCTYPE html><html lang="tr"><head><meta charset="UTF-8">
+        <title>İSG Uygunsuzluk Evrakı - ${escapeHtml(rec.docNo || "FR-İSG-UYG")}</title>
+        <style>
+          @page { size: A4 portrait; margin: 10mm; }
+          body { font-family: Arial, sans-serif; color:#0f172a; margin:0; font-size:11px; }
+          table { width:100%; border-collapse:collapse; margin-bottom:8px; }
+          td, th { border:1px solid #0f172a; padding:5px 7px; vertical-align:top; }
+          .sec { background:#1E3A8A; color:#fff; font-weight:800; font-size:11px; letter-spacing:0.3px; }
+          .lbl { background:#f8fafc; font-weight:700; width:17%; color:#334155; }
+          .sub { background:#eff6ff; font-weight:700; font-size:10.5px; color:#1e293b; }
+        </style>
+      </head><body>
+        <table style="border:2px solid #0f172a;">
+          <tr>
+            <td style="width:20%;text-align:center;vertical-align:middle;"><img src="berrak-logo.png" style="max-height:52px;max-width:100%;" onerror="this.style.display='none'"></td>
+            <td style="width:52%;text-align:center;vertical-align:middle;">
+              <div style="font-weight:800;color:#1E3A8A;font-size:11px;">TEKİNAK GIDA SAN. VE TİC. A.Ş.</div>
+              <div style="font-weight:900;font-size:13.5px;margin:3px 0;">İSG UYGUNSUZLUK BİLDİRİM VE DÜZELTİCİ FAALİYET FORMU</div>
+              <div style="font-size:10px;color:#475569;">İş Sağlığı ve Güvenliği Yönetim Sistemi</div>
+            </td>
+            <td style="width:28%;padding:0;">
+              <table style="margin:0;">
+                <tr><td style="border:none;border-bottom:1px solid #0f172a;"><b>Form Kodu:</b> FR-İSG-UYG</td></tr>
+                <tr><td style="border:none;border-bottom:1px solid #0f172a;"><b>Kayıt No:</b> ${escapeHtml(rec.docNo || "-")}</td></tr>
+                <tr><td style="border:none;border-bottom:1px solid #0f172a;"><b>Tarih/Saat:</b> ${escapeHtml(rec.reportDate || "")} ${escapeHtml(rec.reportTime || "")}</td></tr>
+                <tr><td style="border:none;"><b>Durum:</b> ${escapeHtml(stLabel)}</td></tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+
+        <table>
+          <tr><td colspan="4" class="sec">1. BİLDİRİM VE TESPİT BİLGİLERİ</td></tr>
+          <tr><td class="lbl">Bildiren Personel</td><td style="width:33%;">${escapeHtml(rec.reporterName || "-")}</td><td class="lbl">Bölüm / Departman</td><td style="width:33%;">${escapeHtml(rec.department || "-")}</td></tr>
+          <tr><td class="lbl">Tespit Yeri / Hat</td><td>${escapeHtml(rec.location || "-")}</td><td class="lbl">Uygunsuzluk Türü</td><td>${escapeHtml(rec.category || "-")}</td></tr>
+          <tr><td class="lbl">Risk Derecesi</td><td><b>${escapeHtml(rec.riskLevel || "ORTA")}</b></td><td class="lbl">Ekli Fotoğraf</td><td>${allPhotos.length} Adet</td></tr>
+        </table>
+
+        <table>
+          <tr><td class="sec">2. UYGUNSUZLUK TANIMI VE ANLIK ALINAN TEDBİR</td></tr>
+          <tr><td class="sub">Konu / Kısa Başlık</td></tr>
+          <tr><td><b>${escapeHtml(rec.title || "-")}</b></td></tr>
+          <tr><td class="sub">Tespit Edilen Uygunsuzluğun Detaylı Tanımı</td></tr>
+          <tr><td style="min-height:56px;white-space:pre-wrap;">${escapeHtml(rec.description || "-")}</td></tr>
+          <tr><td class="sub">Olay Yerinde Alınan Anlık / Geçici Tedbir</td></tr>
+          <tr><td style="white-space:pre-wrap;">${escapeHtml(rec.immediateAction || "Belirtilmedi")}</td></tr>
+        </table>
+
+        <table>
+          <tr><td colspan="4" class="sec">3. DÜZELTİCİ / ÖNLEYİCİ FAALİYET (DÖF) VE KAPANIŞ</td></tr>
+          <tr><td class="lbl">Faaliyet Sorumlusu</td><td>${escapeHtml(rec.responsibleName || "Atanmadı")}</td><td class="lbl">Termin Tarihi</td><td>${escapeHtml(rec.dueDate || "-")}</td></tr>
+          <tr><td colspan="4" class="sub">Kök Neden Analizi</td></tr>
+          <tr><td colspan="4" style="white-space:pre-wrap;">${escapeHtml(rec.rootCause || "-")}</td></tr>
+          <tr><td colspan="4" class="sub">Planlanan / Uygulanan Düzeltici Faaliyet</td></tr>
+          <tr><td colspan="4" style="white-space:pre-wrap;">${escapeHtml(rec.correctiveAction || "-")}</td></tr>
+          <tr><td colspan="4" class="sub">Kapanış &amp; Doğrulama Açıklaması</td></tr>
+          <tr><td colspan="4" style="white-space:pre-wrap;">${escapeHtml(rec.closureNotes || "-")}${rec.closedByName ? " (Kapatan: " + escapeHtml(rec.closedByName) + ")" : ""}</td></tr>
+        </table>
+
+        <table>
+          <tr><td class="sub" style="width:50%;">BİLDİREN PERSONEL (Ad Soyad / İmza)</td><td class="sub" style="width:50%;">İSG SORUMLUSU / ONAY (Ad Soyad / İmza)</td></tr>
+          <tr>
+            <td style="height:78px;text-align:center;">
+              <div style="font-weight:700;margin-bottom:4px;">${escapeHtml(rec.reporterName || "-")}</div>
+              ${rec.reporterSignature ? `<img src="${rec.reporterSignature}" style="max-height:54px;">` : ""}
+            </td>
+            <td style="height:78px;text-align:center;">
+              <div style="font-weight:700;margin-bottom:4px;">${escapeHtml(rec.managerName || rec.closedByName || "-")}</div>
+              ${rec.managerSignature ? `<img src="${rec.managerSignature}" style="max-height:54px;">` : ""}
+            </td>
+          </tr>
+        </table>
+        ${photoPagesHtml}
+      </body></html>`;
+
+      const win = window.open("", "_blank", "width=900,height=780");
+      if (!win) { alert("Açılır pencere engellendi. Lütfen tarayıcı izinlerini kontrol edin."); return; }
+      win.document.open();
+      win.document.write(html);
+      win.document.close();
+      setTimeout(() => { try { win.focus(); win.print(); } catch (_) {} }, 400);
     };
 
     // Uygulamayı Başlat
