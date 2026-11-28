@@ -1,17 +1,16 @@
 {
-  "versionCode": 37,
-  "versionName": "1.6.8",
-  "releaseTag": "v1.6.8",
+  "versionCode": 38,
+  "versionName": "1.6.9",
+  "releaseTag": "v1.6.9",
   "releaseDate": "2026-11-26",
   "apkUrl": "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
   "fallbackUrl": "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-  "title": "Yeni Sürüm Mevcut (v1.6.8)",
+  "title": "Yeni Sürüm Mevcut (v1.6.9)",
   "changelog": [
-    "Bildirim açma ve cihaz kurulum ayarları Ayarlar sekmesine taşındı; ana ekrandaki bildirim uyarı şeridi kaldırıldı ve anlık bildirim akışı korundu.",
-    "Forklift kontrol formu aylık PARAF kutuları düz açılan dijital imza alanı olarak güncellendi ve imza kutucuğa 90° sola yatırılarak sığdırıldı.",
-    "İSG sekmesinden Word/Excel dışa aktarma butonları, konu başlıkları filtresi ve Evrak Fotoğrafları bölümü kaldırıldı.",
-    "Paketleme Arıza (FR-59) çıktılarında başlangıç tarihi seçimi eklendi ve sayfaya sığabildiği kadar arıza tablosu dinamik olarak yerleştirildi.",
-    "Uygulama ve web genelindeki tüm Excel çıktıları Yazdır / PDF raporlarına dönüştürüldü (v1.6.8 - Kod: 37)."
+    "Firebase Firestore günlük kota aşımına (resource-exhausted / 429) yol açan 10 saniyelik çevrimiçi yoklama ve tekrarlı okuma döngüleri kaldırıldı; bulut okuma/yazma trafiği %95'in üzerinde azaltıldı.",
+    "Çevrimiçi durum bildirimi 5 dakikalık akıllı önbellekli aralığa alındı, engelli/silinmiş hesap kontrolleri canlı bellek üzerinden ağ sorgusu olmadan çalışacak şekilde iyileştirildi.",
+    "Arka plan bildirim servisi yeniden başlatma aralığı 30 dakikaya çıkarıldı ve dinleyiciler yalnızca en güncel kayıtlarla sınırlandırıldı.",
+    "Web ve mobil giriş ekranlarında Firestore kota dolumu (429 / RESOURCE_EXHAUSTED) için net uyarı mesajı ve gereksiz tekrar isteklerini engelleyen koruma eklendi (v1.6.9 - Kod: 38)."
   ],
   "forceUpdate": false
 }
