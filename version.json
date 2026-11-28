@@ -1,16 +1,15 @@
 {
-  "versionCode": 38,
-  "versionName": "1.6.9",
-  "releaseTag": "v1.6.9",
-  "releaseDate": "2026-11-26",
+  "versionCode": 39,
+  "versionName": "1.7.0",
+  "releaseTag": "v1.7.0",
+  "releaseDate": "2026-11-28",
   "apkUrl": "https://raw.githubusercontent.com/usluozaykagan/tekinak-cmms-web/main/app-release.apk",
   "fallbackUrl": "https://github.com/usluozaykagan/tekinak-cmms-web/releases/latest",
-  "title": "Yeni Sürüm Mevcut (v1.6.9)",
+  "title": "Yeni Sürüm Mevcut (v1.7.0)",
   "changelog": [
-    "Firebase Firestore günlük kota aşımına (resource-exhausted / 429) yol açan 10 saniyelik çevrimiçi yoklama ve tekrarlı okuma döngüleri kaldırıldı; bulut okuma/yazma trafiği %95'in üzerinde azaltıldı.",
-    "Çevrimiçi durum bildirimi 5 dakikalık akıllı önbellekli aralığa alındı, engelli/silinmiş hesap kontrolleri canlı bellek üzerinden ağ sorgusu olmadan çalışacak şekilde iyileştirildi.",
-    "Arka plan bildirim servisi yeniden başlatma aralığı 30 dakikaya çıkarıldı ve dinleyiciler yalnızca en güncel kayıtlarla sınırlandırıldı.",
-    "Web ve mobil giriş ekranlarında Firestore kota dolumu (429 / RESOURCE_EXHAUSTED) için net uyarı mesajı ve gereksiz tekrar isteklerini engelleyen koruma eklendi (v1.6.9 - Kod: 38)."
+    "Yardımcı Tesisler Kompresör (FR-38) kontrol formunda EKOMAK 2023 45 kW kompresör tablosu 2. sıraya, KHELL 2026 75 kW kompresör tablosu 3. sıraya alındı.",
+    "Mobil, web, saatlik görünüm, ay sonu çalışma saatleri ve PDF/Yazdır çıktılarında yeni kompresör tablo sıralaması eşitlendi.",
+    "Firestore canlı dinleyici yaşam döngüsü ve kota koruma iyileştirmeleri korundu (v1.7.0 - Kod: 39)."
   ],
   "forceUpdate": false
 }
